@@ -4,7 +4,7 @@ import React from "react";
 const ContactUs = () => {
   return (
     <div className="contact-area">
-      <div className="">
+      <div className="container">
         <div className="flex justify-center align-middle gap-5">
           <span className="text-red-600">--</span>
           <h2 className="text-red-600">Contact Us</h2>
@@ -57,7 +57,7 @@ const ContactUs = () => {
                 rows={5}
               />
             </div>
-            <div className="mt-5">
+            <div className="mt-5 text-center">
               <Button variant="contained" color="error">
                 Send Message
               </Button>

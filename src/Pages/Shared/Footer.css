@@ -6,3 +6,24 @@
   background-color: #05143c;
   color: white;
 }
+
+#footer-link {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ccd7e5;
+  opacity: 0.75;
+}
+
+.custom-input {
+  /* background-color: ; */
+  padding: 5px;
+}

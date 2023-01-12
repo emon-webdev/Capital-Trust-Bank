@@ -2,7 +2,7 @@ import React from "react";
 import { CiFacebook } from "react-icons/ci";
 import { FiTwitter } from "react-icons/fi";
 import { HiOutlineMailOpen } from "react-icons/hi";
-import { ImLocation } from "react-icons/im";
+// import { ImLocation } from "react-icons/im";
 import { Link } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
 const Header = () => {
@@ -18,7 +18,7 @@ const Header = () => {
                 </a>
               </p>
               <p className="text-white flex items-center ">
-                <ImLocation className="mr-2 text-white" />
+                {/* <ImLocation className="mr-2 text-white" /> */}
                 Malborn, Australia,U.K
               </p>
             </div>
