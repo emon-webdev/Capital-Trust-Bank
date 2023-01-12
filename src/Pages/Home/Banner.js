@@ -17,6 +17,8 @@ const Banner = () => {
         <h2>Content here</h2>
         <h2>Content here</h2>
         <h2>Content here</h2>
+        <h2>Content here</h2>
+        <h2>Content here</h2>
       </div>
     </Box>
   );
