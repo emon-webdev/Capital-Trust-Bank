@@ -1,8 +1,11 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
-import image1 from '../../assests/Team/Ellipse 3497 (1).png';
-import image2 from '../../assests/Team/Ellipse 3497 (2).png';
-import image3 from '../../assests/Team/Ellipse 3497.png';
+// import image1 from '../../assests/Team/Ellipse 3497 (1).png';
+// import image2 from '../../assests/Team/Ellipse 3497 (2).png';
+// import image3 from '../../assests/Team/Ellipse 3497.png';
+import image1 from '../../assests/Team/team-img1';
+import image2 from '../../assests/Team/team-img2';
+import image3 from '../../assests/Team/team-img3';
 import { FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
 
 import '../../App.css';
@@ -36,7 +39,7 @@ const Team = () => {
                                 // right: '30px',
                                 top: '-45%'
                             }}
-                        > <img className='bg-image' src={image1} alt="" />
+                        > <img className='bg-image' src={image1} alt="team-1" />
                             <Box
                                 sx={{
                                     position: 'absolute',
@@ -105,7 +108,7 @@ const Team = () => {
                                 // right: '30px',
                                 top: '-45%'
                             }}
-                        > <img className='bg-image' src={image2} alt="" />
+                        > <img className='bg-image' src={image2} alt="team-2" />
                             <Box
                                 sx={{
                                     position: 'absolute',
@@ -172,7 +175,7 @@ const Team = () => {
                                 // right: '30px',
                                 top: '-45%'
                             }}
-                        > <img className='bg-image' src={image3} alt="" />
+                        > <img className='bg-image' src={image3} alt="team-3" />
                             <Box
                                 sx={{
                                     position: 'absolute',
