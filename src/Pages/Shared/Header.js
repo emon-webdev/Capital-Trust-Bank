@@ -28,6 +28,7 @@ const Header = () => {
                 <FiTwitter className="mr-2 text-white" />
                 <FiTwitter className="mr-2 text-white" />
                 <FiTwitter className="mr-2 text-white" />
+                <FiTwitter className="mr-2 text-white" />
               </div>
             </div>
           </div>
