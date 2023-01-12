@@ -15,7 +15,7 @@ const Header = () => {
       <div className="header-top py-4 bg-[#041C51]">
         <div className="container">
           <div className="header-top-info flex items-center justify-between">
-            <div className="header-left flex items-center justify-between">
+            <div className="header-left flex flex-wrap items-center justify-between">
               <p className="text-white mr-8">
                 <a href="mailto:name@email.com" className="flex items-center  ">
                   <HiOutlineMailOpen className="mr-2" /> Info@gmail.com
@@ -28,7 +28,7 @@ const Header = () => {
             </div>
             <div className="header-right flex items-center ">
               <Box className="social-icon flex items-center">
-                <Link href="/" >
+                <Link href="/">
                   <FacebookIcon sx={{ fontSize: "18px", color: "#fff" }} />
                 </Link>
 
