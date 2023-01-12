@@ -51,7 +51,7 @@ const Header = () => {
       </div>
       <div className="main-header py-[38px]">
         <div className="container">
-          <div className="navbar flex items-center justify-between">
+          <div className="navbar flex flex-wrap items-center justify-between">
             <div className="logo">
               <Link to="/" className="flex items-center">
                 <img src={mailLogo} alt="" srcset="" />
