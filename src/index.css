@@ -5,9 +5,14 @@
 body {
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
   font-family: "Inter", sans-serif !important;
+=======
+  font-family: "Inter", sans-serif, !important;
+  
+>>>>>>> 7dc8b2157b95c00ddfbdde5db7b1c2df0d8d2d37
 }
 
 code {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif, !important;
 }
