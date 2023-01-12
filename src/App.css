@@ -21,15 +21,12 @@
   line-height: 24px;
   color: #010c3a;
 }
-<<<<<<< HEAD
 
 /* Banner area */
 .banner-area {
   height: 680px;
 }
-=======
 /* Features Area */
-.features-area{
-  font-family: "Inter", sans-serif, !important;
+.features-area {
+  font-family: "Inter", sans-serif !important;
 }
->>>>>>> 7dc8b2157b95c00ddfbdde5db7b1c2df0d8d2d37
