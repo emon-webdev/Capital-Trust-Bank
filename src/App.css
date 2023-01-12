@@ -30,3 +30,57 @@
 .features-area {
   font-family: "Inter", sans-serif !important;
 }
+/* team ares css */
+.team {
+  /* background-image: url('./assests/Team/Rectangle 9470.png'); */
+  background: #fdf3f3;
+}
+.icon {
+  background: #010c3a;
+  border-radius: 30px;
+  color: #fff;
+  padding: 10px;
+}
+.icon-box {
+  display: none;
+}
+.team:hover .icon-box {
+  display: inline-flex;
+}
+.team:hover {
+  background-color: #df0303;
+  transition: all 0.3s;
+}
+.team:hover .title {
+  color: #fff;
+}
+
+.icon:hover {
+  background: #df0303;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
