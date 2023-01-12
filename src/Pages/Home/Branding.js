@@ -9,11 +9,11 @@ import shape2 from '../../assests/Brands/shape-2.png';
 
 const Branding = () => {
     return (
-        <Box sx={{background: '#010C3A', padding: '5px 0'}}>
+        <Box className='branding-area' sx={{background: '#010C3A', padding: '5px 0'}}>
 
-            <Box className='branding-area flex justify-between items-center'>
+            <Box className='container flex justify-between items-center'>
             <figure><img className='w-[54px]' src={shape1} alt="" /></figure>
-                <Box className='container mx-auto  md:flex justify-between items-center'>
+                <Box className='mx-auto  md:flex justify-between items-center'>
                     
                     <figure><img className='md:w-[150px] md:mb-3 mx-auto' src={anydesk} alt="" /></figure>
                     <figure><img className='md:w-[150px] mx-auto' src={alphabet} alt="" /></figure>
