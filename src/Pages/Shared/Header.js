@@ -5,6 +5,7 @@ import { HiOutlineMailOpen } from "react-icons/hi";
 import { ImLocation } from "react-icons/im";
 import { Link } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
+import CountrySelect from "./MenuOption";
 const Header = () => {
   return (
     <div className="header-area">
@@ -22,13 +23,16 @@ const Header = () => {
                 Malborn, Australia,U.K
               </p>
             </div>
-            <div className="header-right">
+            <div className="header-right flex items-center ">
               <div className="social-icon flex items-center">
                 <CiFacebook className="mr-2 text-white" />
                 <FiTwitter className="mr-2 text-white" />
                 <FiTwitter className="mr-2 text-white" />
                 <FiTwitter className="mr-2 text-white" />
                 <FiTwitter className="mr-2 text-white" />
+              </div>
+              <div className="country-select">
+                <CountrySelect />
               </div>
             </div>
           </div>
