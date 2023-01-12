@@ -3,9 +3,9 @@ import React from 'react';
 // import image1 from '../../assests/Team/Ellipse 3497 (1).png';
 // import image2 from '../../assests/Team/Ellipse 3497 (2).png';
 // import image3 from '../../assests/Team/Ellipse 3497.png';
-import image1 from '../../assests/Team/team-img1';
-import image2 from '../../assests/Team/team-img2';
-import image3 from '../../assests/Team/team-img3';
+import image1 from '../../assests/Team/team-img1.png';
+import image2 from '../../assests/Team/team-img2.png';
+import image3 from '../../assests/Team/team-img3.png';
 import { FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
 
 import '../../App.css';
