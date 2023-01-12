@@ -10,10 +10,12 @@ const ContactUs = () => {
           <h2 className="text-red-600">Contact Us</h2>
           <span className="text-red-600">--</span>
         </div>
-        <h1 className="text-4xl font-bold">Free Consultation Right Now</h1>
+        <h1 className="text-4xl font-bold text-center">
+          Free Consultation Right Now
+        </h1>
         <div className="my-16">
-          <form className="w-9/12 mx-auto">
-            <div className="grid grid-cols-2 gap-5">
+          <form className="w-9/12 mx-auto bg-zinc-50 p-5 rounded">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-5">
               <TextField hintText="Enter username" placeholder="Your Name">
                 <input
                   className="form-control"
