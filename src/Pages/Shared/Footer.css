@@ -6,3 +6,76 @@
   background-color: #05143c;
   color: white;
 }
+
+#footer-link {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ccd7e5;
+  opacity: 0.75;
+}
+
+.custom-input {
+  /* background-color: ; */
+  padding: 5px;
+}
+
+#social-link {
+  color: white;
+}
+.social-link-border {
+  border: 1px solid white;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+}
+#social-link-facebook {
+  color: #df0303;
+}
+.social-link-facebook-border {
+  border: 1px solid #df0303;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.end-footer {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #ccd7e5;
+  border-bottom: 1px solid white;
+  padding-bottom: 7px;
+}
+.borderless-end-footer {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ccd7e5;
+  opacity: 0.6;
+}
+
+.parent-end-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width: 640px) {
+  .parent-end-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
