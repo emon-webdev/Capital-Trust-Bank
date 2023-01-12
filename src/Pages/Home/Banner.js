@@ -1,13 +1,15 @@
-import React from "react";
+import React from 'react';
+import img from '../../assets/images/banner img.png'
 
 const Banner = () => {
-  return (
-    <div className="banner-area">
-      <div className="container">
-        <h2>Banner</h2>
-      </div>
-    </div>
-  );
+    return (
+        <div className="banner-area">
+            <img src={img} alt="" />
+            <div className="container">
+
+            </div>
+        </div>
+    );
 };
 
 export default Banner;
