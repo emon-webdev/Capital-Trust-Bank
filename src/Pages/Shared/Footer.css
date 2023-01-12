@@ -1,0 +1,8 @@
+.bgi-footer {
+  background-image: url("/src/assests/footer-image/footer-image.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #05143c;
+  color: white;
+}
