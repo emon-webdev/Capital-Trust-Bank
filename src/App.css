@@ -12,6 +12,37 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+/* team ares css */
+.team {
+  /* background-image: url('./assests/Team/Rectangle 9470.png'); */
+  background: #FDF3F3;
+}
+.icon {
+  background: #010C3A;
+  border-radius: 30px;
+  color: #fff;
+  padding: 10px;
+}
+.icon-box {
+  display: none;
+}
+.team:hover .icon-box{
+  display: inline-flex;
+}
+.team:hover{
+  background-color: #DF0303;
+  transition: all .3s;
+}
+.team:hover .title {
+  color: #fff;
+}
+
+.icon:hover {
+  background: #DF0303;
+  color: #fff;
+  transition: all .3s;
+}
+
 
 .App-header {
   background-color: #282c34;
