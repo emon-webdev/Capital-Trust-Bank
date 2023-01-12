@@ -1,11 +1,13 @@
 import React from "react";
+import { AiOutlineLinkedin } from "react-icons/ai";
+import { BsInstagram } from "react-icons/bs";
 import { CiFacebook } from "react-icons/ci";
 import { FiTwitter } from "react-icons/fi";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { ImLocation } from "react-icons/im";
 import { Link } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
-import CountrySelect from "./MenuOption";
+import MenuOption from "./MenuOption";
 const Header = () => {
   return (
     <div className="header-area">
@@ -27,12 +29,12 @@ const Header = () => {
               <div className="social-icon flex items-center">
                 <CiFacebook className="mr-2 text-white" />
                 <FiTwitter className="mr-2 text-white" />
-                <FiTwitter className="mr-2 text-white" />
-                <FiTwitter className="mr-2 text-white" />
-                <FiTwitter className="mr-2 text-white" />
+                <BsInstagram className="mr-2 text-white" />
+                <AiOutlineLinkedin className="mr-2 text-white" />
+                <AiOutlineLinkedin className="mr-2 text-white" />
               </div>
               <div className="country-select">
-                <CountrySelect />
+                <MenuOption />
               </div>
             </div>
           </div>
