@@ -5,7 +5,7 @@ import img2 from '../../assets/features/features-2.png'
 import img3 from '../../assets/features/features-3.png'
 import { CardActionArea } from '@mui/material';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import { Box, color, padding } from '@mui/system'
+import { Box, color, padding, textAlign } from '@mui/system'
 export default function FeaturedNews() {
     const NewsData=[
         {
@@ -29,16 +29,19 @@ export default function FeaturedNews() {
     ]
   return (
     <div className='features-area'>
+      <Typography marginBottom={2} textAlign="center" color='red'>- Blog & News -</Typography>
+      <Typography variant='h4'marginBottom={5} fontWeight='700' textAlign="center" color='black'>Featured news & Insights</Typography>
         <div className="container grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
     {
            NewsData.map(news =>(
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 424, maxHeight:536 }}>
             <CardActionArea>
               <CardMedia
                 component="img"
                 height="140"
                 image={news.img}
                 alt="green iguana"
+                position="relative"
               />
             <Box sx={{
               width:74,
@@ -48,7 +51,11 @@ export default function FeaturedNews() {
               alignItems:'center',
               justifyContent:"center",
                color:"white",
-               padding:'10px'
+               padding:'10px',
+               position:"absolute",
+               top:"220px",
+               right:"32px",
+               textAlign:"center"
             }}>30 March</Box>
               <CardContent>
                 <Typography fontSize={'16px'}>{news.category}</Typography>
