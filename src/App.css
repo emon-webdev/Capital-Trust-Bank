@@ -16,11 +16,12 @@
 .team {
   /* background-image: url('./assests/Team/Rectangle 9470.png'); */
   background: #FDF3F3;
+  border-radius: 4px;
 }
 .icon {
   background: #010C3A;
   border-radius: 30px;
-  color: #fff;
+  color: #fff !important;
   padding: 10px;
 }
 .icon-box {
@@ -31,16 +32,29 @@
 }
 .team:hover{
   background-color: #DF0303;
-  transition: all .3s;
+  transition: all .4s;
 }
 .team:hover .title {
   color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .team-2 {
+    margin-top: 120px;
+  }
+  .title-2 {
+    top: 200px;
+  }
+  
 }
 
 .icon:hover {
   background: #DF0303;
   color: #fff;
   transition: all .3s;
+  width: 30px;
+  height: 30px;
+  pad: 8px;
 }
 
 
