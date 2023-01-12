@@ -29,7 +29,7 @@ export default function FeaturedNews() {
     ]
   return (
     <div className='features-area'>
-      <Typography marginBottom={2} textAlign="center" color='red'>- Blog & News -</Typography>
+      <Typography marginBottom={2} textAlign="center" color='red'>-- Blog & News --</Typography>
       <Typography variant='h4'marginBottom={5} fontWeight='700' textAlign="center" color='black'>Featured news & Insights</Typography>
         <div className="container grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
     {
