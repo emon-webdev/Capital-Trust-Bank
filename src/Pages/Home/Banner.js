@@ -15,10 +15,6 @@ const Banner = () => {
     >
       <div className="container">
         <h2>Content here</h2>
-        <h2>Content here</h2>
-        <h2>Content here</h2>
-        <h2>Content here</h2>
-        <h2>Content here</h2>
       </div>
     </Box>
   );
