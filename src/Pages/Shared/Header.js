@@ -31,7 +31,6 @@ const Header = () => {
                 <FiTwitter className="mr-2 text-white" />
                 <BsInstagram className="mr-2 text-white" />
                 <AiOutlineLinkedin className="mr-2 text-white" />
-                <AiOutlineLinkedin className="mr-2 text-white" />
               </div>
               <div className="country-select">
                 <MenuOption />
