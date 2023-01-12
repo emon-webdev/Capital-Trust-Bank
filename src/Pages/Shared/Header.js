@@ -1,8 +1,9 @@
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import { Box } from "@mui/material";
 import React from "react";
-import { AiOutlineLinkedin } from "react-icons/ai";
-import { BsInstagram } from "react-icons/bs";
-import { CiFacebook } from "react-icons/ci";
-import { FiTwitter } from "react-icons/fi";
 import { HiOutlineMailOpen } from "react-icons/hi";
 // import { ImLocation } from "react-icons/im";
 import { Link } from "react-router-dom";
@@ -26,12 +27,21 @@ const Header = () => {
               </p>
             </div>
             <div className="header-right flex items-center ">
-              <div className="social-icon flex items-center">
-                <CiFacebook className="mr-2 text-white" />
-                <FiTwitter className="mr-2 text-white" />
-                <BsInstagram className="mr-2 text-white" />
-                <AiOutlineLinkedin className="mr-2 text-white" />
-              </div>
+              <Box className="social-icon flex items-center">
+                <Link href="/" >
+                  <FacebookIcon sx={{ fontSize: "18px", color: "#fff" }} />
+                </Link>
+
+                <Link href="/" sx={{ marginRight: "16px" }}>
+                  <TwitterIcon sx={{ fontSize: "18px", color: "#fff" }} />
+                </Link>
+                <Link href="/" sx={{ marginRight: "16px" }}>
+                  <InstagramIcon sx={{ fontSize: "18px", color: "#fff" }} />
+                </Link>
+                <Link href="/" sx={{ marginRight: "16px" }}>
+                  <LinkedInIcon sx={{ fontSize: "18px", color: "#fff" }} />
+                </Link>
+              </Box>
               <div className="country-select">
                 <MenuOption />
               </div>
@@ -41,7 +51,7 @@ const Header = () => {
       </div>
       <div className="main-header py-[38px]">
         <div className="container">
-          <div className="navbar flex items-center justify-between">
+          <div className="navbar flex flex-wrap items-center justify-between">
             <div className="logo">
               <Link to="/" className="flex items-center">
                 <img src={mailLogo} alt="" srcset="" />
