@@ -3,7 +3,7 @@ import React from 'react';
 const Insurance = () => {
     return (
         <div>
-            <h2>Insurance</h2>
+            <h2>Insurance Page</h2>
         </div>
     );
 };
