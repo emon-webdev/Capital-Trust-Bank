@@ -29,7 +29,7 @@ export default function FeaturedNews() {
     ]
   return (
     <div className='features-area'>
-      <Typography marginBottom={2} textAlign="center" color='red'>-- Blog & News --</Typography>
+      <Typography marginBottom={2} textAlign="center" color='#DF0303'>-- Blog & News --</Typography>
       <Typography variant='h4'marginBottom={5} fontWeight='700' textAlign="center" color='black'>Featured news & Insights</Typography>
         <div className="container grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
     {
@@ -46,14 +46,14 @@ export default function FeaturedNews() {
             <Box sx={{
               width:74,
               height:74,
-              backgroundColor:"red",
+              backgroundColor:"#DF0303",
               display:'flex',
               alignItems:'center',
               justifyContent:"center",
                color:"white",
                padding:'10px',
                position:"absolute",
-               top:"220px",
+               top:"300px",
                right:"32px",
                textAlign:"center"
             }}>30 March</Box>
@@ -62,7 +62,7 @@ export default function FeaturedNews() {
                 <Typography marginTop={2} gutterBottom fontSize={"20px"} fontWeight="bold" component="div">
                   {news.title}
                 </Typography>
-                <Button color='error' ><Typography fontSize='14px'fontWeight={700}>READ MORE</Typography> <ArrowOutwardIcon /></Button>
+                <Button color='error' ><Typography fontSize='14px'fontWeight={900}>READ MORE</Typography> <ArrowOutwardIcon /></Button>
               </CardContent>
             </CardActionArea>
           </Card>
