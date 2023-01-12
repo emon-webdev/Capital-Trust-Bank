@@ -1,16 +1,31 @@
-import { Link, TextField } from "@mui/material";
+import { Icon, Link, TextField } from "@mui/material";
 import React from "react";
 import "./Footer.css";
 import logo from "../../assets/logo/mainlogo.png";
-
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
 const Footer = () => {
   return (
     <div className="bgi-footer">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5">
-          <div className="flex items-start mt-5 gap-1">
-            <img src={logo} alt="" />
-            <span className=" text-3xl font-bold">CTB</span>
+          <div>
+            <div className="flex items-start mt-5 gap-1">
+              <img src={logo} alt="" />
+              <span className=" text-3xl font-bold">CTB</span>
+            </div>
+            <div className="flex gap-2 ml-4 mt-4">
+              <Link className="social-link-border">
+                <LinkedInIcon id="social-link"></LinkedInIcon>
+              </Link>
+              <Link className="social-link-facebook-border">
+                <FacebookIcon id="social-link-facebook"></FacebookIcon>
+              </Link>
+              <Link className="social-link-border">
+                <TwitterIcon id="social-link"></TwitterIcon>
+              </Link>
+            </div>
           </div>
           <div className="flex flex-col gap-3">
             <h2 className="text-lg my-5">Company</h2>
