@@ -70,10 +70,13 @@ export default function MenuOption() {
         aria-controls={open ? "demo-customized-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
-        variant="contained"
+        variant="text"
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
+        sx={{
+            color: "#EDF9F9", 
+        }}
       >
         <RiGlobalLine className="mr-1" />
         English
