@@ -1,15 +1,23 @@
-import React from 'react';
-import img from '../../assets/images/banner img.png'
-
+import { Box } from "@mui/material";
+import React from "react";
+import slider1 from "../../assets/slider/slider1.jpg";
 const Banner = () => {
-    return (
-        <div className="banner-area">
-            <img src={img} alt="" />
-            <div className="container">
-
-            </div>
-        </div>
-    );
+  return (
+    <Box
+      className="banner-area "
+      sx={{
+        height: "680px",
+        backgroundImage: `url(${slider1})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="container">
+        
+      </div>
+    </Box>
+  );
 };
 
 export default Banner;
