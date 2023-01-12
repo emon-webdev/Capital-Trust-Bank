@@ -46,3 +46,36 @@
   padding: 5px;
   border-radius: 5px;
 }
+
+.end-footer {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #ccd7e5;
+  border-bottom: 1px solid white;
+  padding-bottom: 7px;
+}
+.borderless-end-footer {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ccd7e5;
+  opacity: 0.6;
+}
+
+.parent-end-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width: 640px) {
+  .parent-end-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

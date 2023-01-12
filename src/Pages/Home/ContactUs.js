@@ -5,7 +5,7 @@ const ContactUs = () => {
   return (
     <div className="contact-area">
       <div className="container">
-        <div className="flex justify-center align-middle gap-5">
+        <div className="flex justify-center align-middle gap-5 my-5">
           <span className="text-red-600">--</span>
           <h2 className="text-red-600">Contact Us</h2>
           <span className="text-red-600">--</span>

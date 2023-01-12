@@ -72,7 +72,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div>hi</div>
+        <div className="mt-8 py-10 parent-end-footer">
+          <span></span>
+          <span className=" end-footer">email@gmail.com</span>
+          <span className=" end-footer">(123) 456-7890</span>
+          <span className="borderless-end-footer">
+            © 2021 Besnik Media All rights reserved.
+          </span>
+        </div>
       </div>
     </div>
   );
