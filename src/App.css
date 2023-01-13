@@ -101,6 +101,13 @@
   .title-2 {
     top: 200px;
   }
+  .main-header.py-\[38px\] {
+    padding: 20px 0;
+  }
+
+  .banner-area.MuiBox-root.css-kvedgl {
+    height: 430px;
+  }
 }
 
 .icon:hover {
