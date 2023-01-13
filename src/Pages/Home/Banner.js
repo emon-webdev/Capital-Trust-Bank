@@ -14,7 +14,9 @@ const Banner = () => {
       }}
     >
       <div className="container">
-        <h2>Content here</h2>
+        <div className="banner-content">
+          <h2>Content here</h2>
+        </div>
       </div>
     </Box>
   );
