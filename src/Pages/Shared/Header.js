@@ -26,7 +26,7 @@ const Header = () => {
                 Malborn, Australia,U.K
               </p>
             </div>
-            <div className="header-right flex items-center ">
+            <div className="header-right flex-wrap flex items-center ">
               <Box className="social-icon flex items-center">
                 <Link href="/">
                   <FacebookIcon sx={{ fontSize: "18px", color: "#fff" }} />
