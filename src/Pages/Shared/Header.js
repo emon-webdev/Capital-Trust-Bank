@@ -39,7 +39,7 @@ const Header = () => {
           <div className="navbar flex items-center justify-between">
             <div className="logo">
               <Link to="/" className="flex items-center">
-                <img src={mailLogo} alt="" srcset="" />
+                <img src={mailLogo} alt="" srcSet="" />
                 <span className="font-bold text-[32px] ml-1">CTB</span>
               </Link>
             </div>
