@@ -21,6 +21,43 @@
   line-height: 24px;
   color: #010c3a;
 }
+/* Navbar css for responsive */
+.navbar-toggler {
+  padding: 0.5rem;
+  background: #010c3a;
+  color: #fff;
+  border: 0;
+  font-size: 24px;
+  height: 56px;
+  width: 56px;
+  text-align: center;
+}
+.navbar__menu {
+  @apply flex flex-wrap items-center justify-between lg:flex-nowrap lg:justify-start;
+}
+.navbar-brand {
+  @apply w-20;
+}
+.navbar-toggler {
+  @apply p-2 lg:hidden;
+}
+.navbar-collapse {
+  @apply lg:flex basis-auto items-center flex-grow hidden;
+}
+.navbar-collapsed {
+  @apply basis-full grow items-center;
+}
+.navbar__nav {
+  @apply flex flex-col lg:flex-row ml-auto items-center;
+}
+.nav-link {
+  @apply px-5 lg:py-10 py-4 text-[#313131] text-lg font-normal rounded-sm hover:text-[#E91B25] block lg:inline-block relative
+  before:absolute before:left-0 before:bottom-0 before:w-0 before:h-[3px] before:bg-[#E91B25] hover:before:w-full before:ease-out before:duration-300 before:transition-all;
+}
+
+.navbar-nav li div {
+  @apply lg:inline-flex items-center lg:pl-3 block pl-0 text-center;
+}
 
 /* Banner area */
 .banner-area {

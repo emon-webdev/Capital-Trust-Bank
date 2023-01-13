@@ -7,8 +7,8 @@ import React from "react";
 import { HiOutlineMailOpen } from "react-icons/hi";
 // import { ImLocation } from "react-icons/im";
 import { Link } from "react-router-dom";
-import mailLogo from "../../assets/logo/mainlogo.png";
 import MenuOption from "./MenuOption";
+import Navbar from "./Navbar";
 const Header = () => {
   return (
     <div className="header-area">
@@ -51,7 +51,9 @@ const Header = () => {
       </div>
       <div className="main-header py-[38px]">
         <div className="container">
-          <div className="navbar flex flex-wrap items-center justify-between">
+          <Navbar />
+          {/* <div className="navbar flex flex-wrap items-center justify-between">
+            
             <div className="logo">
               <Link to="/" className="flex items-center">
                 <img src={mailLogo} alt="" srcset="" />
@@ -79,7 +81,7 @@ const Header = () => {
               </Link>
               <div></div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
