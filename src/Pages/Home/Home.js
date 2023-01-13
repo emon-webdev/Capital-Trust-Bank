@@ -1,12 +1,21 @@
 import React from "react";
 import Banner from "./Banner";
-import Counter from "./Counter";
+import Branding from "./Branding";
+import ContactUs from "./ContactUs";
+import FeaturedNews from "./FeaturedNews";
+import Services from "./Services.jsx";
+import Team from "./Team";
 
 const Home = () => {
   return (
     <div>
-       <Banner />
-       <Counter/>
+      <Banner />
+      <Services />
+      {/* <Counter /> */}
+      <Team />
+      <Branding />
+      <FeaturedNews />
+      <ContactUs />
     </div>
   );
 };
