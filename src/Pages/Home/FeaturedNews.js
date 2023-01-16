@@ -1,11 +1,10 @@
-import {  Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward'
+import { Button, Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
+import { Box } from '@mui/system'
 import React from 'react'
 import img1 from '../../assets/features/features-1.png'
 import img2 from '../../assets/features/features-2.png'
 import img3 from '../../assets/features/features-3.png'
-import { CardActionArea } from '@mui/material';
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import { Box, color, padding, textAlign } from '@mui/system'
 export default function FeaturedNews() {
     const NewsData=[
         {
@@ -28,7 +27,7 @@ export default function FeaturedNews() {
         },
     ]
   return (
-    <div className='features-area'>
+    <div className='features-area my-20'>
       <Typography marginBottom={2} textAlign="center" color='#DF0303'>-- Blog & News --</Typography>
       <Typography variant='h4'marginBottom={5} fontWeight='700' textAlign="center" color='black'>Featured news & Insights</Typography>
         <div className="container grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">

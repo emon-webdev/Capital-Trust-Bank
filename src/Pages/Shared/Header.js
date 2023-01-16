@@ -7,15 +7,15 @@ import React from "react";
 import { HiOutlineMailOpen } from "react-icons/hi";
 // import { ImLocation } from "react-icons/im";
 import { Link } from "react-router-dom";
-import mailLogo from "../../assets/logo/mainlogo.png";
 import MenuOption from "./MenuOption";
+import Navbar from "./Navbar";
 const Header = () => {
   return (
     <div className="header-area">
       <div className="header-top py-4 bg-[#041C51]">
         <div className="container">
           <div className="header-top-info flex items-center justify-between">
-            <div className="header-left flex items-center justify-between">
+            <div className="header-left flex flex-wrap items-center justify-between">
               <p className="text-white mr-8">
                 <a href="mailto:name@email.com" className="flex items-center  ">
                   <HiOutlineMailOpen className="mr-2" /> Info@gmail.com
@@ -26,9 +26,9 @@ const Header = () => {
                 Malborn, Australia,U.K
               </p>
             </div>
-            <div className="header-right flex items-center ">
+            <div className="header-right flex-wrap flex items-center ">
               <Box className="social-icon flex items-center">
-                <Link href="/" >
+                <Link href="/">
                   <FacebookIcon sx={{ fontSize: "18px", color: "#fff" }} />
                 </Link>
 
@@ -51,7 +51,9 @@ const Header = () => {
       </div>
       <div className="main-header py-[38px]">
         <div className="container">
-          <div className="navbar flex flex-wrap items-center justify-between">
+          <Navbar />
+          {/* <div className="navbar flex flex-wrap items-center justify-between">
+            
             <div className="logo">
               <Link to="/" className="flex items-center">
                 <img src={mailLogo} alt="" srcset="" />
@@ -79,7 +81,7 @@ const Header = () => {
               </Link>
               <div></div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
