@@ -4,9 +4,26 @@ import image from '../../assests/SignUp/signup1.jpg';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css';
 import '../../App.css';
+import { useForm } from 'react-hook-form';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Signup = () => {
-    const [phone, setPhone] = useState('')
+    const { register, watch, handleSubmit, formState: { errors } } = useForm();
+    const [phone, setPhone] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const [confirmPassword, setConfirmPassword] = useState(false);
+console.log(process.env.REACT_APP_IMAGE_SECRET_KEY)
+    let number = phone
+    const handleSignUp = (data) => {
+        const email = data.email;
+        const password = data.password;
+        const name = data.name;
+        const image = data.image[0];
+        // const number = data.number
+        const formData = new FormData();
+        formData.append('image', image);        
+        console.log(email, password, name, number, image, formData)
+    }
     return (
 
         <div className='signup-area'>
@@ -15,50 +32,98 @@ const Signup = () => {
                     <img src={image} className='rounded' alt='' />
                 </div>
 
-                <form className="w-full px-6 py-8 md:px-8 lg:w-1/2 h-full">
+                <form onSubmit={handleSubmit(handleSignUp)} className="w-full px-6 py-8 md:px-8 lg:w-1/2 h-full">
                     <h2 className="text-2xl font-semibold text-center text-gray-700 dark:text-white">
                         Creat an Account
                     </h2>
 
                     <div className="mt-4">
-                        <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="LoggingEmailAddress">Name</label>
-                        <input id="LoggingEmailAddress"
-                            className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="text" />
+                        <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="LoggingEmailAddress">Name</label>
+                        <input
+                            {...register("name", { required: true })}
+                            type="text"
+                            placeholder="name"
+
+                            id="LoggingEmailAddress"
+
+                            className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" />
                     </div>
 
-                    
+
 
                     <div className="mt-4">
-                        <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="LoggingEmailAddress">Email</label>
-                        <input id="LoggingEmailAddress" className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="email" />
+                        <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="LoggingEmailAddress">Email</label>
+
+                        <input
+                            {...register("email", { required: 'please inter valid email' })}
+                            type="email"
+                            placeholder="email"
+                            id="LoggingEmailAddress"
+                            className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" />
+                        {errors.email && <p className='text-red-500'>{errors.email?.message}</p>}
                     </div>
 
                     <div className='mt-4'>
-                    <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="LoggingEmailAddress">Phone</label>
+                        <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="LoggingEmailAddress">Phone</label>
                         <PhoneInput
                             country={'us'}
                             value={phone}
                             onChange={(phone) => setPhone(phone)}
-
+                        //    {...register("number", {required: true})}
                         />
                     </div>
 
+                    <div className="relative mt-4">
+                        <label className="block mb-4 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="loggingPassword">Password</label>
+                        <input
+                            {...register("password", {
+                                minLength: { value: 6, message: 'password must be 6 character' },
+                                pattern: { value: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]/, message: 'password should be a-z, A-Z, number and special character' }
+
+                            })}
+                            type={showPassword ? 'text' : 'password'}
+                            placeholder="password"
+                            className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" />
+                        <i
+                            onClick={() => setShowPassword(!showPassword)}
+                            className='absolute right-[14px] cursor-pointer bottom-[14px]'>{showPassword ? <FaEye /> : <FaEyeSlash />}</i>
+
+                        {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
+                    </div>
+
+                    <div className="relative mt-4">
+                        <label className="block mb-4 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="loggingPassword">Confirm Password</label>
+                        <input
+                            {...register("confirm_password", {
+                                required: true,
+                                validate: (value) => {
+                                    if (watch('password') !== value) {
+                                        return 'your password did not match'
+                                    }
+                                }
+                            })}
+                            type={confirmPassword ? 'text' : 'password'}
+                            placeholder="confirm_password"
+                            className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+                        />
+                        <i
+                            onClick={() => setConfirmPassword(!confirmPassword)}
+                            className='absolute right-[14px] cursor-pointer bottom-[14px]'>{confirmPassword ? <FaEye /> : <FaEyeSlash />}</i>
+                        {errors.confirm_password && <p className='text-red-500'>{errors.confirm_password?.message}</p>}
+                    </div>
 
                     <div className="mt-4">
                         <div className="flex justify-between">
-                            <label className="block mb-4 text-sm font-medium text-gray-600 dark:text-gray-200" for="loggingPassword">Photo</label>
+                            <label className="block mb-4 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="loggingPassword">Photo</label>
                         </div>
 
-                        <input id="image" className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="file" />
-                        <label className='signup-photo'>Upload Image</label>
-                    </div>
-
-                    <div className="mt-6">
-                        <div className="flex justify-between">
-                            <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="loggingPassword">Password</label>
-                        </div>
-
-                        <input id="loggingPassword" className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" />
+                        <input
+                            {...register("image", { required: true })}
+                            type="file"
+                            placeholder="photo"
+                            // id="image"
+                            className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" />
+                        {/* <label className='signup-photo'>Upload Image</label> */}
                     </div>
 
                     <div className="mt-6">
