@@ -1,28 +1,98 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../assests/SignUp/signup1.jpg';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css';
 import '../../App.css';
 import { useForm } from 'react-hook-form';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { AuthContext } from '../../context/AuthProvider';
+import { GoogleAuthProvider } from '@firebase/auth';
+import setAuthToken from '../../hooks/UseToken/UseToken';
+import Spinner from '../../component/Spinner/Spinner';
+import { toast } from 'react-hot-toast';
 
 const Signup = () => {
     const { register, watch, handleSubmit, formState: { errors } } = useForm();
     const [phone, setPhone] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
-    const [confirmPassword, setConfirmPassword] = useState(false);
-console.log(process.env.REACT_APP_IMAGE_SECRET_KEY)
+    const [showPassword, setShowPassword] = React.useState(false);
+    const [loading, setLoading] = useState(false)
+    const [signUpError, setSignUpError] = useState('');
+    const { createUser, signInWithGoogle, updateUser, verify } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate();
+
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
     let number = phone
     const handleSignUp = (data) => {
+        setSignUpError('')
+        setLoading(true)
         const email = data.email;
         const password = data.password;
         const name = data.name;
         const image = data.image[0];
-        // const number = data.number
         const formData = new FormData();
-        formData.append('image', image);        
-        console.log(email, password, name, number, image, formData)
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGE_SECRET_KEY}`
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    // console.log(data.data.url)
+                    createUser(email, password)
+                        .then(result => {
+                            const user = result.user;
+                            const image = data.data.url;
+                            setAuthToken(user, name, image, number)
+                            updateUser(name, data.data.url)
+                                .then(() => {
+                                    console.log(user)
+                                    setLoading(false)
+                                    toast.success('SignUp Success');
+                                    navigate('/login');
+                                    verifyEmail()
+                                })
+                                .catch(error => {
+                                    console.log(error)
+                                    setSignUpError(error.message)
+                                    setLoading(false)
+                                })
+                        })
+                        .catch(error => {
+                            console.log(error)
+                            setSignUpError(error.message)
+                            setLoading(false)
+                        })
+                }
+            })
+
+    }
+
+    //google sign in
+    const handleGoogleSignIn = (Provider) => {
+        signInWithGoogle(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                const name = user?.displayName;
+                const image = user?.photoURL;
+                setAuthToken(user, name, image);
+                navigate(from, { replace: true });
+            })
+    };
+
+    const verifyEmail = () => {
+        verify()
+            .then(result => {
+                toast.success('please check your email and verify your account')
+            })
     }
     return (
 
@@ -38,109 +108,140 @@ console.log(process.env.REACT_APP_IMAGE_SECRET_KEY)
                     </h2>
 
                     <div className="mt-4">
-                        <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="LoggingEmailAddress">Name</label>
-                        <input
+                        <TextField
+                            id="outlined-basic"
+                            label="Name"
+                            variant="outlined"
                             {...register("name", { required: true })}
-                            type="text"
-                            placeholder="name"
-
-                            id="LoggingEmailAddress"
-
-                            className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" />
+                            className='w-full'
+                        />
+                        {errors.name && <p className='text-red-500'>{errors.name?.message} please insert your name</p>}
                     </div>
 
 
 
                     <div className="mt-4">
-                        <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="LoggingEmailAddress">Email</label>
-
-                        <input
+                        <TextField
+                        sx={{
+                            '&. Mui-focused': {
+                                borderColor: 'red',
+                              },
+                        }}
+                            id="outlined-basic"
+                            label="Email"
+                            variant="outlined"
                             {...register("email", { required: 'please inter valid email' })}
-                            type="email"
-                            placeholder="email"
-                            id="LoggingEmailAddress"
-                            className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" />
+                            className='w-full' />
                         {errors.email && <p className='text-red-500'>{errors.email?.message}</p>}
                     </div>
 
                     <div className='mt-4'>
-                        <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="LoggingEmailAddress">Phone</label>
                         <PhoneInput
+                            id="outlined-basic"
+                            label="Number"
+                            variant="outlined"
+                            required
+                            className='w-full'
                             country={'us'}
                             value={phone}
                             onChange={(phone) => setPhone(phone)}
-                        //    {...register("number", {required: true})}
                         />
                     </div>
 
                     <div className="relative mt-4">
-                        <label className="block mb-4 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="loggingPassword">Password</label>
-                        <input
-                            {...register("password", {
-                                minLength: { value: 6, message: 'password must be 6 character' },
-                                pattern: { value: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]/, message: 'password should be a-z, A-Z, number and special character' }
 
-                            })}
-                            type={showPassword ? 'text' : 'password'}
-                            placeholder="password"
-                            className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" />
-                        <i
-                            onClick={() => setShowPassword(!showPassword)}
-                            className='absolute right-[14px] cursor-pointer bottom-[14px]'>{showPassword ? <FaEye /> : <FaEyeSlash />}</i>
+                        <FormControl sx={{ m: 1, width: '100%', marginLeft: '-1px' }} variant="outlined">
+                            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                            <OutlinedInput
+                                {...register("password", {
+                                    minLength: { value: 6, message: 'password must be 6 character' },
+                                    pattern: { value: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]/, message: 'password should be a-z, A-Z, number and special character' }
 
+                                })}
+                                id="outlined-adornment-password"
+                                type={showPassword ? 'text' : 'password'}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword}
+                                            edge="end"
+                                        >
+                                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                                label="Password"
+                            />
+                        </FormControl>
                         {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
                     </div>
 
                     <div className="relative mt-4">
-                        <label className="block mb-4 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="loggingPassword">Confirm Password</label>
-                        <input
-                            {...register("confirm_password", {
-                                required: true,
-                                validate: (value) => {
-                                    if (watch('password') !== value) {
-                                        return 'your password did not match'
+                        <FormControl sx={{ m: 1, width: '100%', marginLeft: '-1px' }} variant="outlined">
+                            <InputLabel htmlFor="outlined-adornment-password">Confirm Password</InputLabel>
+                            <OutlinedInput
+                                {...register("confirm_password", {
+                                    required: true,
+                                    validate: (value) => {
+                                        if (watch('password') !== value) {
+                                            return 'your password did not match'
+                                        }
                                     }
+                                })}
+                                id="outlined-start-adornment"
+
+                                type={showPassword ? 'text' : 'password'}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword}
+                                            edge="end"
+                                        >
+                                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>
                                 }
-                            })}
-                            type={confirmPassword ? 'text' : 'password'}
-                            placeholder="confirm_password"
-                            className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
-                        />
-                        <i
-                            onClick={() => setConfirmPassword(!confirmPassword)}
-                            className='absolute right-[14px] cursor-pointer bottom-[14px]'>{confirmPassword ? <FaEye /> : <FaEyeSlash />}</i>
+                                label="Password"
+                            />
+                        </FormControl>
                         {errors.confirm_password && <p className='text-red-500'>{errors.confirm_password?.message}</p>}
                     </div>
 
-                    <div className="mt-4">
-                        <div className="flex justify-between">
+                    <div className="my-6">
+                        {/* <div className="flex justify-between">
                             <label className="block mb-4 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="loggingPassword">Photo</label>
-                        </div>
+                        </div> */}
 
                         <input
                             {...register("image", { required: true })}
                             type="file"
                             placeholder="photo"
-                            // id="image"
+                            id="file"
                             className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" />
-                        {/* <label className='signup-photo'>Upload Image</label> */}
+                        <label className='signup-photo' htmlFor='file'>Upload Image</label>
                     </div>
-
-                    <div className="mt-6">
+                    {
+                        signUpError && <span className='text-red-500'>{signUpError}</span>
+                    }
+                    <div className="mt-7">
                         <button className="w-full secondary-btn px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
-                            Sign Up
+                            {
+                                loading ? <Spinner /> : ' Sign Up'
+                            }
                         </button>
                     </div>
 
                     <div className="flex items-center justify-between mt-4">
                         <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
 
-                        <Link href="#" className="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline">or sign in</Link>
+                        <Link to='/login' className="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline">or sign in</Link>
 
                         <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
                     </div>
 
-                    <Link href="#" className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <Link onClick={handleGoogleSignIn} href="#" className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <div className="px-4 py-2">
                             <svg className="w-6 h-6" viewBox="0 0 40 40">
                                 <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#FFC107" />
