@@ -71,7 +71,7 @@ const Login = () => {
     <div className="Login-area">
       <div className="container flex h-[500px] flex-row-reverse overflow-hidden bg-white rounded-lg shadow-lg  my-3 p-3">
         <div className="hidden bg-cover lg:block lg:w-1/2">
-          <img src={image} className='rounded' alt='' />
+          <img src={image} className='rounded' alt='' />          
         </div>
         <form onSubmit={handleSubmit(handleLogIn)} className="w-full px-6 py-8 md:px-8 lg:w-1/2 h-full">
           <h2 className="text-2xl font-semibold text-center text-gray-700 dark:text-white">
