@@ -34,7 +34,7 @@ const Navbar = () => {
           className="navbar-brand font-bold text-2xl flex items-center flex-1"
           to="/"
         >
-          <img src={mailLogo} alt="" srcset="" />
+          <img src={mailLogo} alt="" srcSet="" />
           <span className="font-bold text-[32px] ml-1 text-[#010C3A]">
             C<span className=" text-[#DF0303]">T</span>B
           </span>
