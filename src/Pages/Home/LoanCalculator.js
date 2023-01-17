@@ -1,9 +1,10 @@
 import React from 'react';
 import './LoanCalculator.css';
 import sideimg from '../../assets/loanCalculator/emi-calculator.jpg';
-// import home from '../../assets/loanCalculator/Home.png'
-// import car from '../../assets/loanCalculator/Car.png'
-// import gold from '../../assets/loanCalculator/Gold.png'
+import { Link } from 'react-router-dom';
+import home from '../../assets/loanCalculator/Home.png'
+import car from '../../assets/loanCalculator/Car.png'
+import gold from '../../assets/loanCalculator/Gold.png'
 
 class LoanCalculator extends React.Component {
     constructor() {
@@ -52,38 +53,38 @@ class LoanCalculator extends React.Component {
                     <div className="card-main">
                         <div className="heading"><h1>EMI Calculator</h1></div><hr /><hr /><br />
                         <div className="inside-content">
-                            {/* <div className='icon'>
-                                <img src={home} alt="" />
-                                <img src={car} alt="" />
-                                <img src={gold} alt="" />
-                            </div> */}
+                            <div className='img'>
+                                <img className='icon' src={home} alt="" />
+                                <img className='icon' src={car} alt="" />
+                                <img className='icon' src={gold} alt="" />
+                            </div>
                             <br />
-                            <label>Loan Amount</label><br />
-                            <input type="number" value={value3} placeholder="Loan Amount" />
-                            <input type="range" min="10000" max="1000000" name="value3" step="1000" onChange={this.DrageChange} id="curser" />
-                            <br />
-                            <label>${value3}</label>
-                            <br />
-                            <br />
-                            <label>Loan Term</label><br />
-                            <input type="number" value={value1} placeholder="Duration" />
-                            <input type="range" min="0" max="100" name="value1" onChange={this.DrageChange} id="curser" />
-                            <br />
-                            <label>{value1} Months</label>
-                            <br />
-                            <br />
-                            <label>Interest Rate</label><br />
-                            <input type="number" value={value2} placeholder="Interest %" />
-                            <input type="range" min="0" max="30" name="value2" step=".5" onChange={this.DrageChange} id="curser" />
-                            <br />
-                            <label>{value2}%</label>
-                            <br />
-                            <br />
+                            <div>
+                                <h1>Loan Amount</h1>
+                                <input type="number" value={value3} placeholder="Loan Amount" />
+                                <input type="range" min="10000" max="1000000" name="value3" step="1000" onChange={this.DrageChange} id="curser" />
+                                <h1 className='border'>${value3}</h1>
+
+                                <h1>Loan Term</h1>
+                                <input type="number" value={value1} placeholder="Duration" />
+                                <input type="range" min="0" max="100" name="value1" onChange={this.DrageChange} id="curser" />
+                                <h1 className='border'>{value1} Months</h1>
+
+                                <h1>Interest Rate</h1>
+                                <input type="number" value={value2} placeholder="Interest %" />
+                                <input type="range" min="0" max="30" name="value2" step=".5" onChange={this.DrageChange} id="curser" />
+                                <h1 className='border'>{value2}%</h1>
+                            </div>
                         </div>
+                        <br />
                         <div className="button-output">
-                            <button onClick={this.Eligbilitysumbit}>Calculate</button>
-                            <h1>Total Amount={output}</h1>
+                            <button className="secondary-btn" onClick={this.Eligbilitysumbit}>Calculate</button>
                         </div>
+                        <br />
+                        <h1>Total Amount={output}</h1>
+                        <Link to="/apply-loan" className="secondary-btn">
+                            Apply Online
+                        </Link>
                     </div>
                 </div>
             </>

@@ -21,8 +21,15 @@ body {
     border-radius: 5px;
 }
 
+.img {
+    margin-top: 50px;
+    justify-content: center;
+    gap: 5px;
+}
+
 .icon {
     width: 100px;
+    background-color: rgb(224, 210, 210);
 }
 
 .center {
@@ -35,18 +42,26 @@ body {
     font-size: 20px;
 }
 
-button:hover {
+.inside-content {
+    display: flex;
+}
+
+.border {
+    border-color: black;
+}
+
+/* button:hover {
     color: rgb(215, 223, 103);
     font-size: 18px;
     cursor: pointer;
-}
+} */
 
-button {
+/* button {
     background-color: rgb(39, 39, 124);
     color: rgb(226, 224, 220);
     cursor: pointer;
-}
+} */
 
-#curser {
+/* #curser {
     cursor: pointer;
-}
+} */
