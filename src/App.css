@@ -20,9 +20,9 @@
   text-align: center;
 }
 
-/* 
+
 .navbar__menu {
-  @apply flex flex-wrap items-center justify-between lg: flex-nowrap lg:justify-start;
+  @apply flex flex-wrap items-center justify-between lg:flex-nowrap lg:justify-start;
 }
 
 .navbar-brand {
@@ -30,11 +30,11 @@
 }
 
 .navbar-toggler {
-  @apply p-2 lg: hidden;
+  @apply p-2 lg:hidden;
 }
 
 .navbar-collapse {
-  @apply lg: flex basis-auto items-center flex-grow hidden;
+  @apply lg:flex basis-auto items-center flex-grow hidden;
 }
 
 .navbar-collapsed {
@@ -42,16 +42,16 @@
 }
 
 .navbar__nav {
-  @apply flex flex-col lg: flex-row ml-auto items-center;
+  @apply flex flex-col lg:flex-row ml-auto items-center;
 }
 
 .nav-link {
-  @apply px-5 lg: py-10 py-4 text-[#313131] text-lg font-normal rounded-sm hover:text-[#E91B25] block lg:inline-block relative before:absolute before:left-0 before:bottom-0 before:w-0 before:h-[3px] before:bg-[#E91B25] hover:before:w-full before:ease-out before:duration-300 before:transition-all;
+  @apply px-5 lg:py-10 py-4 text-[#313131] text-lg font-normal rounded-sm hover:text-[#E91B25] block lg:inline-block relative before:absolute before:left-0 before:bottom-0 before:w-0 before:h-[3px] before:bg-[#E91B25] hover:before:w-full before:ease-out before:duration-300 before:transition-all;
 }
 
 .navbar-nav li div {
-  @apply lg: inline-flex items-center lg:pl-3 block pl-0 text-center;
-}  */
+  @apply lg:inline-flex items-center lg:pl-3 block pl-0 text-center;
+}  
 
 /* Banner area */
 .banner-area {
