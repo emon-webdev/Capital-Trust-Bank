@@ -48,10 +48,10 @@ class LoanCalculator extends React.Component {
         const { value1, value2, value3, output } = this.state;
         return (
             <>
+                <h1 className="text-4xl font-bold text-center mt-7">EMI Online Calculator</h1>
                 <div className="center">
                     <img className='side-img' src={sideimg} alt="" />
                     <div className="card-main">
-                        <div className="heading"><h1>EMI Calculator</h1></div><hr /><hr /><br />
                         <div className="inside-content">
                             <div className='img'>
                                 <img className='icon' src={home} alt="" />
