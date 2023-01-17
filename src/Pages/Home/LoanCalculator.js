@@ -1,9 +1,9 @@
 import React from 'react';
 import './LoanCalculator.css';
-import sideimg from '../../assets/loanCalculator/side_img.jpg';
-import home from '../../assets/loanCalculator/Home.png'
-import car from '../../assets/loanCalculator/Car.png'
-import gold from '../../assets/loanCalculator/Gold.png'
+import sideimg from '../../assets/loanCalculator/emi-calculator.jpg';
+// import home from '../../assets/loanCalculator/Home.png'
+// import car from '../../assets/loanCalculator/Car.png'
+// import gold from '../../assets/loanCalculator/Gold.png'
 
 class LoanCalculator extends React.Component {
     constructor() {
