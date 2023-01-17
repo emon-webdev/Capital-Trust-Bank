@@ -6,6 +6,7 @@ import education from "../../assets/Services(Home)/edu_loan.jpg";
 import gold from "../../assets/Services(Home)/gold-loan.jpg";
 import marriage from '../../assets/Services(Home)/marriage_loan.jpg';
 import vehicle from "../../assets/Services(Home)/vehicle-loan.jpg";
+
 const Services = () => {
 
   const ServicesData=[
@@ -143,7 +144,9 @@ const Services = () => {
           </Card>
            ))
     }
+    
         </div>
+       
       </div>
     );
 };

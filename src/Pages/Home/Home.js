@@ -1,4 +1,6 @@
 import React from "react";
+import ApplyForm from "./ApplyForm";
+
 import Banner from "./Banner";
 import Branding from "./Branding";
 import ContactUs from "./ContactUs";
@@ -11,6 +13,8 @@ const Home = () => {
     <div>
       <Banner />
       <Services />
+      <ApplyForm></ApplyForm>
+     
       {/* <Counter /> */}
       <Team />
       <Branding />
