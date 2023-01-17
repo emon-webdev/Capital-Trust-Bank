@@ -8,11 +8,13 @@ import Insurance from "../Pages/Insurance/Insurance";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Login/Signup";
 import Services from "../Pages/Services/Services";
+import Error from "../Pages/Shared/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",

@@ -15,6 +15,13 @@ const Team = () => {
     <Box className="team-area py-12">
       <Box className="container mx-auto">
         <Typography
+        sx={{
+          color: '#df0303',
+          textAlign: 'center',
+          fontWeight: 600,
+        }}
+        >Our Team</Typography>
+        <Typography
           sx={{
             fontSize: "48px",
             lineHeight: "56px",
@@ -26,11 +33,11 @@ const Team = () => {
         >
           Team Of Expert Consulted
         </Typography>
-        <Box className="grid gap-5 md:grid-cols-3 py-16 mt-[100px]">
+        <Box className="grid gap-5 md:grid-cols-3 py-16 mt-[150px]">
           <Box
             sx={{
               position: "relative",
-              height: "280px",
+              height: "348px",
               maxWidth: "424px",
               // width: '424px',
             }}
@@ -51,8 +58,8 @@ const Team = () => {
               <Box
                 sx={{
                   position: "absolute",
-                  left: "30%",
-                  bottom: "36%",
+                  left: "35%",
+                  bottom: "24%",
                 }}
                 className="flex justify-between w-[100px] icon-box"
               >
@@ -69,8 +76,8 @@ const Team = () => {
                   bottom: "5px",
                   width: "134px",
                   height: "28px",
-                  left: "101px",
-                  top: "185px",
+                  left: "126px",
+                  top: "210px",
                   // left: '144px',
                   // top: '240px',
                   fontSize: "20px",
@@ -88,8 +95,8 @@ const Team = () => {
                   position: "absolute",
                   width: "216px",
                   height: "24px",
-                  left: "61px",
-                  top: "205px",
+                  left: "143px",
+                  top: "240px",
                   fontSize: "16px",
                   fontWeight: 400,
                   lineHeight: "24px",
@@ -105,7 +112,7 @@ const Team = () => {
           <Box
             sx={{
               position: "relative",
-              height: "280px",
+              height: "348px",
               maxWidth: "424px",
               // width: '424px'
             }}
@@ -126,8 +133,8 @@ const Team = () => {
               <Box
                 sx={{
                   position: "absolute",
-                  left: "30%",
-                  bottom: "36%",
+                  left: "35%",
+                  bottom: "24%",
                 }}
                 className="flex justify-between w-[100px] icon-box"
               >
@@ -144,8 +151,8 @@ const Team = () => {
                   bottom: "5px",
                   width: "134px",
                   height: "28px",
-                  left: "101px",
-                  top: "185px",
+                  left: "126px",
+                  top: "210px",
                   fontSize: "20px",
                   lineHeight: "28px",
                   fontWeight: 700,
@@ -161,8 +168,8 @@ const Team = () => {
                   position: "absolute",
                   width: "216px",
                   height: "24px",
-                  left: "61px",
-                  top: "205px",
+                  left: "143px",
+                  top: "240px",
                   fontSize: "16px",
                   fontWeight: 400,
                   lineHeight: "24px",
@@ -178,7 +185,7 @@ const Team = () => {
           <Box
             sx={{
               position: "relative",
-              height: "280px",
+              height: "348px",
               maxWidth: "424px",
               // width: '424px'
             }}
@@ -199,8 +206,8 @@ const Team = () => {
               <Box
                 sx={{
                   position: "absolute",
-                  left: "30%",
-                  bottom: "36%",
+                  left: "35%",
+                  bottom: "24%",
                 }}
                 className="flex justify-between w-[100px] icon-box"
               >
@@ -217,8 +224,8 @@ const Team = () => {
                   bottom: "5px",
                   width: "134px",
                   height: "28px",
-                  left: "101px",
-                  top: "185px",
+                  left: "126px",
+                  top: "210px",
                   fontSize: "20px",
                   lineHeight: "28px",
                   fontWeight: 700,
@@ -234,8 +241,8 @@ const Team = () => {
                   position: "absolute",
                   width: "216px",
                   height: "24px",
-                  left: "61px",
-                  top: "205px",
+                  left: "143px",
+                  top: "240px",
                   fontSize: "16px",
                   fontWeight: 400,
                   lineHeight: "24px",

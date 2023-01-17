@@ -1,6 +1,5 @@
 import React from "react";
-import ApplyForm from "./ApplyForm";
-
+import ApplyCreditCard from "./ApplyCreditCard";
 import Banner from "./Banner";
 import Branding from "./Branding";
 import ContactUs from "./ContactUs";
@@ -16,6 +15,7 @@ const Home = () => {
       <ApplyForm></ApplyForm>
      
       {/* <Counter /> */}
+      <ApplyCreditCard />
       <Team />
       <Branding />
       <FeaturedNews />
