@@ -5,6 +5,7 @@ import logo from "../../assets/logo/mainlogo.png";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
+// import TwitterIcon from "@mui/icons-material/Twitter";
 const Footer = () => {
   return (
     <div className="bgi-footer">

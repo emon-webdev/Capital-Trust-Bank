@@ -5,7 +5,7 @@ import marriage from '../../assets/Services(Home)/marriage_loan.jpg';
 import vehicle from "../../assets/Services(Home)/vehicle-loan.jpg";
 const Services = () => {
     return (
-      <div className="services-area">
+      <div className="services-area py-12">
         <div className="container">
           <h5 className="text-center text-red-500">Best Services</h5>
           <h1 className="text-center text-3xl font-bold mb-10">

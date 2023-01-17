@@ -1,4 +1,5 @@
 import React from "react";
+import ApplyCreditCard from "./ApplyCreditCard";
 import Banner from "./Banner";
 import Branding from "./Branding";
 import ContactUs from "./ContactUs";
@@ -13,6 +14,7 @@ const Home = () => {
       <Banner />
       <Services />
       {/* <Counter /> */}
+      <ApplyCreditCard />
       <Team />
       <Branding />
       <FeaturedNews />
