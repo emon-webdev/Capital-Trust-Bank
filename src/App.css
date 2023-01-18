@@ -7,7 +7,9 @@
   line-height: 24px;
   color: #010c3a;
 }
-
+.header-left p {
+  margin-bottom: 0;
+}
 /* Navbar css for responsive */
 .mobile-menu {
   z-index: 999;
@@ -79,6 +81,7 @@ ul.submenu {
   transition-property: all;
 }
 ul.navbar__nav li:hover > ul.submenu {
+  padding: 10px 0;
   opacity: 1;
   visibility: visible;
   transform: rotateX(0deg);
@@ -87,7 +90,7 @@ ul.navbar__nav li:hover > ul.submenu {
 ul.submenu li {
   margin: 0;
   display: block;
-  border-bottom: 1px solid #cf173c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 ul.submenu li:last-child {
   border: 0;
@@ -205,14 +208,63 @@ button.accent-btn {
 
 /* Tablet Medium Device :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
+  button.accent-btn {
+    padding: 0 10px;
+    height: 45px;
+    line-height: 45px;
+    margin-left: 10px;
+    border-radius: 4px;
+  }
+  ul.navbar__nav li {
+    width: 100%;
+    margin-right: 0;
+  }
+  ul.navbar__nav {
+    background: #010c3a;
+    color: #fff;
+    padding: 20px;
+    margin-top: 15px;
+  }
+  ul.navbar__nav > li {
+    position: static;
+  }
+  ul.navbar__nav li:hover > ul.submenu {
+    display: block;
+    position: static;
+  }
+  ul.navbar__nav > li {
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  ul.navbar__nav > li:last-child {
+    border: 0;
+  }
+  .main-header.relative {
+    padding: 10px 0;
+  }
+  .header-top.py-4.bg-\[\#041C51\] {
+    padding: 6px 0;
+  }
 }
 
 /* Large Mobile :480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+  ul.navbar__nav {
+    background: #010c3a;
+    color: #fff;
+    padding: 20px;
+    margin-top: 15px;
+  }
 }
 
 /* SM Small Device :320px. */
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  button.accent-btn {
+    padding: 0 10px;
+    height: 45px;
+    line-height: 45px;
+    margin-left: 10px;
+  }
   .team-2 {
     margin-top: 170px;
   }
@@ -237,14 +289,33 @@ button.accent-btn {
   .credit-card-img.mb-\[32px\].md\:mb-0.md\:mr-12 {
     margin-top: 50px;
   }
+  ul.navbar__nav > li {
+    position: static;
+  }
   ul.navbar__nav li:hover > ul.submenu {
     display: block;
-    position: inherit;
+    position: static;
   }
   ul.navbar__nav > li {
     padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  ul.navbar__nav > li:last-child {
+    border: 0;
   }
   .main-header.relative {
+    padding: 10px 0;
+  }
+  .header-top.py-4.bg-\[\#041C51\] {
     padding: 6px 0;
+  }
+  ul.navbar__nav {
+    background: #010c3a;
+    color: #fff;
+    padding: 20px;
+    margin-top: 15px;
+  }
+  .header-left p {
+    margin-bottom: 0;
   }
 }

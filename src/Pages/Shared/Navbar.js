@@ -30,7 +30,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar__menu">
         <Link
-          className="navbar-brand font-bold text-2xl flex items-center flex-1"
+          className="navbar-brand font-bold text-2xl flex items-center"
           to="/"
         >
           <img src={mailLogo} alt="" srcset="" />
@@ -38,10 +38,19 @@ const Navbar = () => {
             C<span className=" text-[#DF0303]">T</span>B
           </span>
         </Link>
-        <div>
+        <div className="flex items-center">
+          <div className="lg:hidden btn-group flex items-center">
+            <button className="accent-btn" type="button">
+              <SearchIcon />
+            </button>
+            <button className="accent-btn hidden md:block" type="button">
+              <MailOutlineIcon className="mr-2 text-sm" />
+              Request Loan
+            </button>
+          </div>
           {isActive ? (
             <button
-              className="navbar-toggler text-2xl font-bold bg-[#010C3A] text-[#DF0303]"
+              className="navbar-toggler  accent-btn font-bold text-[#DF0303]"
               type="button"
               onClick={handleHumbagerMenu}
             >
@@ -49,7 +58,7 @@ const Navbar = () => {
             </button>
           ) : (
             <button
-              className="navbar-toggler text-2xl font-bold text-[#DF0303]"
+              className="navbar-toggler accent-btn font-bold text-[#DF0303]"
               type="button"
               onClick={handleHumbagerMenu}
             >
@@ -190,9 +199,9 @@ const Navbar = () => {
           </ul>
         </div>
         {isActive ? (
-          ''
+          ""
         ) : (
-          <>
+          <div className="hidden lg:block">
             <div className="btn-group flex items-center">
               <button className="accent-btn" type="button">
                 <SearchIcon />
@@ -202,7 +211,7 @@ const Navbar = () => {
                 Request Loan
               </button>
             </div>
-          </>
+          </div>
         )}
       </nav>
     </div>
