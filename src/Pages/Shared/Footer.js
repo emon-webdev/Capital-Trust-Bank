@@ -8,7 +8,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 const Footer = () => {
   return (
     <div className="bgi-footer">
-      <div className="container">
+      <div className="container pt-32">
         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5">
           <div>
             <div className="flex items-start mt-5 gap-1">
