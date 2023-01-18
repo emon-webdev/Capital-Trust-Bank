@@ -1,14 +1,26 @@
 import React from "react";
+import ApplyCreditCard from "./ApplyCreditCard";
+import ApplyForm from "./ApplyForm";
 import Banner from "./Banner";
+import Branding from "./Branding";
 import ContactUs from "./ContactUs";
-import Counter from "./Counter";
+import FeaturedNews from "./FeaturedNews";
+import Services from "./Services.jsx";
+import Team from "./Team";
 
 const Home = () => {
   return (
     <div>
       <Banner />
-      <Counter />
-      <ContactUs></ContactUs>
+      <Services />
+      <ApplyForm/>
+     
+      {/* <Counter /> */}
+      <ApplyCreditCard />
+      <Team />
+      <Branding />
+      <FeaturedNews />
+      <ContactUs />
     </div>
   );
 };

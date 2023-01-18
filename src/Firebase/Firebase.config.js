@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDrG9kqOMINdvXAoxGjt8JDpXGHcIufxVQ",
-  authDomain: "capital-trust-bank-ee791.firebaseapp.com",
-  projectId: "capital-trust-bank-ee791",
-  storageBucket: "capital-trust-bank-ee791.appspot.com",
-  messagingSenderId: "709974636356",
-  appId: "1:709974636356:web:01388e1ece431d08d98911"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase

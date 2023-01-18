@@ -9,5 +9,86 @@ body {
 }
 
 code {
+  font-family: "Inter", sans-serif !important;
+}
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #252525;
+  margin-bottom: 15px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Inter", sans-serif;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #010c3a;
+}
+.secondary-btn,
+.primary-btn {
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  background: #df0303;
+  border-radius: 4px;
+  padding: 0 32px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  height: 60px;
+  line-height: 60px;
+  text-transform: capitalize;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.primary-btn {
+  padding: 0 24px;
+  height: 56px;
+  line-height: 56px;
+}
+.secondary-btn:hover,
+.primary-btn:hover {
+  background: #010c3a;
+}
+.banner-content .secondary-btn:hover {
+  background: #cf173c;
+}
+.dot-shape {
+  position: relative;
+  background: #ffff;
+}
+
+.dot-shape::before {
+  position: absolute;
+  left: -72px;
+  top: -40px;
+  content: "";
+  width: 150px;
+  height: 150px;
+  background: url("/src/assets/logo/dot_shapes.png");
+  z-index: -1;
 }

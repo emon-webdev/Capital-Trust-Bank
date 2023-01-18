@@ -1,10 +1,6 @@
-import ArchiveIcon from "@mui/icons-material/Archive";
-import EditIcon from "@mui/icons-material/Edit";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Button from "@mui/material/Button";
-import Divider from "@mui/material/Divider";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { alpha, styled } from "@mui/material/styles";
@@ -75,7 +71,7 @@ export default function MenuOption() {
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
         sx={{
-            color: "#EDF9F9", 
+          color: "#EDF9F9",
         }}
       >
         <RiGlobalLine className="mr-1" />
@@ -91,21 +87,12 @@ export default function MenuOption() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose} disableRipple>
-          <EditIcon />
-          Edit
+          <RiGlobalLine className="mr-1" />
+          France
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
           <FileCopyIcon />
-          Duplicate
-        </MenuItem>
-        <Divider sx={{ my: 0.5 }} />
-        <MenuItem onClick={handleClose} disableRipple>
-          <ArchiveIcon />
-          Archive
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          <MoreHorizIcon />
-          More
+          Arabic
         </MenuItem>
       </StyledMenu>
     </div>
