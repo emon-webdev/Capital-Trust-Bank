@@ -1,5 +1,6 @@
 import React from "react";
 import ApplyCreditCard from "./ApplyCreditCard";
+import ApplyForm from "./ApplyForm";
 import Banner from "./Banner";
 import Branding from "./Branding";
 import ContactUs from "./ContactUs";
@@ -12,6 +13,8 @@ const Home = () => {
     <div>
       <Banner />
       <Services />
+      <ApplyForm/>
+     
       {/* <Counter /> */}
       <ApplyCreditCard />
       <Team />
