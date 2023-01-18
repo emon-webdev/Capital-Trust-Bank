@@ -30,7 +30,7 @@ export default function ApplyForm() {
   ];
 
   return (
-    <div className="apply-area w-100 d-flex justify-center">
+    <div className="apply-area w-100 d-flex justify-center my-20">
       <Box className='container'
         display={"flex"}
         alignItems="center"
