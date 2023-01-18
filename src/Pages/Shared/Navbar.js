@@ -70,18 +70,23 @@ const Navbar = () => {
               {/* Submenu */}
               <ul className="submenu">
                 <li>
-                  <NavLink to="/" className="">
-                    Home 1
+                  <NavLink to="/homeloan" className="">
+                    Home Loan
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/" className="">
-                    Home 2
+                  <NavLink to="/educationloan" className="">
+                    Education Loan
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/" className="">
-                    Home 3
+                  <NavLink to="/marriageloan" className="">
+                    Marriage Loan
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/vehicleloan" className="">
+                    Vehicle Loan
                   </NavLink>
                 </li>
               </ul>
