@@ -23,10 +23,7 @@
   text-align: center;
 }
 
-<<<<<<<
-  HEAD
-  =======>>>>>>>ab5d90f48fb946a7f10da065baa7e0bf32f1dc1a
-  .navbar__menu {
+.navbar__menu {
   @apply flex flex-wrap items-center justify-between lg:flex-nowrap lg:justify-start;
 }
 
