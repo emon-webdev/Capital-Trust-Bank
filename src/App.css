@@ -9,6 +9,9 @@
 }
 
 /* Navbar css for responsive */
+.mobile-menu {
+  z-index: 999;
+}
 .navbar-toggler {
   padding: 0.5rem;
   background: #010c3a;
@@ -51,7 +54,73 @@
 .navbar-nav li div {
   @apply lg:inline-flex items-center lg:pl-3 block pl-0 text-center;
 }
-
+ul.navbar__nav > li {
+  position: relative;
+  padding: 26px 0;
+}
+ul.navbar__nav > li:last-child {
+  margin-right: 0;
+}
+ul.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #010c3a;
+  min-width: 250px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
+  transform-origin: top;
+  transform-style: preserve-3d;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.3s;
+  transition-property: all;
+}
+ul.navbar__nav li:hover > ul.submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: rotateX(0deg);
+  transition: all 300ms ease;
+}
+ul.submenu li {
+  margin: 0;
+  display: block;
+  border-bottom: 1px solid #cf173c;
+}
+ul.submenu li:last-child {
+  border: 0;
+}
+ul.submenu li a {
+  color: #fff;
+  /* position: relative; */
+  display: inline-block;
+  font-size: 16px;
+  line-height: 30px;
+  width: 100%;
+  letter-spacing: 0;
+  font-weight: 400;
+  padding: 6px 0px;
+  transition: 500ms;
+  z-index: 1;
+  padding: 6px 18px;
+  transition: 0.3s;
+}
+ul.submenu li:hover a {
+  color: #fff;
+  background: #cf173c;
+}
+button.accent-btn {
+  padding: 0 12px;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  background: #010c3a;
+  margin-left: 20px;
+  border-radius: 4px;
+}
 /* Banner area */
 .banner-area {
   height: 680px;
@@ -167,5 +236,15 @@
 
   .credit-card-img.mb-\[32px\].md\:mb-0.md\:mr-12 {
     margin-top: 50px;
+  }
+  ul.navbar__nav li:hover > ul.submenu {
+    display: block;
+    position: inherit;
+  }
+  ul.navbar__nav > li {
+    padding: 0;
+  }
+  .main-header.relative {
+    padding: 6px 0;
   }
 }

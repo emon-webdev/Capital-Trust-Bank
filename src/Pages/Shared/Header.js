@@ -49,39 +49,9 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="main-header py-[38px]">
+      <div className="main-header relative">
         <div className="container">
           <Navbar />
-          {/* <div className="navbar flex flex-wrap items-center justify-between">
-            
-            <div className="logo">
-              <Link to="/" className="flex items-center">
-                <img src={mailLogo} alt="" srcset="" />
-                <span className="font-bold text-[32px] ml-1">CTB</span>
-              </Link>
-            </div>
-            <div className="main-menu">
-              <Link to="/" className="mr-5">
-                Home
-              </Link>
-              <Link to="/apply" className="mr-5">
-                Apply Now
-              </Link>
-              <Link to="/insurance" className="mr-5">
-                Insurance
-              </Link>
-              <Link to="/services" className="mr-5">
-                Services
-              </Link>
-              <Link to="/contact" className="mr-5">
-                Contact
-              </Link>
-              <Link to="/signup" className="mr-5">
-                Signup
-              </Link>
-              <div></div>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>
