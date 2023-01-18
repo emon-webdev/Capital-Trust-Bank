@@ -14,7 +14,7 @@ const Home = () => {
     <div>
       <Banner />
       <Services />
-      <ApplyForm></ApplyForm>
+      <ApplyForm/>
      
       {/* <Counter /> */}
       <ApplyCreditCard />
