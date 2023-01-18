@@ -9,7 +9,7 @@ const ApplyCreditCard = () => {
       <div className="container">
         <div className="credit-card-wrap flex column-reverse md:flex-row md:flex-row items-center">
           <div className="credit-card-img mb-[32px] md:mb-0 md:mr-12">
-            <img src={creditCardImg} className="w-full" alt="" srcset="" />
+            <img src={creditCardImg} className="w-full" alt="" srcSet="" />
           </div>
           <div className="credit-card-content dot-shape">
             <h2 className=" text-3xl md:text-4xl">Apply for Credit Card</h2>
