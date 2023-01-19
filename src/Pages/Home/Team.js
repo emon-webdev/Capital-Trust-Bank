@@ -33,7 +33,7 @@ const Team = () => {
         >
           Team Of Expert Consulted
         </Typography>
-        <Box className="grid gap-5 md:grid-cols-3 py-16 mt-[150px]">
+        <Box className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 py-16 mt-[150px]">
           <Box
             sx={{
               position: "relative",
@@ -44,6 +44,7 @@ const Team = () => {
             className="team"
           >
             <Box
+            
               sx={{
                 position: "absolute",
                 height: "348px",
@@ -52,6 +53,7 @@ const Team = () => {
                 // right: '30px',
                 top: "-45%",
               }}
+              className="team-img-box"
             >
               {" "}
               <img className="bg-image" src={image1} alt="team-1" />
@@ -68,7 +70,8 @@ const Team = () => {
                 <FaFacebook className="icon cursor-pointer w-[30px] h-[30px] p-2" />
               </Box>
             </Box>
-            <Box>
+
+            <Box className="title-box">
               <Typography
                 className="title"
                 sx={{
@@ -127,6 +130,7 @@ const Team = () => {
                 // right: '30px',
                 top: "-45%",
               }}
+              className="team-img-box"
             >
               {" "}
               <img className="bg-image" src={image2} alt="team-2" />
@@ -143,7 +147,7 @@ const Team = () => {
                 <FaFacebook className="icon cursor-pointer w-[30px] h-[30px] p-2" />
               </Box>
             </Box>
-            <Box>
+            <Box className="title-box">
               <Typography
                 className="title"
                 sx={{
@@ -189,7 +193,7 @@ const Team = () => {
               maxWidth: "424px",
               // width: '424px'
             }}
-            className="team team-2"
+            className="team team-2 team-3"
           >
             <Box
               sx={{
@@ -200,6 +204,7 @@ const Team = () => {
                 // right: '30px',
                 top: "-45%",
               }}
+              className="team-img-box"
             >
               {" "}
               <img className="bg-image" src={image3} alt="team-3" />
@@ -216,7 +221,8 @@ const Team = () => {
                 <FaFacebook className="icon cursor-pointer w-[30px] h-[30px] p-2" />
               </Box>
             </Box>
-            <Box className="title-2">
+
+            <Box className="title-2 title-box">
               <Typography
                 className="title"
                 sx={{

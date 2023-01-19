@@ -56,7 +56,7 @@
 .navbar-nav li div {
   @apply lg:inline-flex items-center lg:pl-3 block pl-0 text-center;
 }
-<<<<<<< HEAD ======= ul.navbar__nav > li {
+ul.navbar__nav > li {
   position: relative;
   padding: 26px 0;
 }
@@ -124,7 +124,7 @@ button.accent-btn {
   margin-left: 20px;
   border-radius: 4px;
 }
->>>>>>> 9ae31666c4078519d3070d183f890581bb7a9837
+
 /* Banner area */
 .banner-area {
   height: 680px;
@@ -144,19 +144,19 @@ button.accent-btn {
 }
 
 .icon {
-  background: #010c3a;
+  background: #010c3a !important;
   border-radius: 30px;
   color: #fff !important;
   padding: 6px;
 }
 
 .icon-box {
-  display: none;
+  display: none !important;
 }
 
 .team:hover .icon-box {
-  display: inline-flex;
-  transition: all 0.5s;
+  display: inline-flex !important;
+  transition: all 0.5s !important;
 }
 
 .team:hover {
@@ -169,13 +169,37 @@ button.accent-btn {
 }
 
 .icon:hover {
-  background: #df0303;
+  background: #df0303 !important;
   color: #fff;
   transition: all 0.3s;
   transition: all 0.3s;
   width: 30px;
   height: 30px;
   pad: 8px;
+}
+
+@media screen and (max-width: 1022px) {
+  .team-3 {
+    margin-top: 200px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+    .team {
+      max-width: 100% !important;
+    }
+    .team-img-box {
+      left: 110px !important;
+    }
+    .icon-box {
+      left: 30% !important;
+      bottom: 18% !important;
+    }
+    .title-box {
+      position: absolute;
+      left: 110px;
+      top: 38px;
+    }
 }
 
 /* signup css */

@@ -1,7 +1,8 @@
 {
   "projects": {
     "default": "capital-trust-bank-5b91f",
-    "projects": "capital-trust-bank-5b91f"
+    "projects": "capital-trust-bank-5b91f",
+    "build": "capital-trust-bank-5b91f"
   },
   "targets": {},
   "etags": {}
