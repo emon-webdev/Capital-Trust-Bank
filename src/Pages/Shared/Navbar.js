@@ -2,19 +2,20 @@ import CloseIcon from "@mui/icons-material/Close";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
+import { AuthContext } from "../../context/AuthProvider";
 const Navbar = () => {
-  // const { logout, user } = useContext(AuthContext);
-  //   console.log(user?.displayName);
-  //   const handleSignOut = () => {
-  //     logout()
-  //       .then(() => {})
-  //       .catch((error) => {
-  //         console.log(error.message);
-  //       });
-  //   };
+  const { logout, user } = useContext(AuthContext);
+  console.log(user);
+  const handleSignOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   let activeClass = {
     color: "#DF0303",
@@ -181,6 +182,13 @@ const Navbar = () => {
                 </li>
               </ul>
             </li>
+            {user?.email ? ( 
+             <>
+                <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
+                  <button onClick={handleSignOut}>Sign Out</button>
+                </li>
+              </>
+            ) : (
             <>
               <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
                 <NavLink
@@ -201,6 +209,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </>
+             )} 
           </ul>
         </div>
         {isActive ? (

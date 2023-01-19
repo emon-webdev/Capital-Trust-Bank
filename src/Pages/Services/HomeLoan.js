@@ -1,12 +1,12 @@
-import React from 'react'
-import ApplyForm from '../Home/ApplyForm'
+import React from 'react';
+import ApplyForm from '../Home/ApplyForm';
 
-export default function 
-() {
+const HomeLoan = () => {
   return (
-    <div className=''>
-        <ApplyForm></ApplyForm>
-
+    <div>
+      <ApplyForm></ApplyForm>
     </div>
-  )
-}
+  );
+};
+
+export default HomeLoan;
