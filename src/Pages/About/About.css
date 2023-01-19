@@ -69,3 +69,25 @@
   border-radius: 50%;
   border: 1px solid #0060ff;
 }
+
+.custom-btn-for-about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px 33px;
+  gap: 10px;
+
+  width: 163px;
+  height: 60px;
+
+  /* 0060FF */
+
+  background: #0060ff;
+  border-radius: 4px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}

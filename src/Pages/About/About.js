@@ -38,7 +38,8 @@ const About = () => {
           />
         </div>
       </div>
-      <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+      {/*  */}
+      <div className="my-12 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
         <div>image</div>
         <div>
           <h3>About Us</h3>
@@ -61,7 +62,37 @@ const About = () => {
               Velit esse cillum dolore eu fugiat nulla pariatur.
             </h2>
           </div>
-          <div></div>
+
+          {/*  */}
+          <div className="my-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div className="flex flex-col gap-0">
+              <div className="flex items-center gap-1">
+                <h1 className="text-3xl font-medium text-blue-600">20</h1>
+                <span>Y</span>
+              </div>
+              <p className="m-0">Experiences</p>
+            </div>
+            <div className="flex flex-col gap-0">
+              <div className="flex items-center gap-1">
+                <h1 className="text-3xl font-medium text-blue-600">42</h1>
+                <span>M</span>
+              </div>
+              <p className="m-0">Happy Client</p>
+            </div>
+            <div className="flex flex-col gap-0">
+              <div className="flex items-center gap-1">
+                <h1 className="text-3xl font-medium text-blue-600">20</h1>
+                <span>Y</span>
+              </div>
+              <p className="m-0">Experience</p>
+            </div>
+          </div>
+          {/*  */}
+          <p>
+            Porttitor ornare fermentum aliquam pharetra ut facilisis gravida
+            risus suscipit. dui feugiat fusce conubia ridiculus
+          </p>
+          <button className="custom-btn-for-about-us">Get In Touch</button>
         </div>
       </div>
     </div>
