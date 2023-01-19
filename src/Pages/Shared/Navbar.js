@@ -1,18 +1,21 @@
 import CloseIcon from "@mui/icons-material/Close";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import MenuIcon from "@mui/icons-material/Menu";
-import React, { useState } from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
+import { AuthContext } from "../../context/AuthProvider";
 const Navbar = () => {
-  // const { logout, user } = useContext(AuthContext);
-  //   console.log(user?.displayName);
-  //   const handleSignOut = () => {
-  //     logout()
-  //       .then(() => {})
-  //       .catch((error) => {
-  //         console.log(error.message);
-  //       });
-  //   };
+  const { logout, user } = useContext(AuthContext);
+  console.log(user);
+  const handleSignOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   let activeClass = {
     color: "#DF0303",
@@ -27,11 +30,8 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar__menu">
-        {/* <Link className="navbar-brand" to="/">
-            <img src="" alt="Car Finder" />
-          </Link> */}
         <Link
-          className="navbar-brand font-bold text-2xl flex items-center flex-1"
+          className="navbar-brand font-bold text-2xl flex items-center"
           to="/"
         >
           <img src={mailLogo} alt="" srcSet="" />
@@ -39,10 +39,19 @@ const Navbar = () => {
             C<span className=" text-[#DF0303]">T</span>B
           </span>
         </Link>
-        <div>
+        <div className="flex items-center">
+          <div className="lg:hidden btn-group flex items-center">
+            <button className="accent-btn" type="button">
+              <SearchIcon />
+            </button>
+            <button className="accent-btn hidden md:block" type="button">
+              <MailOutlineIcon className="mr-2 text-sm" />
+              Request Loan
+            </button>
+          </div>
           {isActive ? (
             <button
-              className="navbar-toggler text-2xl font-bold bg-[#010C3A] text-[#DF0303]"
+              className="navbar-toggler  accent-btn font-bold text-[#DF0303]"
               type="button"
               onClick={handleHumbagerMenu}
             >
@@ -50,7 +59,7 @@ const Navbar = () => {
             </button>
           ) : (
             <button
-              className="navbar-toggler text-2xl font-bold text-[#DF0303]"
+              className="navbar-toggler accent-btn font-bold text-[#DF0303]"
               type="button"
               onClick={handleHumbagerMenu}
             >
@@ -58,7 +67,6 @@ const Navbar = () => {
             </button>
           )}
         </div>
-
         <div className={isActive ? "navbar-collapsed" : "navbar-collapse"}>
           <ul className="navbar__nav">
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
@@ -67,8 +75,31 @@ const Navbar = () => {
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
-                Home
+                Services
               </NavLink>
+              {/* Submenu */}
+              <ul className="submenu">
+                <li>
+                  <NavLink to="/homeloan" className="">
+                    Home Loan
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/educationloan" className="">
+                    Education Loan
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/marriageloan" className="">
+                    Marriage Loan
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/vehicleloan" className="">
+                    Vehicle Loan
+                  </NavLink>
+                </li>
+              </ul>
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
@@ -78,6 +109,24 @@ const Navbar = () => {
               >
                 Apply Now
               </NavLink>
+              {/* Submenu */}
+              <ul className="submenu">
+                <li>
+                  <NavLink to="/" className="">
+                    Apply 1
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/" className="">
+                    Apply 2
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/signup" className="">
+                    Apply 3
+                  </NavLink>
+                </li>
+              </ul>
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
@@ -85,8 +134,26 @@ const Navbar = () => {
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
-                Insurance
+                Pages
               </NavLink>
+              {/* Submenu */}
+              <ul className="submenu">
+                <li>
+                  <NavLink to="/" className="">
+                    Pages 1
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/" className="">
+                    Pages 2
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/signup" className="">
+                    Pages 3
+                  </NavLink>
+                </li>
+              </ul>
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
@@ -94,18 +161,34 @@ const Navbar = () => {
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
-                Services
-              </NavLink>
-            </li>
-            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
-              <NavLink
-                to="/about"
-                className="w-full block py-3"
-                style={({ isActive }) => (isActive ? activeClass : undefined)}
-              >
                 About
               </NavLink>
+              {/* dropdown menu */}
+              <ul className="submenu">
+                <li>
+                  <NavLink to="/" className="">
+                    About 1
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/" className="">
+                    About 2
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/signup" className="">
+                    About 3
+                  </NavLink>
+                </li>
+              </ul>
             </li>
+            {user?.email ? ( 
+             <>
+                <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
+                  <button onClick={handleSignOut}>Sign Out</button>
+                </li>
+              </>
+            ) : (
             <>
               <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
                 <NavLink
@@ -126,8 +209,24 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </>
+             )} 
           </ul>
         </div>
+        {isActive ? (
+          ""
+        ) : (
+          <div className="hidden lg:block">
+            <div className="btn-group flex items-center">
+              <button className="accent-btn" type="button">
+                <SearchIcon />
+              </button>
+              <button className="accent-btn" type="button">
+                <MailOutlineIcon className="mr-2 text-sm" />
+                Request Loan
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
     </div>
   );

@@ -7,8 +7,13 @@
   line-height: 24px;
   color: #010c3a;
 }
-
+.header-left p {
+  margin-bottom: 0;
+}
 /* Navbar css for responsive */
+.mobile-menu {
+  z-index: 999;
+}
 .navbar-toggler {
   padding: 0.5rem;
   background: #010c3a;
@@ -19,7 +24,6 @@
   width: 56px;
   text-align: center;
 }
-
 
 .navbar__menu {
   @apply flex flex-wrap items-center justify-between lg:flex-nowrap lg:justify-start;
@@ -51,8 +55,75 @@
 
 .navbar-nav li div {
   @apply lg:inline-flex items-center lg:pl-3 block pl-0 text-center;
-}  
-
+}
+ul.navbar__nav > li {
+  position: relative;
+  padding: 26px 0;
+}
+ul.navbar__nav > li:last-child {
+  margin-right: 0;
+}
+ul.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #010c3a;
+  min-width: 250px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
+  transform-origin: top;
+  transform-style: preserve-3d;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.3s;
+  transition-property: all;
+}
+ul.navbar__nav li:hover > ul.submenu {
+  padding: 10px 0;
+  opacity: 1;
+  visibility: visible;
+  transform: rotateX(0deg);
+  transition: all 300ms ease;
+}
+ul.submenu li {
+  margin: 0;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+ul.submenu li:last-child {
+  border: 0;
+}
+ul.submenu li a {
+  color: #fff;
+  /* position: relative; */
+  display: inline-block;
+  font-size: 16px;
+  line-height: 30px;
+  width: 100%;
+  letter-spacing: 0;
+  font-weight: 400;
+  padding: 6px 0px;
+  transition: 500ms;
+  z-index: 1;
+  padding: 6px 18px;
+  transition: 0.3s;
+}
+ul.submenu li:hover a {
+  color: #fff;
+  background: #cf173c;
+}
+button.accent-btn {
+  padding: 0 12px;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  background: #010c3a;
+  margin-left: 20px;
+  border-radius: 4px;
+}
 /* Banner area */
 .banner-area {
   height: 680px;
@@ -128,19 +199,72 @@
 ===Responsive CSS starts here===
 ============================= */
 /* XL/XXL Device :1200px. */
-@media (min-width: 1200px) and (max-width: 1500px) {}
+@media (min-width: 1200px) and (max-width: 1500px) {
+}
 
 /* LG Large Device :992px. */
-@media (min-width: 992px) and (max-width: 1200px) {}
+@media (min-width: 992px) and (max-width: 1200px) {
+}
 
 /* Tablet Medium Device :768px. */
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 991px) {
+  button.accent-btn {
+    padding: 0 10px;
+    height: 45px;
+    line-height: 45px;
+    margin-left: 10px;
+    border-radius: 4px;
+  }
+  ul.navbar__nav li {
+    width: 100%;
+    margin-right: 0;
+  }
+  ul.navbar__nav {
+    background: #010c3a;
+    color: #fff;
+    padding: 20px;
+    margin-top: 15px;
+  }
+  ul.navbar__nav > li {
+    position: static;
+  }
+  ul.navbar__nav li:hover > ul.submenu {
+    display: block;
+    position: static;
+  }
+  ul.navbar__nav > li {
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  ul.navbar__nav > li:last-child {
+    border: 0;
+  }
+  .main-header.relative {
+    padding: 10px 0;
+  }
+  .header-top.py-4.bg-\[\#041C51\] {
+    padding: 6px 0;
+  }
+}
 
 /* Large Mobile :480px. */
-@media only screen and (min-width: 480px) and (max-width: 767px) {}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  ul.navbar__nav {
+    background: #010c3a;
+    color: #fff;
+    padding: 20px;
+    margin-top: 15px;
+  }
+}
 
 /* SM Small Device :320px. */
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  button.accent-btn {
+    padding: 0 10px;
+    height: 45px;
+    line-height: 45px;
+    margin-left: 10px;
+  }
   .team-2 {
     margin-top: 170px;
   }
@@ -164,5 +288,34 @@
 
   .credit-card-img.mb-\[32px\].md\:mb-0.md\:mr-12 {
     margin-top: 50px;
+  }
+  ul.navbar__nav > li {
+    position: static;
+  }
+  ul.navbar__nav li:hover > ul.submenu {
+    display: block;
+    position: static;
+  }
+  ul.navbar__nav > li {
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  ul.navbar__nav > li:last-child {
+    border: 0;
+  }
+  .main-header.relative {
+    padding: 10px 0;
+  }
+  .header-top.py-4.bg-\[\#041C51\] {
+    padding: 6px 0;
+  }
+  ul.navbar__nav {
+    background: #010c3a;
+    color: #fff;
+    padding: 20px;
+    margin-top: 15px;
+  }
+  .header-left p {
+    margin-bottom: 0;
   }
 }

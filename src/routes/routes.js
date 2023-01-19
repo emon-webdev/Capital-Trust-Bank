@@ -7,7 +7,11 @@ import Home from "../Pages/Home/Home";
 import Insurance from "../Pages/Insurance/Insurance";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Login/Signup";
+import EducationLoan from "../Pages/Services/EducationLoan";
+import HomeLoan from "../Pages/Services/HomeLoan";
+import MarriageLoan from "../Pages/Services/MarriageLoan";
 import Services from "../Pages/Services/Services";
+import VehicleLoan from "../Pages/Services/VehicleLoan";
 import Error from "../Pages/Shared/Error";
 
 const router = createBrowserRouter([
@@ -32,6 +36,22 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
+      },
+      {
+        path: "/homeloan",
+        element: <HomeLoan />,
+      },
+      {
+        path: "/educationloan",
+        element: <EducationLoan />,
+      },
+      {
+        path: "/marriageloan",
+        element: <MarriageLoan />,
+      },
+      {
+        path: "/vehicleloan",
+        element: <VehicleLoan />,
       },
       {
         path: "/contact",
