@@ -75,6 +75,54 @@ export default function ApplyForm() {
     "Moulvibazar",
     "Sunamganj",
     "Sylhet",
+    "Rangamati",
+    "Dhaka",
+    "Faridpur",
+    "Gazipur",
+    "Gopalganj",
+    "Kishoreganj",
+    "Madaripur",
+    "Manikganj",
+    "Munshiganj",
+    "Narayanganj",
+    "Narsingdi",
+    "Rajbari",
+    "Shariatpur",
+    "Tangail",
+    "Bagerhat",
+    "Chuadanga",
+    "Jessore",
+    "Jhenaidah",
+    "Khulna",
+    "Kushtia",
+    "Magura",
+    "Meherpur",
+    "Narail",
+    "Satkhira",
+    "Jamalpur",
+    "Mymensingh",
+    "Netrakona",
+    "Sherpur",
+    "Bogra",
+    "Chapainawabganj",
+    "Joypurhat",
+    "Naogaon",
+    "Natore",
+    "Pabna",
+    "Rajshahi",
+    "Sirajganj",
+    "Dinajpur",
+    "Gaibandha",
+    "Kurigram",
+    "Lalmonirhat",
+    "Nilphamari",
+    "Panchagarh",
+    "Rangpur",
+    "Thakurgaon",
+    "Habiganj",
+    "Moulvibazar",
+    "Sunamganj",
+    "Sylhet",
   ];
   const [loans, setLoans] = useState([]);
   useEffect(() => {
@@ -86,6 +134,8 @@ export default function ApplyForm() {
   const ser = useLoaderData();
 
   return (
+    <div className="apply-area w-100 d-flex justify-center my-20">
+      
     <div className="apply-area w-100  my-20" >
       <Box
         className="container"
@@ -102,16 +152,11 @@ export default function ApplyForm() {
         }}
         maxWidth="1000px"
       >
-        <form
-          style={{
-            background: "#F7F1EB",
-            marginTop: "10px",
-            width: "500px",
-            height: "500px",
-          }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-5 mb-4 "
-        >
-          <Grid container  >
+                                   
+          <form style={{ height: "400px",backgroundColor:'#F9F9F9',
+        height:'550px',width:'500px' }} className="p-5 mb-4 ">
+            
+          <Grid container className="my-3" >
             <Grid item xs={12}>
               <input
                 className="border m-3 p-2 w-100"
@@ -163,6 +208,7 @@ export default function ApplyForm() {
           </Grid>
         </form>
       </Box>
+    </div>
     </div>
   );
 }

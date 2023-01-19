@@ -2,19 +2,20 @@ import CloseIcon from "@mui/icons-material/Close";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
+import { AuthContext } from "../../context/AuthProvider";
 const Navbar = () => {
-  // const { logout, user } = useContext(AuthContext);
-  //   console.log(user?.displayName);
-  //   const handleSignOut = () => {
-  //     logout()
-  //       .then(() => {})
-  //       .catch((error) => {
-  //         console.log(error.message);
-  //       });
-  //   };
+  const { logout, user } = useContext(AuthContext);
+  console.log(user);
+  const handleSignOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   let activeClass = {
     color: "#DF0303",
@@ -30,18 +31,27 @@ const Navbar = () => {
     <div>
       <nav className="navbar__menu">
         <Link
-          className="navbar-brand font-bold text-2xl flex items-center flex-1"
+          className="navbar-brand font-bold text-2xl flex items-center"
           to="/"
         >
-          <img src={mailLogo} alt="" srcset="" />
+          <img src={mailLogo} alt="" srcSet="" />
           <span className="font-bold text-[32px] ml-1 text-[#010C3A]">
             C<span className=" text-[#DF0303]">T</span>B
           </span>
         </Link>
-        <div>
+        <div className="flex items-center">
+          <div className="lg:hidden btn-group flex items-center">
+            <button className="accent-btn" type="button">
+              <SearchIcon />
+            </button>
+            <button className="accent-btn hidden md:block" type="button">
+              <MailOutlineIcon className="mr-2 text-sm" />
+              Request Loan
+            </button>
+          </div>
           {isActive ? (
             <button
-              className="navbar-toggler text-2xl font-bold bg-[#010C3A] text-[#DF0303]"
+              className="navbar-toggler  accent-btn font-bold text-[#DF0303]"
               type="button"
               onClick={handleHumbagerMenu}
             >
@@ -49,7 +59,7 @@ const Navbar = () => {
             </button>
           ) : (
             <button
-              className="navbar-toggler text-2xl font-bold text-[#DF0303]"
+              className="navbar-toggler accent-btn font-bold text-[#DF0303]"
               type="button"
               onClick={handleHumbagerMenu}
             >
@@ -172,6 +182,13 @@ const Navbar = () => {
                 </li>
               </ul>
             </li>
+            {user?.email ? ( 
+             <>
+                <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
+                  <button onClick={handleSignOut}>Sign Out</button>
+                </li>
+              </>
+            ) : (
             <>
               <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
                 <NavLink
@@ -192,12 +209,13 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </>
+             )} 
           </ul>
         </div>
         {isActive ? (
-          ''
+          ""
         ) : (
-          <>
+          <div className="hidden lg:block">
             <div className="btn-group flex items-center">
               <button className="accent-btn" type="button">
                 <SearchIcon />
@@ -207,7 +225,7 @@ const Navbar = () => {
                 Request Loan
               </button>
             </div>
-          </>
+          </div>
         )}
       </nav>
     </div>

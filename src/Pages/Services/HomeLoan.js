@@ -1,8 +1,11 @@
 import React from 'react'
 
+import ApplyForm from '../Home/ApplyForm';
+
 export default function HomeLoan() {
   return (
-    <div>HomeLoan</div>
-  )
+    <div>
+      <ApplyForm></ApplyForm>
+    </div>
+  );
 }
-
