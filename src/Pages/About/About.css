@@ -13,6 +13,51 @@
 .about-sub-parent-img1 {
   /* position: relative; */
   position: absolute;
+  top: 25px;
+  right: 170px;
+}
+
+@media only screen and (max-width: 640px) {
+  .about-sub-parent-img1 {
+    display: none;
+  }
+}
+
+.about-sub-parent-img2 {
+  /* position: relative; */
+  position: absolute;
+  top: 25px;
+  right: 236px;
+}
+
+@media only screen and (max-width: 640px) {
+  .about-sub-parent-img2 {
+    display: none;
+  }
+}
+
+.about-sub-parent-img3 {
+  /* position: relative; */
+  position: absolute;
   top: 70px;
   right: 100px;
+}
+
+@media only screen and (max-width: 640px) {
+  .about-sub-parent-img3 {
+    display: none;
+  }
+}
+
+.about-sub-parent-img4 {
+  /* position: relative; */
+  position: absolute;
+  top: 77px;
+  right: -100px;
+}
+
+@media only screen and (max-width: 640px) {
+  .about-sub-parent-img4 {
+    display: none;
+  }
 }
