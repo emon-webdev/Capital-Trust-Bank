@@ -1,0 +1,18 @@
+.about-parent {
+  background-image: url("../../assets/aboutUs/aboutUs.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.about-sub-parent {
+  /* position: absolute; */
+  position: relative;
+}
+
+.about-sub-parent-img1 {
+  /* position: relative; */
+  position: absolute;
+  top: 70px;
+  right: 100px;
+}
