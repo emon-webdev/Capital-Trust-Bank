@@ -3,6 +3,8 @@ import Main from "../Layout/Main";
 import About from "../Pages/About/About";
 import Apply from "../Pages/Apply/Apply";
 import Contact from "../Pages/Contact/Contact";
+import ApplyCreditCard from "../Pages/Home/ApplyCreditCard";
+import ApplyForm from "../Pages/Home/ApplyForm";
 import Home from "../Pages/Home/Home";
 import Insurance from "../Pages/Insurance/Insurance";
 import Login from "../Pages/Login/Login";
@@ -34,8 +36,17 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/services",
+        path: "/service",
         element: <Services />,
+        loader:fetch('http://localhost:5000/loans')
+      },
+      {
+        path: "/loans/:id",
+        element: <ApplyForm></ApplyForm>,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/loans/${params.id}`
+          ),
       },
       {
         path: "/homeloan",

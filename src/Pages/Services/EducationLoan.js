@@ -4,7 +4,8 @@ import ApplyForm from '../Home/ApplyForm'
 export default function EducationLoan() {
   return (
     <div>
-      <ApplyForm></ApplyForm>
+      <h1>edu</h1>
+     
     </div>
   )
 }
