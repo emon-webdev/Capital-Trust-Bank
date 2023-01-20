@@ -1,33 +1,42 @@
 import CheckIcon from "@mui/icons-material/Check";
 import { TextField } from "@mui/material";
-import { Box } from "@mui/system";
 import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import creditCardImg from "../../assets/apply-loan/credit-card-img.png";
 import { AuthContext } from "../../context/AuthProvider";
 const ApplyCreditCard = () => {
   const { user } = useContext(AuthContext);
-  console.log(user?.displayName);
-  const handleApply = (event) => {
-    event.preventDefault();
-    const applierName = user?.displayName;
-    const accountId = event.target.accountId.value;
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
 
+  const handleApply = (data) => {
+    // event.preventDefault();
+    const applierName = user?.displayName;
+    const accountId = data.accountId;
     const applierInfo = {
       applierName,
       accountId,
     };
-
-    fetch("http://localhost:5000/appliers", {
+    console.log(applierInfo);
+    fetch("http://localhost:5000/cardAppliers", {
       method: "POST",
       headers: {
-        "content-type": "application.json",
+        "content-type": "application/json",
       },
       body: JSON.stringify(applierInfo),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-      });
+        if (data.acknowledged) {
+          console.log(data);
+          toast.success("Apply Success for card");
+        }
+      })
+      .then((error) => console.error(error));
   };
 
   return (
@@ -56,45 +65,57 @@ const ApplyCreditCard = () => {
               Velit esse cillum dolore eu fugiat nulla pariatur.
             </p>
             <div className="my-2">
-              <Box
-                onSubmit={handleApply}
-                component="form"
-                noValidate
-                autoComplete="off"
-              >
-                <TextField
-                  id="outlined-basic"
-                  label={` ${user ? user?.displayName : "Please Sign In"} `}
-                  name="applierName"
-                  aria-readonly
-                  disabled
-                  variant="outlined"
-                  sx={{
-                    width: "340px",
-                    height: "60px",
-                    marginBottom: "12px",
-                    marginRight: "15px",
-                  }}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Account Id"
-                  name="accountId"
-                  required
-                  variant="outlined"
-                  type="number"
-                  sx={{
-                    width: "340px",
-                    height: "60px",
-                    marginBottom: "20px",
-                  }}
-                />
+              <form onSubmit={handleSubmit(handleApply)}>
                 <div>
-                  <button className="primary-btn" type="submit">
-                    Apply Now
-                  </button>
+                  <TextField
+                    id="outlined-basic"
+                    label={` ${user ? user?.displayName : "Please Sign In"} `}
+                    name="applierName"
+                    aria-readonly
+                    disabled
+                    variant="outlined"
+                    sx={{
+                      width: "340px",
+                      height: "60px",
+                      marginBottom: "12px",
+                      marginRight: "15px",
+                    }}
+                  />
+                  <TextField
+                    id="outlined-basic"
+                    label="Account Id"
+                    required
+                    variant="outlined"
+                    sx={{
+                      width: "340px",
+                      height: "60px",
+                      marginBottom: "20px",
+                    }}
+                    {...register("accountId", {
+                      required: "Account Id is Required",
+                      minLength: {
+                        value: 24,
+                        message: "Account Id Minimum 24 character",
+                      },
+                      maxLength: {
+                        value: 24,
+                        message: "Account Id Must be 24 character",
+                      },
+                    })}
+                  />
+                  {errors.accountId && (
+                    <p className="text-red-600 text-sm mb-0">
+                      {errors.accountId?.message}
+                    </p>
+                  )}
+
+                  <div>
+                    <button className="primary-btn" type="submit">
+                      Apply Now
+                    </button>
+                  </div>
                 </div>
-              </Box>
+              </form>
             </div>
           </div>
         </div>

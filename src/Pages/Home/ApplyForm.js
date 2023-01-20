@@ -118,8 +118,8 @@ export default function ApplyForm() {
               label="city"
               className="border m-3 p-2"
             >
-              {districts.map((dis) => (
-                <option key={dis} value={dis}>
+              {districts?.map((dis, index) => (
+                <option key={index} value={dis}>
                   {dis}
                 </option>
               ))}
