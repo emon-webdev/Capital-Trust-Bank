@@ -196,8 +196,7 @@ export default function ApplyForm() {
         maxWidth="1000px"
       >
                                    
-          <form   onSubmit={handleSubmit} style={{ backgroundColor:'#F9F9F9',
-        height:'550px',width:'500px' }} className="p-5 mb-4 ">
+          <form   onSubmit={handleSubmit} style={{ backgroundColor:'#F9F9F9', height:'550px',width:'500px' }} className="p-5 mb-4 ">
             
           <Grid container className="my-3" >
             <Grid item xs={12}>
@@ -231,7 +230,7 @@ export default function ApplyForm() {
                 label="city"
                 className="border m-3 p-2"
                 placeholder="City"
-
+                ></select>
               <button
                 style={{ width: "400px" }}
                 className="primary-btn m-3 p-2  my-2 "
