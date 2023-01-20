@@ -53,11 +53,11 @@ class LoanCalculator extends React.Component {
                     <img className='side-img' src={sideimg} alt="" />
                     <div className="card-main">
                         <div className="inside-content">
-                            <div className='img'>
+                            {/* <div className='img'>
                                 <img className='icon' src={home} alt="" />
                                 <img className='icon' src={car} alt="" />
                                 <img className='icon' src={gold} alt="" />
-                            </div>
+                            </div> */}
                             <br />
                             <div>
                                 <h1>Loan Amount</h1>
