@@ -173,7 +173,7 @@ export default function MarriageLoan() {
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
-           navigate('/')
+          navigate('/')
         } else {
           toast.error(data.message);
         }
@@ -213,7 +213,7 @@ export default function MarriageLoan() {
               backgroundColor: "#041C51",
               height: "550px",
               width: "500px",
-              borderRadius:'10px'
+              borderRadius: '10px'
             }}
             className="p-5 mb-4 "
           >
