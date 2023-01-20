@@ -153,8 +153,7 @@ export default function ApplyForm() {
         maxWidth="1000px"
       >
                                    
-          <form style={{ height: "400px",backgroundColor:'#F9F9F9',
-        height:'550px',width:'500px' }} className="p-5 mb-4 ">
+          <form style={{ height: "400px",backgroundColor:'#F9F9F9', height:'550px',width:'500px' }} className="p-5 mb-4 ">
             
           <Grid container className="my-3" >
             <Grid item xs={12}>
