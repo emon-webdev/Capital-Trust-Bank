@@ -126,7 +126,7 @@ export default function GoldLoan() {
       "Pabna",
       "Rajshahi",
       "Sirajganj",
-      "Dinajpur",
+      "Dinajpurs",
       "Gaibandha",
       "Kurigram",
       "Lalmonirhat",
