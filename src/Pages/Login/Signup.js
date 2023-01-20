@@ -27,6 +27,7 @@ const Signup = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const [phone, setPhone] = useState("");
   const [showPassword, setShowPassword] = React.useState(false);
   const [loading, setLoading] = useState(false);
