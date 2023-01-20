@@ -11,15 +11,14 @@ import {
 import { useNavigate } from "react-router-dom";
   import { AuthContext } from "../../context/AuthProvider";
 
-export default function VehicleLoan() {
-
+export default function GoldLoan() {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const loan = {
-        "id": "4",
-        "details": "Own your dream car with Capital Trust Bank car loans. Capital Trust Bank offers uniquely tailored Car Loan product that takes the pain and hassle out of buying a car.",
-        "title": "Vehicle Loan",
-        "img": "https://i.ibb.co/vVxszGm/vehicle-loan.jpg"
+        "id": "2",
+        "details": " A secured loan, where gold jewellery is provided as collateral, is a gold loan. The loan amount that will be provided will depend on the value of the gold.",
+        "title": "Gold Loan",
+        "img": "https://i.ibb.co/4WB22H1/gold-loan.jpg"
     };
     const [district, setDistrict] = useState("");
     const handleChange = (event) => {
@@ -293,3 +292,7 @@ export default function VehicleLoan() {
       </div>
     );
 }
+
+
+
+

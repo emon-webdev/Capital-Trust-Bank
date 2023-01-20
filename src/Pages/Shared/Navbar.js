@@ -79,12 +79,7 @@ const Navbar = () => {
               </NavLink>
               {/* Submenu */}
               <ul className="submenu">
-                <li>
-                  <NavLink to="/homeloan" className="">
-                    Home Loan
-                  </NavLink>
-                </li>
-                <li>
+              <li>
                   <NavLink to="/educationloan" className="">
                     Education Loan
                   </NavLink>
@@ -94,6 +89,13 @@ const Navbar = () => {
                     Marriage Loan
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to="/goldloan" className="">
+                    Gold Loan
+                  </NavLink>
+                </li>
+            
+            
                 <li>
                   <NavLink to="/vehicleloan" className="">
                     Vehicle Loan
