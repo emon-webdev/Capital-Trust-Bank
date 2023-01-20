@@ -17,10 +17,12 @@ const Banner = () => {
       <div className="container">
         <div className="banner-content">
           <h3 className="text-white">Business Consultancy</h3>
-          <h2 className="text-white">Central Trust Bank For Better Future.</h2>
+          <h2 className="text-white">
+            Central Trust Bank <br /> For Better Future.
+          </h2>
           <p className="text-white">
-            We consider all the drivers of change <br /> from the ground up and we’ll
-            motivate <br /> and support you to make the change.
+            We consider all the drivers of change from the <br /> ground up and
+            we’ll motivate and support you to <br /> make the change.
           </p>
           <Link to="/apply-loan" className="secondary-btn">
             Apply For Loan

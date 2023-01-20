@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/AuthProvider";
 
 export default function ApplyForm() {
   const [district, setDistrict] = useState("");
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -145,125 +145,137 @@ export default function ApplyForm() {
     const city = form.city.value;
     const date = form.date.value;
     const loan = form.loan.value;
-    console.log(name,email, phone,city,date,loan );
+    console.log(name, email, phone, city, date, loan);
 
     const applicant = {
-      name:name,
-      email:email,
-      phone:phone,
-      city:city,
-      loan:loan,
-      date:date
-      
+      name: name,
+      email: email,
+      phone: phone,
+      city: city,
+      loan: loan,
+      date: date,
     };
- 
-     fetch('http://localhost:5000/applicants',{
-       method:"POST",
-       headers:{
-           'content-type':'application/json'
-       },
-       body:JSON.stringify(applicant)
-   })
-   .then(res=>res.json())
-   .then(data=>{
-       console.log(data)
-       if ( data.acknowledged){
-        toast.success("Application Successlly Done");
-             form.reset();
-             navigate('/')
-             
-        
-           
-       }
-       else{
-         toast.error(data.message)
-       }
- 
-   })
- 
-   
+
+    fetch("http://localhost:5000/applicants", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(applicant),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Application Successlly Done");
+          form.reset();
+          navigate("/");
+        } else {
+          toast.error(data.message);
+        }
+      });
   };
-  
 
   return (
     <div className="apply-area w-100 d-flex justify-center my-20">
-      
-    <div className="apply-area w-100  my-20" >
-      <Box
-        className="container"
-        display={"flex"}
-        alignItems="center"
-        justifyContent={"center"}
-        width="100%"
-        mx={"auto"}
-        height={"800px"}
-        zIndex="1"
-        sx={{
-          backgroundImage: `url(${apply})`,
-          backgroundRepeat: "no-repeat",
-        }}
-        maxWidth="1000px"
-      >
-                                   
-          <form   onSubmit={handleSubmit} style={{ backgroundColor:'#F9F9F9', height:'550px',width:'500px' }} className="p-5 mb-4 ">
-            
-          <Grid container className="my-3" >
-            <Grid item xs={12}>
-              <input
-               name="name"
-                className="border m-3 p-2 w-100"
-                style={{width:'400px'}}
-                placeholder="Your Name"
-                defaultValue={user.displayName}
-              ></input>
-            </Grid>
-            <Grid item lg={12}>
-              <input name="email" style={{width:'400px'}} className="border m-3 p-2" placeholder="Email" defaultValue={user.email}></input>
-            </Grid>
-            <Grid item xs={12}>
-              <input name="phone"  style={{width:'400px'}} className="border m-3 p-2" placeholder="Phone"></input>
-            </Grid>
-            <Grid item xs={12}>
-              <input name="loan"  style={{width:'400px'}}
-                className="border m-3 p-2"
-                placeholder="Loan"
-                defaultValue={ser.title}
-              ></input>
-            </Grid>
-            <Grid item xs={6}>
-              <select
-                name="city"
-                style={{ height: "50px", width: "400px" }}
-                value={district}
-                onChange={handleChange}
-                label="city"
-                className="border m-3 p-2"
-                placeholder="City"
+      <div className="apply-area w-100  my-20">
+        <Box
+          className="container"
+          display={"flex"}
+          alignItems="center"
+          justifyContent={"center"}
+          width="100%"
+          mx={"auto"}
+          height={"800px"}
+          zIndex="1"
+          sx={{
+            backgroundImage: `url(${apply})`,
+            backgroundRepeat: "no-repeat",
+          }}
+          maxWidth="1000px"
+        >
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              backgroundColor: "#F9F9F9",
+              height: "550px",
+              width: "500px",
+            }}
+            className="p-5 mb-4 "
+          >
+            <Grid container className="my-3">
+              <Grid item xs={12}>
+                <input
+                  name="name"
+                  className="border m-3 p-2 w-100"
+                  style={{ width: "400px" }}
+                  placeholder="Your Name"
+                  defaultValue={user.displayName}
+                ></input>
+              </Grid>
+              <Grid item lg={12}>
+                <input
+                  name="email"
+                  style={{ width: "400px" }}
+                  className="border m-3 p-2"
+                  placeholder="Email"
+                  defaultValue={user.email}
+                ></input>
+              </Grid>
+              <Grid item xs={12}>
+                <input
+                  name="phone"
+                  style={{ width: "400px" }}
+                  className="border m-3 p-2"
+                  placeholder="Phone"
+                ></input>
+              </Grid>
+              <Grid item xs={12}>
+                <input
+                  name="loan"
+                  style={{ width: "400px" }}
+                  className="border m-3 p-2"
+                  placeholder="Loan"
+                  defaultValue={ser.title}
+                ></input>
+              </Grid>
+              <Grid item xs={6}>
+                <select
+                  name="city"
+                  style={{ height: "50px", width: "400px" }}
+                  value={district}
+                  onChange={handleChange}
+                  label="city"
+                  className="border m-3 p-2"
+                  placeholder="City"
+                >
+                  {districts.map((dis) => (
+                    <option key={dis} value={dis}>
+                      {dis}
+                    </option>
+                  ))}
+                </select>
+              </Grid>
+              <Grid item lg={12}>
+                <input
+                  name="date"
+                  style={{ width: "400px" }}
+                  className="border m-3 p-2"
+                  placeholder="dd/mm/yy"
+                ></input>
+              </Grid>
 
+              <button
+                style={{ width: "400px" }}
+                className="primary-btn m-3 p-2  my-2 "
+                type="submit"
               >
-                {districts.map((dis) => (
-                  <option key={dis} value={dis}>
-                    {dis}
-                  </option>
-                ))}
-              </select>
+                Apply
+              </button>
             </Grid>
-            <Grid item lg={12}>
-              <input name="date"  style={{width:'400px'}} className="border m-3 p-2" placeholder="dd/mm/yy"></input>
-            </Grid>
-            
-            <button
-          
-             style={{width:'400px'}}
-              className="primary-btn m-3 p-2  my-2 "
-              type="submit"
-            >
-              Apply
-            </button>
-          </Grid>
-        </form>
-      </Box>
-    </div>
+          </form>
+        </Box>
+      </div>
     </div>
   );
 }

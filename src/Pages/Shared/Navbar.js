@@ -69,9 +69,19 @@ const Navbar = () => {
         </div>
         <div className={isActive ? "navbar-collapsed" : "navbar-collapse"}>
           <ul className="navbar__nav">
-            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
+            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
               <NavLink
                 to="/"
+                className="w-full block py-3"
+                style={({ isActive }) => (isActive ? activeClass : undefined)}
+              >
+                Home
+              </NavLink>
+            </li>
+
+            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
+              <NavLink
+                to="/services"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -79,7 +89,7 @@ const Navbar = () => {
               </NavLink>
               {/* Submenu */}
               <ul className="submenu">
-              <li>
+                <li>
                   <NavLink to="/educationloan" className="">
                     Education Loan
                   </NavLink>
@@ -94,8 +104,7 @@ const Navbar = () => {
                     Gold Loan
                   </NavLink>
                 </li>
-            
-            
+
                 <li>
                   <NavLink to="/vehicleloan" className="">
                     Vehicle Loan
