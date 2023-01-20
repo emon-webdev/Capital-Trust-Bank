@@ -205,7 +205,7 @@ export default function ApplyForm() {
         maxWidth="1000px"
       >
                                    
-          <form   onSubmit={handleSubmit} style={{ height: "400px",backgroundColor:'#F9F9F9',
+          <form   onSubmit={handleSubmit} style={{ backgroundColor:'#F9F9F9',
         height:'550px',width:'500px' }} className="p-5 mb-4 ">
             
           <Grid container className="my-3" >
