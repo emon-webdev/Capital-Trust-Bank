@@ -178,92 +178,59 @@ export default function ApplyForm() {
 
   return (
     <div className="apply-area w-100 d-flex justify-center my-20">
-      <div className="apply-area w-100  my-20">
-        <Box
-          className="container"
-          display={"flex"}
-          alignItems="center"
-          justifyContent={"center"}
-          width="100%"
-          mx={"auto"}
-          height={"800px"}
-          zIndex="1"
-          sx={{
-            backgroundImage: `url(${apply})`,
-            backgroundRepeat: "no-repeat",
-          }}
-          maxWidth="1000px"
-        >
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              backgroundColor: "#F9F9F9",
-              height: "550px",
-              width: "500px",
-            }}
-            className="p-5 mb-4 "
-          >
-            <Grid container className="my-3">
-              <Grid item xs={12}>
-                <input
-                  name="name"
-                  className="border m-3 p-2 w-100"
-                  style={{ width: "400px" }}
-                  placeholder="Your Name"
-                  defaultValue={user.displayName}
-                ></input>
-              </Grid>
-              <Grid item lg={12}>
-                <input
-                  name="email"
-                  style={{ width: "400px" }}
-                  className="border m-3 p-2"
-                  placeholder="Email"
-                  defaultValue={user.email}
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="phone"
-                  style={{ width: "400px" }}
-                  className="border m-3 p-2"
-                  placeholder="Phone"
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="loan"
-                  style={{ width: "400px" }}
-                  className="border m-3 p-2"
-                  placeholder="Loan"
-                  defaultValue={ser.title}
-                ></input>
-              </Grid>
-              <Grid item xs={6}>
-                <select
-                  name="city"
-                  style={{ height: "50px", width: "400px" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border m-3 p-2"
-                  placeholder="City"
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </Grid>
-              <Grid item lg={12}>
-                <input
-                  name="date"
-                  style={{ width: "400px" }}
-                  className="border m-3 p-2"
-                  placeholder="dd/mm/yy"
-                ></input>
-              </Grid>
+      
+    <div className="apply-area w-100  my-20" >
+      <Box
+        className="container"
+        display={"flex"}
+        alignItems="center"
+        justifyContent={"center"}
+        width="100%"
+        mx={"auto"}
+        height={"800px"}
+        zIndex="1"
+        sx={{
+          backgroundImage: `url(${apply})`,
+          backgroundRepeat: "no-repeat",
+        }}
+        maxWidth="1000px"
+      >
+                                   
+          <form   onSubmit={handleSubmit} style={{ backgroundColor:'#F9F9F9',
+        height:'550px',width:'500px' }} className="p-5 mb-4 ">
+            
+          <Grid container className="my-3" >
+            <Grid item xs={12}>
+              <input
+               name="name"
+                className="border m-3 p-2 w-100"
+                style={{width:'400px'}}
+                placeholder="Your Name"
+                defaultValue={user.displayName}
+              ></input>
+            </Grid>
+            <Grid item lg={12}>
+              <input name="email" style={{width:'400px'}} className="border m-3 p-2" placeholder="Email" defaultValue={user.email}></input>
+            </Grid>
+            <Grid item xs={12}>
+              <input name="phone"  style={{width:'400px'}} className="border m-3 p-2" placeholder="Phone"></input>
+            </Grid>
+            <Grid item xs={12}>
+              <input name="loan"  style={{width:'400px'}}
+                className="border m-3 p-2"
+                placeholder="Loan"
+                defaultValue={ser.title}
+              ></input>
+            </Grid>
+            <Grid item xs={6}>
+              <select
+                name="city"
+                style={{ height: "50px", width: "400px" }}
+                value={district}
+                onChange={handleChange}
+                label="city"
+                className="border m-3 p-2"
+                placeholder="City"
 
               <button
                 style={{ width: "400px" }}
