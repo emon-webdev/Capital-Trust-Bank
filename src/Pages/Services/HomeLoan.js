@@ -5,7 +5,7 @@ import ApplyForm from '../Home/ApplyForm';
 export default function HomeLoan() {
   return (
     <div>
-      <ApplyForm></ApplyForm>
+      
     </div>
   );
 }
