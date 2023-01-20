@@ -8,7 +8,7 @@ import mailLogo from "../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../context/AuthProvider";
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
-  console.log(user);
+
   const handleSignOut = () => {
     logOut()
       .then(() => {})
@@ -182,34 +182,38 @@ const Navbar = () => {
                 </li>
               </ul>
             </li>
-            {user?.email ? ( 
-             <>
+            {user?.email ? (
+              <>
                 <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
                   <button onClick={handleSignOut}>Sign Out</button>
                 </li>
               </>
             ) : (
-            <>
-              <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
-                <NavLink
-                  to="/login"
-                  className="w-full block py-3"
-                  style={({ isActive }) => (isActive ? activeClass : undefined)}
-                >
-                  Sign In
-                </NavLink>
-              </li>
-              <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
-                <NavLink
-                  to="/signup"
-                  className="w-full block py-3"
-                  style={({ isActive }) => (isActive ? activeClass : undefined)}
-                >
-                  Sign Up
-                </NavLink>
-              </li>
-            </>
-             )} 
+              <>
+                <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
+                  <NavLink
+                    to="/login"
+                    className="w-full block py-3"
+                    style={({ isActive }) =>
+                      isActive ? activeClass : undefined
+                    }
+                  >
+                    Sign In
+                  </NavLink>
+                </li>
+                <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
+                  <NavLink
+                    to="/signup"
+                    className="w-full block py-3"
+                    style={({ isActive }) =>
+                      isActive ? activeClass : undefined
+                    }
+                  >
+                    Sign Up
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         {isActive ? (
