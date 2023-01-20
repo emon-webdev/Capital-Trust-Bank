@@ -7,10 +7,9 @@ import { Link, NavLink } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../context/AuthProvider";
 const Navbar = () => {
-  const { logout, user } = useContext(AuthContext);
-  console.log(user);
+  const { logOut, user } = useContext(AuthContext);
   const handleSignOut = () => {
-    logout()
+    logOut()
       .then(() => {})
       .catch((error) => {
         console.log(error.message);
