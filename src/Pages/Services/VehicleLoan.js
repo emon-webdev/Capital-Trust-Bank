@@ -1,15 +1,15 @@
 import {
-    Card,
-    CardActionArea,
-    CardContent,
-    CardMedia,
-    Grid,
-    Typography,
-  } from "@mui/material";
-  import React, { useContext, useState } from "react";
-  import { toast } from "react-hot-toast";
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography
+} from "@mui/material";
+import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-  import { AuthContext } from "../../context/AuthProvider";
+import { AuthContext } from "../../context/AuthProvider";
 
 export default function VehicleLoan() {
 
@@ -209,7 +209,6 @@ export default function VehicleLoan() {
             <form
               onSubmit={handleSubmit}
               style={{
-                height: "400px",
                 backgroundColor: "#041C51",
                 height: "550px",
                 width: "500px",

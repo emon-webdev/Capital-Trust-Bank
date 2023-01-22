@@ -4,7 +4,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
-  Typography,
+  Typography
 } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -209,7 +209,6 @@ export default function MarriageLoan() {
           <form
             onSubmit={handleSubmit}
             style={{
-              height: "400px",
               backgroundColor: "#041C51",
               height: "550px",
               width: "500px",

@@ -1,6 +1,4 @@
-import { Button, Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
-import { Box } from '@mui/system';
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward'
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 // import education from "../../assets/Services(Home)/edu_loan.jpg";
 // import gold from "../../assets/Services(Home)/gold-loan.jpg";
