@@ -1,6 +1,4 @@
-import { Button, Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
-import { Box } from '@mui/system';
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward'
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 // import education from "../../assets/Services(Home)/edu_loan.jpg";
 // import gold from "../../assets/Services(Home)/gold-loan.jpg";
@@ -75,7 +73,7 @@ console.log(services);
                   {loan.details}
                 </Typography>
                 <Link to={`/loans/${loan._id}`}>
-                <button className='my-2 mx-auto flex items-center justify-center primary-btn' >Apply  </button></Link>
+                <button className='my-2 mx-auto flex items-center justify-center primary-btn' >Apply Now  </button></Link>
               </CardContent>
             </CardActionArea>
           </Card>
