@@ -71,6 +71,7 @@ ul.submenu {
   min-width: 250px;
   opacity: 0;
   visibility: hidden;
+  z-index: 999;
   -webkit-transform: rotateX(-90deg);
   transform: rotateX(-90deg);
   transform-origin: top;
@@ -185,21 +186,21 @@ button.accent-btn {
 }
 
 @media screen and (max-width: 768px) {
-    .team {
-      max-width: 100% !important;
-    }
-    .team-img-box {
-      left: 110px !important;
-    }
-    .icon-box {
-      left: 30% !important;
-      bottom: 18% !important;
-    }
-    .title-box {
-      position: absolute;
-      left: 110px;
-      top: 38px;
-    }
+  .team {
+    max-width: 100% !important;
+  }
+  .team-img-box {
+    left: 110px !important;
+  }
+  .icon-box {
+    left: 30% !important;
+    bottom: 18% !important;
+  }
+  .title-box {
+    position: absolute;
+    left: 110px;
+    top: 38px;
+  }
 }
 
 /* signup css */
@@ -219,7 +220,31 @@ button.accent-btn {
   cursor: pointer;
   border-radius: 4px;
 }
+/* Banner section */
 
+.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.css-1idn90j-MuiGrid-root {
+  text-align: center;
+}
+
+p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
+  text-align: center;
+  display: block;
+}
+
+.banner-content h2.text-white {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 80px;
+}
+
+.banner-content p.text-white {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.banner-content {
+  padding-top: 110px;
+}
 /* =============================
 ===Responsive CSS starts here===
 ============================= */

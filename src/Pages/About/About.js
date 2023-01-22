@@ -1,9 +1,10 @@
 import React from "react";
-import "./About.css";
+import aboutGroupImg from "../../assets/aboutUs/aboutGroupImg.png";
+import shape4 from "../../assets/aboutUs/about_bg_two.png";
+import shape3 from "../../assets/aboutUs/bg-shape3.png";
 import shape1 from "../../assets/aboutUs/Vector.png";
 import shape2 from "../../assets/aboutUs/Vector2.png";
-import shape3 from "../../assets/aboutUs/bg-shape3.png";
-import shape4 from "../../assets/aboutUs/about_bg_two.png";
+import "./About.css";
 
 const About = () => {
   return (
@@ -40,7 +41,9 @@ const About = () => {
       </div>
       {/*  */}
       <div className="my-12 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-        <div>image</div>
+        <div>
+          <img src={aboutGroupImg} alt="" srcset="" />
+        </div>
         <div>
           <h3>About Us</h3>
           <h1>We Provide World Business Solution In The City</h1>
