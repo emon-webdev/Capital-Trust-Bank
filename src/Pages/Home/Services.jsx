@@ -75,7 +75,7 @@ console.log(services);
                   {loan.details}
                 </Typography>
                 <Link to={`/loans/${loan._id}`}>
-                <Button color='error' ><Typography fontSize='14px'fontWeight={900} >READ MORE</Typography> <ArrowOutwardIcon /></Button></Link>
+                <button className='my-2 mx-auto flex items-center justify-center primary-btn' >Apply Now  </button></Link>
               </CardContent>
             </CardActionArea>
           </Card>

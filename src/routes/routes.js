@@ -10,7 +10,8 @@ import Insurance from "../Pages/Insurance/Insurance";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Login/Signup";
 import EducationLoan from "../Pages/Services/EducationLoan";
-import HomeLoan from "../Pages/Services/HomeLoan";
+import GoldLoan from "../Pages/Services/GoldLoan";
+import HomeLoan from "../Pages/Services/GoldLoan";
 import MarriageLoan from "../Pages/Services/MarriageLoan";
 import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
@@ -49,8 +50,8 @@ const router = createBrowserRouter([
           ),
       },
       {
-        path: "/homeloan",
-        element: <HomeLoan />,
+        path: "/goldloan",
+        element: <GoldLoan />,
       },
       {
         path: "/educationloan",
