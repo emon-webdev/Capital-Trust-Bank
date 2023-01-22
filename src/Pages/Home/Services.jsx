@@ -75,7 +75,7 @@ console.log(services);
                   {loan.details}
                 </Typography>
                 <Link to={`/loans/${loan._id}`}>
-                <button className='my-2 mx-auto flex items-center justify-center primary-btn' >Apply  </button></Link>
+                <button className='my-2 mx-auto flex items-center justify-center primary-btn' >Apply Now  </button></Link>
               </CardContent>
             </CardActionArea>
           </Card>
