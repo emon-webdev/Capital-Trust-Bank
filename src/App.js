@@ -9,16 +9,18 @@ function App() {
 
   useEffect(() => {
     setTimeout(() => {
-      setLoader(false)
-    }, 1000)
-  }, [])
+      setLoader(false);
+    }, 1000);
+  }, []);
   return (
     <div>
-      {
-        loader ? <Loader /> : <div className="App">
+      {loader ? (
+        <Loader />
+      ) : (
+        <div className="App">
           <RouterProvider router={router} />
         </div>
-      }
+      )}
     </div>
   );
 }

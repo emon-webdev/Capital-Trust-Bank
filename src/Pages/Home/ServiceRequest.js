@@ -3,9 +3,10 @@ import SectionTitle from "../../component/SectionTitle/SectionTitle";
 
 const ServiceRequest = () => {
   return (
-    <div>
-      <h2>Service Request</h2>
-      <SectionTitle/>
+    <div className="service-req-area">
+      <div className="container">
+        <SectionTitle  />
+      </div>
     </div>
   );
 };
