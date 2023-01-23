@@ -210,7 +210,7 @@ export default function ApplyForm() {
                   className="border m-3 p-2 w-100"
                   style={{ width: "400px" }}
                   placeholder="Your Name"
-                  defaultValue={user.displayName}
+                  defaultValue={user?.displayName}
                 ></input>
               </Grid>
               <Grid item lg={12}>
@@ -219,7 +219,7 @@ export default function ApplyForm() {
                   style={{ width: "400px" }}
                   className="border m-3 p-2"
                   placeholder="Email"
-                  defaultValue={user.email}
+                  defaultValue={user?.email}
                 ></input>
               </Grid>
               <Grid item xs={12}>

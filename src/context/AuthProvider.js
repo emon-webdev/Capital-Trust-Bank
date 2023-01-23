@@ -8,12 +8,11 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    
-    //create user with email and password
+    //create user with email & password
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
     };
-
+   
     // update user profile 
     const updateUser = (name, photo) => {
         setLoading(true)
