@@ -10,6 +10,7 @@ import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 export default function MarriageLoan() {
   const { user } = useContext(AuthContext);
@@ -182,6 +183,9 @@ export default function MarriageLoan() {
   };
   return (
     <div className="loan-area my-10 ">
+      <div className="mb-5">
+        <DynamicBanner name={name}></DynamicBanner>
+      </div>
       <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
         <div className="">
           <Card sx={{ maxWidth: 700, height: "auto" }}>
