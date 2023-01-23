@@ -112,17 +112,17 @@ export default function GoldLoan() {
             <Grid item xs={12}>
               <input
                 name="name"
-                className="border m-3 p-2 w-100"
+                className="border m-3 p-2 rounded "
                 style={{ width: "400px" }}
                 placeholder="Your Name"
                 defaultValue={user?.displayName}
               ></input>
             </Grid>
-            <Grid item lg={12}>
+            <Grid item xs={12}>
               <input
                 name="email"
                 style={{ width: "400px" }}
-                className="border m-3 p-2"
+                className="border m-3 p-2 rounded"
                 placeholder="Email"
                 defaultValue={user?.email}
               ></input>
@@ -131,7 +131,7 @@ export default function GoldLoan() {
               <input
                 name="phone"
                 style={{ width: "400px" }}
-                className="border m-3 p-2"
+                className="border m-3 p-2 rounded"
                 placeholder="Phone"
               ></input>
             </Grid>
@@ -139,19 +139,19 @@ export default function GoldLoan() {
               <input
                 name="loan"
                 style={{ width: "400px" }}
-                className="border m-3 p-2"
+                className="border  p-2 rounded"
                 placeholder="Loan"
                 defaultValue={loan.title}
               ></input>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12}>
               <select
                 name="city"
                 style={{ height: "50px", width: "400px" }}
                 value={district}
                 onChange={handleChange}
                 label="city"
-                className="border m-3 p-2"
+                className="border m-3 p-2 rounded"
                 placeholder="City"
               >
                 {districts.map((dis) => (
@@ -161,22 +161,24 @@ export default function GoldLoan() {
                 ))}
               </select>
             </Grid>
-            <Grid item lg={12}>
+            <Grid item xs={12}>
               <input
                 name="date"
                 style={{ width: "400px" }}
-                className="border m-3 p-2"
+                className="border m-3 p-2 rounded"
                 placeholder="dd/mm/yy"
               ></input>
             </Grid>
 
-            <button
+          <Grid item xs={12}>
+          <button
               style={{ width: "400px" }}
-              className="primary-btn m-3 p-2  my-2 "
+              className="primary-btn ms-5 m-3 p-2  my-2 "
               type="submit"
             >
               Apply
             </button>
+          </Grid>
           </Grid>
         </form>
       </div>
