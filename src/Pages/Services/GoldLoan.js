@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
   import { AuthContext } from "../../context/AuthProvider";
 
 export default function GoldLoan() {
-    // const { user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const loan = {
         "id": "2",
@@ -223,7 +223,7 @@ export default function GoldLoan() {
                     className="border m-3 p-2 w-100"
                     style={{ width: "400px" }}
                     placeholder="Your Name"
-                    // defaultValue={user.displayName}
+                    defaultValue={user.displayName}
                   ></input>
                 </Grid>
                 <Grid item lg={12}>
@@ -232,7 +232,7 @@ export default function GoldLoan() {
                     style={{ width: "400px" }}
                     className="border m-3 p-2"
                     placeholder="Email"
-                    // defaultValue={user.email}
+                    defaultValue={user.email}
                   ></input>
                 </Grid>
                 <Grid item xs={12}>
