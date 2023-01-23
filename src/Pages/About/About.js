@@ -4,6 +4,7 @@ import shape1 from "../../assets/aboutUs/Vector.png";
 import shape2 from "../../assets/aboutUs/Vector2.png";
 import shape3 from "../../assets/aboutUs/bg-shape3.png";
 import shape4 from "../../assets/aboutUs/about_bg_two.png";
+import circle from "../../assets/aboutUs/Circle.png";
 
 const About = () => {
   return (
@@ -39,8 +40,21 @@ const About = () => {
         </div>
       </div>
       {/*  */}
-      <div className="my-12 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-        <div>image</div>
+      <div className="my-12 container grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-24">
+        <div className="playing-position-parent">
+          <div className="playing-position-subParent">
+            <div className="flex flex-col text-white ">
+              <span>24+</span>
+              <span>Years Of</span>
+              <span>Experience</span>
+            </div>
+            <img
+              src={circle}
+              className="playing-position-child w-[25%] mt-40 ml-44"
+              alt=""
+            />
+          </div>
+        </div>
         <div>
           <h3>About Us</h3>
           <h1>We Provide World Business Solution In The City</h1>
