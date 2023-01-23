@@ -14,13 +14,16 @@ const Team = () => {
   return (
     <Box className="team-area py-12">
       <Box className="container mx-auto">
-        <Typography
+        {/* <Typography
         sx={{
           color: '#df0303',
           textAlign: 'center',
           fontWeight: 600,
         }}
-        >Our Team</Typography>
+        >Our Team</Typography> */}
+        <Typography marginBottom={2} textAlign="center" sx={{fontWeight: 'bold'}} color="#DF0303">
+        -- Our Team --
+      </Typography>
         <Typography
           sx={{
             fontSize: "48px",
