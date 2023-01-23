@@ -1,11 +1,11 @@
 import React from "react";
 import ApplyCreditCard from "./ApplyCreditCard";
-import ApplyForm from "./ApplyForm";
 import Banner from "./Banner";
 import Branding from "./Branding";
 import ContactUs from "./ContactUs";
 import FeaturedNews from "./FeaturedNews";
 import LoanCalculator from "./LoanCalculator";
+import ServiceRequest from "./ServiceRequest";
 import Services from "./Services.jsx";
 import Team from "./Team";
 
@@ -18,6 +18,7 @@ const Home = () => {
       {/* <ApplyForm/> */}
      
       {/* <Counter /> */}
+      <ServiceRequest/>
       <ApplyCreditCard />
       <Team />
       <Branding />
