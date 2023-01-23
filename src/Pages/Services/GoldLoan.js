@@ -12,13 +12,151 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 export default function GoldLoan() {
-    const { user } = useContext(AuthContext);
-    const navigate = useNavigate();
-    const loan = {
-        "id": "2",
-        "details": " A secured loan, where gold jewellery is provided as collateral, is a gold loan. The loan amount that will be provided will depend on the value of the gold.",
-        "title": "Gold Loan",
-        "img": "https://i.ibb.co/4WB22H1/gold-loan.jpg"
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const loan = {
+    "id": "2",
+    "details": " A secured loan, where gold jewellery is provided as collateral, is a gold loan. The loan amount that will be provided will depend on the value of the gold.",
+    "title": "Gold Loan",
+    "img": "https://i.ibb.co/4WB22H1/gold-loan.jpg"
+  };
+  const [district, setDistrict] = useState("");
+  const handleChange = (event) => {
+    setDistrict(event.target.value);
+  };
+
+  const districts = [
+    "Barguna",
+    "Barisal",
+    "Bhola",
+    "Jhalokati",
+    "Patuakhali",
+    "Pirojpur",
+    "Bandarban",
+    "Brahmanbaria",
+    "Chandpur",
+    "Chittagong",
+    "Comilla",
+    "Cox's Bazar",
+    "Feni",
+    "Khagrachhari",
+    "Lakshmipur",
+    "Noakhali",
+    "Rangamati",
+    "Dhaka",
+    "Faridpur",
+    "Gazipur",
+    "Gopalganj",
+    "Kishoreganj",
+    "Madaripur",
+    "Manikganj",
+    "Munshiganj",
+    "Narayanganj",
+    "Narsingdi",
+    "Rajbari",
+    "Shariatpur",
+    "Tangail",
+    "Bagerhat",
+    "Chuadanga",
+    "Jessore",
+    "Jhenaidah",
+    "Khulna",
+    "Kushtia",
+    "Magura",
+    "Meherpur",
+    "Narail",
+    "Satkhira",
+    "Jamalpur",
+    "Mymensingh",
+    "Netrakona",
+    "Sherpur",
+    "Bogra",
+    "Chapainawabganj",
+    "Joypurhat",
+    "Naogaon",
+    "Natore",
+    "Pabna",
+    "Rajshahi",
+    "Sirajganj",
+    "Dinajpur",
+    "Gaibandha",
+    "Kurigram",
+    "Lalmonirhat",
+    "Nilphamari",
+    "Panchagarh",
+    "Rangpur",
+    "Thakurgaon",
+    "Habiganj",
+    "Moulvibazar",
+    "Sunamganj",
+    "Sylhet",
+    "Rangamati",
+    "Dhaka",
+    "Faridpur",
+    "Gazipur",
+    "Gopalganj",
+    "Kishoreganj",
+    "Madaripur",
+    "Manikganj",
+    "Munshiganj",
+    "Narayanganj",
+    "Narsingdi",
+    "Rajbari",
+    "Shariatpur",
+    "Tangail",
+    "Bagerhat",
+    "Chuadanga",
+    "Jessore",
+    "Jhenaidah",
+    "Khulna",
+    "Kushtia",
+    "Magura",
+    "Meherpur",
+    "Narail",
+    "Satkhira",
+    "Jamalpur",
+    "Mymensingh",
+    "Netrakona",
+    "Sherpur",
+    "Bogra",
+    "Chapainawabganj",
+    "Joypurhat",
+    "Naogaon",
+    "Natore",
+    "Pabna",
+    "Rajshahi",
+    "Sirajganj",
+    "Dinajpur",
+    "Gaibandha",
+    "Kurigram",
+    "Lalmonirhat",
+    "Nilphamari",
+    "Panchagarh",
+    "Rangpur",
+    "Thakurgaon",
+    "Habiganj",
+    "Moulvibazar",
+    "Sunamganj",
+    "Sylhet",
+  ];
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const phone = form.phone.value;
+    const city = form.city.value;
+    const date = form.date.value;
+    const loan = form.loan.value;
+    console.log(name, email, phone, city, date, loan);
+
+    const applicant = {
+      name: name,
+      email: email,
+      phone: phone,
+      city: city,
+      loan: loan,
+      date: date,
     };
     const [district, setDistrict] = useState("");
     const handleChange = (event) => {
@@ -282,14 +420,100 @@ export default function GoldLoan() {
                   className="primary-btn m-3 p-2  my-2 "
                   type="submit"
                 >
-                  Apply
-                </button>
+                  {loan.title}
+                </Typography>
+                <Typography color="text.primary">{loan.details}</Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </div>
+        <div className="">
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              height: "400px",
+              backgroundColor: "#041C51",
+              height: "550px",
+              width: "500px",
+              borderRadius: '10px'
+            }}
+            className="p-5 mb-4 "
+          >
+            <Grid container className="my-3">
+              <Grid item xs={12}>
+                <input
+                  name="name"
+                  className="border m-3 p-2 w-100"
+                  style={{ width: "400px" }}
+                  placeholder="Your Name"
+                  defaultValue={user.displayName}
+                ></input>
               </Grid>
-            </form>
-          </div>
+              <Grid item lg={12}>
+                <input
+                  name="email"
+                  style={{ width: "400px" }}
+                  className="border m-3 p-2"
+                  placeholder="Email"
+                  defaultValue={user.email}
+                ></input>
+              </Grid>
+              <Grid item xs={12}>
+                <input
+                  name="phone"
+                  style={{ width: "400px" }}
+                  className="border m-3 p-2"
+                  placeholder="Phone"
+                ></input>
+              </Grid>
+              <Grid item xs={12}>
+                <input
+                  name="loan"
+                  style={{ width: "400px" }}
+                  className="border m-3 p-2"
+                  placeholder="Loan"
+                  defaultValue={loan.title}
+                ></input>
+              </Grid>
+              <Grid item xs={6}>
+                <select
+                  name="city"
+                  style={{ height: "50px", width: "400px" }}
+                  value={district}
+                  onChange={handleChange}
+                  label="city"
+                  className="border m-3 p-2"
+                  placeholder="City"
+                >
+                  {districts.map((dis) => (
+                    <option key={dis} value={dis}>
+                      {dis}
+                    </option>
+                  ))}
+                </select>
+              </Grid>
+              <Grid item lg={12}>
+                <input
+                  name="date"
+                  style={{ width: "400px" }}
+                  className="border m-3 p-2"
+                  placeholder="dd/mm/yy"
+                ></input>
+              </Grid>
+
+              <button
+                style={{ width: "400px" }}
+                className="primary-btn m-3 p-2  my-2 "
+                type="submit"
+              >
+                Apply
+              </button>
+            </Grid>
+          </form>
         </div>
       </div>
-    );
+    </div>
+  );
 }
 
 
