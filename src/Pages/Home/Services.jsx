@@ -15,7 +15,7 @@ const Services = () => {
   },[])
 
 const services = useLoaderData();
-console.log(services);
+// console.log(services);
 //   const ServicesData=[
 //     {
 //         "id":"1",
