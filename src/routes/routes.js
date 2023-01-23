@@ -35,17 +35,19 @@ const router = createBrowserRouter([
       },
 
       {
+        path: "/services",
+        element: <Services />,
+      },
+      {
         path: "/service",
         element: <Services />,
-        loader:fetch('http://localhost:5000/loans')
+        loader: fetch("http://localhost:5000/loans"),
       },
       {
         path: "/loans/:id",
         element: <ApplyForm></ApplyForm>,
         loader: ({ params }) =>
-          fetch(
-            `http://localhost:5000/loans/${params.id}`
-          ),
+          fetch(`http://localhost:5000/loans/${params.id}`),
       },
       {
         path: "/goldloan",

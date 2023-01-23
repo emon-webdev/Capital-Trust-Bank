@@ -4,7 +4,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
-  Typography
+  Typography,
 } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -14,6 +14,7 @@ import { AuthContext } from "../../context/AuthProvider";
 export default function MarriageLoan() {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [name, setName] = useState("Marriage Loan");
   const loan = {
     id: "3",
     details:
@@ -173,7 +174,7 @@ export default function MarriageLoan() {
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
-           navigate('/')
+          navigate("/");
         } else {
           toast.error(data.message);
         }
@@ -212,7 +213,7 @@ export default function MarriageLoan() {
               backgroundColor: "#041C51",
               height: "550px",
               width: "500px",
-              borderRadius:'10px'
+              borderRadius: "10px",
             }}
             className="p-5 mb-4 "
           >

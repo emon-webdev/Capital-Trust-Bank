@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 const Services = () => {
+  const [name, setName] = useState("Services");
   return (
     <div className="team-area ">
-      <div className="container">
-        <h2>Services</h2>
-      </div>
+      <DynamicBanner name={name}></DynamicBanner>
     </div>
   );
 };
