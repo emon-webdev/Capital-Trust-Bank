@@ -5,7 +5,9 @@ const Services = () => {
   const [name, setName] = useState("Services");
   return (
     <div className="team-area ">
-      <DynamicBanner name={name}></DynamicBanner>
+      <div className="mb-5">
+        <DynamicBanner name={name}></DynamicBanner>
+      </div>
     </div>
   );
 };
