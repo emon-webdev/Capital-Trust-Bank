@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Layout from '../Dashboard/components/Layout/Layout';
 import Main from "../Layout/Main";
 import About from "../Pages/About/About";
 import Apply from "../Pages/Apply/Apply";
@@ -37,15 +38,13 @@ const router = createBrowserRouter([
       {
         path: "/service",
         element: <Services />,
-        loader: fetch('http://localhost:5000/loans')
+        loader: fetch("http://localhost:5000/loans"),
       },
       {
         path: "/loans/:id",
         element: <ApplyForm></ApplyForm>,
         loader: ({ params }) =>
-          fetch(
-            `http://localhost:5000/loans/${params.id}`
-          ),
+          fetch(`http://localhost:5000/loans/${params.id}`),
       },
       {
         path: "/goldloan",
@@ -78,6 +77,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
+      },
+      {
+        path: "/dashboard",
+        element: <Layout />,
       },
     ],
   },

@@ -92,3 +92,9 @@ h6 {
   background: url("/src/assets/logo/dot_shapes.png");
   z-index: -1;
 }
+.default-bg{
+  background-image: linear-gradient(to right,#000428,#004E92);
+}
+.default-font{
+  color: white;
+}
