@@ -10,6 +10,7 @@ import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import { districts } from "./districtData";
 
 export default function EducationLoan() {
   const { user } = useContext(AuthContext);
@@ -25,120 +26,6 @@ export default function EducationLoan() {
     setDistrict(event.target.value);
   };
 
-  const districts = [
-    "Barguna",
-    "Barisal",
-    "Bhola",
-    "Jhalokati",
-    "Patuakhali",
-    "Pirojpur",
-    "Bandarban",
-    "Brahmanbaria",
-    "Chandpur",
-    "Chittagong",
-    "Comilla",
-    "Cox's Bazar",
-    "Feni",
-    "Khagrachhari",
-    "Lakshmipur",
-    "Noakhali",
-    "Rangamati",
-    "Dhaka",
-    "Faridpur",
-    "Gazipur",
-    "Gopalganj",
-    "Kishoreganj",
-    "Madaripur",
-    "Manikganj",
-    "Munshiganj",
-    "Narayanganj",
-    "Narsingdi",
-    "Rajbari",
-    "Shariatpur",
-    "Tangail",
-    "Bagerhat",
-    "Chuadanga",
-    "Jessore",
-    "Jhenaidah",
-    "Khulna",
-    "Kushtia",
-    "Magura",
-    "Meherpur",
-    "Narail",
-    "Satkhira",
-    "Jamalpur",
-    "Mymensingh",
-    "Netrakona",
-    "Sherpur",
-    "Bogra",
-    "Chapainawabganj",
-    "Joypurhat",
-    "Naogaon",
-    "Natore",
-    "Pabna",
-    "Rajshahi",
-    "Sirajganj",
-    "Dinajpur",
-    "Gaibandha",
-    "Kurigram",
-    "Lalmonirhat",
-    "Nilphamari",
-    "Panchagarh",
-    "Rangpur",
-    "Thakurgaon",
-    "Habiganj",
-    "Moulvibazar",
-    "Sunamganj",
-    "Sylhet",
-    "Rangamati",
-    "Dhaka",
-    "Faridpur",
-    "Gazipur",
-    "Gopalganj",
-    "Kishoreganj",
-    "Madaripur",
-    "Manikganj",
-    "Munshiganj",
-    "Narayanganj",
-    "Narsingdi",
-    "Rajbari",
-    "Shariatpur",
-    "Tangail",
-    "Bagerhat",
-    "Chuadanga",
-    "Jessore",
-    "Jhenaidah",
-    "Khulna",
-    "Kushtia",
-    "Magura",
-    "Meherpur",
-    "Narail",
-    "Satkhira",
-    "Jamalpur",
-    "Mymensingh",
-    "Netrakona",
-    "Sherpur",
-    "Bogra",
-    "Chapainawabganj",
-    "Joypurhat",
-    "Naogaon",
-    "Natore",
-    "Pabna",
-    "Rajshahi",
-    "Sirajganj",
-    "Dinajpur",
-    "Gaibandha",
-    "Kurigram",
-    "Lalmonirhat",
-    "Nilphamari",
-    "Panchagarh",
-    "Rangpur",
-    "Thakurgaon",
-    "Habiganj",
-    "Moulvibazar",
-    "Sunamganj",
-    "Sylhet",
-  ];
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -223,7 +110,7 @@ export default function EducationLoan() {
                   className="border m-3 p-2 w-100"
                   style={{ width: "400px" }}
                   placeholder="Your Name"
-                  defaultValue={user.displayName}
+                  defaultValue={user?.displayName}
                 ></input>
               </Grid>
               <Grid item lg={12}>
@@ -232,7 +119,7 @@ export default function EducationLoan() {
                   style={{ width: "400px" }}
                   className="border m-3 p-2"
                   placeholder="Email"
-                  defaultValue={user.email}
+                  defaultValue={user?.email}
                 ></input>
               </Grid>
               <Grid item xs={12}>
