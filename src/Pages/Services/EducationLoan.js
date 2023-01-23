@@ -1,19 +1,30 @@
-import { Grid } from "@mui/material";
-import { Box } from "@mui/system";
-import React, { useContext, useEffect, useState } from "react";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+} from "@mui/material";
+import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
-import { useLoaderData, useNavigate } from "react-router-dom";
-import apply from "../../assets/Services(Home)/apply-form-box-bg.jpg";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
-export default function ApplyForm() {
-  const [district, setDistrict] = useState("");
+export default function EducationLoan() {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  const loan = {
+    "id": "1",
+    "details": "Our Education Loan covers the entire cost of your child education to help you send your children for higher education abroad.",
+    "title": "Education Loan",
+    "img": "https://i.ibb.co/2WYbDt5/edu-loan.jpg"
+  };
+  const [district, setDistrict] = useState("");
   const handleChange = (event) => {
     setDistrict(event.target.value);
   };
+
   const districts = [
     "Barguna",
     "Barisal",
@@ -128,14 +139,6 @@ export default function ApplyForm() {
     "Sunamganj",
     "Sylhet",
   ];
-  const [loans, setLoans] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/loans")
-      .then((res) => res.json())
-      .then((data) => setLoans(data));
-  }, []);
-
-  const ser = useLoaderData();
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -169,37 +172,47 @@ export default function ApplyForm() {
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
-          navigate("/");
+           navigate('/')
         } else {
           toast.error(data.message);
         }
       });
   };
-
   return (
-    <div className="apply-area w-100 d-flex justify-center my-20">
-      <div className="apply-area w-100  my-20">
-        <Box
-          className="container"
-          display={"flex"}
-          alignItems="center"
-          justifyContent={"center"}
-          width="100%"
-          mx={"auto"}
-          height={"800px"}
-          zIndex="1"
-          sx={{
-            backgroundImage: `url(${apply})`,
-            backgroundRepeat: "no-repeat",
-          }}
-          maxWidth="1000px"
-        >
+    <div className="loan-area my-10 ">
+      <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+        <div className="">
+          <Card sx={{ maxWidth: 700, height: "auto" }}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                height="140"
+                image={loan.img}
+                alt="green iguana"
+              />
+              <CardContent>
+                <Typography
+                  fontSize={26}
+                  fontWeight={600}
+                  gutterBottom
+                  component="div"
+                >
+                  {loan.title}
+                </Typography>
+                <Typography color="text.primary">{loan.details}</Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </div>
+        <div className="">
           <form
             onSubmit={handleSubmit}
             style={{
-              backgroundColor: "#F9F9F9",
+              height: "400px",
+              backgroundColor: "#041C51",
               height: "550px",
               width: "500px",
+              borderRadius:'10px'
             }}
             className="p-5 mb-4 "
           >
@@ -236,7 +249,7 @@ export default function ApplyForm() {
                   style={{ width: "400px" }}
                   className="border m-3 p-2"
                   placeholder="Loan"
-                  defaultValue={ser.title}
+                  defaultValue={loan.title}
                 ></input>
               </Grid>
               <Grid item xs={6}>
@@ -274,8 +287,9 @@ export default function ApplyForm() {
               </button>
             </Grid>
           </form>
-        </Box>
+        </div>
       </div>
     </div>
   );
 }
+

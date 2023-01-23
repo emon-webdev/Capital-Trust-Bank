@@ -1,10 +1,10 @@
-import { Icon, Link, TextField } from "@mui/material";
-import React from "react";
-import "./Footer.css";
-import logo from "../../assets/logo/mainlogo.png";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import { Link } from "@mui/material";
+import React from "react";
+import logo from "../../assets/logo/mainlogo.png";
+import "./Footer.css";
 // import TwitterIcon from "@mui/icons-material/Twitter";
 const Footer = () => {
   return (

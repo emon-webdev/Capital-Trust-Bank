@@ -4,6 +4,7 @@ import { HiOutlineMailOpen } from "react-icons/hi";
 import MenuOption from "./MenuOption";
 import Navbar from "./Navbar";
 const Header = () => {
+
   return (
     <div className="header-area">
       <div className="header-top py-4 bg-[#041C51]">
