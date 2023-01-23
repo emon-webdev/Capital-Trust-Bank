@@ -1,15 +1,15 @@
 import {
-    Card,
-    CardActionArea,
-    CardContent,
-    CardMedia,
-    Grid,
-    Typography,
-  } from "@mui/material";
-  import React, { useContext, useState } from "react";
-  import { toast } from "react-hot-toast";
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography
+} from "@mui/material";
+import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-  import { AuthContext } from "../../context/AuthProvider";
+import { AuthContext } from "../../context/AuthProvider";
 
 export default function VehicleLoan() {
 

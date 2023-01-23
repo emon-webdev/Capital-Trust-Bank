@@ -7,10 +7,10 @@ import { Link, NavLink } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../context/AuthProvider";
 const Navbar = () => {
-  const { logout, user } = useContext(AuthContext);
-  console.log(user);
+  const { logOut, user } = useContext(AuthContext);
+
   const handleSignOut = () => {
-    logout()
+    logOut()
       .then(() => {})
       .catch((error) => {
         console.log(error.message);
@@ -69,9 +69,19 @@ const Navbar = () => {
         </div>
         <div className={isActive ? "navbar-collapsed" : "navbar-collapse"}>
           <ul className="navbar__nav">
-            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
+            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
               <NavLink
                 to="/"
+                className="w-full block py-3"
+                style={({ isActive }) => (isActive ? activeClass : undefined)}
+              >
+                Home
+              </NavLink>
+            </li>
+
+            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
+              <NavLink
+                to="/services"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -79,7 +89,7 @@ const Navbar = () => {
               </NavLink>
               {/* Submenu */}
               <ul className="submenu">
-              <li>
+                <li>
                   <NavLink to="/educationloan" className="">
                     Education Loan
                   </NavLink>
@@ -94,8 +104,7 @@ const Navbar = () => {
                     Gold Loan
                   </NavLink>
                 </li>
-            
-            
+
                 <li>
                   <NavLink to="/vehicleloan" className="">
                     Vehicle Loan
@@ -159,7 +168,7 @@ const Navbar = () => {
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-                to="/services"
+                to="/about"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -168,50 +177,54 @@ const Navbar = () => {
               {/* dropdown menu */}
               <ul className="submenu">
                 <li>
-                  <NavLink to="/" className="">
+                  <NavLink to="/about" className="">
                     About 1
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/" className="">
+                  <NavLink to="/about" className="">
                     About 2
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/signup" className="">
+                  <NavLink to="/about" className="">
                     About 3
                   </NavLink>
                 </li>
               </ul>
             </li>
-            {user?.email ? ( 
-             <>
+            {user?.email ? (
+              <>
                 <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
                   <button onClick={handleSignOut}>Sign Out</button>
                 </li>
               </>
             ) : (
-            <>
-              <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
-                <NavLink
-                  to="/login"
-                  className="w-full block py-3"
-                  style={({ isActive }) => (isActive ? activeClass : undefined)}
-                >
-                  Sign In
-                </NavLink>
-              </li>
-              <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
-                <NavLink
-                  to="/signup"
-                  className="w-full block py-3"
-                  style={({ isActive }) => (isActive ? activeClass : undefined)}
-                >
-                  Sign Up
-                </NavLink>
-              </li>
-            </>
-             )} 
+              <>
+                <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
+                  <NavLink
+                    to="/login"
+                    className="w-full block py-3"
+                    style={({ isActive }) =>
+                      isActive ? activeClass : undefined
+                    }
+                  >
+                    Sign In
+                  </NavLink>
+                </li>
+                <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
+                  <NavLink
+                    to="/signup"
+                    className="w-full block py-3"
+                    style={({ isActive }) =>
+                      isActive ? activeClass : undefined
+                    }
+                  >
+                    Sign Up
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         {isActive ? (

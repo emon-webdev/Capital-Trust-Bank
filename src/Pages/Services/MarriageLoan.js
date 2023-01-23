@@ -4,7 +4,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
-  Typography,
+  Typography
 } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -173,7 +173,7 @@ export default function MarriageLoan() {
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
-           navigate('/')
+          navigate('/')
         } else {
           toast.error(data.message);
         }
@@ -209,11 +209,10 @@ export default function MarriageLoan() {
           <form
             onSubmit={handleSubmit}
             style={{
-              height: "400px",
               backgroundColor: "#041C51",
               height: "550px",
               width: "500px",
-              borderRadius:'10px'
+              borderRadius: '10px'
             }}
             className="p-5 mb-4 "
           >
