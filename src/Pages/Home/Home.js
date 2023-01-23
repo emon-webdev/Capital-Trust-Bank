@@ -4,6 +4,7 @@ import Banner from "./Banner";
 import Branding from "./Branding";
 import ContactUs from "./ContactUs";
 import FeaturedNews from "./FeaturedNews";
+import LoanCalculator from "./LoanCalculator";
 import ServiceRequest from "./ServiceRequest";
 import Services from "./Services.jsx";
 import Team from "./Team";
@@ -22,7 +23,7 @@ const Home = () => {
       <Team />
       <Branding />
       <FeaturedNews />
-      {/* <LoanCalculator /> */}
+      <LoanCalculator />
       <ContactUs />
     </div>
   );

@@ -174,8 +174,8 @@ button.accent-btn {
   color: #fff;
   transition: all 0.3s;
   transition: all 0.3s;
-  width: 30px;
-  height: 30px;
+  width: 30px !important;
+  height: 30px !important;
   pad: 8px;
 }
 
