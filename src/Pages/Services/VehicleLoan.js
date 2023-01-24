@@ -94,76 +94,76 @@ export default function VehicleLoan() {
         </div>
         <div className="">
           <form
-            onSubmit={handleSubmit}
-            style={{
-              backgroundColor: "#041C51",
-              height: "550px",
-              width: "500px",
-              borderRadius: "10px",
-            }}
-            className="p-5 mb-4 "
-          >
-            <Grid container className="my-3">
-              <Grid item xs={12}>
-                <input
-                  name="name"
-                  className="border m-3 p-2 rounded "
-                  style={{ width: "400px" }}
-                  placeholder="Your Name"
-                  defaultValue={user?.displayName}
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="email"
-                  style={{ width: "400px" }}
-                  className="border m-3 p-2 rounded"
-                  placeholder="Email"
-                  defaultValue={user?.email}
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="phone"
-                  style={{ width: "400px" }}
-                  className="border m-3 p-2 rounded"
-                  placeholder="Phone"
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="loan"
-                  style={{ width: "400px" }}
-                  className="border  p-2 rounded"
-                  placeholder="Loan"
-                  defaultValue={loan.title}
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <select
-                  name="city"
-                  style={{ height: "50px", width: "400px" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border m-3 p-2 rounded"
-                  placeholder="City"
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="date"
-                  style={{ width: "400px" }}
-                  className="border m-3 p-2 rounded"
-                  placeholder="dd/mm/yy"
-                ></input>
-              </Grid>
+          onSubmit={handleSubmit}
+          style={{
+            backgroundColor: "#041C51",
+            height: "550px",
+            width: "500px",
+            borderRadius:'10px'
+          }}
+          className="p-5 mb-4 "
+        >
+          <Grid container className="my-3">
+            <Grid item xs={12}>
+              <input
+                name="name"
+                className="border m-3 p-2 rounded "
+                style={{ width: "400px" }}
+                placeholder="Your Name"
+                defaultValue={user?.displayName}
+              ></input>
+            </Grid>
+            <Grid item xs={12}>
+              <input
+                name="email"
+                style={{ width: "400px" }}
+                className="border m-3 p-2 rounded"
+                placeholder="Email"
+                defaultValue={user?.email}
+              ></input>
+            </Grid>
+            <Grid item xs={12}>
+              <input
+                name="phone"
+                style={{ width: "400px" }}
+                className="border m-3 p-2 rounded"
+                placeholder="Phone"
+              ></input>
+            </Grid>
+            <Grid item xs={12}>
+              <input
+                name="loan"
+                style={{ width: "400px" }}
+                className="border  p-2 rounded"
+                placeholder="Loan"
+                defaultValue={loan.title}
+              ></input>
+            </Grid>
+            <Grid item xs={12}>
+              <select
+                name="city"
+                style={{ height: "50px", width: "400px" }}
+                value={district}
+                onChange={handleChange}
+                label="city"
+                className="border m-3 p-2 rounded"
+                placeholder="City"
+              >
+                {districts.map((dis) => (
+                  <option key={dis} value={dis}>
+                    {dis}
+                  </option>
+                ))}
+              </select>
+            </Grid>
+            <Grid item xs={12}>
+              <input
+                name="date"
+                style={{ width: "400px" }}
+                className="border m-3 p-2 rounded"
+                placeholder="dd/mm/yy"
+              ></input>
+            </Grid>
 
               <Grid item xs={12}>
                 <button
