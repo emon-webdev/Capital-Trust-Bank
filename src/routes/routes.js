@@ -1,5 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
+import { default as AllCustomers, default as UserRole } from '../Dashboard/components/AllCustomers/AllCustomers';
+import CardReq from '../Dashboard/components/CardReq/CardReq';
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
+import LoanReq from '../Dashboard/components/LoanReq/LoanReq.jsx';
+import VerificationReq from '../Dashboard/components/VerificationReq/VerificationReq';
 import Main from "../Layout/Main";
 import About from "../Pages/About/About";
 import Apply from "../Pages/Apply/Apply";
@@ -15,6 +19,8 @@ import MarriageLoan from "../Pages/Services/MarriageLoan";
 import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
 import Error from "../Pages/Shared/Error";
+import AdminRoute from '../routes/AdminRoute';
+import PrivetRout from '../routes/PrivetRoute/PrivetRout';
 
 const router = createBrowserRouter([
   {
@@ -82,7 +88,49 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivetRout>
+        <DashboardLayout />
+      </PrivetRout>
+    ),
+    children: [
+      {
+        path: "/dashboard",
+        element: <UserRole></UserRole>,
+      },
+      {
+        path: "/dashboard/allCustomers",
+        element: (
+          <AdminRoute>
+            <AllCustomers></AllCustomers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/verificationRequest",
+        element: (
+          <AdminRoute>
+            <VerificationReq></VerificationReq>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/cardRequest",
+        element: (
+          <AdminRoute>
+            <CardReq></CardReq>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/loanRequest",
+        element: (
+          <AdminRoute>
+            <LoanReq></LoanReq>
+          </AdminRoute>
+        ),
+      },
+    ],
   },
 ]);
 
