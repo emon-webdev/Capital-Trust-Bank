@@ -4,7 +4,11 @@ import {
   CardContent,
   CardMedia,
   Grid,
+<<<<<<< HEAD
   Typography,
+=======
+  Typography
+>>>>>>> fcca888bd444ecb9bfaa1933abe2fba67251e6da
 } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";

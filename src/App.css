@@ -71,6 +71,7 @@ ul.submenu {
   min-width: 250px;
   opacity: 0;
   visibility: hidden;
+  z-index: 999;
   -webkit-transform: rotateX(-90deg);
   transform: rotateX(-90deg);
   transform-origin: top;

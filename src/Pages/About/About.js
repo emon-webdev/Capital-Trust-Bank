@@ -42,7 +42,7 @@ const About = () => {
       {/*  */}
       <div className="my-12 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
         <div>
-          <img src={aboutGroupImg} alt="" srcset="" />
+          <img src={aboutGroupImg} alt="" srcSet="" />
         </div>
         <div>
           <h3>About Us</h3>
