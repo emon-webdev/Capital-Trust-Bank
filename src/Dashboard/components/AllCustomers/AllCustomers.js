@@ -7,7 +7,6 @@ const AllCustomers = () => {
          .then((res) => res.json())
          .then((data) => {
            setCustomers(data);
-           console.log(data);
          });
      }, []);
     return <div>
@@ -16,10 +15,14 @@ const AllCustomers = () => {
           return (
             <div key={customer._id}>
               <div className="w-1/2 mx-auto flex my-2 gap-2 p-2 border rounded">
-                <div className="">
-                  <img src={customer.image} alt={customer.name} />
+                <div className="flex items-center">
+                  <img
+                    className="h-16 w-16 rounded"
+                    src={customer.image}
+                    alt={customer.name}
+                  />
                 </div>
-                <div className="info flex flex-col">
+                <div className="info flex flex-col overflow-auto">
                   <span>Name: {customer.name}</span>
                   <span>Email:{customer.email}</span>
                   <span>Phone:{customer.phone}</span>

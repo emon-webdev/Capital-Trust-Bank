@@ -10,10 +10,10 @@ const DashboardLayout = () => {
     <div>
       <Header />
       <div className="flex">
-        <div className="left">
+        <div className="left w-1/4">
           <LeftContainer></LeftContainer>
         </div>
-        <div className="right">
+        <div className="right w-full">
           <Outlet></Outlet>
         </div>
       </div>
