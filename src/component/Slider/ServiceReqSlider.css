@@ -1,0 +1,39 @@
+.service-req-area {
+  padding: 65px 0;
+  background: rgba(223, 3, 3, 0.46);
+}
+.slider-content {
+  background: #ffffff;
+  height: 255px;
+}
+
+.slider-content ul li {
+  padding: 18px;
+  border-bottom: 1px solid #041c51;
+}
+.slider-content ul li:last-child {
+  border: 0;
+}
+.img-box {
+  height: 100%;
+}
+
+.img-box img {
+  clip-path: polygon(28% 0%, 100% 0%, 100% 100%, 28% 100%, 1% 50%);
+  height: 100%;
+}
+.slider-img {
+  background: #fff;
+  height: 255px;
+  border-left: 5px solid #041c51;
+}
+.slider-img-content.flex-1.text-center.px-3 p svg {
+  margin: 0 auto;
+}
+.slider-img-content p {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+.slider-content li a {
+  font-size: 18px;
+}
