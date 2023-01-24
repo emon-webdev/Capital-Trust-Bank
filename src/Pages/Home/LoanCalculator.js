@@ -55,8 +55,7 @@ class LoanCalculator extends React.Component {
             </div>
             <div className="card-main">
               <div>
-                <br />
-                <h1>Loan Amount</h1>
+                <h1 className="text-lg mb-0 mt-3">Loan Amount</h1>
                 <div className="flex justify-center">
                   <input
                     type="range"
@@ -66,11 +65,11 @@ class LoanCalculator extends React.Component {
                     step="1000"
                     onChange={this.DrageChange}
                     id="curser"
-                    className="w-96"
+                    className="w-96 mr-3"
                   />
                   <h1 className="border">${value3}</h1>
                 </div>
-                <h1>Loan Term</h1>
+                <h1 className="text-lg mb-0">Loan Term</h1>
                 <div className="justify-center md:flex">
                   <input
                     type="range"
@@ -79,11 +78,11 @@ class LoanCalculator extends React.Component {
                     name="value1"
                     onChange={this.DrageChange}
                     id="curser"
-                    className="w-96"
+                    className="w-96 mr-3"
                   />
                   <h1 className="border">{value1} Months</h1>
                 </div>
-                <h1>Interest Rate</h1>
+                <h1 className="text-lg mb-0">Interest Rate</h1>
                 <div className="flex justify-center">
                   <input
                     type="range"
@@ -93,7 +92,7 @@ class LoanCalculator extends React.Component {
                     step=".5"
                     onChange={this.DrageChange}
                     id="curser"
-                    className="w-96"
+                    className="w-96 mr-3"
                   />
                   <h1 className="border">{value2}%</h1>
                 </div>
