@@ -35,7 +35,7 @@ export default function FeaturedNews() {
   ];
   return (
     <div className="features-area my-20">
-      <Typography marginBottom={2} textAlign="center" color="#DF0303">
+      <Typography marginBottom={2} textAlign="center" sx={{fontWeight: 'bold'}} color="#DF0303">
         -- Blog & News --
       </Typography>
       <Typography
