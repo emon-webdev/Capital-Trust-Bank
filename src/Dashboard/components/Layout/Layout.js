@@ -4,7 +4,7 @@ import RightContainer from '../RightContainer/RightContainer';
 
 const Layout = () => {
     return (
-      <div className="flex h-fit">
+      <div className="flex">
         <LeftContainer></LeftContainer>
         <RightContainer></RightContainer>
       </div>
