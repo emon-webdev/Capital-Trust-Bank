@@ -4,26 +4,24 @@ import {
   CardContent,
   CardMedia,
   Grid,
-<<<<<<< HEAD
-  Typography,
-=======
   Typography
->>>>>>> fcca888bd444ecb9bfaa1933abe2fba67251e6da
 } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 export default function VehicleLoan() {
-
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [name, setName] = useState("Vehicle Loan");
   const loan = {
-    "id": "4",
-    "details": "Own your dream car with Capital Trust Bank car loans. Capital Trust Bank offers uniquely tailored Car Loan product that takes the pain and hassle out of buying a car.",
-    "title": "Vehicle Loan",
-    "img": "https://i.ibb.co/vVxszGm/vehicle-loan.jpg"
+    id: "4",
+    details:
+      "Own your dream car with Capital Trust Bank car loans. Capital Trust Bank offers uniquely tailored Car Loan product that takes the pain and hassle out of buying a car.",
+    title: "Vehicle Loan",
+    img: "https://i.ibb.co/vVxszGm/vehicle-loan.jpg",
   };
   const [district, setDistrict] = useState("");
   const handleChange = (event) => {
@@ -177,7 +175,7 @@ export default function VehicleLoan() {
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
-          navigate('/')
+          navigate("/");
         } else {
           toast.error(data.message);
         }
@@ -185,6 +183,9 @@ export default function VehicleLoan() {
   };
   return (
     <div className="loan-area my-10 ">
+      <div className="mb-5">
+        <DynamicBanner name={name}></DynamicBanner>
+      </div>
       <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
         <div className="">
           <Card sx={{ maxWidth: 700, height: "auto" }}>
@@ -213,11 +214,10 @@ export default function VehicleLoan() {
           <form
             onSubmit={handleSubmit}
             style={{
-              height: "400px",
               backgroundColor: "#041C51",
               height: "550px",
               width: "500px",
-              borderRadius: '10px'
+              borderRadius: "10px",
             }}
             className="p-5 mb-4 "
           >

@@ -182,6 +182,7 @@ export default function ApplyForm() {
         <Box
           className="container"
           display={"flex"}
+          borderRadius={'10px'}
           alignItems="center"
           justifyContent={"center"}
           width="100%"
@@ -197,9 +198,10 @@ export default function ApplyForm() {
           <form
             onSubmit={handleSubmit}
             style={{
-              backgroundColor: "#F9F9F9",
+              backgroundColor: "#041C51",
               height: "550px",
               width: "500px",
+              borderRadius:"10px"
             }}
             className="p-5 mb-4 "
           >
@@ -207,17 +209,17 @@ export default function ApplyForm() {
               <Grid item xs={12}>
                 <input
                   name="name"
-                  className="border m-3 p-2 w-100"
+                  className="border m-3 p-2 w-100 rounded"
                   style={{ width: "400px" }}
                   placeholder="Your Name"
                   defaultValue={user?.displayName}
                 ></input>
               </Grid>
-              <Grid item lg={12}>
+              <Grid item xs={12}>
                 <input
                   name="email"
                   style={{ width: "400px" }}
-                  className="border m-3 p-2"
+                  className="border m-3 p-2 rounded"
                   placeholder="Email"
                   defaultValue={user?.email}
                 ></input>
@@ -226,7 +228,7 @@ export default function ApplyForm() {
                 <input
                   name="phone"
                   style={{ width: "400px" }}
-                  className="border m-3 p-2"
+                  className="border m-3 p-2 rounded"
                   placeholder="Phone"
                 ></input>
               </Grid>
@@ -234,19 +236,19 @@ export default function ApplyForm() {
                 <input
                   name="loan"
                   style={{ width: "400px" }}
-                  className="border m-3 p-2"
+                  className="border m-3 p-2 rounded"
                   placeholder="Loan"
                   defaultValue={ser.title}
                 ></input>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12}>
                 <select
                   name="city"
                   style={{ height: "50px", width: "400px" }}
                   value={district}
                   onChange={handleChange}
                   label="city"
-                  className="border m-3 p-2"
+                  className="border m-3 p-2 rounded drop-shadow-lg"
                   placeholder="City"
                 >
                   {districts.map((dis) => (
@@ -256,15 +258,16 @@ export default function ApplyForm() {
                   ))}
                 </select>
               </Grid>
-              <Grid item lg={12}>
+              <Grid item xs={12}>
                 <input
                   name="date"
                   style={{ width: "400px" }}
-                  className="border m-3 p-2"
+                  className="border m-3 p-2 rounded"
                   placeholder="dd/mm/yy"
                 ></input>
               </Grid>
 
+              <Grid item xs={12}>
               <button
                 style={{ width: "400px" }}
                 className="primary-btn m-3 p-2  my-2 "
@@ -272,6 +275,7 @@ export default function ApplyForm() {
               >
                 Apply
               </button>
+              </Grid>
             </Grid>
           </form>
         </Box>

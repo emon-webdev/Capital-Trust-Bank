@@ -174,8 +174,8 @@ button.accent-btn {
   color: #fff;
   transition: all 0.3s;
   transition: all 0.3s;
-  width: 30px;
-  height: 30px;
+  width: 30px !important;
+  height: 30px !important;
   pad: 8px;
 }
 
@@ -200,6 +200,27 @@ button.accent-btn {
     position: absolute;
     left: 110px;
     top: 38px;
+  }
+  .title-2 {
+    top: 45px !important;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .team {
+    max-width: 100% !important;
+  }
+  .team-img-box {
+    left: 50px !important;
+  }
+  .icon-box {
+   left: 34% !important;
+   bottom: 22% !important;
+  }
+  .title-box {
+    position: absolute;
+    left: 17px !important;
+    top: 10px !important;
   }
 }
 

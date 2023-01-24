@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import aboutGroupImg from "../../assets/aboutUs/aboutGroupImg.png";
 import shape4 from "../../assets/aboutUs/about_bg_two.png";
 import shape3 from "../../assets/aboutUs/bg-shape3.png";
 import shape1 from "../../assets/aboutUs/Vector.png";
 import shape2 from "../../assets/aboutUs/Vector2.png";
+import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import "./About.css";
 
 const About = () => {
+  const [name, setName] = useState("About Us");
+  // console.log(name);
   return (
     <div>
-      <div className="about-parent h-60">
+      {/* <div className="about-parent h-60">
         <div className="container about-sub-parent  p-28">
           <h2 className="text-white text-2xl">About Us</h2>
           <div className="text-white flex gap-1 text-[12px]">
@@ -38,7 +41,16 @@ const About = () => {
             alt=""
           />
         </div>
-      </div>
+      </div> */}
+
+      {/*  */}
+      {/*  */}
+      {/*  */}
+
+      <DynamicBanner name={name}></DynamicBanner>
+
+      {/*  */}
+      {/*  */}
       {/*  */}
       <div className="my-12 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
         <div>
