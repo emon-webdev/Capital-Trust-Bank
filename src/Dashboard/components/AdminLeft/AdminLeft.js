@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AdminLeft = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col divide-y-2">
       <Link to="/dashboard/allCustomers" className="">
         All Customers
       </Link>

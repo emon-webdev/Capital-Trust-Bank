@@ -5,7 +5,6 @@ import CustomerLeft from '../CustomerLeft/CustomerLeft';
 const LeftContainer = () => {
   const { user, role, setRole } = useContext(AuthContext);
   const email = user?.email;
- 
   useEffect(() => {
     fetch(`http://localhost:5000/customer/${email}`)
       .then((res) => res.json())
@@ -14,7 +13,7 @@ const LeftContainer = () => {
       });
   }, [user]);
   return (
-    <div className="">
+    <div className=""> 
       {role === "customer" ? <CustomerLeft></CustomerLeft> : undefined}
       {role === "admin" ? <AdminLeft></AdminLeft> : undefined}
     </div>
