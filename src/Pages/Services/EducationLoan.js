@@ -4,22 +4,25 @@ import {
   CardContent,
   CardMedia,
   Grid,
-  Typography,
+  Typography
 } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import { districts } from "./districtData";
 
 export default function EducationLoan() {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [name, setName] = useState("Education Loan");
   const loan = {
-    "id": "1",
-    "details": "Our Education Loan covers the entire cost of your child education to help you send your children for higher education abroad.",
-    "title": "Education Loan",
-    "img": "https://i.ibb.co/2WYbDt5/edu-loan.jpg"
+    id: "1",
+    details:
+      "Our Education Loan covers the entire cost of your child education to help you send your children for higher education abroad.",
+    title: "Education Loan",
+    img: "https://i.ibb.co/2WYbDt5/edu-loan.jpg",
   };
   const [district, setDistrict] = useState("");
   const handleChange = (event) => {
@@ -67,6 +70,9 @@ export default function EducationLoan() {
   };
   return (
     <div className="loan-area my-10 ">
+      <div className="mb-5">
+        <DynamicBanner name={name}></DynamicBanner>
+      </div>
       <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
         <div className="">
           <Card sx={{ maxWidth: 700, height: "auto" }}>
@@ -95,7 +101,6 @@ export default function EducationLoan() {
         <form
           onSubmit={handleSubmit}
           style={{
-            height: "400px",
             backgroundColor: "#041C51",
             height: "550px",
             width: "500px",
@@ -181,4 +186,3 @@ export default function EducationLoan() {
     </div>
   );
 }
-

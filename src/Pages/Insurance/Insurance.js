@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from "react";
+import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 const Insurance = () => {
-    return (
-        <div>
-            <h2>Insurance Page</h2>
-        </div>
-    );
+  const [name, setName] = useState("Insurance");
+  return (
+    <div>
+      <div className="mb-5">
+        <DynamicBanner name={name}></DynamicBanner>
+      </div>
+    </div>
+  );
 };
 
 export default Insurance;

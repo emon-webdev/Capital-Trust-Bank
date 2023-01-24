@@ -43,9 +43,7 @@ const router = createBrowserRouter([
         path: "/loans/:id",
         element: <ApplyForm></ApplyForm>,
         loader: ({ params }) =>
-          fetch(
-            `http://localhost:5000/loans/${params.id}`
-          ),
+          fetch(`http://localhost:5000/loans/${params.id}`),
       },
       {
         path: "/goldloan",
