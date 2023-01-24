@@ -185,7 +185,7 @@ const Signup = () => {
             />
             {errors.name && (
               <p className="text-red-500">
-                {errors.name?.message} please insert your name
+                {errors.name?.message} Please Insert Your Name
               </p>
             )}
           </div>
@@ -200,7 +200,7 @@ const Signup = () => {
               id="outlined-basic"
               label="Email"
               variant="outlined"
-              {...register("email", { required: "please inter valid email" })}
+              {...register("email", { required: "Please Inter Valid Email" })}
               className="w-full"
             />
             {errors.email && (
@@ -213,12 +213,18 @@ const Signup = () => {
               id="outlined-basic"
               label="Number"
               variant="outlined"
-              required
+              // required
               className="w-full"
               country={"us"}
               value={phone}
+              {...register("phone", { required: 'Please Inter Your Phone Number' })}
               onChange={(phone) => setPhone(phone)}
             />
+             {errors.phone && (
+              <p className="text-red-500">
+                {errors.phone?.message} 
+              </p>
+            )}
           </div>
 
           {/* password input  */}
