@@ -5,7 +5,10 @@ import Apply from "../Pages/Apply/Apply";
 import Contact from "../Pages/Contact/Contact";
 import ApplyForm from "../Pages/Home/ApplyForm";
 import Home from "../Pages/Home/Home";
+import BusinessInsurance from "../Pages/Insurance/BusinessInsurance";
+import HealthInsurance from "../Pages/Insurance/HealthInsurance";
 import Insurance from "../Pages/Insurance/Insurance";
+import TravelInsurance from "../Pages/Insurance/TravelInsurance";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Login/Signup";
 import EducationLoan from "../Pages/Services/EducationLoan";
@@ -32,6 +35,18 @@ const router = createBrowserRouter([
       {
         path: "/insurance",
         element: <Insurance />,
+      },
+      {
+        path: "/healthinsurance",
+        element: <HealthInsurance />,
+      },
+      {
+        path: "/travelinsurance",
+        element: <TravelInsurance />,
+      },
+      {
+        path: "/businessinsurance",
+        element: <BusinessInsurance />,
       },
 
       {

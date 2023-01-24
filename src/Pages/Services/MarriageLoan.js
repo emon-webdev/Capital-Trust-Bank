@@ -74,7 +74,7 @@ export default function MarriageLoan() {
         <DynamicBanner name={name}></DynamicBanner>
       </div>
       <div className="loan-area my-10 ">
-        <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+        <div className="grid-container align-content-center justify-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
           <div className="">
             <Card sx={{ maxWidth: 700, height: "auto" }}>
               <CardActionArea>
@@ -107,7 +107,7 @@ export default function MarriageLoan() {
                 width: "500px",
                 borderRadius: "10px",
               }}
-              className="p-5 mb-4 "
+              className="p-5 mb-4"
             >
               <Grid container className="my-3">
                 <Grid item xs={12}>

@@ -81,7 +81,7 @@ const Navbar = () => {
 
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-                to="/services"
+                
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -114,27 +114,27 @@ const Navbar = () => {
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-                to="/apply"
+                to="/insurance"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
-                Apply Now
+                Insurance
               </NavLink>
               {/* Submenu */}
               <ul className="submenu">
                 <li>
-                  <NavLink to="/" className="">
-                    Apply 1
+                  <NavLink to="/healthinsurance" className="">
+                    Health Insurance
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/" className="">
-                    Apply 2
+                  <NavLink to="/businessinsurance" className="">
+                    Business Insurance
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/signup" className="">
-                    Apply 3
+                  <NavLink to="/travelinsurance" className="">
+                    Travel Insurance
                   </NavLink>
                 </li>
               </ul>

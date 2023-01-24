@@ -74,7 +74,7 @@ export default function VehicleLoan() {
         <DynamicBanner name={name}></DynamicBanner>
       </div>
       <div className="loan-area my-10 ">
-        <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+        <div className="container align-content-center justify-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
           <div className="">
             <Card sx={{ maxWidth: 700, height: "auto" }}>
               <CardActionArea>
