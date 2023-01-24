@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/service",
         element: <Services />,
-        loader:fetch('http://localhost:5000/loans')
+        loader: fetch('http://localhost:5000/loans')
       },
       {
         path: "/loans/:id",

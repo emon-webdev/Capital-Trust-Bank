@@ -15,7 +15,6 @@ const Home = () => {
       <Banner />
       <Services />
       {/* <ApplyForm/> */}
-     
       {/* <Counter /> */}
       <ServiceRequest/>
       <ApplyCreditCard />
