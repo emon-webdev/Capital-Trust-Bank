@@ -40,6 +40,8 @@ const Signup = () => {
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
 
+  const [userImage, setUserImage] = useState(null);
+  
   //checking validate
   const [lowerValidated, setLowerValidated] = useState(false);
   const [upperValidated, setUpperValidated] = useState(false);
@@ -58,7 +60,7 @@ const Signup = () => {
     const number = new RegExp('(?=.*[0-9])');
     const special = new RegExp('(?=.*[!@#\$%\^&\*])');
     const length = new RegExp('(?=.{6,})')
-    
+
     if (lower.test(value)) {
       setLowerValidated(true);
     }
@@ -89,9 +91,9 @@ const Signup = () => {
     else {
       setLengthValidated(false);
     }
+    // setIsShowPassword('')
   }
 
-  
 
   const handleSignUp = (data) => {
     setSignUpError("");
@@ -146,8 +148,10 @@ const Signup = () => {
       console.log(user);
       const name = user?.displayName;
       const image = user?.photoURL;
-      setAuthToken(user, name, image);
+      const verify = false;
+      setAuthToken(user, name, image, verify);
       navigate(from, { replace: true });
+      console.log(verify)
     });
   };
 
@@ -319,9 +323,6 @@ const Signup = () => {
           </div>
 
           <div className="my-6">
-            {/* <div className="flex justify-between">
-                            <label className="block mb-4 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="loggingPassword">Photo</label>
-                        </div> */}
 
             <input
               {...register("image", { required: true })}
@@ -329,10 +330,13 @@ const Signup = () => {
               placeholder="photo"
               id="file"
               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+              onChange={(e) => setUserImage(e.target.files[0])}
             />
             <label className="signup-photo" htmlFor="file">
               Upload Image
             </label>
+            
+            {userImage ? <span className="ml-3">{userImage.name}</span> : <span className="ml-3">Choose Image Before Pressing the Sign Up Button</span>}
           </div>
           {signUpError && <span className="text-red-500">{signUpError}</span>}
           <div className="mt-7">
