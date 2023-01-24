@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 const LoanReq = () => {
      const [customers, setCustomers] = useState([]);
      useEffect(() => {
-       fetch(`http://localhost:5000/cardReq`)
+       fetch(`http://localhost:5000/applicants`)
          .then((res) => res.json())
          .then((data) => {
+          console.log(data)
            setCustomers(data);
          });
      }, []);
@@ -27,7 +28,9 @@ const LoanReq = () => {
                   <span>Email:{customer.email}</span>
                   <span>Phone:{customer.phone}</span>
                   <span>Account id:{customer.AccountId}</span>
-                  <span>Nid:{customer.nid}</span>
+                  <span>City:{customer.city}</span>
+                  <span>Date:{customer.date}</span>
+                  <span>Loan Type:{customer.loan}</span>
                   <div className="flex gap-2 p-2">
                     <button className="ring rounded p-1">Give Loan</button>
                     <button className="ring rounded p-1">Cancel</button>
