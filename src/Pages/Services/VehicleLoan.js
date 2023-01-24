@@ -10,12 +10,11 @@ import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
+import { districts } from "./districtData";
 
 export default function VehicleLoan() {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [name, setName] = useState("Vehicle Loan");
   const loan = {
     id: "4",
     details:
@@ -28,120 +27,6 @@ export default function VehicleLoan() {
     setDistrict(event.target.value);
   };
 
-  const districts = [
-    "Barguna",
-    "Barisal",
-    "Bhola",
-    "Jhalokati",
-    "Patuakhali",
-    "Pirojpur",
-    "Bandarban",
-    "Brahmanbaria",
-    "Chandpur",
-    "Chittagong",
-    "Comilla",
-    "Cox's Bazar",
-    "Feni",
-    "Khagrachhari",
-    "Lakshmipur",
-    "Noakhali",
-    "Rangamati",
-    "Dhaka",
-    "Faridpur",
-    "Gazipur",
-    "Gopalganj",
-    "Kishoreganj",
-    "Madaripur",
-    "Manikganj",
-    "Munshiganj",
-    "Narayanganj",
-    "Narsingdi",
-    "Rajbari",
-    "Shariatpur",
-    "Tangail",
-    "Bagerhat",
-    "Chuadanga",
-    "Jessore",
-    "Jhenaidah",
-    "Khulna",
-    "Kushtia",
-    "Magura",
-    "Meherpur",
-    "Narail",
-    "Satkhira",
-    "Jamalpur",
-    "Mymensingh",
-    "Netrakona",
-    "Sherpur",
-    "Bogra",
-    "Chapainawabganj",
-    "Joypurhat",
-    "Naogaon",
-    "Natore",
-    "Pabna",
-    "Rajshahi",
-    "Sirajganj",
-    "Dinajpur",
-    "Gaibandha",
-    "Kurigram",
-    "Lalmonirhat",
-    "Nilphamari",
-    "Panchagarh",
-    "Rangpur",
-    "Thakurgaon",
-    "Habiganj",
-    "Moulvibazar",
-    "Sunamganj",
-    "Sylhet",
-    "Rangamati",
-    "Dhaka",
-    "Faridpur",
-    "Gazipur",
-    "Gopalganj",
-    "Kishoreganj",
-    "Madaripur",
-    "Manikganj",
-    "Munshiganj",
-    "Narayanganj",
-    "Narsingdi",
-    "Rajbari",
-    "Shariatpur",
-    "Tangail",
-    "Bagerhat",
-    "Chuadanga",
-    "Jessore",
-    "Jhenaidah",
-    "Khulna",
-    "Kushtia",
-    "Magura",
-    "Meherpur",
-    "Narail",
-    "Satkhira",
-    "Jamalpur",
-    "Mymensingh",
-    "Netrakona",
-    "Sherpur",
-    "Bogra",
-    "Chapainawabganj",
-    "Joypurhat",
-    "Naogaon",
-    "Natore",
-    "Pabna",
-    "Rajshahi",
-    "Sirajganj",
-    "Dinajpur",
-    "Gaibandha",
-    "Kurigram",
-    "Lalmonirhat",
-    "Nilphamari",
-    "Panchagarh",
-    "Rangpur",
-    "Thakurgaon",
-    "Habiganj",
-    "Moulvibazar",
-    "Sunamganj",
-    "Sylhet",
-  ];
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -183,9 +68,6 @@ export default function VehicleLoan() {
   };
   return (
     <div className="loan-area my-10 ">
-      <div className="mb-5">
-        <DynamicBanner name={name}></DynamicBanner>
-      </div>
       <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
         <div className="">
           <Card sx={{ maxWidth: 700, height: "auto" }}>
@@ -217,7 +99,7 @@ export default function VehicleLoan() {
               backgroundColor: "#041C51",
               height: "550px",
               width: "500px",
-              borderRadius: "10px",
+              borderRadius: '10px'
             }}
             className="p-5 mb-4 "
           >
@@ -225,26 +107,26 @@ export default function VehicleLoan() {
               <Grid item xs={12}>
                 <input
                   name="name"
-                  className="border m-3 p-2 w-100"
+                  className="border m-3 p-2 rounded "
                   style={{ width: "400px" }}
                   placeholder="Your Name"
-                  defaultValue={user.displayName}
+                  defaultValue={user?.displayName}
                 ></input>
               </Grid>
-              <Grid item lg={12}>
+              <Grid item xs={12}>
                 <input
                   name="email"
                   style={{ width: "400px" }}
-                  className="border m-3 p-2"
+                  className="border m-3 p-2 rounded"
                   placeholder="Email"
-                  defaultValue={user.email}
+                  defaultValue={user?.email}
                 ></input>
               </Grid>
               <Grid item xs={12}>
                 <input
                   name="phone"
                   style={{ width: "400px" }}
-                  className="border m-3 p-2"
+                  className="border m-3 p-2 rounded"
                   placeholder="Phone"
                 ></input>
               </Grid>
@@ -252,19 +134,19 @@ export default function VehicleLoan() {
                 <input
                   name="loan"
                   style={{ width: "400px" }}
-                  className="border m-3 p-2"
+                  className="border  p-2 rounded"
                   placeholder="Loan"
                   defaultValue={loan.title}
                 ></input>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12}>
                 <select
                   name="city"
                   style={{ height: "50px", width: "400px" }}
                   value={district}
                   onChange={handleChange}
                   label="city"
-                  className="border m-3 p-2"
+                  className="border m-3 p-2 rounded"
                   placeholder="City"
                 >
                   {districts.map((dis) => (
@@ -274,22 +156,24 @@ export default function VehicleLoan() {
                   ))}
                 </select>
               </Grid>
-              <Grid item lg={12}>
+              <Grid item xs={12}>
                 <input
                   name="date"
                   style={{ width: "400px" }}
-                  className="border m-3 p-2"
+                  className="border m-3 p-2 rounded"
                   placeholder="dd/mm/yy"
                 ></input>
               </Grid>
 
-              <button
-                style={{ width: "400px" }}
-                className="primary-btn m-3 p-2  my-2 "
-                type="submit"
-              >
-                Apply
-              </button>
+              <Grid item xs={12}>
+                <button
+                  style={{ width: "400px" }}
+                  className="primary-btn ms-5 m-3 p-2  my-2 "
+                  type="submit"
+                >
+                  Apply
+                </button>
+              </Grid>
             </Grid>
           </form>
         </div>

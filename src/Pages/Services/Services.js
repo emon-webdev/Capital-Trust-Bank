@@ -3,6 +3,7 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 const Services = () => {
   const [name, setName] = useState("Services");
+     
   return (
     <div className="team-area ">
       <div className="mb-5">

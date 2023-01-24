@@ -30,7 +30,6 @@ export default function GoldLoan() {
     setDistrict(event.target.value);
   };
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
