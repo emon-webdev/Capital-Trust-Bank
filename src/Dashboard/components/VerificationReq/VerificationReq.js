@@ -26,7 +26,7 @@ const VerificationReq = () => {
                   <span>Name: {customer.name}</span>
                   <span>Email:{customer.email}</span>
                   <span>Phone:{customer.phone}</span>
-                  <span>Nid:{customer.info}</span>
+                  <span>Nid:{customer.nid}</span>
                   <div className="flex gap-2 p-2">
                     <button className="ring rounded p-1">Verify</button>
                     <button className="ring rounded p-1">Cancel</button>
