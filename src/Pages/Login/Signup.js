@@ -1,12 +1,12 @@
 import { GoogleAuthProvider } from "@firebase/auth";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
-    FormControl,
-    IconButton,
-    InputAdornment,
-    InputLabel,
-    OutlinedInput,
-    TextField
+  FormControl,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  TextField
 } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -29,7 +29,8 @@ const Signup = () => {
   } = useForm();
 
   const [phone, setPhone] = useState("");
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [confirmShowPassword, setConfirmShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [signUpError, setSignUpError] = useState("");
   const { createUser, signInWithGoogle, updateUser, verify } =
@@ -39,8 +40,59 @@ const Signup = () => {
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
 
+  //checking validate
+  const [lowerValidated, setLowerValidated] = useState(false);
+  const [upperValidated, setUpperValidated] = useState(false);
+  const [numberValidated, setNumberValidated] = useState(false);
+  const [specialValidated, setSpecialValidated] = useState(false);
+  const [lengthValidated, setLengthValidated] = useState(false);
+  const [isShowPassword, setIsShowPassword] = useState('');
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleClickConfirmShowPassword = () => setConfirmShowPassword((show) => !show);
   let number = phone;
+
+  const handlePassword = (value) => {
+    setIsShowPassword(value)
+    const lower = new RegExp('(?=.*[a-z])');
+    const upper = new RegExp('(?=.*[A-Z])');
+    const number = new RegExp('(?=.*[0-9])');
+    const special = new RegExp('(?=.*[!@#\$%\^&\*])');
+    const length = new RegExp('(?=.{6,})')
+    
+    if (lower.test(value)) {
+      setLowerValidated(true);
+    }
+    else {
+      setLowerValidated(false);
+    }
+    if (upper.test(value)) {
+      setUpperValidated(true);
+    }
+    else {
+      setUpperValidated(false);
+    }
+    if (number.test(value)) {
+      setNumberValidated(true);
+    }
+    else {
+      setNumberValidated(false);
+    }
+    if (special.test(value)) {
+      setSpecialValidated(true);
+    }
+    else {
+      setSpecialValidated(false);
+    }
+    if (length.test(value)) {
+      setLengthValidated(true);
+    }
+    else {
+      setLengthValidated(false);
+    }
+  }
+
+  
+
   const handleSignUp = (data) => {
     setSignUpError("");
     setLoading(true);
@@ -116,7 +168,7 @@ const Signup = () => {
           className="w-full px-6 py-8 md:px-8 lg:w-1/2 h-full"
         >
           <h2 className="text-2xl font-semibold text-center text-gray-700 dark:text-white">
-            Creat an Account
+            Create an Account
           </h2>
 
           <div className="mt-4">
@@ -165,6 +217,7 @@ const Signup = () => {
             />
           </div>
 
+          {/* password input  */}
           <div className="relative mt-4">
             <FormControl
               sx={{ m: 1, width: "100%", marginLeft: "-1px" }}
@@ -174,6 +227,7 @@ const Signup = () => {
                 Password
               </InputLabel>
               <OutlinedInput
+
                 {...register("password", {
                   minLength: {
                     value: 6,
@@ -185,6 +239,7 @@ const Signup = () => {
                       "password should be a-z, A-Z, number and special character",
                   },
                 })}
+                onChange={(e) => handlePassword(e.target.value)}
                 id="outlined-adornment-password"
                 type={showPassword ? "text" : "password"}
                 endAdornment={
@@ -201,11 +256,28 @@ const Signup = () => {
                 label="Password"
               />
             </FormControl>
+            {
+              isShowPassword &&             
+             
+              <p className=''>                
+              <span>Password Should be At Least One </span> <span></span>
+                <></>
+              <span className={lowerValidated ? 'text-green-500' : 'text-red-500'}>Lowercase,</span> <></>
+              <span className={upperValidated ? 'text-green-500' : 'text-red-500'}>Uppercase,</span> <></>
+              <span className={numberValidated ? 'text-green-500' : 'text-red-500'}>Number,</span> <></>
+              <span className={specialValidated ? 'text-green-500' : 'text-red-500'}>Special Character,</span> <></>
+              <span className={lengthValidated ? 'text-green-500' : 'text-red-500'}>6 Character,</span> <></>
+            </p>
+             
+            }
             {errors.password && (
               <p className="text-red-500">{errors.password?.message}</p>
             )}
           </div>
 
+
+
+          {/* confirm_password input */}
           <div className="relative mt-4">
             <FormControl
               sx={{ m: 1, width: "100%", marginLeft: "-1px" }}
@@ -215,6 +287,9 @@ const Signup = () => {
                 Confirm Password
               </InputLabel>
               <OutlinedInput
+                id="outlined-password-input"
+                label="Confirm-Password"
+                autoComplete="current-password"
                 {...register("confirm_password", {
                   required: true,
                   validate: (value) => {
@@ -223,20 +298,19 @@ const Signup = () => {
                     }
                   },
                 })}
-                id="outlined-start-adornment"
-                type={showPassword ? "text" : "password"}
+                // id="outlined-start-adornment"
+                type={confirmShowPassword ? "text" : "password"}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
                       aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
+                      onClick={handleClickConfirmShowPassword}
                       edge="end"
                     >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                      {confirmShowPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
                   </InputAdornment>
                 }
-                label="Password"
               />
             </FormControl>
             {errors.confirm_password && (
