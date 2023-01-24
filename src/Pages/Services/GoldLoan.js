@@ -108,7 +108,7 @@ export default function GoldLoan() {
           }}
           className="p-5 mb-4 "
         >
-          <Grid container className="my-3">
+          <Grid container className="my-3 mt-7">
             <Grid item xs={12}>
               <input
                 name="name"
