@@ -95,7 +95,7 @@ export default function EducationLoan() {
         <form
           onSubmit={handleSubmit}
           style={{
-            height: "400px",
+           
             backgroundColor: "#041C51",
             height: "550px",
             width: "500px",

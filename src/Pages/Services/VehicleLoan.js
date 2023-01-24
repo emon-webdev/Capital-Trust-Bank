@@ -97,7 +97,6 @@ export default function VehicleLoan() {
           <form
           onSubmit={handleSubmit}
           style={{
-            height: "400px",
             backgroundColor: "#041C51",
             height: "550px",
             width: "500px",
