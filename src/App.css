@@ -257,6 +257,9 @@ button.accent-btn {
 } */
 
 /* signup css */
+/* .bg-img {
+  background-image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url("https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600");
+} */
 .react-tel-input .form-control {
   width: 100% !important;
   padding: 27px;
