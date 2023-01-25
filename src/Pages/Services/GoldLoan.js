@@ -106,7 +106,7 @@ export default function GoldLoan() {
             onSubmit={handleSubmit}
             style={{
               backgroundColor: "#041C51",
-              height: "550px",
+              height: "auto",
               width: "500px",
               borderRadius: "10px",
               marginX:'auto'
