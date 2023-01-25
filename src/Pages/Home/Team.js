@@ -1,35 +1,106 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-// import image1 from '../../assests/Team/Ellipse 3497 (1).png';
-// import image2 from '../../assests/Team/Ellipse 3497 (2).png';
-// import image3 from '../../assests/Team/Ellipse 3497.png';
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
-import image1 from "../../assests/Team/team-img1.png";
-import image2 from "../../assests/Team/team-img2.png";
-import image3 from "../../assests/Team/team-img3.png";
-
+// import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+// import image1 from "../../assests/Team/team-img1.png";
+// import image2 from "../../assests/Team/team-img2.png";
+// import image3 from "../../assests/Team/team-img3.png";
 import "../../App.css";
+import TeamSection from "./TeamSection";
+
+const teams = [
+  {
+    "name": "Akash Chokrobarty",
+    "email": "contact.antor.bd@gmail.com",
+    "designation": "Back-End Developer",
+    "image": "https://i.ibb.co/mDZMR3Q/own1.jpg",
+    "social": [
+      {
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "github": "www.github.com",
+      }
+    ]
+  },
+  {
+    "name": "Salma Tabassum",
+    "email": "contact.antor.bd@gmail.com",
+    "designation": "Front-end Developer",
+    "image": "https://i.ibb.co/VQtQz55/ACLD-134279-copy-1.jpg",
+    "social": [
+      {
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "github": "www.github.com",
+      }
+    ]
+  },
+  {
+    "name": "MD Emon Hossain",
+    "email": "contact.antor.bd@gmail.com",
+    "designation": "Full Stac Developer",
+    "image": "https://i.ibb.co/tsTbGvn/IMG-1395-01.jpg",
+    "social": [
+      {
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "github": "www.github.com",
+      }
+    ]
+  }
+]
 
 const Team = () => {
   return (
     <Box className="team-area py-12">
       <Box className="container mx-auto">
-        <Typography marginBottom={2} textAlign="center" sx={{fontWeight: 'bold'}} color="#DF0303">
-        -- Our Team --
-      </Typography>
+        <Typography marginBottom={2} textAlign="center" sx={{ fontWeight: 'bold' }} color="#DF0303">
+          -- Our Team --
+        </Typography>
         <Typography
           sx={{
             fontSize: "48px",
             lineHeight: "56px",
             fontWeight: 700,
             color: "#010C3A",
-            textAlign:'center'
+            textAlign: 'center'
           }}
           variant="h3"
         >
           Team Of Expert Consulted
         </Typography>
-        <Box className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 py-16 mt-[150px]">
+
+          <Box className="grid gap-5 md:grid-cols-3 mt-[60px]">
+            {
+              teams.map((team, i) => <TeamSection key={i} team={team} />)
+            }
+          </Box>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* <Box className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 py-16 mt-[150px]">
           <Box
             sx={{
               position: "relative",
@@ -256,7 +327,7 @@ const Team = () => {
               </Typography>
             </Box>
           </Box>
-        </Box>
+        </Box> */}
       </Box>
     </Box>
   );

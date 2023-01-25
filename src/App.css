@@ -7,13 +7,16 @@
   line-height: 24px;
   color: #010c3a;
 }
+
 .header-left p {
   margin-bottom: 0;
 }
+
 /* Navbar css for responsive */
 .mobile-menu {
   z-index: 999;
 }
+
 .navbar-toggler {
   padding: 0.5rem;
   background: #010c3a;
@@ -56,13 +59,16 @@
 .navbar-nav li div {
   @apply lg:inline-flex items-center lg:pl-3 block pl-0 text-center;
 }
-ul.navbar__nav > li {
+
+ul.navbar__nav>li {
   position: relative;
   padding: 26px 0;
 }
-ul.navbar__nav > li:last-child {
+
+ul.navbar__nav>li:last-child {
   margin-right: 0;
 }
+
 ul.submenu {
   position: absolute;
   top: 100%;
@@ -81,21 +87,25 @@ ul.submenu {
   transition-duration: 0.3s;
   transition-property: all;
 }
-ul.navbar__nav li:hover > ul.submenu {
+
+ul.navbar__nav li:hover>ul.submenu {
   padding: 10px 0;
   opacity: 1;
   visibility: visible;
   transform: rotateX(0deg);
   transition: all 300ms ease;
 }
+
 ul.submenu li {
   margin: 0;
   display: block;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
+
 ul.submenu li:last-child {
   border: 0;
 }
+
 ul.submenu li a {
   color: #fff;
   /* position: relative; */
@@ -111,10 +121,12 @@ ul.submenu li a {
   padding: 6px 18px;
   transition: 0.3s;
 }
+
 ul.submenu li:hover a {
   color: #fff;
   background: #cf173c;
 }
+
 button.accent-btn {
   padding: 0 12px;
   text-align: center;
@@ -137,8 +149,32 @@ button.accent-btn {
 }
 
 /* team ares css */
+.icon-box {
+  display: flex;
+  position: absolute;
+  top: 300px;
+  left: 28%;
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* .team:hover .icon-box {
+  top: 254px;
+  visibility: visible;
+  transition: .5s;
+  opacity: 1;
+} */
+
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/*
 .team {
-  /* background-image: url('./assests/Team/Rectangle 9470.png'); */
   background: #fdf3f3;
   background: #fdf3f3;
   border-radius: 4px;
@@ -222,7 +258,7 @@ button.accent-btn {
     left: 17px !important;
     top: 10px !important;
   }
-}
+} */
 
 /* signup css */
 .react-tel-input .form-control {
@@ -241,6 +277,7 @@ button.accent-btn {
   cursor: pointer;
   border-radius: 4px;
 }
+
 /* Banner section */
 
 .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.css-1idn90j-MuiGrid-root {
@@ -266,16 +303,15 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
 .banner-content {
   padding-top: 110px;
 }
+
 /* =============================
 ===Responsive CSS starts here===
 ============================= */
 /* XL/XXL Device :1200px. */
-@media (min-width: 1200px) and (max-width: 1500px) {
-}
+@media (min-width: 1200px) and (max-width: 1500px) {}
 
 /* LG Large Device :992px. */
-@media (min-width: 992px) and (max-width: 1200px) {
-}
+@media (min-width: 992px) and (max-width: 1200px) {}
 
 /* Tablet Medium Device :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -286,33 +322,41 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     margin-left: 10px;
     border-radius: 4px;
   }
+
   ul.navbar__nav li {
     width: 100%;
     margin-right: 0;
   }
+
   ul.navbar__nav {
     background: #010c3a;
     color: #fff;
     padding: 20px;
     margin-top: 15px;
   }
-  ul.navbar__nav > li {
+
+  ul.navbar__nav>li {
     position: static;
   }
-  ul.navbar__nav li:hover > ul.submenu {
+
+  ul.navbar__nav li:hover>ul.submenu {
     display: block;
     position: static;
   }
-  ul.navbar__nav > li {
+
+  ul.navbar__nav>li {
     padding: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
-  ul.navbar__nav > li:last-child {
+
+  ul.navbar__nav>li:last-child {
     border: 0;
   }
+
   .main-header.relative {
     padding: 10px 0;
   }
+
   .header-top.py-4.bg-\[\#041C51\] {
     padding: 6px 0;
   }
@@ -336,6 +380,7 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     line-height: 45px;
     margin-left: 10px;
   }
+
   .team-2 {
     margin-top: 170px;
   }
@@ -360,32 +405,40 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   .credit-card-img.mb-\[32px\].md\:mb-0.md\:mr-12 {
     margin-top: 50px;
   }
-  ul.navbar__nav > li {
+
+  ul.navbar__nav>li {
     position: static;
   }
-  ul.navbar__nav li:hover > ul.submenu {
+
+  ul.navbar__nav li:hover>ul.submenu {
     display: block;
     position: static;
   }
-  ul.navbar__nav > li {
+
+  ul.navbar__nav>li {
     padding: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
-  ul.navbar__nav > li:last-child {
+
+  ul.navbar__nav>li:last-child {
     border: 0;
   }
+
   .main-header.relative {
     padding: 10px 0;
   }
+
   .header-top.py-4.bg-\[\#041C51\] {
     padding: 6px 0;
   }
+
   ul.navbar__nav {
     background: #010c3a;
     color: #fff;
     padding: 20px;
     margin-top: 15px;
   }
+
   .header-left p {
     margin-bottom: 0;
   }

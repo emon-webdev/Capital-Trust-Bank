@@ -76,7 +76,8 @@ const Login = () => {
       console.log(user);
       const name = user?.displayName;
       const image = user?.photoURL;
-      setAuthToken(user, name, image);
+      const verify = false;
+      setAuthToken(user, name, image, verify);
       navigate(from, { replace: true });
     });
   };
