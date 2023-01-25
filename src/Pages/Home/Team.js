@@ -1,16 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-// import image1 from '../../assests/Team/Ellipse 3497 (1).png';
-// import image2 from '../../assests/Team/Ellipse 3497 (2).png';
-// import image3 from '../../assests/Team/Ellipse 3497.png';
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
-import image1 from "../../assests/Team/team-img1.png";
-import image2 from "../../assests/Team/team-img2.png";
-import image3 from "../../assests/Team/team-img3.png";
+// import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+// import image1 from "../../assests/Team/team-img1.png";
+// import image2 from "../../assests/Team/team-img2.png";
+// import image3 from "../../assests/Team/team-img3.png";
 import "../../App.css";
 import TeamSection from "./TeamSection";
-// https://i.ibb.co/VQtQz55/ACLD-134279-copy-1.jpg salma
-// https://i.ibb.co/tsTbGvn/IMG-1395-01.jpg emon
+
 const teams = [
   {
     "name": "Akash Chokrobarty",
