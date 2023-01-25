@@ -109,7 +109,7 @@ export default function EducationLoan() {
               }}
               className="p-5 mb-4  "
             >
-              <Grid container className="my-3">
+              <Grid container className="mt-7 align-content-center justify-items-center">
                 <Grid item xs={12}>
                   <input
                     name="name"

@@ -77,7 +77,7 @@ export default function GoldLoan() {
         <DynamicBanner name={name}></DynamicBanner>
       </div>
     <div className="loan-area my-10 ">
-      <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+      <div className="container  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
         <div className="">
           <Card sx={{ maxWidth: 700, height: "auto" }}>
             <CardActionArea>
@@ -109,10 +109,11 @@ export default function GoldLoan() {
               height: "550px",
               width: "500px",
               borderRadius: "10px",
+              marginX:'auto'
             }}
-            className="p-5 mb-4 "
+            className="p-5 mb-4 sm:align-content-center sm:justify-items-center"
           >
-            <Grid container className="my-3">
+            <Grid container className="mt-7 align-content-center justify-items-center">
               <Grid item xs={12}>
                 <input
                   name="name"
