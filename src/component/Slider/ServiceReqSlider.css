@@ -68,3 +68,6 @@
   color: #fff;
   font-weight: 500;
 }
+.mt-8.slider-main-content .slick-slider.slick-initialized button.slick-arrow {
+  display: none !important;
+}

@@ -74,7 +74,7 @@ const ServiceReqSlider = () => {
             </div>
           </Slider>
         </div>
-        <div className="mt-8">
+        <div className="mt-8 slider-main-content">
           <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
             <div className="single-slider-content">
               <div class="md:flex items-center justify-between">
