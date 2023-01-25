@@ -52,23 +52,14 @@ class LoanCalculator extends React.Component {
           <h1 className="text-4xl font-bold text-center mt-7">
             EMI Online Calculator
           </h1>
-          <div className="center">
-            <img className="side-img" src={sideimg} alt="" />
+          <div className="md:flex justify-center">
+            <div>
+              <img className="w-full h-full rounded" src={sideimg} alt="" />
+            </div>
             <div className="card-main">
-              <div className="inside-content ml-7">
-                {/* <div className='img'>
-                                <img className='icon' src={home} alt="" />
-                                <img className='icon' src={car} alt="" />
-                                <img className='icon' src={gold} alt="" />
-                            </div> */}
-                <br />
-                <div>
-                  <h1>Loan Amount</h1>
-                  <input
-                    type="number"
-                    value={value3}
-                    placeholder="Loan Amount"
-                  />
+              <div>
+                <h1 className="text-lg mb-0 mt-3">Loan Amount</h1>
+                <div className="flex justify-center">
                   <input
                     type="range"
                     min="10000"
@@ -77,11 +68,12 @@ class LoanCalculator extends React.Component {
                     step="1000"
                     onChange={this.DrageChange}
                     id="curser"
+                    className="w-96 mr-3"
                   />
                   <h1 className="border">${value3}</h1>
-
-                  <h1>Loan Term</h1>
-                  <input type="number" value={value1} placeholder="Duration" />
+                </div>
+                <h1 className="text-lg mb-0">Loan Term</h1>
+                <div className="justify-center md:flex">
                   <input
                     type="range"
                     min="0"
@@ -89,15 +81,12 @@ class LoanCalculator extends React.Component {
                     name="value1"
                     onChange={this.DrageChange}
                     id="curser"
+                    className="w-96 mr-3"
                   />
                   <h1 className="border">{value1} Months</h1>
-
-                  <h1>Interest Rate</h1>
-                  <input
-                    type="number"
-                    value={value2}
-                    placeholder="Interest %"
-                  />
+                </div>
+                <h1 className="text-lg mb-0">Interest Rate</h1>
+                <div className="flex justify-center">
                   <input
                     type="range"
                     min="0"
@@ -106,24 +95,34 @@ class LoanCalculator extends React.Component {
                     step=".5"
                     onChange={this.DrageChange}
                     id="curser"
+                    className="w-96 mr-3"
                   />
                   <h1 className="border">{value2}%</h1>
                 </div>
               </div>
-              <br />
-              <div className="button-output">
+              <div className="down">
                 <button
                   className="secondary-btn"
                   onClick={this.Eligbilitysumbit}
                 >
                   Calculate
                 </button>
+                <br /> <br />
+                <div className="flex justify-between">
+                  <div>
+                    <h1>Total Loan Amount=${value3}</h1>
+                    <h1>Total Months={value1}</h1>
+                  </div>
+                  <div>
+                    <h1>Total Interest={value2}%</h1>
+                    <h1 className="text-2xl">Total Amount={output}</h1>
+                  </div>
+                </div>
+
+                <Link to="/apply-loan" className="secondary-btn">
+                  Apply Online
+                </Link>
               </div>
-              <br />
-              <h1>Total Amount={output}</h1>
-              <Link to="/apply-loan" className="secondary-btn">
-                Apply Online
-              </Link>
             </div>
           </div>
         </div>

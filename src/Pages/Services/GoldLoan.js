@@ -73,11 +73,11 @@ export default function GoldLoan() {
   };
   return (
     <>
-    <div className="mb-5">
+      <div className="mb-5">
         <DynamicBanner name={name}></DynamicBanner>
       </div>
     <div className="loan-area my-10 ">
-      <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+      <div className="container  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
         <div className="">
           <Card sx={{ maxWidth: 700, height: "auto" }}>
             <CardActionArea>
@@ -109,10 +109,11 @@ export default function GoldLoan() {
               height: "550px",
               width: "500px",
               borderRadius: "10px",
+              marginX:'auto'
             }}
-            className="p-5 mb-4 "
+            className="p-5 mb-4 sm:align-content-center sm:justify-items-center"
           >
-            <Grid container className="my-3">
+            <Grid container className="mt-7 align-content-center justify-items-center">
               <Grid item xs={12}>
                 <input
                   name="name"
@@ -174,20 +175,20 @@ export default function GoldLoan() {
                 ></input>
               </Grid>
 
-              <Grid item xs={12}>
-                <button
-                  style={{ width: "400px" }}
-                  className="primary-btn ms-5 m-3 p-2  my-2 "
-                  type="submit"
-                >
-                  Apply
-                </button>
+                <Grid item xs={12}>
+                  <button
+                    style={{ width: "400px" }}
+                    className="primary-btn ms-5 m-3 p-2  my-2 "
+                    type="submit"
+                  >
+                    Apply
+                  </button>
+                </Grid>
               </Grid>
-            </Grid>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 }

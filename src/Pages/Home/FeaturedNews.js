@@ -50,7 +50,7 @@ export default function FeaturedNews() {
       >
         Featured news & Insights
       </Typography>
-      <div className="container grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+      <div className="container align-content-center justify-items-center grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
         {NewsData?.map((news) => (
           <Card key={news.id} sx={{ maxWidth: 424, maxHeight: 536 }}>
             <CardActionArea>

@@ -51,12 +51,12 @@ const Services = () => {
       <h1 className="text-center text-3xl font-bold mb-10">
         We provide best services <br /> for your loans
       </h1>
-      <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="container align-content-center justify-items-center mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
 
         {
           loans.map(loan => (
-            <Card sx={{ maxWidth: 424, maxHeight: 536 }}>
+            <Card sx={{ maxWidth: 724, maxHeight: 636 }}>
               <CardActionArea>
                 <CardMedia
                   component="img"
