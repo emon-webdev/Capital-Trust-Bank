@@ -1,6 +1,5 @@
 
 const setAuthToken = (user, name, image, number) => {
-    
     const currentUser = {
       email: user?.email,
       name: name,
