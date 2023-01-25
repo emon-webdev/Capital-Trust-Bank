@@ -5,7 +5,12 @@ import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
 import '../../App.css';
 
 const TeamSection = ({ team }) => {
-    const { image, name, designation, social } = team;
+    const { image, name, designation, social, } = team;
+    // const openNewTab = url => {
+    //     const newTab = window.open(url, '_blank', 'noopener,noreferrer')
+    //     if (newTab) newTab.opener = null
+    // }
+
     return (
 
         <Box className="flex flex-col items-center team p-8 transition-colors duration-300 transform rounded-xl bg-[#fdf3f3] group hover:bg-[#df0303]">
@@ -24,14 +29,15 @@ const TeamSection = ({ team }) => {
             <Box className="flex">
                 {
                     social.map(icon =>
-                        <>
-                            <Link className='mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' to={icon.facebook}><FaFacebook /></Link>
-                            <Link className='w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' to={icon.linkedin}><FaLinkedin /></Link>
-                            <Link className='ml-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' to={icon.github}><FaGithub /></Link>
+                        <>                        
+                            <Link to={icon.facebook.slice(15, 100)} className='mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><FaFacebook /></Link>
+                            <Link to={icon.linkedin} className='w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><FaLinkedin /></Link>
+                            <Link to={icon.github} className='ml-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><FaGithub /></Link>
                         </>
                     )
                 }
             </Box>
+
         </Box>
 
     );

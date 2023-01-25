@@ -6,10 +6,13 @@ import React from "react";
 // import image3 from "../../assests/Team/team-img3.png";
 import "../../App.css";
 import TeamSection from "./TeamSection";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 const teams = [
   {
-    "name": "Akash Chokrobarty",
+    "name": "Akash Chakrabortty",
     "email": "contact.antor.bd@gmail.com",
     "designation": "Back-End Developer",
     "image": "https://i.ibb.co/mDZMR3Q/own1.jpg",
@@ -17,7 +20,7 @@ const teams = [
       {
         "facebook": "www.facebook.com",
         "linkedin": "www.linkedin.com",
-        "github": "www.github.com",
+        "github": "https://github.com/AkashChakrabortty",
       }
     ]
   },
@@ -30,20 +33,20 @@ const teams = [
       {
         "facebook": "www.facebook.com",
         "linkedin": "www.linkedin.com",
-        "github": "www.github.com",
+        "github": "https://github.com/salmamouri",
       }
     ]
   },
   {
     "name": "MD Emon Hossain",
     "email": "contact.antor.bd@gmail.com",
-    "designation": "Full Stac Developer",
+    "designation": "Full Stack Developer",
     "image": "https://i.ibb.co/tsTbGvn/IMG-1395-01.jpg",
     "social": [
       {
         "facebook": "www.facebook.com",
         "linkedin": "www.linkedin.com",
-        "github": "www.github.com",
+        "github": "https://github.com/emon-webdev",
       }
     ]
   }
