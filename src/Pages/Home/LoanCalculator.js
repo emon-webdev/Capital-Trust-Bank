@@ -105,7 +105,7 @@ class LoanCalculator extends React.Component {
                   Calculate
                 </button>
                 <br /> <br />
-                <div className="flex justify-between">
+                <div className="grid grid-cols-2 gap-4 place-items-start">
                   <div>
                     <h1>Total Loan Amount=${value3}</h1>
                     <h1>Total Months={value1}</h1>

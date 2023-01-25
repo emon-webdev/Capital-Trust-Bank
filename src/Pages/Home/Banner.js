@@ -16,15 +16,15 @@ const Banner = () => {
     >
       <div className="container">
         <div className="banner-content">
-          <h3 className="text-white">Business Consultancy</h3>
-          <h2 className="text-white">
-            Central Trust Bank <br /> For Better Future.
+          <h3 className="text-white mb-0 ml-5">Business Consultancy</h3>
+          <h2 className="text-white mb-0 ml-3">
+            Central Trust Bank <br />For Better Future.
           </h2>
-          <p className="text-white">
+          <p className="text-white ml-3">
             We consider all the drivers of change from the <br /> ground up and
             we’ll motivate and support you to <br /> make the change.
           </p>
-          <Link to="/apply-loan" className="secondary-btn">
+          <Link to="/apply-loan" className="secondary-btn ml-2">
             Apply For Loan
           </Link>
         </div>
