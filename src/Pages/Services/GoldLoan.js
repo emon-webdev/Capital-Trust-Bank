@@ -73,7 +73,7 @@ export default function GoldLoan() {
   };
   return (
     <>
-    <div className="mb-5">
+      <div className="mb-5">
         <DynamicBanner name={name}></DynamicBanner>
       </div>
     <div className="loan-area my-10 ">
@@ -175,20 +175,20 @@ export default function GoldLoan() {
                 ></input>
               </Grid>
 
-              <Grid item xs={12}>
-                <button
-                  style={{ width: "400px" }}
-                  className="primary-btn ms-5 m-3 p-2  my-2 "
-                  type="submit"
-                >
-                  Apply
-                </button>
+                <Grid item xs={12}>
+                  <button
+                    style={{ width: "400px" }}
+                    className="primary-btn ms-5 m-3 p-2  my-2 "
+                    type="submit"
+                  >
+                    Apply
+                  </button>
+                </Grid>
               </Grid>
-            </Grid>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 }
