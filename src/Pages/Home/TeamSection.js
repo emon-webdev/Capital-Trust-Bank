@@ -38,29 +38,27 @@ const TeamSection = ({ team }) => {
         <div class="flex flex-col items-center team p-8 transition-colors duration-300 transform rounded-xl bg-[#fdf3f3] group hover:bg-[#df0303]">
             <Box className='image-wrapper'>
                 <img class="object-cover w-32  h-32 rounded-full ring-4 ring-gray-300" src={image} alt="" />
-                <Box className=''>
-                    {/* flex justify-center relative top-[-20%] */}
-                    <Box class="icon-box">
-                        {
-                            social.map(icon =>
-                                <>
-                                    <Link className='mr-3 w-[32px] h-[32px] bg-[#010c3a] hover:bg-[#df0303] duration-500 text-white rounded-full flex items-center justify-center' to={icon.facebook}><FaFacebook /></Link>
-                                    <Link className='w-[32px] h-[32px] bg-[#010c3a] hover:bg-[#df0303] duration-500 text-white rounded-full flex items-center justify-center' to={icon.linkedin}><FaLinkedin /></Link>
-                                    <Link className='ml-3 w-[32px] h-[32px] bg-[#010c3a] hover:bg-[#df0303] duration-500 text-white rounded-full flex items-center justify-center' to={icon.github}><FaGithub /></Link>
-                                </>
-                            )
-                        }
-                    </Box>
-                </Box>
+
             </Box>
 
             <Box className='text-center'>
 
                 <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">{name}</h1>
 
-                <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">{designation}</p>
+                <p class="-mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">{designation}</p>
             </Box>
 
+            <Box class="flex">
+                {
+                    social.map(icon =>
+                        <>
+                            <Link className='mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' to={icon.facebook}><FaFacebook /></Link>
+                            <Link className='w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' to={icon.linkedin}><FaLinkedin /></Link>
+                            <Link className='ml-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' to={icon.github}><FaGithub /></Link>
+                        </>
+                    )
+                }
+            </Box>
 
         </div>
 
