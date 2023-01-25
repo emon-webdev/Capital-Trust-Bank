@@ -37,3 +37,34 @@
 .slider-content li a {
   font-size: 18px;
 }
+.single-slider-nav {
+  text-align: center;
+  padding: 8px 0px;
+  border-right: 1px solid;
+  cursor: pointer;
+}
+
+.slider-nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border: 1px solid #e2deda;
+  border-radius: 50%;
+  transition: all 200ms linear;
+  transition-delay: 0.1s;
+}
+
+.slider-nav-icon svg {
+  font-size: 35px;
+  color: #fff;
+}
+
+.single-slider-nav h3 {
+  margin: 15px 0;
+  color: #fff;
+  font-weight: 500;
+}
