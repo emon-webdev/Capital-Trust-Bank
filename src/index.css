@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -91,4 +93,10 @@ h6 {
   height: 150px;
   background: url("/src/assets/logo/dot_shapes.png");
   z-index: -1;
+}
+.default-bg{
+  background-image: linear-gradient(to right,#000428,#004E92);
+}
+.default-font{
+  color: white;
 }

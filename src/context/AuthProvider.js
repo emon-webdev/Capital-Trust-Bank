@@ -7,6 +7,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [role, setRole] = useState('');
 
     //create user with email & password this
     const createUser = (email, password) => {
@@ -59,17 +60,19 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const authInfo = {
-        createUser,
-        updateUser,
-        signInWithGoogle,
-        signInWithEmail,
-        logOut,
-        user,
-        loading,
-        setLoading,
-        forgetPassword,
-        verify
-    }
+      createUser,
+      updateUser,
+      signInWithGoogle,
+      signInWithEmail,
+      logOut,
+      user,
+      loading,
+      setLoading,
+      forgetPassword,
+      verify,
+      role,
+      setRole
+    };
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
