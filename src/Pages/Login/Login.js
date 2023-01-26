@@ -84,8 +84,12 @@ const Login = () => {
   return (
     <div className="Login-area">
       <div className="container flex h-[500px] flex-row-reverse overflow-hidden bg-white rounded-lg shadow-lg  my-3 p-3">
-        <div className="hidden bg-cover lg:block lg:w-1/2">
-          <img src={image} className='rounded' alt='' />          
+        <div className="hidden relative bg-cover lg:block lg:w-1/2">
+          <img src='https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600' className='rounded opacity-[.6]' alt='' />
+          <div className="absolute top-[23%] left-[16%]">
+            <h1 className="text-[#010c3a] text-[35px] text-center">Welcome to <br /> Capital Trust Bank</h1>
+            <p className='text-[17px] -ml-[35px] font-semibold text-center text-[#cf173c]'>Deposit dollars in our bank and To Feel like  million dollars</p>
+          </div>
         </div>
         <form
           onSubmit={handleSubmit(handleLogIn)}
@@ -172,7 +176,7 @@ const Login = () => {
           <Link
             onClick={handleGoogleSignIn}
             href="#"
-            className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+            className="flex items-center w-full justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
           >
             <div className="px-4 py-2">
               <svg className="w-6 h-6" viewBox="0 0 40 40">

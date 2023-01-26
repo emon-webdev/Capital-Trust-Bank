@@ -12,6 +12,9 @@ import React from "react";
 import img1 from "../../assets/features/features-1.png";
 import img2 from "../../assets/features/features-2.png";
 import img3 from "../../assets/features/features-3.png";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 export default function FeaturedNews() {
   const NewsData = [
     {

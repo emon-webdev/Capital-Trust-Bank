@@ -149,30 +149,26 @@ button.accent-btn {
 }
 
 /* team ares css */
-.icon-box {
-  display: flex;
-  position: absolute;
-  top: 300px;
-  left: 28%;
-  visibility: hidden;
-  opacity: 0;
-}
 
-/* .team:hover .icon-box {
-  top: 254px;
-  visibility: visible;
-  transition: .5s;
-  opacity: 1;
+.slick-slide > div {
+  margin: 0 10px;
+}
+.slick-list {
+  margin: 0 -10px;
+}
+/* .slick-dots li button {
+  font-size: 20px;
 } */
-
-.image-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+.slick-dots li button{
+  font-size: 10px;
 }
-
+.slick-dots {
+  bottom: -35px !important;
+}
+.slick-dots li.slick-active button  {
+  opacity: .75;
+  color: #cf173c !important;
+}
 /*
 .team {
   background: #fdf3f3;
@@ -261,6 +257,9 @@ button.accent-btn {
 } */
 
 /* signup css */
+/* .bg-img {
+  background-image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url("https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600");
+} */
 .react-tel-input .form-control {
   width: 100% !important;
   padding: 27px;
