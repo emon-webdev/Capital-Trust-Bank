@@ -31,17 +31,29 @@ const AdminLeft = () => {
 
       <div className={`sideNav ${isX ? "block" : "hidden"} `}>
         <div className="menu p-2">
-          <div className="flex flex-col divide-y-2 lg:p-2">
-            <Link to="/dashboard/allCustomers" className="p-2 hover:text-red-500">
+          <div className="flex flex-col divide-y-4 hover:divide-y-0 divide-red-600 lg:p-2">
+            <Link
+              to="/dashboard/allCustomers"
+              className="p-2 hover:bg-red-600 rounded"
+            >
               All Customers
             </Link>
-            <Link to="/dashboard/verificationRequest" className="p-2">
+            <Link
+              to="/dashboard/verificationRequest"
+              className="p-2 hover:bg-red-600 rounded"
+            >
               Verification Request
             </Link>
-            <Link to="/dashboard/cardRequest" className="p-2">
+            <Link
+              to="/dashboard/cardRequest"
+              className="p-2 hover:bg-red-600 rounded"
+            >
               Credit card Request
             </Link>
-            <Link to="/dashboard/loanRequest" className="p-2">
+            <Link
+              to="/dashboard/loanRequest"
+              className="p-2 hover:bg-red-600 rounded"
+            >
               Loan Request
             </Link>
           </div>
