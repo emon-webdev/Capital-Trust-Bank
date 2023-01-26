@@ -1,3 +1,5 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import 'animate.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Toaster } from 'react-hot-toast';
@@ -6,7 +8,6 @@ import 'slick-carousel/slick/slick.css';
 import App from './App';
 import AuthProvider from './context/AuthProvider';
 import './index.css';
-import { QueryClient, QueryClientProvider, } from '@tanstack/react-query';
 // import { getTodos, postTodo } from '../my-api';
 
 import reportWebVitals from './reportWebVitals';
