@@ -9,12 +9,13 @@ const AllCustomers = () => {
            setCustomers(data);
          });
      }, []);
-    return <div>
+    return <div className='my-2'>
+      <h2 className='text-center default-font'>Total Customers:{customers.length}</h2>
       {
         customers.map(customer => {
           return (
             <div key={customer._id}>
-              <div className="w-1/2 mx-auto flex my-2 gap-2 p-2 border rounded h-fit">
+              <div className="w-1/2 mx-auto flex justify-evenly my-2 gap-2 p-2 rounded h-fit default-bg">
                 <div className="flex items-center justify-center w-1/5">
                   <img
                     className="h-16 w-16 rounded"

@@ -11,11 +11,14 @@ const LoanReq = () => {
          });
      }, []);
     return (
-      <div>
+      <div className='my-2'>
+        <h2 className="text-center default-font">
+          Total Loan Request:{customers.length}
+        </h2>
         {customers.map((customer) => {
           return (
             <div key={customer._id}>
-              <div className="w-1/2 mx-auto flex my-2 gap-2 p-2 border rounded h-fit">
+              <div className="w-1/2 mx-auto flex justify-evenly my-2 gap-2 p-2 rounded h-fit default-bg">
                 <div className="flex items-center">
                   <img
                     className="h-16 w-16 rounded"
@@ -32,8 +35,12 @@ const LoanReq = () => {
                   <span>Date:{customer.date}</span>
                   <span>Loan Type:{customer.loan}</span>
                   <div className="flex gap-2 p-2">
-                    <button className="ring rounded p-1">Give Loan</button>
-                    <button className="ring rounded p-1">Cancel</button>
+                    <button className="ring rounded p-2 hover:bg-red-600">
+                      Give Loan
+                    </button>
+                    <button className="ring rounded p-2 hover:bg-red-600">
+                      Cancel
+                    </button>
                   </div>
                 </div>
               </div>
