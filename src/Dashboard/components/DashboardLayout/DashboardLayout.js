@@ -10,7 +10,7 @@ const DashboardLayout = () => {
     <div>
       <Header />
       <div className="flex default-font h-fit">
-        <div className="left w-1/4 default-bg">
+        <div className="left w-1/4">
           <LeftContainer></LeftContainer>
         </div>
         <div className="right w-full default-bg">
