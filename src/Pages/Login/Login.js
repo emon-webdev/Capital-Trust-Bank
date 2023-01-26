@@ -44,8 +44,8 @@ const Login = () => {
     signInWithEmail(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
-        setAuthToken(user);
+        // console.log(user);
+        // setAuthToken(user);
         toast.success("Login Success");
         setLoading(false);
         navigate(from, { replace: true });
