@@ -11,16 +11,45 @@ const ServiceReqSlider = () => {
   const [nav2, setNav2] = useState();
   const [slidersNav, setSlidersNav] = useState([]);
   const [slidersContents, setSlidersContents] = useState([]);
+  /* slider data fetch */
   useEffect(() => {
-    fetch("sliders.json")
+    fetch("http://localhost:5000/emergencyServices")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data[0]);
         setSlidersNav(data[0].sliderNav);
         setSlidersContents(data[0].sliderContent);
-        console.log(data[1]);
       });
   }, []);
+
+
+  let settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    swipeToSlide: true,
+    focusOnSelect: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <div>
@@ -30,9 +59,10 @@ const ServiceReqSlider = () => {
           <Slider
             asNavFor={nav1}
             ref={(slider2) => setNav2(slider2)}
-            slidesToShow={4}
-            swipeToSlide={true}
-            focusOnSelect={true}
+            // slidesToShow={4}
+            // swipeToSlide={true}
+            // focusOnSelect={true}
+            {...settings}
           >
             {slidersNav.map((sliderNav) => (
               <div>
@@ -94,239 +124,6 @@ const ServiceReqSlider = () => {
                 </div>
               </div>
             ))}
-
-            <div className="single-slider-content">
-              <div className="md:flex items-center justify-between">
-                <div className="flex-1 md:mr-[30px] mb-[30px] md:mb-0">
-                  <div className="slider-content">
-                    <ul>
-                      <li>
-                        <a href="/">
-                          Block Debit / ATM Card
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/">
-                          Generate Debit Card Pin Number
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/">
-                          Unlock Debit / ATM Card
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/">
-                          Reissue Lost Debit / ATM Card
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="slider-img  flex items-center justify-between">
-                    <div className="slider-img-content flex-1 text-center px-3">
-                      <p className="">
-                        <FiPhoneCall />
-                      </p>
-                      <h4 className="text-md font-medium mb-2">Call for</h4>
-                      <h3 className="text-lg font-medium mb-3">
-                        Private Banking
-                      </h3>
-                      <h2>
-                        <a
-                          href="tel:+8(222)123-456-78"
-                          className="mb-0  text-xl"
-                        >
-                          +8(222)123-456-78
-                        </a>
-                      </h2>
-                    </div>
-                    <div className="img-box flex-1">
-                      <img src={sliderImg1} alt="" srcset="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="single-slider-content">
-              <div className="md:flex items-center justify-between">
-                <div className="flex-1 md:mr-[30px] mb-[30px] md:mb-0">
-                  <div className="slider-content">
-                    <ul>
-                      <li>
-                        <a href="/">
-                          Block Debit / ATM Card
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/">
-                          Generate Debit Card Pin Number
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/">
-                          Unlock Debit / ATM Card
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/">
-                          Reissue Lost Debit / ATM Card
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="slider-img  flex items-center justify-between">
-                    <div className="slider-img-content flex-1 text-center px-3">
-                      <p className="">
-                        <FiPhoneCall />
-                      </p>
-                      <h4 className="text-md font-medium mb-2">Call for</h4>
-                      <h3 className="text-lg font-medium mb-3">
-                        Private Banking
-                      </h3>
-                      <h2>
-                        <a
-                          href="tel:+8(222)123-456-78"
-                          className="mb-0  text-xl"
-                        >
-                          +8(222)123-456-78
-                        </a>
-                      </h2>
-                    </div>
-                    <div className="img-box flex-1">
-                      <img src={sliderImg1} alt="" srcset="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="single-slider-content">
-              <div className="md:flex items-center justify-between">
-                <div className="flex-1 md:mr-[30px] mb-[30px] md:mb-0">
-                  <div className="slider-content">
-                    <ul>
-                      <li>
-                        <a href="/">
-                          Block Debit / ATM Card
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/">
-                          Generate Debit Card Pin Number
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/">
-                          Unlock Debit / ATM Card
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/">
-                          Reissue Lost Debit / ATM Card
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="slider-img  flex items-center justify-between">
-                    <div className="slider-img-content flex-1 text-center px-3">
-                      <p className="">
-                        <FiPhoneCall />
-                      </p>
-                      <h4 className="text-md font-medium mb-2">Call for</h4>
-                      <h3 className="text-lg font-medium mb-3">
-                        Private Banking
-                      </h3>
-                      <h2>
-                        <a
-                          href="tel:+8(222)123-456-78"
-                          className="mb-0  text-xl"
-                        >
-                          +8(222)123-456-78
-                        </a>
-                      </h2>
-                    </div>
-                    <div className="img-box flex-1">
-                      <img src={sliderImg1} alt="" srcset="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="single-slider-content">
-              <div className="md:flex items-center justify-between">
-                <div className="flex-1 md:mr-[30px] mb-[30px] md:mb-0">
-                  <div className="slider-content">
-                    <ul>
-                      <li>
-                        <a href="/">
-                          Block Debit / ATM Card
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/">
-                          Generate Debit Card Pin Number
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/">
-                          Unlock Debit / ATM Card
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/">
-                          Reissue Lost Debit / ATM Card
-                          <span className="icon-right-arrow"></span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="slider-img  flex items-center justify-between">
-                    <div className="slider-img-content flex-1 text-center px-3">
-                      <p className="">
-                        <FiPhoneCall />
-                      </p>
-                      <h4 className="text-md font-medium mb-2">Call for</h4>
-                      <h3 className="text-lg font-medium mb-3">
-                        Private Banking
-                      </h3>
-                      <h2>
-                        <a
-                          href="tel:+8(222)123-456-78"
-                          className="mb-0  text-xl"
-                        >
-                          +8(222)123-456-78
-                        </a>
-                      </h2>
-                    </div>
-                    <div className="img-box flex-1">
-                      <img src={sliderImg1} alt="" srcset="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </Slider>
         </div>
       </div>

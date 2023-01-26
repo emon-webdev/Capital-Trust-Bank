@@ -4,11 +4,11 @@ import React from "react";
 // import image1 from "../../assests/Team/team-img1.png";
 // import image2 from "../../assests/Team/team-img2.png";
 // import image3 from "../../assests/Team/team-img3.png";
-import "../../App.css";
-import TeamSection from "./TeamSection";
-import Slider from "react-slick";
 import { useQuery } from "@tanstack/react-query";
+import Slider from "react-slick";
+import "../../App.css";
 import { getTeams } from "../../hooks/API/API";
+import TeamSection from "./TeamSection";
 
 
 
@@ -94,7 +94,6 @@ const Team = () => {
     queryKey: ['teams'],
     queryFn: async () => getTeams()
   })
-console.log(teams)
   const sliderSettings = {
     slidesToShow: 3,
     slidesToScroll: 3,

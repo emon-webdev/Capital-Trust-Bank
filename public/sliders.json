@@ -3,22 +3,22 @@
     "sliderNav": [
       {
         "index": 0,
-        "title": "Credit / Debit Card  Related 1",
+        "title": "Credit / Debit Card  Related",
         "icon": "BsGoogle"
       },
       {
         "index": 1,
-        "title": "Credit / Debit Card  Related 2",
+        "title": "Mobile / Internet  Banking",
         "icon": "CreditCardIcon"
       },
       {
         "index": 2,
-        "title": "Credit / Debit Card  Related 3",
+        "title": "Account Details  Changing",
         "icon": "CreditCardIcon"
       },
       {
         "index": 3,
-        "title": "Credit / Debit Card  Related 4",
+        "title": "Cheque Book / DD  Related",
         "icon": "CreditCardIcon"
       },
       {
@@ -40,7 +40,7 @@
         "phone": "+8(222)123-456-78",
         "services": [
           {
-            "name": "Block Debit / ATM Card "
+            "name": "Credit / Debit Card  Related"
           },
           {
             "name": "Generate Debit Card Pin Number "
@@ -60,7 +60,7 @@
         "phone": "+8(222)123-456-78",
         "services": [
           {
-            "name": "Block Debit / ATM Card "
+            "name": "Mobile / Internet  Banking"
           },
           {
             "name": "Generate Debit Card Pin Number "
@@ -80,7 +80,7 @@
         "phone": "+8(222)123-456-78",
         "services": [
           {
-            "name": "Block Debit / ATM Card "
+            "name": "Account Details  Changing"
           },
           {
             "name": "Generate Debit Card Pin Number "
@@ -100,7 +100,7 @@
         "phone": "+8(222)123-456-78",
         "services": [
           {
-            "name": "Block Debit / ATM Card "
+            "name": "Cheque Book / DD  Related"
           },
           {
             "name": "Generate Debit Card Pin Number "
@@ -120,7 +120,7 @@
         "phone": "+8(222)123-456-78",
         "services": [
           {
-            "name": "Block Debit / ATM Card "
+            "name": "Block Debit / ATM Card 5"
           },
           {
             "name": "Generate Debit Card Pin Number "
@@ -140,7 +140,7 @@
         "phone": "+8(222)123-456-78",
         "services": [
           {
-            "name": "Block Debit / ATM Card "
+            "name": "Block Debit / ATM Card 6"
           },
           {
             "name": "Generate Debit Card Pin Number "
