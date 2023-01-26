@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import App from './App';
+import 'animate.css';
 import AuthProvider from './context/AuthProvider';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
