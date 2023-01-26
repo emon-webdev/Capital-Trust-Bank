@@ -15,7 +15,7 @@ const LoanReq = () => {
         {customers.map((customer) => {
           return (
             <div key={customer._id}>
-              <div className="w-1/2 mx-auto flex my-2 gap-2 p-2 border rounded">
+              <div className="w-1/2 mx-auto flex my-2 gap-2 p-2 border rounded h-fit">
                 <div className="flex items-center">
                   <img
                     className="h-16 w-16 rounded"
