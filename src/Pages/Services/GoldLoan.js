@@ -106,19 +106,19 @@ export default function GoldLoan() {
             onSubmit={handleSubmit}
             style={{
               backgroundColor: "#041C51",
-              height: "550px",
+              height: "auto",
               width: "500px",
               borderRadius: "10px",
               marginX:'auto'
             }}
-            className="p-5 mb-4 sm:align-content-center sm:justify-items-center"
+            className="py-10 px-7 sm:align-content-center sm:justify-items-center"
           >
-            <Grid container className="mt-7 align-content-center justify-items-center">
+            <Grid container className=" align-content-center justify-items-center">
               <Grid item xs={12}>
                 <input
                   name="name"
-                  className="border m-3 p-2 rounded "
-                  style={{ width: "400px" }}
+                  className="border px-3 rounded "
+                  style={{ width: "100%" }}
                   placeholder="Your Name"
                   defaultValue={user?.displayName}
                 ></input>
@@ -126,8 +126,8 @@ export default function GoldLoan() {
               <Grid item xs={12}>
                 <input
                   name="email"
-                  style={{ width: "400px" }}
-                  className="border m-3 p-2 rounded"
+                  style={{ width: "100%" }}
+                  className="border  px-3 rounded"
                   placeholder="Email"
                   defaultValue={user?.email}
                 ></input>
@@ -135,16 +135,16 @@ export default function GoldLoan() {
               <Grid item xs={12}>
                 <input
                   name="phone"
-                  style={{ width: "400px" }}
-                  className="border m-3 p-2 rounded"
+                  style={{ width: "100%" }}
+                  className="border  px-3  rounded"
                   placeholder="Phone"
                 ></input>
               </Grid>
               <Grid item xs={12}>
                 <input
                   name="loan"
-                  style={{ width: "400px" }}
-                  className="border  p-2 rounded"
+                  style={{ width: "100%" }}
+                  className="border  px-3 rounded"
                   placeholder="Loan"
                   defaultValue={loan.title}
                 ></input>
@@ -152,11 +152,11 @@ export default function GoldLoan() {
               <Grid item xs={12}>
                 <select
                   name="city"
-                  style={{ height: "50px", width: "400px" }}
+                  style={{ width: "100%" }}
                   value={district}
                   onChange={handleChange}
                   label="city"
-                  className="border m-3 p-2 rounded"
+                  className="border  px-3 rounded"
                   placeholder="City"
                 >
                   {districts.map((dis) => (
@@ -169,16 +169,16 @@ export default function GoldLoan() {
               <Grid item xs={12}>
                 <input
                   name="date"
-                  style={{ width: "400px" }}
-                  className="border m-3 p-2 rounded"
+                  style={{ width: "100%" }}
+                  className="border  px-3 rounded"
                   placeholder="dd/mm/yy"
                 ></input>
               </Grid>
 
                 <Grid item xs={12}>
                   <button
-                    style={{ width: "400px" }}
-                    className="primary-btn ms-5 m-3 p-2  my-2 "
+                    style={{ width: "100%" }}
+                    className="primary-btn mt-2 "
                     type="submit"
                   >
                     Apply

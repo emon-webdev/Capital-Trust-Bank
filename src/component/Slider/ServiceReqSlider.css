@@ -21,6 +21,7 @@
 .img-box img {
   clip-path: polygon(28% 0%, 100% 0%, 100% 100%, 28% 100%, 1% 50%);
   height: 100%;
+  width: 100%;
 }
 .slider-img {
   background: #fff;
@@ -54,8 +55,7 @@
   margin: 0 auto;
   border: 1px solid #e2deda;
   border-radius: 50%;
-  transition: all 200ms linear;
-  transition-delay: 0.1s;
+  transition: 0.3s;
 }
 
 .slider-nav-icon svg {
@@ -67,7 +67,24 @@
   margin: 15px 0;
   color: #fff;
   font-weight: 500;
+  padding: 0 35px;
+  transition: 0.3s;
 }
 .mt-8.slider-main-content .slick-slider.slick-initialized button.slick-arrow {
   display: none !important;
+}
+.single-slider-nav:hover h3 {
+  color: #041c51;
+}
+
+.single-slider-nav:hover .slider-nav-icon {
+  background: #041c51;
+  border: #041c51;
+}
+.slick-slide.slick-active.slick-current .slider-nav-icon {
+  background: #041c51;
+  border: #041c51;
+}
+.slick-slide.slick-active.slick-current h3 {
+  color: #041c51;
 }

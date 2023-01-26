@@ -4,89 +4,12 @@ import React from "react";
 // import image1 from "../../assests/Team/team-img1.png";
 // import image2 from "../../assests/Team/team-img2.png";
 // import image3 from "../../assests/Team/team-img3.png";
-import "../../App.css";
-import TeamSection from "./TeamSection";
-import Slider from "react-slick";
 import { useQuery } from "@tanstack/react-query";
+import Slider from "react-slick";
+import "../../App.css";
 import { getTeams } from "../../hooks/API/API";
+import TeamSection from "./TeamSection";
 
-
-
-// const teams = [
-//   {
-//     "name": "Akash Chakrabortty",
-//     "designation": "Back-End Developer",
-//     "image": "https://i.ibb.co/mDZMR3Q/own1.jpg",
-//     "social": [
-//       {
-//         "facebook": "https://www.facebook.com/akash.chakrabortty.589",
-//         "linkedin": "https://www.linkedin.com/in/akash-chakrabortty-dev/",
-//         "github": "https://github.com/AkashChakrabortty"
-//       }
-//     ]
-//   },
-//   {
-//     "name": "Salma Tabassum Mouri",
-//     "designation": "Front-end Developer",
-//     "image": "https://i.ibb.co/VQtQz55/ACLD-134279-copy-1.jpg",
-//     "social": [
-//       {
-//         "facebook": "https://www.facebook.com/mrinmoyee.mouri",
-//         "linkedin": "https://www.linkedin.com/in/salma-mouri/",
-//         "github": "https://github.com/salmamouri"
-//       }
-//     ]
-//   },
-//   {
-//     "name": "MD Emon Hossain",
-//     "designation": "Full Stack Developer",
-//     "image": "https://i.ibb.co/tsTbGvn/IMG-1395-01.jpg",
-//     "social": [
-//       {
-//         "facebook": "https://www.facebook.com/emon.webdev",
-//         "linkedin": "https://www.linkedin.com/in/emon-webdev/",
-//         "github": "https://github.com/emon-webdev"
-//       }
-//     ]
-//   },
-//   {
-//     "name": "Niloy Modak",
-//     "designation": "MERN Stack Developer",
-//     "image": "https://i.ibb.co/SsRZh7Z/niloy-modak.jpg",
-//     "social": [
-//       {
-//         "facebook": "https://www.facebook.com/NiloyModak11",
-//         "linkedin": "https://www.linkedin.com/in/niloy-modak/",
-//         "github": "https://github.com/niloymodak"
-//       }
-//     ]
-//   },
-//   {
-//     "name": "Mohd. Wahidul Alam",
-//     "designation": "Full Stack Developer",
-//     "image": "https://i.ibb.co/7GghYqs/wahidul.png",
-//     "social": [
-//       {
-//         "facebook": "https://www.facebook.com/wahidul.alam.7549",
-//         "linkedin": "https://www.linkedin.com/in/mohd-wahidul-alam/",
-//         "github": "https://github.com/wahid30"
-//       }
-//     ]
-//   },
-//   {
-//     "name": "MD Rakib Khan",
-//     "email": "contact.antor.bd@gmail.com",
-//     "designation": "React Developer",
-//     "image": "https://i.ibb.co/PDS0mX2/antor.webp",
-//     "social": [
-//       {
-//         "facebook": "https://www.facebook.com/antor.khan.336333/",
-//         "linkedin": "https://www.linkedin.com/in/rakib-khan-66623a221/",
-//         "github": "https://github.com/Rakib86547"
-//       }
-//     ]
-//   },
-// ]
 
 
 const Team = () => {

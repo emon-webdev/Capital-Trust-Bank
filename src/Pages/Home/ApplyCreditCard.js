@@ -1,42 +1,65 @@
 import CheckIcon from "@mui/icons-material/Check";
 import { TextField } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import creditCardImg from "../../assets/apply-loan/credit-card-img.png";
+import Spinner from "../../component/Spinner/Spinner";
 import { AuthContext } from "../../context/AuthProvider";
 const ApplyCreditCard = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
+  const [idError, setIdError] = useState([]);
+  const [applierEmail, setApplierEmail] = useState([]);
 
-  const handleApply = (data) => {
-    // event.preventDefault();
-    const applierName = user?.displayName;
-    const accountId = data.accountId;
-    const applierInfo = {
-      applierName,
-      accountId,
-    };
-    console.log(applierInfo);
-    fetch("http://localhost:5000/cardAppliers", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(applierInfo),
-    })
+  useEffect(() => {
+    fetch(`http://localhost:5000/users?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        if (data.acknowledged) {
-          console.log(data);
-          toast.success("Apply Success for card");
-        }
+        setApplierEmail(data[0]);
+      });
+  }, []);
+  if (loading) {
+    return <Spinner />;
+  }
+
+  // apply for credit card
+  const handleApply = (data) => {
+    // event.preventDefault();
+    setIdError("");
+    const applierName = user?.displayName;
+    const accountId = data.accountId;
+    console.log("applierEmail id", applierEmail._id);
+    console.log("accountId", accountId);
+    if (applierEmail?._id === accountId) {
+      const applierInfo = {
+        applierName,
+        accountId,
+      };
+      fetch(`http://localhost:5000/cardAppliers`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(applierInfo),
       })
-      .then((error) => console.error(error));
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            console.log(data);
+            toast.success("Apply Success for card");
+            reset();
+          }
+        })
+        .then((error) => console.error(error));
+    } else {
+      setIdError("Account Id did't match");
+    }
   };
 
   return (
@@ -89,7 +112,6 @@ const ApplyCreditCard = () => {
                     sx={{
                       width: "340px",
                       height: "60px",
-                      marginBottom: "20px",
                     }}
                     {...register("accountId", {
                       required: "Account Id is Required",
@@ -103,14 +125,16 @@ const ApplyCreditCard = () => {
                       },
                     })}
                   />
+                  {idError && (
+                    <p className="text-red-600 text-sm mb-0">{idError}</p>
+                  )}
                   {errors.accountId && (
                     <p className="text-red-600 text-sm mb-0">
                       {errors.accountId?.message}
                     </p>
                   )}
-
                   <div>
-                    <button className="primary-btn" type="submit">
+                    <button className="primary-btn mt-5" type="submit">
                       Apply Now
                     </button>
                   </div>
