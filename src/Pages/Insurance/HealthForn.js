@@ -71,7 +71,7 @@ export default function HealthForm() {
               borderRadius: "10px",
               marginX:'auto'
             }}
-            className="py-10 px-7 sm:align-content-center sm:justify-items-center"
+            className="py-10 px-7  sm:align-center sm:justify-center"
           >
             <Grid container className=" align-content-center justify-items-center">
               <Grid item xs={12}>
