@@ -169,92 +169,7 @@ button.accent-btn {
   opacity: .75;
   color: #cf173c !important;
 }
-/*
-.team {
-  background: #fdf3f3;
-  background: #fdf3f3;
-  border-radius: 4px;
-}
 
-.icon {
-  background: #010c3a !important;
-  border-radius: 30px;
-  color: #fff !important;
-  padding: 6px;
-}
-
-.icon-box {
-  display: none !important;
-}
-
-.team:hover .icon-box {
-  display: inline-flex !important;
-  transition: all 0.5s !important;
-}
-
-.team:hover {
-  background-color: #df0303;
-  transition: all 0.5s;
-}
-
-.team:hover .title {
-  color: #fff;
-}
-
-.icon:hover {
-  background: #df0303 !important;
-  color: #fff;
-  transition: all 0.3s;
-  transition: all 0.3s;
-  width: 30px !important;
-  height: 30px !important;
-  pad: 8px;
-}
-
-@media screen and (max-width: 1022px) {
-  .team-3 {
-    margin-top: 200px !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .team {
-    max-width: 100% !important;
-  }
-  .team-img-box {
-    left: 110px !important;
-  }
-  .icon-box {
-    left: 30% !important;
-    bottom: 18% !important;
-  }
-  .title-box {
-    position: absolute;
-    left: 110px;
-    top: 38px;
-  }
-  .title-2 {
-    top: 45px !important;
-  }
-}
-
-@media screen and (max-width: 590px) {
-  .team {
-    max-width: 100% !important;
-  }
-  .team-img-box {
-    left: 50px !important;
-  }
-  .icon-box {
-    left: 34% !important;
-    bottom: 22% !important;
-  }
-  .title-box {
-    position: absolute;
-    left: 17px !important;
-    top: 10px !important;
-  }
-} */
 
 /* signup css */
 /* .bg-img {
@@ -264,6 +179,18 @@ button.accent-btn {
   width: 100% !important;
   padding: 27px;
 }
+/* @media screen and (max-width: 1024px) {
+  .choose {
+    display: flex;
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .choose {
+    display: flex;
+    margin-top: 20px;
+  }
+} */
 
 #file {
   display: none;

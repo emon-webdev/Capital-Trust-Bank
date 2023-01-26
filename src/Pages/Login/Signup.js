@@ -347,7 +347,7 @@ const Signup = () => {
               Upload Image
             </label>
 
-            {userImage ? <span className="ml-3">{userImage.name}</span> : <span className="ml-3">Choose Image Before Pressing the Sign Up Button</span>}
+            {userImage ? <span className="ml-3">{userImage.name}</span> : <span className="ml-1 text-[#010c3a] flex mt-[20px]">Choose Image Before Pressing the Sign Up Button</span>}
           </div>
           {signUpError && <span className="text-red-500">{signUpError}</span>}
           <div className="mt-7">

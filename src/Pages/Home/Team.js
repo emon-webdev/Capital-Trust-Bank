@@ -94,7 +94,6 @@ const Team = () => {
     queryKey: ['teams'],
     queryFn: async () => getTeams()
   })
-console.log(teams)
   const sliderSettings = {
     slidesToShow: 3,
     slidesToScroll: 3,
