@@ -102,22 +102,30 @@ console.log(teams)
     dots: true,
     initialSlide: 0,
     speed: 1000,
-    gap: 5,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
           dots: true
         }
       },
       {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 5,
+          dots: true,
+          infinite: 5
+        }
+      },
+      {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           initialSlide: 2
         }
       },
@@ -155,261 +163,6 @@ console.log(teams)
             teams.map(team => <TeamSection key={team._id} team={team} />)
           }
         </Slider>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {/* <Box className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 py-16 mt-[150px]">
-          <Box
-            sx={{
-              position: "relative",
-              height: "348px",
-              maxWidth: "424px",
-              // width: '424px',
-            }}
-            className="team"
-          >
-            <Box
-            
-              sx={{
-                position: "absolute",
-                height: "348px",
-                left: "38px",
-                right: "38px",
-                // right: '30px',
-                top: "-45%",
-              }}
-              className="team-img-box"
-            >
-              {" "}
-              <img className="bg-image" src={image1} alt="team-1" />
-              <Box
-                sx={{
-                  position: "absolute",
-                  left: "35%",
-                  bottom: "24%",
-                }}
-                className="flex justify-between w-[100px] icon-box"
-              >
-                <FaLinkedin className="icon cursor-pointer w-[30px] h-[30px] p-2" />
-                <FaTwitter className="icon cursor-pointer w-[30px] h-[30px] p-2" />
-                <FaFacebook className="icon cursor-pointer w-[30px] h-[30px] p-2" />
-              </Box>
-            </Box>
-
-            <Box className="title-box">
-              <Typography
-                className="title"
-                sx={{
-                  position: "absolute",
-                  bottom: "5px",
-                  width: "134px",
-                  height: "28px",
-                  left: "126px",
-                  top: "210px",
-                  // left: '144px',
-                  // top: '240px',
-                  fontSize: "20px",
-                  lineHeight: "28px",
-                  fontWeight: 700,
-                  color: "#010C3A",
-                }}
-              >
-                Adam Smith
-              </Typography>
-
-              <Typography
-                className="title"
-                sx={{
-                  position: "absolute",
-                  width: "216px",
-                  height: "24px",
-                  left: "143px",
-                  top: "240px",
-                  fontSize: "16px",
-                  fontWeight: 400,
-                  lineHeight: "24px",
-                  color: "#706F6D",
-                  opacity: 0.5,
-                }}
-              >
-                Co-Founder
-              </Typography>
-            </Box>
-          </Box>
-
-          <Box
-            sx={{
-              position: "relative",
-              height: "348px",
-              maxWidth: "424px",
-              // width: '424px'
-            }}
-            className="team team-2"
-          >
-            <Box
-              sx={{
-                position: "absolute",
-                height: "348px",
-                left: "38px",
-                right: "38px",
-                // right: '30px',
-                top: "-45%",
-              }}
-              className="team-img-box"
-            >
-              {" "}
-              <img className="bg-image" src={image2} alt="team-2" />
-              <Box
-                sx={{
-                  position: "absolute",
-                  left: "35%",
-                  bottom: "24%",
-                }}
-                className="flex justify-between w-[100px] icon-box"
-              >
-                <FaLinkedin className="icon cursor-pointer w-[30px] h-[30px] p-2" />
-                <FaTwitter className="icon cursor-pointer w-[30px] h-[30px] p-2" />
-                <FaFacebook className="icon cursor-pointer w-[30px] h-[30px] p-2" />
-              </Box>
-            </Box>
-            <Box className="title-box">
-              <Typography
-                className="title"
-                sx={{
-                  position: "absolute",
-                  bottom: "5px",
-                  width: "134px",
-                  height: "28px",
-                  left: "126px",
-                  top: "210px",
-                  fontSize: "20px",
-                  lineHeight: "28px",
-                  fontWeight: 700,
-                  color: "#010C3A",
-                }}
-              >
-                Adam Smith
-              </Typography>
-
-              <Typography
-                className="title"
-                sx={{
-                  position: "absolute",
-                  width: "216px",
-                  height: "24px",
-                  left: "143px",
-                  top: "240px",
-                  fontSize: "16px",
-                  fontWeight: 400,
-                  lineHeight: "24px",
-                  color: "#706F6D",
-                  opacity: 0.5,
-                }}
-              >
-                Co-Founder
-              </Typography>
-            </Box>
-          </Box>
-
-          <Box
-            sx={{
-              position: "relative",
-              height: "348px",
-              maxWidth: "424px",
-              // width: '424px'
-            }}
-            className="team team-2 team-3"
-          >
-            <Box
-              sx={{
-                position: "absolute",
-                height: "348px",
-                left: "38px",
-                right: "38px",
-                // right: '30px',
-                top: "-45%",
-              }}
-              className="team-img-box"
-            >
-              {" "}
-              <img className="bg-image" src={image3} alt="team-3" />
-              <Box
-                sx={{
-                  position: "absolute",
-                  left: "35%",
-                  bottom: "24%",
-                }}
-                className="flex justify-between w-[100px] icon-box"
-              >
-                <FaLinkedin className="icon cursor-pointer w-[30px] h-[30px] p-2" />
-                <FaTwitter className="icon cursor-pointer w-[30px] h-[30px] p-2" />
-                <FaFacebook className="icon cursor-pointer w-[30px] h-[30px] p-2" />
-              </Box>
-            </Box>
-
-            <Box className="title-2 title-box">
-              <Typography
-                className="title"
-                sx={{
-                  position: "absolute",
-                  bottom: "5px",
-                  width: "134px",
-                  height: "28px",
-                  left: "126px",
-                  top: "210px",
-                  fontSize: "20px",
-                  lineHeight: "28px",
-                  fontWeight: 700,
-                  color: "#010C3A",
-                }}
-              >
-                Adam Smith
-              </Typography>
-
-              <Typography
-                className="title"
-                sx={{
-                  position: "absolute",
-                  width: "216px",
-                  height: "24px",
-                  left: "143px",
-                  top: "240px",
-                  fontSize: "16px",
-                  fontWeight: 400,
-                  lineHeight: "24px",
-                  color: "#706F6D",
-                  opacity: 0.5,
-                }}
-              >
-                Co-Founder
-              </Typography>
-            </Box>
-          </Box>
-        </Box> */}
       </Box>
     </Box>
   );
