@@ -15,7 +15,7 @@ const AdminLeft = () => {
           isX ? "flex-row" : "flex-row-reverse"
         }`}
       >
-        <span>Capital Trust Bank</span>
+        <span className="hidden lg:block">Capital Trust Bank</span>
         <button onClick={handleIcon}>
           {isX ? (
             <>
@@ -31,17 +31,17 @@ const AdminLeft = () => {
 
       <div className={`sideNav ${isX ? "block" : "hidden"} `}>
         <div className="menu p-2">
-          <div className="flex flex-col divide-y-2">
-            <Link to="/dashboard/allCustomers" className="">
+          <div className="flex flex-col divide-y-2 lg:p-2">
+            <Link to="/dashboard/allCustomers" className="p-2 hover:text-red-500">
               All Customers
             </Link>
-            <Link to="/dashboard/verificationRequest" className="">
+            <Link to="/dashboard/verificationRequest" className="p-2">
               Verification Request
             </Link>
-            <Link to="/dashboard/cardRequest" className="">
+            <Link to="/dashboard/cardRequest" className="p-2">
               Credit card Request
             </Link>
-            <Link to="/dashboard/loanRequest" className="">
+            <Link to="/dashboard/loanRequest" className="p-2">
               Loan Request
             </Link>
           </div>
