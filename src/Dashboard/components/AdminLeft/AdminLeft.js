@@ -9,9 +9,13 @@ const AdminLeft = () => {
      setIsX(!isX);
    };
   return (
-    <div className={`default-bg default-font ${isX ? "w-full" : "w-12"}`}>
-      <div className="icon flex justify-evenly p-4 text-2xl gap-2">
-        <span className={`${isX? 'block' : 'hidden'}`}>Capital Trust Bank</span>
+    <div className={`default-font`}>
+      <div
+        className={`icon flex justify-evenly p-4 text-2xl gap-2 ${
+          isX ? "flex-row" : "flex-row-reverse"
+        }`}
+      >
+        <span>Capital Trust Bank</span>
         <button onClick={handleIcon}>
           {isX ? (
             <>

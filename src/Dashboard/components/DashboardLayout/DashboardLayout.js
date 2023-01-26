@@ -9,7 +9,7 @@ const DashboardLayout = () => {
   return (
     <div>
       <Header />
-      <div className="flex default-font h-fit">
+      <div className="flex default-bg default-font h-fit">
         <div className="left w-1/4">
           <LeftContainer></LeftContainer>
         </div>
