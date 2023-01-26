@@ -74,7 +74,7 @@ export default function MarriageLoan() {
         <DynamicBanner name={name}></DynamicBanner>
       </div>
       <div className="loan-area my-10 ">
-        <div className="grid-container  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+        <div className="container  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
           <div className="">
             <Card sx={{ maxWidth: 700, height: "auto" }}>
               <CardActionArea>
@@ -99,82 +99,83 @@ export default function MarriageLoan() {
             </Card>
           </div>
           <div className="">
-            <form
-              onSubmit={handleSubmit}
-              style={{
-                backgroundColor: "#041C51",
-                height: "auto",
-                width: "500px",
-                borderRadius: "10px",
-              }}
-              className="p-5 mb-4"
-            >
-              <Grid container className="mt-7 align-content-center justify-items-center">
-                <Grid item xs={12}>
-                  <input
-                    name="name"
-                    className="border m-3 p-2  rounded"
-                    style={{ width: "400px" }}
-                    placeholder="Your Name"
-                    defaultValue={user?.displayName}
-                  ></input>
-                </Grid>
-                <Grid item xs={12}>
-                  <input
-                    name="email"
-                    style={{ width: "400px" }}
-                    className="border m-3 p-2 rounded"
-                    placeholder="Email"
-                    defaultValue={user?.email}
-                  ></input>
-                </Grid>
-                <Grid item xs={12}>
-                  <input
-                    name="phone"
-                    style={{ width: "400px" }}
-                    className="border m-3 p-2 rounded"
-                    placeholder="Phone"
-                  ></input>
-                </Grid>
-                <Grid item xs={12}>
-                  <input
-                    name="loan"
-                    style={{ width: "400px" }}
-                    className="border  p-2 rounded"
-                    placeholder="Loan"
-                    defaultValue={loan.title}
-                  ></input>
-                </Grid>
-                <Grid item xs={12}>
-                  <select
-                    name="city"
-                    style={{ height: "50px", width: "400px" }}
-                    value={district}
-                    onChange={handleChange}
-                    label="city"
-                    className="border m-3 p-2 rounded"
-                    placeholder="City"
-                  >
-                    {districts.map((dis) => (
-                      <option key={dis} value={dis}>
-                        {dis}
-                      </option>
-                    ))}
-                  </select>
-                </Grid>
-                <Grid item xs={12}>
-                  <input
-                    name="date"
-                    style={{ width: "400px" }}
-                    className="border m-3 p-2 rounded"
-                    placeholder="dd/mm/yy"
-                  ></input>
-                </Grid>
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              backgroundColor: "#041C51",
+              height: "auto",
+              width: "500px",
+              borderRadius: "10px",
+              marginX:'auto'
+            }}
+            className="py-10 px-7 sm:align-content-center sm:justify-items-center"
+          >
+            <Grid container className=" align-content-center justify-items-center">
+              <Grid item xs={12}>
+                <input
+                  name="name"
+                  className="border px-3 rounded "
+                  style={{ width: "100%" }}
+                  placeholder="Your Name"
+                  defaultValue={user?.displayName}
+                ></input>
+              </Grid>
+              <Grid item xs={12}>
+                <input
+                  name="email"
+                  style={{ width: "100%" }}
+                  className="border  px-3 rounded"
+                  placeholder="Email"
+                  defaultValue={user?.email}
+                ></input>
+              </Grid>
+              <Grid item xs={12}>
+                <input
+                  name="phone"
+                  style={{ width: "100%" }}
+                  className="border  px-3  rounded"
+                  placeholder="Phone"
+                ></input>
+              </Grid>
+              <Grid item xs={12}>
+                <input
+                  name="loan"
+                  style={{ width: "100%" }}
+                  className="border  px-3 rounded"
+                  placeholder="Loan"
+                  defaultValue={loan.title}
+                ></input>
+              </Grid>
+              <Grid item xs={12}>
+                <select
+                  name="city"
+                  style={{ width: "100%" }}
+                  value={district}
+                  onChange={handleChange}
+                  label="city"
+                  className="border  px-3 rounded"
+                  placeholder="City"
+                >
+                  {districts.map((dis) => (
+                    <option key={dis} value={dis}>
+                      {dis}
+                    </option>
+                  ))}
+                </select>
+              </Grid>
+              <Grid item xs={12}>
+                <input
+                  name="date"
+                  style={{ width: "100%" }}
+                  className="border  px-3 rounded"
+                  placeholder="dd/mm/yy"
+                ></input>
+              </Grid>
 
                 <Grid item xs={12}>
                   <button
-                    style={{ width: "400px" }}
-                    className="primary-btn ms-5 m-3 p-2  my-2 "
+                    style={{ width: "100%" }}
+                    className="primary-btn mt-2 "
                     type="submit"
                   >
                     Apply
