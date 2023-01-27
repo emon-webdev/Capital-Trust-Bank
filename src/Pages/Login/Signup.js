@@ -41,7 +41,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const [userImage, setUserImage] = useState(null);
-  
+
   //checking validate
   const [lowerValidated, setLowerValidated] = useState(false);
   const [upperValidated, setUpperValidated] = useState(false);
@@ -163,8 +163,13 @@ const Signup = () => {
   return (
     <div className="signup-area">
       <div className="container flex w-full mx-auto flex-row-reverse overflow-hidden bg-white rounded-lg shadow-lg  my-3 p-3">
-        <div className="hidden bg-cover lg:block lg:w-1/2 h-full">
-          <img src={image} className="rounded" alt="" />
+        <div className="hidden relative bg-cover bg-img lg:block lg:w-1/2 h-full">
+          <img src='https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600'
+            className="rounded opacity-[.6]" alt="" />
+          <div className="absolute top-[23%] left-[16%]">
+            <h1 className="text-[#010c3a] text-[35px] text-center">Welcome to <br /> Capital Trust Bank</h1>
+            <p className='text-[17px] -ml-[35px] font-semibold text-center text-[#cf173c]'>Deposit dollars in our bank and To Feel like  million dollars</p>
+          </div>
         </div>
 
         <form
@@ -220,9 +225,9 @@ const Signup = () => {
               {...register("phone", { required: 'Please Inter Your Phone Number' })}
               onChange={(phone) => setPhone(phone)}
             />
-             {errors.phone && (
+            {errors.phone && (
               <p className="text-red-500">
-                {errors.phone?.message} 
+                {errors.phone?.message}
               </p>
             )}
           </div>
@@ -267,18 +272,18 @@ const Signup = () => {
               />
             </FormControl>
             {
-              isShowPassword &&             
-             
-              <p className=''>                
-              <span>Password Should be At Least One </span> <span></span>
+              isShowPassword &&
+
+              <p className=''>
+                <span>Password Should be At Least One </span> <span></span>
                 <></>
-              <span className={lowerValidated ? 'text-green-500' : 'text-red-500'}>Lowercase,</span> <></>
-              <span className={upperValidated ? 'text-green-500' : 'text-red-500'}>Uppercase,</span> <></>
-              <span className={numberValidated ? 'text-green-500' : 'text-red-500'}>Number,</span> <></>
-              <span className={specialValidated ? 'text-green-500' : 'text-red-500'}>Special Character,</span> <></>
-              <span className={lengthValidated ? 'text-green-500' : 'text-red-500'}>6 Character,</span> <></>
-            </p>
-             
+                <span className={lowerValidated ? 'text-green-500' : 'text-red-500'}>Lowercase,</span> <></>
+                <span className={upperValidated ? 'text-green-500' : 'text-red-500'}>Uppercase,</span> <></>
+                <span className={numberValidated ? 'text-green-500' : 'text-red-500'}>Number,</span> <></>
+                <span className={specialValidated ? 'text-green-500' : 'text-red-500'}>Special Character,</span> <></>
+                <span className={lengthValidated ? 'text-green-500' : 'text-red-500'}>6 Character,</span> <></>
+              </p>
+
             }
             {errors.password && (
               <p className="text-red-500">{errors.password?.message}</p>
@@ -341,8 +346,8 @@ const Signup = () => {
             <label className="signup-photo" htmlFor="file">
               Upload Image
             </label>
-            
-            {userImage ? <span className="ml-3">{userImage.name}</span> : <span className="ml-3">Choose Image Before Pressing the Sign Up Button</span>}
+
+            {userImage ? <span className="ml-3">{userImage.name}</span> : <span className="ml-1 text-[#010c3a] flex mt-[20px]">Choose Image Before Pressing the Sign Up Button</span>}
           </div>
           {signUpError && <span className="text-red-500">{signUpError}</span>}
           <div className="mt-7">
@@ -367,7 +372,7 @@ const Signup = () => {
           <Link
             onClick={handleGoogleSignIn}
             href="#"
-            className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+            className="flex items-center justify-center mt-4 w-full text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
           >
             <div className="px-4 py-2">
               <svg className="w-6 h-6" viewBox="0 0 40 40">

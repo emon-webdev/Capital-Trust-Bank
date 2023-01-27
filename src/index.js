@@ -1,18 +1,24 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import 'animate.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Toaster } from 'react-hot-toast';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import App from './App';
-import 'animate.css';
 import AuthProvider from './context/AuthProvider';
 import './index.css';
+// import { getTodos, postTodo } from '../my-api';
+
 import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const queryClient = new QueryClient()
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
       <Toaster />
     </AuthProvider>
   </React.StrictMode>

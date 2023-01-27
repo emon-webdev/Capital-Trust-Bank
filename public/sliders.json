@@ -1,0 +1,158 @@
+[
+  {
+    "sliderNav": [
+      {
+        "index": 0,
+        "title": "Credit / Debit Card  Related",
+        "icon": "BsGoogle"
+      },
+      {
+        "index": 1,
+        "title": "Mobile / Internet  Banking",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "index": 2,
+        "title": "Account Details  Changing",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "index": 3,
+        "title": "Cheque Book / DD  Related",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "index": 4,
+        "title": "Credit / Debit Card  Related 5",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "index": 5,
+        "title": "Credit / Debit Card  Related 6",
+        "icon": "<CreditCardIcon />"
+      }
+    ],
+    "sliderContent": [
+      {
+        "index": 0,
+        "name": "Private Banking",
+        "picture": "http://placehold.it/32x32",
+        "phone": "+8(222)123-456-78",
+        "services": [
+          {
+            "name": "Credit / Debit Card  Related"
+          },
+          {
+            "name": "Generate Debit Card Pin Number "
+          },
+          {
+            "name": "Unlock Debit / ATM Card "
+          },
+          {
+            "name": "Reissue Lost Debit / ATM Card 1"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "name": "Private Banking",
+        "picture": "http://placehold.it/32x32",
+        "phone": "+8(222)123-456-78",
+        "services": [
+          {
+            "name": "Mobile / Internet  Banking"
+          },
+          {
+            "name": "Generate Debit Card Pin Number "
+          },
+          {
+            "name": "Unlock Debit / ATM Card "
+          },
+          {
+            "name": "Reissue Lost Debit / ATM Card 2"
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "name": "Private Banking",
+        "picture": "http://placehold.it/32x32",
+        "phone": "+8(222)123-456-78",
+        "services": [
+          {
+            "name": "Account Details  Changing"
+          },
+          {
+            "name": "Generate Debit Card Pin Number "
+          },
+          {
+            "name": "Unlock Debit / ATM Card "
+          },
+          {
+            "name": "Reissue Lost Debit /3 ATM Card "
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "name": "Private Banking",
+        "picture": "http://placehold.it/32x32",
+        "phone": "+8(222)123-456-78",
+        "services": [
+          {
+            "name": "Cheque Book / DD  Related"
+          },
+          {
+            "name": "Generate Debit Card Pin Number "
+          },
+          {
+            "name": "Unlock Debit / ATM Card "
+          },
+          {
+            "name": "Reissue Lost Debit / ATM Card 4"
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "name": "Private Banking",
+        "picture": "http://placehold.it/32x32",
+        "phone": "+8(222)123-456-78",
+        "services": [
+          {
+            "name": "Block Debit / ATM Card 5"
+          },
+          {
+            "name": "Generate Debit Card Pin Number "
+          },
+          {
+            "name": "Unlock Debit / ATM Card "
+          },
+          {
+            "name": "Reissue Lost Debit / ATM Card 5"
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "name": "Private Banking",
+        "picture": "http://placehold.it/32x32",
+        "phone": "+8(222)123-456-78",
+        "services": [
+          {
+            "name": "Block Debit / ATM Card 6"
+          },
+          {
+            "name": "Generate Debit Card Pin Number "
+          },
+          {
+            "name": "Unlock Debit / ATM Card "
+          },
+          {
+            "name": "Reissue Lost Debit / ATM Card 6"
+          }
+        ]
+      }
+    ]
+  }
+]

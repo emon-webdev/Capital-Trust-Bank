@@ -9,7 +9,7 @@ import shape2 from '../../assests/Brands/shape-2.png';
 
 const Branding = () => {
     return (
-        <Box className='hidden md:block' sx={{background: '#010C3A', padding: '5px 0'}}>
+        <Box className='hidden md:block' sx={{background: '#010C3A', padding: '5px 0', marginTop: '50px'}}>
 
             <Box className='branding-area flex justify-between items-center'>
             <figure><img className='w-[54px]' src={shape1} alt="" /></figure>
