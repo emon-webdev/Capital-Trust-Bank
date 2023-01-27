@@ -9,7 +9,7 @@ const slides = [
   { url: "https://i.ibb.co/6rGyGBY/slider1.jpg" },
 ];
 const containerStyles = {
-  width: "1537px",
+  width: "100%",
   height: "650px",
   margin: "0 auto",
 }
