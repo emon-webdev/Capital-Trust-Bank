@@ -104,7 +104,7 @@ export default function GoldLoan() {
         <div className="">
           <form
             onSubmit={handleSubmit}
-            style={{
+            style={{ 
               backgroundColor: "#041C51",
               height: "auto",
               width: "500px",
@@ -120,7 +120,7 @@ export default function GoldLoan() {
                   className="border px-3 rounded "
                   style={{ width: "100%" }}
                   placeholder="Your Name"
-                  defaultValue={user?.displayName}
+                  defaultValue={user?.displayName} required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -129,7 +129,7 @@ export default function GoldLoan() {
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
                   placeholder="Email"
-                  defaultValue={user?.email}
+                  defaultValue={user?.email}  required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -137,7 +137,7 @@ export default function GoldLoan() {
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
-                  placeholder="Phone"
+                  placeholder="Phone" required 
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -157,7 +157,7 @@ export default function GoldLoan() {
                   onChange={handleChange}
                   label="city"
                   className="border  px-3 rounded"
-                  placeholder="City"
+                  placeholder="City"  required
                 >
                   {districts.map((dis) => (
                     <option key={dis} value={dis}>
@@ -171,7 +171,7 @@ export default function GoldLoan() {
                   name="date"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"
+                  placeholder="dd/mm/yy"  required
                 ></input>
               </Grid>
 
