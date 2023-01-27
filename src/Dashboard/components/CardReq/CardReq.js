@@ -6,7 +6,6 @@ const CardReq = () => {
         fetch(`http://localhost:5000/cardReq`)
           .then((res) => res.json())
           .then((data) => {
-            console.log(data)
             setCustomers(data);
           });
       }, []);
