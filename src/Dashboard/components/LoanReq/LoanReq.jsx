@@ -6,7 +6,6 @@ const LoanReq = () => {
        fetch(`http://localhost:5000/applicants`)
          .then((res) => res.json())
          .then((data) => {
-          console.log(data)
            setCustomers(data);
          });
      }, []);
@@ -30,13 +29,13 @@ const LoanReq = () => {
                   <span>Name: {customer.name}</span>
                   <span>Email:{customer.email}</span>
                   <span>Phone:{customer.phone}</span>
-                  <span>Account id:{customer.AccountId}</span>
+                  {/* <span>Account id:{customer.AccountId}</span> */}
                   <span>City:{customer.city}</span>
                   <span>Date:{customer.date}</span>
                   <span>Loan Type:{customer.loan}</span>
                   <div className="flex gap-2 p-2">
                     <button className="ring rounded p-2 hover:bg-red-600">
-                      Give Loan
+                      Accept
                     </button>
                     <button className="ring rounded p-2 hover:bg-red-600">
                       Cancel
