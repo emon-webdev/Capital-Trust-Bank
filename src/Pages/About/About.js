@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import aboutGroupImg from "../../assets/aboutUs/aboutGroupImg.png";
-import shape4 from "../../assets/aboutUs/about_bg_two.png";
-import shape3 from "../../assets/aboutUs/bg-shape3.png";
-import shape1 from "../../assets/aboutUs/Vector.png";
-import shape2 from "../../assets/aboutUs/Vector2.png";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import "./About.css";
 

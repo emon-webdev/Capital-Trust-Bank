@@ -72,7 +72,6 @@ const ServiceReqSlider = () => {
   /* submit from for service req */
   const handleSubmit = (event) => {
     event.preventDefault();
-
   };
   return (
     <div>
@@ -88,7 +87,7 @@ const ServiceReqSlider = () => {
             {...settings}
           >
             {slidersNav.map((sliderNav) => (
-              <div>
+              <div key={sliderNav?._id}>
                 <div className="single-slider-nav">
                   <div className="slider-nav-icon">
                     <CreditCardIcon />
@@ -123,7 +122,7 @@ const ServiceReqSlider = () => {
                         ))}
                         <button
                           onClick={handleOpen}
-                          class="primary-btn"
+                          className="primary-btn"
                           type="submit"
                         >
                           Apply Now
@@ -150,7 +149,7 @@ const ServiceReqSlider = () => {
                           </h2>
                         </div>
                         <div className="img-box flex-1">
-                          <img src={sliderImg1} alt="" srcset="" />
+                          <img src={sliderImg1} alt="" srcSet="" />
                         </div>
                       </div>
                     </div>
@@ -188,9 +187,7 @@ const ServiceReqSlider = () => {
               <Typography id="transition-modal-description" sx={{ mt: 2 }}>
                 Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
               </Typography>
-              
             </Box>
-           
           </Fade>
         </Modal>
       </div>
