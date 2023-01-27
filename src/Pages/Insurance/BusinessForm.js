@@ -79,7 +79,7 @@ export default function BusinessForm() {
                   name="name"
                   className="border px-3 rounded "
                   style={{ width: "100%" }}
-                  placeholder="Your Name"
+                  placeholder="Your Name" required
                   // defaultValue={user?.displayName}
                 ></input>
               </Grid>
@@ -88,7 +88,7 @@ export default function BusinessForm() {
                   name="email"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="Email"
+                  placeholder="Email" required
                   // defaultValue={user?.email}
                 ></input>
               </Grid>
@@ -97,7 +97,7 @@ export default function BusinessForm() {
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
-                  placeholder="Phone"
+                  placeholder="Phone" required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -131,7 +131,7 @@ export default function BusinessForm() {
                   name="date"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"
+                  placeholder="dd/mm/yy" required
                 ></input>
               </Grid>
 
@@ -165,7 +165,7 @@ export default function BusinessForm() {
                   name="name"
                   className="border px-3 rounded "
                   style={{ width: "100%" }}
-                  placeholder="Your Name"
+                  placeholder="Your Name" required
                   // defaultValue={user?.displayName}
                 ></input>
               </Grid>
@@ -174,7 +174,7 @@ export default function BusinessForm() {
                   name="email"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="Email"
+                  placeholder="Email" required
                   // defaultValue={user?.email}
                 ></input>
               </Grid>
@@ -183,7 +183,7 @@ export default function BusinessForm() {
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
-                  placeholder="Phone"
+                  placeholder="Phone" required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -217,7 +217,7 @@ export default function BusinessForm() {
                   name="date"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"
+                  placeholder="dd/mm/yy" required
                 ></input>
               </Grid>
 
@@ -251,7 +251,7 @@ export default function BusinessForm() {
                   name="name"
                   className="border px-3 rounded "
                   style={{ width: "100%" }}
-                  placeholder="Your Name"
+                  placeholder="Your Name" required
                   // defaultValue={user?.displayName}
                 ></input>
               </Grid>
@@ -260,7 +260,7 @@ export default function BusinessForm() {
                   name="email"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="Email"
+                  placeholder="Email" required
                   // defaultValue={user?.email}
                 ></input>
               </Grid>
@@ -269,7 +269,7 @@ export default function BusinessForm() {
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
-                  placeholder="Phone"
+                  placeholder="Phone" required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -303,7 +303,7 @@ export default function BusinessForm() {
                   name="date"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"
+                  placeholder="dd/mm/yy" required
                 ></input>
               </Grid>
 

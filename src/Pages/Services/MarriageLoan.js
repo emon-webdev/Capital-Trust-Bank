@@ -117,7 +117,7 @@ export default function MarriageLoan() {
                   className="border px-3 rounded "
                   style={{ width: "100%" }}
                   placeholder="Your Name"
-                  defaultValue={user?.displayName}
+                  defaultValue={user?.displayName} required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -126,7 +126,7 @@ export default function MarriageLoan() {
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
                   placeholder="Email"
-                  defaultValue={user?.email}
+                  defaultValue={user?.email} required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -134,7 +134,7 @@ export default function MarriageLoan() {
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
-                  placeholder="Phone"
+                  placeholder="Phone" required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -152,7 +152,7 @@ export default function MarriageLoan() {
                   style={{ width: "100%" }}
                   value={district}
                   onChange={handleChange}
-                  label="city"
+                  label="city" required
                   className="border  px-3 rounded"
                   placeholder="City"
                 >
@@ -168,7 +168,7 @@ export default function MarriageLoan() {
                   name="date"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"
+                  placeholder="dd/mm/yy" required
                 ></input>
               </Grid>
 

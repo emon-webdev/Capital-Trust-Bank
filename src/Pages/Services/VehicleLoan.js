@@ -117,7 +117,7 @@ export default function VehicleLoan() {
                   className="border px-3 rounded "
                   style={{ width: "100%" }}
                   placeholder="Your Name"
-                  defaultValue={user?.displayName}
+                  defaultValue={user?.displayName} required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -126,7 +126,7 @@ export default function VehicleLoan() {
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
                   placeholder="Email"
-                  defaultValue={user?.email}
+                  defaultValue={user?.email} required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -134,7 +134,7 @@ export default function VehicleLoan() {
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
-                  placeholder="Phone"
+                  placeholder="Phone" required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -154,7 +154,7 @@ export default function VehicleLoan() {
                   onChange={handleChange}
                   label="city"
                   className="border  px-3 rounded"
-                  placeholder="City"
+                  placeholder="City" required
                 >
                   {districts.map((dis) => (
                     <option key={dis} value={dis}>
@@ -168,7 +168,7 @@ export default function VehicleLoan() {
                   name="date"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"
+                  placeholder="dd/mm/yy" required
                 ></input>
               </Grid>
 
@@ -183,7 +183,7 @@ export default function VehicleLoan() {
                 </Grid>
               </Grid>
             </form>
-          </div>
+          </div> required
         </div>
       </div>
     </>

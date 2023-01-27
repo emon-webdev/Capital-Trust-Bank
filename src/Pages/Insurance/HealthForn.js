@@ -81,6 +81,7 @@ export default function HealthForm() {
                   style={{ width: "100%" }}
                   placeholder="Your Name"
                   // defaultValue={user?.displayName}
+                  required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -89,7 +90,9 @@ export default function HealthForm() {
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
                   placeholder="Email"
+                  required
                   // defaultValue={user?.email}
+                
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -98,6 +101,7 @@ export default function HealthForm() {
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
                   placeholder="Phone"
+                  required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -132,6 +136,7 @@ export default function HealthForm() {
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
                   placeholder="dd/mm/yy"
+                  required
                 ></input>
               </Grid>
 
@@ -167,6 +172,7 @@ export default function HealthForm() {
                   style={{ width: "100%" }}
                   placeholder="Your Name"
                   // defaultValue={user?.displayName}
+                   required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -175,7 +181,8 @@ export default function HealthForm() {
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
                   placeholder="Email"
-                  // defaultValue={user?.email}
+                  // defaultValue={user?.email} 
+                  required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -183,7 +190,7 @@ export default function HealthForm() {
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
-                  placeholder="Phone"
+                  placeholder="Phone" required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -217,7 +224,7 @@ export default function HealthForm() {
                   name="date"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"
+                  placeholder="dd/mm/yy" required
                 ></input>
               </Grid>
 
@@ -253,6 +260,7 @@ export default function HealthForm() {
                   style={{ width: "100%" }}
                   placeholder="Your Name"
                   // defaultValue={user?.displayName}
+                   required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -261,7 +269,8 @@ export default function HealthForm() {
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
                   placeholder="Email"
-                  // defaultValue={user?.email}
+                  // defaultValue={user?.email} 
+                  required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -269,7 +278,7 @@ export default function HealthForm() {
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
-                  placeholder="Phone"
+                  placeholder="Phone" required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -303,7 +312,7 @@ export default function HealthForm() {
                   name="date"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"
+                  placeholder="dd/mm/yy" required
                 ></input>
               </Grid>
 
