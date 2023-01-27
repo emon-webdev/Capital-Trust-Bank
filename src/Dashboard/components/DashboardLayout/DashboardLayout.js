@@ -9,11 +9,11 @@ const DashboardLayout = () => {
   return (
     <div>
       <Header />
-      <div className="flex">
+      <div className="flex default-bg default-font h-fit">
         <div className="left w-1/4">
           <LeftContainer></LeftContainer>
         </div>
-        <div className="right w-full">
+        <div className="right w-full default-bg">
           <Outlet></Outlet>
         </div>
       </div>

@@ -5,14 +5,19 @@
 .slider-content {
   background: #ffffff;
   height: 255px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
-.slider-content ul li {
-  padding: 18px;
-  border-bottom: 1px solid #041c51;
-}
-.slider-content ul li:last-child {
-  border: 0;
+.slider-content button.primary-btn {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 14px;
+  font-size: 14px;
+  width: 106px;
+  margin-top: 7px;
+  justify-content: center;
 }
 .img-box {
   height: 100%;

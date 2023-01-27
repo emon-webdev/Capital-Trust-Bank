@@ -13,7 +13,7 @@ const LeftContainer = () => {
       });
   }, [user]);
   return (
-    <div className=""> 
+    <div className="">
       {role === "customer" ? <CustomerLeft></CustomerLeft> : undefined}
       {role === "admin" ? <AdminLeft></AdminLeft> : undefined}
     </div>

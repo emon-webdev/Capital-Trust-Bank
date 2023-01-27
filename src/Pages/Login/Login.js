@@ -12,7 +12,6 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import image from "../../assests/SignUp/signup1.jpg";
 import Spinner from "../../component/Spinner/Spinner";
 import { AuthContext } from "../../context/AuthProvider";
 import setLoginToken from "../../hooks/UseToken/LoginToken";
@@ -56,7 +55,7 @@ const Login = () => {
         setSignInError(error.message);
         setLoading(false);
       });
-  };
+  };   
   const handleForgetPassword = () => {
     if (!userEmail) {
       return toast.error("please inter your email");
