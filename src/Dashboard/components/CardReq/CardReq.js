@@ -11,7 +11,10 @@ const CardReq = () => {
           });
       }, []);
     return (
-      <div>
+      <div className='my-2'>
+        <h2 className="text-center default-font">
+          Total Card Request:{customers.length}
+        </h2>
         {customers.map((customer) => {
           return (
             <div key={customer._id}>
@@ -20,10 +23,10 @@ const CardReq = () => {
                   <span>Name: {customer.applierName}</span>
                   <span>Account id:{customer.accountId}</span>
                   <div className="flex gap-2 p-2">
-                    <button className="ring rounded p-1 hover:bg-red-600">
+                    <button className="ring rounded p-2 hover:bg-red-600">
                       Accept
                     </button>
-                    <button className="ring rounded p-1 hover:bg-red-600">
+                    <button className="ring rounded p-2 hover:bg-red-600">
                       Cancel
                     </button>
                   </div>
