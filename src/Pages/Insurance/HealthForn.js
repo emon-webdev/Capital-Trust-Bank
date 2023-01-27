@@ -51,7 +51,7 @@ export default function HealthForm() {
   return (
     <div className="container flex md:flex-row flex-col w-100  align-center justify-center">
       <Box>
-        <img style={{width:'600px',height:'600px'}} className='animate__animated animate__fadeInLeft mx-5' src={health} alt="" />
+        <img style={{width:'600px',height:'600px'}} className='animate__animated animate__fadeInLeft mx-5 ' src={health} alt="" />
       </Box>
       <Box sx={{  }}>
       <Box sx={{ }} className='pl-7'>

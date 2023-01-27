@@ -31,7 +31,7 @@ export default function BusinessCard() {
     <div className=' container flex align-center justify-center gap-6 my-20 flex-col md:flex-row'>
         {
             businessdata.map(busi=>(
-    <Card key={busi.id} style={{width:'100%' ,height:'auto'}}  className="hover:bg-[#041C51]  hover:text-[#fff] ">
+    <Card key={busi.id} style={{width:'100%' ,height:'auto'}}  className="hover:bg-[#041C51]  hover:text-[#fff] hover:animate-animated hover:animate-pulse ">
         
         <CardContent className='flex flex-col align-center justify-center hover:text-white'>
         <div className="w-100  text-4xl flex align-center justify-center my-3">
