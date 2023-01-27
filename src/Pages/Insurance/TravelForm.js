@@ -1,4 +1,4 @@
-// import * as React from 'react';
+
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
@@ -7,6 +7,10 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { Grid } from '@mui/material';
 import travel from '../../assets/insurance/Trip-pana.png'
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../context/AuthProvider';
+import { useContext } from 'react';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -43,10 +47,49 @@ function a11yProps(index) {
 
 export default function TravelForm() {
   const [value, setValue] = React.useState(0);
-
+  const {user} =useContext(AuthContext);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const phone = form.phone.value;
+    const date = form.date.value;
+    const insurance = form.insurance.value;
+    console.log(name, email, phone,  date, insurance);
+
+    const applicant = {
+      name: name,
+      email: email,
+      phone: phone,
+      insurance: insurance,
+      date: date,
+    };
+
+    fetch("http://localhost:5000/insuranceApplicants", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(applicant),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Application Successlly Done");
+          form.reset();
+          navigate("/");
+        } else {
+          toast.error(data.message);
+        }
+      });
+  };
+
 
   return (
     <div className="container flex md:flex-row flex-col w-100  align-center justify-center">
@@ -63,7 +106,7 @@ export default function TravelForm() {
       </Box>
       <TabPanel className='animate__animated animate__fadeInUp' value={value} index={0}>
       <form
-            // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             style={{
               backgroundColor: "#041C51",
               height: "auto",
@@ -79,8 +122,8 @@ export default function TravelForm() {
                   name="name"
                   className="border px-3 rounded "
                   style={{ width: "100%" }}
-                  placeholder="Your Name"
-                  // defaultValue={user?.displayName}
+                  placeholder="Your Name" required
+                  defaultValue={user?.displayName}
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -88,8 +131,8 @@ export default function TravelForm() {
                   name="email"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="Email"
-                  // defaultValue={user?.email}
+                  placeholder="Email" required
+                  defaultValue={user?.email}
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -97,7 +140,7 @@ export default function TravelForm() {
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
-                  placeholder="Phone"
+                  placeholder="Phone" required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -131,7 +174,7 @@ export default function TravelForm() {
                   name="date"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"
+                  placeholder="dd/mm/yy" required
                 ></input>
               </Grid>
 
@@ -149,7 +192,7 @@ export default function TravelForm() {
       </TabPanel>
       <TabPanel className='animate__animated animate__fadeInUp' value={value} index={1}>
       <form
-            // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             style={{
               backgroundColor: "#041C51",
               height: "auto",
@@ -165,8 +208,8 @@ export default function TravelForm() {
                   name="name"
                   className="border px-3 rounded "
                   style={{ width: "100%" }}
-                  placeholder="Your Name"
-                  // defaultValue={user?.displayName}
+                  placeholder="Your Name" required
+                  defaultValue={user?.displayName}
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -174,8 +217,8 @@ export default function TravelForm() {
                   name="email"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="Email"
-                  // defaultValue={user?.email}
+                  placeholder="Email" required
+                  defaultValue={user?.email}
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -183,7 +226,7 @@ export default function TravelForm() {
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
-                  placeholder="Phone"
+                  placeholder="Phone" required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -217,7 +260,7 @@ export default function TravelForm() {
                   name="date"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"
+                  placeholder="dd/mm/yy" required
                 ></input>
               </Grid>
 
@@ -235,7 +278,7 @@ export default function TravelForm() {
       </TabPanel>
       <TabPanel className='animate__animated animate__fadeInUp' value={value} index={2}>
       <form
-            // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             style={{
               backgroundColor: "#041C51",
               height: "auto",
@@ -251,8 +294,8 @@ export default function TravelForm() {
                   name="name"
                   className="border px-3 rounded "
                   style={{ width: "100%" }}
-                  placeholder="Your Name"
-                  // defaultValue={user?.displayName}
+                  placeholder="Your Name" required
+                  defaultValue={user?.displayName}
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -260,8 +303,8 @@ export default function TravelForm() {
                   name="email"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="Email"
-                  // defaultValue={user?.email}
+                  placeholder="Email" required
+                  defaultValue={user?.email}
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -269,7 +312,7 @@ export default function TravelForm() {
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
-                  placeholder="Phone"
+                  placeholder="Phone" required
                 ></input>
               </Grid>
               <Grid item xs={12}>
@@ -303,7 +346,7 @@ export default function TravelForm() {
                   name="date"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"
+                  placeholder="dd/mm/yy" required
                 ></input>
               </Grid>
 

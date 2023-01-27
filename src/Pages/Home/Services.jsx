@@ -9,7 +9,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 const Services = () => {
   const [loans, setLoans] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/loans')
+    fetch('http://localhost:5000/loanService')
       .then(res => res.json())
       .then(data => setLoans(data))
   }, [])
@@ -72,7 +72,7 @@ const Services = () => {
                   <Typography marginTop={2} gutterBottom fontSize={"16px"} component="div">
                     {loan.details}
                   </Typography>
-                  <Link to={`/loans/${loan._id}`}>
+                  <Link to={`/loanService/${loan._id}`}>
                     <button className='my-2 mx-auto flex items-center justify-center primary-btn' >Apply  </button></Link>
                 </CardContent>
               </CardActionArea>

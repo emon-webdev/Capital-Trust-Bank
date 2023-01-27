@@ -30,7 +30,8 @@ export default function TravelCard() {
     <div className=' container flex align-center justify-center gap-6 my-20 flex-col md:flex-row'>
         {
             traveldata.map(tra=>(
-    <Card key={tra.id} style={{width:'100%' ,height:'auto'}}  className="hover:bg-[#041C51]  hover:text-[#fff]">
+    <Card key={tra.id} style={{width:'100%' ,height:'auto'}}  className="hover:bg-[#041C51]  hover:text-[#fff]
+    hover:animate-animated hover:animate-pulse">
         
         <CardContent className='flex flex-col align-center justify-center hover:text-white'>
         <div className="w-100  text-4xl flex align-center justify-center my-3">
