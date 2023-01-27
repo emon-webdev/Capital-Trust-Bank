@@ -59,13 +59,13 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
-        loader: fetch("http://localhost:5000/loanService"),
+        loader: fetch("https://capital-trust-bank-server.vercel.app/loanService"),
       },
       {
         path: "/loanService/:id",
         element: <ApplyForm></ApplyForm>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/loanService/${params.id}`),
+          fetch(`https://capital-trust-bank-server.vercel.app/loanService/${params.id}`),
       },
       {
         path: "/goldloan",
