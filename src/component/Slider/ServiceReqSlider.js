@@ -1,26 +1,45 @@
+import CheckIcon from "@mui/icons-material/Check";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
+import { Box, Modal, Typography } from "@mui/material";
+import Backdrop from "@mui/material/Backdrop";
+import Fade from "@mui/material/Fade";
 import React, { useEffect, useState } from "react";
+import { FiPhoneCall } from "react-icons/fi";
 import Slider from "react-slick";
 import sliderImg1 from "../../assets/serviceReqImg/features-style2-banner-1.jpg";
+import AuthProvider, { AuthContext } from "../../context/AuthProvider";
 import "./ServiceReqSlider.css";
-
-import { FiPhoneCall } from "react-icons/fi";
-
 const ServiceReqSlider = () => {
+  const { user } = AuthProvider(AuthContext);
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
   const [slidersNav, setSlidersNav] = useState([]);
   const [slidersContents, setSlidersContents] = useState([]);
+  /* Modal action */
+  const [show, setShow] = useState(true);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
   /* slider data fetch */
   useEffect(() => {
-    fetch("http://localhost:5000/emergencyServices")
+    fetch("sliders.json")
       .then((res) => res.json())
       .then((data) => {
         setSlidersNav(data[0].sliderNav);
         setSlidersContents(data[0].sliderContent);
       });
   }, []);
-
 
   let settings = {
     infinite: true,
@@ -50,7 +69,11 @@ const ServiceReqSlider = () => {
       },
     ],
   };
+  /* submit from for service req */
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
+  };
   return (
     <div>
       {/* Section title here */}
@@ -84,16 +107,27 @@ const ServiceReqSlider = () => {
                   <div className="md:flex items-center justify-between">
                     <div className="flex-1 md:mr-[30px] mb-[30px] md:mb-0">
                       <div className="slider-content">
-                        <ul>
-                          {slidersContent?.services.map((service) => (
-                            <li>
-                              <a href="/">
-                                {service?.name}
-                                <span className="icon-right-arrow"></span>
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
+                        <h2 className=" font-semibold text-xl text-[#010C3A]">
+                          {slidersContent?.name}
+                        </h2>
+                        {slidersContent?.services.map((service) => (
+                          <p
+                            key={service?._id}
+                            className="font-medium text-[16px] mb-2 text-[#010C3A]"
+                          >
+                            <span className="">
+                              <CheckIcon className="text-[#DF0303] text-[22px] p-[2px] rounded-md mr-1" />
+                            </span>
+                            {service?.name}
+                          </p>
+                        ))}
+                        <button
+                          onClick={handleOpen}
+                          class="primary-btn"
+                          type="submit"
+                        >
+                          Apply Now
+                        </button>
                       </div>
                     </div>
                     <div className="flex-1">
@@ -126,6 +160,39 @@ const ServiceReqSlider = () => {
             ))}
           </Slider>
         </div>
+      </div>
+      {/* Show Modal */}
+      <div>
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <Box sx={style}>
+              <button onClick={() => setOpen(false)}>Close modal</button>
+              <Typography
+                id="transition-modal-title"
+                variant="h6"
+                component="h2"
+              >
+                Text in a modal
+              </Typography>
+
+              <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              </Typography>
+              
+            </Box>
+           
+          </Fade>
+        </Modal>
       </div>
     </div>
   );
