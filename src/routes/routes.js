@@ -1,6 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import { default as AllCustomers, default as UserRole } from '../Dashboard/components/AllCustomers/AllCustomers';
 import CardReq from '../Dashboard/components/CardReq/CardReq';
+import MyBalance from "../Dashboard/components/Customers/MyBalance/MyBalance";
+import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
+import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
+import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import LoanReq from '../Dashboard/components/LoanReq/LoanReq.jsx';
 import VerificationReq from '../Dashboard/components/VerificationReq/VerificationReq';
@@ -143,6 +147,30 @@ const router = createBrowserRouter([
           <AdminRoute>
             <LoanReq></LoanReq>
           </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/my-transaction",
+        element: (
+          <MyTransaction />
+        ),
+      },
+      {
+        path: "/dashboard/my-balance",
+        element: (
+          <MyBalance />
+        ),
+      },
+      {
+        path: "/dashboard/my-withdraw",
+        element: (
+          <MyWithdraw />
+        ),
+      },
+      {
+        path: "/dashboard/my-deposit",
+        element: (
+          <MyDeposit />
         ),
       },
     ],
