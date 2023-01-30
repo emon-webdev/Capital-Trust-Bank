@@ -60,12 +60,12 @@
   @apply lg:inline-flex items-center lg:pl-3 block pl-0 text-center;
 }
 
-ul.navbar__nav > li {
+ul.navbar__nav>li {
   position: relative;
   padding: 26px 0;
 }
 
-ul.navbar__nav > li:last-child {
+ul.navbar__nav>li:last-child {
   margin-right: 0;
 }
 
@@ -88,7 +88,7 @@ ul.submenu {
   transition-property: all;
 }
 
-ul.navbar__nav li:hover > ul.submenu {
+ul.navbar__nav li:hover>ul.submenu {
   padding: 10px 0;
   opacity: 1;
   visibility: visible;
@@ -150,9 +150,10 @@ button.accent-btn {
 
 /* team ares css */
 
-.slick-slide > div {
+.slick-slide>div {
   margin: 0 10px;
 }
+
 /* .slick-list {
   margin: 0 -10px;
 } */
@@ -162,9 +163,11 @@ button.accent-btn {
 .slick-dots li button {
   font-size: 10px;
 }
+
 .slick-dots {
   bottom: -35px !important;
 }
+
 .slick-dots li.slick-active button {
   opacity: 0.75;
   color: #cf173c !important;
@@ -178,6 +181,7 @@ button.accent-btn {
   width: 100% !important;
   padding: 27px;
 }
+
 /* @media screen and (max-width: 1024px) {
   .choose {
     display: flex;
@@ -233,12 +237,10 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
 ===Responsive CSS starts here===
 ============================= */
 /* XL/XXL Device :1200px. */
-@media (min-width: 1200px) and (max-width: 1500px) {
-}
+@media (min-width: 1200px) and (max-width: 1500px) {}
 
 /* LG Large Device :992px. */
-@media (min-width: 992px) and (max-width: 1200px) {
-}
+@media (min-width: 992px) and (max-width: 1200px) {}
 
 /* Tablet Medium Device :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -262,21 +264,21 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     margin-top: 15px;
   }
 
-  ul.navbar__nav > li {
+  ul.navbar__nav>li {
     position: static;
   }
 
-  ul.navbar__nav li:hover > ul.submenu {
+  ul.navbar__nav li:hover>ul.submenu {
     display: block;
     position: static;
   }
 
-  ul.navbar__nav > li {
+  ul.navbar__nav>li {
     padding: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
 
-  ul.navbar__nav > li:last-child {
+  ul.navbar__nav>li:last-child {
     border: 0;
   }
 
@@ -296,6 +298,22 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     color: #fff;
     padding: 20px;
     margin-top: 15px;
+  }
+  /* Emi Calculator */
+  .card-main {
+    padding: 56px 30px !important;
+  }
+  .first-portion{
+    display: block !important;
+  }
+  .second-portion{
+    display: block !important;
+  }
+  .card-second {
+    text-align: center;
+  }
+  .text{
+    margin-top: 10px;
   }
 }
 
@@ -333,21 +351,21 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     margin-top: 50px;
   }
 
-  ul.navbar__nav > li {
+  ul.navbar__nav>li {
     position: static;
   }
 
-  ul.navbar__nav li:hover > ul.submenu {
+  ul.navbar__nav li:hover>ul.submenu {
     display: block;
     position: static;
   }
 
-  ul.navbar__nav > li {
+  ul.navbar__nav>li {
     padding: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
 
-  ul.navbar__nav > li:last-child {
+  ul.navbar__nav>li:last-child {
     border: 0;
   }
 
@@ -369,6 +387,7 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   .header-left p {
     margin-bottom: 0;
   }
+
   .banner-content h2.text-white.text-6xl {
     font-size: 32px;
     line-height: 40px;
@@ -377,14 +396,34 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   .banner-content h2.text-white.text-6xl br {
     display: none;
   }
+
   .slider-content {
     background: #ffffff;
     height: auto;
   }
+
   .card-main {
     width: auto !important;
   }
+
   .card-main input#curser {
     width: 100%;
+  }
+
+  /* Emi Calculator */
+  .card-main {
+    padding: 56px 30px !important;
+  }
+  .first-portion{
+    display: block !important;
+  }
+  .second-portion{
+    display: block !important;
+  }
+  .card-second {
+    text-align: center;
+  }
+  .text{
+    margin-top: 10px;
   }
 }

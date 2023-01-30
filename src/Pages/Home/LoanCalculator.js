@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import sideimg from "../../assets/loanCalculator/emi-calculator.jpg";
 import "./LoanCalculator.css";
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
 AOS.init();
 
 class LoanCalculator extends React.Component {
@@ -54,74 +54,83 @@ class LoanCalculator extends React.Component {
           </h1>
           <div className="md:flex justify-center">
             <div>
-              <img className="w-full h-full rounded" src={sideimg} alt="" />
+              <img className="img" src={sideimg} alt="" />
             </div>
             <div className="card-main">
               <div>
-                <h1 className="text-lg mb-0 mt-3">Loan Amount</h1>
+
                 <div className="flex justify-center">
-                  <input
-                    type="range"
-                    min="10000"
-                    max="1000000"
-                    name="value3"
-                    step="1000"
-                    onChange={this.DrageChange}
-                    id="curser"
-                    className="w-96 mr-3"
-                  />
+                  <div>
+                    <h1 className="text-lg mb-0 mt-3">Loan Amount</h1>
+                    <input
+                      type="range"
+                      min="10000"
+                      max="1000000"
+                      name="value3"
+                      step="1000"
+                      onChange={this.DrageChange}
+                      id="curser"
+                      className="w-96 mr-3"
+                    />
+                  </div>
                   <h1 className="border">${value3}</h1>
                 </div>
-                <h1 className="text-lg mb-0">Loan Term</h1>
-                <div className="justify-center md:flex">
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    name="value1"
-                    onChange={this.DrageChange}
-                    id="curser"
-                    className="w-96 mr-3"
-                  />
-                  <h1 className="border">{value1} Months</h1>
-                </div>
-                <h1 className="text-lg mb-0">Interest Rate</h1>
                 <div className="flex justify-center">
-                  <input
-                    type="range"
-                    min="0"
-                    max="30"
-                    name="value2"
-                    step=".5"
-                    onChange={this.DrageChange}
-                    id="curser"
-                    className="w-96 mr-3"
-                  />
+                  <div>
+                    <h1 className="text-lg mb-0">Loan Term</h1>
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      name="value1"
+                      onChange={this.DrageChange}
+                      id="curser"
+                      className="w-96 mr-3"
+                    />
+                  </div>
+                  <h1 className="border">{value1}Months</h1>
+                </div>
+                <div className="flex justify-center">
+                  <div>
+                    <h1 className="text-lg mb-0">Interest Rate</h1>
+                    <input
+                      type="range"
+                      min="0"
+                      max="30"
+                      name="value2"
+                      step=".5"
+                      onChange={this.DrageChange}
+                      id="curser"
+                      className="w-96 mr-3"
+                    />
+                  </div>
                   <h1 className="border">{value2}%</h1>
                 </div>
               </div>
-              <div className="down">
-                <button
-                  className="secondary-btn"
-                  onClick={this.Eligbilitysumbit}
-                >
-                  Calculate
-                </button>
-                <br /> <br />
-                <div className="grid grid-cols-2 gap-4 place-items-start">
-                  <div>
+              <div className="card-second">
+                <div className="first-portion">
+                  <button
+                    className="secondary-btn sm-btn"
+                    onClick={this.Eligbilitysumbit}
+                  >
+                    Calculate
+                  </button>
+                  <div className="text">
                     <h1>Total Loan Amount=${value3}</h1>
                     <h1>Total Months={value1}</h1>
-                  </div>
-                  <div>
                     <h1>Total Interest={value2}%</h1>
-                    <h1 className="text-2xl">Total Amount={output}</h1>
                   </div>
                 </div>
-
-                <Link to="/apply-loan" className="secondary-btn">
-                  Apply Online
-                </Link>
+                <div className="second-portion">
+                  <div>
+                    <h1 className="text-2xl">Total Amount={output}</h1>
+                  </div>
+                  <div>
+                    <Link to="/apply-loan" className="secondary-btn sm-btn">
+                      Apply
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
