@@ -6,7 +6,8 @@ const CustomerRoute = ({ children }) => {
   const { role } = useContext(AuthContext);
   if (role === "customer") {
     return children;
-  } else {
+  }
+   else {
     return <Navigate to="/"></Navigate>;
   }
 };

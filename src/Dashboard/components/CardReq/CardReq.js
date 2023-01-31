@@ -9,6 +9,7 @@ const CardReq = () => {
             setCustomers(data);
           });
       }, []);
+      console.log('card req ', customers)
     return (
       <div className='my-2'>
         <h2 className="text-center default-font">

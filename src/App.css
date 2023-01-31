@@ -191,6 +191,17 @@ button.accent-btn {
   }
 } */
 
+/* dashboard */
+@media screen and (max-width: 769px) {
+  .ami {
+    margin-top: -24px;
+  }
+}
+@media screen and (max-width: 639px) {
+  .ami {
+    position: absolute;
+  }
+}
 #file {
   display: none;
 }

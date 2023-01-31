@@ -3,17 +3,19 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../context/AuthProvider";
+
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
-
+  const navigate = useNavigate()
   const handleSignOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => {navigate('/')})
       .catch((error) => {
         console.log(error.message);
+
       });
   };
 
