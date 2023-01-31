@@ -12,7 +12,7 @@ const LeftContainer = () => {
         setRole(data.role);
       });
   }, [user]);
-  console.log(role)
+  // console.log(role)
   return (
     <div className="">
       {role === "customer" ? <CustomerLeft></CustomerLeft> : undefined}

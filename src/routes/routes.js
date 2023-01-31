@@ -27,6 +27,7 @@ import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
 import Error from "../Pages/Shared/Error";
 import AdminRoute from '../routes/AdminRoute';
+import CustomerRoute from '../routes/CustomerRoute';
 import PrivetRout from '../routes/PrivetRoute/PrivetRout';
 
 const router = createBrowserRouter([
@@ -152,25 +153,33 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/my-transaction",
         element: (
-          <MyTransaction />
+          <CustomerRoute>
+            <MyTransaction />
+          </CustomerRoute>
         ),
       },
       {
         path: "/dashboard/my-balance",
         element: (
-          <MyBalance />
+          <CustomerRoute>
+            <MyBalance />
+          </CustomerRoute>
         ),
       },
       {
         path: "/dashboard/my-withdraw",
         element: (
-          <MyWithdraw />
+          <CustomerRoute>
+            <MyWithdraw />
+          </CustomerRoute>
         ),
       },
       {
         path: "/dashboard/my-deposit",
         element: (
-          <MyDeposit />
+          <CustomerRoute>
+            <MyDeposit />
+          </CustomerRoute>
         ),
       },
     ],
