@@ -153,6 +153,7 @@ button.accent-btn {
 .slick-slide > div {
   margin: 0 10px;
 }
+
 /* .slick-list {
   margin: 0 -10px;
 } */
@@ -162,9 +163,11 @@ button.accent-btn {
 .slick-dots li button {
   font-size: 10px;
 }
+
 .slick-dots {
   bottom: -35px !important;
 }
+
 .slick-dots li.slick-active button {
   opacity: 0.75;
   color: #cf173c !important;
@@ -178,6 +181,7 @@ button.accent-btn {
   width: 100% !important;
   padding: 27px;
 }
+
 /* @media screen and (max-width: 1024px) {
   .choose {
     display: flex;
@@ -308,6 +312,22 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     padding: 20px;
     margin-top: 15px;
   }
+  /* Emi Calculator */
+  .card-main {
+    padding: 56px 30px !important;
+  }
+  .first-portion {
+    display: block !important;
+  }
+  .second-portion {
+    display: block !important;
+  }
+  .card-second {
+    text-align: center;
+  }
+  .text {
+    margin-top: 10px;
+  }
 }
 
 /* SM Small Device :320px. */
@@ -380,6 +400,7 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   .header-left p {
     margin-bottom: 0;
   }
+
   .banner-content h2.text-white.text-6xl {
     font-size: 32px;
     line-height: 40px;
@@ -388,21 +409,34 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   .banner-content h2.text-white.text-6xl br {
     display: none;
   }
+
   .slider-content {
     background: #ffffff;
     height: auto;
   }
+
   .card-main {
     width: auto !important;
   }
+
   .card-main input#curser {
     width: 100%;
   }
+
+  /* Emi Calculator */
   .card-main {
-    width: 100%;
-    padding: 56px 30px;
+    padding: 56px 30px !important;
   }
-  .grid.grid-cols-2.gap-4.place-items-start {
-    display: block;
+  .first-portion {
+    display: block !important;
+  }
+  .second-portion {
+    display: block !important;
+  }
+  .card-second {
+    text-align: center;
+  }
+  .text {
+    margin-top: 10px;
   }
 }
