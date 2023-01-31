@@ -8,6 +8,7 @@ import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw"
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import LoanReq from '../Dashboard/components/LoanReq/LoanReq.jsx';
 import VerificationReq from '../Dashboard/components/VerificationReq/VerificationReq';
+import Welcome from "../Dashboard/components/Welcome/Welcome";
 import Main from "../Layout/Main";
 import About from "../Pages/About/About";
 import Apply from "../Pages/Apply/Apply";
@@ -28,6 +29,7 @@ import VehicleLoan from "../Pages/Services/VehicleLoan";
 import Error from "../Pages/Shared/Error";
 import AdminRoute from '../routes/AdminRoute';
 import PrivetRout from '../routes/PrivetRoute/PrivetRout';
+import CustomerRoute from "./CustomerRoute";
 
 const router = createBrowserRouter([
   {
@@ -115,7 +117,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <UserRole></UserRole>,
+        element: <Welcome />,
       },
       {
         path: "/dashboard/allCustomers",
@@ -150,9 +152,11 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/my-transaction",
+        path: "/dashboard/myTransaction",
         element: (
-          <MyTransaction />
+          
+            <MyTransaction />
+         
         ),
       },
       {

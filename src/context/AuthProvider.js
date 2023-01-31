@@ -8,12 +8,16 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [role, setRole] = useState('');
+    const [mobileOpen, setMobileOpen] = useState(false);
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
+    };
 
     //create user with email & password this
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
     };
-   
+
     // update user profile 
     const updateUser = (name, photo) => {
         setLoading(true)
@@ -22,8 +26,8 @@ const AuthProvider = ({ children }) => {
             photoURL: photo
         })
     }
-      // sign in with google
-      const signInWithGoogle = (Provider) => {
+    // sign in with google
+    const signInWithGoogle = (Provider) => {
         setLoading(true)
         return signInWithPopup(auth, Provider);
     };
@@ -46,7 +50,7 @@ const AuthProvider = ({ children }) => {
     //logout
     const logOut = () => {
         setLoading(true)
-         localStorage.removeItem('Token')
+        localStorage.removeItem('Token')
         return signOut(auth);
     };
 
@@ -55,23 +59,31 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             setLoading(false)
+            fetch(`http://localhost:5000/customer/${currentUser?.email}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    setRole(data.role);
+                });
         })
         return () => unsubscribe()
     }, [])
 
     const authInfo = {
-      createUser,
-      updateUser,
-      signInWithGoogle,
-      signInWithEmail,
-      logOut,
-      user,
-      loading,
-      setLoading,
-      forgetPassword,
-      verify,
-      role,
-      setRole
+        createUser,
+        updateUser,
+        signInWithGoogle,
+        signInWithEmail,
+        logOut,
+        user,
+        loading,
+        setLoading,
+        forgetPassword,
+        verify,
+        role,
+        setRole,
+        handleDrawerToggle,
+        mobileOpen,
+        setMobileOpen
     };
     return (
         <AuthContext.Provider value={authInfo}>

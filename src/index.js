@@ -16,8 +16,8 @@ const queryClient = new QueryClient()
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <QueryClientProvider client={queryClient}>
-        <App />
+      <QueryClientProvider client={queryClient}>        
+          <App />        
       </QueryClientProvider>
       <Toaster />
     </AuthProvider>

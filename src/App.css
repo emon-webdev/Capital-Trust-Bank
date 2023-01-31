@@ -192,16 +192,98 @@ button.accent-btn {
 } */
 
 /* dashboard */
-@media screen and (max-width: 769px) {
-  .ami {
-    margin-top: -24px;
+
+.css-hip9hq-MuiPaper-root-MuiAppBar-root {
+  background: linear-gradient(80deg, #000428, #004E92);
+}
+.css-d9ml5t-MuiDrawer-docked .MuiDrawer-paper {
+  width: 260px;
+  background: linear-gradient(80deg, #000428, #004E92);
+}
+.css-10hburv-MuiTypography-root{
+  color: white;
+}
+.css-i4bv87-MuiSvgIcon-root {
+  color: white;
+}
+.css-1p823my-MuiListItem-root:hover {
+  color: #cf173c;
+  /* color: white; */
+  background: transparent;
+}
+.css-1r7kz78-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004E92);
+  margin-top: 54px
+}
+.css-nturlv-MuiDrawer-docked .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004E92);
+  margin-top: 65px;
+  width: 260px !important;
+}
+.css-12de4fs-MuiDrawer-docked .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004E92);
+}
+.css-19y3dt5-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004E92);
+  margin-top: 54px;
+}
+.css-ixaty2-MuiDrawer-docked .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004E92);
+}
+.css-1bs77mf-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004E92);
+  margin-top: 65px;
+}
+/* .css-hip9hq-MuiPaper-root-MuiAppBar-root {
+  box-shadow: none !important;
+} */
+@media screen and (max-width: 599px) {
+  .css-1bs77mf-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+    margin-top: 54px;
   }
 }
-@media screen and (max-width: 639px) {
-  .ami {
-    position: absolute;
+@media screen and (min-width: 600px) {
+  .css-1mn6oro {
+    width: 0px !important;
+  }
+  
+}
+@media screen and (max-width: 1440px) {
+  .css-1mn6oro {
+    width: 260px !important;
   }
 }
+@media screen and (max-width: 768px) {
+  .css-1mn6oro {
+    display: none;
+  }
+}
+
+.css-1knaqv7-MuiButtonBase-root-MuiButton-root {
+  width: 100%;
+  padding: 0 5px;
+  border-radius: 5px;
+  background: #cf173c;
+}
+
+/* @media screen and (max-width: 768) {
+  .out {
+    width: 100% !important;
+    display: flex;
+    justify-content: left;
+  }
+} */
+/* @media (min-width: 600px)
+.css-1mn6oro {
+    width: 260px;
+} */
+
+@media screen and (max-width: 768px) {
+  .css-ixaty2-MuiDrawer-docked .MuiDrawer-paper {
+    display: none;
+  }
+}
+
 #file {
   display: none;
 }
