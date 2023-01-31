@@ -21,6 +21,7 @@ import GoldLoan from "../Pages/Services/GoldLoan";
 import MarriageLoan from "../Pages/Services/MarriageLoan";
 import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
+import AccountOpenFrom from "../Pages/Shared/AccountOpenFrom/AccountOpenFrom";
 import Error from "../Pages/Shared/Error";
 import AdminRoute from '../routes/AdminRoute';
 import PrivetRout from '../routes/PrivetRoute/PrivetRout';
@@ -59,13 +60,13 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
-        loader: fetch("http://localhost:5000/loanService"),
+        loader: fetch("https://capital-trust-bank-server.vercel.app/loanService"),
       },
       {
         path: "/loanService/:id",
         element: <ApplyForm></ApplyForm>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/loanService/${params.id}`),
+          fetch(`https://capital-trust-bank-server.vercel.app/loanService/${params.id}`),
       },
       {
         path: "/goldloan",
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/accountOpenFrom",
+        element: <AccountOpenFrom />,
       },
       {
         path: "/login",

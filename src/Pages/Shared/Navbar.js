@@ -81,7 +81,6 @@ const Navbar = () => {
 
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-                
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -150,8 +149,8 @@ const Navbar = () => {
               {/* Submenu */}
               <ul className="submenu">
                 <li>
-                  <NavLink to="/" className="">
-                    Pages 1
+                  <NavLink to="/accountOpenFrom" className="">
+                    Account Open
                   </NavLink>
                 </li>
                 <li>
@@ -193,7 +192,7 @@ const Navbar = () => {
                 </li>
               </ul>
             </li>
-             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
+            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
                 to="/dashboard"
                 className="w-full block py-3"
@@ -201,7 +200,7 @@ const Navbar = () => {
               >
                 Dashboard
               </NavLink>
-              </li>
+            </li>
             {user?.email ? (
               <>
                 <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">

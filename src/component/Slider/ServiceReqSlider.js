@@ -1,9 +1,10 @@
 import CheckIcon from "@mui/icons-material/Check";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
-import { Box, Modal, Typography } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 import Fade from "@mui/material/Fade";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import { FiPhoneCall } from "react-icons/fi";
 import Slider from "react-slick";
 import sliderImg1 from "../../assets/serviceReqImg/features-style2-banner-1.jpg";
@@ -40,6 +41,12 @@ const ServiceReqSlider = () => {
         setSlidersContents(data[0].sliderContent);
       });
   }, []);
+
+  const handleServiceSubmit = (event) => {
+    event.preventDefault();
+    console.log("hello from");
+    toast.success("Emergency Service Requests  Done");
+  };
 
   let settings = {
     infinite: true,
@@ -154,42 +161,94 @@ const ServiceReqSlider = () => {
                       </div>
                     </div>
                   </div>
+                  {/* Show Modal */}
+                  <div>
+                    <Modal
+                      aria-labelledby="transition-modal-title"
+                      aria-describedby="transition-modal-description"
+                      open={open}
+                      onClose={handleClose}
+                      closeAfterTransition
+                      BackdropComponent={Backdrop}
+                      BackdropProps={{
+                        timeout: 500,
+                      }}
+                    >
+                      <Fade in={open}>
+                        <Box sx={style}>
+                          <h2 className="font-semibold ">
+                            {slidersContent?.name}
+                          </h2>
+
+                          <div className="service-main-from">
+                            <form
+                              onSubmit={handleServiceSubmit}
+                              className="text-center"
+                            >
+                              <input
+                                name="name"
+                                className="border px-3 rounded "
+                                style={{ width: "100%" }}
+                                readOnly
+                                placeholder={user?.displayName}
+                                defaultValue={user?.displayName}
+                              ></input>
+                              <input
+                                name="email"
+                                readOnly
+                                style={{ width: "100%" }}
+                                className="border email-filed px-3 rounded"
+                                placeholder={user?.email}
+                                defaultValue={user?.email}
+                              ></input>
+
+                              <select
+                                name="city"
+                                style={{ width: "100%" }}
+                                label="city"
+                                className="border  px-3 rounded"
+                                placeholder="City"
+                              >
+                                {slidersContent?.services.map((service) => (
+                                  <option
+                                    key={service?._id}
+                                    value={service?.name}
+                                  >
+                                    {service?.name}
+                                  </option>
+                                ))}
+                              </select>
+                              <input
+                                name="phone"
+                                style={{ width: "100%" }}
+                                className="border  px-3  rounded"
+                                placeholder="Phone"
+                              ></input>
+                              <div className="flex items-center">
+                                <span
+                                  onClick={() => setOpen(false)}
+                                  className="sm-btn mr-4"
+                                >
+                                  Cancel
+                                </span>
+                                <input
+                                  onClick={() => setOpen(false)}
+                                  type="submit"
+                                  value="SUBMIT"
+                                  className="sm-btn"
+                                />
+                              </div>
+                            </form>
+                          </div>
+                        </Box>
+                      </Fade>
+                    </Modal>
+                  </div>
                 </div>
               </div>
             ))}
           </Slider>
         </div>
-      </div>
-      {/* Show Modal */}
-      <div>
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          open={open}
-          onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
-        >
-          <Fade in={open}>
-            <Box sx={style}>
-              <button onClick={() => setOpen(false)}>Close modal</button>
-              <Typography
-                id="transition-modal-title"
-                variant="h6"
-                component="h2"
-              >
-                Text in a modal
-              </Typography>
-
-              <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-              </Typography>
-            </Box>
-          </Fade>
-        </Modal>
       </div>
     </div>
   );
