@@ -70,7 +70,7 @@ const AccountOpenFrom = () => {
             mx={"auto"}
             zIndex="1"
             maxWidth="800px"
-            className="px-[38px]"
+            className="px-[38px] pb-7"
             style={{
               backgroundColor: "#fff",
             }}

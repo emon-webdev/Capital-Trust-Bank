@@ -116,9 +116,9 @@ const ServiceReqSlider = () => {
                         <h2 className=" font-semibold text-xl text-[#010C3A]">
                           {slidersContent?.name}
                         </h2>
-                        {slidersContent?.services.map((service) => (
+                        {slidersContent?.services.map((service, index) => (
                           <p
-                            key={service?._id}
+                            key={index}
                             className="font-medium text-[16px] mb-2 text-[#010C3A]"
                           >
                             <span className="">
@@ -209,14 +209,13 @@ const ServiceReqSlider = () => {
                                 className="border  px-3 rounded"
                                 placeholder="City"
                               >
-                                {slidersContent?.services.map((service) => (
-                                  <option
-                                    key={service?._id}
-                                    value={service?.name}
-                                  >
-                                    {service?.name}
-                                  </option>
-                                ))}
+                                {slidersContent?.services.map(
+                                  (service, index) => (
+                                    <option key={index} value={service?.name}>
+                                      {service?.name}
+                                    </option>
+                                  )
+                                )}
                               </select>
                               <input
                                 name="phone"
