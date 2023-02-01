@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 // import Footer from "../../../Pages/Shared/Footer";
 // import Header from "../../../Pages/Shared/Header";
-import LeftContainer from '../LeftContainer/LeftContainer.jsx';
-import { AiOutlineBars, AiOutlineClose } from "react-icons/ai";
+import LeftContainer from "../LeftContainer/LeftContainer.jsx";
 import DashboardNavbar from "./DashboardNavbar.js";
-
 
 const DashboardLayout = () => {
   const [open, setOpen] = useState(false);
- 
-    // console.log(mobileOpen)
+  // const { setLoading } = useContext(AuthContext);
+  // setLoading(false);
+  // console.log(mobileOpen)
   return (
-    <div className='default-bg'>
+    <div className="default-bg">
       {/* <Header /> */}
 
       {/* ----------Responsive Icon------------ */}
@@ -26,13 +25,12 @@ const DashboardLayout = () => {
         </div>
       </div> */}
       {/* -----------Dashboard Navbar ------------ */}
-      <DashboardNavbar  />
+      <DashboardNavbar />
       {/* ----------Left Side Component------------ */}
       {/* className={`left lg:w-[27%] md:w-[31%] sm:absolute bg-gradient-to-r from-[#000428] to-[#004E92] md:absolute lg:static  duration-500 ${open ? 'left-[0%]' : 'left-[-100%]'}`} */}
       <div className="flex default-font h-fit">
         <div>
           <LeftContainer></LeftContainer>
-
         </div>
 
         {/* ----------Out Let------------ */}

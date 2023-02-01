@@ -10,7 +10,7 @@ const AllCustomers = () => {
          });
      }, []);
     return <div className='my-2'>
-      <h2 className='text-center default-font'>Total Customers:{customers.length}</h2>
+      <h2 className='text-center default-font'>T:{customers.length}</h2>
       {
         customers.map(customer => {
           return (

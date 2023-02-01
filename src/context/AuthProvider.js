@@ -55,18 +55,34 @@ const AuthProvider = ({ children }) => {
     };
 
     // user observation
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
-            setLoading(false)
-            fetch(`http://localhost:5000/customer/${currentUser?.email}`)
-                .then((res) => res.json())
-                .then((data) => {
-                    setRole(data.role);
-                });
-        })
-        return () => unsubscribe()
-    }, [])
+    // useEffect(() => {
+    //     const unsubscribe = onAuthStateChanged(auth, currentUser => {
+    //         setUser(currentUser);
+    //         setLoading(false)
+    //          fetch(`http://localhost:5000/customer/${currentUser.email}`)
+    //            .then((res) => res.json())
+    //            .then((data) => {
+    //              setRole(data.role);
+    //            }); 
+    //     })
+    //     return () => unsubscribe()
+    // }, [])
+
+     useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+          if (user) { 
+            setUser(user);
+            fetch(`http://localhost:5000/customer/${user.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+              setRole(data.role)
+            });
+          } else {
+            // console.log("else onAuthStateChanged");
+            setUser();
+          }
+        });
+      }, []);
 
     const authInfo = {
         createUser,
