@@ -39,7 +39,7 @@ console.log(openSideNav)
        >
           <LeftContainer></LeftContainer>
         </div>
-        <div className="lg:ml-[305px] md:ml-0 z-0 px-2" >
+        <div className="lg:ml-[305px] w-full md:ml-0 z-0 px-2" >
         
           <Outlet></Outlet>
         </div>

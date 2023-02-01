@@ -7,6 +7,7 @@ import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTra
 import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import LoanReq from '../Dashboard/components/LoanReq/LoanReq.jsx';
+import MyAccount from "../Dashboard/components/MyAccount/MyAccount";
 import VerificationReq from '../Dashboard/components/VerificationReq/VerificationReq';
 import Welcome from "../Dashboard/components/Welcome/Welcome";
 import Main from "../Layout/Main";
@@ -154,9 +155,9 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myTransaction",
         element: (
-          
-            <MyTransaction />
-         
+
+          <MyTransaction />
+
         ),
       },
       {
@@ -175,6 +176,12 @@ const router = createBrowserRouter([
         path: "/dashboard/my-deposit",
         element: (
           <MyDeposit />
+        ),
+      },
+      {
+        path: "/dashboard/myAccount",
+        element: (
+          <MyAccount />
         ),
       },
     ],
