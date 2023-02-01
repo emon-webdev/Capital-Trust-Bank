@@ -1,22 +1,41 @@
+<<<<<<< HEAD
 import DehazeOutlinedIcon from '@mui/icons-material/DehazeOutlined';
 import { Avatar, Hidden, IconButton } from '@mui/material';
+=======
+import React, { useContext } from 'react';
+>>>>>>> 751a5489b1822a10d1935e687f0a57268dbe2b82
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+<<<<<<< HEAD
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '../../../App.css';
+=======
+import DehazeOutlinedIcon from '@mui/icons-material/DehazeOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import { Link, useNavigate } from 'react-router-dom';
+>>>>>>> 751a5489b1822a10d1935e687f0a57268dbe2b82
 import logo from '../../../assets/logo/mainlogo.png';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const DashboardNavbar = () => {
-    const { user, handleDrawerToggle } = useContext(AuthContext)
+    const { user, logOut, openSideNav, handleSideNave } = useContext(AuthContext)
     const [anchorEl, setAnchorEl] = React.useState(null);
-    
+    const navigate = useNavigate()
+    const handleSignOut = () => {
+        logOut()
+            .then(() => { navigate('/') })
+            .catch((error) => {
+                console.log(error.message);
+
+            });
+    };
+
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -60,12 +79,14 @@ const DashboardNavbar = () => {
                         >
                             <MenuItem onClick={handleClose}>Profile</MenuItem>
                             <MenuItem onClick={handleClose}>My account</MenuItem>
-                            <MenuItem onClick={handleClose}>Logout</MenuItem>
+                            <Link onClick={handleSignOut}><MenuItem onClick={handleClose}>Logout</MenuItem></Link>
                         </Menu>
                     </Box>
                     <Hidden mdUp>
-                        <IconButton onClick={handleDrawerToggle}>
-                            <DehazeOutlinedIcon className='text-white' />
+                        <IconButton onClick={handleSideNave}>
+                            {
+                                openSideNav ? <CloseOutlinedIcon /> : <DehazeOutlinedIcon />
+                            }
                         </IconButton>
                     </Hidden>
                 </Toolbar>
