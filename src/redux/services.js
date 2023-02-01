@@ -27,11 +27,9 @@ let IntialServices = {
           "details":"Own your dream car with Capital Trust Bank car loans. Capital Trust Bank offers uniquely tailored Car Loan product that takes the pain and hassle out of buying a car.",
           "title":"Vehicle Loan",
           "img":"https://i.ibb.co/vVxszGm/vehicle-loan.jpg",
-
       }
   ]
 };
-
 
 export const servicesSlice = createSlice({
    name: "services",
