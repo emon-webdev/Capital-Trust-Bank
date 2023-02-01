@@ -9,13 +9,14 @@ import { AuthContext } from "../../context/AuthProvider";
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleSignOut = () => {
     logOut()
-      .then(() => {navigate('/')})
+      .then(() => {
+        navigate("/");
+      })
       .catch((error) => {
         console.log(error.message);
-
       });
   };
 
@@ -194,15 +195,17 @@ const Navbar = () => {
                 </li>
               </ul>
             </li>
-            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
-              <NavLink
-                to="/dashboard"
-                className="w-full block py-3"
-                style={({ isActive }) => (isActive ? activeClass : undefined)}
-              >
-                Dashboard
-              </NavLink>
-            </li>
+            {user?.email && (
+              <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
+                <NavLink
+                  to="/dashboard"
+                  className="w-full block py-3"
+                  style={({ isActive }) => (isActive ? activeClass : undefined)}
+                >
+                  Dashboard
+                </NavLink>
+              </li>
+            )}
             {user?.email ? (
               <>
                 <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">

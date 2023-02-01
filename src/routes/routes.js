@@ -29,7 +29,7 @@ import VehicleLoan from "../Pages/Services/VehicleLoan";
 import AccountOpenFrom from "../Pages/Shared/AccountOpenFrom/AccountOpenFrom";
 import Error from "../Pages/Shared/Error";
 import AdminRoute from '../routes/AdminRoute';
-import PrivetRout from '../routes/PrivetRoute/PrivetRout';
+import CustomerRoute from '../routes/CustomerRoute';
 
 const router = createBrowserRouter([
   {
@@ -114,9 +114,9 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-       <PrivetRout>
+      // <PrivetRout>
         <DashboardLayout />
-      </PrivetRout> 
+      // </PrivetRout>
     ),
     children: [
       {
@@ -158,27 +158,33 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myTransaction",
         element: (
-          
+          <CustomerRoute>
             <MyTransaction />
-         
+          </CustomerRoute>
         ),
       },
       {
         path: "/dashboard/my-balance",
         element: (
-          <MyBalance />
+          <CustomerRoute>
+            <MyBalance />
+          </CustomerRoute>
         ),
       },
       {
         path: "/dashboard/my-withdraw",
         element: (
-          <MyWithdraw />
+          <CustomerRoute>
+            <MyWithdraw />
+          </CustomerRoute>
         ),
       },
       {
         path: "/dashboard/my-deposit",
         element: (
-          <MyDeposit />
+          <CustomerRoute>
+            <MyDeposit />
+          </CustomerRoute>
         ),
       },
     ],
