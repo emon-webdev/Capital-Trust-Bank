@@ -14,7 +14,8 @@ const AllCustomers = () => {
       {
         customers.map(customer => {
           return (
-            <div key={customer._id}>
+            <div>
+              <div key={customer._id}>
               <div className="w-4/5 lg:w-1/2 mx-auto flex justify-evenly my-2 gap-2 p-2 rounded h-fit default-bg">
                 <div className="flex items-center justify-center w-1/5">
                   <img
@@ -29,6 +30,7 @@ const AllCustomers = () => {
                   <span>Phone:{customer.phone}</span>
                 </div>
               </div>
+            </div>
             </div>
           );
         })
