@@ -8,10 +8,10 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [role, setRole] = useState('');
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
+    const [openSideNav, setOpenSideNav] = useState(false);
+    const handleSideNave = () => {
+        setOpenSideNav(!openSideNav)
+    }
 
     //create user with email & password this
     const createUser = (email, password) => {
@@ -81,9 +81,9 @@ const AuthProvider = ({ children }) => {
         verify,
         role,
         setRole,
-        handleDrawerToggle,
-        mobileOpen,
-        setMobileOpen
+        openSideNav,
+        setOpenSideNav,
+        handleSideNave
     };
     return (
         <AuthContext.Provider value={authInfo}>

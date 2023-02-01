@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,16 +7,26 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import DehazeOutlinedIcon from '@mui/icons-material/DehazeOutlined';
-import { Link } from 'react-router-dom';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/logo/mainlogo.png';
 import { Avatar, Hidden, IconButton } from '@mui/material';
 import { AuthContext } from '../../../context/AuthProvider';
 import '../../../App.css'
 
 const DashboardNavbar = () => {
-    const { user, handleDrawerToggle } = useContext(AuthContext)
+    const { user, logOut, openSideNav, handleSideNave } = useContext(AuthContext)
     const [anchorEl, setAnchorEl] = React.useState(null);
-    
+    const navigate = useNavigate()
+    const handleSignOut = () => {
+        logOut()
+            .then(() => { navigate('/') })
+            .catch((error) => {
+                console.log(error.message);
+
+            });
+    };
+
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -60,12 +70,14 @@ const DashboardNavbar = () => {
                         >
                             <MenuItem onClick={handleClose}>Profile</MenuItem>
                             <MenuItem onClick={handleClose}>My account</MenuItem>
-                            <MenuItem onClick={handleClose}>Logout</MenuItem>
+                            <Link onClick={handleSignOut}><MenuItem onClick={handleClose}>Logout</MenuItem></Link>
                         </Menu>
                     </Box>
                     <Hidden mdUp>
-                        <IconButton onClick={handleDrawerToggle}>
-                            <DehazeOutlinedIcon className='text-white' />
+                        <IconButton onClick={handleSideNave}>
+                            {
+                                openSideNav ? <CloseOutlinedIcon /> : <DehazeOutlinedIcon />
+                            }
                         </IconButton>
                     </Hidden>
                 </Toolbar>

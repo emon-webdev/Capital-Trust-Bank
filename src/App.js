@@ -7,7 +7,6 @@ import { ProSidebarProvider } from 'react-pro-sidebar';
 
 function App() {
   const [loader, setLoader] = useState(true);
-
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
