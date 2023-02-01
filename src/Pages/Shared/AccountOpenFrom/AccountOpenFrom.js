@@ -217,7 +217,7 @@ const AccountOpenFrom = () => {
                       })
                     }
                     fullWidth
-                    className="border  px-[10px] rounded mt-[5px]"
+                    className="border email-filed px-[10px] rounded mt-[5px]"
                     style={{ margin: "5px 0 10px !important", width: "100%" }}
                     placeholder="Email Address"
                   ></input>
@@ -354,15 +354,13 @@ const AccountOpenFrom = () => {
                     Form of Identification
                   </label>
                   <Select
+                    style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
-                    name="identity"
+                    name="identification"
+                    defaultValue="10"
                     fullWidth
                     className="border  px-[10px] rounded "
-                    style={{
-                      margin: "5px 0 10px",
-                      width: "100%",
-                      background: "#fff",
-                    }}
+                    sx={{ margin: "5px 0 10px", width: "100%" }}
                     onChange={(e) =>
                       dispatch({
                         type: "INPUT",
@@ -432,15 +430,13 @@ const AccountOpenFrom = () => {
                     Account Type
                   </label>
                   <Select
+                    style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
                     name="accountType"
+                    defaultValue="10"
                     fullWidth
                     className="border  px-[10px] rounded "
-                    style={{
-                      margin: "5px 0 10px",
-                      width: "100%",
-                      background: "#fff",
-                    }}
+                    sx={{ margin: "5px 0 10px", width: "100%" }}
                     onChange={(e) =>
                       dispatch({
                         type: "INPUT",
@@ -448,9 +444,9 @@ const AccountOpenFrom = () => {
                       })
                     }
                   >
-                    <MenuItem value={10}>Savings</MenuItem>
-                    <MenuItem value={20}>Current</MenuItem>
-                    <MenuItem value={20}>Others</MenuItem>
+                    <MenuItem value={10}>Current</MenuItem>
+                    <MenuItem value={20}>Savings</MenuItem>
+                    <MenuItem value={30}>Others</MenuItem>
                   </Select>
                 </FormControl>
                 <FormControl fullWidth>
@@ -458,16 +454,13 @@ const AccountOpenFrom = () => {
                     Account Category
                   </label>
                   <Select
+                    style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
-                    name="accountCategory"
+                    name="accountType"
+                    defaultValue="10"
                     fullWidth
                     className="border  px-[10px] rounded "
-                    defaultValue="Singly"
-                    style={{
-                      margin: "5px 0 10px",
-                      width: "100%",
-                      background: "#fff",
-                    }}
+                    sx={{ margin: "5px 0 10px", width: "100%" }}
                     onChange={(e) =>
                       dispatch({
                         type: "INPUT",
@@ -476,35 +469,63 @@ const AccountOpenFrom = () => {
                     }
                   >
                     <MenuItem value={10}>Singly</MenuItem>
-                    <MenuItem value={20}>Current</MenuItem>
-                    <MenuItem value={20}>Others </MenuItem>
+                    <MenuItem value={20}>Jointly</MenuItem>
+                    <MenuItem value={30}>Others</MenuItem>
                   </Select>
+                </FormControl>
+              </Box>
+              <Box
+                sx={{
+                  display: { md: "flex" },
+                  justifyContent: "space-between",
+                }}
+              >
+                <FormControl
+                  sx={{
+                    marginRight: { md: "15px" },
+                  }}
+                  fullWidth
+                >
+                  <label className="text-base text-[#57647E]">
+                    Monthly Salary
+                  </label>
+                  <input
+                    name="monthlySalary"
+                    onBlur={(e) =>
+                      dispatch({
+                        type: "INPUT",
+                        payload: { name: e.target.name, value: e.target.value },
+                      })
+                    }
+                    fullWidth
+                    className="border  px-[10px] rounded "
+                    style={{ margin: "5px 0 10px", width: "100%" }}
+                    placeholder="Monthly Salary"
+                  ></input>
+                </FormControl>
+                <FormControl fullWidth>
+                  <label className="text-base text-[#57647E]">
+                    Initial Deposit
+                  </label>
+                  <input
+                    name="initialDeposit"
+                    onBlur={(e) =>
+                      dispatch({
+                        type: "INPUT",
+                        payload: { name: e.target.name, value: e.target.value },
+                      })
+                    }
+                    fullWidth
+                    className="border  px-[10px] rounded "
+                    style={{ margin: "5px 0 10px", width: "100%" }}
+                    placeholder="Initial Deposit"
+                  ></input>
                 </FormControl>
               </Box>
               <Grid
                 container
                 className=" align-content-center justify-items-center"
               >
-                <FormControl fullWidth style={{ width: "100%" }}>
-                  <Select
-                    style={{ width: "100%", background: "#fff" }}
-                    id="demo-simple-select"
-                    name="age"
-                    defaultValue="20"
-                    fullWidth
-                    className="border px-3 rounded "
-                    onChange={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
-                  >
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                  </Select>
-                </FormControl>
                 <FormControl fullWidth className="flex">
                   <FormLabel
                     id="demo-radio-buttons-group-label"
@@ -524,7 +545,7 @@ const AccountOpenFrom = () => {
                     aria-labelledby="demo-radio-buttons-group-label"
                     defaultValue="female"
                     name="gender"
-                    className="flex items-center flex-row text-white"
+                    className="flex items-center flex-row"
                   >
                     <FormControlLabel
                       value="female"
@@ -552,7 +573,7 @@ const AccountOpenFrom = () => {
                     required
                     onClick={() => dispatch({ type: "TOGGLE" })}
                   />
-                  <label for="terms" className="text-white">
+                  <label for="terms" className="">
                     I agree to terms and conditions
                   </label>
                 </div>

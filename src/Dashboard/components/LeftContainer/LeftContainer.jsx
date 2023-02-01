@@ -1,17 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
 import AdminLeft from "../AdminLeft/AdminLeft";
 import CustomerLeft from '../CustomerLeft/CustomerLeft';
 const LeftContainer = () => {
   const { user, role, setRole } = useContext(AuthContext);
-  // const email = user?.email;
-  // useEffect(() => {
-  //   fetch(`http://localhost:5000/customer/${email}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setRole(data.role);
-  //     });
-  // }, [user]);
+  const email = user?.email;
+  useEffect(() => {
+    fetch(`http://localhost:5000/customer/${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setRole(data.role);
+      });
+  }, [user]);
   // console.log(role)
   return (
     <div className="">

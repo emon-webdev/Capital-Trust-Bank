@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { default as AllCustomers, default as UserRole } from '../Dashboard/components/AllCustomers/AllCustomers';
+import { default as AllCustomers } from '../Dashboard/components/AllCustomers/AllCustomers';
 import CardReq from '../Dashboard/components/CardReq/CardReq';
 import MyBalance from "../Dashboard/components/Customers/MyBalance/MyBalance";
 import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
@@ -29,8 +29,8 @@ import VehicleLoan from "../Pages/Services/VehicleLoan";
 import AccountOpenFrom from "../Pages/Shared/AccountOpenFrom/AccountOpenFrom";
 import Error from "../Pages/Shared/Error";
 import AdminRoute from '../routes/AdminRoute';
+import CustomerRoute from '../routes/CustomerRoute';
 import PrivetRout from '../routes/PrivetRoute/PrivetRout';
-import CustomerRoute from "./CustomerRoute";
 
 const router = createBrowserRouter([
   {
@@ -159,27 +159,33 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myTransaction",
         element: (
-          
+          <CustomerRoute>
             <MyTransaction />
-         
+          </CustomerRoute>
         ),
       },
       {
         path: "/dashboard/my-balance",
         element: (
-          <MyBalance />
+          <CustomerRoute>
+            <MyBalance />
+          </CustomerRoute>
         ),
       },
       {
         path: "/dashboard/my-withdraw",
         element: (
-          <MyWithdraw />
+          <CustomerRoute>
+            <MyWithdraw />
+          </CustomerRoute>
         ),
       },
       {
         path: "/dashboard/my-deposit",
         element: (
-          <MyDeposit />
+          <CustomerRoute>
+            <MyDeposit />
+          </CustomerRoute>
         ),
       },
     ],
