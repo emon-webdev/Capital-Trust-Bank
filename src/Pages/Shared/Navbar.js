@@ -3,17 +3,19 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../context/AuthProvider";
+
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
-
+  const navigate = useNavigate()
   const handleSignOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => {navigate('/')})
       .catch((error) => {
         console.log(error.message);
+
       });
   };
 
@@ -81,7 +83,6 @@ const Navbar = () => {
 
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-                
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -150,8 +151,8 @@ const Navbar = () => {
               {/* Submenu */}
               <ul className="submenu">
                 <li>
-                  <NavLink to="/" className="">
-                    Pages 1
+                  <NavLink to="/accountOpenFrom" className="">
+                    Account Open
                   </NavLink>
                 </li>
                 <li>
@@ -193,7 +194,7 @@ const Navbar = () => {
                 </li>
               </ul>
             </li>
-             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
+            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
                 to="/dashboard"
                 className="w-full block py-3"
@@ -201,7 +202,7 @@ const Navbar = () => {
               >
                 Dashboard
               </NavLink>
-              </li>
+            </li>
             {user?.email ? (
               <>
                 <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">

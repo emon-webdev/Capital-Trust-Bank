@@ -60,12 +60,12 @@
   @apply lg:inline-flex items-center lg:pl-3 block pl-0 text-center;
 }
 
-ul.navbar__nav>li {
+ul.navbar__nav > li {
   position: relative;
   padding: 26px 0;
 }
 
-ul.navbar__nav>li:last-child {
+ul.navbar__nav > li:last-child {
   margin-right: 0;
 }
 
@@ -88,7 +88,7 @@ ul.submenu {
   transition-property: all;
 }
 
-ul.navbar__nav li:hover>ul.submenu {
+ul.navbar__nav li:hover > ul.submenu {
   padding: 10px 0;
   opacity: 1;
   visibility: visible;
@@ -150,7 +150,7 @@ button.accent-btn {
 
 /* team ares css */
 
-.slick-slide>div {
+.slick-slide > div {
   margin: 0 10px;
 }
 
@@ -195,6 +195,99 @@ button.accent-btn {
   }
 } */
 
+/* dashboard */
+
+.css-hip9hq-MuiPaper-root-MuiAppBar-root {
+  background: linear-gradient(80deg, #000428, #004E92);
+}
+.css-d9ml5t-MuiDrawer-docked .MuiDrawer-paper {
+  width: 260px;
+  background: linear-gradient(80deg, #000428, #004E92);
+}
+.css-10hburv-MuiTypography-root{
+  color: white;
+}
+.css-i4bv87-MuiSvgIcon-root {
+  color: white;
+}
+.css-1p823my-MuiListItem-root:hover {
+  color: #cf173c;
+  /* color: white; */
+  background: transparent;
+}
+.css-1r7kz78-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004E92);
+  margin-top: 54px
+}
+.css-nturlv-MuiDrawer-docked .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004E92);
+  margin-top: 65px;
+  width: 260px !important;
+}
+.css-12de4fs-MuiDrawer-docked .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004E92);
+}
+.css-19y3dt5-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004E92);
+  margin-top: 54px;
+}
+.css-ixaty2-MuiDrawer-docked .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004E92);
+}
+.css-1bs77mf-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004E92);
+  margin-top: 65px;
+}
+/* .css-hip9hq-MuiPaper-root-MuiAppBar-root {
+  box-shadow: none !important;
+} */
+@media screen and (max-width: 599px) {
+  .css-1bs77mf-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+    margin-top: 54px;
+  }
+}
+@media screen and (min-width: 600px) {
+  .css-1mn6oro {
+    width: 0px !important;
+  }
+  
+}
+@media screen and (max-width: 1440px) {
+  .css-1mn6oro {
+    width: 260px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .css-1mn6oro {
+    display: none;
+  }
+}
+
+.css-1knaqv7-MuiButtonBase-root-MuiButton-root {
+  width: 100%;
+  padding: 0 5px;
+  border-radius: 5px;
+  background: #cf173c;
+}
+
+/* @media screen and (max-width: 768) {
+  .out {
+    width: 100% !important;
+    display: flex;
+    justify-content: left;
+  }
+} */
+/* @media (min-width: 600px)
+.css-1mn6oro {
+    width: 260px;
+} */
+
+@media screen and (max-width: 768px) {
+  .css-ixaty2-MuiDrawer-docked .MuiDrawer-paper {
+    display: none;
+  }
+}
+
 #file {
   display: none;
 }
@@ -237,10 +330,12 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
 ===Responsive CSS starts here===
 ============================= */
 /* XL/XXL Device :1200px. */
-@media (min-width: 1200px) and (max-width: 1500px) {}
+@media (min-width: 1200px) and (max-width: 1500px) {
+}
 
 /* LG Large Device :992px. */
-@media (min-width: 992px) and (max-width: 1200px) {}
+@media (min-width: 992px) and (max-width: 1200px) {
+}
 
 /* Tablet Medium Device :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -264,21 +359,21 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     margin-top: 15px;
   }
 
-  ul.navbar__nav>li {
+  ul.navbar__nav > li {
     position: static;
   }
 
-  ul.navbar__nav li:hover>ul.submenu {
+  ul.navbar__nav li:hover > ul.submenu {
     display: block;
     position: static;
   }
 
-  ul.navbar__nav>li {
+  ul.navbar__nav > li {
     padding: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
 
-  ul.navbar__nav>li:last-child {
+  ul.navbar__nav > li:last-child {
     border: 0;
   }
 
@@ -303,16 +398,16 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   .card-main {
     padding: 56px 30px !important;
   }
-  .first-portion{
+  .first-portion {
     display: block !important;
   }
-  .second-portion{
+  .second-portion {
     display: block !important;
   }
   .card-second {
     text-align: center;
   }
-  .text{
+  .text {
     margin-top: 10px;
   }
 }
@@ -351,21 +446,21 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     margin-top: 50px;
   }
 
-  ul.navbar__nav>li {
+  ul.navbar__nav > li {
     position: static;
   }
 
-  ul.navbar__nav li:hover>ul.submenu {
+  ul.navbar__nav li:hover > ul.submenu {
     display: block;
     position: static;
   }
 
-  ul.navbar__nav>li {
+  ul.navbar__nav > li {
     padding: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
 
-  ul.navbar__nav>li:last-child {
+  ul.navbar__nav > li:last-child {
     border: 0;
   }
 
@@ -414,16 +509,16 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   .card-main {
     padding: 56px 30px !important;
   }
-  .first-portion{
+  .first-portion {
     display: block !important;
   }
-  .second-portion{
+  .second-portion {
     display: block !important;
   }
   .card-second {
     text-align: center;
   }
-  .text{
+  .text {
     margin-top: 10px;
   }
 }

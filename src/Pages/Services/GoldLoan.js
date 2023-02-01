@@ -1,12 +1,12 @@
 import React from "react";
 
 import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Grid,
-  Typography
+    Card,
+    CardActionArea,
+    CardContent,
+    CardMedia,
+    Grid,
+    Typography
 } from "@mui/material";
 import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -52,7 +52,7 @@ export default function GoldLoan() {
       date: date,
     };
 
-    fetch("http://localhost:5000/applicants", {
+    fetch("https://capital-trust-bank-server.vercel.app/applicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",

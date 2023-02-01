@@ -3,6 +3,7 @@ import ApplyCreditCard from "./ApplyCreditCard";
 import Banner from "./Banner";
 import Branding from "./Branding";
 import ContactUs from "./ContactUs";
+// import Counter from "./Counter";
 import FeaturedNews from "./FeaturedNews";
 import LoanCalculator from "./LoanCalculator";
 import ServiceRequest from "./ServiceRequest";

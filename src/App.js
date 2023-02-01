@@ -14,13 +14,13 @@ function App() {
   }, []);
   return (
     <div>
-      {loader ?
+      {loader ? (
         <Loader />
-        :
+      ) : (
         <div className="App">
           <RouterProvider router={router} />
         </div>
-      }
+      )}
     </div>
   );
 }

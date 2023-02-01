@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 const CardReq = () => {
       const [customers, setCustomers] = useState([]);
       useEffect(() => {
-        fetch(`http://localhost:5000/cardReq`)
+        fetch(`https://capital-trust-bank-server.vercel.app/cardReq`)
           .then((res) => res.json())
           .then((data) => {
             setCustomers(data);
           });
       }, []);
+      console.log('card req ', customers)
     return (
       <div className='my-2'>
         <h2 className="text-center default-font">

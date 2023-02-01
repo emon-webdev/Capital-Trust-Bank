@@ -1,7 +1,80 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Drawer from '@mui/material/Drawer';
+import Box from '@mui/material/Box';
+import { Button, Hidden, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import CustomerLink from './CustomerLink';
+import { AuthContext } from '../../../context/AuthProvider';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import StickyNote2OutlinedIcon from '@mui/icons-material/StickyNote2Outlined';
+import AccessibilityNewOutlinedIcon from '@mui/icons-material/AccessibilityNewOutlined';
+import '../../../App.css';
+import { NavLink } from 'react-router-dom';
+
+const drawerWidth = 260;
 
 const CustomerLeft = () => {
-    return <div>CustomerLeft</div>;
+    const { mobileOpen, handleDrawerToggle } = useContext(AuthContext);
+    const listItemData = [
+        { label: "My Transaction", link: "/dashboard/myTransaction", icon: <AccountCircleOutlinedIcon /> },
+        { label: "My Balance", link: "/dashboard/my-balance", icon: <StickyNote2OutlinedIcon /> },
+        { label: "My Withdraw", link: "/dashboard/my-withdraw", icon: <AccessibilityNewOutlinedIcon /> },
+        { label: "My Deposit", link: "/dashboard/my-deposit", icon: <AccountCircleOutlinedIcon />, },
+    ];
+    return (
+        <Box
+            component="nav"
+            sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+            aria-label="mailbox folders"
+        >
+            {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+
+            <Hidden implementation='css'>
+                <Drawer
+                    // container={container}
+                    variant="temporary"
+                    open={mobileOpen}
+                    onClose={handleDrawerToggle}
+                    ModalProps={{
+                        keepMounted: true, // Better open performance on mobile.
+                    }}
+                    sx={{
+                        // display: { xs: 'block', sm: 'none' },
+
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                    }}
+                >
+                    <List>
+                        {listItemData.map((item, i) => (
+                            <Button
+                                size='small'
+                                key={i}>
+                                <ListItem
+                                    component={NavLink}
+                                    to={item.link}
+                                >
+                                    <ListItemIcon>{item.icon}</ListItemIcon>
+                                    <ListItemText>{item.label}</ListItemText>
+                                </ListItem>
+                            </Button>
+                        ))}
+                    </List>
+                </Drawer>
+            </Hidden>
+
+            <Hidden implementation='css'>
+                <Drawer
+                    variant="permanent"
+                    sx={{
+                        // display: { xs: 'none', sm: 'block' },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                    }}
+                    open
+                >
+                    <CustomerLink />
+                </Drawer>
+            </Hidden>
+        </Box>
+    );
 };
 
 export default CustomerLeft;

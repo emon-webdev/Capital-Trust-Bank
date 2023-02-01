@@ -1,16 +1,16 @@
 
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import { Grid } from '@mui/material';
-import travel from '../../assets/insurance/Trip-pana.png'
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-hot-toast';
-import { AuthContext } from '../../context/AuthProvider';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
+import * as React from 'react';
 import { useContext } from 'react';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import travel from '../../assets/insurance/Trip-pana.png';
+import { AuthContext } from '../../context/AuthProvider';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -70,7 +70,7 @@ export default function TravelForm() {
       date: date,
     };
 
-    fetch("http://localhost:5000/insuranceApplicants", {
+    fetch("https://capital-trust-bank-server.vercel.app/insuranceApplicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",

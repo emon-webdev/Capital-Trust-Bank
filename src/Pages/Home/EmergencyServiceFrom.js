@@ -29,9 +29,7 @@ const EmergencyServiceFrom = ({ handleClose, open, onClose, setOpen }) => {
             Text in a modal
           </Typography>
           <Button onClose={() => setOpen(false)}>Close modal</Button>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+
         </Box>
       </Modal>
     </div>
