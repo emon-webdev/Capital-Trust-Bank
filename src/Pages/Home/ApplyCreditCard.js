@@ -34,8 +34,6 @@ const ApplyCreditCard = () => {
     setIdError("");
     const applierName = user?.displayName;
     const accountId = data.accountId;
-    console.log("applierEmail id", applierEmail._id);
-    console.log("accountId", accountId);
     if (applierEmail?._id === accountId) {
       const applierInfo = {
         applierName,

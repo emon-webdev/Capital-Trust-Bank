@@ -2,58 +2,85 @@ import {
   Box,
   FormControl,
   FormControlLabel,
-  FormLabel,
-  Grid,
   MenuItem,
   Radio,
   RadioGroup,
   Select
 } from "@mui/material";
+
 import { default as React, useReducer, useState } from "react";
-import { initialState, reducer } from "../../../state/openFromReducer";
 import DynamicBanner from "../DynamicBanner/DynamicBanner";
 const AccountOpenFrom = () => {
   const [name, setName] = useState("Account Open In Bank");
+  const imageHostKey = process.env.REACT_APP_IMAGE_SECRET_KEY;
+  console.log(imageHostKey);
+  const initialState = {
+    firstName: "",
+    lastName: "",
+    birth: "",
+    gender: "",
+    phone: "",
+    email: "",
+    streetAddress: "",
+    city: "",
+    region: "",
+    postal: "",
+    country: "",
+    identification: "",
+    idNumber: "",
+    cardImg: "",
+    accountType: "",
+    accountCategory: "",
+    monthlySalary: "",
+    initialDeposit: "",
+    term: false,
+  };
+  const reducer = (state, action) => {
+    console.log(action);
 
-  //   console.log(setName);
-  // const initialState = {
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   phone: "",
-  //   streetAddress: "",
-  //   city: "",
-  //   date: "",
-  //   quantity: 0,
-  //   age: "",
-  //   gender: "",
-  //   term: false,
-  // };
-  // const reducer = (state, action) => {
-  //   console.log(action);
-
-  //   switch (action.type) {
-  //     case "INPUT":
-  //       return {
-  //         ...state,
-  //         [action.payload.name]: action.payload.value,
-  //       };
-  //     case "TOGGLE":
-  //       return {
-  //         ...state,
-  //         term: !state.term,
-  //       };
-  //     default:
-  //       return state;
-  //   }
-  // };
+    switch (action.type) {
+      case "INPUT":
+        return {
+          ...state,
+          [action.payload.name]: action.payload.value,
+        };
+      case "TOGGLE":
+        return {
+          ...state,
+          term: !state.term,
+        };
+      default:
+        return state;
+    }
+  };
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
   /* submit from */
   const accountFromSubmit = (event) => {
     event.preventDefault();
-    console.log(state);
+    // const image = event.cardImg.FileList[0];
+    // console.log(event.cardImg);
+    // console.log(image);
+    const Account = {
+      ...state,
+    };
+    console.log("All Accounts", Account);
+    fetch(`http://localhost:5000/bankAccounts`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(Account),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          console.log(data);
+          // toast.success("Bank Account Create Success");
+        }
+      })
+      .then((error) => console.error(error));
   };
 
   return (
@@ -74,7 +101,7 @@ const AccountOpenFrom = () => {
               backgroundColor: "#fff",
             }}
           >
-            <h2 className="text-3xl text-[#2c3345] font-bold text-center mb-0 py-[40px] px-[52px]">
+            <h2 className="text-3xl text-[#2c3345] font-bold text-center mb-0 md:py-[40px] md:px-[52px]">
               Account Opening Form
             </h2>
             <h2 className="text-xl text-[#2c3345] font-bold mb-2 ">
@@ -133,6 +160,7 @@ const AccountOpenFrom = () => {
                 sx={{
                   display: { md: "flex" },
                   justifyContent: "space-between",
+                  alignItems: "center",
                 }}
               >
                 <FormControl
@@ -145,7 +173,7 @@ const AccountOpenFrom = () => {
                     Date of Birth
                   </label>
                   <input
-                    name="firstName"
+                    name="birth"
                     onBlur={(e) =>
                       dispatch({
                         type: "INPUT",
@@ -160,19 +188,42 @@ const AccountOpenFrom = () => {
                 </FormControl>
                 <FormControl fullWidth>
                   <label className="text-base text-[#57647E]">Gender</label>
-                  <input
-                    name="lastName"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
-                    fullWidth
-                    className="border  px-[10px] rounded "
-                    style={{ margin: "5px 0 10px", width: "100%" }}
-                    placeholder="Last Name"
-                  ></input>
+                  <FormControl>
+                    <RadioGroup
+                      aria-labelledby="demo-radio-buttons-group-label"
+                      defaultValue="female"
+                      name="gender"
+                      sx={{ margin: "5px 0 10px", width: "100%" }}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "INPUT",
+                          payload: {
+                            name: e.target.name,
+                            value: e.target.value,
+                          },
+                        })
+                      }
+                    >
+                      <Box sx={{ display: "flex" }}>
+                        <FormControlLabel
+                          value="male"
+                          control={<Radio />}
+                          label="Male"
+                        />
+                        <FormControlLabel
+                          value="female"
+                          control={<Radio />}
+                          label="Female"
+                        />
+
+                        <FormControlLabel
+                          value="other"
+                          control={<Radio />}
+                          label="Other"
+                        />
+                      </Box>
+                    </RadioGroup>
+                  </FormControl>
                 </FormControl>
               </Box>
               <Box
@@ -307,7 +358,7 @@ const AccountOpenFrom = () => {
                     Postal / Zip Code
                   </label>
                   <input
-                    name="city"
+                    name="postal"
                     onBlur={(e) =>
                       dispatch({
                         type: "INPUT",
@@ -357,8 +408,8 @@ const AccountOpenFrom = () => {
                     style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
                     name="identification"
-                    defaultValue="10"
                     fullWidth
+                    defaultValue="Student ID"
                     className="border  px-[10px] rounded "
                     sx={{ margin: "5px 0 10px", width: "100%" }}
                     onChange={(e) =>
@@ -368,8 +419,8 @@ const AccountOpenFrom = () => {
                       })
                     }
                   >
-                    <MenuItem value={10}>Student ID</MenuItem>
-                    <MenuItem value={20}>National ID</MenuItem>
+                    <MenuItem value="Student ID">Student ID</MenuItem>
+                    <MenuItem value="National ID">National ID</MenuItem>
                   </Select>
                 </FormControl>
                 <FormControl fullWidth>
@@ -395,17 +446,20 @@ const AccountOpenFrom = () => {
                     ID Card Upload
                   </label>
                   <input
-                    name="streetAddress"
+                    name="cardImg"
                     type="file"
-                    onBlur={(e) =>
+                    onChange={(e) =>
                       dispatch({
                         type: "INPUT",
                         payload: { name: e.target.name, value: e.target.value },
                       })
                     }
-                    style={{ margin: "5px 0 10px", width: "100%" }}
+                    style={{
+                      margin: "5px 0 10px",
+                      width: "100%",
+                    }}
                     fullWidth
-                    className="border  px-[10px] rounded "
+                    className="border md:height-[130px] px-[10px] rounded "
                     placeholder="Street Address"
                   ></input>
                 </FormControl>
@@ -433,7 +487,7 @@ const AccountOpenFrom = () => {
                     style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
                     name="accountType"
-                    defaultValue="10"
+                    defaultValue="Current"
                     fullWidth
                     className="border  px-[10px] rounded "
                     sx={{ margin: "5px 0 10px", width: "100%" }}
@@ -444,9 +498,9 @@ const AccountOpenFrom = () => {
                       })
                     }
                   >
-                    <MenuItem value={10}>Current</MenuItem>
-                    <MenuItem value={20}>Savings</MenuItem>
-                    <MenuItem value={30}>Others</MenuItem>
+                    <MenuItem value="Current">Current</MenuItem>
+                    <MenuItem value="Savings">Savings</MenuItem>
+                    <MenuItem value="Others">Others</MenuItem>
                   </Select>
                 </FormControl>
                 <FormControl fullWidth>
@@ -456,8 +510,8 @@ const AccountOpenFrom = () => {
                   <Select
                     style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
-                    name="accountType"
-                    defaultValue="10"
+                    name="accountCategory"
+                    defaultValue="Singly"
                     fullWidth
                     className="border  px-[10px] rounded "
                     sx={{ margin: "5px 0 10px", width: "100%" }}
@@ -468,9 +522,9 @@ const AccountOpenFrom = () => {
                       })
                     }
                   >
-                    <MenuItem value={10}>Singly</MenuItem>
-                    <MenuItem value={20}>Jointly</MenuItem>
-                    <MenuItem value={30}>Others</MenuItem>
+                    <MenuItem value="Singly">Singly</MenuItem>
+                    <MenuItem value="Jointly">Jointly</MenuItem>
+                    <MenuItem value="Others">Others</MenuItem>
                   </Select>
                 </FormControl>
               </Box>
@@ -522,72 +576,33 @@ const AccountOpenFrom = () => {
                   ></input>
                 </FormControl>
               </Box>
-              <Grid
-                container
-                className=" align-content-center justify-items-center"
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginTop: "8px",
+                }}
               >
-                <FormControl fullWidth className="flex">
-                  <FormLabel
-                    id="demo-radio-buttons-group-label"
-                    className="text-white"
-                  >
-                    Gender
-                  </FormLabel>
-                  <RadioGroup
-                    style={{ display: "flex" }}
-                    onClick={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
-                    fullWidth
-                    aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue="female"
-                    name="gender"
-                    className="flex items-center flex-row"
-                  >
-                    <FormControlLabel
-                      value="female"
-                      control={<Radio />}
-                      label="Female"
-                    />
-                    <FormControlLabel
-                      value="male"
-                      control={<Radio />}
-                      label="Male"
-                    />
-                    <FormControlLabel
-                      value="other"
-                      control={<Radio />}
-                      label="Other"
-                    />
-                  </RadioGroup>
-                </FormControl>
-                <div className="flex  w-full max-w-xs">
-                  <input
-                    className="mr-3"
-                    type="checkbox"
-                    name="term"
-                    id="terms"
-                    required
-                    onClick={() => dispatch({ type: "TOGGLE" })}
-                  />
-                  <label for="terms" className="">
-                    I agree to terms and conditions
-                  </label>
-                </div>
-                <Grid item xs={12}>
-                  <button
-                    style={{ width: "100%" }}
-                    className="primary-btn mt-2 "
-                    type="submit"
-                    disabled={!state.term}
-                  >
-                    Apply
-                  </button>
-                </Grid>
-              </Grid>
+                <input
+                  className="mr-3"
+                  type="checkbox"
+                  name="term"
+                  id="terms"
+                  required
+                  onClick={() => dispatch({ type: "TOGGLE" })}
+                />
+                <label for="terms">I agree to terms and conditions</label>
+              </Box>
+              <Box sx={{ marginTop: "20px" }}>
+                <button
+                  style={{ width: "49%" }}
+                  className="primary-btn mt-2 "
+                  type="submit"
+                  disabled={!state.term}
+                >
+                  Submit
+                </button>
+              </Box>
             </Box>
           </Box>
         </div>

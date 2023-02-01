@@ -30,7 +30,6 @@ import AccountOpenFrom from "../Pages/Shared/AccountOpenFrom/AccountOpenFrom";
 import Error from "../Pages/Shared/Error";
 import AdminRoute from '../routes/AdminRoute';
 import CustomerRoute from '../routes/CustomerRoute';
-import PrivetRout from '../routes/PrivetRoute/PrivetRout';
 
 const router = createBrowserRouter([
   {
@@ -115,9 +114,9 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-      <PrivetRout>
+      // <PrivetRout>
         <DashboardLayout />
-      </PrivetRout>
+      // </PrivetRout>
     ),
     children: [
       {
