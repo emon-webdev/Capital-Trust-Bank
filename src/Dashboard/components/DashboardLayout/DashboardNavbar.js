@@ -1,27 +1,15 @@
-<<<<<<< HEAD
-import DehazeOutlinedIcon from '@mui/icons-material/DehazeOutlined';
-import { Avatar, Hidden, IconButton } from '@mui/material';
-=======
 import React, { useContext } from 'react';
->>>>>>> 751a5489b1822a10d1935e687f0a57268dbe2b82
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-<<<<<<< HEAD
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import '../../../App.css';
-=======
 import DehazeOutlinedIcon from '@mui/icons-material/DehazeOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Link, useNavigate } from 'react-router-dom';
->>>>>>> 751a5489b1822a10d1935e687f0a57268dbe2b82
 import logo from '../../../assets/logo/mainlogo.png';
 import { AuthContext } from '../../../context/AuthProvider';
+import { Avatar, Hidden, IconButton, Toolbar, Typography } from '@mui/material';
 
 const DashboardNavbar = () => {
     const { user, logOut, openSideNav, handleSideNave } = useContext(AuthContext)

@@ -27,69 +27,54 @@ const CustomerLeft = () => {
                 {/* ---------LINK ------------- */}
                 <div className='mt-[40px]'>
                     <NavLink
-                        onClick={() => setSubMenu(!subMenu)}
-                        to='/dashboard/myTransaction'
+                        to='/dashboard/myAccount'                        
                         className={({ isActive }) =>
                             isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
                         }
                     >
                         <span> <CloudCircleOutlinedIcon /></span>
-                        <span className='text-white ml-[10px]'>My Transaction</span>
-                        <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span>
-
+                        <span className='text-white ml-[10px]'>My Account</span>
                     </NavLink>
+
+
+
+                    <NavLink 
+                    // to='/dashboard/myTransaction'
+                    onClick={() => setSubMenu(!subMenu)}
+                        className={({ isActive }) =>
+                            isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
+                        }
+                    >
+                        <span> <CloudCircleOutlinedIcon /></span>
+                        <span className='text-white ml-[10px]'>Transaction</span>
+                        <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span>
+                    </NavLink>
+
+                    {/* -------Sub Menu ----------- */}
                     <div className={`${subMenu ? 'block' : 'hidden'} duration-500 transition-all flex flex-col px-[20px] py-[15px]`}>
-                        <NavLink
+                        <NavLink to='/dashboard/my-deposit'
                             className='flex items-center link py-[10px] px-[5px] rounded-md'
                         >
                             <span> <CloudCircleOutlinedIcon /></span>
-                            <span className='text-white ml-[10px]'>sabmenu1</span>
+                            <span className='text-white ml-[10px]'>My Deposit</span>
                         </NavLink>
 
                         <NavLink
+                            to='/dashboard/my-withdraw'
                             className='flex items-center link py-[10px] px-[5px] rounded-md'
                         >
                             <span> <CloudCircleOutlinedIcon /></span>
-                            <span className='text-white ml-[10px]'>sabmenu2</span>
+                            <span className='text-white ml-[10px]'>My Withdraw</span>
                         </NavLink>
 
                         <NavLink
+                            to='/dashboard/my-balance'
                             className='flex items-center link py-[10px] px-[5px] rounded-md'
                         >
                             <span> <CloudCircleOutlinedIcon /></span>
-                            <span className='text-white ml-[10px]'>sabmenu2</span>
+                            <span className='text-white ml-[10px]'>My Balance</span>
                         </NavLink>
                     </div>
-
-
-                    <NavLink to='/dashboard/my-balance'
-                        className={({ isActive }) =>
-                            isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
-                        }
-                    >
-                        <span> <CloudCircleOutlinedIcon /></span>
-                        <span className='text-white ml-[10px]'>My Deposit</span>
-                    </NavLink>
-
-
-                    <NavLink to='/dashboard/my-withdraw'
-                        className={({ isActive }) =>
-                            isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
-                        }
-                    >
-                        <span> <CloudCircleOutlinedIcon /></span>
-                        <span className='text-white ml-[10px]'>My Withdraw</span>
-                    </NavLink>
-
-
-                    <NavLink to='/dashboard/my-deposit'
-                        className={({ isActive }) =>
-                            isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
-                        }
-                    >
-                        <span> <CloudCircleOutlinedIcon /></span>
-                        <span className='text-white ml-[10px]'>My Payment</span>
-                    </NavLink>
                 </div>
             </div>
         </>

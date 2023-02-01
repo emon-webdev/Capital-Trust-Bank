@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import CloudCircleOutlinedIcon from '@mui/icons-material/CloudCircleOutlined';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import logo from '../../../assets/logo/mainlogo.png';
 
 const AdminLeft = () => {
@@ -33,32 +33,9 @@ const AdminLeft = () => {
             >
                 <span> <CloudCircleOutlinedIcon /></span>
                 <span className='text-white ml-[10px]'>All Customers</span>
-                <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span>
+                {/* <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span> */}
 
             </NavLink>
-            <div className={`${subMenu ? 'block' : 'hidden'} duration-500 transition-all flex flex-col px-[20px] py-[15px]`}>
-                <NavLink
-                    className='flex items-center link py-[10px] px-[5px] rounded-md'
-                >
-                    <span> <CloudCircleOutlinedIcon /></span>
-                    <span className='text-white ml-[10px]'>SabMenu1</span>
-                </NavLink>
-
-                <NavLink
-                    className='flex items-center link py-[10px] px-[5px] rounded-md'
-                >
-                    <span> <CloudCircleOutlinedIcon /></span>
-                    <span className='text-white ml-[10px]'>SabMenu2</span>
-                </NavLink>
-
-                <NavLink
-                    className='flex items-center link py-[10px] px-[5px] rounded-md'
-                >
-                    <span> <CloudCircleOutlinedIcon /></span>
-                    <span className='text-white ml-[10px]'>SabMenu3</span>
-                </NavLink>
-            </div>
-
 
             <NavLink to='/dashboard/verificationRequest'
                 className={({ isActive }) =>
