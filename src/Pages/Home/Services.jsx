@@ -73,7 +73,7 @@ const Services = () => {
                   <Typography marginTop={2} gutterBottom fontSize={"16px"} component="div">
                     {loan.details}
                   </Typography>
-                  <Link to={`/loanService/${loan._id}`}>
+                  <Link to={`/loanService/${loan.id}`}>
                     <button className='my-2 mx-auto flex items-center justify-center primary-btn' >Apply  </button></Link>
                 </CardContent>
               </CardActionArea>
