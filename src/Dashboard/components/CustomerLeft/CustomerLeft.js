@@ -1,24 +1,46 @@
-import React, { useContext } from 'react';
-import Drawer from '@mui/material/Drawer';
-import Box from '@mui/material/Box';
-import { Button, Hidden, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
-import CustomerLink from './CustomerLink';
-import { AuthContext } from '../../../context/AuthProvider';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import StickyNote2OutlinedIcon from '@mui/icons-material/StickyNote2Outlined';
 import AccessibilityNewOutlinedIcon from '@mui/icons-material/AccessibilityNewOutlined';
-import '../../../App.css';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import DevicesIcon from '@mui/icons-material/Devices';
+import StickyNote2OutlinedIcon from '@mui/icons-material/StickyNote2Outlined';
+import { Button, Hidden, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import '../../../App.css';
+import { AuthContext } from '../../../context/AuthProvider';
+import CustomerLink from './CustomerLink';
 
 const drawerWidth = 260;
 
 const CustomerLeft = () => {
     const { mobileOpen, handleDrawerToggle } = useContext(AuthContext);
     const listItemData = [
-        { label: "My Transaction", link: "/dashboard/myTransaction", icon: <AccountCircleOutlinedIcon /> },
-        { label: "My Balance", link: "/dashboard/my-balance", icon: <StickyNote2OutlinedIcon /> },
-        { label: "My Withdraw", link: "/dashboard/my-withdraw", icon: <AccessibilityNewOutlinedIcon /> },
-        { label: "My Deposit", link: "/dashboard/my-deposit", icon: <AccountCircleOutlinedIcon />, },
+      {
+        label: "My Transaction",
+        link: "/dashboard/myTransaction",
+        icon: <AccountCircleOutlinedIcon />,
+      },
+      {
+        label: "My Balance",
+        link: "/dashboard/my-balance",
+        icon: <StickyNote2OutlinedIcon />,
+      },
+      {
+        label: "My Withdraw",
+        link: "/dashboard/my-withdraw",
+        icon: <AccessibilityNewOutlinedIcon />,
+      },
+      {
+        label: "My Deposit",
+        link: "/dashboard/my-deposit",
+        icon: <AccountCircleOutlinedIcon />,
+      },
+      {
+        label: "Device Activity",
+        link: "/dashboard/deviceActivity",
+        icon: <DevicesIcon />,
+      },
     ];
     return (
         <Box

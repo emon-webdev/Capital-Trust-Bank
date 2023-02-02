@@ -6,6 +6,7 @@ import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
 import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
 import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
+import DeviceActivity from '../Dashboard/components/DeviceActivity/DeviceActivity';
 import LoanReq from '../Dashboard/components/LoanReq/LoanReq.jsx';
 import VerificationReq from '../Dashboard/components/VerificationReq/VerificationReq';
 import Welcome from "../Dashboard/components/Welcome/Welcome";
@@ -65,13 +66,17 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
-        loader: fetch("https://capital-trust-bank-server.vercel.app/loanService"),
+        loader: fetch(
+          "https://capital-trust-bank-server.vercel.app/loanService"
+        ),
       },
       {
         path: "/loanService/:id",
         element: <ApplyForm></ApplyForm>,
         loader: ({ params }) =>
-          fetch(`https://capital-trust-bank-server.vercel.app/loanService/${params.id}`),
+          fetch(
+            `https://capital-trust-bank-server.vercel.app/loanService/${params.id}`
+          ),
       },
       {
         path: "/goldloan",
@@ -115,7 +120,7 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: (
       // <PrivetRout>
-        <DashboardLayout />
+      <DashboardLayout />
       // </PrivetRout>
     ),
     children: [
@@ -184,6 +189,14 @@ const router = createBrowserRouter([
         element: (
           <CustomerRoute>
             <MyDeposit />
+          </CustomerRoute>
+        ),
+      },
+      {
+        path: "/dashboard/deviceActivity",
+        element: (
+          <CustomerRoute>
+            <DeviceActivity />
           </CustomerRoute>
         ),
       },
