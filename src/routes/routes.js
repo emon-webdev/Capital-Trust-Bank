@@ -77,7 +77,7 @@ const router = createBrowserRouter([
         element: <ApplyForm></ApplyForm>,
         loader: ({ params }) =>
           fetch(
-            `https://capital-trust-bank-server.vercel.app/loanService/${params.id}`
+            `https://capital-trust-bank-server.vercel.app/loanService/${params._id}`
           ),
       },
       {
@@ -165,9 +165,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myTransaction",
         element: (
-          
             <MyTransaction />
-         
         ),
       },
       {

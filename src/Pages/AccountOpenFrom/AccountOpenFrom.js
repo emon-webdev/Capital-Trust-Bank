@@ -238,8 +238,8 @@ const AccountOpenFrom = () => {
                       required: "email is required",
                     })}
                     fullWidth
-                    className="border email-filed px-[10px] rounded mt-[5px]"
-                    style={{ margin: "5px 0 10px !important", width: "100%" }}
+                    className="border  px-[10px] rounded "
+                    style={{ margin: "5px 0 10px", width: "100%" }}
                     placeholder="Email Address"
                   ></input>
                 </FormControl>

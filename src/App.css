@@ -172,7 +172,10 @@ button.accent-btn {
   opacity: 0.75;
   color: #cf173c !important;
 }
-
+button.accent-btn
+  svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+  color: #fff !important;
+}
 /* signup css */
 /* .bg-img {
   background-image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url("https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600");
@@ -185,7 +188,7 @@ button.accent-btn {
   color: #000428 !important;
 }
 .react-tel-input .form-control {
-  font-family: 15px !important;
+  font-size: 15px !important;
 }
 /* @media screen and (max-width: 1024px) {
   .choose {
@@ -275,8 +278,8 @@ button.accent-btn {
 }
 
 .link:hover {
-  background:#cf173c;
-  transition: .4s;
+  background: #cf173c;
+  transition: 0.4s;
 }
 .activee:active {
   border-left: 2px solid #cf173c;
@@ -540,10 +543,10 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     margin-top: 10px;
   }
   /* Contact */
-  .card{
+  .card {
     display: block !important;
   }
-  .onlyCard{
+  .onlyCard {
     margin-bottom: 5px;
   }
 }

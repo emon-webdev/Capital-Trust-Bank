@@ -65,7 +65,7 @@
 
 .slider-nav-icon svg {
   font-size: 35px;
-  color: #fff;
+  color: #fff !important;
 }
 
 .single-slider-nav h3 {
@@ -93,8 +93,7 @@
 .slick-slide.slick-active.slick-current h3 {
   color: #041c51;
 }
- {
-}
+
 .css-1wnsr1i {
   border: none !important;
   box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 7%),
