@@ -20,6 +20,7 @@ import { AuthContext } from "../../context/AuthProvider";
 import setAuthToken from "../../hooks/UseToken/UseToken";
 
 const Signup = () => {
+  // console.log(process.env.REACT_APP_IMAGE_SECRET_KEY)
   const {
     register,
     watch,
@@ -89,9 +90,11 @@ const Signup = () => {
     // setIsShowPassword('')
   };
 
+ 
   const handleSignUp = (data) => {
     setSignUpError("");
     setLoading(true);
+    console.log(phone)
     const email = data.email;
     const password = data.password;
     const name = data.name;
@@ -246,10 +249,8 @@ const Signup = () => {
               className="w-full"
               country={"us"}
               value={phone}
-              {...register("phone", {
-                required: "Please Inter Your Phone Number",
-              })}
-              onChange={(phone) => setPhone(phone)}
+              {...register("phone")}
+              onChange={(phone) => setPhone(phone)}              
             />
             {errors.phone && (
               <p className="text-red-500">{errors.phone?.message}</p>
@@ -283,6 +284,7 @@ const Signup = () => {
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
+                      className='text-black'
                       aria-label="toggle password visibility"
                       onClick={handleClickShowPassword}
                       edge="end"

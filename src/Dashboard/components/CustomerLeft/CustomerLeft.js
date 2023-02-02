@@ -1,99 +1,81 @@
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import StickyNote2OutlinedIcon from '@mui/icons-material/StickyNote2Outlined';
-import { Button, Hidden, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
+import { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import '../../../App.css';
-import { AuthContext } from '../../../context/AuthProvider';
-import CustomerLink from './CustomerLink';
+import logo from '../../../assets/logo/mainlogo.png';
 
-const drawerWidth = 260;
+
 
 const CustomerLeft = () => {
-    const { mobileOpen, handleDrawerToggle } = useContext(AuthContext);
-    const listItemData = [
-      {
-        label: "My Transaction",
-        link: "/dashboard/myTransaction",
-        icon: <AccountCircleOutlinedIcon />,
-      },
-      {
-        label: "My Balance",
-        link: "/dashboard/my-balance",
-        icon: <StickyNote2OutlinedIcon />,
-      },
-      {
-        label: "My Withdraw",
-        link: "/dashboard/my-withdraw",
-        icon: <AccessibilityNewOutlinedIcon />,
-      },
-      {
-        label: "My Deposit",
-        link: "/dashboard/my-deposit",
-        icon: <AccountCircleOutlinedIcon />,
-      },
-      {
-        label: "Device Activity",
-        link: "/dashboard/deviceActivity",
-        icon: <DevicesIcon />,
-      },
-    ];
+    const [subMenu, setSubMenu] = useState(false);
     return (
-        <Box
-            component="nav"
-            sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-            aria-label="mailbox folders"
-        >
-            {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-
-            <Hidden implementation='css'>
-                <Drawer
-                    // container={container}
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
-                    sx={{
-                        // display: { xs: 'block', sm: 'none' },
-
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
+        <>
+            <div ClassName="text-white">
+                <div className='text-white w-[70%] flex items-center justify-center py-[10px]'>
+                    <Link
+                        className="navbar-brand font-bold text-2xl flex items-center"
+                        to="/"
                 >
-                    <List>
-                        {listItemData.map((item, i) => (
-                            <Button
-                                size='small'
-                                key={i}>
-                                <ListItem
-                                    component={NavLink}
-                                    to={item.link}
-                                >
-                                    <ListItemIcon>{item.icon}</ListItemIcon>
-                                    <ListItemText>{item.label}</ListItemText>
-                                </ListItem>
-                            </Button>
-                        ))}
-                    </List>
-                </Drawer>
-            </Hidden>
+                        <img src={logo} alt="" srcSet="" />
+                        <span className="font-bold text-[32px] ml-1 text-[#fff]">
+                            C<span className=" text-[#DF0303]">T</span>B
+                        </span>
+                    </Link>
+                </div>
 
-            <Hidden implementation='css'>
-                <Drawer
-                    variant="permanent"
-                    sx={{
-                        // display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
-                    open
-                >
-                    <CustomerLink />
-                </Drawer>
-            </Hidden>
-        </Box>
+                {/* ---------LINK ------------- */}
+                <div className='mt-[40px]'>
+                    <NavLink
+                        to='/dashboard/myAccount'                        
+                        className={({ isActive }) =>
+                            isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
+                        }
+                    >
+                        <span> <AccountCircleOutlinedIcon /></span>
+                        <span className='text-white ml-[10px]'>My Account</span>
+                    </NavLink>
+
+                    <NavLink 
+                    to='/dashboard/myTransaction'
+                    // onClick={() => setSubMenu(!subMenu)}
+                        className={({ isActive }) =>
+                            isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
+                        }
+                    >
+                        <span> <PaidOutlinedIcon /></span>
+                        <span className='text-white ml-[10px]'>Transaction</span>
+                        {/* <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span> */}
+                    </NavLink>
+
+                    {/* -------Sub Menu ----------- */}
+                    {/* <div className={`${subMenu ? 'block' : 'hidden'} duration-500 transition-all flex flex-col px-[20px] py-[15px]`}>
+                        <NavLink to='/dashboard/my-deposit'
+                            className='flex items-center link py-[10px] px-[5px] rounded-md'
+                        >
+                            <span> <CloudCircleOutlinedIcon /></span>
+                            <span className='text-white ml-[10px]'>My Deposit</span>
+                        </NavLink>
+
+                        <NavLink
+                            to='/dashboard/my-withdraw'
+                            className='flex items-center link py-[10px] px-[5px] rounded-md'
+                        >
+                            <span> <CloudCircleOutlinedIcon /></span>
+                            <span className='text-white ml-[10px]'>My Withdraw</span>
+                        </NavLink>
+
+                        <NavLink
+                            to='/dashboard/my-balance'
+                            className='flex items-center link py-[10px] px-[5px] rounded-md'
+                        >
+                            <span> <CloudCircleOutlinedIcon /></span>
+                            <span className='text-white ml-[10px]'>My Balance</span>
+                        </NavLink>
+                    </div> */}
+                </div>
+            </div>
+        </>
     );
 };
 

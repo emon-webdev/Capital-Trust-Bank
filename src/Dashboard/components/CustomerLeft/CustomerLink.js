@@ -4,11 +4,9 @@ import StickyNote2OutlinedIcon from '@mui/icons-material/StickyNote2Outlined';
 import AccessibilityNewOutlinedIcon from '@mui/icons-material/AccessibilityNewOutlined';
 import logo from '../../../assets/logo/mainlogo.png';
 import '../../../App.css';
-
-
-
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+
 
 const CustomerLink = () => {
     const listItemData = [
@@ -17,6 +15,8 @@ const CustomerLink = () => {
         { label: "My Withdraw", link: "/dashboard/my-withdraw", icon: <AccessibilityNewOutlinedIcon /> },
         { label: "My Deposit", link: "/dashboard/my-deposit", icon: <AccountCircleOutlinedIcon />, },
     ];
+  
+
     return (
         <List>
            <ListItem>
@@ -44,7 +44,7 @@ const CustomerLink = () => {
                     </ListItem>
                 </Button>
             ))}
-        </List>
+        </List>      
     );
 };
 
