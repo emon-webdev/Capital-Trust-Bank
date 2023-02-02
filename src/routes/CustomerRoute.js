@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthProvider";
 
 const CustomerRoute = ({ children }) => {
   const { role } = useContext(AuthContext);
+  console.log(role)
   if (role === "customer") {
     return children;
   }
