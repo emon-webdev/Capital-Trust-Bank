@@ -115,10 +115,21 @@ const Signup = () => {
               updateUser(name, data.data.url)
                 .then(() => {
                   console.log(user);
-                  setLoading(false);
-                  toast.success("SignUp Success");
-                  navigate("/login");
-                  verifyEmail();
+
+                  //store customer device info
+                  fetch(`http://localhost:5000/storeDeviceInfo/${user.email}`, {
+                    method: "POST",
+                    headers: {
+                      "content-type": "application/json",
+                    },
+                  })
+                    .then((res) => res.json())
+                    .then((data) => {
+                     setLoading(false);
+                     toast.success("SignUp Success");
+                     navigate("/login");
+                     verifyEmail();
+                    });
                 })
                 .catch((error) => {
                   console.log(error);
@@ -144,8 +155,20 @@ const Signup = () => {
       const image = user?.photoURL;
       const verify = false;
       setAuthToken(user, name, image, verify);
-      navigate(from, { replace: true });
-      console.log(verify);
+
+      //store customer device info
+      fetch(`http://localhost:5000/storeDeviceInfo/${user.email}`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setLoading(false);
+          toast.success("SignUp Success");
+          navigate(from, { replace: true });
+        });
     });
   };
 
