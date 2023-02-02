@@ -1,3 +1,4 @@
+
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
@@ -9,8 +10,10 @@ const MyAccount = () => {
         <div className='container  flex flex-col md:flex-row lg:flex-row sm:align-items-center sm:justify-content-center '>
             <div className="text-white">
             <Box sx={{backgroundColor:'#3085d2'}} borderRadius={5}  marginX={3} marginY={5} height='150px' width='400px' padding={3} border={0}>
-                <Typography color='white'padding={1}  variant='h4'>Available Balance</Typography></Box>
-            <Box sx={{backgroundColor:'#da6666'}} borderRadius={5} marginY={5} marginX={3}   height='150px' width='400px'padding={3} border={0}>Withdraw</Box>
+                <Typography color='white'padding={1}  variant='h4'>Available Balance <span>$5000</span> </Typography></Box>
+            <Box sx={{backgroundColor:'#da6666'}} borderRadius={5} marginY={5} marginX={3}   height='150px' width='400px'padding={3} border={0}>
+                <Typography color='white'padding={1}  variant='h4'>Withdraw Amount <span>$2000</span></Typography>
+            </Box>
             </div>
             <div className=" mt-12  align-items-center justify-content-center">
             <h3 className='text-center'>Expense Graph</h3>
