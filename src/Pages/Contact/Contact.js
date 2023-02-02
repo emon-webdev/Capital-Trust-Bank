@@ -5,6 +5,7 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import phone from '../../assets/contact/Phone.png'
 import mail from '../../assets/contact/Mail.png'
 import address from '../../assets/contact/Address.png'
+import arrow from '../../assets/contact/ArrowUpRight.png'
 
 
 const Contact = () => {
@@ -17,35 +18,35 @@ const Contact = () => {
 
         {/* Card Section Start */}
       <div className="card">
-      <Card>
-        <CardContent>
-          <img className="bg-slate-800 mb-3" src={phone} alt="" />
-          <Typography sx={{ fontSize: 14}} color="text.secondary" gutterBottom>
+      <Card className="onlyCard">
+        <CardContent className="CardContent">
+          <img className=" mb-3" src={phone} alt="" />
+          <Typography className="text-white" sx={{ fontSize: 14}} gutterBottom>
         +00(123)345 543 23
         </Typography>
-        <Typography variant="body2">
+        <Typography className="text-white" variant="body2">
         Lorem ipsum dolor sit amet, consectetur adipisc elit.<br /> Phasellus aliquet urna  libero ut.
           </Typography>
         </CardContent>
       </Card>
-      <Card>
-        <CardContent>
-          <img className="bg-slate-800 mb-3" src={mail} alt="" />
-          <Typography sx={{ fontSize: 14}} color="text.secondary" gutterBottom>
+      <Card className="onlyCard">
+        <CardContent className="CardContent">
+          <img className=" mb-3" src={mail} alt="" />
+          <Typography className="text-white" sx={{ fontSize: 14}} gutterBottom>
           Ixora@gmail.com
         </Typography>
-        <Typography variant="body2">
+        <Typography className="text-white" variant="body2">
         Lorem ipsum dolor sit amet, consectetur adipisc elit. <br /> Phasellus aliquet urna  libero ut.
           </Typography>
         </CardContent>
       </Card>
-      <Card>
-        <CardContent>
-          <img className="bg-slate-800 mb-3" src={address} alt="" />
-          <Typography sx={{ fontSize: 14}} color="text.secondary" gutterBottom>
+      <Card className="onlyCard">
+        <CardContent className="CardContent">
+          <img className=" mb-3" src={address} alt="" />
+          <Typography className="text-white" sx={{ fontSize: 14}} gutterBottom>
           12 Poving st..Rnu 3542
         </Typography>
-        <Typography variant="body2">
+        <Typography className="text-white" variant="body2">
         Lorem ipsum dolor sit amet, consectetur adipisc elit. <br /> Phasellus aliquet urna  libero ut.
           </Typography>
         </CardContent>
@@ -124,7 +125,7 @@ const Contact = () => {
             </div>
             <div className="mt-5 text-center">
               <Button variant="contained" color="error" type="submit">
-                Send A Message
+                Send A Message <img src={arrow} alt="" />
               </Button>
             </div>
           </form>
