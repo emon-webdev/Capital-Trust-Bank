@@ -1,105 +1,79 @@
 import {
-    Box,
-    FormControl,
-    FormControlLabel,
-    MenuItem,
-    Radio,
-    RadioGroup,
-    Select
+  Box,
+  FormControl,
+  FormControlLabel,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select
 } from "@mui/material";
 
-import { default as React, useReducer, useState } from "react";
+import { default as React, useState } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 const AccountOpenFrom = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const imgHostKey = process.env.REACT_APP_IMAGE_SECRET_KEY;
   const [name, setName] = useState("Account Open In Bank");
-  const [idCardImage, setIdCardImage] = useState(null);
-  console.log(idCardImage);
-  const imageHostKey = process.env.REACT_APP_IMAGE_SECRET_KEY;
-  console.log(imageHostKey);
-  const initialState = {
-    firstName: "",
-    lastName: "",
-    birth: "",
-    gender: "",
-    phone: "",
-    email: "",
-    streetAddress: "",
-    city: "",
-    region: "",
-    postal: "",
-    country: "",
-    identification: "",
-    idNumber: "",
-    cardImg: "",
-    accountType: "",
-    accountCategory: "",
-    monthlySalary: "",
-    initialDeposit: "",
-    term: false,
-    verify: false,
-  };
-  const reducer = (state, action) => {
-    console.log(action);
-
-    switch (action.type) {
-      case "INPUT":
-        return {
-          ...state,
-          [action.payload.name]: action.payload.value,
-        };
-      case "TOGGLE":
-        return {
-          ...state,
-          term: !state.term,
-        };
-      default:
-        return state;
-    }
-  };
-
-  const [state, dispatch] = useReducer(reducer, initialState);
 
   /* submit from */
-  const accountFromSubmit = (event) => {
-    event.preventDefault();
-
-    const cardImage = event.target.cardImg.files[0];
-    console.log(cardImage);
+  const accountFromSubmit = (data) => {
+    const image = data.image[0];
     const formData = new FormData();
-    formData.append("cardImg", cardImage);
-    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGE_SECRET_KEY}`;
-    console.log(url);
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`;
     fetch(url, {
       method: "POST",
       body: formData,
     })
       .then((res) => res.json())
-      .then((imgData) => {
-        if (imgData.success) {
-          const imgUrl = imgData?.data.url;
-          setIdCardImage(imgUrl);
+      .then((data) => {
+        if (data.success) {
+          console.log(data);
         }
       });
 
-    const Account = {
-      ...state,
+    const account = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      birth: data.birth,
+      gender: data.gender,
+      phone: data.phone,
+      email: data.email,
+      streetAddress: data.streetAddress,
+      city: data.city,
+      region: data.region,
+      postal: data.postal,
+      country: data.country,
+      identification: data.identification,
+      idNumber: data.idNumber,
+      cardImg: data.cardImg,
+      accountType: data.accountType,
+      accountCategory: data.accountCategory,
+      monthlySalary: data.monthlySalary,
+      initialDeposit: data.initialDeposit,
+      term: true,
+      approve: false,
     };
-    console.log("All Accounts", Account);
-
+    console.log(account);
+    // post to database
     fetch(`http://localhost:5000/bankAccounts`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(Account),
+      body: JSON.stringify(account),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
           toast.success("Please wait for manager approval");
-          state();
         }
       })
       .then((error) => console.error(error));
@@ -129,9 +103,8 @@ const AccountOpenFrom = () => {
             <h2 className="text-xl text-[#2c3345] font-bold mb-2 ">
               Personal Information
             </h2>
-            <Box
-              onSubmit={accountFromSubmit}
-              component="form"
+            <form
+              onSubmit={handleSubmit(accountFromSubmit)}
               className="mb-10  sm:align-content-center sm:justify-items-center"
             >
               <Box
@@ -148,13 +121,10 @@ const AccountOpenFrom = () => {
                 >
                   <label className="text-base text-[#57647E]">First Name</label>
                   <input
-                    name="firstName"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("firstName", {
+                      required: "First Name is required",
+                    })}
+                    type="text"
                     fullWidth
                     className="border  px-[10px] rounded "
                     style={{ margin: "5px 0 10px", width: "100%" }}
@@ -165,12 +135,9 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">Last Name</label>
                   <input
                     name="lastName"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("lastName", {
+                      required: "Name is required",
+                    })}
                     fullWidth
                     className="border  px-[10px] rounded "
                     style={{ margin: "5px 0 10px", width: "100%" }}
@@ -195,13 +162,9 @@ const AccountOpenFrom = () => {
                     Date of Birth
                   </label>
                   <input
-                    name="birth"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("birth", {
+                      required: "Name is required",
+                    })}
                     style={{ margin: "5px 0 10px", width: "100%" }}
                     fullWidth
                     className="border  px-[10px] rounded "
@@ -214,17 +177,10 @@ const AccountOpenFrom = () => {
                     <RadioGroup
                       aria-labelledby="demo-radio-buttons-group-label"
                       defaultValue="female"
-                      name="gender"
                       sx={{ margin: "5px 0 10px", width: "100%" }}
-                      onChange={(e) =>
-                        dispatch({
-                          type: "INPUT",
-                          payload: {
-                            name: e.target.name,
-                            value: e.target.value,
-                          },
-                        })
-                      }
+                      {...register("gender", {
+                        required: "gender is required",
+                      })}
                     >
                       <Box sx={{ display: "flex" }}>
                         <FormControlLabel
@@ -264,13 +220,9 @@ const AccountOpenFrom = () => {
                     Phone Number
                   </label>
                   <input
-                    name="phone"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("phone", {
+                      required: "phone is required",
+                    })}
                     fullWidth
                     className="border  px-[10px] rounded "
                     style={{ margin: "5px 0 10px", width: "100%" }}
@@ -282,13 +234,9 @@ const AccountOpenFrom = () => {
                     Email Address
                   </label>
                   <input
-                    name="email"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("email", {
+                      required: "email is required",
+                    })}
                     fullWidth
                     className="border email-filed px-[10px] rounded mt-[5px]"
                     style={{ margin: "5px 0 10px !important", width: "100%" }}
@@ -306,13 +254,9 @@ const AccountOpenFrom = () => {
                     Street Address
                   </label>
                   <input
-                    name="streetAddress"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("streetAddress", {
+                      required: "streetAddress is required",
+                    })}
                     style={{ margin: "5px 0 10px", width: "100%" }}
                     fullWidth
                     className="border  px-[10px] rounded "
@@ -334,13 +278,9 @@ const AccountOpenFrom = () => {
                 >
                   <label className="text-base text-[#57647E]">City</label>
                   <input
-                    name="city"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("city", {
+                      required: "city is required",
+                    })}
                     fullWidth
                     className="border  px-[10px] rounded "
                     style={{ margin: "5px 0 10px", width: "100%" }}
@@ -350,13 +290,9 @@ const AccountOpenFrom = () => {
                 <FormControl fullWidth>
                   <label className="text-base text-[#57647E]">Region</label>
                   <input
-                    name="region"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("region", {
+                      required: "region is required",
+                    })}
                     fullWidth
                     className="border  px-[10px] rounded mt-[5px]"
                     style={{ margin: "5px 0 10px !important", width: "100%" }}
@@ -381,12 +317,9 @@ const AccountOpenFrom = () => {
                   </label>
                   <input
                     name="postal"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("postal", {
+                      required: "postal is required",
+                    })}
                     fullWidth
                     className="border  px-[10px] rounded "
                     style={{ margin: "5px 0 10px", width: "100%" }}
@@ -397,12 +330,9 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">Country</label>
                   <input
                     name="country"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("country", {
+                      required: "country is required",
+                    })}
                     fullWidth
                     className="border  px-[10px] rounded mt-[5px]"
                     style={{ margin: "5px 0 10px !important", width: "100%" }}
@@ -429,17 +359,13 @@ const AccountOpenFrom = () => {
                   <Select
                     style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
-                    name="identification"
                     fullWidth
                     defaultValue="Student ID"
                     className="border  px-[10px] rounded "
                     sx={{ margin: "5px 0 10px", width: "100%" }}
-                    onChange={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("identification", {
+                      required: "identification is required",
+                    })}
                   >
                     <MenuItem value="Student ID">Student ID</MenuItem>
                     <MenuItem value="National ID">National ID</MenuItem>
@@ -449,12 +375,9 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">ID Number</label>
                   <input
                     name="idNumber"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("idNumber", {
+                      required: "id Number is required",
+                    })}
                     fullWidth
                     className="border  px-[10px] rounded "
                     style={{ margin: "5px 0 10px", width: "100%" }}
@@ -468,14 +391,10 @@ const AccountOpenFrom = () => {
                     ID Card Upload
                   </label>
                   <input
-                    name="cardImg"
                     type="file"
-                    onChange={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("image", {
+                      required: "Id Card is required",
+                    })}
                     style={{
                       margin: "5px 0 10px",
                       width: "100%",
@@ -508,17 +427,13 @@ const AccountOpenFrom = () => {
                   <Select
                     style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
-                    name="accountType"
                     defaultValue="Current"
                     fullWidth
                     className="border  px-[10px] rounded "
                     sx={{ margin: "5px 0 10px", width: "100%" }}
-                    onChange={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("accountType", {
+                      required: "accountType is required",
+                    })}
                   >
                     <MenuItem value="Current">Current</MenuItem>
                     <MenuItem value="Savings">Savings</MenuItem>
@@ -537,12 +452,9 @@ const AccountOpenFrom = () => {
                     fullWidth
                     className="border  px-[10px] rounded "
                     sx={{ margin: "5px 0 10px", width: "100%" }}
-                    onChange={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("accountCategory", {
+                      required: "account Category is required",
+                    })}
                   >
                     <MenuItem value="Singly">Singly</MenuItem>
                     <MenuItem value="Jointly">Jointly</MenuItem>
@@ -567,12 +479,9 @@ const AccountOpenFrom = () => {
                   </label>
                   <input
                     name="monthlySalary"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("monthlySalary", {
+                      required: "monthlySalary is required",
+                    })}
                     fullWidth
                     className="border  px-[10px] rounded "
                     style={{ margin: "5px 0 10px", width: "100%" }}
@@ -585,12 +494,9 @@ const AccountOpenFrom = () => {
                   </label>
                   <input
                     name="initialDeposit"
-                    onBlur={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    {...register("initialDeposit", {
+                      required: "initial Deposit is required",
+                    })}
                     fullWidth
                     className="border  px-[10px] rounded "
                     style={{ margin: "5px 0 10px", width: "100%" }}
@@ -611,7 +517,10 @@ const AccountOpenFrom = () => {
                   name="term"
                   id="terms"
                   required
-                  onClick={() => dispatch({ type: "TOGGLE" })}
+                  // onClick={(e) => setTerms(e.target.value)}
+                  {...register("term", {
+                    required: "term is required",
+                  })}
                 />
                 <label htmlFor="terms">I agree to terms and conditions</label>
               </Box>
@@ -620,12 +529,11 @@ const AccountOpenFrom = () => {
                   style={{ width: "49%" }}
                   className="primary-btn mt-2 "
                   type="submit"
-                  disabled={!state.term}
                 >
                   Submit
                 </button>
               </Box>
-            </Box>
+            </form>
           </Box>
         </div>
       </div>
