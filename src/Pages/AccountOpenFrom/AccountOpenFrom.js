@@ -1,11 +1,11 @@
 import {
-    Box,
-    FormControl,
-    FormControlLabel,
-    MenuItem,
-    Radio,
-    RadioGroup,
-    Select
+  Box,
+  FormControl,
+  FormControlLabel,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select
 } from "@mui/material";
 
 import { default as React, useReducer, useState } from "react";
@@ -470,12 +470,13 @@ const AccountOpenFrom = () => {
                   <input
                     name="cardImg"
                     type="file"
-                    onChange={(e) =>
-                      dispatch({
-                        type: "INPUT",
-                        payload: { name: e.target.name, value: e.target.value },
-                      })
-                    }
+                    // onChange={(e) =>
+                    //   dispatch({
+                    //     type: "INPUT",
+                    //     payload: { name: e.target.name, value: e.target.value },
+                    //   })
+                    // }
+                    onChange={(e) => setIdCardImage(e.target.cardImg.files[0])}
                     style={{
                       margin: "5px 0 10px",
                       width: "100%",
