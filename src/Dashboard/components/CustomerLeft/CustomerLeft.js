@@ -1,6 +1,4 @@
-import AccessibilityNewOutlinedIcon from '@mui/icons-material/AccessibilityNewOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import DevicesIcon from '@mui/icons-material/Devices';
 import StickyNote2OutlinedIcon from '@mui/icons-material/StickyNote2Outlined';
 import { Button, Hidden, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -26,21 +24,26 @@ const CustomerLeft = () => {
         link: "/dashboard/my-balance",
         icon: <StickyNote2OutlinedIcon />,
       },
-      {
-        label: "My Withdraw",
-        link: "/dashboard/my-withdraw",
-        icon: <AccessibilityNewOutlinedIcon />,
-      },
+    //   {
+    //     label: "My Withdraw",
+    //     link: "/dashboard/my-withdraw",
+    //     icon: <AccessibilityNewOutlinedIcon />,
+    //   },
       {
         label: "My Deposit",
         link: "/dashboard/my-deposit",
         icon: <AccountCircleOutlinedIcon />,
       },
-      {
-        label: "Device Activity",
-        link: "/dashboard/deviceActivity",
-        icon: <DevicesIcon />,
-      },
+    //   {
+    //     label: "Device Activity",
+    //     link: "/dashboard/deviceActivity",
+    //     icon: <DevicesIcon />,
+    //   },
+    //   {
+    //     label: "Demo ",
+    //     link: "/dashboard/deviceActivity",
+    //     icon: <DevicesIcon />,
+    //   },
     ];
     return (
         <Box
