@@ -93,3 +93,15 @@
 .slick-slide.slick-active.slick-current h3 {
   color: #041c51;
 }
+ {
+}
+.css-1wnsr1i {
+  border: none !important;
+  box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 7%),
+    0px 24px 38px 3px rgb(0 0 0 / 0%), 0px 9px 46px 8px rgb(0 0 0 / 0%) !important;
+}
+.css-sox5kk-MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: none !important;
+}

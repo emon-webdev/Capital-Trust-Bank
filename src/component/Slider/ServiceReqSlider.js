@@ -162,7 +162,7 @@ const ServiceReqSlider = () => {
                     </div>
                   </div>
                   {/* Show Modal */}
-                  <div>
+                  <div className="service-req-from">
                     <Modal
                       aria-labelledby="transition-modal-title"
                       aria-describedby="transition-modal-description"

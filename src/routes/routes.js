@@ -11,6 +11,7 @@ import VerificationReq from '../Dashboard/components/VerificationReq/Verificatio
 import Welcome from "../Dashboard/components/Welcome/Welcome";
 import Main from "../Layout/Main";
 import About from "../Pages/About/About";
+import AccountOpenFrom from "../Pages/AccountOpenFrom/AccountOpenFrom";
 import Apply from "../Pages/Apply/Apply";
 import Contact from "../Pages/Contact/Contact";
 import ApplyForm from "../Pages/Home/ApplyForm";
@@ -26,7 +27,7 @@ import GoldLoan from "../Pages/Services/GoldLoan";
 import MarriageLoan from "../Pages/Services/MarriageLoan";
 import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
-import AccountOpenFrom from "../Pages/Shared/AccountOpenFrom/AccountOpenFrom";
+
 import Error from "../Pages/Shared/Error";
 import AdminRoute from '../routes/AdminRoute';
 import CustomerRoute from '../routes/CustomerRoute';

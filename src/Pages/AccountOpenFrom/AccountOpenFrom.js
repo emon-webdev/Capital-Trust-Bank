@@ -1,17 +1,21 @@
 import {
-  Box,
-  FormControl,
-  FormControlLabel,
-  MenuItem,
-  Radio,
-  RadioGroup,
-  Select
+    Box,
+    FormControl,
+    FormControlLabel,
+    MenuItem,
+    Radio,
+    RadioGroup,
+    Select
 } from "@mui/material";
 
 import { default as React, useReducer, useState } from "react";
-import DynamicBanner from "../DynamicBanner/DynamicBanner";
+import { toast } from "react-hot-toast";
+import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
+
 const AccountOpenFrom = () => {
   const [name, setName] = useState("Account Open In Bank");
+  const [idCardImage, setIdCardImage] = useState(null);
+  console.log(idCardImage);
   const imageHostKey = process.env.REACT_APP_IMAGE_SECRET_KEY;
   console.log(imageHostKey);
   const initialState = {
@@ -34,6 +38,7 @@ const AccountOpenFrom = () => {
     monthlySalary: "",
     initialDeposit: "",
     term: false,
+    verify: false,
   };
   const reducer = (state, action) => {
     console.log(action);
@@ -59,13 +64,30 @@ const AccountOpenFrom = () => {
   /* submit from */
   const accountFromSubmit = (event) => {
     event.preventDefault();
-    // const image = event.cardImg.FileList[0];
-    // console.log(event.cardImg);
-    // console.log(image);
+
+    const cardImage = event.target.cardImg.files[0];
+    console.log(cardImage);
+    const formData = new FormData();
+    formData.append("cardImg", cardImage);
+    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGE_SECRET_KEY}`;
+    console.log(url);
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgData) => {
+        if (imgData.success) {
+          const imgUrl = imgData?.data.url;
+          setIdCardImage(imgUrl);
+        }
+      });
+
     const Account = {
       ...state,
     };
     console.log("All Accounts", Account);
+
     fetch(`http://localhost:5000/bankAccounts`, {
       method: "POST",
       headers: {
@@ -76,8 +98,8 @@ const AccountOpenFrom = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          console.log(data);
-          // toast.success("Bank Account Create Success");
+          toast.success("Please wait for manager approval");
+          state();
         }
       })
       .then((error) => console.error(error));
@@ -591,7 +613,7 @@ const AccountOpenFrom = () => {
                   required
                   onClick={() => dispatch({ type: "TOGGLE" })}
                 />
-                <label for="terms">I agree to terms and conditions</label>
+                <label htmlFor="terms">I agree to terms and conditions</label>
               </Box>
               <Box sx={{ marginTop: "20px" }}>
                 <button
