@@ -159,37 +159,37 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myTransaction",
         element: (
-          <CustomerRoute>
+          
             <MyTransaction />
-          </CustomerRoute>
+      
           
 
         ),
       },
-      {
-        path: "/dashboard/my-balance",
-        element: (
-          <CustomerRoute>
-            <MyBalance />
-          </CustomerRoute>
-        ),
-      },
-      {
-        path: "/dashboard/my-withdraw",
-        element: (
-          <CustomerRoute>
-            <MyWithdraw />
-          </CustomerRoute>
-        ),
-      },
-      {
-        path: "/dashboard/my-deposit",
-        element: (
-          <CustomerRoute>
-            <MyDeposit />
-          </CustomerRoute>
-        ),
-      },
+      // {
+      //   path: "/dashboard/my-balance",
+      //   element: (
+      //     <CustomerRoute>
+      //       <MyBalance />
+      //     </CustomerRoute>
+      //   ),
+      // },
+      // {
+      //   path: "/dashboard/my-withdraw",
+      //   element: (
+      //     <CustomerRoute>
+      //       <MyWithdraw />
+      //     </CustomerRoute>
+      //   ),
+      // },
+      // {
+      //   path: "/dashboard/my-deposit",
+      //   element: (
+      //     <CustomerRoute>
+      //       <MyDeposit />
+      //     </CustomerRoute>
+      //   ),
+      // },
       {
         path: "/dashboard/myAccount",
         element: (
