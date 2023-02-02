@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <div className="header-area">
-      <div className="header-top py-4 bg-[#041C51]">
+      <div className="header-top py-2 bg-[#041C51]">
         <div className="container">
           <div className="header-top-info flex items-center justify-between">
             <div className="header-left flex flex-wrap items-center justify-between">
