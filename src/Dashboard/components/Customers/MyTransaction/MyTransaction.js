@@ -4,6 +4,8 @@ const MyTransaction = () => {
     return (
         <div>
             <h1 className=''>My Transaction</h1>
+            <h1 className=''>My Transaction</h1>
+            <h1 className=''>My Transaction</h1>
         </div>
     );
 };

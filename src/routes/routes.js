@@ -159,15 +159,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myTransaction",
         element: (
-<<<<<<< HEAD
           <CustomerRoute>
             <MyTransaction />
           </CustomerRoute>
-=======
+          
 
-          <MyTransaction />
-
->>>>>>> cc41f4a9be0cc73f385c0ff8c7b1611072aa73ec
         ),
       },
       {
