@@ -178,6 +178,12 @@ button.accent-btn {
   width: 100% !important;
   padding: 27px;
 }
+.css-i4bv87-MuiSvgIcon-root {
+  color: #000428 !important;
+}
+.react-tel-input .form-control {
+  font-family: 15px !important;
+}
 /* @media screen and (max-width: 1024px) {
   .choose {
     display: flex;
