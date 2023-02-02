@@ -18,7 +18,7 @@ const MyAccount = () => {
             <div className=" mt-12  align-items-center justify-content-center">
             <h3 className='text-center'>Expense Graph</h3>
 
-  <LineChart  className='ml-10 bg-blue-500' width={600} height={300} data={data}  margin={{ top:5, right: 20, bottom: 5, left: 0 }}>
+  <LineChart  className='ml-10' width={600} height={300} data={data}  margin={{ top:5, right: 20, bottom: 5, left: 0 }}>
     <Line type="monotone" dataKey="uv" stroke="#101083" />
     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
     <XAxis dataKey="name" className='text-white' />

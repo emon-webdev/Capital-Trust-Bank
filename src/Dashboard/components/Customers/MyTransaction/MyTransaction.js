@@ -5,6 +5,7 @@ import { Typography } from '@mui/material';
 // import { Box } from '@mui/system';
 import React, { useState } from 'react'
 import DetailsModal from './DetailsModal';
+import VisaTransaction from './VisaTransaction';
 
 
 // const style = {
@@ -103,8 +104,9 @@ export default function MyTransaction() {
 
   const classes = useStyles();
   return (
- <div className="container mt-10">
-     <TableContainer sx={{width:'900px'}}  component={Paper}>
+ <div className="container mt-10 flex gap-5">
+   <div className="">
+   <TableContainer sx={{width:'900px'}}  component={Paper}>
     <Table  className={classes.table} aria-label="simple table">
       
         <TableRow >
@@ -137,7 +139,10 @@ export default function MyTransaction() {
       </TableBody>
     </Table>
   </TableContainer>
-
+   </div>
+<div className="">
+  <VisaTransaction/>
+</div>
 
 
   
