@@ -1,19 +1,44 @@
-import { Button, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import StickyNote2OutlinedIcon from '@mui/icons-material/StickyNote2Outlined';
 import AccessibilityNewOutlinedIcon from '@mui/icons-material/AccessibilityNewOutlined';
-import logo from '../../../assets/logo/mainlogo.png';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import DevicesIcon from "@mui/icons-material/Devices";
+import StickyNote2OutlinedIcon from '@mui/icons-material/StickyNote2Outlined';
+import { Button, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import '../../../App.css';
+import logo from '../../../assets/logo/mainlogo.png';
+
+
+
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 
 const CustomerLink = () => {
     const listItemData = [
-        { label: "My Transaction", link: "/dashboard/myTransaction", icon: <AccountCircleOutlinedIcon /> },
-        { label: "My Balance", link: "/dashboard/my-balance", icon: <StickyNote2OutlinedIcon /> },
-        { label: "My Withdraw", link: "/dashboard/my-withdraw", icon: <AccessibilityNewOutlinedIcon /> },
-        { label: "My Deposit", link: "/dashboard/my-deposit", icon: <AccountCircleOutlinedIcon />, },
+      {
+        label: "My Transaction",
+        link: "/dashboard/myTransaction",
+        icon: <AccountCircleOutlinedIcon />,
+      },
+      {
+        label: "My Balance",
+        link: "/dashboard/my-balance",
+        icon: <StickyNote2OutlinedIcon />,
+      },
+      {
+        label: "My Withdraw",
+        link: "/dashboard/my-withdraw",
+        icon: <AccessibilityNewOutlinedIcon />,
+      },
+      {
+        label: "My Deposit",
+        link: "/dashboard/my-deposit",
+        icon: <AccountCircleOutlinedIcon />,
+      },
+      {
+        label: "Device Activity",
+        link: "/dashboard/deviceActivity",
+        icon: <DevicesIcon />,
+      },
     ];
   
 
