@@ -1,18 +1,18 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import education from "../../assets/Services(Home)/edu_loan.jpg";
 
 const Services = () => {
-  const loans = useSelector((state)=> state.servicesReducer.services)
+  // const loans = useSelector((state)=> state.servicesReducer.services)
   // console.log(services)
-  // const [loans, setLoans] = useState([]); 
-  // useEffect(() => {
-  //   fetch('http://localhost:5000/loanService')
-  //     .then(res => res.json())
-  //     .then(data => setLoans(data))
-  // }, [])
+  const [loans, setLoans] = useState([]); 
+  useEffect(() => {
+    fetch('http://localhost:5000/loanService')
+      .then(res => res.json())
+      .then(data => setLoans(data))
+  }, [])
   
   // const services = useLoaderData();
   // console.log(services);
@@ -73,7 +73,7 @@ const Services = () => {
                   <Typography marginTop={2} gutterBottom fontSize={"16px"} component="div">
                     {loan.details}
                   </Typography>
-                  <Link to={`/loanService/${loan.id}`}>
+                  <Link to={`/loanService/${loan._id}`}>
                     <button className='my-2 mx-auto flex items-center justify-center primary-btn' >Apply  </button></Link>
                 </CardContent>
               </CardActionArea>
