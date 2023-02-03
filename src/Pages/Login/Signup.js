@@ -21,7 +21,6 @@ import { AuthContext } from "../../context/AuthProvider";
 import setAuthToken from "../../hooks/UseToken/UseToken";
 
 const Signup = () => {
-  // console.log(process.env.REACT_APP_IMAGE_SECRET_KEY)
   const {
     register,
     watch,
@@ -41,7 +40,6 @@ const Signup = () => {
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
 
-  const [userImage, setUserImage] = useState(null);
 
   //checking validate
   const [lowerValidated, setLowerValidated] = useState(false);
@@ -96,18 +94,20 @@ const Signup = () => {
   }
 
 
- 
   const handleSignUp = (data) => {
+    console.log(data)
     setSignUpError("");
     setLoading(true);
-    console.log(phone)
     const email = data.email;
     const password = data.password;
     const name = data.name;
     const image = data.image[0];
+    console.log('picture', image)
     const formData = new FormData();
+    console.log(formData)
     formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGE_SECRET_KEY}`;
+    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGE_SECRET_KEY}`
+    console.log(url)
     fetch(url, {
       method: "POST",
       body: formData,
@@ -115,7 +115,7 @@ const Signup = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          // console.log(data.data.url)
+          console.log(data)
           createUser(email, password)
             .then((result) => {
               const user = result.user;
@@ -250,7 +250,7 @@ const Signup = () => {
               country={"us"}
               value={phone}
               {...register("phone")}
-              onChange={(phone) => setPhone(phone)}              
+              onChange={(phone) => setPhone(phone)}
             />
             {errors.phone && (
               <p className="text-red-500">
@@ -287,12 +287,12 @@ const Signup = () => {
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
-                      className='text-black'
+                      className='signup-icon'
                       aria-label="toggle password visibility"
                       onClick={handleClickShowPassword}
                       edge="end"
                     >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                      {showPassword ? <VisibilityOff className="signup-icon text-black" /> : <Visibility className='signup-icon text-black' />}
                     </IconButton>
                   </InputAdornment>
                 }
@@ -360,22 +360,21 @@ const Signup = () => {
               <p className="text-red-500">{errors.confirm_password?.message}</p>
             )}
           </div>
-
-          <div className="my-6">
-
+         
+          <div className="my-6">            
             <input
-              {...register("image", { required: true })}
+              {...register("image", { required: 'Please Choose an Image' })}
               type="file"
               placeholder="photo"
-              id="file"
-              className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
-              onChange={(e) => setUserImage(e.target.files[0])}
+              className="w-full"
+              accept='image/*'
+              id='image'
             />
-            <label className="signup-photo" htmlFor="file">
-              Upload Image
-            </label>
-
-            {userImage ? <span className="ml-3">{userImage.name}</span> : <span className="ml-1 text-[#010c3a] flex mt-[20px]">Choose Image Before Pressing the Sign Up Button</span>}
+             {errors.image && (
+              <p className="text-red-500">
+                {errors.image?.message}
+              </p>
+            )}
           </div>
           {signUpError && <span className="text-red-500">{signUpError}</span>}
           <div className="mt-7">
