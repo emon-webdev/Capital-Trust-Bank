@@ -5,7 +5,7 @@ import {
   MenuItem,
   Radio,
   RadioGroup,
-  Select,
+  Select
 } from "@mui/material";
 import { default as React, useState } from "react";
 import { useForm } from "react-hook-form";
