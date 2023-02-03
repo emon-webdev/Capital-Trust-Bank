@@ -220,7 +220,7 @@ export default function ApplyForm() {
                 <input
                   name="email"
                   style={{ width: "100%" }}
-                  className="border  px-3 rounded"
+                  className="border  px-4 rounded"
                   placeholder="Email"
                   defaultValue={user?.email}
                 ></input>
