@@ -52,7 +52,6 @@ const CustomerLeft = () => {
 
             <Hidden implementation='css'>
                 <Drawer
-                    // container={container}
                     variant="temporary"
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
