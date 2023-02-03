@@ -35,7 +35,7 @@ export default function DetailsModal({handleOpen, row,handleClose,open}) {
           {row?.id}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          hellow
           </Typography>
         </Box>
       </Modal>
