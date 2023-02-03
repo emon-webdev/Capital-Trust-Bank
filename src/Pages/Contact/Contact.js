@@ -16,6 +16,7 @@ const Contact = () => {
       <div className="contact-area">
       <div className="container">
 
+
         {/* Card Section Start */}
       <div className="card">
       <Card className="onlyCard">
