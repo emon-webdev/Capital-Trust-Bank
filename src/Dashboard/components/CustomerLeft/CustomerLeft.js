@@ -59,8 +59,6 @@ const CustomerLeft = () => {
                         keepMounted: true, // Better open performance on mobile.
                     }}
                     sx={{
-                        // display: { xs: 'block', sm: 'none' },
-
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                 >
