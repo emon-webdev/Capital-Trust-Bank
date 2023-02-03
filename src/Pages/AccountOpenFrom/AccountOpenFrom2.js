@@ -1,11 +1,11 @@
 import {
-  Box,
-  FormControl,
-  FormControlLabel,
-  MenuItem,
-  Radio,
-  RadioGroup,
-  Select
+    Box,
+    FormControl,
+    FormControlLabel,
+    MenuItem,
+    Radio,
+    RadioGroup,
+    Select
 } from "@mui/material";
   
   import { default as React, useReducer, useState } from "react";
@@ -88,7 +88,7 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
       };
       console.log("All Accounts", Account);
   
-      fetch(`http://localhost:5000/bankAccounts`, {
+      fetch(`https://capital-trust-bank-server.vercel.app/bankAccounts`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

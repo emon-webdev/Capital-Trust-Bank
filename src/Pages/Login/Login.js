@@ -1,12 +1,12 @@
 import { GoogleAuthProvider } from "@firebase/auth";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
-  FormControl,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  TextField
+    FormControl,
+    IconButton,
+    InputAdornment,
+    InputLabel,
+    OutlinedInput,
+    TextField
 } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -47,7 +47,7 @@ const Login = () => {
         console.log(user);
         setLoginToken(user);
         //store customer device info
-        fetch(`http://localhost:5000/storeDeviceInfo/${user.email}`, {
+        fetch(`https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
