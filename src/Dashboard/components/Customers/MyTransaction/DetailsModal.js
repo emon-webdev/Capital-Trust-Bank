@@ -1,6 +1,6 @@
-import { Button, Modal, Typography } from '@mui/material';
+import { Modal, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useState } from 'react';
+import React from 'react';
 
 
 const style = {
@@ -20,7 +20,6 @@ export default function DetailsModal({handleOpen, row,handleClose,open}) {
   // const handleOpen = () => setOpen(true);
   // const handleClose = () => setOpen(false);\
   console.log(row);
-
   return (
     <div>
       
