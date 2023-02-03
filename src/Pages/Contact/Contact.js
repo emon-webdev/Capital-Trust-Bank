@@ -7,7 +7,6 @@ import phone from '../../assets/contact/Phone.png';
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import './Contact.css';
 
-
 const Contact = () => {
   const [name, setName] = useState("Contact Us");
   return (
@@ -134,7 +133,7 @@ const Contact = () => {
       </div>
       {/* GoogleMap Start */}
       <div>
-          <iframe style={{ width: "100%", height: "500px" }}  src="https://maps.google.com/maps?q=dhaka&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+          <iframe style={{ width: "100%", height: "500px" }}  src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
         </div>
         {/* GoogleMap End */}
     </div>
