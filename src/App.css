@@ -376,18 +376,15 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     width: 100%;
     margin-right: 0;
   }
-
   ul.navbar__nav {
     background: #010c3a;
     color: #fff;
     padding: 20px;
     margin-top: 15px;
   }
-
   ul.navbar__nav > li {
     position: static;
   }
-
   ul.navbar__nav li:hover > ul.submenu {
     display: block;
     position: static;

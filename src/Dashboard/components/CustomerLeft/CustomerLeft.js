@@ -1,4 +1,5 @@
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import CloudCircleOutlinedIcon from '@mui/icons-material/CloudCircleOutlined';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
@@ -32,7 +33,7 @@ const CustomerLeft = () => {
                             isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
                         }
                     >
-                        <span> <AccountCircleOutlinedIcon /></span>
+                        <span> <AccountCircleIcon/></span>
                         <span className='text-white ml-[10px]'>My Account</span>
                     </NavLink>
 
