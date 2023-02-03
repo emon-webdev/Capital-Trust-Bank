@@ -22,7 +22,6 @@ const AccountOpenFrom = () => {
   console.log(date);
   const imgHostKey = process.env.REACT_APP_IMAGE_SECRET_KEY;
   const [name, setName] = useState("Account Open In Bank");
-  const [value, setValue] = React.useState(null);
 
   /* submit from */
   const accountFromSubmit = (data) => {
@@ -33,7 +32,7 @@ const AccountOpenFrom = () => {
     fetch(url, {
       method: "POST",
       body: formData,
-    })
+    })    
       .then((res) => res.json())
       .then((imgData) => {
         if (imgData.success) {
@@ -60,8 +59,6 @@ const AccountOpenFrom = () => {
             term: true,
             approve: false,
           };
-          console.log(account);
-
           // post to database
           fetch(`http://localhost:5000/bankAccounts`, {
             method: "POST",
@@ -72,6 +69,7 @@ const AccountOpenFrom = () => {
           })
             .then((res) => res.json())
             .then((data) => {
+              console.log(data);
               if (data.acknowledged) {
                 toast.success("Please wait for manager approval");
                 reset();
@@ -81,7 +79,7 @@ const AccountOpenFrom = () => {
         }
       });
   };
-
+     
   return (
     <div>
       <div className="">
@@ -173,19 +171,7 @@ const AccountOpenFrom = () => {
                     className="border  px-[10px] rounded "
                     placeholder="Date of Birth"
                   ></input>
-                  {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                      disableFuture
-                      label="Responsive"
-                      openTo="year"
-                      views={["year", "month", "day"]}
-                      value={value}
-                      onChange={(newValue) => {
-                        setValue(newValue);
-                      }}
-                      renderInput={(params) => <TextField {...params} />}
-                    />
-                  </LocalizationProvider> */}
+
                 </FormControl>
                 <FormControl fullWidth>
                   <label className="text-base text-[#57647E]">Gender</label>

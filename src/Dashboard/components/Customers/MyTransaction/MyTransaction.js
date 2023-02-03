@@ -3,9 +3,7 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableContainer,
-  TableRow,
-  Typography
+  TableContainer, TableRow, Typography
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 // import { Box } from '@mui/system';

@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const AllCustomers = () => {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/allCustomers')
+    fetch("http://localhost:5000/allCustomers")
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);
       });
   }, []);
-  return <div className='my-2'>
-    <h2 className='text-center default-font'>Total Customers:{customers.length}</h2>
-    <div className='grid gap-2 md:grid-cols-3'>
-      {
-        customers.map(customer => {
+  return (
+    <div className="my-2">
+      <h2 className="text-center default-font">
+        Total Customers:{customers.length}
+      </h2>
+      <div className="grid gap-2 md:grid-cols-3">
+        {customers.map((customer) => {
           return (
             <div>
               <div key={customer._id}>
@@ -34,11 +36,10 @@ const AllCustomers = () => {
               </div>
             </div>
           );
-        })
-      }
+        })}
+      </div>
     </div>
-
-  </div>;
+  );
 };
 
-export default AllCustomers; 
+export default AllCustomers;
