@@ -1,15 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
-import { default as AllCustomers } from '../Dashboard/components/AllCustomers/AllCustomers';
-import CardReq from '../Dashboard/components/CardReq/CardReq';
-import MyBalance from "../Dashboard/components/Customers/MyBalance/MyBalance";
-import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
-import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
-import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
+import { default as AllCustomers } from "../Dashboard/components/AllCustomers/AllCustomers";
+import CardReq from "../Dashboard/components/CardReq/CardReq";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
-import DeviceActivity from '../Dashboard/components/DeviceActivity/DeviceActivity';
-import LoanReq from '../Dashboard/components/LoanReq/LoanReq.jsx';
-import MyAccount from "../Dashboard/components/MyAccount/MyAccount";
-import VerificationReq from '../Dashboard/components/VerificationReq/VerificationReq';
+import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
+import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
+import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
 import Welcome from "../Dashboard/components/Welcome/Welcome";
 import Main from "../Layout/Main";
 import About from "../Pages/About/About";
@@ -31,8 +26,8 @@ import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
 
 import Error from "../Pages/Shared/Error";
-import AdminRoute from '../routes/AdminRoute';
-import CustomerRoute from '../routes/CustomerRoute';
+import AdminRoute from "../routes/AdminRoute";
+import CustomerRoute from "../routes/CustomerRoute";
 
 const router = createBrowserRouter([
   {
@@ -162,16 +157,14 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
-      {
-        path: "/dashboard/myTransaction",
-        element: (
-          
-            <MyTransaction />
-      
-          
+      // {
+      //   path: "/dashboard/myTransaction",
+      //   element: (
 
-        ),
-      },
+      //       <MyTransaction />
+
+      //   ),
+      // },
       // {
       //   path: "/dashboard/my-balance",
       //   element: (
@@ -196,12 +189,10 @@ const router = createBrowserRouter([
       //     </CustomerRoute>
       //   ),
       // },
-      {
-        path: "/dashboard/myAccount",
-        element: (
-          <MyAccount />
-        ),
-      },
+      // {
+      //   path: "/dashboard/myAccount",
+      //   element: <MyAccount />,
+      // },
       {
         path: "/dashboard/deviceActivity",
         element: (
