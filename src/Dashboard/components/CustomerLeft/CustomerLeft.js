@@ -11,7 +11,7 @@ const CustomerLeft = () => {
     const [subMenu, setSubMenu] = useState(false);
     return (
         <>
-            <div ClassName="text-white">
+            <div className="text-white">
                 <div className='text-white w-[70%] flex items-center justify-center py-[10px]'>
                     <Link
                         className="navbar-brand font-bold text-2xl flex items-center"

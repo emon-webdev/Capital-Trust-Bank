@@ -192,6 +192,30 @@ const router = createBrowserRouter([
           </CustomerRoute>
         ),
       },
+      // {
+      //   path: "/dashboard/my-balance",
+      //   element: (
+      //     <CustomerRoute>
+      //       <MyBalance />
+      //     </CustomerRoute>
+      //   ),
+      // },
+      // {
+      //   path: "/dashboard/my-withdraw",
+      //   element: (
+      //     <CustomerRoute>
+      //       <MyWithdraw />
+      //     </CustomerRoute>
+      //   ),
+      // },
+      // {
+      //   path: "/dashboard/my-deposit",
+      //   element: (
+      //     <CustomerRoute>
+      //       <MyDeposit />
+      //     </CustomerRoute>
+      //   ),
+      // },
       {
         path: "/dashboard/deviceActivity",
         element: (
