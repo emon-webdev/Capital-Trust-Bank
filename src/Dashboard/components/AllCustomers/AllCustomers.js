@@ -25,10 +25,10 @@ const AllCustomers = () => {
                       alt={customer.name}
                     />
                   </div>
-                  <div className=" text-white info overflow-auto w-4/5">
-                    <span>Name: {customer.name}</span>
-                    <span>Email:{customer.email}</span>
-                    <span>Phone:{customer.phone}</span>
+                  <div className=" text-white p-5 mt-3 customer-info overflow-auto w-4/5">
+                    <p className='text-white'>Name: {customer.name}</p>
+                    <p className='text-white'>Email:{customer.email}</p>
+                    <p className='text-white'>Phone:{customer.phone}</p>
                   </div>
                 </div>
               </div>
