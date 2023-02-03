@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 // import education from "../../assets/Services(Home)/edu_loan.jpg";
 
 const Services = () => {
-  const loans = useSelector((state) => state.servicesReducer.services)
-  console.log(loans)
+  const loans = useSelector((state)=> state.servicesReducer.services)
   // console.log(services)
   // const [loans, setLoans] = useState([]); 
   // useEffect(() => {
@@ -14,7 +13,7 @@ const Services = () => {
   //     .then(res => res.json())
   //     .then(data => setLoans(data))
   // }, [])
-
+  
   // const services = useLoaderData();
   // console.log(services);
   //   const ServicesData=[
@@ -52,7 +51,7 @@ const Services = () => {
       <h1 className="text-center text-3xl font-bold mb-10">
         We provide best services <br /> for your loans
       </h1>
-
+  
       <div className="container align-content-center justify-items-center mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
 
