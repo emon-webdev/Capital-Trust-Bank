@@ -108,7 +108,7 @@ export default function MyTransaction() {
             <TableRow>
               <TableCell align="center">
                 <Typography fontSize={20} fontWeight="bold" color="white">
-                  Category
+                  Categ
                 </Typography>
               </TableCell>
               <TableCell color="white" align="center">
