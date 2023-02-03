@@ -26,16 +26,19 @@ const AccountOpenFrom = () => {
   /* submit from */
   const accountFromSubmit = (data) => {
     const image = data.image[0];
+    console.log(data);
     const formData = new FormData();
     formData.append("image", image);
     const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`;
+    console.log(url);
     fetch(url, {
       method: "POST",
       body: formData,
-    })    
+    })
       .then((res) => res.json())
       .then((imgData) => {
         if (imgData.success) {
+          console.log(imgData?.data.url);
           const account = {
             accountOpenDate: date,
             firstName: data.firstName,
@@ -79,7 +82,7 @@ const AccountOpenFrom = () => {
         }
       });
   };
-     
+
   return (
     <div>
       <div className="">
@@ -171,7 +174,6 @@ const AccountOpenFrom = () => {
                     className="border  px-[10px] rounded "
                     placeholder="Date of Birth"
                   ></input>
-
                 </FormControl>
                 <FormControl fullWidth>
                   <label className="text-base text-[#57647E]">Gender</label>

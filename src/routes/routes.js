@@ -10,6 +10,7 @@ import Main from "../Layout/Main";
 import About from "../Pages/About/About";
 import AccountOpenFrom from "../Pages/AccountOpenFrom/AccountOpenFrom";
 import Apply from "../Pages/Apply/Apply";
+import Cards from "../Pages/Cards/Cards";
 import Contact from "../Pages/Contact/Contact";
 import ApplyForm from "../Pages/Home/ApplyForm";
 import Home from "../Pages/Home/Home";
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
       {
         path: "/vehicleloan",
         element: <VehicleLoan />,
+      },
+      {
+        path: "/cards",
+        element: <Cards />,
       },
       {
         path: "/contact",
