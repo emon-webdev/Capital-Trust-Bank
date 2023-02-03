@@ -8,6 +8,7 @@ import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw"
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import DeviceActivity from '../Dashboard/components/DeviceActivity/DeviceActivity';
 import LoanReq from '../Dashboard/components/LoanReq/LoanReq.jsx';
+import MyAccount from "../Dashboard/components/MyAccount/MyAccount";
 import VerificationReq from '../Dashboard/components/VerificationReq/VerificationReq';
 import Welcome from "../Dashboard/components/Welcome/Welcome";
 import Main from "../Layout/Main";
@@ -164,33 +165,41 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myTransaction",
         element: (
-          <CustomerRoute>
+          
             <MyTransaction />
-          </CustomerRoute>
+      
+          
+
         ),
       },
+      // {
+      //   path: "/dashboard/my-balance",
+      //   element: (
+      //     <CustomerRoute>
+      //       <MyBalance />
+      //     </CustomerRoute>
+      //   ),
+      // },
+      // {
+      //   path: "/dashboard/my-withdraw",
+      //   element: (
+      //     <CustomerRoute>
+      //       <MyWithdraw />
+      //     </CustomerRoute>
+      //   ),
+      // },
+      // {
+      //   path: "/dashboard/my-deposit",
+      //   element: (
+      //     <CustomerRoute>
+      //       <MyDeposit />
+      //     </CustomerRoute>
+      //   ),
+      // },
       {
-        path: "/dashboard/my-balance",
+        path: "/dashboard/myAccount",
         element: (
-          <CustomerRoute>
-            <MyBalance />
-          </CustomerRoute>
-        ),
-      },
-      {
-        path: "/dashboard/my-withdraw",
-        element: (
-          <CustomerRoute>
-            <MyWithdraw />
-          </CustomerRoute>
-        ),
-      },
-      {
-        path: "/dashboard/my-deposit",
-        element: (
-          <CustomerRoute>
-            <MyDeposit />
-          </CustomerRoute>
+          <MyAccount />
         ),
       },
       {

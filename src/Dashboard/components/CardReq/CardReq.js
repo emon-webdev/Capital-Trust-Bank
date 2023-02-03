@@ -15,10 +15,11 @@ const CardReq = () => {
         <h2 className="text-center default-font">
           Total Card Request:{customers.length}
         </h2>
-        {customers.map((customer) => {
+      <div className='grid gap-5 md:grid-cols-3'>
+      {customers.map((customer) => {
           return (
             <div key={customer._id}>
-              <div className="w-4/5 lg:w-1/2 mx-auto my-2 gap-2 p-2 rounded h-fit default-bg">
+              <div className=" mx-auto my-2 gap-2 p-2 rounded h-fit default-bg">
                 <div className="info flex flex-col overflow-auto">
                   <span>Name: {customer.applierName}</span>
                   <span>Account id:{customer.accountId}</span>
@@ -35,6 +36,7 @@ const CardReq = () => {
             </div>
           );
         })}
+      </div>
       </div>
     );
 };

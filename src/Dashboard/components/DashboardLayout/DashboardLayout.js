@@ -1,44 +1,48 @@
-import React, { useState } from "react";
+import React from "react";
+import { useContext } from "react";
 import { Outlet } from "react-router-dom";
-// import Footer from "../../../Pages/Shared/Footer";
-// import Header from "../../../Pages/Shared/Header";
-import LeftContainer from "../LeftContainer/LeftContainer.jsx";
+import { AuthContext } from "../../../context/AuthProvider.js";
+import LeftContainer from '../LeftContainer/LeftContainer.jsx';
 import DashboardNavbar from "./DashboardNavbar.js";
+// import  '../../../App.css';
 
 const DashboardLayout = () => {
-  const [open, setOpen] = useState(false);
-  // const { setLoading } = useContext(AuthContext);
-  // setLoading(false);
-  // console.log(mobileOpen)
+  const { openSideNav } = useContext(AuthContext);
+console.log(openSideNav)
   return (
-    <div className="default-bg">
-      {/* <Header /> */}
+    // <div className='default-bg'>
+    //   {/* -----------Dashboard Navbar ------------ */}
+    //   <DashboardNavbar />
+    //   {/* ----------Left Side Component------------ */}
+    //   <div className="flex default-font h-fit">
+    //     <div>
+    //       <LeftContainer></LeftContainer>
 
-      {/* ----------Responsive Icon------------ */}
-      {/* <div className="flex justify-between px-2">
-        <div></div>
-        <div onClick={() => setOpen(!open)}
-          className="w-6 h-6 relative top-[10px] cursor-pointer lg:hidden md:block text-white">
-          {
-            open ? <AiOutlineClose className="w-6 h-6" /> : <AiOutlineBars className="w-6 h-6" />
-          }
-        </div>
-      </div> */}
-      {/* -----------Dashboard Navbar ------------ */}
-      <DashboardNavbar />
-      {/* ----------Left Side Component------------ */}
-      {/* className={`left lg:w-[27%] md:w-[31%] sm:absolute bg-gradient-to-r from-[#000428] to-[#004E92] md:absolute lg:static  duration-500 ${open ? 'left-[0%]' : 'left-[-100%]'}`} */}
-      <div className="flex default-font h-fit">
-        <div>
+    //     </div>
+
+    //     {/* ----------Out Let------------ */}
+    //     <div className="right out w-full px-[15px]">
+    //       <Outlet></Outlet>
+    //     </div>
+    //   </div>
+    // </div>
+    <div>
+      <div className='default-bg'>
+        <DashboardNavbar />
+      </div>
+
+      <div className="flex">
+      {/* lg:left-0 md:left-[-100%] sm:left-[-100%] */}
+        <div 
+        className={`w-[300px] side-bar fixed z-10 top-0 lg:left-0 sm:left-[-100%] duration-500 overflow-y-auto  bg-gradient-to-r from-[#000428] to-[#004E92] shadow h-screen bottom-0 ${openSideNav ? 'left-[0%]' : 'left-[-100%]'}`}
+       >
           <LeftContainer></LeftContainer>
         </div>
-
-        {/* ----------Out Let------------ */}
-        <div className="right out w-full px-[15px]">
+        <div className="lg:ml-[305px] w-full md:ml-0 z-0 px-2" >
+        
           <Outlet></Outlet>
         </div>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };

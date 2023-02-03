@@ -6,7 +6,6 @@ import router from "./routes/routes";
 
 function App() {
   const [loader, setLoader] = useState(true);
-
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);

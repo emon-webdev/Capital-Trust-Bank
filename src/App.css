@@ -266,6 +266,19 @@ button.accent-btn {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .side-bar {
+    left: 100%;
+  }
+}
+
+.link:hover {
+  background:#cf173c;
+  transition: .4s;
+}
+.activee:active {
+  border-left: 2px solid #cf173c;
+}
 .css-1knaqv7-MuiButtonBase-root-MuiButton-root {
   width: 100%;
   padding: 0 5px;
