@@ -40,74 +40,68 @@ const Signup = () => {
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
 
-
   //checking validate
   const [lowerValidated, setLowerValidated] = useState(false);
   const [upperValidated, setUpperValidated] = useState(false);
   const [numberValidated, setNumberValidated] = useState(false);
   const [specialValidated, setSpecialValidated] = useState(false);
   const [lengthValidated, setLengthValidated] = useState(false);
-  const [isShowPassword, setIsShowPassword] = useState('');
+  const [isShowPassword, setIsShowPassword] = useState("");
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const handleClickConfirmShowPassword = () => setConfirmShowPassword((show) => !show);
+  const handleClickConfirmShowPassword = () =>
+    setConfirmShowPassword((show) => !show);
   let number = phone;
 
   const handlePassword = (value) => {
-    setIsShowPassword(value)
-    const lower = new RegExp('(?=.*[a-z])');
-    const upper = new RegExp('(?=.*[A-Z])');
-    const number = new RegExp('(?=.*[0-9])');
-    const special = new RegExp('(?=.*[!@#\$%\^&\*])');
-    const length = new RegExp('(?=.{6,})')
+    setIsShowPassword(value);
+    const lower = new RegExp("(?=.*[a-z])");
+    const upper = new RegExp("(?=.*[A-Z])");
+    const number = new RegExp("(?=.*[0-9])");
+    const special = new RegExp("(?=.*[!@#$%^&*])");
+    const length = new RegExp("(?=.{6,})");
 
     if (lower.test(value)) {
       setLowerValidated(true);
-    }
-    else {
+    } else {
       setLowerValidated(false);
     }
     if (upper.test(value)) {
       setUpperValidated(true);
-    }
-    else {
+    } else {
       setUpperValidated(false);
     }
     if (number.test(value)) {
       setNumberValidated(true);
-    }
-    else {
+    } else {
       setNumberValidated(false);
     }
     if (special.test(value)) {
       setSpecialValidated(true);
-    }
-    else {
+    } else {
       setSpecialValidated(false);
     }
     if (length.test(value)) {
       setLengthValidated(true);
-    }
-    else {
+    } else {
       setLengthValidated(false);
     }
     // setIsShowPassword('')
-  }
-
+  };
 
   const handleSignUp = (data) => {
-    console.log(data)
+    console.log(data);
     setSignUpError("");
     setLoading(true);
     const email = data.email;
     const password = data.password;
     const name = data.name;
     const image = data.image[0];
-    console.log('picture', image)
+    console.log("picture", image);
     const formData = new FormData();
-    console.log(formData)
+    console.log(formData);
     formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGE_SECRET_KEY}`
-    console.log(url)
+    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGE_SECRET_KEY}`;
+    console.log(url);
     fetch(url, {
       method: "POST",
       body: formData,
@@ -115,7 +109,7 @@ const Signup = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          console.log(data)
+          console.log(data);
           createUser(email, password)
             .then((result) => {
               const user = result.user;
@@ -125,20 +119,22 @@ const Signup = () => {
                 .then(() => {
                   console.log(user);
                   //store customer device info
-                  fetch(`https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`, {
-                    method: "POST",
-                    headers: {
-                      "content-type": "application/json",
-                    },
-                  })
+                  fetch(
+                    `https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`,
+                    {
+                      method: "POST",
+                      headers: {
+                        "content-type": "application/json",
+                      },
+                    }
+                  )
                     .then((res) => res.json())
                     .then((data) => {
-                     setLoading(false);
-                     toast.success("SignUp Success");
-                     navigate("/login");
-                     verifyEmail();
+                      setLoading(false);
+                      toast.success("SignUp Success");
+                      navigate("/login");
+                      verifyEmail();
                     });
-                 
                 })
                 .catch((error) => {
                   console.log(error);
@@ -166,19 +162,21 @@ const Signup = () => {
       setAuthToken(user, name, image, verify);
 
       //store customer device info
-      fetch(`https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-      })
+      fetch(
+        `https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setLoading(false);
           toast.success("SignUp Success");
           navigate(from, { replace: true });
         });
-    
     });
   };
 
@@ -191,11 +189,18 @@ const Signup = () => {
     <div className="signup-area">
       <div className="container flex w-full mx-auto flex-row-reverse overflow-hidden bg-white rounded-lg shadow-lg  my-3 p-3">
         <div className="hidden relative bg-cover bg-img lg:block lg:w-1/2 h-full">
-          <img src='https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600'
-            className="rounded opacity-[.6]" alt="" />
+          <img
+            src="https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600"
+            className="rounded opacity-[.6]"
+            alt=""
+          />
           <div className="absolute top-[23%] left-[16%]">
-            <h1 className="text-[#010c3a] text-[35px] text-center">Welcome to <br /> Capital Trust Bank</h1>
-            <p className='text-[17px] -ml-[35px] font-semibold text-center text-[#cf173c]'>Deposit dollars in our bank and To Feel like  million dollars</p>
+            <h1 className="text-[#010c3a] text-[35px] text-center">
+              Welcome to <br /> Capital Trust Bank
+            </h1>
+            <p className="text-[17px] -ml-[35px] font-semibold text-center text-[#cf173c]">
+              Deposit dollars in our bank and To Feel like million dollars
+            </p>
           </div>
         </div>
 
@@ -253,9 +258,7 @@ const Signup = () => {
               onChange={(phone) => setPhone(phone)}
             />
             {errors.phone && (
-              <p className="text-red-500">
-                {errors.phone?.message}
-              </p>
+              <p className="text-red-500">{errors.phone?.message}</p>
             )}
           </div>
 
@@ -269,7 +272,6 @@ const Signup = () => {
                 Password
               </InputLabel>
               <OutlinedInput
-
                 {...register("password", {
                   minLength: {
                     value: 6,
@@ -287,38 +289,68 @@ const Signup = () => {
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
-                      className='signup-icon'
+                      className="signup-icon"
                       aria-label="toggle password visibility"
                       onClick={handleClickShowPassword}
                       edge="end"
                     >
-                      {showPassword ? <VisibilityOff className="signup-icon text-black" /> : <Visibility className='signup-icon text-black' />}
+                      {showPassword ? (
+                        <VisibilityOff className="signup-icon text-black" />
+                      ) : (
+                        <Visibility className="signup-icon text-black" />
+                      )}
                     </IconButton>
                   </InputAdornment>
                 }
                 label="Password"
               />
             </FormControl>
-            {
-              isShowPassword &&
-
-              <p className=''>
+            {isShowPassword && (
+              <p className="">
                 <span>Password Should be At Least One </span> <span></span>
                 <></>
-                <span className={lowerValidated ? 'text-green-500' : 'text-red-500'}>Lowercase,</span> <></>
-                <span className={upperValidated ? 'text-green-500' : 'text-red-500'}>Uppercase,</span> <></>
-                <span className={numberValidated ? 'text-green-500' : 'text-red-500'}>Number,</span> <></>
-                <span className={specialValidated ? 'text-green-500' : 'text-red-500'}>Special Character,</span> <></>
-                <span className={lengthValidated ? 'text-green-500' : 'text-red-500'}>6 Character,</span> <></>
+                <span
+                  className={lowerValidated ? "text-green-500" : "text-red-500"}
+                >
+                  Lowercase,
+                </span>{" "}
+                <></>
+                <span
+                  className={upperValidated ? "text-green-500" : "text-red-500"}
+                >
+                  Uppercase,
+                </span>{" "}
+                <></>
+                <span
+                  className={
+                    numberValidated ? "text-green-500" : "text-red-500"
+                  }
+                >
+                  Number,
+                </span>{" "}
+                <></>
+                <span
+                  className={
+                    specialValidated ? "text-green-500" : "text-red-500"
+                  }
+                >
+                  Special Character,
+                </span>{" "}
+                <></>
+                <span
+                  className={
+                    lengthValidated ? "text-green-500" : "text-red-500"
+                  }
+                >
+                  6 Character,
+                </span>{" "}
+                <></>
               </p>
-
-            }
+            )}
             {errors.password && (
               <p className="text-red-500">{errors.password?.message}</p>
             )}
           </div>
-
-
 
           {/* confirm_password input */}
           <div className="relative mt-4">
@@ -360,20 +392,18 @@ const Signup = () => {
               <p className="text-red-500">{errors.confirm_password?.message}</p>
             )}
           </div>
-         
-          <div className="my-6">            
+
+          <div className="my-6">
             <input
-              {...register("image", { required: 'Please Choose an Image' })}
+              {...register("image", { required: "Please Choose an Image" })}
               type="file"
               placeholder="photo"
               className="w-full"
-              accept='image/*'
-              id='image'
+              accept="image/*"
+              id="image"
             />
-             {errors.image && (
-              <p className="text-red-500">
-                {errors.image?.message}
-              </p>
+            {errors.image && (
+              <p className="text-red-500">{errors.image?.message}</p>
             )}
           </div>
           {signUpError && <span className="text-red-500">{signUpError}</span>}

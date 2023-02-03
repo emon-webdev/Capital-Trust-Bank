@@ -8,7 +8,7 @@ const Services = () => {
   // console.log(services)
   const [loans, setLoans] = useState([]); 
   useEffect(() => {
-    fetch('http://localhost:5000/loanService')
+    fetch('https://capital-trust-bank-server.vercel.app/loanService')
       .then(res => res.json())
       .then(data => setLoans(data))
   }, [])
