@@ -10,7 +10,7 @@ const AllCustomers = () => {
       });
   }, []);
   return <div className='my-2'>
-    <h2 className='text-center default-font'>Total Customers:{customers.length}</h2>
+    <h2 className='text-center text-white default-font'>Total Customers:{customers.length}</h2>
     <div className='grid gap-2 md:grid-cols-3'>
       {
         customers.map(customer => {
@@ -25,7 +25,7 @@ const AllCustomers = () => {
                       alt={customer.name}
                     />
                   </div>
-                  <div className="info overflow-auto w-4/5">
+                  <div className=" text-white info overflow-auto w-4/5">
                     <span>Name: {customer.name}</span>
                     <span>Email:{customer.email}</span>
                     <span>Phone:{customer.phone}</span>
