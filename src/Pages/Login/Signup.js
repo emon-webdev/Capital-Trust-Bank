@@ -268,7 +268,7 @@ const Signup = () => {
                       onClick={handleClickShowPassword}
                       edge="end"
                     >
-                      {showPassword ? <VisibilityOff className="signup-icon" /> : <Visibility className='signup-icon' />}
+                      {showPassword ? <VisibilityOff className="signup-icon text-black" /> : <Visibility className='signup-icon text-black' />}
                     </IconButton>
                   </InputAdornment>
                 }
