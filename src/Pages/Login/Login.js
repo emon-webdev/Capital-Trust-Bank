@@ -47,7 +47,7 @@ const Login = () => {
         console.log(user);
         setLoginToken(user);
         //store customer device info
-        fetch(`http://localhost:5000/storeDeviceInfo/${user.email}`, {
+        fetch(`https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

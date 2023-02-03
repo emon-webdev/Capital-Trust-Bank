@@ -125,7 +125,7 @@ const Signup = () => {
                 .then(() => {
                   console.log(user);
                   //store customer device info
-                  fetch(`http://localhost:5000/storeDeviceInfo/${user.email}`, {
+                  fetch(`https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`, {
                     method: "POST",
                     headers: {
                       "content-type": "application/json",
@@ -166,7 +166,7 @@ const Signup = () => {
       setAuthToken(user, name, image, verify);
       
 //store customer device info
-      fetch(`http://localhost:5000/storeDeviceInfo/${user.email}`, {
+      fetch(`https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -88,7 +88,7 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
       };
       console.log("All Accounts", Account);
   
-      fetch(`http://localhost:5000/bankAccounts`, {
+      fetch(`https://capital-trust-bank-server.vercel.app/bankAccounts`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const AllCustomers = () => {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/allCustomers')
+    fetch('https://capital-trust-bank-server.vercel.app/allCustomers')
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);
