@@ -7,26 +7,24 @@ import {
   RadioGroup,
   Select
 } from "@mui/material";
-
 import { default as React, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
-
 const AccountOpenFrom = () => {
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const date = new Date();
+  console.log(date);
   const imgHostKey = process.env.REACT_APP_IMAGE_SECRET_KEY;
-  console.log(imgHostKey);
   const [name, setName] = useState("Account Open In Bank");
 
   /* submit from */
   const accountFromSubmit = (data) => {
-    console.log(data);
-
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -34,54 +32,54 @@ const AccountOpenFrom = () => {
     fetch(url, {
       method: "POST",
       body: formData,
-    })
+    })    
       .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          console.log(data);
+      .then((imgData) => {
+        if (imgData.success) {
+          const account = {
+            accountOpenDate: date,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            birth: data.birth,
+            gender: data.gender,
+            phone: data.phone,
+            email: data.email,
+            streetAddress: data.streetAddress,
+            city: data.city,
+            region: data.region,
+            postal: data.postal,
+            country: data.country,
+            identification: data.identification,
+            idNumber: data.idNumber,
+            frontCardImg: imgData?.data.url,
+            accountType: data.accountType,
+            accountCategory: data.accountCategory,
+            monthlySalary: data.monthlySalary,
+            initialDeposit: data.initialDeposit,
+            term: true,
+            approve: false,
+          };
+          // post to database
+          fetch(`http://localhost:5000/bankAccounts`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(account),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data.acknowledged) {
+                toast.success("Please wait for manager approval");
+                reset();
+              }
+            })
+            .then((error) => console.error(error));
         }
       });
-
-    const account = {
-      firstName: data.firstName,
-      lastName: data.lastName,
-      birth: data.birth,
-      gender: data.gender,
-      phone: data.phone,
-      email: data.email,
-      streetAddress: data.streetAddress,
-      city: data.city,
-      region: data.region,
-      postal: data.postal,
-      country: data.country,
-      identification: data.identification,
-      idNumber: data.idNumber,
-      cardImg: data.cardImg,
-      accountType: data.accountType,
-      accountCategory: data.accountCategory,
-      monthlySalary: data.monthlySalary,
-      initialDeposit: data.initialDeposit,
-      term: true,
-      approve: false,
-    };
-    console.log(account);
-    // post to database
-    fetch(`http://localhost:5000/bankAccounts`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(account),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          toast.success("Please wait for manager approval");
-        }
-      })
-      .then((error) => console.error(error));
   };
-
+     
   return (
     <div>
       <div className="">
@@ -173,6 +171,7 @@ const AccountOpenFrom = () => {
                     className="border  px-[10px] rounded "
                     placeholder="Date of Birth"
                   ></input>
+
                 </FormControl>
                 <FormControl fullWidth>
                   <label className="text-base text-[#57647E]">Gender</label>
@@ -241,8 +240,8 @@ const AccountOpenFrom = () => {
                       required: "email is required",
                     })}
                     fullWidth
-                    className="border email-filed px-[10px] rounded mt-[5px]"
-                    style={{ margin: "5px 0 10px !important", width: "100%" }}
+                    className="border  px-[10px] rounded "
+                    style={{ margin: "5px 0 10px", width: "100%" }}
                     placeholder="Email Address"
                   ></input>
                 </FormControl>
