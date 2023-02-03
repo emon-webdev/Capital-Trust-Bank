@@ -32,7 +32,7 @@ const AccountOpenFrom = () => {
     fetch(url, {
       method: "POST",
       body: formData,
-    })    
+    })
       .then((res) => res.json())
       .then((imgData) => {
         if (imgData.success) {
@@ -79,7 +79,7 @@ const AccountOpenFrom = () => {
         }
       });
   };
-     
+
   return (
     <div>
       <div className="">
@@ -171,7 +171,6 @@ const AccountOpenFrom = () => {
                     className="border  px-[10px] rounded "
                     placeholder="Date of Birth"
                   ></input>
-
                 </FormControl>
                 <FormControl fullWidth>
                   <label className="text-base text-[#57647E]">Gender</label>
