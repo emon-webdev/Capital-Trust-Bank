@@ -176,6 +176,10 @@ button.accent-btn
   svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
   color: #fff !important;
 }
+input.border.px-\[10px\].rounded {
+  margin: 5px 0 10px;
+  width: 100%;
+}
 /* signup css */
 /* .bg-img {
   background-image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url("https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600");

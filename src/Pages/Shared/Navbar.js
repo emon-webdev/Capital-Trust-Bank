@@ -155,7 +155,7 @@ const Navbar = () => {
               <ul className="submenu">
                 <li>
                   <NavLink to="/accountOpenFrom" className="">
-                    Account Open
+                    Open an Account
                   </NavLink>
                 </li>
                 <li>
