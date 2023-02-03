@@ -10,7 +10,7 @@ const AllCustomers = () => {
       });
   }, []);
   return <div className='my-2'>
-    <h2 className='text-center default-font'>Total Customers:{customers.length}</h2>
+    <h2 className='text-center text-white default-font'>Total Customers:{customers.length}</h2>
     <div className='grid gap-2 md:grid-cols-3'>
       {
         customers.map(customer => {
@@ -25,10 +25,10 @@ const AllCustomers = () => {
                       alt={customer.name}
                     />
                   </div>
-                  <div className="info overflow-auto w-4/5">
-                    <span>Name: {customer.name}</span>
-                    <span>Email:{customer.email}</span>
-                    <span>Phone:{customer.phone}</span>
+                  <div className=" text-white p-5 mt-3 customer-info overflow-auto w-4/5">
+                    <p className='text-white'>Name: {customer.name}</p>
+                    <p className='text-white'>Email:{customer.email}</p>
+                    <p className='text-white'>Phone:{customer.phone}</p>
                   </div>
                 </div>
               </div>

@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import DehazeOutlinedIcon from '@mui/icons-material/DehazeOutlined';
+import { Avatar, Hidden, IconButton, Toolbar, Typography } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import DehazeOutlinedIcon from '@mui/icons-material/DehazeOutlined';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/logo/mainlogo.png';
 import { AuthContext } from '../../../context/AuthProvider';
-import { Avatar, Hidden, IconButton, Toolbar, Typography } from '@mui/material';
 
 const DashboardNavbar = () => {
     const { user, logOut, openSideNav, handleSideNave } = useContext(AuthContext)

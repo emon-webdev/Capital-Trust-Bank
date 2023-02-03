@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import { default as AllCustomers } from "../Dashboard/components/AllCustomers/AllCustomers";
 import CardReq from "../Dashboard/components/CardReq/CardReq";
+import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
+import MyAccount from "../Dashboard/components/MyAccount/MyAccount";
 import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
 import Welcome from "../Dashboard/components/Welcome/Welcome";
 import Main from "../Layout/Main";
@@ -73,7 +75,7 @@ const router = createBrowserRouter([
         element: <ApplyForm></ApplyForm>,
         loader: ({ params }) =>
           fetch(
-            `https://capital-trust-bank-server.vercel.app/loanService/${params.id}`
+            `http://localhost:5000/loanService/${params._id}`
           ),
       },
       {
@@ -162,14 +164,14 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
-      // {
-      //   path: "/dashboard/myTransaction",
-      //   element: (
+      {
+        path: "/dashboard/myTransaction",
+        element: (
 
-      //       <MyTransaction />
+            <MyTransaction />
 
-      //   ),
-      // },
+        ),
+      },
       // {
       //   path: "/dashboard/my-balance",
       //   element: (
@@ -194,10 +196,7 @@ const router = createBrowserRouter([
       //     </CustomerRoute>
       //   ),
       // },
-      // {
-      //   path: "/dashboard/myAccount",
-      //   element: <MyAccount />,
-      // },
+     
       {
         path: "/dashboard/deviceActivity",
         element: (
@@ -205,6 +204,10 @@ const router = createBrowserRouter([
             <DeviceActivity />
           </CustomerRoute>
         ),
+      },
+      {
+        path: "/dashboard/myAccount",
+        element: <MyAccount />,
       },
     ],
   },

@@ -1,4 +1,7 @@
-import CloudCircleOutlinedIcon from '@mui/icons-material/CloudCircleOutlined';
+// import CloudCircleOutlinedIcon from '@mui/icons-material/CloudCircleOutlined';
+import DevicesIcon from '@mui/icons-material/Devices';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../../../App.css';
@@ -15,7 +18,7 @@ const CustomerLeft = () => {
                     <Link
                         className="navbar-brand font-bold text-2xl flex items-center"
                         to="/"
-                    >
+                >
                         <img src={logo} alt="" srcSet="" />
                         <span className="font-bold text-[32px] ml-1 text-[#fff]">
                             C<span className=" text-[#DF0303]">T</span>B
@@ -31,11 +34,9 @@ const CustomerLeft = () => {
                             isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
                         }
                     >
-                        <span> <CloudCircleOutlinedIcon /></span>
+                        <span> <AccountCircleIcon/></span>
                         <span className='text-white ml-[10px]'>My Account</span>
                     </NavLink>
-
-
 
                     <NavLink 
                     to='/dashboard/myTransaction'
@@ -44,8 +45,19 @@ const CustomerLeft = () => {
                             isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
                         }
                     >
-                        <span> <CloudCircleOutlinedIcon /></span>
+                        <span> <PaidOutlinedIcon /></span>
                         <span className='text-white ml-[10px]'>Transaction</span>
+                        {/* <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span> */}
+                    </NavLink>
+                    <NavLink 
+                    to='/dashboard/deviceActivity'
+                    // onClick={() => setSubMenu(!subMenu)}
+                        className={({ isActive }) =>
+                            isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
+                        }
+                    >
+                        <span> <DevicesIcon /> </span>
+                        <span className='text-white ml-[10px]'>Device Activity</span>
                         {/* <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span> */}
                     </NavLink>
 

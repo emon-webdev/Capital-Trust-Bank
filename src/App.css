@@ -69,6 +69,10 @@ ul.navbar__nav > li:last-child {
   margin-right: 0;
 }
 
+.customer-info p{
+  color:#fff !important; 
+}
+
 ul.submenu {
   position: absolute;
   top: 100%;

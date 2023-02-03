@@ -1,5 +1,4 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider.js";
 import LeftContainer from '../LeftContainer/LeftContainer.jsx';
