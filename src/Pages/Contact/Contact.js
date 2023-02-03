@@ -16,7 +16,6 @@ const Contact = () => {
       <div className="contact-area">
       <div className="container">
 
-
         {/* Card Section Start */}
       <div className="card">
       <Card className="onlyCard">
@@ -132,13 +131,12 @@ const Contact = () => {
           </form>
         </div>
         {/* Send Us A Message End */}
-        
-        {/* GoogleMap Start */}
-        <div>
+      </div>
+      {/* GoogleMap Start */}
+      <div>
           <iframe style={{ width: "100%", height: "500px" }}  src="https://maps.google.com/maps?q=dhaka&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
         </div>
         {/* GoogleMap End */}
-      </div>
     </div>
     </div>
   );
