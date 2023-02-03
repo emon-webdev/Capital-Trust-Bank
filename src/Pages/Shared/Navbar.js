@@ -114,6 +114,11 @@ const Navbar = () => {
                     Vehicle Loan
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to="/cards" className="">
+                    Cards
+                  </NavLink>
+                </li>
               </ul>
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">

@@ -1,4 +1,5 @@
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import DevicesIcon from '@mui/icons-material/Devices';
 import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
@@ -32,7 +33,7 @@ const CustomerLeft = () => {
                             isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
                         }
                     >
-                        <span> <AccountCircleOutlinedIcon /></span>
+                        <span> <AccountCircleIcon/></span>
                         <span className='text-white ml-[10px]'>My Account</span>
                     </NavLink>
 
@@ -45,6 +46,17 @@ const CustomerLeft = () => {
                     >
                         <span> <PaidOutlinedIcon /></span>
                         <span className='text-white ml-[10px]'>Transaction</span>
+                        {/* <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span> */}
+                    </NavLink>
+                    <NavLink 
+                    to='/dashboard/deviceActivity'
+                    // onClick={() => setSubMenu(!subMenu)}
+                        className={({ isActive }) =>
+                            isActive ? 'border-l-2 link flex px-[20px] py-[15px]' : 'flex px-[20px] link py-[15px]'
+                        }
+                    >
+                        <span> <DevicesIcon /> </span>
+                        <span className='text-white ml-[10px]'>Device Activity</span>
                         {/* <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span> */}
                     </NavLink>
 

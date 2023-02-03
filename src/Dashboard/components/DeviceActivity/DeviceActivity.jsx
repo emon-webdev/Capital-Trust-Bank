@@ -6,9 +6,10 @@ const DeviceActivity = () => {
   const email = user?.email;
   const [devicesInfo, setDevicesInfo] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/getDeviceInfo/${email}`)
+    fetch(`https://capital-trust-bank-server.vercel.app/getDeviceInfo/${email}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
       setDevicesInfo(data);
       });
   }, [user]);
@@ -21,12 +22,12 @@ const DeviceActivity = () => {
       {devicesInfo.map((deviceInfo) => {
         return (
           <div key={deviceInfo._id}>
-            <div className="w-4/5 lg:w-1/2 mx-auto my-2 gap-2 p-2 rounded h-fit default-bg">
+            <div className="w-4/5 lg:w-1/2 mx-auto my-8 gap-2 py-8 rounded h-fit default-bg">
               <div className="info overflow-auto text-center">
-                <p className="default-font">Browser: {deviceInfo.browser}</p>
-                <p className="default-font">Os: {deviceInfo.os}</p>
-                <p className="default-font">Date: {deviceInfo.date}</p>
-                <button className="ring rounded p-2 m-2 hover:bg-red-600">
+                <p className="default-font text-2xl">Browser: {deviceInfo.browser}</p>
+                <p className="default-font  text-2xl">Os: {deviceInfo.os}</p>
+                <p className="default-font text-2xl">Date: {deviceInfo.data}</p>
+                <button className="ring text-xl text-bold text-white rounded p-3 m-3 hover:bg-red-600">
                   Remove
                 </button>
               </div>

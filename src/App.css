@@ -69,6 +69,10 @@ ul.navbar__nav > li:last-child {
   margin-right: 0;
 }
 
+.customer-info p {
+  color: #fff !important;
+}
+
 ul.submenu {
   position: absolute;
   top: 100%;
@@ -181,14 +185,20 @@ input.border.px-\[10px\].rounded {
   width: 100%;
 }
 /* signup css */
-/* .bg-img {
-  background-image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url("https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600");
-} */
+.signup-icon {
+  color: black !important;
+}
+.signup-icon2 {
+  color: black !important;
+}
+.signup-con-2 {
+  color: black;
+}
 .react-tel-input .form-control {
   width: 100% !important;
   padding: 27px;
 }
-.css-i4bv87-MuiSvgIcon-root {
+/* .css-i4bv87-MuiSvgIcon-root {
   color: #000428 !important;
 }
 .react-tel-input .form-control {
@@ -206,6 +216,9 @@ input.border.px-\[10px\].rounded {
     margin-top: 20px;
   }
 } */
+.react-tel-input .form-control {
+  font-size: 15px !important;
+}
 
 /* dashboard */
 

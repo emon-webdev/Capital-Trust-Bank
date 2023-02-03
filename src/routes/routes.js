@@ -1,26 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
 import { default as AllCustomers } from "../Dashboard/components/AllCustomers/AllCustomers";
 import CardReq from "../Dashboard/components/CardReq/CardReq";
-<<<<<<< HEAD
-import MyBalance from "../Dashboard/components/Customers/MyBalance/MyBalance";
-import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
+
 import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
-import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
 import MyAccount from "../Dashboard/components/MyAccount/MyAccount";
-=======
-import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
-import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
-import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
->>>>>>> 1a027a04e5c3f5f161a783e8eab90b9e325eda76
 import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
 import Welcome from "../Dashboard/components/Welcome/Welcome";
 import Main from "../Layout/Main";
 import About from "../Pages/About/About";
 import AccountOpenFrom from "../Pages/AccountOpenFrom/AccountOpenFrom";
 import Apply from "../Pages/Apply/Apply";
+import Cards from "../Pages/Cards/Cards";
 import Contact from "../Pages/Contact/Contact";
 import ApplyForm from "../Pages/Home/ApplyForm";
 import Home from "../Pages/Home/Home";
@@ -103,6 +96,10 @@ const router = createBrowserRouter([
         element: <VehicleLoan />,
       },
       {
+        path: "/cards",
+        element: <Cards />,
+      },
+      {
         path: "/contact",
         element: <Contact />,
       },
@@ -171,31 +168,8 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myTransaction",
         element: (
+
             <MyTransaction />
-        ),
-      },
-      {
-        path: "/dashboard/my-balance",
-        element: (
-          <CustomerRoute>
-            <MyBalance />
-          </CustomerRoute>
-        ),
-      },
-      {
-        path: "/dashboard/my-withdraw",
-        element: (
-          <CustomerRoute>
-            <MyWithdraw />
-          </CustomerRoute>
-        ),
-      },
-      {
-        path: "/dashboard/my-deposit",
-        element: (
-          <CustomerRoute>
-            <MyDeposit />
-          </CustomerRoute>
         ),
       },
       // {
@@ -222,13 +196,10 @@ const router = createBrowserRouter([
       //     </CustomerRoute>
       //   ),
       // },
-<<<<<<< HEAD
-=======
       // {
       //   path: "/dashboard/myAccount",
       //   element: <MyAccount />,
       // },
->>>>>>> 1a027a04e5c3f5f161a783e8eab90b9e325eda76
       {
         path: "/dashboard/deviceActivity",
         element: (
