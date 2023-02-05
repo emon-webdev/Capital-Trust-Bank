@@ -11,7 +11,7 @@ import AuthProvider from './context/AuthProvider';
 import './index.css';
 import store from './redux/store/store';
 // import { getTodos, postTodo } from '../my-api';
-
+import "react-phone-input-2/lib/style.css";
 import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient()

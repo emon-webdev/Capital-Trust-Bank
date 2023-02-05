@@ -46,12 +46,15 @@ const Navbar = () => {
             <button className="accent-btn" type="button">
               <SearchIcon />
             </button>
-            <button className="accent-btn hidden md:block" type="button">
-              <NavLink to="/accountOpenFrom" className="">
+            <div>
+              <NavLink
+                to="/accountOpenFrom"
+                className="accent-btn hidden md:block"
+              >
                 <PersonAddIcon className="mr-1 text-sm" />
                 Open an Account
               </NavLink>
-            </button>
+            </div>
           </div>
           {isActive ? (
             <button
@@ -161,6 +164,11 @@ const Navbar = () => {
                 <li>
                   <NavLink to="/accountOpenFrom" className="">
                     Open an Account
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/accountOpenFrom2" className="">
+                    Open an Account 1
                   </NavLink>
                 </li>
                 <li>

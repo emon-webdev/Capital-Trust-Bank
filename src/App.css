@@ -147,6 +147,71 @@ button.accent-btn {
   height: 680px;
 }
 
+/*Account Opening Form  */
+.from-select {
+  border: 1px;
+  box-shadow: none;
+}
+.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.from-select {
+  border: none;
+}
+.from-area input:focus {
+  outline: 1px solid #1973cc !important;
+}
+.from-area input#terms {
+  height: 18px;
+  width: 18px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.from-area input[type="number"] {
+  -moz-appearance: textfield;
+}
+.from-select {
+  color: #57647e !important;
+}
+.file {
+  position: absolute;
+  clip: rect(0px, 0px, 0px, 0px);
+  display: block;
+}
+
+.cardImg-field {
+  /* opacity: 0; */
+  position: relative;
+  height: 130px;
+  background-image: url(./cardBg.png);
+  width: 100%;
+  cursor: pointer;
+}
+.cardImg-field::before {
+  content: "Browser File";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #f6f6fc;
+  color: "#333";
+  z-index: 999;
+  opacity: 999;
+  /* border-radius: 10px; */
+}
+.from-area {
+  border-radius: 3px;
+  box-shadow: 0 4px 4px rgb(87 100 126 / 21%);
+}
+input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
+  height: 100px;
+}
+.from-area input[type="file"] {
+  color: transparent;
+  background-color: #fff;
+  border: 1px solid #e3ddd7;
+}
 /* Features Area */
 .features-area {
   font-family: "Inter", sans-serif !important;
@@ -179,10 +244,6 @@ button.accent-btn {
 button.accent-btn
   svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
   color: #fff !important;
-}
-input.border.px-\[10px\].rounded {
-  margin: 5px 0 10px;
-  width: 100%;
 }
 /* signup css */
 .signup-icon {

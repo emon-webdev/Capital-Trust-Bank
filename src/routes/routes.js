@@ -108,7 +108,7 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/accountOpenFrom",
+        path: "/AccountOpenFrom",
         element: <AccountOpenFrom />,
       },
       {
@@ -167,10 +167,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/myTransaction",
-        element: (
-
-            <MyTransaction />
-        ),
+        element: <MyTransaction />,
       },
       // {
       //   path: "/dashboard/my-balance",
