@@ -11,7 +11,7 @@ import {
 // import { Box } from '@mui/system';
 import React, { useState } from "react";
 import DetailsModal from "./DetailsModal";
-import VisaTransaction from "./VisaTransaction";
+import VisaTransaction from "./visaTransaction";
 
 // const style = {
 //   position: 'absolute',

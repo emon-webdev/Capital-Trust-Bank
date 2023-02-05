@@ -393,6 +393,28 @@ button.accent-btn
   cursor: pointer;
   border-radius: 4px;
 }
+/* team details */
+@media screen and (max-width: 768px) {
+  .details {
+    flex-direction: column;
+  }
+  .content-box {
+    margin-top: 50px;
+    margin-left: 0px !important;
+    width: 100% !important;
+  }
+  .image-box {
+    width: 100% !important;
+  }
+  .image-box img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .title-icon-box {
+    flex-direction: column;
+  }
+}
 
 /* Banner section */
 
