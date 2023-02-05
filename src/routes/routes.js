@@ -1,18 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
-import { default as AllCustomers, default as UserRole } from '../Dashboard/components/AllCustomers/AllCustomers';
-import CardReq from '../Dashboard/components/CardReq/CardReq';
-import MyBalance from "../Dashboard/components/Customers/MyBalance/MyBalance";
-import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
+import { default as AllCustomers } from "../Dashboard/components/AllCustomers/AllCustomers";
+import CardReq from "../Dashboard/components/CardReq/CardReq";
+
 import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
-import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
-import LoanReq from '../Dashboard/components/LoanReq/LoanReq.jsx';
+import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
+import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
 import MyAccount from "../Dashboard/components/MyAccount/MyAccount";
-import VerificationReq from '../Dashboard/components/VerificationReq/VerificationReq';
+import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
 import Welcome from "../Dashboard/components/Welcome/Welcome";
 import Main from "../Layout/Main";
 import About from "../Pages/About/About";
+import AccountOpenFrom from "../Pages/AccountOpenFrom/AccountOpenFrom";
 import Apply from "../Pages/Apply/Apply";
+import Cards from "../Pages/Cards/Cards";
 import Contact from "../Pages/Contact/Contact";
 import ApplyForm from "../Pages/Home/ApplyForm";
 import Home from "../Pages/Home/Home";
@@ -27,10 +28,10 @@ import GoldLoan from "../Pages/Services/GoldLoan";
 import MarriageLoan from "../Pages/Services/MarriageLoan";
 import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
+
 import Error from "../Pages/Shared/Error";
-import AdminRoute from '../routes/AdminRoute';
-import PrivetRout from '../routes/PrivetRoute/PrivetRout';
-import CustomerRoute from "./CustomerRoute";
+import AdminRoute from "../routes/AdminRoute";
+import CustomerRoute from "../routes/CustomerRoute";
 
 const router = createBrowserRouter([
   {
@@ -66,13 +67,17 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
-        loader: fetch("http://localhost:5000/loanService"),
+        loader: fetch(
+          "https://capital-trust-bank-server.vercel.app/loanService"
+        ),
       },
       {
         path: "/loanService/:id",
         element: <ApplyForm></ApplyForm>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/loanService/${params.id}`),
+          fetch(
+            `https://capital-trust-bank-server.vercel.app/loanService/${params._id}`
+          ),
       },
       {
         path: "/goldloan",
@@ -91,12 +96,20 @@ const router = createBrowserRouter([
         element: <VehicleLoan />,
       },
       {
+        path: "/cards",
+        element: <Cards />,
+      },
+      {
         path: "/contact",
         element: <Contact />,
       },
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/AccountOpenFrom",
+        element: <AccountOpenFrom />,
       },
       {
         path: "/login",
@@ -111,9 +124,9 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-      <PrivetRout>
-        <DashboardLayout />
-      </PrivetRout>
+      // <PrivetRout>
+      <DashboardLayout />
+      // </PrivetRout>
     ),
     children: [
       {
@@ -154,35 +167,47 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/myTransaction",
-        element: (
-
-          <MyTransaction />
-
-        ),
+        element: <MyTransaction />,
       },
+      // {
+      //   path: "/dashboard/my-balance",
+      //   element: (
+      //     <CustomerRoute>
+      //       <MyBalance />
+      //     </CustomerRoute>
+      //   ),
+      // },
+      // {
+      //   path: "/dashboard/my-withdraw",
+      //   element: (
+      //     <CustomerRoute>
+      //       <MyWithdraw />
+      //     </CustomerRoute>
+      //   ),
+      // },
+      // {
+      //   path: "/dashboard/my-deposit",
+      //   element: (
+      //     <CustomerRoute>
+      //       <MyDeposit />
+      //     </CustomerRoute>
+      //   ),
+      // },
+      // {
+      //   path: "/dashboard/myAccount",
+      //   element: <MyAccount />,
+      // },
       {
-        path: "/dashboard/my-balance",
+        path: "/dashboard/deviceActivity",
         element: (
-          <MyBalance />
-        ),
-      },
-      {
-        path: "/dashboard/my-withdraw",
-        element: (
-          <MyWithdraw />
-        ),
-      },
-      {
-        path: "/dashboard/my-deposit",
-        element: (
-          <MyDeposit />
+          <CustomerRoute>
+            <DeviceActivity />
+          </CustomerRoute>
         ),
       },
       {
         path: "/dashboard/myAccount",
-        element: (
-          <MyAccount />
-        ),
+        element: <MyAccount />,
       },
     ],
   },

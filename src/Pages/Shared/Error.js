@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import React from "react";
 import { Link } from "react-router-dom";
-import errorLottie from "../../assests/Error/error.json";
+import errorLottie from "../../assets/Error/error.json";
 
 const Error = () => {
   return (

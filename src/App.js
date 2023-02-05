@@ -3,7 +3,6 @@ import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import Loader from "./component/Loader/Loader";
 import router from "./routes/routes";
-import { ProSidebarProvider } from 'react-pro-sidebar';
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -14,15 +13,13 @@ function App() {
   }, []);
   return (
     <div>
-      {loader ?
+      {loader ? (
         <Loader />
-        :
+      ) : (
         <div className="App">
-          <ProSidebarProvider >
-            <RouterProvider router={router} />
-          </ProSidebarProvider>
+          <RouterProvider router={router} />
         </div>
-      }
+      )}
     </div>
   );
 }

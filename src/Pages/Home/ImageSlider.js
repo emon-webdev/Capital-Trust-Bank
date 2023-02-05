@@ -80,7 +80,7 @@ const ImageSlider = ({ slides }) => {
           <div className="banner-content">
             <h3 className="text-white text-2xl">Business Consultancy</h3>
             <h2 className="text-white  text-6xl">
-              Central Trust Bank <br /> For Better Future.
+              Capital Trust Bank <br /> For Better Future.
             </h2>
             <p className="text-white  text-xl">
               We consider all the drivers of change from the <br /> ground up

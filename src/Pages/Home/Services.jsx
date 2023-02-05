@@ -1,21 +1,20 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 // import education from "../../assets/Services(Home)/edu_loan.jpg";
-// import gold from "../../assets/Services(Home)/gold-loan.jpg";
-// import marriage from '../../assets/Services(Home)/marriage_loan.jpg';
-// import vehicle from "../../assets/Services(Home)/vehicle-loan.jpg";
-import { Link, useLoaderData } from 'react-router-dom';
 
 const Services = () => {
-  const [loans, setLoans] = useState([]);
+  // const loans = useSelector((state)=> state.servicesReducer.services)
+  // console.log(services)
+  const [loans, setLoans] = useState([]); 
   useEffect(() => {
-    fetch('http://localhost:5000/loanService')
+    fetch('https://capital-trust-bank-server.vercel.app/loanService')
       .then(res => res.json())
       .then(data => setLoans(data))
   }, [])
-
-  const services = useLoaderData();
-  console.log(services);
+  
+  // const services = useLoaderData();
+  // console.log(services);
   //   const ServicesData=[
   //     {
   //         "id":"1",
@@ -51,6 +50,7 @@ const Services = () => {
       <h1 className="text-center text-3xl font-bold mb-10">
         We provide best services <br /> for your loans
       </h1>
+
       <div className="container align-content-center justify-items-center mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
 

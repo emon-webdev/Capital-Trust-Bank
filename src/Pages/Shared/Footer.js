@@ -9,8 +9,9 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div className="bgi-footer">
-      <div className="container pt-32">
-        <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5">
+      <div className="container pt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4
+        align-items-center justify-center-center">
           <div>
             <div className="flex items-start mt-5 gap-1">
               <img src={logo} alt="" />
@@ -28,7 +29,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 my-3">
             <h2 className="text-lg my-5 text-white">Company</h2>
             <Link id="footer-link">About</Link>
             <Link id="footer-link">Careers</Link>
@@ -44,14 +45,7 @@ const Footer = () => {
             <Link id="footer-link">Propert oweners</Link>
             <Link id="footer-link">Partners</Link>
           </div>
-          <div className="flex flex-col gap-3">
-            <h2 className="text-lg my-5 text-white">More </h2>
-            <Link id="footer-link">Land fees</Link>
-            <Link id="footer-link">Property</Link>
-            <Link id="footer-link">Law tips</Link>
-            <Link id="footer-link">Nadges</Link>
-            <Link id="footer-link">Privacy</Link>
-          </div>
+         
           <div>
             <div className="my-5">
               <h2 className="text-lg text-white">Head Office</h2>
@@ -73,8 +67,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-8 py-10 parent-end-footer">
-          <span></span>
+        <div className="mt-8 align-items-center justify-content-center  py-10 parent-end-footer">
+          
           <span className=" end-footer">email@gmail.com</span>
           <span className=" end-footer">(123) 456-7890</span>
           <span className="borderless-end-footer">

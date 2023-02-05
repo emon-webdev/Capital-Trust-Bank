@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import React from 'react';
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
 import '../../App.css';
 
 const TeamSection = ({ team }) => {
@@ -26,7 +26,7 @@ const TeamSection = ({ team }) => {
 
             <Box className="flex">
                 {
-                    social.map(icon =>
+                    social.map((icon) =>
                         <>
                             <Link to={icon.facebook} className='mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><FaFacebook /></Link>
                             <Link to={icon.linkedin} className='w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><FaLinkedin /></Link>

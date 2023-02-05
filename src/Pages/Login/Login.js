@@ -1,12 +1,12 @@
 import { GoogleAuthProvider } from "@firebase/auth";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
-  FormControl,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  TextField
+    FormControl,
+    IconButton,
+    InputAdornment,
+    InputLabel,
+    OutlinedInput,
+    TextField
 } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -45,17 +45,27 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        setLoginToken(user)
-        toast.success("Login Success");
-        setLoading(false);
-        navigate(from, { replace: true });
+        setLoginToken(user);
+        //store customer device info
+        fetch(`https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            toast.success("Login Success");
+            setLoading(false);
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => {
         console.log(error);
         setSignInError(error.message);
         setLoading(false);
       });
-  };   
+  };
   const handleForgetPassword = () => {
     if (!userEmail) {
       return toast.error("please inter your email");
@@ -85,10 +95,18 @@ const Login = () => {
     <div className="Login-area">
       <div className="container flex h-[500px] flex-row-reverse overflow-hidden bg-white rounded-lg shadow-lg  my-3 p-3">
         <div className="hidden relative bg-cover lg:block lg:w-1/2">
-          <img src='https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600' className='rounded opacity-[.6]' alt='' />
+          <img
+            src="https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600"
+            className="rounded opacity-[.6]"
+            alt=""
+          />
           <div className="absolute top-[30%] left-[16%]">
-            <h1 className="text-[#010c3a] text-[35px] text-center">Welcome to <br /> Capital Trust Bank</h1>
-            <p className='text-[17px] -ml-[35px] font-semibold text-center text-[#cf173c]'>Deposit dollars in our bank and To Feel like  million dollars</p>
+            <h1 className="text-[#010c3a] text-[35px] text-center">
+              Welcome to <br /> Capital Trust Bank
+            </h1>
+            <p className="text-[17px] -ml-[35px] font-semibold text-center text-[#cf173c]">
+              Deposit dollars in our bank and To Feel like million dollars
+            </p>
           </div>
         </div>
         <form
