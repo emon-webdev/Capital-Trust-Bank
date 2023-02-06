@@ -9,6 +9,7 @@ import App from "./App";
 import AuthProvider from "./context/AuthProvider";
 import "./i18n";
 import "./index.css";
+import "react-datepicker/dist/react-datepicker.css";
 // import { getTodos, postTodo } from '../my-api';
 import { ChakraProvider } from "@chakra-ui/react";
 import "react-phone-input-2/lib/style.css";

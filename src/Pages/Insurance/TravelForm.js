@@ -2,11 +2,15 @@
 
 
 import { FormControl } from '@chakra-ui/form-control';
+import { Input } from '@chakra-ui/input';
 import { Box, Grid, Text } from '@chakra-ui/layout';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/tabs';
 
 import  React, { useState } from 'react';
 import { useContext } from 'react';
+
+
+
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import travel from '../../assets/insurance/Trip-pana.png';
@@ -15,6 +19,8 @@ import { districts } from '../Services/districtData';
 
 
 export default function TravelForm() {
+  const [startDate, setStartDate] = useState(new Date());
+
   const [district, setDistrict] = useState();
   const handleChange = (event) => {
     setDistrict(event.target.value);
@@ -145,20 +151,28 @@ export default function TravelForm() {
                   ))}
                 </select>
               </FormControl>
-                  <FormControl>
+                  <FormControl >
                     <input
                       name="date"
+                      type='date'
+                      
                       style={{ width: "100%" }}
                       className="border  px-3 rounded"
                       placeholder="dd/mm/yy"
                       required
-                    ></input>
+                   />
+                   
+                      
+                    
+                    
+                      
                   </FormControl>
+                  
 
                   <FormControl>
                     <button
                       style={{ width: "100%" }}
-                      className="primary-btn mt-2 "
+                      className="primary-btn mt-2  "
                       type="submit"
                     >
                       Apply
@@ -240,6 +254,7 @@ export default function TravelForm() {
                   <FormControl>
                     <input
                       name="date"
+                      type='date'
                       style={{ width: "100%" }}
                       className="border  px-3 rounded"
                       placeholder="dd/mm/yy"
@@ -332,6 +347,7 @@ export default function TravelForm() {
                   <FormControl>
                     <input
                       name="date"
+                      type='date'
                       style={{ width: "100%" }}
                       className="border  px-3 rounded"
                       placeholder="dd/mm/yy"

@@ -140,7 +140,7 @@ export default function BusinessForm() {
               </FormControl>
                   <FormControl>
                     <input
-                      name="date"
+                      name="date" type='date'
                       style={{ width: "100%" }}
                       className="border  px-3 rounded"
                       placeholder="dd/mm/yy"
@@ -232,7 +232,7 @@ export default function BusinessForm() {
               </FormControl>
                   <FormControl>
                     <input
-                      name="date"
+                      name="date" type='date'
                       style={{ width: "100%" }}
                       className="border  px-3 rounded"
                       placeholder="dd/mm/yy"
@@ -324,7 +324,7 @@ export default function BusinessForm() {
               </FormControl>
                   <FormControl>
                     <input
-                      name="date"
+                      name="date" type='date'
                       style={{ width: "100%" }}
                       className="border  px-3 rounded"
                       placeholder="dd/mm/yy"
