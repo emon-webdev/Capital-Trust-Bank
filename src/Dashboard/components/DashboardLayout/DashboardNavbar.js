@@ -1,23 +1,13 @@
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-import DehazeOutlinedIcon from '@mui/icons-material/DehazeOutlined';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MailIcon from '@mui/icons-material/Mail';
-import Badge from '@mui/material/Badge';
-import FilterCenterFocusOutlinedIcon from '@mui/icons-material/FilterCenterFocusOutlined';
-import { Avatar, Hidden, IconButton, Toolbar, Typography } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import { MdClear, MdMailOutline, MdNotificationsNone, MdOutlineFilterCenterFocus } from "react-icons/md";
+import { FaBars } from "react-icons/fa";
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/logo/mainlogo.png';
 import { AuthContext } from '../../../context/AuthProvider';
+import { Avatar, Badge, Button, Hide, IconButton, Menu, MenuButton, MenuGroup, MenuItem, MenuList } from "@chakra-ui/react";
 
 const DashboardNavbar = () => {
-    const { user, logOut, openSideNav, handleSideNave } = useContext(AuthContext)
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const { user, logOut, openSideNav, handleSideNave } = useContext(AuthContext);
     const navigate = useNavigate()
     const handleSignOut = () => {
         logOut()
@@ -28,18 +18,11 @@ const DashboardNavbar = () => {
             });
     };
 
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
     return (
-        <Box sx={{ flexGrow: 1, background: '#041C51' }}>
-            <AppBar position="static">
-                <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <div className="container">
+            <div className="flex items-center justify-between h-[50px]">
+                <div className="text-white">
+                    <div className="text-white w-[70%] flex items-center justify-center py-[10px]">
                         <Link
                             className="navbar-brand font-bold text-2xl flex items-center"
                             to="/"
@@ -49,68 +32,52 @@ const DashboardNavbar = () => {
                                 C<span className=" text-[#DF0303]">T</span>B
                             </span>
                         </Link>
-                    </Typography>
-                    {/* right side icons */}
-                    <Box className='flex'>
-                        <Box sx={{ flexGrow: 1 }} />
-                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                                <Badge badgeContent={4} color="error">
-                                    <MailIcon />
-                                </Badge>
-                            </IconButton>
-                            <IconButton
-                                size="large"
-                                aria-label="show 17 new notifications"
-                                color="inherit"
-                            >
-                                <Badge badgeContent={17} color="error">
-                                    <NotificationsIcon />
-                                </Badge>
-                            </IconButton>                        
-                            <IconButton
-                                size="large"
-                                aria-label="show 17 new notifications"
-                                color="inherit"
-                            >
-                                <Badge color="error">
-                                    <FilterCenterFocusOutlinedIcon />
-                                </Badge>
-                            </IconButton>                        
-                        </Box>
-                        <Button
-                            id="basic-button"
-                            aria-controls={open ? 'basic-menu' : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={open ? 'true' : undefined}
-                            onClick={handleClick}
-                        >
-                            <Avatar alt="Travis Howard" src={user?.photoURL} />
-                        </Button>
-                        <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                                'aria-labelledby': 'basic-button',
-                            }}
-                        >
-                            <MenuItem onClick={handleClose}>Profile</MenuItem>
-                            <MenuItem onClick={handleClose}>My account</MenuItem>
-                            <Link onClick={handleSignOut}><MenuItem onClick={handleClose}>Logout</MenuItem></Link>
-                        </Menu>
-                    </Box>
-                    <Hidden mdUp>
-                        <IconButton onClick={handleSideNave}>
+                    </div>
+                </div>
+
+
+                {/* -----right---- */}
+                <div className="flex">
+                    <IconButton className='bg-transparent-nav mr-1 text-white'>
+                        <Badge colorScheme='error' size='lg' badgeContent={4}>
+                            <MdMailOutline />
+                        </Badge>
+                        {/*  */}
+                    </IconButton>
+
+                    <IconButton className=' text-white mr-1 bg-transparent-nav'>
+                        <Badge colorScheme='error' size='lg' badgeContent={4}>
+                            <MdNotificationsNone />
+                        </Badge>
+                    </IconButton>
+
+                    <IconButton className=' text-white mr-1 bg-transparent-nav'>
+                        <Badge colorScheme='error' size='lg' badgeContent={4}>
+                            <MdOutlineFilterCenterFocus />
+                        </Badge>
+                    </IconButton>
+                    <Menu>
+                        <MenuButton className='bg-transparent-nav' as={Button}>
+                            <Avatar name='Dan Abrahmov' src={user?.photoURL} />
+                        </MenuButton>
+
+                        <MenuList>
+                            <MenuGroup title='Profile'>
+                                <MenuItem>My Profile</MenuItem>
+                                <Link onClick={handleSignOut}><MenuItem>Log Out </MenuItem></Link>
+                            </MenuGroup>
+                        </MenuList>
+                    </Menu>
+                    <Hide above="lg">
+                        <IconButton onClick={handleSideNave} className='bg-transparent-nav text-white'>
                             {
-                                openSideNav ? <CloseOutlinedIcon /> : <DehazeOutlinedIcon />
+                                openSideNav ?  <MdClear /> : <FaBars /> 
                             }
                         </IconButton>
-                    </Hidden>
-                </Toolbar>
-            </AppBar>
-        </Box>
+                    </Hide>
+                </div>
+            </div>
+        </div>
     );
 };
 

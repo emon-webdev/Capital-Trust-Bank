@@ -1,17 +1,7 @@
-import {
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
-  Typography
-} from "@mui/material";
+
 // import { makeStyles } from "@mui/styles";
 // import { Box } from '@mui/system';
 import React, { useState } from "react";
-import DetailsModal from "./DetailsModal";
-import VisaTransaction from "./visaTransaction";
 
 // const style = {
 //   position: 'absolute',
@@ -105,7 +95,7 @@ export default function MyTransaction() {
   return (
     <div className="container mt-10 flex gap-5">
       <div className="">
-        <TableContainer sx={{ width: "900px" }} component={Paper}>
+        {/* <TableContainer sx={{ width: "900px" }} component={Paper}>
           <Table className="class table" aria-label="simple table">
             <TableRow>
               <TableCell align="center">
@@ -197,10 +187,10 @@ export default function MyTransaction() {
               ))}
             </TableBody>
           </Table>
-        </TableContainer>
+        </TableContainer> */}
       </div>
       <div className="">
-        <VisaTransaction />
+        {/* <VisaTransaction /> */}
       </div>
     </div>
   );

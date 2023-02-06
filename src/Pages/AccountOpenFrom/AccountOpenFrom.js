@@ -1,4 +1,3 @@
-import { MenuItem, Select } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -158,7 +157,7 @@ const AccountOpenFrom = () => {
                     />
                     </Box> 
                   </RadioGroup> */}
-                  <Select
+                  {/* <Select
                     style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
                     fullWidth
@@ -169,14 +168,13 @@ const AccountOpenFrom = () => {
                       required: "Gender is required",
                     })}
                   >
-                    {/* <MenuItem value="Select Gender">Select Gender</MenuItem> */}
                     <MenuItem value="Male">Male</MenuItem>
                     <MenuItem value="Female">Female</MenuItem>
                     <MenuItem value="Other">Other</MenuItem>
-                  </Select>
-                  {errors.gender && (
+                  </Select> */}
+                  {/* {errors.gender && (
                     <p className="text-red-600">{errors.gender?.message}</p>
-                  )}
+                  )} */}
                 </div>
               </div>
 
@@ -281,7 +279,7 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">
                     Form of Identification
                   </label>
-                  <Select
+                  {/* <Select
                     style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
                     fullWidth
@@ -294,7 +292,7 @@ const AccountOpenFrom = () => {
                   >
                     <MenuItem value="Student ID">Student ID</MenuItem>
                     <MenuItem value="National ID">National ID</MenuItem>
-                  </Select>
+                  </Select> */}
                 </div>
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">ID Number</label>
@@ -334,7 +332,7 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">
                     Account Type
                   </label>
-                  <Select
+                  {/* <Select
                     style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
                     defaultValue="Current"
@@ -348,13 +346,13 @@ const AccountOpenFrom = () => {
                     <MenuItem value="Current">Current</MenuItem>
                     <MenuItem value="Savings">Savings</MenuItem>
                     <MenuItem value="Others">Others</MenuItem>
-                  </Select>
+                  </Select> */}
                 </div>
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">
                     Account Category
                   </label>
-                  <Select
+                  {/* <Select
                     style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
                     name="accountCategory"
@@ -369,7 +367,7 @@ const AccountOpenFrom = () => {
                     <MenuItem value="Singly">Singly</MenuItem>
                     <MenuItem value="Jointly">Jointly</MenuItem>
                     <MenuItem value="Others">Others</MenuItem>
-                  </Select>
+                  </Select> */}
                 </div>
               </div>
               <div className="from-group md:flex justify-between items-center ">

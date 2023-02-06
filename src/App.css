@@ -142,6 +142,18 @@ button.accent-btn {
   border-radius: 4px;
 }
 
+.change-lang
+  .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  color: #fff;
+  padding: 0px 30px;
+  padding-left: 0;
+  width: 80px !important;
+}
+
+.change-lang
+  svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiSelect-icon.MuiSelect-iconOutlined.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
+  color: #fff;
+}
 /* Banner area */
 .banner-area {
   height: 680px;
@@ -249,34 +261,36 @@ button.accent-btn
 .signup-icon {
   color: black !important;
 }
+.chakra-icon-sign {
+  background: transparent !important;
+  font-size: 22px !important;
+  margin-top: 5px !important;
+}
 
 .react-tel-input .form-control {
   width: 100% !important;
-  padding: 27px;
+  padding: 25px;
 }
-/* .css-i4bv87-MuiSvgIcon-root {
-  color: #000428 !important;
-}
-.react-tel-input .form-control {
-  font-size: 15px !important;
-}
-/* @media screen and (max-width: 1024px) {
-  .choose {
-    display: flex;
-    margin-top: 20px;
-  }
-}
-@media screen and (max-width: 1023px) {
-  .choose {
-    display: flex;
-    margin-top: 20px;
-  }
-} */
+
 .react-tel-input .form-control {
   font-size: 15px !important;
 }
 
 /* dashboard */
+.nav-toggle-btn {
+  background: transparent !important;
+  font-size: 20px !important;
+}
+.bg-transparent-nav {
+  background-color: transparent !important;
+  font-size: 20px !important;
+}
+.chakra-badge {
+  font-size: 20px !important;
+}
+
+
+
 /* .css-hip9hq-MuiPaper-root-MuiAppBar-root */
 
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
@@ -345,9 +359,14 @@ button.accent-btn
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1440px) {
   .side-bar {
-    left: 100%;
+    left: 300px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .side-nave {
+    display: none;
   }
 }
 

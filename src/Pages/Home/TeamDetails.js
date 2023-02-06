@@ -3,6 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import DynamicBanner from '../Shared/DynamicBanner/DynamicBanner';
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { VscStarFull, VscStarHalf } from 'react-icons/vsc';
+import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs'
 import '../../App.css';
 
 
@@ -35,9 +36,9 @@ const TeamDetails = () => {
                                     social.map((icon) =>
                                         <div className='flex items-center'>
                                             <h3 className='mr-3 mt-3'>Follow: </h3>
-                                            <Link to={icon.facebook} className='mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><FaFacebook /></Link>
-                                            <Link to={icon.linkedin} className='w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><FaLinkedin /></Link>
-                                            <Link to={icon.github} className='ml-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><FaGithub /></Link>
+                                            <Link to={icon.facebook} className='mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><BsFacebook /></Link>
+                                            <Link to={icon.linkedin} className='w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><BsLinkedin /></Link>
+                                            <Link to={icon.github} className='ml-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><BsGithub /></Link>
                                         </div>
                                     )
                                 }

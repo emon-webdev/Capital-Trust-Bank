@@ -9,9 +9,10 @@ const LoanReq = () => {
         setCustomers(data);
       });
   }, []);
+  console.log(customers)
   return (
     <div className='my-2'>
-      <h2 className="text-center default-font">
+      <h2 className="text-center default-font text-black">
         Total Loan Request:{customers.length}
       </h2>
       <div className='loan grid gap-5 md:grid-cols-3'>
