@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { FiPhoneCall } from "react-icons/fi";
@@ -166,9 +165,9 @@ const ServiceReqSlider = () => {
                       aria-describedby="transition-modal-description"
                       open={open}
                       onClose={handleClose}
-                      closeAfterTransition
+                      closeaftertransition="true"
                       // BackdropComponent={Backdrop}
-                      BackdropProps={{
+                      backdropprops={{
                         timeout: 500,
                       }}
                     >

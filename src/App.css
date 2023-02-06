@@ -62,7 +62,7 @@
 
 ul.navbar__nav > li {
   position: relative;
-  padding: 26px 0;
+  padding: 22px 0;
 }
 
 ul.navbar__nav > li:last-child {
@@ -131,28 +131,55 @@ ul.submenu li:hover a {
   background: #cf173c;
 }
 
-button.accent-btn {
+.accent-btn {
+  display: inline-block;
   padding: 0 12px;
   text-align: center;
   height: 50px;
   line-height: 50px;
   color: #fff;
-  background: #010c3a;
-  margin-left: 20px;
+  background: #010c3a !important;
+  margin-left: 16px;
   border-radius: 4px;
 }
-
-.change-lang
-  .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+.accent-btn.search-btn {
+  font-size: 20px;
+  padding: 0 15px;
+  font-weight: 500;
+}
+.accent-btn.account-btn {
+  font-weight: 500;
+}
+.accent-btn.account-btn svg {
+  font-size: 22px;
+  margin-right: 4px;
+}
+.navbar-toggler.accent-btn svg {
+  width: 100%;
+}
+.change-lang .chakra-select__wrapper.css-42b2qy {
+  padding-left: 4px;
+}
+.change-lang .chakra-select.bg-none.lang-select.css-7p9xsp {
   color: #fff;
-  padding: 0px 30px;
-  padding-left: 0;
-  width: 80px !important;
+  padding: 0px 10px;
+  width: 120px !important;
+  border: none;
+  font-size: 17px !important;
+  height: auto;
 }
 
-.change-lang
-  svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiSelect-icon.MuiSelect-iconOutlined.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
+.change-lang .chakra-select.bg-none.lang-select.css-7p9xsp option {
   color: #fff;
+  background: #041c51;
+  cursor: pointer;
+}
+.change-lang .chakra-select__icon-wrapper.css-iohxn1 {
+  color: #fff;
+  font-size: 26px;
+}
+.social-icon.flex a:hover {
+  color: #041c51;
 }
 /* Banner area */
 .banner-area {
@@ -164,8 +191,21 @@ button.accent-btn {
   border: 1px;
   box-shadow: none;
 }
-.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.from-select {
-  border: none;
+.header-top {
+  position: relative;
+  overflow: hidden;
+  z-index: 999;
+}
+.header-top::before {
+  content: "";
+  width: 100%;
+  right: -54%;
+  top: 0;
+  height: 100%;
+  background: red;
+  z-index: -1;
+  position: absolute;
+  clip-path: polygon(50px 0, 100% 0%, 100% 100%, 0% 100%);
 }
 .from-area input:focus {
   outline: 1px solid #1973cc !important;
@@ -190,7 +230,13 @@ input::-webkit-inner-spin-button {
   clip: rect(0px, 0px, 0px, 0px);
   display: block;
 }
+.from-group input.chakra-input {
+  height: 50px;
+}
 
+.from-group .chakra-input__left-element {
+  height: 50px;
+}
 .cardImg-field {
   /* opacity: 0; */
   position: relative;
@@ -224,6 +270,11 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   background-color: #fff;
   border: 1px solid #e3ddd7;
 }
+.from-group .chakra-select__icon-wrapper.css-iohxn1 {
+  color: #7a736c;
+  font-size: 24px;
+  width: 26px;
+}
 /* Features Area */
 .features-area {
   font-family: "Inter", sans-serif !important;
@@ -253,10 +304,7 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   opacity: 0.75;
   color: #cf173c !important;
 }
-button.accent-btn
-  svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
-  color: #fff !important;
-}
+
 /* signup css */
 .signup-icon {
   color: black !important;
@@ -295,47 +343,6 @@ button.accent-btn
 
 /* dashboard */
 
-.css-hip9hq-MuiPaper-root-MuiAppBar-root {
-  background: linear-gradient(80deg, #000428, #004e92);
-}
-.css-d9ml5t-MuiDrawer-docked .MuiDrawer-paper {
-  width: 260px;
-  background: linear-gradient(80deg, #000428, #004e92);
-}
-.css-10hburv-MuiTypography-root {
-  color: white;
-}
-.css-i4bv87-MuiSvgIcon-root {
-  color: white;
-}
-.css-1p823my-MuiListItem-root:hover {
-  color: #cf173c;
-  /* color: white; */
-  background: transparent;
-}
-.css-1r7kz78-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
-  background: linear-gradient(80deg, #000428, #004e92);
-  margin-top: 54px;
-}
-.css-nturlv-MuiDrawer-docked .MuiDrawer-paper {
-  background: linear-gradient(80deg, #000428, #004e92);
-  margin-top: 65px;
-  width: 260px !important;
-}
-.css-12de4fs-MuiDrawer-docked .MuiDrawer-paper {
-  background: linear-gradient(80deg, #000428, #004e92);
-}
-.css-19y3dt5-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
-  background: linear-gradient(80deg, #000428, #004e92);
-  margin-top: 54px;
-}
-.css-ixaty2-MuiDrawer-docked .MuiDrawer-paper {
-  background: linear-gradient(80deg, #000428, #004e92);
-}
-.css-1bs77mf-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
-  background: linear-gradient(80deg, #000428, #004e92);
-  margin-top: 65px;
-}
 /* .css-hip9hq-MuiPaper-root-MuiAppBar-root {
   box-shadow: none !important;
 } */
@@ -450,12 +457,8 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
 
 /* Tablet Medium Device :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
-  button.accent-btn {
-    padding: 0 10px;
-    height: 45px;
-    line-height: 45px;
-    margin-left: 10px;
-    border-radius: 4px;
+  .header-top::before {
+    clip-path: polygon(25px 0, 100% 0%, 100% 100%, 0% 100%);
   }
 
   ul.navbar__nav li {
@@ -483,14 +486,6 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
 
   ul.navbar__nav > li:last-child {
     border: 0;
-  }
-
-  .main-header.relative {
-    padding: 10px 0;
-  }
-
-  .header-top.py-4.bg-\[\#041C51\] {
-    padding: 6px 0;
   }
 }
 
@@ -522,11 +517,8 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
 
 /* SM Small Device :320px. */
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  button.accent-btn {
-    padding: 0 10px;
-    height: 45px;
-    line-height: 45px;
-    margin-left: 10px;
+  .header-top::before {
+    clip-path: polygon(25px 0, 100% 0%, 100% 100%, 0% 100%);
   }
 
   .team-2 {
@@ -574,10 +566,6 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
 
   .main-header.relative {
     padding: 10px 0;
-  }
-
-  .header-top.py-4.bg-\[\#041C51\] {
-    padding: 6px 0;
   }
 
   ul.navbar__nav {

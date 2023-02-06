@@ -1,5 +1,8 @@
 import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { AiOutlineClose, AiOutlineMenuFold } from "react-icons/ai";
+import { BiGroup } from "react-icons/bi";
+import { FiSearch } from "react-icons/fi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../context/AuthProvider";
@@ -39,18 +42,18 @@ const Navbar = () => {
             C<span className=" text-[#DF0303]">T</span>B
           </span>
         </Link>
-        <div className="flex items-center">
+        <div className="lg:hidden flex items-center">
           <div className="lg:hidden btn-group flex items-center">
-            <button className="accent-btn" type="button">
-              {/* <SearchIcon /> */}
-            </button>
-            <div>
+            <div className="btn-group flex items-center">
+              <button className="accent-btn search-btn" type="button">
+                <FiSearch />
+              </button>
               <NavLink
                 to="/accountOpenFrom"
-                className="accent-btn hidden md:block"
+                className="accent-btn hidden  account-btn md:flex items-center"
               >
-                {/* <PersonAddIcon className="mr-1 text-sm" /> */}
-                Open an Account
+                <BiGroup className="" />
+                {t("Open_an_Account")}
               </NavLink>
             </div>
           </div>
@@ -60,8 +63,7 @@ const Navbar = () => {
               type="button"
               onClick={handleHumbagerMenu}
             >
-              {/* <CloseIcon /> */}
-              X
+              <AiOutlineClose />
             </button>
           ) : (
             <button
@@ -69,7 +71,7 @@ const Navbar = () => {
               type="button"
               onClick={handleHumbagerMenu}
             >
-              {/* <MenuIcon /> */}
+              <AiOutlineMenuFold />
             </button>
           )}
         </div>
@@ -156,7 +158,7 @@ const Navbar = () => {
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
-                {t("Travel_Insurance")}
+                {t("Pages")}
               </NavLink>
               {/* Submenu */}
               <ul className="submenu">
@@ -267,16 +269,16 @@ const Navbar = () => {
         ) : (
           <div className="hidden lg:block">
             <div className="btn-group flex items-center">
-              <button className="accent-btn" type="button">
-                {/* <SearchIcon /> */}
-                S
+              <button className="accent-btn search-btn" type="button">
+                <FiSearch />
               </button>
-              <button className="accent-btn" type="button">
-                <NavLink to="/accountOpenFrom" className="">
-                  {/* <PersonAddIcon className="mr-1 text-sm" /> */}
-                  {t("Open_an_Account")}
-                </NavLink>
-              </button>
+              <NavLink
+                to="/accountOpenFrom"
+                className="accent-btn account-btn flex items-center"
+              >
+                <BiGroup className="" />
+                {t("Open_an_Account")}
+              </NavLink>
             </div>
           </div>
         )}
