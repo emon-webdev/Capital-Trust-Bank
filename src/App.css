@@ -277,13 +277,14 @@ button.accent-btn
 }
 
 /* dashboard */
+/* .css-hip9hq-MuiPaper-root-MuiAppBar-root */
 
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
-  background: linear-gradient(80deg, #000428, #004e92);
+  background-color: #041C51 !important;
 }
 .css-d9ml5t-MuiDrawer-docked .MuiDrawer-paper {
   width: 260px;
-  background: linear-gradient(80deg, #000428, #004e92);
+  background:#041C51;
 }
 .css-10hburv-MuiTypography-root {
   color: white;
@@ -297,11 +298,11 @@ button.accent-btn
   background: transparent;
 }
 .css-1r7kz78-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
-  background: linear-gradient(80deg, #000428, #004e92);
+  background: #041C51;
   margin-top: 54px;
 }
 .css-nturlv-MuiDrawer-docked .MuiDrawer-paper {
-  background: linear-gradient(80deg, #000428, #004e92);
+  background: #041C51;
   margin-top: 65px;
   width: 260px !important;
 }

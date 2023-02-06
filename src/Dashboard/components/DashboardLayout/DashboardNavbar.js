@@ -1,5 +1,9 @@
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import DehazeOutlinedIcon from '@mui/icons-material/DehazeOutlined';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import MailIcon from '@mui/icons-material/Mail';
+import Badge from '@mui/material/Badge';
+import FilterCenterFocusOutlinedIcon from '@mui/icons-material/FilterCenterFocusOutlined';
 import { Avatar, Hidden, IconButton, Toolbar, Typography } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -32,7 +36,7 @@ const DashboardNavbar = () => {
         setAnchorEl(null);
     };
     return (
-        <Box sx={{ flexGrow: 1, background: 'linear-gradient(80deg, #000428, #004E92)' }}>
+        <Box sx={{ flexGrow: 1, background: '#041C51' }}>
             <AppBar position="static">
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -46,7 +50,34 @@ const DashboardNavbar = () => {
                             </span>
                         </Link>
                     </Typography>
-                    <Box>
+                    {/* right side icons */}
+                    <Box className='flex'>
+                        <Box sx={{ flexGrow: 1 }} />
+                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                                <Badge badgeContent={4} color="error">
+                                    <MailIcon />
+                                </Badge>
+                            </IconButton>
+                            <IconButton
+                                size="large"
+                                aria-label="show 17 new notifications"
+                                color="inherit"
+                            >
+                                <Badge badgeContent={17} color="error">
+                                    <NotificationsIcon />
+                                </Badge>
+                            </IconButton>                        
+                            <IconButton
+                                size="large"
+                                aria-label="show 17 new notifications"
+                                color="inherit"
+                            >
+                                <Badge color="error">
+                                    <FilterCenterFocusOutlinedIcon />
+                                </Badge>
+                            </IconButton>                        
+                        </Box>
                         <Button
                             id="basic-button"
                             aria-controls={open ? 'basic-menu' : undefined}
