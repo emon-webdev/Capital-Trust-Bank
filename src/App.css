@@ -142,6 +142,18 @@ button.accent-btn {
   border-radius: 4px;
 }
 
+.change-lang
+  .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  color: #fff;
+  padding: 0px 30px;
+  padding-left: 0;
+  width: 80px !important;
+}
+
+.change-lang
+  svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiSelect-icon.MuiSelect-iconOutlined.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
+  color: #fff;
+}
 /* Banner area */
 .banner-area {
   height: 680px;
