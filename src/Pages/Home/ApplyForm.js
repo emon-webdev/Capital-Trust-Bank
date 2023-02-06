@@ -1,9 +1,7 @@
-import { Grid } from "@mui/material";
-import { Box } from "@mui/system";
+
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import apply from "../../assets/Services(Home)/apply-form-box-bg.jpg";
 import { AuthContext } from "../../context/AuthProvider";
 
 export default function ApplyForm() {
@@ -179,7 +177,7 @@ export default function ApplyForm() {
   return (
     <div className="apply-area w-100 d-flex justify-center my-20">
       <div className="apply-area w-100  my-20">
-        <Box
+        {/* <Box
           className="container"
           display={"flex"}
           borderRadius={'10px'}
@@ -279,7 +277,7 @@ export default function ApplyForm() {
                 </Grid>
               </Grid>
             </form>
-        </Box>
+        </Box> */}
       </div>
     </div>
   );

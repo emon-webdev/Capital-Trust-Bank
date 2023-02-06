@@ -1,5 +1,4 @@
-import { Modal, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+
 import React from 'react';
 
 
@@ -23,7 +22,7 @@ export default function DetailsModal({handleOpen, row,handleClose,open}) {
   return (
     <div>
       
-      <Modal
+      {/* <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -37,7 +36,7 @@ export default function DetailsModal({handleOpen, row,handleClose,open}) {
           hellow how are you
           </Typography>
         </Box>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }

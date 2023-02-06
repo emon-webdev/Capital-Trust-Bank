@@ -1,9 +1,5 @@
 // import * as React from 'react';
-import { Grid } from '@mui/material';
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
-import Typography from '@mui/material/Typography';
+
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { useContext } from 'react';
@@ -24,9 +20,9 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
+        <div sx={{ p: 3 }}>
+          {/* <Typography>{children}</Typography> */}
+        </div>
       )}
     </div>
   );
@@ -95,18 +91,18 @@ export default function BusinessForm() {
 
   return (
     <div className="container flex md:flex-row flex-col w-100  align-center justify-center">
-      <Box>
+      <div>
         <img style={{width:'600px',height:'600px'}} className='animate__animated animate__fadeInLeft mx-5' src={business} alt="" />
-      </Box>
-      <Box sx={{  }}>
-      <Box sx={{ }} className='pl-7'>
+      </div>
+      <div sx={{  }}>
+      {/* <Box sx={{ }} className='pl-7'>
         <Tabs value={value} textColor='primary' onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Health" {...a11yProps(0)} />
           <Tab label="Business" {...a11yProps(1)} />
           <Tab label="Travel" {...a11yProps(2)} />
         </Tabs>
-      </Box>
-      <TabPanel className='animate__animated animate__fadeInUp' value={value} index={0}>
+      </Box> */}
+      {/* <TabPanel className='animate__animated animate__fadeInUp' value={value} index={0}>
       <form
             onSubmit={handleSubmit}
             style={{
@@ -171,7 +167,7 @@ export default function BusinessForm() {
                   ))}
                 </select>
               </Grid> */}
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <input
                   name="date"
                   style={{ width: "100%" }}
@@ -256,7 +252,7 @@ export default function BusinessForm() {
                     </option>
                   ))}
                 </select>
-              </Grid> */}
+              </Grid> 
               <Grid item xs={12}>
                 <input
                   name="date"
@@ -342,7 +338,7 @@ export default function BusinessForm() {
                     </option>
                   ))}
                 </select>
-              </Grid> */}
+              </Grid> 
               <Grid item xs={12}>
                 <input
                   name="date"
@@ -363,8 +359,8 @@ export default function BusinessForm() {
                 </Grid>
               </Grid>
             </form>
-      </TabPanel>
-    </Box>
+      </TabPanel>  */}
+    </div>
     </div>
   );
 }
