@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import { default as AllCustomers } from "../Dashboard/components/AllCustomers/AllCustomers";
 import CardReq from "../Dashboard/components/CardReq/CardReq";
+import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
 
 import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
+import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
@@ -174,22 +176,22 @@ const router = createBrowserRouter([
       //     </CustomerRoute>
       //   ),
       // },
-      // {
-      //   path: "/dashboard/my-withdraw",
-      //   element: (
-      //     <CustomerRoute>
-      //       <MyWithdraw />
-      //     </CustomerRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/dashboard/my-deposit",
-      //   element: (
-      //     <CustomerRoute>
-      //       <MyDeposit />
-      //     </CustomerRoute>
-      //   ),
-      // },
+      {
+        path: "/dashboard/my-withdraw",
+        element: (
+          <CustomerRoute>
+            <MyWithdraw />
+          </CustomerRoute>
+        ),
+      },
+      {
+        path: "/dashboard/my-deposit",
+        element: (
+          <CustomerRoute>
+            <MyDeposit />
+          </CustomerRoute>
+        ),
+      },
       // {
       //   path: "/dashboard/myAccount",
       //   element: <MyAccount />,
