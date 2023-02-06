@@ -3,10 +3,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import SearchIcon from "@mui/icons-material/Search";
 import React, { useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../context/AuthProvider";
 const Navbar = () => {
+  const { t } = useTranslation();
   const { logOut, user } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleSignOut = () => {
@@ -46,12 +48,15 @@ const Navbar = () => {
             <button className="accent-btn" type="button">
               <SearchIcon />
             </button>
-            <button className="accent-btn hidden md:block" type="button">
-              <NavLink to="/accountOpenFrom" className="">
+            <div>
+              <NavLink
+                to="/accountOpenFrom"
+                className="accent-btn hidden md:block"
+              >
                 <PersonAddIcon className="mr-1 text-sm" />
                 Open an Account
               </NavLink>
-            </button>
+            </div>
           </div>
           {isActive ? (
             <button
@@ -79,7 +84,7 @@ const Navbar = () => {
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
-                Home
+                {t("home")}
               </NavLink>
             </li>
 
@@ -89,34 +94,34 @@ const Navbar = () => {
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
-                Services
+                {t("Services")}
               </NavLink>
               {/* Submenu */}
               <ul className="submenu">
                 <li>
                   <NavLink to="/educationloan" className="">
-                    Education Loan
+                    {t("Education_Loan")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/marriageloan" className="">
-                    Marriage Loan
+                    {t("Marriage_Loan")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/goldloan" className="">
-                    Gold Loan
+                    {t("Gold_Loan")}
                   </NavLink>
                 </li>
 
                 <li>
                   <NavLink to="/vehicleloan" className="">
-                    Vehicle Loan
+                    {t("Vehicle_Loan")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/cards" className="">
-                    Cards
+                    {t("Cards")}
                   </NavLink>
                 </li>
               </ul>
@@ -127,23 +132,23 @@ const Navbar = () => {
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
-                Insurance
+                {t("Insurance")}
               </NavLink>
               {/* Submenu */}
               <ul className="submenu">
                 <li>
-                  <NavLink to="/healthinsurance" className="">
-                    Health Insurance
+                  <NavLink to="/healthinsurance">
+                    {t("Health_Insurance")}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/businessinsurance" className="">
-                    Business Insurance
+                  <NavLink to="/businessinsurance">
+                    {t("Business_Insurance")}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/travelinsurance" className="">
-                    Travel Insurance
+                  <NavLink to="/travelinsurance">
+                    {t("Travel_Insurance")}
                   </NavLink>
                 </li>
               </ul>
@@ -154,13 +159,18 @@ const Navbar = () => {
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
-                Pages
+                {t("Travel_Insurance")}
               </NavLink>
               {/* Submenu */}
               <ul className="submenu">
                 <li>
                   <NavLink to="/accountOpenFrom" className="">
                     Open an Account
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/accountOpenFrom2" className="">
+                    Open an Account 1
                   </NavLink>
                 </li>
                 <li>
@@ -266,7 +276,7 @@ const Navbar = () => {
               <button className="accent-btn" type="button">
                 <NavLink to="/accountOpenFrom" className="">
                   <PersonAddIcon className="mr-1 text-sm" />
-                  Open an Account
+                  {t("Open_an_Account")}
                 </NavLink>
               </button>
             </div>

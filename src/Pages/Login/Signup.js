@@ -253,7 +253,7 @@ const Signup = () => {
               // required
               className="w-full"
               country={"us"}
-              value={phone}
+              // value={phone}
               {...register("phone")}
               onChange={(phone) => setPhone(phone)}
             />

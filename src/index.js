@@ -1,30 +1,33 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import 'animate.css';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { Toaster } from 'react-hot-toast';
-import { Provider } from 'react-redux';
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
-import App from './App';
-import AuthProvider from './context/AuthProvider';
-import './index.css';
-import store from './redux/store/store';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "animate.css";
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom/client";
+import { Toaster } from "react-hot-toast";
+import { Provider } from "react-redux";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import App from "./App";
+import AuthProvider from "./context/AuthProvider";
+import "./i18n";
+import "./index.css";
+import store from "./redux/store/store";
 // import { getTodos, postTodo } from '../my-api';
-
-import reportWebVitals from './reportWebVitals';
-const root = ReactDOM.createRoot(document.getElementById('root'));
-const queryClient = new QueryClient()
+import "react-phone-input-2/lib/style.css";
+import reportWebVitals from "./reportWebVitals";
+const root = ReactDOM.createRoot(document.getElementById("root"));
+const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
-      <AuthProvider>
-        <QueryClientProvider client={queryClient}>
-           <Provider store={store}>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <Suspense fallback="Loading...">
             <App />
-           </Provider>
-        </QueryClientProvider>
-        <Toaster />
-      </AuthProvider>
+          </Suspense>
+        </Provider>
+      </QueryClientProvider>
+      <Toaster />
+    </AuthProvider>
   </React.StrictMode>
 );
 
