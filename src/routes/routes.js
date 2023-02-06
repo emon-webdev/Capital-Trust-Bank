@@ -45,10 +45,7 @@ const router = createBrowserRouter([
         path: "/apply",
         element: <Apply />,
       },
-      {
-        path: "/insurance",
-        element: <Insurance />,
-      },
+     
       {
         path: "/healthinsurance",
         element: <HealthInsurance />,
