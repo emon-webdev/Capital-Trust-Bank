@@ -64,7 +64,7 @@ export default function TravelForm() {
   return (
     <div className="container flex md:flex-row flex-col w-100  align-center justify-center">
       <Box>
-        <img style={{width:'600px',height:'600px'}} className='animate__animated animate__fadeInLeft mx-5' src={travel} alt="" />
+        <img style={{width:'600px',height:'600px'}} className='animate__animated animate__slideInLeft mx-5' src={travel} alt="" />
       </Box>
       <Box>
         <Tabs>
@@ -75,7 +75,7 @@ export default function TravelForm() {
           </TabList>
 
           <TabPanels>
-            <TabPanel className="animate__animated animate__fadeInUp">
+            <TabPanel className="animate__animated animate__slideInUp">
               <form
                 onSubmit={handleSubmit}
                 style={{
@@ -167,7 +167,7 @@ export default function TravelForm() {
                 {/* </Grid> */}
               </form>
             </TabPanel>
-            <TabPanel className="animate__animated animate__fadeInUp">
+            <TabPanel className="animate__animated animate__slideInUp">
               <form
                 onSubmit={handleSubmit}
                 style={{
@@ -259,7 +259,7 @@ export default function TravelForm() {
                 </Grid>
               </form>
             </TabPanel>
-            <TabPanel className="animate__animated animate__fadeInUp">
+            <TabPanel className="animate__animated animate__slideInUp">
               <form
                 onSubmit={handleSubmit}
                 style={{

@@ -63,7 +63,7 @@ export default function HealthForm() {
       <Box>
         <img
           style={{ width: "600px", height: "600px" }}
-          className="animate__animated animate__fadeInLeft mx-5 "
+          className="animate__animated animate__slideInLeft mx-5 "
           src={health}
           alt=""
         />
@@ -77,7 +77,7 @@ export default function HealthForm() {
           </TabList>
 
           <TabPanels>
-            <TabPanel className="animate__animated animate__fadeInUp">
+            <TabPanel className="animate__animated animate__slideInUp">
               <form
                 onSubmit={handleSubmit}
                 style={{
@@ -169,7 +169,7 @@ export default function HealthForm() {
                 {/* </Grid> */}
               </form>
             </TabPanel>
-            <TabPanel className="animate__animated animate__fadeInUp">
+            <TabPanel className="animate__animated animate__slideInUp">
               <form
                 onSubmit={handleSubmit}
                 style={{
@@ -261,7 +261,7 @@ export default function HealthForm() {
                 </Grid>
               </form>
             </TabPanel>
-            <TabPanel className="animate__animated animate__fadeInUp">
+            <TabPanel className="animate__animated animate__slideInUp">
               <form
                 onSubmit={handleSubmit}
                 style={{
