@@ -3,15 +3,14 @@ import "animate.css";
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { Toaster } from "react-hot-toast";
-import { Provider } from "react-redux";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import App from "./App";
 import AuthProvider from "./context/AuthProvider";
 import "./i18n";
 import "./index.css";
-import store from "./redux/store/store";
 // import { getTodos, postTodo } from '../my-api';
+import { ChakraProvider } from "@chakra-ui/react";
 import "react-phone-input-2/lib/style.css";
 import reportWebVitals from "./reportWebVitals";
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -20,11 +19,11 @@ root.render(
   <React.StrictMode>
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        <Provider store={store}>
-          <Suspense fallback="Loading...">
+        <Suspense fallback="Loading...">
+          <ChakraProvider>
             <App />
-          </Suspense>
-        </Provider>
+          </ChakraProvider>
+        </Suspense>
       </QueryClientProvider>
       <Toaster />
     </AuthProvider>

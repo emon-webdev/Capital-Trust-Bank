@@ -1,6 +1,4 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 // import education from "../../assets/Services(Home)/edu_loan.jpg";
 
 const Services = () => {
@@ -54,31 +52,31 @@ const Services = () => {
       <div className="container align-content-center justify-items-center mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
 
-        {
+        {/* {
           loans.map(loan => (
-            <Card sx={{ maxWidth: 724, maxHeight: 636 }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  maxHeight="140px"
-                  width={"100%"}
-                  image={loan.img}
-                  alt="green iguana"
-                  position="relative"
-                />
+            // <Card sx={{ maxWidth: 724, maxHeight: 636 }}>
+            //   <CardActionArea>
+            //     <CardMedia
+            //       component="img"
+            //       maxHeight="140px"
+            //       width={"100%"}
+            //       image={loan.img}
+            //       alt="green iguana"
+            //       position="relative"
+            //     />
 
-                <CardContent>
-                  <Typography fontSize={'16px'} fontWeight="bold">{loan.title}</Typography>
-                  <Typography marginTop={2} gutterBottom fontSize={"16px"} component="div">
-                    {loan.details}
-                  </Typography>
-                  <Link to={`/loanService/${loan._id}`}>
-                    <button className='my-2 mx-auto flex items-center justify-center primary-btn' >Apply  </button></Link>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+            //     <CardContent>
+            //       <Typography fontSize={'16px'} fontWeight="bold">{loan.title}</Typography>
+            //       <Typography marginTop={2} gutterBottom fontSize={"16px"} component="div">
+            //         {loan.details}
+            //       </Typography>
+            //       <Link to={`/loanService/${loan._id}`}>
+            //         <button className='my-2 mx-auto flex items-center justify-center primary-btn' >Apply  </button></Link>
+            //     </CardContent>
+            //   </CardActionArea>
+            // </Card>
           ))
-        }
+        } */}
 
       </div>
 

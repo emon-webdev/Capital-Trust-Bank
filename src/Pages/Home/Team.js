@@ -1,4 +1,3 @@
-import { Box, Typography } from "@mui/material";
 import React from "react";
 // import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 // import image1 from "../../assests/Team/team-img1.png";
@@ -10,13 +9,11 @@ import "../../App.css";
 import { getTeams } from "../../hooks/API/API";
 import TeamSection from "./TeamSection";
 
-
-
 const Team = () => {
   const { data: teams = [] } = useQuery({
-    queryKey: ['teams'],
-    queryFn: async () => getTeams()
-  })
+    queryKey: ["teams"],
+    queryFn: async () => getTeams(),
+  });
   const sliderSettings = {
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -31,8 +28,8 @@ const Team = () => {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       // {
       //   breakpoint: 768,
@@ -48,22 +45,22 @@ const Team = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  }
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
-    <Box className="team-area py-12">
-      <Box className="container mx-auto">
-        <Typography marginBottom={2} textAlign="center" sx={{ fontWeight: 'bold' }} color="#DF0303">
+    <div className="team-area py-12">
+      <div className="container mx-auto">
+        {/* <Typography marginBottom={2} textAlign="center" sx={{ fontWeight: 'bold' }} color="#DF0303">
           -- Our Team --
         </Typography>
         <Typography
@@ -77,16 +74,16 @@ const Team = () => {
           variant="h3"
         >
           Team Of Expert Consulted
-        </Typography>
+        </Typography> */}
 
         {/* grid gap-5 md:grid-cols-3 mt-[60px] */}
-        <Slider {...sliderSettings} className='mt-[60px]'>
-          {
-            teams.map(team => <TeamSection key={team._id} team={team} />)
-          }
+        <Slider {...sliderSettings} className="mt-[60px]">
+          {teams.map((team) => (
+            <TeamSection key={team._id} team={team} />
+          ))}
         </Slider>
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 

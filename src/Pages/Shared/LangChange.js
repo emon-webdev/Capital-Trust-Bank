@@ -1,37 +1,29 @@
-import { MenuItem, Select } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 const LangChange = () => {
-  const [localLang, setLocalLang] = useState("");
-  const [getLocalLang, setGetLocalLang] = useState("");
-
+  const [getLocalLang, setGetLocalLang] = useState("en");
+  useEffect(() => {
+    setGetLocalLang(localStorage.getItem("i18nextLng"));
+  }, []);
   const changeLang = (e) => {
     const lanKey = e.target.value;
-    const localSet = localStorage.setItem("Lang", lanKey);
-    console.log(localSet);
-    setLocalLang(localSet);
     let url = `${window.location.origin}${window.location.pathname}?lng=${lanKey}`;
     window.location.replace(url);
   };
 
-  // useEffect(() => {
-  //   console.log(localStorage.getItem("Lang"));
-  // }, [localLang]);
+  console.log(getLocalLang);
 
-  // console.log(localLang);
-
-  return (
+return (
     <div className="change-lang">
-      <Select
+      <select
         onChange={changeLang}
-        defaultValue="Language"
+        defaultValue={getLocalLang}
         className="bg-none lang-select"
       >
-        <MenuItem value="Language">Language</MenuItem>
-        <MenuItem value="en">English</MenuItem>
-        <MenuItem value="bn">Bangla</MenuItem>
-        <MenuItem value="ar">Arabic</MenuItem>
-        <MenuItem value="hi">Hindi</MenuItem>
-      </Select>
+        <option value="en">English</option>
+        <option value="bn">Bangla</option>
+        <option value="ar">Arabic</option>
+        <option value="hi">Hindi</option>
+      </select>
     </div>
   );
 };

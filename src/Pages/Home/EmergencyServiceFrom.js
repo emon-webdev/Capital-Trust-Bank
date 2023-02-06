@@ -1,7 +1,3 @@
-import { Button } from "@mui/material";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Typography from "@mui/material/Typography";
 import React from "react";
 const EmergencyServiceFrom = ({ handleClose, open, onClose, setOpen }) => {
   const style = {
@@ -18,7 +14,7 @@ const EmergencyServiceFrom = ({ handleClose, open, onClose, setOpen }) => {
   return (
     <div>
       <h2>Emergency From</h2>
-      <Modal
+      {/* <Modal
         open={open}
         // onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -31,7 +27,7 @@ const EmergencyServiceFrom = ({ handleClose, open, onClose, setOpen }) => {
           <Button onClose={() => setOpen(false)}>Close modal</Button>
 
         </Box>
-      </Modal>
+      </Modal> */}
     </div>
   );
 };

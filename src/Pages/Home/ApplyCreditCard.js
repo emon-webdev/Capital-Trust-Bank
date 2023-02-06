@@ -1,5 +1,4 @@
-import CheckIcon from "@mui/icons-material/Check";
-import { TextField } from "@mui/material";
+
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
@@ -75,20 +74,20 @@ const ApplyCreditCard = () => {
             </p>
             <p>
               <span className="">
-                <CheckIcon className="text-white bg-[#DF0303] text-[22px] p-[2px] rounded-md mr-1" />
+                {/* <CheckIcon className="text-white bg-[#DF0303] text-[22px] p-[2px] rounded-md mr-1" /> */}
               </span>
               The master-builder of great explorer
             </p>
             <p>
               <span className="">
-                <CheckIcon className="text-white bg-[#DF0303] text-[22px] p-[2px] rounded-md mr-1" />
+                {/* <CheckIcon className="text-white bg-[#DF0303] text-[22px] p-[2px] rounded-md mr-1" /> */}
               </span>
               Velit esse cillum dolore eu fugiat nulla pariatur.
             </p>
             <div className="my-2">
               <form onSubmit={handleSubmit(handleApply)}>
                 <div>
-                  <TextField
+                  {/* <TextField
                     id="outlined-basic"
                     label={` ${user ? user?.displayName : "Please Sign In"} `}
                     name="applierName"
@@ -122,7 +121,7 @@ const ApplyCreditCard = () => {
                         message: "Account Id Must be 24 character",
                       },
                     })}
-                  />
+                  /> */}
                   {idError && (
                     <p className="text-red-600 text-sm mb-0">{idError}</p>
                   )}

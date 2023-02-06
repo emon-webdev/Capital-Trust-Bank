@@ -1,13 +1,4 @@
-import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography
-} from "@mui/material";
-import { Box } from "@mui/system";
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React from "react";
@@ -38,7 +29,7 @@ export default function FeaturedNews() {
   ];
   return (
     <div className="features-area my-20">
-      <Typography marginBottom={2} textAlign="center" sx={{fontWeight: 'bold'}} color="#DF0303">
+      {/* <Typography marginBottom={2} textAlign="center" sx={{fontWeight: 'bold'}} color="#DF0303">
         -- Blog & News --
       </Typography>
       <Typography
@@ -49,57 +40,57 @@ export default function FeaturedNews() {
         color="black"
       >
         Featured news & Insights
-      </Typography>
+      </Typography> */}
       <div className="container align-content-center justify-items-center grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-        {NewsData?.map((news) => (
-          <Card key={news.id} sx={{ maxWidth: 424, maxHeight: 536 }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="140"
-                image={news.img}
-                alt="green iguana"
-                position="relative"
-              />
-              <Box
-                sx={{
-                  width: 74,
-                  height: 74,
-                  backgroundColor: "#DF0303",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "white",
-                  padding: "10px",
-                  position: "absolute",
-                  top: "300px",
-                  right: "32px",
-                  textAlign: "center",
-                }}
-              >
-                30 March
-              </Box>
-              <CardContent>
-                <Typography fontSize={"16px"}>{news.category}</Typography>
-                <Typography
-                  marginTop={2}
-                  gutterBottom
-                  fontSize={"20px"}
-                  fontWeight="bold"
-                  component="div"
-                >
-                  {news.title}
-                </Typography>
-                <Button color="error">
-                  <Typography fontSize="14px" fontWeight={900}>
-                    READ MORE
-                  </Typography>{" "}
-                  <ArrowOutwardIcon />
-                </Button>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        ))}
+     {/*    {NewsData?.map((news) => (
+          // <Card key={news.id} sx={{ maxWidth: 424, maxHeight: 536 }}>
+          //   <CardActionArea>
+          //     <CardMedia
+          //       component="img"
+          //       height="140"
+          //       image={news.img}
+          //       alt="green iguana"
+          //       position="relative"
+          //     />
+          //     <Box
+          //       sx={{
+          //         width: 74,
+          //         height: 74,
+          //         backgroundColor: "#DF0303",
+          //         display: "flex",
+          //         alignItems: "center",
+          //         justifyContent: "center",
+          //         color: "white",
+          //         padding: "10px",
+          //         position: "absolute",
+          //         top: "300px",
+          //         right: "32px",
+          //         textAlign: "center",
+          //       }}
+          //     >
+          //       30 March
+          //     </Box>
+          //     <CardContent>
+          //       <Typography fontSize={"16px"}>{news.category}</Typography>
+          //       <Typography
+          //         marginTop={2}
+          //         gutterBottom
+          //         fontSize={"20px"}
+          //         fontWeight="bold"
+          //         component="div"
+          //       >
+          //         {news.title}
+          //       </Typography>
+          //       <Button color="error">
+          //         <Typography fontSize="14px" fontWeight={900}>
+          //           READ MORE
+          //         </Typography>{" "}
+          //         <ArrowOutwardIcon />
+          //       </Button>
+          //     </CardContent>
+          //   </CardActionArea>
+          // </Card>
+        ))} */}
       </div>
     </div>
   );

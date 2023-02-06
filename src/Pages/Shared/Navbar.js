@@ -1,7 +1,3 @@
-import CloseIcon from "@mui/icons-material/Close";
-import MenuIcon from "@mui/icons-material/Menu";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import SearchIcon from "@mui/icons-material/Search";
 import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -46,14 +42,14 @@ const Navbar = () => {
         <div className="flex items-center">
           <div className="lg:hidden btn-group flex items-center">
             <button className="accent-btn" type="button">
-              <SearchIcon />
+              {/* <SearchIcon /> */}
             </button>
             <div>
               <NavLink
                 to="/accountOpenFrom"
                 className="accent-btn hidden md:block"
               >
-                <PersonAddIcon className="mr-1 text-sm" />
+                {/* <PersonAddIcon className="mr-1 text-sm" /> */}
                 Open an Account
               </NavLink>
             </div>
@@ -64,7 +60,8 @@ const Navbar = () => {
               type="button"
               onClick={handleHumbagerMenu}
             >
-              <CloseIcon />
+              {/* <CloseIcon /> */}
+              X
             </button>
           ) : (
             <button
@@ -72,7 +69,7 @@ const Navbar = () => {
               type="button"
               onClick={handleHumbagerMenu}
             >
-              <MenuIcon />
+              {/* <MenuIcon /> */}
             </button>
           )}
         </div>
@@ -271,11 +268,12 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <div className="btn-group flex items-center">
               <button className="accent-btn" type="button">
-                <SearchIcon />
+                {/* <SearchIcon /> */}
+                S
               </button>
               <button className="accent-btn" type="button">
                 <NavLink to="/accountOpenFrom" className="">
-                  <PersonAddIcon className="mr-1 text-sm" />
+                  {/* <PersonAddIcon className="mr-1 text-sm" /> */}
                   {t("Open_an_Account")}
                 </NavLink>
               </button>
