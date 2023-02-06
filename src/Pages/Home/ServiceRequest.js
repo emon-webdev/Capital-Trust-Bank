@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+
 import React from "react";
 import ServiceReqSlider from "../../component/Slider/ServiceReqSlider";
 
@@ -7,7 +7,7 @@ const ServiceRequest = () => {
     <div className="service-req-area">
       <div className="container">
         <div className="text-center">
-          <Typography
+          {/* <Typography
             marginBottom={2}
             textAlign="center"
             sx={{ fontWeight: "bold" }}
@@ -23,7 +23,7 @@ const ServiceRequest = () => {
             color="#fff"
           >
             List of banking service requests all in one place.
-          </Typography>
+          </Typography> */}
         </div>
         <ServiceReqSlider />
       </div>

@@ -1,10 +1,9 @@
 import React from "react";
 import { HiOutlineMailOpen } from "react-icons/hi";
 // import { ImLocation } from "react-icons/im";
-import MenuOption from "./MenuOption";
+import LangChange from "./LangChange";
 import Navbar from "./Navbar";
 const Header = () => {
-
   return (
     <div className="header-area">
       <div className="header-top py-2 bg-[#041C51]">
@@ -23,7 +22,7 @@ const Header = () => {
             </div>
             <div className="header-right flex-wrap flex items-center ">
               <div className="country-select">
-                <MenuOption />
+                <LangChange />
               </div>
             </div>
           </div>
