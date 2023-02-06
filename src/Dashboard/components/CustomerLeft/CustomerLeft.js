@@ -10,7 +10,7 @@ const CustomerLeft = () => {
   return (
     <>
       <div className="text-white">
-        <div className="text-white w-[70%] flex items-center justify-center ml-[-40px] py-[10px]">
+        <div className="text-white w-[70%] flex items-center justify-center ml-[-17px] py-[10px]">
           <Link
             className="navbar-brand font-bold text-2xl flex items-center"
             to="/"
