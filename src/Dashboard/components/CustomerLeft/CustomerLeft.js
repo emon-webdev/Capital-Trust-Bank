@@ -32,7 +32,7 @@ const CustomerLeft = () => {
             className={({ isActive }) =>
               isActive
                 ? "border-l-2 link flex items-center px-[20px] py-[15px]"
-                : "flex px-[20px] link py-[15px]"
+                : "flex px-[20px] items-center link py-[15px]"
             }
           >
             <span>
@@ -47,8 +47,8 @@ const CustomerLeft = () => {
             // onClick={() => setSubMenu(!subMenu)}
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
-                : "flex px-[20px] link py-[15px]"
+                ? "border-l-2 link flex dath items-center px-[20px] py-[15px]"
+                : "flex px-[20px] dath link py-[15px]"
             }
           >
             <span>
@@ -63,8 +63,8 @@ const CustomerLeft = () => {
             to="/dashboard/my-deposit"            
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
-                : "flex px-[20px] link py-[15px]"
+                ? "border-l-2 link flex dath items-center px-[20px] py-[15px]"
+                : "flex px-[20px] dath link py-[15px]"
             }
           >
             <span>
@@ -78,8 +78,8 @@ const CustomerLeft = () => {
             to="/dashboard/my-withdraw"            
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
-                : "flex px-[20px] link py-[15px]"
+                ? "border-l-2 link flex dath items-center px-[20px] py-[15px]"
+                : "flex px-[20px] dath link py-[15px]"
             }
           >
             <span>
@@ -95,8 +95,8 @@ const CustomerLeft = () => {
             to="/dashboard/deviceActivity"            
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
-                : "flex px-[20px] link py-[15px]"
+                ? "border-l-2 link flex dath items-center px-[20px] py-[15px]"
+                : "flex px-[20px] dath link py-[15px]"
             }
           >
             <span>

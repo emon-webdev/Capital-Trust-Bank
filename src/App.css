@@ -435,6 +435,9 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   border-radius: 5px;
   background: #cf173c;
 }
+.dath {
+  align-items: center !important;
+}
 
 /* @media screen and (max-width: 768) {
   .out {

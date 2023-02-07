@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import DynamicBanner from '../Shared/DynamicBanner/DynamicBanner';
 import { VscStarFull, VscStarHalf } from 'react-icons/vsc';
 import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs'
@@ -33,9 +33,9 @@ const TeamDetails = () => {
                                     social.map((icon) =>
                                         <div className='flex items-center'>
                                             <h3 className='mr-3 mt-3'>Follow: </h3>
-                                            <Link to={icon.facebook} className='mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><BsFacebook /></Link>
-                                            <Link to={icon.linkedin} className='w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><BsLinkedin /></Link>
-                                            <Link to={icon.github} className='ml-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center' ><BsGithub /></Link>
+                                            <a href={icon.facebook} target="_blank" className='mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded flex items-center justify-center' ><BsFacebook /></a>
+                                            <a href={icon.linkedin} target="_blank" className='w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded flex items-center justify-center' ><BsLinkedin /></a>
+                                            <a href={icon.github} target="_blank" className='ml-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded flex items-center justify-center' ><BsGithub /></a>
                                         </div>
                                     )
                                 }
