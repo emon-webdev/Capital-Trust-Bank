@@ -5,8 +5,7 @@ const MyBalance = () => {
     return (
         <div className='container flex '>
            
-            
-            
+ 
         </div>
     );
 };

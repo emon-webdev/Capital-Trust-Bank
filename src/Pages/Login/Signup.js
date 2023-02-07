@@ -1,20 +1,14 @@
+import { Button, Input, InputGroup, InputRightElement, Stack } from "@chakra-ui/react";
 import { GoogleAuthProvider } from "@firebase/auth";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import {
-  FormControl,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  TextField
-} from "@mui/material";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaEyeSlash, FaEye } from 'react-icons/fa'
 import "../../App.css";
+// import image from "../../assests/SignUp/signup1.jpg";
 import Spinner from "../../component/Spinner/Spinner";
 import { AuthContext } from "../../context/AuthProvider";
 import setAuthToken from "../../hooks/UseToken/UseToken";
@@ -28,8 +22,8 @@ const Signup = () => {
   } = useForm();
 
   const [phone, setPhone] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [confirmShowPassword, setConfirmShowPassword] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
+  // const [confirmShowPassword, setConfirmShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [signUpError, setSignUpError] = useState("");
   const { createUser, signInWithGoogle, updateUser, verify } =
@@ -38,8 +32,10 @@ const Signup = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
-
-  const [userImage, setUserImage] = useState(null);
+  const [confirmShow, setConfirmShow] = useState(false)
+  const [show, setShow] = useState(false)
+  const handleClick = () => setShow(!show)
+  const handleClickShow = () => setConfirmShow(!confirmShow)
 
   //checking validate
   const [lowerValidated, setLowerValidated] = useState(false);
@@ -48,9 +44,7 @@ const Signup = () => {
   const [specialValidated, setSpecialValidated] = useState(false);
   const [lengthValidated, setLengthValidated] = useState(false);
   const [isShowPassword, setIsShowPassword] = useState("");
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const handleClickConfirmShowPassword = () =>
-    setConfirmShowPassword((show) => !show);
+
   let number = phone;
 
   const handlePassword = (value) => {
@@ -90,15 +84,19 @@ const Signup = () => {
   };
 
   const handleSignUp = (data) => {
+    console.log(data);
     setSignUpError("");
     setLoading(true);
     const email = data.email;
     const password = data.password;
     const name = data.name;
     const image = data.image[0];
+    console.log("picture", image);
     const formData = new FormData();
+    console.log(formData);
     formData.append("image", image);
     const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGE_SECRET_KEY}`;
+    console.log(url);
     fetch(url, {
       method: "POST",
       body: formData,
@@ -106,7 +104,7 @@ const Signup = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          // console.log(data.data.url)
+          console.log(data);
           createUser(email, password)
             .then((result) => {
               const user = result.user;
@@ -115,20 +113,22 @@ const Signup = () => {
               updateUser(name, data.data.url)
                 .then(() => {
                   console.log(user);
-
                   //store customer device info
-                  fetch(`http://localhost:5000/storeDeviceInfo/${user.email}`, {
-                    method: "POST",
-                    headers: {
-                      "content-type": "application/json",
-                    },
-                  })
+                  fetch(
+                    `https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`,
+                    {
+                      method: "POST",
+                      headers: {
+                        "content-type": "application/json",
+                      },
+                    }
+                  )
                     .then((res) => res.json())
                     .then((data) => {
-                     setLoading(false);
-                     toast.success("SignUp Success");
-                     navigate("/login");
-                     verifyEmail();
+                      setLoading(false);
+                      toast.success("SignUp Success");
+                      navigate("/login");
+                      verifyEmail();
                     });
                 })
                 .catch((error) => {
@@ -157,12 +157,15 @@ const Signup = () => {
       setAuthToken(user, name, image, verify);
 
       //store customer device info
-      fetch(`http://localhost:5000/storeDeviceInfo/${user.email}`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-      })
+      fetch(
+        `https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setLoading(false);
@@ -203,206 +206,173 @@ const Signup = () => {
           <h2 className="text-2xl font-semibold text-center text-gray-700 dark:text-white">
             Create an Account
           </h2>
+          <Stack spacing={6}>
 
-          <div className="mt-4">
-            <TextField
-              id="outlined-basic"
-              label="Name"
-              variant="outlined"
-              {...register("name", { required: true })}
-              className="w-full"
-            />
-            {errors.name && (
-              <p className="text-red-500">
-                {errors.name?.message} Please Insert Your Name
-              </p>
-            )}
-          </div>
-
-          <div className="mt-4">
-            <TextField
-              sx={{
-                "&. Mui-focused": {
-                  borderColor: "red",
-                },
-              }}
-              id="outlined-basic"
-              label="Email"
-              variant="outlined"
-              {...register("email", { required: "Please Inter Valid Email" })}
-              className="w-full"
-            />
-            {errors.email && (
-              <p className="text-red-500">{errors.email?.message}</p>
-            )}
-          </div>
-
-          <div className="mt-4">
-            <PhoneInput
-              id="outlined-basic"
-              label="Number"
-              variant="outlined"
-              // required
-              className="w-full"
-              country={"us"}
-              value={phone}
-              {...register("phone", {
-                required: "Please Inter Your Phone Number",
-              })}
-              onChange={(phone) => setPhone(phone)}
-            />
-            {errors.phone && (
-              <p className="text-red-500">{errors.phone?.message}</p>
-            )}
-          </div>
-
-          {/* password input  */}
-          <div className="relative mt-4">
-            <FormControl
-              sx={{ m: 1, width: "100%", marginLeft: "-1px" }}
-              variant="outlined"
-            >
-              <InputLabel htmlFor="outlined-adornment-password">
-                Password
-              </InputLabel>
-              <OutlinedInput
-                {...register("password", {
-                  minLength: {
-                    value: 6,
-                    message: "password must be 6 character",
-                  },
-                  pattern: {
-                    value: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]/,
-                    message:
-                      "password should be a-z, A-Z, number and special character",
-                  },
-                })}
-                onChange={(e) => handlePassword(e.target.value)}
-                id="outlined-adornment-password"
-                type={showPassword ? "text" : "password"}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      edge="end"
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                label="Password"
+            <div className="mt-4">
+              <Input
+                placeholder='Your Name'
+                size='lg'
+                {...register("name", { required: true })}
               />
-            </FormControl>
-            {isShowPassword && (
-              <p className="">
-                <span>Password Should be At Least One </span> <span></span>
-                <></>
-                <span
-                  className={lowerValidated ? "text-green-500" : "text-red-500"}
-                >
-                  Lowercase,
-                </span>{" "}
-                <></>
-                <span
-                  className={upperValidated ? "text-green-500" : "text-red-500"}
-                >
-                  Uppercase,
-                </span>{" "}
-                <></>
-                <span
-                  className={
-                    numberValidated ? "text-green-500" : "text-red-500"
-                  }
-                >
-                  Number,
-                </span>{" "}
-                <></>
-                <span
-                  className={
-                    specialValidated ? "text-green-500" : "text-red-500"
-                  }
-                >
-                  Special Character,
-                </span>{" "}
-                <></>
-                <span
-                  className={
-                    lengthValidated ? "text-green-500" : "text-red-500"
-                  }
-                >
-                  6 Character,
-                </span>{" "}
-                <></>
-              </p>
-            )}
-            {errors.password && (
-              <p className="text-red-500">{errors.password?.message}</p>
-            )}
-          </div>
 
-          {/* confirm_password input */}
-          <div className="relative mt-4">
-            <FormControl
-              sx={{ m: 1, width: "100%", marginLeft: "-1px" }}
-              variant="outlined"
-            >
-              <InputLabel htmlFor="outlined-adornment-password">
-                Confirm Password
-              </InputLabel>
-              <OutlinedInput
-                id="outlined-password-input"
-                label="Confirm-Password"
-                autoComplete="current-password"
-                {...register("confirm_password", {
-                  required: true,
-                  validate: (value) => {
-                    if (watch("password") !== value) {
-                      return "your password did not match";
+              {errors.name && (
+                <p className="text-red-500">
+                  {errors.name?.message} Please Insert Your Name
+                </p>
+              )}
+            </div>
+
+            <div className="mt-4">
+              <Input
+                placeholder='Your Email'
+                size='lg'
+                {...register("email", { required: "Please Inter Valid Email" })}
+              />
+              {errors.email && (
+                <p className="text-red-500">{errors.email?.message}</p>
+              )}
+            </div>
+
+            <div className="mt-4">
+              <PhoneInput
+                id="outlined-basic"
+                label="Number"
+                variant="outlined"
+                // required
+                className="w-full"
+                country={"us"}
+                // value={phone}
+                {...register("phone")}
+                onChange={(phone) => setPhone(phone)}
+              />
+              {errors.phone && (
+                <p className="text-red-500">{errors.phone?.message}</p>
+              )}
+            </div>
+
+            {/* password input  */}
+            <div className="relative mt-4">
+              <InputGroup size='md'>
+                <Input
+                  size='lg'
+                  pr='4.5rem'
+                  type={show ? 'text' : 'password'}
+                  placeholder='Enter password'
+                  {...register("password", {
+                    minLength: {
+                      value: 6,
+                      message: "password must be 6 character",
+                    },
+                    pattern: {
+                      value: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]/,
+                      message:
+                        "password should be a-z, A-Z, number and special character",
+                    },
+                  })}
+                  onChange={(e) => handlePassword(e.target.value)}
+                />
+                <InputRightElement width='4.5rem'>
+                  <Button
+                    className='chakra-icon-sign'
+                    h='1.75rem' size='sm' onClick={handleClick}>
+                    {show ? <FaEyeSlash /> : <FaEye />}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+              {isShowPassword && (
+                <p className="">
+                  <span>Password Should be At Least One </span> <span></span>
+                  <></>
+                  <span
+                    className={lowerValidated ? "text-green-500" : "text-red-500"}
+                  >
+                    Lowercase,
+                  </span>{" "}
+                  <></>
+                  <span
+                    className={upperValidated ? "text-green-500" : "text-red-500"}
+                  >
+                    Uppercase,
+                  </span>{" "}
+                  <></>
+                  <span
+                    className={
+                      numberValidated ? "text-green-500" : "text-red-500"
                     }
-                  },
-                })}
-                // id="outlined-start-adornment"
-                type={confirmShowPassword ? "text" : "password"}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickConfirmShowPassword}
-                      edge="end"
-                    >
-                      {confirmShowPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
+                  >
+                    Number,
+                  </span>{" "}
+                  <></>
+                  <span
+                    className={
+                      specialValidated ? "text-green-500" : "text-red-500"
+                    }
+                  >
+                    Special Character,
+                  </span>{" "}
+                  <></>
+                  <span
+                    className={
+                      lengthValidated ? "text-green-500" : "text-red-500"
+                    }
+                  >
+                    6 Character,
+                  </span>{" "}
+                  <></>
+                </p>
+              )}
+              {errors.password && (
+                <p className="text-red-500">{errors.password?.message}</p>
+              )}
+            </div>
+
+            {/* confirm_password input */}
+            <div className="relative mt-4">
+              <InputGroup size='md'>
+                <Input
+                  size='lg'
+                  pr='4.5rem'
+                  type={confirmShow ? 'text' : 'password'}
+                  placeholder='Enter password'
+                  {...register("confirm_password", {
+                    required: true,
+                    validate: (value) => {
+                      if (watch("password") !== value) {
+                        return "Your Password Did not Match";
+                      }
+                    },
+                  })}
+                />
+                <InputRightElement width='4.5rem'>
+                  <Button
+                    className='chakra-icon-sign'
+                    h='1.75rem' size='sm' onClick={handleClickShow}>
+                    {confirmShow ? <FaEyeSlash /> : <FaEye />}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+
+              {errors.confirm_password && (
+                <p className="text-red-500">{errors.confirm_password?.message}</p>
+              )}
+            </div>
+
+            <div className="my-6">
+              <input
+                {...register("image", { required: "Please Choose an Image" })}
+                type="file"
+                placeholder="photo"
+                className="w-full"
+                accept="image/*"
+                id="image"
               />
-            </FormControl>
-            {errors.confirm_password && (
-              <p className="text-red-500">{errors.confirm_password?.message}</p>
-            )}
-          </div>
+              {errors.image && (
+                <p className="text-red-500">{errors.image?.message}</p>
+              )}
+            </div>
 
-          <div className="my-6">
-            <input
-              {...register("image", { required: true })}
-              type="file"
-              placeholder="photo"
-              id="file"
-              className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
-              onChange={(e) => setUserImage(e.target.files[0])}
-            />
-            <label className="signup-photo" htmlFor="file">
-              Upload Image
-            </label>
+          </Stack>
 
-            {userImage ? (
-              <span className="ml-3">{userImage.name}</span>
-            ) : (
-              <span className="ml-1 text-[#010c3a] flex mt-[20px]">
-                Choose Image Before Pressing the Sign Up Button
-              </span>
-            )}
-          </div>
           {signUpError && <span className="text-red-500">{signUpError}</span>}
           <div className="mt-7">
             <button className="w-full secondary-btn px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">

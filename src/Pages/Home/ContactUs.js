@@ -1,4 +1,3 @@
-import { Button, TextField } from "@mui/material";
 import React from "react";
 
 const ContactUs = () => {
@@ -20,7 +19,7 @@ const ContactUs = () => {
             method="POST"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-5">
-              <TextField
+              {/* <TextField
                 hintText="Enter username"
                 placeholder="Your Name"
                 name="name"
@@ -67,21 +66,21 @@ const ContactUs = () => {
                   type="text"
                   name="website"
                 />
-              </TextField>
+              </TextField> */}
             </div>
             <div className="mt-5">
-              <TextField
+              {/* <TextField
                 className="bd_textarea w-full"
                 name="Message"
                 label="Message..."
                 multiline
                 rows={5}
-              />
+              /> */}
             </div>
             <div className="mt-5 text-center">
-              <Button variant="contained" color="error" type="submit">
+              {/* <Button variant="contained" color="error" type="submit">
                 Send Message
-              </Button>
+              </Button> */}
             </div>
           </form>
         </div>

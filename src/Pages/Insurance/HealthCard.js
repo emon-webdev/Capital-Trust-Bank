@@ -1,12 +1,13 @@
-import { Card, CardContent, Typography } from "@mui/material";
+
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { FaRegHandPeace } from "react-icons/fa";
 import { FiLifeBuoy } from "react-icons/fi";
-// import {BsFillArrowRightCircleFill} from 'react-icons/bs'
+
 import React from 'react';
+import { Card, CardBody } from "@chakra-ui/card";
+import { Text } from "@chakra-ui/layout";
 
 export default function HealthCard() {
-   
 
     const healthdata=[
         {
@@ -29,28 +30,27 @@ export default function HealthCard() {
         },
     ]
 
-   
   return (
     <div className=' container flex align-center justify-center gap-6 my-20 flex-col md:flex-row'>
         {
             healthdata.map(hel=>(
     <Card key={hel.id} style={{width:'100%' ,height:'auto'}}  className="hover:bg-[#041C51]  hover:text-[#fff] hover:animate-animated hover:animate-pulse">
-        
-        <CardContent className='flex flex-col align-center justify-center hover:text-white'>
+
+        <CardBody className='flex flex-col align-center justify-center hover:text-white'>
         <div className="w-100  text-4xl flex align-center justify-center my-3">
         <hel.icon  />
         </div>
-        <Typography fontWeight={700} color='#DF0303' marginY={2} fontSize={24} textAlign='center'>
+        <Text fontWeight={700} color='#DF0303' marginY={2} fontSize={24} textAlign='center'>
          {hel.title}
-        </Typography>
+        </Text>
         <div className='text-md text-center'>
           {hel.details}
         </div>
         <div className="w-100 text-sky-500 text-4xl flex align-center justify-center my-3">
         <BsFillArrowRightCircleFill/>
         </div>
-      </CardContent>
-      
+      </CardBody>
+
     </Card>
             ))
         }

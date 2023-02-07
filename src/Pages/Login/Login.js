@@ -1,16 +1,9 @@
+import { Button, Input, InputGroup, InputRightElement, Stack } from "@chakra-ui/react";
 import { GoogleAuthProvider } from "@firebase/auth";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import {
-  FormControl,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  TextField
-} from "@mui/material";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Spinner from "../../component/Spinner/Spinner";
 import { AuthContext } from "../../context/AuthProvider";
@@ -47,7 +40,7 @@ const Login = () => {
         console.log(user);
         setLoginToken(user);
         //store customer device info
-        fetch(`http://localhost:5000/storeDeviceInfo/${user.email}`, {
+        fetch(`https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -117,60 +110,53 @@ const Login = () => {
             Login
           </h2>
 
-          <div className="mt-4">
-            <TextField
-              id="outlined-basic"
-              label="Email"
-              variant="outlined"
-              {...register("email", { required: "please inter valid email" })}
+          <Stack spacing={6}>
+            <Input
+              placeholder='Your Email'
+              size='lg'
+              {...register("email", { required: "Please Inter Valid Email" })}
               onBlur={(e) => setUserEmail(e.target.value)}
-              className="w-full"
             />
             {errors.email && (
               <p className="text-red-500">{errors.email?.message}</p>
             )}
-          </div>
 
-          <div className="relative mt-4">
-            <FormControl
-              sx={{ m: 1, width: "100%", marginLeft: "-1px" }}
-              variant="outlined"
-            >
-              <InputLabel htmlFor="outlined-adornment-password">
-                Password
-              </InputLabel>
-              <OutlinedInput
-                {...register("password", { required: true })}
-                id="outlined-adornment-password"
+
+            {/* password */}
+
+            <InputGroup size='md'>
+              <Input
+                size='lg'
+                pr='4.5rem'
                 type={showPassword ? "text" : "password"}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      edge="end"
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                label="Password"
+                placeholder='Enter password'
+                {...register("password", { required: true })}
               />
-            </FormControl>
+              <InputRightElement width='4.5rem'>
+                <Button
+                  className='chakra-icon-sign'
+                  h='1.75rem' size='sm' onClick={handleClickShowPassword}>
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
             {errors.password && (
               <p className="text-red-500">
-                {errors.password?.message} please your password
+                {errors.password?.message} Please Enter Your Password
               </p>
             )}
-            <label className="label">
+            <label className="label mt-2">
               <Link
                 onClick={handleForgetPassword}
-                className="label-text-alt link link-hover"
+                className="label-text-alt"
               >
                 Forgot password?
               </Link>
             </label>
-          </div>
+
+          </Stack>
+
+          {/* end password */}
           {signInError && <span className="text-red-500">{signInError}</span>}
           <div className="mt-6">
             <button className="w-full secondary-btn px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">

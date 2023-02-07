@@ -1,12 +1,7 @@
-import { Button, Card, CardContent, TextField, Typography } from "@mui/material";
+
 import React, { useState } from "react";
-import address from '../../assets/contact/Address.png';
-import arrow from '../../assets/contact/ArrowUpRight.png';
-import mail from '../../assets/contact/Mail.png';
-import phone from '../../assets/contact/Phone.png';
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import './Contact.css';
-
 
 const Contact = () => {
   const [name, setName] = useState("Contact Us");
@@ -18,7 +13,7 @@ const Contact = () => {
 
         {/* Card Section Start */}
       <div className="card">
-      <Card className="onlyCard">
+      {/* <Card className="onlyCard">
         <CardContent className="CardContent">
           <img className=" mb-3" src={phone} alt="" />
           <Typography className="text-white" sx={{ fontSize: 14}} gutterBottom>
@@ -50,7 +45,7 @@ const Contact = () => {
         Lorem ipsum dolor sit amet, consectetur adipisc elit. <br /> Phasellus aliquet urna  libero ut.
           </Typography>
         </CardContent>
-      </Card>
+      </Card> */}
       </div>
       {/* Card Section End */}
 
@@ -65,7 +60,7 @@ const Contact = () => {
             method="POST"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-5">
-              <TextField
+              {/* <TextField
                 hintText="Enter username"
                 placeholder="First Name"
                 name="name"
@@ -112,32 +107,31 @@ const Contact = () => {
                   type="text"
                   name="name"
                 />
-              </TextField>
+              </TextField> */}
             </div>
             <div className="mt-5">
-              <TextField
+              {/* <TextField
                 className="bd_textarea w-full"
                 name="Message"
                 label="Message..."
                 multiline
                 rows={5}
-              />
+              /> */}
             </div>
             <div className="mt-5 text-center">
-              <Button variant="contained" color="error" type="submit">
+              {/* <Button variant="contained" color="error" type="submit">
                 Send A Message <img src={arrow} alt="" />
-              </Button>
+              </Button> */}
             </div>
           </form>
         </div>
         {/* Send Us A Message End */}
-        
-        {/* GoogleMap Start */}
-        <div>
-          <iframe style={{ width: "100%", height: "500px" }}  src="https://maps.google.com/maps?q=dhaka&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+      </div>
+      {/* GoogleMap Start */}
+      <div>
+          <iframe style={{ width: "100%", height: "500px" }}  src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
         </div>
         {/* GoogleMap End */}
-      </div>
     </div>
     </div>
   );

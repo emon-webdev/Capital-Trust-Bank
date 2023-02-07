@@ -1,15 +1,7 @@
-import {
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer, TableRow, Typography
-} from "@mui/material";
-import { makeStyles } from "@mui/styles";
+
+// import { makeStyles } from "@mui/styles";
 // import { Box } from '@mui/system';
 import React, { useState } from "react";
-import DetailsModal from "./DetailsModal";
-import VisaTransaction from "./VisaTransaction";
 
 // const style = {
 //   position: 'absolute',
@@ -24,16 +16,16 @@ import VisaTransaction from "./VisaTransaction";
 //   p: 4,
 // };
 
-const useStyles = makeStyles({
-  table: {
-    fontSize: "20px",
-    minWidth: 650,
-    borderRadius: "15px",
-    background:
-      "linear-gradient(90deg, rgba(2,2,31,1) 0%, rgba(2,24,55,1) 5%, rgba(2,55,89,1) 12%, rgba(6,129,185,1) 61%, rgba(15,14,89,1) 98%, rgba(1,192,238,1) 100%, rgba(0,212,255,1) 100%);",
-    color: "white",
-  },
-});
+// const useStyles = makeStyles({
+//   table: {
+//     fontSize: "20px",
+//     minWidth: 650,
+//     borderRadius: "15px",
+//     background:
+//       "linear-gradient(90deg, rgba(2,2,31,1) 0%, rgba(2,24,55,1) 5%, rgba(2,55,89,1) 12%, rgba(6,129,185,1) 61%, rgba(15,14,89,1) 98%, rgba(1,192,238,1) 100%, rgba(0,212,255,1) 100%);",
+//     color: "white",
+//   },
+// });
 
 const rows = [
   {
@@ -99,16 +91,16 @@ export default function MyTransaction() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
     <div className="container mt-10 flex gap-5">
       <div className="">
-        <TableContainer sx={{ width: "900px" }} component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
+        {/* <TableContainer sx={{ width: "900px" }} component={Paper}>
+          <Table className="class table" aria-label="simple table">
             <TableRow>
               <TableCell align="center">
                 <Typography fontSize={20} fontWeight="bold" color="white">
-                  Category
+                  Categ
                 </Typography>
               </TableCell>
               <TableCell color="white" align="center">
@@ -195,10 +187,10 @@ export default function MyTransaction() {
               ))}
             </TableBody>
           </Table>
-        </TableContainer>
+        </TableContainer> */}
       </div>
       <div className="">
-        <VisaTransaction />
+        {/* <VisaTransaction /> */}
       </div>
     </div>
   );

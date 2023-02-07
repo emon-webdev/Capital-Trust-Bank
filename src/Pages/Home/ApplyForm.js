@@ -1,10 +1,13 @@
-import { Grid } from "@mui/material";
-import { Box } from "@mui/system";
+
+import { FormControl } from "@chakra-ui/form-control";
+import { Box } from "@chakra-ui/layout";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { useLoaderData, useNavigate } from "react-router-dom";
-import apply from "../../assets/Services(Home)/apply-form-box-bg.jpg";
+import {  useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import { districts } from "../Services/districtData";
+import apply from '../../assets/Services(Home)/apply-form-box-bg.jpg';
+
 
 export default function ApplyForm() {
   const [district, setDistrict] = useState("");
@@ -14,120 +17,7 @@ export default function ApplyForm() {
   const handleChange = (event) => {
     setDistrict(event.target.value);
   };
-  const districts = [
-    "Barguna",
-    "Barisal",
-    "Bhola",
-    "Jhalokati",
-    "Patuakhali",
-    "Pirojpur",
-    "Bandarban",
-    "Brahmanbaria",
-    "Chandpur",
-    "Chittagong",
-    "Comilla",
-    "Cox's Bazar",
-    "Feni",
-    "Khagrachhari",
-    "Lakshmipur",
-    "Noakhali",
-    "Rangamati",
-    "Dhaka",
-    "Faridpur",
-    "Gazipur",
-    "Gopalganj",
-    "Kishoreganj",
-    "Madaripur",
-    "Manikganj",
-    "Munshiganj",
-    "Narayanganj",
-    "Narsingdi",
-    "Rajbari",
-    "Shariatpur",
-    "Tangail",
-    "Bagerhat",
-    "Chuadanga",
-    "Jessore",
-    "Jhenaidah",
-    "Khulna",
-    "Kushtia",
-    "Magura",
-    "Meherpur",
-    "Narail",
-    "Satkhira",
-    "Jamalpur",
-    "Mymensingh",
-    "Netrakona",
-    "Sherpur",
-    "Bogra",
-    "Chapainawabganj",
-    "Joypurhat",
-    "Naogaon",
-    "Natore",
-    "Pabna",
-    "Rajshahi",
-    "Sirajganj",
-    "Dinajpur",
-    "Gaibandha",
-    "Kurigram",
-    "Lalmonirhat",
-    "Nilphamari",
-    "Panchagarh",
-    "Rangpur",
-    "Thakurgaon",
-    "Habiganj",
-    "Moulvibazar",
-    "Sunamganj",
-    "Sylhet",
-    "Rangamati",
-    "Dhaka",
-    "Faridpur",
-    "Gazipur",
-    "Gopalganj",
-    "Kishoreganj",
-    "Madaripur",
-    "Manikganj",
-    "Munshiganj",
-    "Narayanganj",
-    "Narsingdi",
-    "Rajbari",
-    "Shariatpur",
-    "Tangail",
-    "Bagerhat",
-    "Chuadanga",
-    "Jessore",
-    "Jhenaidah",
-    "Khulna",
-    "Kushtia",
-    "Magura",
-    "Meherpur",
-    "Narail",
-    "Satkhira",
-    "Jamalpur",
-    "Mymensingh",
-    "Netrakona",
-    "Sherpur",
-    "Bogra",
-    "Chapainawabganj",
-    "Joypurhat",
-    "Naogaon",
-    "Natore",
-    "Pabna",
-    "Rajshahi",
-    "Sirajganj",
-    "Dinajpur",
-    "Gaibandha",
-    "Kurigram",
-    "Lalmonirhat",
-    "Nilphamari",
-    "Panchagarh",
-    "Rangpur",
-    "Thakurgaon",
-    "Habiganj",
-    "Moulvibazar",
-    "Sunamganj",
-    "Sylhet",
-  ];
+  
   const [loans, setLoans] = useState([]);
   useEffect(() => {
     fetch("https://capital-trust-bank-server.vercel.app/loanService")
@@ -135,7 +25,11 @@ export default function ApplyForm() {
       .then((data) => setLoans(data));
   }, []);
 
-  const ser = useLoaderData();
+  
+const ser = useLoaderData();
+
+ 
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -206,8 +100,8 @@ export default function ApplyForm() {
             }}
             className="py-10 mb-10 px-7 sm:align-content-center sm:justify-items-center"
           >
-            <Grid container className=" align-content-center justify-items-center">
-              <Grid item xs={12}>
+            {/* <Grid container className=" align-content-center justify-items-center"> */}
+              <FormControl>
                 <input
                   name="name"
                   className="border px-3 rounded "
@@ -215,34 +109,39 @@ export default function ApplyForm() {
                   placeholder="Your Name"
                   defaultValue={user?.displayName}
                 ></input>
-              </Grid>
-              <Grid item xs={12}>
+              </FormControl>
+              <FormControl>
                 <input
                   name="email"
                   style={{ width: "100%" }}
-                  className="border  px-3 rounded"
+                  className="border  px-4 rounded"
                   placeholder="Email"
                   defaultValue={user?.email}
                 ></input>
-              </Grid>
-              <Grid item xs={12}>
+              </FormControl>
+              <FormControl>
                 <input
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
                   placeholder="Phone"
                 ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
+              </FormControl>
+              <FormControl>
+                <select
                   name="loan"
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
                   placeholder="Loan"
-                  defaultValue={ser.title}
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
+                  
+                >
+                  <option value="">Education Loan</option>
+                  <option value="">Gold Loan</option>
+                  <option value="">Marriage Loan</option>
+                  <option value="">Vehicle Loan</option>
+                </select>
+              </FormControl>
+              <FormControl>
                 <select
                   name="city"
                   style={{ width: "100%" }}
@@ -258,17 +157,18 @@ export default function ApplyForm() {
                     </option>
                   ))}
                 </select>
-              </Grid>
-              <Grid item xs={12}>
+              </FormControl>
+              <FormControl>
                 <input
                   name="date"
+                  type='date'
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
                   placeholder="dd/mm/yy"
                 ></input>
-              </Grid>
+              </FormControl>
 
-                <Grid item xs={12}>
+                <FormControl>
                   <button
                     style={{ width: "100%" }}
                     className="primary-btn mt-2 "
@@ -276,8 +176,8 @@ export default function ApplyForm() {
                   >
                     Apply
                   </button>
-                </Grid>
-              </Grid>
+                </FormControl>
+              {/* </FormControl> */}
             </form>
         </Box>
       </div>

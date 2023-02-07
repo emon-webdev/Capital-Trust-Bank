@@ -3,15 +3,16 @@ import React, { useEffect, useState } from 'react';
 const LoanReq = () => {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/applicants`)
+    fetch(`https://capital-trust-bank-server.vercel.app/applicants`)
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);
       });
   }, []);
+  console.log(customers)
   return (
     <div className='my-2'>
-      <h2 className="text-center default-font">
+      <h2 className="text-center default-font text-black">
         Total Loan Request:{customers.length}
       </h2>
       <div className='loan grid gap-5 md:grid-cols-3'>

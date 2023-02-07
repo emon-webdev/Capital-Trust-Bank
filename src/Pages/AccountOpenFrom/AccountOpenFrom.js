@@ -1,33 +1,37 @@
 import {
-  Box,
-  FormControl,
-  FormControlLabel,
-  MenuItem,
+  Input,
+  InputGroup,
+  InputLeftElement,
   Radio,
   RadioGroup,
-  Select
-} from "@mui/material";
-import { default as React, useState } from "react";
+  Select,
+  Stack
+} from "@chakra-ui/react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import "react-phone-input-2/lib/style.css";
+import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 const AccountOpenFrom = () => {
   const {
     register,
-    reset,
+    reset, 
     handleSubmit,
     formState: { errors },
   } = useForm();
   const date = new Date();
-  console.log(date);
+  const { user } = useContext(AuthContext);
   const imgHostKey = process.env.REACT_APP_IMAGE_SECRET_KEY;
+  // console.log(imgHostKey);
   const [name, setName] = useState("Account Open In Bank");
-
-  /* submit from */
+  const [gender, setGender] = useState("male");
   const accountFromSubmit = (data) => {
-    const image = data.image[0];
+    console.log(data);
+    const cardImg = data.cardImg[0];
+    console.log(cardImg);
     const formData = new FormData();
-    formData.append("image", image);
+    formData.append("image", cardImg);
     const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`;
     fetch(url, {
       method: "POST",
@@ -36,12 +40,14 @@ const AccountOpenFrom = () => {
       .then((res) => res.json())
       .then((imgData) => {
         if (imgData.success) {
+          const image = imgData.data.url;
+          console.log(image);
           const account = {
             accountOpenDate: date,
             firstName: data.firstName,
             lastName: data.lastName,
             birth: data.birth,
-            gender: data.gender,
+            gender: gender,
             phone: data.phone,
             email: data.email,
             streetAddress: data.streetAddress,
@@ -51,7 +57,7 @@ const AccountOpenFrom = () => {
             country: data.country,
             identification: data.identification,
             idNumber: data.idNumber,
-            frontCardImg: imgData?.data.url,
+            cardImg: imgData.data.url,
             accountType: data.accountType,
             accountCategory: data.accountCategory,
             monthlySalary: data.monthlySalary,
@@ -59,8 +65,9 @@ const AccountOpenFrom = () => {
             term: true,
             approve: false,
           };
-          // post to database
-          fetch(`http://localhost:5000/bankAccounts`, {
+          console.log(account);
+          // save information to the database
+          fetch("http://localhost:5000/bankAccounts", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -68,474 +75,363 @@ const AccountOpenFrom = () => {
             body: JSON.stringify(account),
           })
             .then((res) => res.json())
-            .then((data) => {
-              console.log(data);
-              if (data.acknowledged) {
-                toast.success("Please wait for manager approval");
-                reset();
-              }
-            })
-            .then((error) => console.error(error));
+            .then((result) => {
+              console.log(result);
+              toast.success(
+                `Your form has been submitted please wait for approval.`
+              );
+              reset();
+            });
         }
       });
   };
 
   return (
-    <div>
+    <div className="bg-[#ddd]">
       <div className="">
         <DynamicBanner name={name}></DynamicBanner>
       </div>
       <div className="account-open-from py-20 bg-[#F3F3FE]">
         <div className="container">
-          <Box
-            borderRadius={"8px"}
-            width="100%"
-            mx={"auto"}
-            zIndex="1"
-            maxWidth="800px"
-            className="px-[38px] pb-7"
-            style={{
-              backgroundColor: "#fff",
-            }}
-          >
-            <h2 className="text-3xl text-[#2c3345] font-bold text-center mb-0 md:py-[40px] md:px-[52px]">
+          <div className="from-area mx-auto px-[38px] py-[50px] z-10 w-full max-w-[800px] rounded-lg  bg-white">
+            <h2 className="text-[26px] font-semibold md:text-[32px] text-[#2c3345] text-center mb-0 pb-[40px] ">
               Account Opening Form
             </h2>
-            <h2 className="text-xl text-[#2c3345] font-bold mb-2 ">
+            <h2 className="text-xl font-semibold text-[#2c3345]  mb-3 ">
               Personal Information
             </h2>
-            <form
-              onSubmit={handleSubmit(accountFromSubmit)}
-              className="mb-10  sm:align-content-center sm:justify-items-center"
-            >
-              <Box
-                sx={{
-                  display: { md: "flex" },
-                  justifyContent: "space-between",
-                }}
-              >
-                <FormControl
-                  sx={{
-                    marginRight: { md: "15px" },
-                  }}
-                  fullWidth
-                >
+            <form onSubmit={handleSubmit(accountFromSubmit)}>
+              <div className="from-group md:flex justify-between ">
+                <div className="form-control h-auto w-full items-center md:mr-4">
                   <label className="text-base text-[#57647E]">First Name</label>
                   <input
+                    type="text"
                     {...register("firstName", {
                       required: "First Name is required",
                     })}
-                    type="text"
-                    fullWidth
-                    className="border  px-[10px] rounded "
-                    style={{ margin: "5px 0 10px", width: "100%" }}
+                    className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="First Name"
                   ></input>
-                </FormControl>
-                <FormControl fullWidth>
+                </div>
+                <div className="form-control w-full ">
                   <label className="text-base text-[#57647E]">Last Name</label>
                   <input
+                    type="text"
                     name="lastName"
                     {...register("lastName", {
-                      required: "Name is required",
+                      required: "Last Name is required",
                     })}
-                    fullWidth
-                    className="border  px-[10px] rounded "
-                    style={{ margin: "5px 0 10px", width: "100%" }}
+                    className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Last Name"
                   ></input>
-                </FormControl>
-              </Box>
-              <Box
-                sx={{
-                  display: { md: "flex" },
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <FormControl
-                  sx={{
-                    marginRight: { md: "15px" },
-                  }}
-                  fullWidth
-                >
+                </div>
+              </div>
+              <div className="from-group md:flex justify-between items-center ">
+                <div className="form-control  w-full  md:mr-4">
                   <label className="text-base text-[#57647E]">
                     Date of Birth
                   </label>
                   <input
+                    type="text"
                     {...register("birth", {
-                      required: "Name is required",
+                      required: "Birth is required",
                     })}
-                    style={{ margin: "5px 0 10px", width: "100%" }}
-                    fullWidth
-                    className="border  px-[10px] rounded "
+                    className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Date of Birth"
                   ></input>
-                </FormControl>
-                <FormControl fullWidth>
+                </div>
+                <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">Gender</label>
-                  <FormControl>
-                    <RadioGroup
-                      aria-labelledby="demo-radio-buttons-group-label"
-                      defaultValue="female"
-                      sx={{ margin: "5px 0 10px", width: "100%" }}
-                      {...register("gender", {
-                        required: "gender is required",
-                      })}
+                  <RadioGroup onChange={setGender} value={gender}>
+                    <Stack
+                      direction="row"
+                      className="h-[50px] mb-2 mt-1 w-full"
                     >
-                      <Box sx={{ display: "flex" }}>
-                        <FormControlLabel
-                          value="male"
-                          control={<Radio />}
-                          label="Male"
-                        />
-                        <FormControlLabel
-                          value="female"
-                          control={<Radio />}
-                          label="Female"
-                        />
+                      <Radio value="Male">Male</Radio>
+                      <Radio value="Female">Female</Radio>
+                      <Radio value="Others">Others</Radio>
+                    </Stack>
+                  </RadioGroup>
+                </div>
+              </div>
 
-                        <FormControlLabel
-                          value="other"
-                          control={<Radio />}
-                          label="Other"
-                        />
-                      </Box>
-                    </RadioGroup>
-                  </FormControl>
-                </FormControl>
-              </Box>
-              <Box
-                sx={{
-                  display: { md: "flex" },
-                  justifyContent: "space-between",
-                }}
-              >
-                <FormControl
-                  sx={{
-                    marginRight: { md: "15px" },
-                  }}
-                  fullWidth
-                >
+              <div className="from-group md:flex justify-between items-center ">
+                <div className="form-control  w-full  md:mr-4">
                   <label className="text-base text-[#57647E]">
                     Phone Number
                   </label>
                   <input
+                    type="number"
                     {...register("phone", {
-                      required: "phone is required",
+                      required: "Phone Number is required",
                     })}
-                    fullWidth
-                    className="border  px-[10px] rounded "
-                    style={{ margin: "5px 0 10px", width: "100%" }}
+                    className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Phone Number"
                   ></input>
-                </FormControl>
-                <FormControl fullWidth>
+                </div>
+                <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">
                     Email Address
                   </label>
                   <input
+                    type="email"
                     {...register("email", {
                       required: "email is required",
                     })}
-                    fullWidth
-                    className="border  px-[10px] rounded "
-                    style={{ margin: "5px 0 10px", width: "100%" }}
+                    className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Email Address"
                   ></input>
-                </FormControl>
-              </Box>
-              {/*  Mailing Address */}
-              <h2 className="text-xl text-[#2c3345] font-bold my-2 ">
+                </div>
+              </div>
+              <h2 className="text-xl font-semibold text-[#2c3345] my-3 ">
                 Mailing Address
               </h2>
-              <Box>
-                <FormControl fullWidth>
+              <div className="from-group md:flex justify-between items-center ">
+                <div className="form-control  w-full ">
                   <label className="text-base text-[#57647E]">
                     Street Address
                   </label>
                   <input
+                    type="text"
                     {...register("streetAddress", {
-                      required: "streetAddress is required",
+                      required: "Street Address is required",
                     })}
-                    style={{ margin: "5px 0 10px", width: "100%" }}
-                    fullWidth
-                    className="border  px-[10px] rounded "
+                    className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Street Address"
                   ></input>
-                </FormControl>
-              </Box>
-              <Box
-                sx={{
-                  display: { md: "flex" },
-                  justifyContent: "space-between",
-                }}
-              >
-                <FormControl
-                  sx={{
-                    marginRight: { md: "15px" },
-                  }}
-                  fullWidth
-                >
+                </div>
+              </div>
+              <div className="from-group md:flex justify-between items-center ">
+                <div className="form-control  w-full  md:mr-4">
                   <label className="text-base text-[#57647E]">City</label>
                   <input
+                    type="text"
                     {...register("city", {
-                      required: "city is required",
+                      required: "City is required",
                     })}
-                    fullWidth
-                    className="border  px-[10px] rounded "
-                    style={{ margin: "5px 0 10px", width: "100%" }}
+                    className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="City"
                   ></input>
-                </FormControl>
-                <FormControl fullWidth>
+                </div>
+                <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">Region</label>
                   <input
+                    type="text"
                     {...register("region", {
-                      required: "region is required",
+                      required: "Region is required",
                     })}
-                    fullWidth
-                    className="border  px-[10px] rounded mt-[5px]"
-                    style={{ margin: "5px 0 10px !important", width: "100%" }}
+                    className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Region"
                   ></input>
-                </FormControl>
-              </Box>
-              <Box
-                sx={{
-                  display: { md: "flex" },
-                  justifyContent: "space-between",
-                }}
-              >
-                <FormControl
-                  sx={{
-                    marginRight: { md: "15px" },
-                  }}
-                  fullWidth
-                >
+                </div>
+              </div>
+              <div className="from-group md:flex justify-between items-center ">
+                <div className="form-control  w-full  md:mr-4">
                   <label className="text-base text-[#57647E]">
                     Postal / Zip Code
                   </label>
                   <input
-                    name="postal"
+                    type="text"
                     {...register("postal", {
-                      required: "postal is required",
+                      required: "Postal / Zip Code",
                     })}
-                    fullWidth
-                    className="border  px-[10px] rounded "
-                    style={{ margin: "5px 0 10px", width: "100%" }}
-                    placeholder="Postal / Zip Code"
+                    className="border mb-2 mt-1 rounded w-full px-[10px]"
+                    placeholder="City"
                   ></input>
-                </FormControl>
-                <FormControl fullWidth>
+                </div>
+                <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">Country</label>
                   <input
-                    name="country"
+                    type="text"
                     {...register("country", {
-                      required: "country is required",
+                      required: "Country is required",
                     })}
-                    fullWidth
-                    className="border  px-[10px] rounded mt-[5px]"
-                    style={{ margin: "5px 0 10px !important", width: "100%" }}
-                    placeholder="country"
+                    className="border mb-2 mt-1 rounded w-full px-[10px]"
+                    placeholder="Country"
                   ></input>
-                </FormControl>
-              </Box>
-              <Box
-                sx={{
-                  display: { md: "flex" },
-                  justifyContent: "space-between",
-                }}
-              >
-                <FormControl
-                  sx={{
-                    marginRight: { md: "15px" },
-                    width: "100%",
-                  }}
-                  fullWidth
-                >
+                </div>
+              </div>
+              <div className="from-group md:flex justify-between items-center ">
+                <div className="form-control  w-full  md:mr-4">
                   <label className="text-base text-[#57647E]">
                     Form of Identification
                   </label>
                   <Select
-                    style={{ width: "100%", background: "#fff" }}
-                    id="demo-simple-select"
-                    fullWidth
-                    defaultValue="Student ID"
-                    className="border  px-[10px] rounded "
-                    sx={{ margin: "5px 0 10px", width: "100%" }}
+                    style={{
+                      margin: "5px 0 10px",
+                      width: "100%",
+                      height: "50px",
+                    }}
+                    placeholder="Form of Identification"
+                    className="from-select border  px-[10px] rounded "
                     {...register("identification", {
                       required: "identification is required",
                     })}
                   >
-                    <MenuItem value="Student ID">Student ID</MenuItem>
-                    <MenuItem value="National ID">National ID</MenuItem>
+                    <option value="StudentID">Student ID</option>
+                    <option value="NationalID">National ID</option>
                   </Select>
-                </FormControl>
-                <FormControl fullWidth>
+                </div>
+                <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">ID Number</label>
                   <input
-                    name="idNumber"
+                    type="number"
                     {...register("idNumber", {
-                      required: "id Number is required",
+                      required: "Id Number is required",
                     })}
-                    fullWidth
-                    className="border  px-[10px] rounded "
-                    style={{ margin: "5px 0 10px", width: "100%" }}
+                    className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Id Number"
                   ></input>
-                </FormControl>
-              </Box>
-              <Box>
-                <FormControl fullWidth>
-                  <label className="text-base text-[#57647E]">
+                </div>
+              </div>
+              <div className="from-group md:flex justify-between items-center ">
+                <div className="form-control cardImg-control w-full">
+                  <label id="cardId" className=" text-base text-[#57647E]">
                     ID Card Upload
                   </label>
                   <input
                     type="file"
-                    {...register("image", {
-                      required: "Id Card is required",
+                    {...register("cardImg", {
+                      required: "Photo is required",
                     })}
-                    style={{
-                      margin: "5px 0 10px",
-                      width: "100%",
-                    }}
-                    fullWidth
-                    className="border md:height-[130px] px-[10px] rounded "
-                    placeholder="Street Address"
-                  ></input>
-                </FormControl>
-              </Box>
-              <h2 className="text-xl text-[#2c3345] font-bold my-2 ">
+                    htmlFor="cardId"
+                    className="border none cardImg-field mb-2 mt-1 rounded w-full px-[10px]"
+                  />
+                  {errors.cardImg && (
+                    <p className="text-red-600">{errors.cardImg?.message}</p>
+                  )}
+                </div>
+              </div>
+              <h2 className="text-xl text-[#2c3345] font-semibold my-3 ">
                 Account Information
               </h2>
-              <Box
-                sx={{
-                  display: { md: "flex" },
-                  justifyContent: "space-between",
-                }}
-              >
-                <FormControl
-                  sx={{
-                    marginRight: { md: "15px" },
-                    width: "100%",
-                  }}
-                  fullWidth
-                >
+              <div className="from-group md:flex justify-between items-center ">
+                <div className="form-control  w-full  md:mr-4">
                   <label className="text-base text-[#57647E]">
                     Account Type
                   </label>
                   <Select
-                    style={{ width: "100%", background: "#fff" }}
-                    id="demo-simple-select"
-                    defaultValue="Current"
-                    fullWidth
-                    className="border  px-[10px] rounded "
-                    sx={{ margin: "5px 0 10px", width: "100%" }}
+                    style={{
+                      margin: "5px 0 10px",
+                      width: "100%",
+                      height: "50px",
+                    }}
+                    placeholder="Account Type"
+                    className="from-select border  px-[10px] rounded "
                     {...register("accountType", {
                       required: "accountType is required",
                     })}
                   >
-                    <MenuItem value="Current">Current</MenuItem>
-                    <MenuItem value="Savings">Savings</MenuItem>
-                    <MenuItem value="Others">Others</MenuItem>
+                    <option value="Savings">Current</option>
+                    <option value="Savings">Savings</option>
+                    <option value="Others">Others</option>
                   </Select>
-                </FormControl>
-                <FormControl fullWidth>
+                </div>
+                <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">
                     Account Category
                   </label>
                   <Select
-                    style={{ width: "100%", background: "#fff" }}
-                    id="demo-simple-select"
-                    name="accountCategory"
-                    defaultValue="Singly"
-                    fullWidth
-                    className="border  px-[10px] rounded "
-                    sx={{ margin: "5px 0 10px", width: "100%" }}
+                    style={{
+                      margin: "5px 0 10px",
+                      width: "100%",
+                      height: "50px",
+                    }}
+                    placeholder="Account Category"
+                    className="from-select border  px-[10px] rounded "
                     {...register("accountCategory", {
                       required: "account Category is required",
                     })}
                   >
-                    <MenuItem value="Singly">Singly</MenuItem>
-                    <MenuItem value="Jointly">Jointly</MenuItem>
-                    <MenuItem value="Others">Others</MenuItem>
+                    <option value="Singly">Singly</option>
+                    <option value="Jointly">Jointly</option>
+                    <option value="Others">Others</option>
                   </Select>
-                </FormControl>
-              </Box>
-              <Box
-                sx={{
-                  display: { md: "flex" },
-                  justifyContent: "space-between",
-                }}
-              >
-                <FormControl
-                  sx={{
-                    marginRight: { md: "15px" },
-                  }}
-                  fullWidth
-                >
+                </div>
+              </div>
+              <div className="from-group md:flex justify-between items-center ">
+                <div className="form-control  w-full  md:mr-4">
                   <label className="text-base text-[#57647E]">
                     Monthly Salary
                   </label>
-                  <input
-                    name="monthlySalary"
-                    {...register("monthlySalary", {
-                      required: "monthlySalary is required",
-                    })}
-                    fullWidth
-                    className="border  px-[10px] rounded "
-                    style={{ margin: "5px 0 10px", width: "100%" }}
-                    placeholder="Monthly Salary"
-                  ></input>
-                </FormControl>
-                <FormControl fullWidth>
+                  <InputGroup className="mb-2 mt-1">
+                    <InputLeftElement
+                      className="h-[50px]"
+                      pointerEvents="none"
+                      color="gray.300"
+                      fontSize="1.2em"
+                      children="$"
+                    />
+                    <Input
+                      type="number"
+                      {...register("monthlySalary", {
+                        required: "Monthly Salary",
+                      })}
+                      placeholder="Initial Deposit"
+                    />
+                  </InputGroup>
+                  {errors.monthlySalary && (
+                    <p className="text-red-600">
+                      {errors.monthlySalary?.message}
+                    </p>
+                  )}
+                </div>
+                <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">
                     Initial Deposit
                   </label>
+                  <InputGroup className="mb-2 mt-1">
+                    <InputLeftElement
+                      className="h-[50px] "
+                      pointerEvents="none"
+                      color="gray.300"
+                      fontSize="1.2em"
+                      children="$"
+                    />
+                    <Input
+                      type="number"
+                      {...register("initialDeposit", {
+                        required: "Initial Deposit is required",
+                      })}
+                      placeholder="Initial Deposit"
+                    />
+                  </InputGroup>
+                  {errors.initialDeposit && (
+                    <p className="text-red-600">
+                      {errors.initialDeposit?.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="from-group my-4 ">
+                <div className="form-control flex items-center w-full">
                   <input
-                    name="initialDeposit"
-                    {...register("initialDeposit", {
-                      required: "initial Deposit is required",
+                    className="mr-3"
+                    type="checkbox"
+                    name="term"
+                    id="terms"
+                    required
+                    {...register("term", {
+                      required: "Term and every field are required",
                     })}
-                    fullWidth
-                    className="border  px-[10px] rounded "
-                    style={{ margin: "5px 0 10px", width: "100%" }}
-                    placeholder="Initial Deposit"
-                  ></input>
-                </FormControl>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginTop: "8px",
-                }}
-              >
+                  />
+                  <label htmlFor="terms">I agree to terms and conditions</label>
+                </div>
+                {errors.term && (
+                  <p className="text-red-600 ml-[32px]">
+                    {errors.term?.message}
+                  </p>
+                )}
+              </div>
+              <div className="w-[49%] my-4">
                 <input
-                  className="mr-3"
-                  type="checkbox"
-                  name="term"
-                  id="terms"
-                  required
-                  // onClick={(e) => setTerms(e.target.value)}
-                  {...register("term", {
-                    required: "term is required",
-                  })}
-                />
-                <label htmlFor="terms">I agree to terms and conditions</label>
-              </Box>
-              <Box sx={{ marginTop: "20px" }}>
-                <button
-                  style={{ width: "49%" }}
-                  className="primary-btn mt-2 "
+                  className="btn border-none primary-btn text-black w-full"
+                  value="Submit Form"
                   type="submit"
-                >
-                  Submit
-                </button>
-              </Box>
+                />
+              </div>
             </form>
-          </Box>
+          </div>
         </div>
       </div>
     </div>

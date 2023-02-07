@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
     //     const unsubscribe = onAuthStateChanged(auth, currentUser => {
     //         setUser(currentUser);
     //         setLoading(false)
-    //          fetch(`http://localhost:5000/customer/${currentUser.email}`)
+    //          fetch(`https://capital-trust-bank-server.vercel.app/customer/${currentUser.email}`)
     //            .then((res) => res.json())
     //            .then((data) => {
     //              setRole(data.role);
@@ -72,7 +72,7 @@ const AuthProvider = ({ children }) => {
         onAuthStateChanged(auth, (user) => {
           if (user) { 
             setUser(user);
-            fetch(`http://localhost:5000/customer/${user.email}`)
+            fetch(`https://capital-trust-bank-server.vercel.app/customer/${user.email}`)
             .then((res) => res.json())
             .then((data) => {
               setRole(data.role)

@@ -1,21 +1,26 @@
 import { createBrowserRouter } from "react-router-dom";
 import { default as AllCustomers } from "../Dashboard/components/AllCustomers/AllCustomers";
 import CardReq from "../Dashboard/components/CardReq/CardReq";
+import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
+
+import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
+import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
+import MyAccount from "../Dashboard/components/MyAccount/MyAccount";
 import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
 import Welcome from "../Dashboard/components/Welcome/Welcome";
 import Main from "../Layout/Main";
 import About from "../Pages/About/About";
 import AccountOpenFrom from "../Pages/AccountOpenFrom/AccountOpenFrom";
 import Apply from "../Pages/Apply/Apply";
+import Cards from "../Pages/Cards/Cards";
 import Contact from "../Pages/Contact/Contact";
 import ApplyForm from "../Pages/Home/ApplyForm";
 import Home from "../Pages/Home/Home";
 import BusinessInsurance from "../Pages/Insurance/BusinessInsurance";
 import HealthInsurance from "../Pages/Insurance/HealthInsurance";
-import Insurance from "../Pages/Insurance/Insurance";
 import TravelInsurance from "../Pages/Insurance/TravelInsurance";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Login/Signup";
@@ -43,10 +48,7 @@ const router = createBrowserRouter([
         path: "/apply",
         element: <Apply />,
       },
-      {
-        path: "/insurance",
-        element: <Insurance />,
-      },
+     
       {
         path: "/healthinsurance",
         element: <HealthInsurance />,
@@ -68,11 +70,11 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/loanService/:id",
+        path: "/loans/:title",
         element: <ApplyForm></ApplyForm>,
         loader: ({ params }) =>
           fetch(
-            `https://capital-trust-bank-server.vercel.app/loanService/${params.id}`
+            `https://capital-trust-bank-server.vercel.app/loans/${params.title}`
           ),
       },
       {
@@ -85,11 +87,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/marriageloan",
-        element: <MarriageLoan />,
+        element: <MarriageLoan/>,
       },
       {
         path: "/vehicleloan",
         element: <VehicleLoan />,
+      },
+      {
+        path: "/cards",
+        element: <Cards />,
       },
       {
         path: "/contact",
@@ -100,7 +106,7 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/accountOpenFrom",
+        path: "/AccountOpenFrom",
         element: <AccountOpenFrom />,
       },
       {
@@ -157,14 +163,10 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
-      // {
-      //   path: "/dashboard/myTransaction",
-      //   element: (
-
-      //       <MyTransaction />
-
-      //   ),
-      // },
+      {
+        path: "/dashboard/myTransaction",
+        element: <MyTransaction />,
+      },
       // {
       //   path: "/dashboard/my-balance",
       //   element: (
@@ -173,22 +175,22 @@ const router = createBrowserRouter([
       //     </CustomerRoute>
       //   ),
       // },
-      // {
-      //   path: "/dashboard/my-withdraw",
-      //   element: (
-      //     <CustomerRoute>
-      //       <MyWithdraw />
-      //     </CustomerRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/dashboard/my-deposit",
-      //   element: (
-      //     <CustomerRoute>
-      //       <MyDeposit />
-      //     </CustomerRoute>
-      //   ),
-      // },
+      {
+        path: "/dashboard/my-withdraw",
+        element: (
+          <CustomerRoute>
+            <MyWithdraw />
+          </CustomerRoute>
+        ),
+      },
+      {
+        path: "/dashboard/my-deposit",
+        element: (
+          <CustomerRoute>
+            <MyDeposit />
+          </CustomerRoute>
+        ),
+      },
       // {
       //   path: "/dashboard/myAccount",
       //   element: <MyAccount />,
@@ -200,6 +202,10 @@ const router = createBrowserRouter([
             <DeviceActivity />
           </CustomerRoute>
         ),
+      },
+      {
+        path: "/dashboard/myAccount",
+        element: <MyAccount />,
       },
     ],
   },

@@ -1,10 +1,6 @@
-import CheckIcon from "@mui/icons-material/Check";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
-import { Box, Modal } from "@mui/material";
-import Backdrop from "@mui/material/Backdrop";
-import Fade from "@mui/material/Fade";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { BsCreditCard2Back } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 import Slider from "react-slick";
 import sliderImg1 from "../../assets/serviceReqImg/features-style2-banner-1.jpg";
@@ -97,7 +93,7 @@ const ServiceReqSlider = () => {
               <div key={sliderNav?._id}>
                 <div className="single-slider-nav">
                   <div className="slider-nav-icon">
-                    <CreditCardIcon />
+                    <BsCreditCard2Back />
                   </div>
                   <h3>{sliderNav?.title}</h3>
                 </div>
@@ -122,7 +118,7 @@ const ServiceReqSlider = () => {
                             className="font-medium text-[16px] mb-2 text-[#010C3A]"
                           >
                             <span className="">
-                              <CheckIcon className="text-[#DF0303] text-[22px] p-[2px] rounded-md mr-1" />
+                              <BsCreditCard2Back className="text-[#DF0303] text-[22px] p-[2px] rounded-md mr-1" />
                             </span>
                             {service?.name}
                           </p>
@@ -163,19 +159,19 @@ const ServiceReqSlider = () => {
                   </div>
                   {/* Show Modal */}
                   <div className="service-req-from">
-                    <Modal
+                    {/* <modal
                       aria-labelledby="transition-modal-title"
                       aria-describedby="transition-modal-description"
                       open={open}
                       onClose={handleClose}
-                      closeAfterTransition
-                      BackdropComponent={Backdrop}
-                      BackdropProps={{
+                      closeaftertransition="true"
+                      // BackdropComponent={Backdrop}
+                      backdropprops={{
                         timeout: 500,
                       }}
                     >
-                      <Fade in={open}>
-                        <Box sx={style}>
+                      <fade in={open}>
+                        <div sx={style}>
                           <h2 className="font-semibold ">
                             {slidersContent?.name}
                           </h2>
@@ -239,9 +235,9 @@ const ServiceReqSlider = () => {
                               </div>
                             </form>
                           </div>
-                        </Box>
-                      </Fade>
-                    </Modal>
+                        </div>
+                      </fade>
+                    </modal> */}
                   </div>
                 </div>
               </div>
