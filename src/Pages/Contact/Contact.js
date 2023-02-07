@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
-import { Card, CardHeader, CardBody,SimpleGrid,Text, Button, FormControl, FormLabel, Input, Textarea, Checkbox } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody,SimpleGrid,Text, FormControl, FormLabel, Input, Textarea, Checkbox } from '@chakra-ui/react'
 import './Contact.css';
 import phone from '../.././assets/contact/Phone.png';
 import mail from '../.././assets/contact/Mail.png';
 import address from '../.././assets/contact/Address.png';
 import arrow from '../.././assets/contact/ArrowUpRight.png'
-import {redirect, Form,} from "react-router-dom"
+import {redirect, Form, Link,} from "react-router-dom"
 
 const Contact = () => {
   const [name, setName] = useState("Contact");
@@ -82,14 +82,14 @@ const Contact = () => {
                 <Textarea placeholder='Write Your Message' name="message"/>
               </FormControl>
 
-              <FormControl display="flex" alignItems="center" mb="20px" mt="10px">
+              {/* <FormControl display="flex" alignItems="center" mb="20px" mt="10px">
                 <Checkbox name="isPriority" size="lg"/>
                 <FormLabel ml="10px" mb="0">Make sure everthing is Okay</FormLabel>
-              </FormControl>
+              </FormControl> */}
             <div className="mt-5 text-center">
-              <Button type="submit" colorScheme='blue' variant='solid'>
+              <Link type="submit" to="/" className="secondary-btn ml-10 mt-5">
                 Send A Message <img src={arrow} alt="" />
-              </Button>
+              </Link>
             </div>
             </Form>
         </div>
@@ -117,7 +117,7 @@ export const createAction = async ({request})=>{
     email: data.get('email'),
     address: data.get('address'),
     message: data.get('message'),
-    isPriority: data.get('ispriority') ===''
+    // isPriority: data.get('ispriority') ===''
   }
 
   console.log(task)
