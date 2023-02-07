@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { default as AllCustomers } from "../Dashboard/components/AllCustomers/AllCustomers";
 import CardReq from "../Dashboard/components/CardReq/CardReq";
+import MyAccount from "../Dashboard/components/Customers/MyAccount/MyAccount";
 import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
 
 import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
@@ -8,7 +9,7 @@ import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw"
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
-import MyAccount from "../Dashboard/components/MyAccount/MyAccount";
+
 import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
 import Welcome from "../Dashboard/components/Welcome/Welcome";
 import Main from "../Layout/Main";
@@ -191,10 +192,10 @@ const router = createBrowserRouter([
           </CustomerRoute>
         ),
       },
-      // {
-      //   path: "/dashboard/myAccount",
-      //   element: <MyAccount />,
-      // },
+      {
+        path: "/dashboard/myAccount",
+        element: <MyAccount />,
+      },
       {
         path: "/dashboard/deviceActivity",
         element: (
