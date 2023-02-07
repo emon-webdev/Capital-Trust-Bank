@@ -80,7 +80,7 @@ const AccountOpenFrom = () => {
               toast.success(
                 `Your form has been submitted please wait for approval.`
               );
-              // reset();
+              reset();
             });
         }
       });
@@ -536,7 +536,7 @@ const AccountOpenFrom = () => {
               <div className="w-[49%] my-4">
                 <input
                   className="btn border-none primary-btn text-black w-full"
-                  value="Submit From"
+                  value="Submit Form"
                   type="submit"
                 />
               </div>

@@ -34,7 +34,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar__menu">
         <Link
-          className="navbar-brand font-bold text-2xl flex items-center"
+          className="navbar-brand w-fit font-bold text-2xl flex items-center"
           to="/"
         >
           <img src={mailLogo} alt="" srcSet="" />
@@ -168,11 +168,6 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/accountOpenFrom2" className="">
-                    Open an Account 1
-                  </NavLink>
-                </li>
-                <li>
                   <NavLink to="/faq" className="">
                     Faq
                   </NavLink>
@@ -190,31 +185,40 @@ const Navbar = () => {
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
-                About
+                {t("about")}
               </NavLink>
               {/* dropdown menu */}
               <ul className="submenu">
                 <li>
                   <NavLink to="/about" className="">
-                    About
+                    {t("about")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/login" className="">
-                    Sign In
+                    {t("Sign_In")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/signup" className="">
-                    Sign Up
+                    {t("Sign_Up")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="">
-                    <button onClick={handleSignOut}>Sign Out</button>
+                    <button onClick={handleSignOut}>{t("Sign_Out")}</button>
                   </NavLink>
                 </li>
               </ul>
+            </li>
+            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
+              <NavLink
+                to="/contact"
+                className="w-full block py-3"
+                style={({ isActive }) => (isActive ? activeClass : undefined)}
+              >
+                {t("contact")}
+              </NavLink>
             </li>
             {user?.email && (
               <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
@@ -223,11 +227,18 @@ const Navbar = () => {
                   className="w-full block py-3"
                   style={({ isActive }) => (isActive ? activeClass : undefined)}
                 >
-                  Dashboard
+                  {t("dashboard")}
                 </NavLink>
               </li>
             )}
-            {!user?.email && (
+
+            {user?.email ? (
+              <li>
+                <NavLink className="">
+                  <button onClick={handleSignOut}>{t("Sign_Out")}</button>
+                </NavLink>
+              </li>
+            ) : (
               <>
                 <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
                   <NavLink
@@ -237,7 +248,7 @@ const Navbar = () => {
                       isActive ? activeClass : undefined
                     }
                   >
-                    Sign In
+                    {t("Sign_In")}
                   </NavLink>
                 </li>
                 <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
@@ -248,20 +259,11 @@ const Navbar = () => {
                       isActive ? activeClass : undefined
                     }
                   >
-                    Sign Up
+                    {t("Sign_Up")}
                   </NavLink>
                 </li>
               </>
             )}
-            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
-              <NavLink
-                to="/contact"
-                className="w-full block py-3"
-                style={({ isActive }) => (isActive ? activeClass : undefined)}
-              >
-                Contact
-              </NavLink>
-            </li>
           </ul>
         </div>
         {isActive ? (
