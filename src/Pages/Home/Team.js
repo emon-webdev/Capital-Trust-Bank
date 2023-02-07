@@ -60,23 +60,6 @@ const Team = () => {
   return (
     <div className="team-area py-12">
       <div className="container mx-auto">
-        {/* <Typography marginBottom={2} textAlign="center" sx={{ fontWeight: 'bold' }} color="#DF0303">
-          -- Our Team --
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: "48px",
-            lineHeight: "56px",
-            fontWeight: 700,
-            color: "#010C3A",
-            textAlign: 'center'
-          }}
-          variant="h3"
-        >
-          Team Of Expert Consulted
-        </Typography> */}
-
-        {/* grid gap-5 md:grid-cols-3 mt-[60px] */}
         <Slider {...sliderSettings} className="mt-[60px]">
           {teams.map((team) => (
             <TeamSection key={team._id} team={team} />

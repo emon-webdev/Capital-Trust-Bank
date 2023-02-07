@@ -1,10 +1,12 @@
-
-import React, { useContext, useEffect, useState } from "react";
+import { useDisclosure } from "@chakra-ui/hooks";
+import { ModalOverlay } from "@chakra-ui/modal";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 import creditCardImg from "../../assets/apply-loan/credit-card-img.png";
-import Spinner from "../../component/Spinner/Spinner";
+import CreditCardModal from "../../component/CreditCardModal.js/CreditCardModal";
 import { AuthContext } from "../../context/AuthProvider";
+
 const ApplyCreditCard = () => {
   const { user, loading } = useContext(AuthContext);
   const {
@@ -13,51 +15,61 @@ const ApplyCreditCard = () => {
     handleSubmit,
     reset,
   } = useForm();
-  const [idError, setIdError] = useState([]);
-  const [applierEmail, setApplierEmail] = useState([]);
+  // const [idError, setIdError] = useState([]);
+  // const [applierEmail, setApplierEmail] = useState([]);
 
-  useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/users?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setApplierEmail(data[0]);
-      });
-  }, []);
-  if (loading) {
-    return <Spinner />;
-  }
+  const OverlayOne = () => (
+    <ModalOverlay
+      bg="blackAlpha.300"
+      // backdropFilter="blur(6px) hue-rotate(90deg)"
+    />
+  );
 
-  // apply for credit card
-  const handleApply = (data) => {
-    // event.preventDefault();
-    setIdError("");
-    const applierName = user?.displayName;
-    const accountId = data.accountId;
-    if (applierEmail?._id === accountId) {
-      const applierInfo = {
-        applierName,
-        accountId,
-      };
-      fetch(`https://capital-trust-bank-server.vercel.app/cardAppliers`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(applierInfo),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            console.log(data);
-            toast.success("Apply Success for card");
-            reset();
-          }
-        })
-        .then((error) => console.error(error));
-    } else {
-      setIdError("Account Id did't match");
-    }
-  };
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [overlay, setOverlay] = React.useState(<OverlayOne />);
+
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/users?email=${user?.email}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setApplierEmail(data[0]);
+  //     });
+  // }, []);
+  // // if (loading) {
+  // //   return <Spinner />;
+  // // }
+
+  // // apply for credit card
+  // const handleApply = (data) => {
+  //   // event.preventDefault();
+  //   setIdError("");
+  //   const applierName = user?.displayName;
+  //   const accountId = data.accountId;
+  //   if (applierEmail?._id === accountId) {
+  //     const applierInfo = {
+  //       applierName,
+  //       accountId,
+  //     };
+  //     fetch(`http://localhost:5000/cardAppliers`, {
+  //       method: "POST",
+  //       headers: {
+  //         "content-type": "application/json",
+  //       },
+  //       body: JSON.stringify(applierInfo),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         if (data.acknowledged) {
+  //           console.log(data);
+  //           toast.success("Apply Success for card");
+  //           reset();
+  //         }
+  //       })
+  //       .then((error) => console.error(error));
+  //   } else {
+  //     setIdError("Account Id did't match");
+  //   }
+  // };
 
   return (
     <div className="credit-card-area py-16">
@@ -67,80 +79,130 @@ const ApplyCreditCard = () => {
             <img src={creditCardImg} className="w-full" alt="" srcSet="" />
           </div>
           <div className="credit-card-content dot-shape">
-            <h2 className=" text-3xl md:text-4xl">Apply for Credit Card</h2>
-            <p>
+            <h2 className=" text-3xl md:text-4xl font-semibold">
+              Apply for Credit Card
+            </h2>
+            <p className="py-3">
               Porttitor ornare fermentum aliquam pharetra ut facilisis gravida
-              risus suscipit. dui feugiat fusce
+              risus suscipit. dui feugiat fusce 
             </p>
-            <p>
+            <p className="flex font-semibold text-[#010C3A] mb-2 ">
               <span className="">
-                {/* <CheckIcon className="text-white bg-[#DF0303] text-[22px] p-[2px] rounded-md mr-1" /> */}
+                <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
               </span>
-              The master-builder of great explorer
+              <span>The master-builder of great explorer</span>
             </p>
-            <p>
+            <p className="flex font-semibold text-[#010C3A] mb-2 ">
               <span className="">
-                {/* <CheckIcon className="text-white bg-[#DF0303] text-[22px] p-[2px] rounded-md mr-1" /> */}
+                <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
               </span>
-              Velit esse cillum dolore eu fugiat nulla pariatur.
+              <span>Velit esse cillum dolore eu fugiat nulla pariatur.</span>
             </p>
-            <div className="my-2">
-              <form onSubmit={handleSubmit(handleApply)}>
+            <p className="flex font-semibold text-[#010C3A] mb-2 ">
+              <span className="">
+                <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
+              </span>
+              <span>Velit esse cillum dolore eu fugiat nulla pariatur.</span>
+            </p>
+            <div>
+              <button
+                className="primary-btn mt-5"
+                onClick={() => {
+                  setOverlay(<OverlayOne />);
+                  onOpen();
+                }}
+              >
+                Apply Now
+              </button>
+            </div>
+            <div className="my-2 mt-3">
+              {/* <form onSubmit={handleSubmit(handleApply)}>
                 <div>
-                  {/* <TextField
-                    id="outlined-basic"
-                    label={` ${user ? user?.displayName : "Please Sign In"} `}
-                    name="applierName"
-                    aria-readonly
-                    disabled
-                    variant="outlined"
-                    sx={{
-                      width: "340px",
-                      height: "60px",
-                      marginBottom: "12px",
-                      marginRight: "15px",
-                    }}
-                  />
-                  <TextField
-                    id="outlined-basic"
-                    label="Account Id"
-                    required
-                    variant="outlined"
-                    sx={{
-                      width: "340px",
-                      height: "60px",
-                    }}
-                    {...register("accountId", {
-                      required: "Account Id is Required",
-                      minLength: {
-                        value: 24,
-                        message: "Account Id Minimum 24 character",
-                      },
-                      maxLength: {
-                        value: 24,
-                        message: "Account Id Must be 24 character",
-                      },
-                    })}
-                  /> */}
-                  {idError && (
-                    <p className="text-red-600 text-sm mb-0">{idError}</p>
-                  )}
+                  <div className="form-control ">
+                    <label className="text-base text-[#57647E]">
+                      Account Name
+                    </label>
+                    <input
+                      type="text"
+                      {...register("accountName", {
+                        required: "Account Name is required",
+                      })}
+                      className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
+                      placeholder={user?.displayName || "Please Sign In"}
+                      defaultValue={user?.displayName}
+                    ></input>
+                    {errors.accountName && (
+                      <p className="text-red-600 text-sm mb-0">
+                        {errors.accountName?.message}
+                      </p>
+                    )}
+                  </div>
+                  <div className="form-control  w-full">
+                    <label className="text-base text-[#57647E]">
+                      Phone Number
+                    </label>
+                    <input
+                      type="number"
+                      {...register("applierPhnNumber", {
+                        required: "Phone Number is required",
+                      })}
+                      className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
+                      placeholder="Phone Number"
+                    ></input>
+                    {errors.applierPhnNumber && (
+                      <p className="text-red-600 text-sm mb-0">
+                        {errors.applierPhnNumber?.message}
+                      </p>
+                    )}
+                  </div>
+                  <div className="form-control  w-full">
+                    <label className="text-base text-[#57647E]">
+                      Account Id
+                    </label>
+                    <input
+                      type="number"
+                      className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
+                      placeholder="Id Number"
+                      {...register("accountId", {
+                        required: "Account Id is Required",
+                        minLength: {
+                          value: 24,
+                          message: "Account Id Minimum 24 character",
+                        },
+                      })}
+                    ></input>
+                  </div>
                   {errors.accountId && (
                     <p className="text-red-600 text-sm mb-0">
                       {errors.accountId?.message}
                     </p>
                   )}
                   <div>
-                    <button className="primary-btn mt-5" type="submit">
+                    <button
+                      className="primary-btn mt-5"
+                      onClick={() => {
+                        setOverlay(<OverlayOne />);
+                        onOpen();
+                      }}
+                    >
                       Apply Now
                     </button>
                   </div>
                 </div>
-              </form>
+              </form> */}
             </div>
           </div>
         </div>
       </div>
+      {/* Modal */}
+      <CreditCardModal
+        onClose={onClose}
+        setOverlay={setOverlay}
+        isOpen={isOpen}
+        overlay={overlay}
+        onOpen={onOpen}
+        OverlayOne={OverlayOne}
+      />
     </div>
   );
 };
