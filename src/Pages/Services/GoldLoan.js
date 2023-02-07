@@ -1,7 +1,7 @@
 import { Card, CardBody } from "@chakra-ui/card";
 import { FormControl } from "@chakra-ui/form-control";
 import { Image } from "@chakra-ui/image";
-import { Grid, GridItem, Stack, Text } from "@chakra-ui/layout";
+import { Grid, Stack, Text } from "@chakra-ui/layout";
 import React from "react";
 
 

@@ -14,7 +14,7 @@ const Welcome = () => {
                 </div>
                 
                 
-            <h1 className='text-white'>{user?.displayName} Dashboard</h1>
+            <h1 className=''>{user?.displayName} Dashboard</h1>
             </div>
         </div>
     );

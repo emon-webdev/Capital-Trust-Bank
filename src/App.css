@@ -309,39 +309,35 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 .signup-icon {
   color: black !important;
 }
-.signup-icon2 {
-  color: black !important;
+.chakra-icon-sign {
+  background: transparent !important;
+  font-size: 22px !important;
+  margin-top: 5px !important;
 }
-.signup-con-2 {
-  color: black;
-}
+
 .react-tel-input .form-control {
   width: 100% !important;
-  padding: 27px;
+  padding: 25px;
 }
-/* .css-i4bv87-MuiSvgIcon-root {
-  color: #000428 !important;
-}
-.react-tel-input .form-control {
-  font-size: 15px !important;
-}
-/* @media screen and (max-width: 1024px) {
-  .choose {
-    display: flex;
-    margin-top: 20px;
-  }
-}
-@media screen and (max-width: 1023px) {
-  .choose {
-    display: flex;
-    margin-top: 20px;
-  }
-} */
+
 .react-tel-input .form-control {
   font-size: 15px !important;
 }
 
 /* dashboard */
+.nav-toggle-btn {
+  background: transparent !important;
+  font-size: 20px !important;
+}
+.bg-transparent-nav {
+  background-color: transparent !important;
+  font-size: 20px !important;
+}
+.chakra-badge {
+  font-size: 20px !important;
+}
+
+/* .css-hip9hq-MuiPaper-root-MuiAppBar-root */
 
 /* .css-hip9hq-MuiPaper-root-MuiAppBar-root {
   box-shadow: none !important;
@@ -368,9 +364,14 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1440px) {
   .side-bar {
-    left: 100%;
+    left: 300px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .side-nave {
+    display: none;
   }
 }
 
@@ -416,6 +417,28 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   padding: 14px 20px;
   cursor: pointer;
   border-radius: 4px;
+}
+/* team details */
+@media screen and (max-width: 768px) {
+  .details {
+    flex-direction: column;
+  }
+  .content-box {
+    margin-top: 50px;
+    margin-left: 0px !important;
+    width: 100% !important;
+  }
+  .image-box {
+    width: 100% !important;
+  }
+  .image-box img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .title-icon-box {
+    flex-direction: column;
+  }
 }
 
 /* Banner section */

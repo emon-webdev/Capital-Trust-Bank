@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs'
 import "../../App.css";
 
 const TeamSection = ({ team }) => {
@@ -20,7 +21,7 @@ const TeamSection = ({ team }) => {
           {name}
         </h1>
 
-        <p className="-mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+        <p className=" mb-3 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
           {designation}
         </p>
       </div>
@@ -32,19 +33,19 @@ const TeamSection = ({ team }) => {
               to={icon.facebook}
               className="mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center"
             >
-              {/* <FaFacebook /> */}
+              <BsFacebook />
             </Link>
             <Link
               to={icon.linkedin}
               className="w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center"
             >
-              {/* <FaLinkedin /> */}
+              <BsLinkedin />
             </Link>
             <Link
               to={icon.github}
               className="ml-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center"
             >
-              {/* <FaGithub /> */}
+              <BsGithub />
             </Link>
           </>
         ))}
