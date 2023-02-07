@@ -1,6 +1,15 @@
+import {
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Radio,
+  RadioGroup,
+  Select,
+  Stack
+} from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import "react-phone-input-2/lib/style.css";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
@@ -13,10 +22,10 @@ const AccountOpenFrom = () => {
   } = useForm();
   const date = new Date();
   const { user } = useContext(AuthContext);
-  const imgHostKey = process.env.REACT_APP_imgbb_key;
-  console.log(imgHostKey);
+  const imgHostKey = process.env.REACT_APP_IMAGE_SECRET_KEY;
+  // console.log(imgHostKey);
   const [name, setName] = useState("Account Open In Bank");
-
+  const [gender, setGender] = useState("male");
   const accountFromSubmit = (data) => {
     console.log(data);
     const cardImg = data.cardImg[0];
@@ -33,44 +42,47 @@ const AccountOpenFrom = () => {
         if (imgData.success) {
           const image = imgData.data.url;
           console.log(image);
+          const account = {
+            accountOpenDate: date,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            birth: data.birth,
+            gender: gender,
+            phone: data.phone,
+            email: data.email,
+            streetAddress: data.streetAddress,
+            city: data.city,
+            region: data.region,
+            postal: data.postal,
+            country: data.country,
+            identification: data.identification,
+            idNumber: data.idNumber,
+            cardImg: imgData.data.url,
+            accountType: data.accountType,
+            accountCategory: data.accountCategory,
+            monthlySalary: data.monthlySalary,
+            initialDeposit: data.initialDeposit,
+            term: true,
+            approve: false,
+          };
+          console.log(account);
+          // save information to the database
+          fetch("http://localhost:5000/bankAccounts", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(account),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              console.log(result);
+              toast.success(
+                `Your form has been submitted please wait for approval.`
+              );
+              reset();
+            });
         }
-      });
-
-    const account = {
-      accountOpenDate: date,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      birth: data.birth,
-      gender: data.gender,
-      phone: data.phone,
-      email: data.email,
-      streetAddress: data.streetAddress,
-      city: data.city,
-      region: data.region,
-      postal: data.postal,
-      country: data.country,
-      identification: data.identification,
-      idNumber: data.idNumber,
-      //   cardImg: image,
-      accountType: data.accountType,
-      accountCategory: data.accountCategory,
-      monthlySalary: data.monthlySalary,
-      initialDeposit: data.initialDeposit,
-      term: true,
-      approve: false,
-    };
-    //save information to the database
-    fetch("http://localhost:5000/bankAccounts", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(account),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        toast.success(`Your form has been submitted please wait for approval.`);
-        // reset();
       });
   };
 
@@ -130,6 +142,19 @@ const AccountOpenFrom = () => {
                 </div>
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">Gender</label>
+                  <RadioGroup onChange={setGender} value={gender}>
+                    <Stack
+                      direction="row"
+                      // {...register("gender", {
+                      //   required: "gender is required",
+                      // })}
+                      className="h-[50px] mb-2 mt-1 w-full"
+                    >
+                      <Radio value="Male">Male</Radio>
+                      <Radio value="Female">Female</Radio>
+                      <Radio value="Others">Others</Radio>
+                    </Stack>
+                  </RadioGroup>
                   {/* <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
                     // defaultValue="female"
@@ -279,6 +304,21 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">
                     Form of Identification
                   </label>
+                  <Select
+                    style={{
+                      margin: "5px 0 10px",
+                      width: "100%",
+                      height: "50px",
+                    }}
+                    placeholder="Form of Identification"
+                    className="from-select border  px-[10px] rounded "
+                    {...register("identification", {
+                      required: "identification is required",
+                    })}
+                  >
+                    <option value="StudentID">Student ID</option>
+                    <option value="NationalID">National ID</option>
+                  </Select>
                   {/* <Select
                     style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
@@ -332,6 +372,22 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">
                     Account Type
                   </label>
+                  <Select
+                    style={{
+                      margin: "5px 0 10px",
+                      width: "100%",
+                      height: "50px",
+                    }}
+                    placeholder="Account Type"
+                    className="from-select border  px-[10px] rounded "
+                    {...register("accountType", {
+                      required: "accountType is required",
+                    })}
+                  >
+                    <option value="Savings">Current</option>
+                    <option value="Savings">Savings</option>
+                    <option value="Others">Others</option>
+                  </Select>
                   {/* <Select
                     style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
@@ -352,6 +408,22 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">
                     Account Category
                   </label>
+                  <Select
+                    style={{
+                      margin: "5px 0 10px",
+                      width: "100%",
+                      height: "50px",
+                    }}
+                    placeholder="Account Category"
+                    className="from-select border  px-[10px] rounded "
+                    {...register("accountCategory", {
+                      required: "account Category is required",
+                    })}
+                  >
+                    <option value="Singly">Singly</option>
+                    <option value="Jointly">Jointly</option>
+                    <option value="Others">Others</option>
+                  </Select>
                   {/* <Select
                     style={{ width: "100%", background: "#fff" }}
                     id="demo-simple-select"
@@ -375,14 +447,30 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">
                     Monthly Salary
                   </label>
-                  <input
+                  <InputGroup className="mb-2 mt-1">
+                    <InputLeftElement
+                      className="h-[50px]"
+                      pointerEvents="none"
+                      color="gray.300"
+                      fontSize="1.2em"
+                      children="$"
+                    />
+                    <Input
+                      type="number"
+                      {...register("monthlySalary", {
+                        required: "Monthly Salary",
+                      })}
+                      placeholder="Initial Deposit"
+                    />
+                  </InputGroup>
+                  {/* <input
                     type="number"
                     {...register("monthlySalary", {
                       required: "Monthly Salary",
                     })}
                     className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Monthly Salary"
-                  ></input>
+                  ></input> */}
                   {errors.monthlySalary && (
                     <p className="text-red-600">
                       {errors.monthlySalary?.message}
@@ -393,14 +481,30 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">
                     Initial Deposit
                   </label>
-                  <input
+                  <InputGroup className="mb-2 mt-1">
+                    <InputLeftElement
+                      className="h-[50px] "
+                      pointerEvents="none"
+                      color="gray.300"
+                      fontSize="1.2em"
+                      children="$"
+                    />
+                    <Input
+                      type="number"
+                      {...register("initialDeposit", {
+                        required: "Initial Deposit is required",
+                      })}
+                      placeholder="Initial Deposit"
+                    />
+                  </InputGroup>
+                  {/* <input
                     type="number"
                     {...register("initialDeposit", {
                       required: "Initial Deposit is required",
                     })}
                     className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Initial Deposit"
-                  ></input>
+                  ></input> */}
                   {errors.initialDeposit && (
                     <p className="text-red-600">
                       {errors.initialDeposit?.message}
@@ -432,7 +536,7 @@ const AccountOpenFrom = () => {
               <div className="w-[49%] my-4">
                 <input
                   className="btn border-none primary-btn text-black w-full"
-                  value="Submit From"
+                  value="Submit Form"
                   type="submit"
                 />
               </div>

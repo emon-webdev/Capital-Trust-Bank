@@ -1,53 +1,18 @@
-// import * as React from 'react';
-
-import PropTypes from 'prop-types';
-import * as React from 'react';
-import { useContext } from 'react';
-import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
-import business from '../../assets/insurance/Business solution-pana.png';
-import { AuthContext } from '../../context/AuthProvider';
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
- 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <div sx={{ p: 3 }}>
-          {/* <Typography>{children}</Typography> */}
-        </div>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
+import { FormControl } from "@chakra-ui/form-control";
+import { Box, Grid } from "@chakra-ui/layout";
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/tabs";
+import { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router";
+import business from '../../assets/insurance/Business solution-pana.png'
+import { AuthContext } from "../../context/AuthProvider";
+import { districts } from "../Services/districtData";
 
 export default function BusinessForm() {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const [district, setDistrict] = useState();
+  const handleChange = (event) => {
+    setDistrict(event.target.value);
   };
-
   const {user} =useContext(AuthContext);
   const navigate = useNavigate();
   const handleSubmit = (event) => {
@@ -88,279 +53,301 @@ export default function BusinessForm() {
       });
   };
 
-
   return (
     <div className="container flex md:flex-row flex-col w-100  align-center justify-center">
-      <div>
-        <img style={{width:'600px',height:'600px'}} className='animate__animated animate__fadeInLeft mx-5' src={business} alt="" />
-      </div>
-      <div sx={{  }}>
-      {/* <Box sx={{ }} className='pl-7'>
-        <Tabs value={value} textColor='primary' onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Health" {...a11yProps(0)} />
-          <Tab label="Business" {...a11yProps(1)} />
-          <Tab label="Travel" {...a11yProps(2)} />
+       <Box>
+        <img style={{width:'600px',height:'600px'}} className='animate__animated animate__slideInLeft mx-5' src={business} alt="" />
+      </Box>
+    
+        <Box>
+        <Tabs>
+          <TabList>
+            <Tab>Health</Tab>
+            <Tab>Business</Tab>
+            <Tab>Travel</Tab>
+          </TabList>
+
+          <TabPanels>
+            <TabPanel className="animate__animated animate__slideInUp">
+              <form
+                onSubmit={handleSubmit}
+                style={{
+                  backgroundColor: "#041C51",
+                  height: "auto",
+                  width: "500px",
+                  borderRadius: "10px",
+                  marginX: "auto",
+                }}
+                className="py-10 px-7 sm:align-content-center sm:justify-items-center"
+              >
+                {/* <Grid
+                  container
+                  className=" align-content-center justify-items-center"
+                > */}
+                  <FormControl>
+                    <input
+                      name="name"
+                      className="border px-3 rounded "
+                      style={{ width: "100%" }}
+                      placeholder="Your Name"
+                      required
+                      defaultValue={user?.displayName}
+                    ></input>
+                  </FormControl>
+                  <FormControl>
+                    <input
+                      name="email"
+                      style={{ width: "100%" }}
+                      className="border  px-3 rounded"
+                      placeholder="Email"
+                      required
+                      defaultValue={user?.email}
+                    ></input>
+                  </FormControl>
+                  <FormControl>
+                    <input
+                      name="phone"
+                      style={{ width: "100%" }}
+                      className="border  px-3  rounded"
+                      placeholder="Phone"
+                      required
+                    ></input>
+                  </FormControl>
+                  <FormControl>
+                    <input
+                      name="insurance"
+                      style={{ width: "100%" }}
+                      className="border  px-3 rounded"
+                      defaultValue="Health Insurance"
+                    ></input>
+                  </FormControl>
+                  <FormControl>
+                <select
+                  name="city"
+                  style={{ width: "100%" }}
+                  value={district}
+                  onChange={handleChange}
+                  label="city"
+                  className="border  px-3 rounded"
+                  placeholder="City"
+                >
+                  {districts.map((dis) => (
+                    <option key={dis} value={dis}>
+                      {dis}
+                    </option>
+                  ))}
+                </select>
+              </FormControl>
+                  <FormControl>
+                    <input
+                      name="date" type='date'
+                      style={{ width: "100%" }}
+                      className="border  px-3 rounded"
+                      placeholder="dd/mm/yy"
+                      required
+                    ></input>
+                  </FormControl>
+
+                  <FormControl>
+                    <button
+                      style={{ width: "100%" }}
+                      className="primary-btn mt-2 "
+                      type="submit"
+                    >
+                      Apply
+                    </button>
+                  </FormControl>
+                {/* </Grid> */}
+              </form>
+            </TabPanel>
+            <TabPanel className="animate__animated animate__slideInUp">
+              <form
+                onSubmit={handleSubmit}
+                style={{
+                  backgroundColor: "#041C51",
+                  height: "auto",
+                  width: "500px",
+                  borderRadius: "10px",
+                  marginX: "auto",
+                }}
+                className="py-10 px-7 sm:align-content-center sm:justify-items-center"
+              >
+                <Grid
+                  container
+                  className=" align-content-center justify-items-center"
+                >
+                  <FormControl>
+                    <input
+                      name="name"
+                      className="border px-3 rounded "
+                      style={{ width: "100%" }}
+                      placeholder="Your Name"
+                      required
+                      defaultValue={user?.displayName}
+                    ></input>
+                  </FormControl>
+                  <FormControl>
+                    <input
+                      name="email"
+                      style={{ width: "100%" }}
+                      className="border  px-3 rounded"
+                      placeholder="Email"
+                      required
+                      defaultValue={user?.email}
+                    ></input>
+                  </FormControl>
+                  <FormControl>
+                    <input
+                      name="phone"
+                      style={{ width: "100%" }}
+                      className="border  px-3  rounded"
+                      placeholder="Phone"
+                      required
+                    ></input>
+                  </FormControl>
+                  <FormControl>
+                    <input
+                      name="insurance"
+                      style={{ width: "100%" }}
+                      className="border  px-3 rounded"
+                      defaultValue="Business Insurance"
+                    ></input>
+                  </FormControl>
+                  <FormControl>
+                <select
+                  name="city"
+                  style={{ width: "100%" }}
+                  value={district}
+                  onChange={handleChange}
+                  label="city"
+                  className="border  px-3 rounded"
+                  placeholder="City"
+                >
+                  {districts.map((dis) => (
+                    <option key={dis} value={dis}>
+                      {dis}
+                    </option>
+                  ))}
+                </select>
+              </FormControl>
+                  <FormControl>
+                    <input
+                      name="date" type='date'
+                      style={{ width: "100%" }}
+                      className="border  px-3 rounded"
+                      placeholder="dd/mm/yy"
+                      required
+                    ></input>
+                  </FormControl>
+
+                  <FormControl>
+                    <button
+                      style={{ width: "100%" }}
+                      className="primary-btn mt-2 "
+                      type="submit"
+                    >
+                      Apply
+                    </button>
+                  </FormControl>
+                </Grid>
+              </form>
+            </TabPanel>
+            <TabPanel className="animate__animated animate__slideInUp">
+              <form
+                onSubmit={handleSubmit}
+                style={{
+                  backgroundColor: "#041C51",
+                  height: "auto",
+                  width: "500px",
+                  borderRadius: "10px",
+                  marginX: "auto",
+                }}
+                className="py-10 px-7 sm:align-content-center sm:justify-items-center"
+              >
+                <Grid
+                  container
+                  className=" align-content-center justify-items-center"
+                >
+                  <FormControl>
+                    <input
+                      name="name"
+                      className="border px-3 rounded "
+                      style={{ width: "100%" }}
+                      placeholder="Your Name"
+                      required
+                      defaultValue={user?.displayName}
+                    ></input>
+                  </FormControl>
+                  <FormControl>
+                    <input
+                      name="email"
+                      style={{ width: "100%" }}
+                      className="border  px-3 rounded"
+                      placeholder="Email"
+                      required
+                      defaultValue={user?.email}
+                    ></input>
+                  </FormControl>
+                  <FormControl>
+                    <input
+                      name="phone"
+                      style={{ width: "100%" }}
+                      className="border  px-3  rounded"
+                      placeholder="Phone"
+                      required
+                    ></input>
+                  </FormControl>
+                  <FormControl>
+                    <input
+                      name="insurance"
+                      style={{ width: "100%" }}
+                      className="border  px-3 rounded"
+                      defaultValue="Travel Insurance"
+                    ></input>
+                  </FormControl>
+                  <FormControl>
+                <select
+                  name="city"
+                  style={{ width: "100%" }}
+                  value={district}
+                  onChange={handleChange}
+                  label="city"
+                  className="border  px-3 rounded"
+                  placeholder="City"
+                >
+                  {districts.map((dis) => (
+                    <option key={dis} value={dis}>
+                      {dis}
+                    </option>
+                  ))}
+                </select>
+              </FormControl>
+                  <FormControl>
+                    <input
+                      name="date" type='date'
+                      style={{ width: "100%" }}
+                      className="border  px-3 rounded"
+                      placeholder="dd/mm/yy"
+                      required
+                    ></input>
+                  </FormControl>
+
+                  <FormControl>
+                    <button
+                      style={{ width: "100%" }}
+                      className="primary-btn mt-2 "
+                      type="submit"
+                    >
+                      Apply
+                    </button>
+                  </FormControl>
+                </Grid>
+              </form>
+            </TabPanel>
+          </TabPanels>
         </Tabs>
-      </Box> */}
-      {/* <TabPanel className='animate__animated animate__fadeInUp' value={value} index={0}>
-      <form
-            onSubmit={handleSubmit}
-            style={{
-              backgroundColor: "#041C51",
-              height: "auto",
-              width: "500px",
-              borderRadius: "10px",
-              marginX:'auto'
-            }}
-            className="py-10 px-7 sm:align-content-center sm:justify-items-center"
-          >
-            <Grid container className=" align-content-center justify-items-center">
-              <Grid item xs={12}>
-                <input
-                  name="name"
-                  className="border px-3 rounded "
-                  style={{ width: "100%" }}
-                  placeholder="Your Name" required
-                  defaultValue={user?.displayName}
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="email"
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  placeholder="Email" required
-                  defaultValue={user?.email}
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="phone"
-                  style={{ width: "100%" }}
-                  className="border  px-3  rounded"
-                  placeholder="Phone" required
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="insurance"
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  defaultValue='Health Insurance'
-                  
-                ></input>
-              </Grid>
-              {/* <Grid item xs={12}>
-                <select
-                  name="city"
-                  style={{ width: "100%" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border  px-3 rounded"
-                  placeholder="City"
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </Grid> */}
-              {/* <Grid item xs={12}>
-                <input
-                  name="date"
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  placeholder="dd/mm/yy" required
-                ></input>
-              </Grid>
-
-                <Grid item xs={12}>
-                  <button
-                    style={{ width: "100%" }}
-                    className="primary-btn mt-2 "
-                    type="submit"
-                  >
-                    Apply
-                  </button>
-                </Grid>
-              </Grid>
-            </form>
-      </TabPanel>
-      <TabPanel className='animate__animated animate__fadeInUp' value={value} index={1}>
-      <form
-            onSubmit={handleSubmit}
-            style={{
-              backgroundColor: "#041C51",
-              height: "auto",
-              width: "500px",
-              borderRadius: "10px",
-              marginX:'auto'
-            }}
-            className="py-10 px-7 sm:align-content-center sm:justify-items-center"
-          >
-            <Grid container className=" align-content-center justify-items-center">
-              <Grid item xs={12}>
-                <input
-                  name="name"
-                  className="border px-3 rounded "
-                  style={{ width: "100%" }}
-                  placeholder="Your Name" required
-                  defaultValue={user?.displayName}
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="email"
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  placeholder="Email" required
-                  defaultValue={user?.email}
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="phone"
-                  style={{ width: "100%" }}
-                  className="border  px-3  rounded"
-                  placeholder="Phone" required
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="insurance"
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  defaultValue='Business Insurance'
-                  
-                ></input>
-              </Grid>
-              {/* <Grid item xs={12}>
-                <select
-                  name="city"
-                  style={{ width: "100%" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border  px-3 rounded"
-                  placeholder="City"
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </Grid> 
-              <Grid item xs={12}>
-                <input
-                  name="date"
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  placeholder="dd/mm/yy" required
-                ></input>
-              </Grid>
-
-                <Grid item xs={12}>
-                  <button
-                    style={{ width: "100%" }}
-                    className="primary-btn mt-2 "
-                    type="submit"
-                  >
-                    Apply
-                  </button>
-                </Grid>
-              </Grid>
-            </form>
-      </TabPanel>
-      <TabPanel className='animate__animated animate__fadeInUp' value={value} index={2}>
-      <form
-            onSubmit={handleSubmit}
-            style={{
-              backgroundColor: "#041C51",
-              height: "auto",
-              width: "500px",
-              borderRadius: "10px",
-              marginX:'auto'
-            }}
-            className="py-10 px-7 sm:align-content-center sm:justify-items-center"
-          >
-            <Grid container className=" align-content-center justify-items-center">
-              <Grid item xs={12}>
-                <input
-                  name="name"
-                  className="border px-3 rounded "
-                  style={{ width: "100%" }}
-                  placeholder="Your Name" required
-                  defaultValue={user?.displayName}
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="email"
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  placeholder="Email" required
-                  defaultValue={user?.email}
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="phone"
-                  style={{ width: "100%" }}
-                  className="border  px-3  rounded"
-                  placeholder="Phone" required
-                ></input>
-              </Grid>
-              <Grid item xs={12}>
-                <input
-                  name="insurance"
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded fw-semibold"
-                  defaultValue='Travel Insurance'
-                  
-                ></input>
-              </Grid>
-              {/* <Grid item xs={12}>
-                <select
-                  name="city"
-                  style={{ width: "100%" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border  px-3 rounded"
-                  placeholder="City"
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </Grid> 
-              <Grid item xs={12}>
-                <input
-                  name="date"
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  placeholder="dd/mm/yy" required
-                ></input>
-              </Grid>
-
-                <Grid item xs={12}>
-                  <button
-                    style={{ width: "100%" }}
-                    className="primary-btn mt-2 "
-                    type="submit"
-                  >
-                    Apply
-                  </button>
-                </Grid>
-              </Grid>
-            </form>
-      </TabPanel>  */}
-    </div>
+        </Box>
+      
     </div>
   );
 }

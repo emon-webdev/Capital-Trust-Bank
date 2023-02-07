@@ -1,13 +1,19 @@
-import { useState } from "react";
+// import { useState } from "react";
+import { MdAttachMoney, MdOutlineImportantDevices } from 'react-icons/md';
+import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
+import {RiAccountCircleLine } from 'react-icons/ri';
 import { Link, NavLink } from 'react-router-dom';
 import '../../../App.css';
 import logo from '../../../assets/logo/mainlogo.png';
+
+
 const CustomerLeft = () => {
-  const [subMenu, setSubMenu] = useState(false);
+  // const [subMenu, setSubMenu] = useState(false);
+
   return (
     <>
       <div className="text-white">
-        <div className="text-white w-[70%] flex items-center justify-center py-[10px]">
+        <div className="text-white w-[70%] flex items-center justify-center ml-[-17px] py-[10px]">
           <Link
             className="navbar-brand font-bold text-2xl flex items-center"
             to="/"
@@ -25,13 +31,13 @@ const CustomerLeft = () => {
             to="/dashboard/myAccount"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex px-[20px] py-[15px]"
+                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
                 : "flex px-[20px] link py-[15px]"
             }
           >
             <span>
               {" "}
-              {/* <AccountCircleIcon /> */}
+              <RiAccountCircleLine />
             </span>
             <span className="text-white ml-[10px]">My Account</span>
           </NavLink>
@@ -41,32 +47,63 @@ const CustomerLeft = () => {
             // onClick={() => setSubMenu(!subMenu)}
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex px-[20px] py-[15px]"
+                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
                 : "flex px-[20px] link py-[15px]"
             }
           >
             <span>
               {" "}
-              {/* <PaidOutlinedIcon /> */}
+              <MdAttachMoney />
             </span>
             <span className="text-white ml-[10px]">Transaction</span>
             {/* <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span> */}
           </NavLink>
+
           <NavLink
-            to="/dashboard/deviceActivity"
-            // onClick={() => setSubMenu(!subMenu)}
+            to="/dashboard/my-deposit"            
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex px-[20px] py-[15px]"
+                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
                 : "flex px-[20px] link py-[15px]"
             }
           >
             <span>
               {" "}
-              {/* <DevicesIcon />{" "} */}
+              <GiPayMoney />
             </span>
-            <span className="text-white ml-[10px]">Device Activity</span>
-            {/* <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span> */}
+            <span className="text-white ml-[10px]">Deposit</span>            
+          </NavLink>
+
+          <NavLink
+            to="/dashboard/my-withdraw"            
+            className={({ isActive }) =>
+              isActive
+                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
+                : "flex px-[20px] link py-[15px]"
+            }
+          >
+            <span>
+              {" "}
+              <GiReceiveMoney />
+            </span>
+            <span className="text-white ml-[10px]">Withdraw</span>            
+          </NavLink>
+
+
+          
+          <NavLink
+            to="/dashboard/deviceActivity"            
+            className={({ isActive }) =>
+              isActive
+                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
+                : "flex px-[20px] link py-[15px]"
+            }
+          >
+            <span>
+              {/* {" "} */}
+              <MdOutlineImportantDevices />
+            </span>
+            <span className="text-white ml-[10px]">Device Activity</span>            
           </NavLink>
 
           {/* -------Sub Menu ----------- */}

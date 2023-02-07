@@ -1,4 +1,3 @@
-import { Spinner } from "@chakra-ui/react";
 import React from "react";
 import ApplyCreditCard from "./ApplyCreditCard";
 import Banner from "./Banner";
@@ -17,10 +16,8 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <Spinner />
       <Services />
       {/* <ApplyForm/> */}
-      {/* <Counter /> */}
       <ServiceRequest/>
       <ApplyCreditCard />
       <Team />

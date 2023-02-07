@@ -1,6 +1,6 @@
-
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { BsCreditCard2Back } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 import Slider from "react-slick";
 import sliderImg1 from "../../assets/serviceReqImg/features-style2-banner-1.jpg";
@@ -93,8 +93,7 @@ const ServiceReqSlider = () => {
               <div key={sliderNav?._id}>
                 <div className="single-slider-nav">
                   <div className="slider-nav-icon">
-                    {/* <CreditCardIcon /> */}
-                    CheckIcon
+                    <BsCreditCard2Back />
                   </div>
                   <h3>{sliderNav?.title}</h3>
                 </div>
@@ -119,8 +118,7 @@ const ServiceReqSlider = () => {
                             className="font-medium text-[16px] mb-2 text-[#010C3A]"
                           >
                             <span className="">
-                              {/* <CheckIcon className="text-[#DF0303] text-[22px] p-[2px] rounded-md mr-1" /> */}
-                              CheckIcon
+                              <BsCreditCard2Back className="text-[#DF0303] text-[22px] p-[2px] rounded-md mr-1" />
                             </span>
                             {service?.name}
                           </p>
@@ -161,14 +159,14 @@ const ServiceReqSlider = () => {
                   </div>
                   {/* Show Modal */}
                   <div className="service-req-from">
-                    <modal
+                    {/* <modal
                       aria-labelledby="transition-modal-title"
                       aria-describedby="transition-modal-description"
                       open={open}
                       onClose={handleClose}
-                      closeAfterTransition
+                      closeaftertransition="true"
                       // BackdropComponent={Backdrop}
-                      BackdropProps={{
+                      backdropprops={{
                         timeout: 500,
                       }}
                     >
@@ -239,7 +237,7 @@ const ServiceReqSlider = () => {
                           </div>
                         </div>
                       </fade>
-                    </modal>
+                    </modal> */}
                   </div>
                 </div>
               </div>
