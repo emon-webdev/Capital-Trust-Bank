@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import DynamicBanner from '../Shared/DynamicBanner/DynamicBanner';
-import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { VscStarFull, VscStarHalf } from 'react-icons/vsc';
 import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs'
 import '../../App.css';
@@ -11,20 +10,18 @@ const TeamDetails = () => {
     const teamDetails = useLoaderData();
     const { name: name2, email, social, image, designation } = teamDetails;
     const [name, setName] = useState("Team Details");
-    console.log(teamDetails)
     return (
         <div>
             <DynamicBanner name={name} />
-
             <div className='container'>
                 <div className='flex items-center details py-10'>
 
-                    {/* ------image box------ */}
+                   
                     <div className='w-[30] image-box'>
                         <img src={image} alt={name2} className='rounded-md' />
                     </div>
 
-                    {/* -----content box------ */}
+                    
                     <div className='w-[50%] ml-[60px] content-box'>
                         <div className='flex title-icon-box justify-between'>
                             <div>
@@ -46,7 +43,7 @@ const TeamDetails = () => {
                         </div>
                         <hr />
 
-                        {/* ---biography--- */}
+                        
                         <div className='py-[35px]'>
                             <h4>Biography</h4>
                             <p>
