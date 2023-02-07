@@ -1,5 +1,8 @@
 import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { AiOutlineClose, AiOutlineMenuFold } from "react-icons/ai";
+import { BiGroup } from "react-icons/bi";
+import { FiSearch } from "react-icons/fi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../context/AuthProvider";
@@ -31,7 +34,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar__menu">
         <Link
-          className="navbar-brand font-bold text-2xl flex items-center"
+          className="navbar-brand w-fit font-bold text-2xl flex items-center"
           to="/"
         >
           <img src={mailLogo} alt="" srcSet="" />
@@ -39,18 +42,18 @@ const Navbar = () => {
             C<span className=" text-[#DF0303]">T</span>B
           </span>
         </Link>
-        <div className="flex items-center">
+        <div className="lg:hidden flex items-center">
           <div className="lg:hidden btn-group flex items-center">
-            <button className="accent-btn" type="button">
-              {/* <SearchIcon /> */}
-            </button>
-            <div>
+            <div className="btn-group flex items-center">
+              <button className="accent-btn search-btn" type="button">
+                <FiSearch />
+              </button>
               <NavLink
                 to="/accountOpenFrom"
-                className="accent-btn hidden md:block"
+                className="accent-btn hidden  account-btn md:flex items-center"
               >
-                {/* <PersonAddIcon className="mr-1 text-sm" /> */}
-                Open an Account
+                <BiGroup className="" />
+                {t("Open_an_Account")}
               </NavLink>
             </div>
           </div>
@@ -60,8 +63,7 @@ const Navbar = () => {
               type="button"
               onClick={handleHumbagerMenu}
             >
-              {/* <CloseIcon /> */}
-              X
+              <AiOutlineClose />
             </button>
           ) : (
             <button
@@ -69,7 +71,7 @@ const Navbar = () => {
               type="button"
               onClick={handleHumbagerMenu}
             >
-              {/* <MenuIcon /> */}
+              <AiOutlineMenuFold />
             </button>
           )}
         </div>
@@ -156,18 +158,13 @@ const Navbar = () => {
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
-                {t("Travel_Insurance")}
+                {t("Pages")}
               </NavLink>
               {/* Submenu */}
               <ul className="submenu">
                 <li>
                   <NavLink to="/accountOpenFrom" className="">
                     Open an Account
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/accountOpenFrom2" className="">
-                    Open an Account 1
                   </NavLink>
                 </li>
                 <li>
@@ -188,31 +185,40 @@ const Navbar = () => {
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
-                About
+                {t("about")}
               </NavLink>
               {/* dropdown menu */}
               <ul className="submenu">
                 <li>
                   <NavLink to="/about" className="">
-                    About
+                    {t("about")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/login" className="">
-                    Sign In
+                    {t("Sign_In")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/signup" className="">
-                    Sign Up
+                    {t("Sign_Up")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="">
-                    <button onClick={handleSignOut}>Sign Out</button>
+                    <button onClick={handleSignOut}>{t("Sign_Out")}</button>
                   </NavLink>
                 </li>
               </ul>
+            </li>
+            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
+              <NavLink
+                to="/contact"
+                className="w-full block py-3"
+                style={({ isActive }) => (isActive ? activeClass : undefined)}
+              >
+                {t("contact")}
+              </NavLink>
             </li>
             {user?.email && (
               <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
@@ -221,11 +227,18 @@ const Navbar = () => {
                   className="w-full block py-3"
                   style={({ isActive }) => (isActive ? activeClass : undefined)}
                 >
-                  Dashboard
+                  {t("dashboard")}
                 </NavLink>
               </li>
             )}
-            {!user?.email && (
+
+            {user?.email ? (
+              <li>
+                <NavLink className="">
+                  <button onClick={handleSignOut}>{t("Sign_Out")}</button>
+                </NavLink>
+              </li>
+            ) : (
               <>
                 <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
                   <NavLink
@@ -235,7 +248,7 @@ const Navbar = () => {
                       isActive ? activeClass : undefined
                     }
                   >
-                    Sign In
+                    {t("Sign_In")}
                   </NavLink>
                 </li>
                 <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303]">
@@ -246,20 +259,11 @@ const Navbar = () => {
                       isActive ? activeClass : undefined
                     }
                   >
-                    Sign Up
+                    {t("Sign_Up")}
                   </NavLink>
                 </li>
               </>
             )}
-            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
-              <NavLink
-                to="/contact"
-                className="w-full block py-3"
-                style={({ isActive }) => (isActive ? activeClass : undefined)}
-              >
-                Contact
-              </NavLink>
-            </li>
           </ul>
         </div>
         {isActive ? (
@@ -267,16 +271,16 @@ const Navbar = () => {
         ) : (
           <div className="hidden lg:block">
             <div className="btn-group flex items-center">
-              <button className="accent-btn" type="button">
-                {/* <SearchIcon /> */}
-                S
+              <button className="accent-btn search-btn" type="button">
+                <FiSearch />
               </button>
-              <button className="accent-btn" type="button">
-                <NavLink to="/accountOpenFrom" className="">
-                  {/* <PersonAddIcon className="mr-1 text-sm" /> */}
-                  {t("Open_an_Account")}
-                </NavLink>
-              </button>
+              <NavLink
+                to="/accountOpenFrom"
+                className="accent-btn account-btn flex items-center"
+              >
+                <BiGroup className="" />
+                {t("Open_an_Account")}
+              </NavLink>
             </div>
           </div>
         )}
