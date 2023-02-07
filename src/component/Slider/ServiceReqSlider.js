@@ -159,7 +159,7 @@ const ServiceReqSlider = () => {
                   </div>
                   {/* Show Modal */}
                   <div className="service-req-from">
-                    <modal
+                    {/* <modal
                       aria-labelledby="transition-modal-title"
                       aria-describedby="transition-modal-description"
                       open={open}
@@ -237,7 +237,7 @@ const ServiceReqSlider = () => {
                           </div>
                         </div>
                       </fade>
-                    </modal>
+                    </modal> */}
                   </div>
                 </div>
               </div>
