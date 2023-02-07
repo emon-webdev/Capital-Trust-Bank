@@ -1,13 +1,10 @@
+import { Card, CardBody } from "@chakra-ui/card";
+import { FormControl } from "@chakra-ui/form-control";
+import { Image } from "@chakra-ui/image";
+import { Grid, Stack, Text } from "@chakra-ui/layout";
 import React from "react";
 
-import {
-    Card,
-    CardActionArea,
-    CardContent,
-    CardMedia,
-    Grid,
-    Typography
-} from "@mui/material";
+
 import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -80,25 +77,28 @@ export default function GoldLoan() {
       <div className="container  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
         <div className="">
           <Card sx={{ maxWidth: 700, height: "auto" }}>
-            <CardActionArea>
-              <CardMedia
+            <CardBody>
+              <Image
                 component="img"
-                height="140"
-                image={loan.img}
+                height="100%"
+                width='100%'
+                marginY={2}
+                src={loan.img}
                 alt="green iguana"
               />
-              <CardContent>
-                <Typography
+              <Stack>
+                <Text
                   fontSize={26}
-                  fontWeight={600}
+                  fontWeight={800}
+                  marginY={1}
                   gutterBottom
                   component="div"
                 >
                   {loan.title}
-                </Typography>
-                <Typography color="text.primary">{loan.details}</Typography>
-              </CardContent>
-            </CardActionArea>
+                </Text>
+                <Text fontSize={20} color="text.primary">{loan.details}</Text>
+              </Stack>
+            </CardBody>
           </Card>
         </div>
         <div className="">
@@ -114,7 +114,7 @@ export default function GoldLoan() {
             className="py-10 px-7 sm:align-content-center sm:justify-items-center"
           >
             <Grid container className=" align-content-center justify-items-center">
-              <Grid item xs={12}>
+              <FormControl>
                 <input
                   name="name"
                   className="border px-3 rounded "
@@ -122,8 +122,8 @@ export default function GoldLoan() {
                   placeholder="Your Name"
                   defaultValue={user?.displayName} required
                 ></input>
-              </Grid>
-              <Grid item xs={12}>
+              </FormControl>
+              <FormControl>
                 <input
                   name="email"
                   style={{ width: "100%" }}
@@ -131,16 +131,16 @@ export default function GoldLoan() {
                   placeholder="Email"
                   defaultValue={user?.email}  required
                 ></input>
-              </Grid>
-              <Grid item xs={12}>
+              </FormControl>
+              <FormControl>
                 <input
                   name="phone"
                   style={{ width: "100%" }}
                   className="border  px-3  rounded"
                   placeholder="Phone" required 
                 ></input>
-              </Grid>
-              <Grid item xs={12}>
+              </FormControl>
+              <FormControl>
                 <input
                   name="loan"
                   style={{ width: "100%" }}
@@ -148,8 +148,8 @@ export default function GoldLoan() {
                   placeholder="Loan"
                   defaultValue={loan.title}
                 ></input>
-              </Grid>
-              <Grid item xs={12}>
+              </FormControl>
+              <FormControl>
                 <select
                   name="city"
                   style={{ width: "100%" }}
@@ -165,17 +165,17 @@ export default function GoldLoan() {
                     </option>
                   ))}
                 </select>
-              </Grid>
-              <Grid item xs={12}>
+              </FormControl>
+              <FormControl>
                 <input
-                  name="date"
+                  name="date" type='date'
                   style={{ width: "100%" }}
                   className="border  px-3 rounded"
                   placeholder="dd/mm/yy"  required
                 ></input>
-              </Grid>
+              </FormControl>
 
-                <Grid item xs={12}>
+                <FormControl>
                   <button
                     style={{ width: "100%" }}
                     className="primary-btn mt-2 "
@@ -183,7 +183,7 @@ export default function GoldLoan() {
                   >
                     Apply
                   </button>
-                </Grid>
+                </FormControl>
               </Grid>
             </form>
           </div>
