@@ -426,15 +426,20 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   font-weight: 700;
   font-size: 64px;
   line-height: 80px;
+  margin-left: 35px;
 }
 
 .banner-content p.text-white {
   font-size: 16px;
   line-height: 24px;
+  margin-left: 40px;
+}
+.banner-content h3.text-white {
+  margin-left: 40px;
 }
 
 .banner-content {
-  padding-top: 110px;
+  padding-top: 60px;
 }
 
 /* =============================
@@ -594,12 +599,19 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   .banner-content h2.text-white.text-6xl {
     font-size: 32px;
     line-height: 40px;
+    margin-left: 30px;
   }
 
   .banner-content h2.text-white.text-6xl br {
     display: none;
+    margin-left: 30px;
   }
-
+  .banner-content h3.text-white {
+    margin-left: 30px;
+  }
+  .banner-content p.text-white {
+    margin-left: 30px;
+  }
   .slider-content {
     background: #ffffff;
     height: auto;
@@ -628,12 +640,5 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   }
   .text {
     margin-top: 10px;
-  }
-  /* Contact */
-  .card {
-    display: block !important;
-  }
-  .onlyCard {
-    margin-bottom: 5px;
   }
 }

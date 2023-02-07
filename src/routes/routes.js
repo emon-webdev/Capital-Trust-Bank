@@ -95,7 +95,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: <Contact />, 
+        action:"createAction"
       },
       {
         path: "/about",
