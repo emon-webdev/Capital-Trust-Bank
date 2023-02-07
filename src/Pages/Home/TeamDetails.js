@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
-import DynamicBanner from '../Shared/DynamicBanner/DynamicBanner';
-import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
+import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs';
 import { VscStarFull, VscStarHalf } from 'react-icons/vsc';
-import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs'
+import { Link, useLoaderData } from 'react-router-dom';
 import '../../App.css';
+import DynamicBanner from '../Shared/DynamicBanner/DynamicBanner';
 
 
 const TeamDetails = () => {

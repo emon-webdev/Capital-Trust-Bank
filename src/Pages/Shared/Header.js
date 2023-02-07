@@ -28,25 +28,25 @@ const Header = () => {
             <div className="header-right flex-wrap flex items-center ">
               <div className="social-icon hidden md:flex ">
                 <a
-                  href=""
+                  href="https://www.facebook.com/"
                   className="text-[18px] pr-[10px] ml-[10px] text-white border-r border-white"
                 >
                   <FaFacebookF />
                 </a>
                 <a
-                  href=""
+                  href="https://twitter.com/"
                   className="text-[18px] pr-[10px] ml-[10px] text-white border-r border-white"
                 >
                   <FiTwitter />
                 </a>
                 <a
-                  href=""
+                  href="https://www.instagram.com/"
                   className="text-[18px] pr-[10px] ml-[10px] text-white border-r border-white"
                 >
                   <BsInstagram />
                 </a>
                 <a
-                  href=""
+                  href="https://www.linkedin.com/"
                   className="text-[18px] pr-[10px] ml-[10px] text-white border-r border-white"
                 >
                   <FaLinkedinIn />
