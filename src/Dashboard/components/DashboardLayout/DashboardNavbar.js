@@ -10,12 +10,22 @@ const DashboardNavbar = () => {
     const { user, logOut, openSideNav, handleSideNave } = useContext(AuthContext);
     const navigate = useNavigate()
     const handleSignOut = () => {
-        logOut()
+         //delete customer device info
+      fetch(`http://localhost:5000/deleteDeviceInfo/${user.email}`, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+            logOut()
             .then(() => { navigate('/') })
             .catch((error) => {
                 console.log(error.message);
 
             });
+        });
     };
 
     return (

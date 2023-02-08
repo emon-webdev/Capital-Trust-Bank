@@ -11,7 +11,7 @@ import setLoginToken from "../../hooks/UseToken/LoginToken";
 import setAuthToken from "../../hooks/UseToken/UseToken";
 
 const Login = () => {
-  const { signInWithEmail, forgetPassword, signInWithGoogle } =
+  const { signInWithEmail, forgetPassword, signInWithGoogle , logOut} =
     useContext(AuthContext);
   const {
     register,
@@ -34,30 +34,38 @@ const Login = () => {
     const email = data.email;
     const password = data.password;
 
-    signInWithEmail(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        setLoginToken(user);
-        //store customer device info
-        fetch(`https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => {
+    
+    //store customer device info
+    fetch(`http://localhost:5000/storeDeviceInfo/${email}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data) {
+          signInWithEmail(email, password)
+          .then((result) => {
+            const user = result.user;
+            console.log(user);
+            setLoginToken(user);
             toast.success("Login Success");
             setLoading(false);
             navigate(from, { replace: true });
+          })
+          .catch((error) => {
+            console.log(error);
+            setSignInError(error.message);
+            setLoading(false);
           });
-      })
-      .catch((error) => {
-        console.log(error);
-        setSignInError(error.message);
-        setLoading(false);
+        } else {
+         
+          toast.success("Device limit over.");
+        }
       });
+
   };
   const handleForgetPassword = () => {
     if (!userEmail) {
@@ -76,12 +84,35 @@ const Login = () => {
   const handleGoogleSignIn = (Provider) => {
     signInWithGoogle(googleProvider).then((result) => {
       const user = result.user;
-      console.log(user);
-      const name = user?.displayName;
-      const image = user?.photoURL;
-      const verify = false;
-      setAuthToken(user, name, image, verify);
-      navigate(from, { replace: true });
+      const email = user.email;
+
+       //store customer device info
+    fetch(`http://localhost:5000/storeDeviceInfo/${email}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data) {
+          console.log(user);
+          const name = user?.displayName;
+          const image = user?.photoURL;
+          const verify = false;
+          setAuthToken(user, name, image, verify);
+          navigate(from, { replace: true });
+        } else {
+          toast.success("Device limit over.");
+          logOut()
+          .then(() => {
+            navigate('/') })
+          .catch((error) => {
+              console.log(error.message);
+          });
+        }
+      });
     });
   };
   return (

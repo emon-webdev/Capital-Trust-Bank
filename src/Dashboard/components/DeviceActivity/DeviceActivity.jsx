@@ -30,7 +30,7 @@ const DeviceActivity = () => {
                   <tr key={deviceInfo._id} className="border-2 p-3">
                     <td>{deviceInfo.browser}</td>
                     <td>{deviceInfo.os}</td>
-                    <td>{deviceInfo.data}</td>
+                    <td>{deviceInfo.date}</td>
                   </tr>
                 );
               })}
