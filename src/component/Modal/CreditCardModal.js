@@ -26,15 +26,9 @@ const CreditCardModal = ({
     handleSubmit,
     reset,
   } = useForm();
-  //   const [idError, setIdError] = useState([]);
   const [applierEmail, setApplierEmail] = useState([]);
   const [disable, setDisable] = useState(false);
-  const OverlayOne = () => (
-    <ModalOverlay
-      bg="blackAlpha.700"
-      //   backdropFilter="blur(10px) hue-rotate(90deg)"
-    />
-  );
+  const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
 
   useEffect(() => {
     fetch(`http://localhost:5000/users?email=${user?.email}`)
@@ -43,10 +37,6 @@ const CreditCardModal = ({
         setApplierEmail(data[0]);
       });
   }, []);
-  // if (loading) {
-  //   return <Spinner />;
-  // }
-
   // apply for credit card
   const handleApply = (data) => {
     // event.preventDefault();
@@ -176,11 +166,6 @@ const CreditCardModal = ({
                     </p>
                   )}
                 </div>
-                {/* {idError && (
-                    <p className="text-red-600 text-sm mb-0">
-                      Account Id did't match
-                    </p>
-                  )} */}
                 <div className="my-4">
                   <button
                     onClick={onClose}
