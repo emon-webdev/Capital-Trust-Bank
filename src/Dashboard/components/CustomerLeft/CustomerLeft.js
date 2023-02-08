@@ -1,5 +1,6 @@
 // import { useState } from "react";
 import { MdAttachMoney, MdOutlineImportantDevices } from 'react-icons/md';
+import { BsChatDots } from 'react-icons/bs';
 import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
 import {RiAccountCircleLine } from 'react-icons/ri';
 import { Link, NavLink } from 'react-router-dom';
@@ -104,6 +105,21 @@ const CustomerLeft = () => {
               <MdOutlineImportantDevices />
             </span>
             <span className="text-white ml-[10px]">Device Activity</span>            
+          </NavLink>
+
+          <NavLink
+            to="/dashboard/CustomerSupport"            
+            className={({ isActive }) =>
+              isActive
+                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
+                : "flex px-[20px] link py-[15px]"
+            }
+          >
+            <span>
+              {/* {" "} */}
+              <BsChatDots />
+            </span>
+            <span className="text-white ml-[10px]">Customer Support</span>            
           </NavLink>
 
           {/* -------Sub Menu ----------- */}
