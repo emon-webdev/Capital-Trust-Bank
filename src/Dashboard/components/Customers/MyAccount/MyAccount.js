@@ -1,9 +1,9 @@
-import { Box, Flex, HStack, Stack, Text, VStack } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
-import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { AiOutlineMinusSquare } from "react-icons/ai";
+import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 
-import { VictoryLine, VictoryChart, VictoryTheme } from "victory";
+import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 
 export default function MyAccount() {
   return (
@@ -77,7 +77,6 @@ export default function MyAccount() {
       </div>
       <div style={{ height: "600px", width: "600px" }} className="mx-10 ">
         <VictoryChart
-        
           animate={{
             duration: 2000,
             onLoad: { duration: 1000 },
@@ -86,7 +85,7 @@ export default function MyAccount() {
         >
           <VictoryLine
             style={{
-                width:'800px',
+              width: "800px",
               data: { stroke: "#c43a31" },
 
               parent: { border: "2px solid #ddd" },

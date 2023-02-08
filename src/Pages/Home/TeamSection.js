@@ -30,24 +30,27 @@ const TeamSection = ({ team }) => {
       <div className="flex">
         {social.map((icon) => (
           <>
-            <Link
-              to={icon.facebook}
-              className="mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center"
+            <a
+              href={icon.facebook}
+              target="_blank"
+              className="mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded flex items-center justify-center"
             >
               <BsFacebook />
-            </Link>
-            <Link
-              to={icon.linkedin}
-              className="w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center"
+            </a>
+            <a
+              href={icon.linkedin}
+              className="w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded flex items-center justify-center"
+              target="_blank"
             >
               <BsLinkedin />
-            </Link>
-            <Link
-              to={icon.github}
-              className="ml-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center"
+            </a>
+            <a
+              href={icon.github}
+              target="_blank"
+              className="ml-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded flex items-center justify-center"
             >
               <BsGithub />
-            </Link>
+            </a>
           </>
         ))}
       </div>

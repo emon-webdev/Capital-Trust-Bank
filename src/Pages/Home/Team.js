@@ -60,6 +60,10 @@ const Team = () => {
   return (
     <div className="team-area py-12">
       <div className="container mx-auto">
+        <div className="text-center">
+          <h5 className="text-center text-red-500">-- Our Team --</h5>
+          <h1 className="text-[36px] font-semibold">Team Of Expert Consulted</h1>
+        </div>       
         <Slider {...sliderSettings} className="mt-[60px]">
           {teams.map((team) => (
             <TeamSection key={team._id} team={team} />

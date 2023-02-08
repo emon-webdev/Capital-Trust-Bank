@@ -3,6 +3,7 @@ import ApplyCreditCard from "./ApplyCreditCard";
 import Banner from "./Banner";
 import Branding from "./Branding";
 import ContactUs from "./ContactUs";
+import Exchange from "./Exchange";
 // import Counter from "./Counter";
 import FeaturedNews from "./FeaturedNews";
 import LoanCalculator from "./LoanCalculator";
@@ -22,6 +23,7 @@ const Home = () => {
       <Branding />
       <FeaturedNews />
       <LoanCalculator />
+      <Exchange />
       <ContactUs />
     </div>
   );
