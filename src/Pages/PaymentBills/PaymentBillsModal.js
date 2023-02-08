@@ -156,23 +156,25 @@ const PaymentBillsModal = ({
                   </p>
                 )}
                 <div className="form-control  w-full  md:mr-4">
-                  <label className="text-base text-[#57647E]">Card Type</label>
+                  <label className="text-base text-[#57647E]">Bill Type</label>
                   <Select
                     style={{
                       margin: "5px 0 10px",
                       width: "100%",
                       height: "50px",
                     }}
-                    placeholder="Card Type"
+                    placeholder="Bill Type"
                     className="from-select border  px-[10px] rounded "
-                    {...register("cardType", {
-                      required: "Card Type is required",
+                    {...register("billType", {
+                      required: "Bill Type is required",
                     })}
                   >
-                    <option value="CreditCard">Credit Card</option>
-                    <option value="DebitCard">Debit Card</option>
-                    <option value="MasterCard">Master Card</option>
-                    <option value="VISACard">VISA Card</option>
+                    <option value="Electricity">Electricity</option>
+                    <option value="Water">Water</option>
+                    <option value="Gas">Gas</option>
+                    <option value="Internet">Internet</option>
+                    <option value="TeleVision">TeleVision</option>
+                    <option value="Credit Card">Credit Card</option>
                   </Select>
                   {errors.cardType && (
                     <p className="text-red-600 text-sm mb-0">
