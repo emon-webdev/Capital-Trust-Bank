@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import { default as AllCustomers } from "../Dashboard/components/AllCustomers/AllCustomers";
 import CardReq from "../Dashboard/components/CardReq/CardReq";
 import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
-
 import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
 import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
@@ -17,6 +16,7 @@ import AccountOpenFrom from "../Pages/AccountOpenFrom/AccountOpenFrom";
 import Apply from "../Pages/Apply/Apply";
 import Cards from "../Pages/Cards/Cards";
 import Contact from "../Pages/Contact/Contact";
+import FaqPage from "../Pages/FaqPage/FaqPage";
 import ApplyForm from "../Pages/Home/ApplyForm";
 import Home from "../Pages/Home/Home";
 import BusinessInsurance from "../Pages/Insurance/BusinessInsurance";
@@ -96,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: "/cards",
         element: <Cards />,
+      },
+      {
+        path: "/faq",
+        element: <FaqPage></FaqPage>,
       },
       {
         path: "/contact",
