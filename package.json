@@ -37,6 +37,7 @@
     "react-slick": "^0.29.0",
     "recharts": "^2.3.2",
     "slick-carousel": "^1.8.1",
+    "victory": "^36.6.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

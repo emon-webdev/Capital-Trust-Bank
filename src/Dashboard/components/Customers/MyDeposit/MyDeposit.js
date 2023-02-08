@@ -2,8 +2,10 @@ import React from 'react';
 
 const MyDeposit = () => {
     return (
-        <div>
-            <h1 className=''>My Deposit</h1>
+        <div className='container bg-white my-10'>
+            <h1>Deposit</h1>
+
+            
         </div>
     );
 };

@@ -1,10 +1,9 @@
-
 import React from "react";
 import ServiceReqSlider from "../../component/Slider/ServiceReqSlider";
 
 const ServiceRequest = () => {
   return (
-    <div className="service-req-area">
+    <div className="service-req-area my-12">
       <div className="container">
         <div className="text-center">
           {/* <Typography

@@ -139,16 +139,22 @@ ul.submenu li:hover a {
   line-height: 50px;
   color: #fff;
   background: #010c3a !important;
-  margin-left: 16px;
+  /* margin-left: 16px; */
   border-radius: 4px;
+  transition: 0.3s;
+}
+.accent-btn:hover {
+  background: #df0303;
 }
 .accent-btn.search-btn {
   font-size: 20px;
   padding: 0 15px;
   font-weight: 500;
+  margin-left: 16px;
 }
 .accent-btn.account-btn {
   font-weight: 500;
+  margin-left: 16px;
 }
 .accent-btn.account-btn svg {
   font-size: 22px;
@@ -339,6 +345,51 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 
 /* .css-hip9hq-MuiPaper-root-MuiAppBar-root */
 
+<<<<<<< HEAD <<<<<<< HEAD .css-hip9hq-MuiPaper-root-MuiAppBar-root {
+  background-color: #041c51 !important;
+}
+.css-d9ml5t-MuiDrawer-docked .MuiDrawer-paper {
+  width: 260px;
+  background: #041c51;
+}
+.css-10hburv-MuiTypography-root {
+  color: white;
+}
+.css-i4bv87-MuiSvgIcon-root {
+  color: white;
+}
+.css-1p823my-MuiListItem-root:hover {
+  color: #cf173c;
+  /* color: white; */
+  background: transparent;
+}
+.css-1r7kz78-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+  background: #041c51;
+  margin-top: 54px;
+}
+.css-nturlv-MuiDrawer-docked .MuiDrawer-paper {
+  background: #041c51;
+  margin-top: 65px;
+  width: 260px !important;
+}
+.css-12de4fs-MuiDrawer-docked .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004e92);
+}
+.css-19y3dt5-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004e92);
+  margin-top: 54px;
+}
+.css-ixaty2-MuiDrawer-docked .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004e92);
+}
+.css-1bs77mf-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+  background: linear-gradient(80deg, #000428, #004e92);
+  margin-top: 65px;
+}
+=======
+>>>>>>> 693c2f7d0ffc9fc7e0d584eae5107dcf1e0bc856
+=======
+>>>>>>> 32a1701da08dda08353f8d339c30f7c5ee56e209
 /* .css-hip9hq-MuiPaper-root-MuiAppBar-root {
   box-shadow: none !important;
 } */
@@ -387,6 +438,9 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   padding: 0 5px;
   border-radius: 5px;
   background: #cf173c;
+}
+.dath {
+  align-items: center !important;
 }
 
 /* @media screen and (max-width: 768) {
