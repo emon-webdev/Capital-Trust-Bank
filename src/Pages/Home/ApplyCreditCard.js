@@ -3,7 +3,7 @@ import { ModalOverlay } from "@chakra-ui/modal";
 import React, { useState } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import creditCardImg from "../../assets/apply-loan/credit-card-img.png";
-import CreditCardModal from "../../component/CreditCardModal.js/CreditCardModal";
+import CreditCardModal from "../../component/Modal/CreditCardModal";
 
 const ApplyCreditCard = () => {
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
