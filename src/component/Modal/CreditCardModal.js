@@ -1,9 +1,9 @@
 import {
-    Modal,
-    ModalBody,
-    ModalContent,
-    ModalHeader,
-    ModalOverlay
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay
 } from "@chakra-ui/modal";
 import { Select } from "@chakra-ui/select";
 import { default as React, useContext, useEffect, useState } from "react";
@@ -35,7 +35,6 @@ const CreditCardModal = ({
       //   backdropFilter="blur(10px) hue-rotate(90deg)"
     />
   );
-
 
   useEffect(() => {
     fetch(`http://localhost:5000/users?email=${user?.email}`)
@@ -77,6 +76,7 @@ const CreditCardModal = ({
             console.log(data);
             toast.success("Apply Success for card");
             reset();
+            setIdError("");
           }
         })
         .then((error) => console.error(error));

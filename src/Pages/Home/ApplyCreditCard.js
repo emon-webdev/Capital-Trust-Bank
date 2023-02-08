@@ -10,7 +10,6 @@ const ApplyCreditCard = () => {
   const [idError, setIdError] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [overlay, setOverlay] = React.useState(<OverlayOne />);
-
   return (
     <div className="credit-card-area py-16">
       <div className="container">
@@ -53,11 +52,13 @@ const ApplyCreditCard = () => {
                 short order.
               </span>
             </p>
-            {idError && (
+            {/* {idError ? (
               <p className="text-red-600 text-sm mb-0">
                 Account Id did't match Please Try Again.
               </p>
-            )}
+            ) : (
+              ""
+            )} */}
             <div>
               <button
                 className="primary-btn mt-5"
