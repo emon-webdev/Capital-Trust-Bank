@@ -18,6 +18,8 @@ import Apply from "../Pages/Apply/Apply";
 import Cards from "../Pages/Cards/Cards";
 import Contact from "../Pages/Contact/Contact";
 import ApplyForm from "../Pages/Home/ApplyForm";
+import Exchange from "../Pages/Home/Exchange";
+import ExchangeDetails from "../Pages/Home/ExchangeDetails";
 import Home from "../Pages/Home/Home";
 import TeamDetails from "../Pages/Home/TeamDetails";
 import BusinessInsurance from "../Pages/Insurance/BusinessInsurance";
@@ -100,8 +102,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contact />, 
-        action:"createAction"
+        element: <Contact />,
+        action: "createAction"
       },
       {
         path: "/about",
@@ -123,6 +125,10 @@ const router = createBrowserRouter([
         path: '/team-details/:id',
         element: <TeamDetails />,
         loader: async ({ params }) => fetch(`http://localhost:5000/team-details/${params.id}`)
+      },
+      {
+        path: '/exchange',
+        element: <ExchangeDetails />
       },
     ],
   },
