@@ -19,6 +19,7 @@ export default function MyAccount() {
           width="500px"
           height={"200px"}
           backgroundColor="white"
+          boxShadow={"xl"}
         >
           <Flex
             h={14}
@@ -52,6 +53,7 @@ export default function MyAccount() {
           width="500px"
           height={"200px"}
           backgroundColor="white"
+          boxShadow={"xl"}
         >
           <Flex
             h={14}

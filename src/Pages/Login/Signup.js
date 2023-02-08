@@ -1,4 +1,10 @@
-import { Button, Input, InputGroup, InputRightElement, Stack } from "@chakra-ui/react";
+import {
+  Button,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Stack,
+} from "@chakra-ui/react";
 import { GoogleAuthProvider } from "@firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -6,7 +12,7 @@ import { toast } from "react-hot-toast";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaEyeSlash, FaEye } from 'react-icons/fa'
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 import "../../App.css";
 // import image from "../../assests/SignUp/signup1.jpg";
 import Spinner from "../../component/Spinner/Spinner";
@@ -32,10 +38,10 @@ const Signup = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
-  const [confirmShow, setConfirmShow] = useState(false)
-  const [show, setShow] = useState(false)
-  const handleClick = () => setShow(!show)
-  const handleClickShow = () => setConfirmShow(!confirmShow)
+  const [confirmShow, setConfirmShow] = useState(false);
+  const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
+  const handleClickShow = () => setConfirmShow(!confirmShow);
 
   //checking validate
   const [lowerValidated, setLowerValidated] = useState(false);
@@ -207,11 +213,10 @@ const Signup = () => {
             Create an Account
           </h2>
           <Stack spacing={6}>
-
             <div className="mt-4">
               <Input
-                placeholder='Your Name'
-                size='lg'
+                placeholder="Your Name"
+                size="lg"
                 {...register("name", { required: true })}
               />
 
@@ -224,8 +229,8 @@ const Signup = () => {
 
             <div className="mt-4">
               <Input
-                placeholder='Your Email'
-                size='lg'
+                placeholder="Your Email"
+                size="lg"
                 {...register("email", { required: "Please Inter Valid Email" })}
               />
               {errors.email && (
@@ -252,12 +257,12 @@ const Signup = () => {
 
             {/* password input  */}
             <div className="relative mt-4">
-              <InputGroup size='md'>
+              <InputGroup size="md">
                 <Input
-                  size='lg'
-                  pr='4.5rem'
-                  type={show ? 'text' : 'password'}
-                  placeholder='Enter password'
+                  size="lg"
+                  pr="4.5rem"
+                  type={show ? "text" : "password"}
+                  placeholder="Enter password"
                   {...register("password", {
                     minLength: {
                       value: 6,
@@ -271,10 +276,13 @@ const Signup = () => {
                   })}
                   onChange={(e) => handlePassword(e.target.value)}
                 />
-                <InputRightElement width='4.5rem'>
+                <InputRightElement width="4.5rem">
                   <Button
-                    className='chakra-icon-sign'
-                    h='1.75rem' size='sm' onClick={handleClick}>
+                    className="chakra-icon-sign"
+                    h="1.75rem"
+                    size="sm"
+                    onClick={handleClick}
+                  >
                     {show ? <FaEyeSlash /> : <FaEye />}
                   </Button>
                 </InputRightElement>
@@ -284,13 +292,17 @@ const Signup = () => {
                   <span>Password Should be At Least One </span> <span></span>
                   <></>
                   <span
-                    className={lowerValidated ? "text-green-500" : "text-red-500"}
+                    className={
+                      lowerValidated ? "text-green-500" : "text-red-500"
+                    }
                   >
                     Lowercase,
                   </span>{" "}
                   <></>
                   <span
-                    className={upperValidated ? "text-green-500" : "text-red-500"}
+                    className={
+                      upperValidated ? "text-green-500" : "text-red-500"
+                    }
                   >
                     Uppercase,
                   </span>{" "}
@@ -328,12 +340,12 @@ const Signup = () => {
 
             {/* confirm_password input */}
             <div className="relative mt-4">
-              <InputGroup size='md'>
+              <InputGroup size="md">
                 <Input
-                  size='lg'
-                  pr='4.5rem'
-                  type={confirmShow ? 'text' : 'password'}
-                  placeholder='Enter password'
+                  size="lg"
+                  pr="4.5rem"
+                  type={confirmShow ? "text" : "password"}
+                  placeholder="Enter password"
                   {...register("confirm_password", {
                     required: true,
                     validate: (value) => {
@@ -343,17 +355,22 @@ const Signup = () => {
                     },
                   })}
                 />
-                <InputRightElement width='4.5rem'>
+                <InputRightElement width="4.5rem">
                   <Button
-                    className='chakra-icon-sign'
-                    h='1.75rem' size='sm' onClick={handleClickShow}>
+                    className="chakra-icon-sign"
+                    h="1.75rem"
+                    size="sm"
+                    onClick={handleClickShow}
+                  >
                     {confirmShow ? <FaEyeSlash /> : <FaEye />}
                   </Button>
                 </InputRightElement>
               </InputGroup>
 
               {errors.confirm_password && (
-                <p className="text-red-500">{errors.confirm_password?.message}</p>
+                <p className="text-red-500">
+                  {errors.confirm_password?.message}
+                </p>
               )}
             </div>
 
@@ -370,7 +387,6 @@ const Signup = () => {
                 <p className="text-red-500">{errors.image?.message}</p>
               )}
             </div>
-
           </Stack>
 
           {signUpError && <span className="text-red-500">{signUpError}</span>}

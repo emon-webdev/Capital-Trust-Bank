@@ -7,11 +7,56 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ReactDatePicker from "react-datepicker";
+import { toast } from "react-hot-toast";
+import { AuthContext } from "../../../../context/AuthProvider";
 
 const MyDeposit = () => {
   const [startDate, setStartDate] = useState(new Date());
+  const { user } = useContext(AuthContext);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const time = form.time.value;
+    const account = form.account.value;
+    const amount = form.deposit.value;
+    const email = user?.email;
+
+    const date = form.date.value;
+
+    console.log(name, email, amount, date, time, account);
+
+    const appellant = {
+      name: name,
+      email: email,
+      account: account,
+      deposit: amount,
+      type: "deposit",
+      time: time,
+      date: date,
+    };
+
+    fetch("http://localhost:5000/depositWithdraw", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(appellant),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Deposit Successlly Done");
+          form.reset();
+        } else {
+          toast.error(data.message);
+        }
+      });
+  };
   return (
     <div
       style={{ width: "600px", height: "500px" }}
@@ -26,7 +71,7 @@ const MyDeposit = () => {
       >
         Deposit
       </Text>
-      <div className="my-5 mx-2">
+      <form onSubmit={handleSubmit} className="my-5 mx-2">
         <Flex gap={5} marginBottom={3}>
           <FormControl display={"flex"}>
             <FormLabel fontSize={18}>Date:</FormLabel>
@@ -56,6 +101,7 @@ const MyDeposit = () => {
           <FormLabel fontSize={18}>Name</FormLabel>
           <Input name="name" />
         </FormControl>
+
         <FormControl marginY={2}>
           <FormLabel fontSize={18}>Account Number</FormLabel>
           <Input type="text" name="account" />
@@ -78,7 +124,7 @@ const MyDeposit = () => {
             Deposit
           </Button>
         </VStack>
-      </div>
+      </form>
     </div>
   );
 };
