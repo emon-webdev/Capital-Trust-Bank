@@ -126,7 +126,7 @@ class LoanCalculator extends React.Component {
                     <h1 className="text-2xl">Total Amount={output}</h1>
                   </div>
                   <div>
-                    <Link to="/apply-loan" className="secondary-btn sm-btn">
+                    <Link to="/accountOpenFrom" className="secondary-btn sm-btn">
                       Apply
                     </Link>
                   </div>

@@ -87,7 +87,7 @@ const ImageSlider = ({ slides }) => {
               and we’ll motivate and support you to <br /> make the change.
             </p>
             <div>
-              <Link to="/apply-loan" className="secondary-btn">
+              <Link to="/accountOpenFrom" className="secondary-btn ml-10 mt-5">
                 Apply For Loan
               </Link>
             </div>
