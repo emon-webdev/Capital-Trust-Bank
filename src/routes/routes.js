@@ -100,8 +100,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contact />, 
-        action:"createAction"
+        element: <Contact />,
+        action: "createAction",
       },
       {
         path: "/about",
@@ -120,9 +120,10 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path: '/team-details/:id',
+        path: "/team-details/:id",
         element: <TeamDetails />,
-        loader: async ({ params }) => fetch(`http://localhost:5000/team-details/${params.id}`)
+        loader: async ({ params }) =>
+          fetch(`http://localhost:5000/team-details/${params.id}`),
       },
     ],
   },
@@ -173,6 +174,8 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myTransaction",
         element: <MyTransaction />,
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5000/depositWithdraw/${params.email}`),
       },
       // {
       //   path: "/dashboard/my-balance",
