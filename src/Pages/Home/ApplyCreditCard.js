@@ -13,11 +13,11 @@ const ApplyCreditCard = () => {
   return (
     <div className="credit-card-area py-16">
       <div className="container">
-        <div className="credit-card-wrap flex column-reverse md:flex-row items-center">
+        <div className="credit-card-wrap flex column-reverse md:flex-row justify-between items-center">
           <div className="credit-card-img mb-[32px] md:mb-0 md:mr-12">
             <img src={creditCardImg} className="w-full" alt="" srcSet="" />
           </div>
-          <div className="credit-card-content dot-shape">
+          <div className="credit-card-content dot-shape basis-3/6">
             <h2 className=" text-3xl md:text-4xl font-semibold">
               Apply for Credit Card
             </h2>
@@ -76,13 +76,9 @@ const ApplyCreditCard = () => {
       {/* Modal */}
       <CreditCardModal
         onClose={onClose}
-        // setOverlay={setOverlay}
         isOpen={isOpen}
         overlay={overlay}
-        // onOpen={onOpen}
         OverlayOne={OverlayOne}
-        setIdError={setIdError}
-        idError={idError}
       />
     </div>
   );

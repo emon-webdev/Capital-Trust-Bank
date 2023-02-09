@@ -6,15 +6,15 @@ const ServiceRequest = () => {
     <div className="service-req-area my-12">
       <div className="container">
         <div className="text-center">
-          {/* <Typography
+          <h2
             marginBottom={2}
             textAlign="center"
             sx={{ fontWeight: "bold" }}
             color="#fff"
           >
             -- Emergency Service Requests --
-          </Typography>
-          <Typography
+          </h2>
+          <h3
             variant="h4"
             marginBottom={5}
             fontWeight="700"
@@ -22,7 +22,7 @@ const ServiceRequest = () => {
             color="#fff"
           >
             List of banking service requests all in one place.
-          </Typography> */}
+          </h3>
         </div>
         <ServiceReqSlider />
       </div>

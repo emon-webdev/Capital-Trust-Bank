@@ -12,21 +12,39 @@ import ExchangeSlide from './ExchangeSlide';
 const data = [
     {
         'img': dubai,
+        'rate': '1 UAE = 29-BDT',
+        'buying': 'Buying 28.5-BDT',
+        'selling': 'Selling 30-BDT',
     },
     {
         'img': uk,
+        'rate': '1 UK = 128.28-BDT',
+        'buying': 'Buying 128-BDT',
+        'selling': 'Selling 128.75-BDT',
     },
     {
         'img': usa,
+        'rate': '1 USA = 106.50-BDT',
+        'buying': 'Buying 106-BDT',
+        'selling': 'Selling 107-BDT',
     },
     {
         'img': canada,
+        'rate': '1 CAD = 79.54-BDT',
+        'buying': 'Buying 79-BDT',
+        'selling': 'Selling 80-BDT',
     },
     {
         'img': aus,
+        'rate': '1 AUD = 74.22-BDT',
+        'buying': 'Buying 74-BDT',
+        'selling': 'Selling 74.80-BDT',
     },
     {
         'img': india,
+        'rate': '1 INR = 1.29-BDT',
+        'buying': 'Buying 1-BDT',
+        'selling': 'Selling 1.50-BDT',
     },
 ];
 

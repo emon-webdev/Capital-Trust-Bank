@@ -12,12 +12,8 @@ import { toast } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
 const CreditCardModal = ({
   onClose,
-  onOpen,
   isOpen,
   overlay,
-  setOverlay,
-  setIdError,
-  idError,
 }) => {
   const { user, loading } = useContext(AuthContext);
   const {
@@ -26,15 +22,9 @@ const CreditCardModal = ({
     handleSubmit,
     reset,
   } = useForm();
-  //   const [idError, setIdError] = useState([]);
   const [applierEmail, setApplierEmail] = useState([]);
   const [disable, setDisable] = useState(false);
-  const OverlayOne = () => (
-    <ModalOverlay
-      bg="blackAlpha.700"
-      //   backdropFilter="blur(10px) hue-rotate(90deg)"
-    />
-  );
+  const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
 
   useEffect(() => {
     fetch(`http://localhost:5000/users?email=${user?.email}`)
@@ -43,14 +33,9 @@ const CreditCardModal = ({
         setApplierEmail(data[0]);
       });
   }, []);
-  // if (loading) {
-  //   return <Spinner />;
-  // }
-
   // apply for credit card
   const handleApply = (data) => {
     // event.preventDefault();
-    setIdError("");
     const applierName = user?.displayName;
     const applierPhnNumber = data.applierPhnNumber;
     const accountId = data.accountId;
@@ -76,7 +61,6 @@ const CreditCardModal = ({
             console.log(data);
             toast.success("Apply Success for card");
             reset();
-            setIdError("");
           }
         })
         .then((error) => console.error(error));
@@ -176,11 +160,6 @@ const CreditCardModal = ({
                     </p>
                   )}
                 </div>
-                {/* {idError && (
-                    <p className="text-red-600 text-sm mb-0">
-                      Account Id did't match
-                    </p>
-                  )} */}
                 <div className="my-4">
                   <button
                     onClick={onClose}

@@ -5,7 +5,7 @@ import {
   Radio,
   RadioGroup,
   Select,
-  Stack
+  Stack,
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -16,7 +16,7 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 const AccountOpenFrom = () => {
   const {
     register,
-    reset, 
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -132,7 +132,7 @@ const AccountOpenFrom = () => {
                     Date of Birth
                   </label>
                   <input
-                    type="text"
+                    type="date"
                     {...register("birth", {
                       required: "Birth is required",
                     })}

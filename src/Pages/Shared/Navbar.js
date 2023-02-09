@@ -11,12 +11,22 @@ const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleSignOut = () => {
-    logOut()
-      .then(() => {
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error.message);
+    //delete customer device info
+    fetch(`http://localhost:5000/deleteDeviceInfo/${user.email}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        logOut()
+          .then(() => {
+            navigate("/");
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
       });
   };
 
@@ -59,7 +69,7 @@ const Navbar = () => {
           </div>
           {isActive ? (
             <button
-              className="navbar-toggler  accent-btn font-bold text-[#DF0303]"
+              className="navbar-toggler ml-4 accent-btn font-bold text-[#DF0303]"
               type="button"
               onClick={handleHumbagerMenu}
             >
@@ -67,7 +77,7 @@ const Navbar = () => {
             </button>
           ) : (
             <button
-              className="navbar-toggler accent-btn font-bold text-[#DF0303]"
+              className="navbar-toggler ml-4 accent-btn font-bold text-[#DF0303]"
               type="button"
               onClick={handleHumbagerMenu}
             >
@@ -89,7 +99,7 @@ const Navbar = () => {
 
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-              
+                to="/services"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -97,6 +107,11 @@ const Navbar = () => {
               </NavLink>
               {/* Submenu */}
               <ul className="submenu">
+                <li>
+                  <NavLink to="/paymentbills" className="">
+                    Pay Bil
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink to="/educationloan" className="">
                     {t("Education_Loan")}
@@ -127,7 +142,7 @@ const Navbar = () => {
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-                
+                to="/insurance"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -154,7 +169,7 @@ const Navbar = () => {
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-                // to="/insurance"
+                to="/pages"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -204,7 +219,7 @@ const Navbar = () => {
                     {t("Sign_Up")}
                   </NavLink>
                 </li>
-                <li>
+                <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
                   <NavLink className="">
                     <button onClick={handleSignOut}>{t("Sign_Out")}</button>
                   </NavLink>

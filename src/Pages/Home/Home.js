@@ -1,4 +1,5 @@
 import React from "react";
+import Funds from "../Funds/Funds";
 import ApplyCreditCard from "./ApplyCreditCard";
 import Banner from "./Banner";
 import Branding from "./Branding";
@@ -15,6 +16,7 @@ const Home = () => {
   return (
     <div>
       <Banner />
+      <Funds />
       <Services />
       {/* <ApplyForm/> */}
       <ServiceRequest />
