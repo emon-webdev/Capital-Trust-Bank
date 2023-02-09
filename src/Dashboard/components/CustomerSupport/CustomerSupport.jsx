@@ -20,7 +20,7 @@ const CustomerSupport = () => {
   return (
     <div>
       {
-      role === 'customer' ?  <Link to={`/dashboard/CustomerSupport/admin`}>
+      role === 'customer' ?  <Link to={`/dashboard/CustomerSupport/admin`} state={{senderEmail:'admin@gmail.com'}}>
       <div className=" lg:w-1/2 mx-auto my-2 flex gap-2 h-fit border-2 p-2">
         <div className="photo">
           <Avatar alt={adminInfo.name} src={adminInfo?.image} />
@@ -32,7 +32,7 @@ const CustomerSupport = () => {
     </Link> : chatsInfo.map((chatInfo) => {
         return (
           <>
-            <Link to={`/dashboard/CustomerSupport/admin`}>
+            <Link to={`/dashboard/CustomerSupport/admin`} state={chatInfo}>
               <div className=" lg:w-1/2 mx-auto my-2 flex gap-2 h-fit border-2 p-2">
                 <div className="photo">
                   <Avatar alt={chatInfo.senderName} src={chatInfo?.senderImg} />
