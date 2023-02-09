@@ -60,12 +60,12 @@
   @apply lg:inline-flex items-center lg:pl-3 block pl-0 text-center;
 }
 
-ul.navbar__nav > li {
+ul.navbar__nav>li {
   position: relative;
   padding: 22px 0;
 }
 
-ul.navbar__nav > li:last-child {
+ul.navbar__nav>li:last-child {
   margin-right: 0;
 }
 
@@ -92,7 +92,7 @@ ul.submenu {
   transition-property: all;
 }
 
-ul.navbar__nav li:hover > ul.submenu {
+ul.navbar__nav li:hover>ul.submenu {
   padding: 10px 0;
   opacity: 1;
   visibility: visible;
@@ -143,29 +143,36 @@ ul.submenu li:hover a {
   border-radius: 4px;
   transition: 0.3s;
 }
+
 .accent-btn:hover {
   background: #df0303;
 }
+
 .accent-btn.search-btn {
   font-size: 20px;
   padding: 0 15px;
   font-weight: 500;
   margin-left: 16px;
 }
+
 .accent-btn.account-btn {
   font-weight: 500;
   margin-left: 16px;
 }
+
 .accent-btn.account-btn svg {
   font-size: 22px;
   margin-right: 4px;
 }
+
 .navbar-toggler.accent-btn svg {
   width: 100%;
 }
+
 .change-lang .chakra-select__wrapper.css-42b2qy {
   padding-left: 4px;
 }
+
 .change-lang .chakra-select.bg-none.lang-select.css-7p9xsp {
   color: #fff;
   padding: 0px 10px;
@@ -180,13 +187,16 @@ ul.submenu li:hover a {
   background: #041c51;
   cursor: pointer;
 }
+
 .change-lang .chakra-select__icon-wrapper.css-iohxn1 {
   color: #fff;
   font-size: 26px;
 }
+
 .social-icon a:hover {
   color: #041c51;
 }
+
 /* Banner area */
 .banner-area {
   height: 680px;
@@ -249,11 +259,13 @@ ul.submenu li:hover a {
   border: 1px;
   box-shadow: none;
 }
+
 .header-top {
   position: relative;
   overflow: hidden;
   z-index: 999;
 }
+
 .header-top::before {
   content: "";
   width: 100%;
@@ -265,29 +277,36 @@ ul.submenu li:hover a {
   position: absolute;
   clip-path: polygon(50px 0, 100% 0%, 100% 100%, 0% 100%);
 }
+
 .from-area input:focus {
   outline: 1px solid #1973cc !important;
 }
+
 .from-area input#terms {
   height: 18px;
   width: 18px;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 .from-area input[type="number"] {
   -moz-appearance: textfield;
 }
+
 .from-select {
   color: #57647e !important;
 }
+
 .file {
   position: absolute;
   clip: rect(0px, 0px, 0px, 0px);
   display: block;
 }
+
 .from-group input.chakra-input {
   height: 50px;
 }
@@ -295,6 +314,7 @@ input::-webkit-inner-spin-button {
 .from-group .chakra-input__left-element {
   height: 50px;
 }
+
 .cardImg-field {
   /* opacity: 0; */
   position: relative;
@@ -303,6 +323,7 @@ input::-webkit-inner-spin-button {
   width: 100%;
   cursor: pointer;
 }
+
 .cardImg-field::before {
   content: "Browser File";
   position: absolute;
@@ -316,23 +337,28 @@ input::-webkit-inner-spin-button {
   opacity: 999;
   /* border-radius: 10px; */
 }
+
 .from-area {
   border-radius: 3px;
   box-shadow: 0 4px 4px rgb(87 100 126 / 21%);
 }
+
 input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   height: 100px;
 }
+
 .from-area input[type="file"] {
   color: transparent;
   background-color: #fff;
   border: 1px solid #e3ddd7;
 }
+
 .from-group .chakra-select__icon-wrapper.css-iohxn1 {
   color: #7a736c;
   font-size: 24px;
   width: 26px;
 }
+
 /* Features Area */
 .features-area {
   font-family: "Inter", sans-serif !important;
@@ -340,7 +366,7 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 
 /* team ares css */
 
-.slick-slide > div {
+.slick-slide>div {
   margin: 0 10px;
 }
 
@@ -367,6 +393,7 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 .signup-icon {
   color: black !important;
 }
+
 .chakra-icon-sign {
   background: transparent !important;
   font-size: 22px !important;
@@ -387,61 +414,35 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   background: transparent !important;
   font-size: 20px !important;
 }
+
 .bg-transparent-nav {
   background-color: transparent !important;
   font-size: 20px !important;
 }
+
 .chakra-badge {
   font-size: 20px !important;
 }
 
+.send-btn {
+  width: 100% !important;
+}
+@media screen and (max-width: 768px) {
+  .right-side {
+    width: 100% !important;
+  }
+  .exchange-wrapper {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 768px) {
+  .left-side {
+    width: 100% !important;
+  }
+}
 /* .css-hip9hq-MuiPaper-root-MuiAppBar-root */
 
-<<<<<<< HEAD <<<<<<< HEAD .css-hip9hq-MuiPaper-root-MuiAppBar-root {
-  background-color: #041c51 !important;
-}
-.css-d9ml5t-MuiDrawer-docked .MuiDrawer-paper {
-  width: 260px;
-  background: #041c51;
-}
-.css-10hburv-MuiTypography-root {
-  color: white;
-}
-.css-i4bv87-MuiSvgIcon-root {
-  color: white;
-}
-.css-1p823my-MuiListItem-root:hover {
-  color: #cf173c;
-  /* color: white; */
-  background: transparent;
-}
-.css-1r7kz78-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
-  background: #041c51;
-  margin-top: 54px;
-}
-.css-nturlv-MuiDrawer-docked .MuiDrawer-paper {
-  background: #041c51;
-  margin-top: 65px;
-  width: 260px !important;
-}
-.css-12de4fs-MuiDrawer-docked .MuiDrawer-paper {
-  background: linear-gradient(80deg, #000428, #004e92);
-}
-.css-19y3dt5-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
-  background: linear-gradient(80deg, #000428, #004e92);
-  margin-top: 54px;
-}
-.css-ixaty2-MuiDrawer-docked .MuiDrawer-paper {
-  background: linear-gradient(80deg, #000428, #004e92);
-}
-.css-1bs77mf-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
-  background: linear-gradient(80deg, #000428, #004e92);
-  margin-top: 65px;
-}
-=======
->>>>>>> 693c2f7d0ffc9fc7e0d584eae5107dcf1e0bc856
-=======
->>>>>>> 32a1701da08dda08353f8d339c30f7c5ee56e209
+
 /* .css-hip9hq-MuiPaper-root-MuiAppBar-root {
   box-shadow: none !important;
 } */
@@ -451,16 +452,19 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
     margin-top: 54px;
   }
 }
+
 @media screen and (min-width: 600px) {
   .css-1mn6oro {
     width: 0px !important;
   }
 }
+
 @media screen and (max-width: 1440px) {
   .css-1mn6oro {
     width: 260px !important;
   }
 }
+
 @media screen and (max-width: 768px) {
   .css-1mn6oro {
     display: none;
@@ -472,6 +476,7 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
     left: 300px;
   }
 }
+
 @media screen and (max-width: 640px) {
   .side-nave {
     display: none;
@@ -482,17 +487,25 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   background: #cf173c;
   transition: 0.4s;
 }
+
 .activee:active {
   border-left: 2px solid #cf173c;
 }
+
 .css-1knaqv7-MuiButtonBase-root-MuiButton-root {
   width: 100%;
   padding: 0 5px;
   border-radius: 5px;
   background: #cf173c;
 }
+
 .dath {
   align-items: center !important;
+}
+
+/* exchange area */
+.exchange-btn {
+  margin-top: 15px !important;
 }
 
 /* @media screen and (max-width: 768) {
@@ -524,23 +537,28 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   cursor: pointer;
   border-radius: 4px;
 }
+
 /* team details */
 @media screen and (max-width: 768px) {
   .details {
     flex-direction: column;
   }
+
   .content-box {
     margin-top: 50px;
     margin-left: 0px !important;
     width: 100% !important;
   }
+
   .image-box {
     width: 100% !important;
   }
+
   .image-box img {
     width: 100%;
   }
 }
+
 @media screen and (max-width: 640px) {
   .title-icon-box {
     flex-direction: column;
@@ -570,6 +588,7 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   line-height: 24px;
   margin-left: 40px;
 }
+
 .banner-content h3.text-white {
   margin-left: 40px;
 }
@@ -582,12 +601,10 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
 ===Responsive CSS starts here===
 ============================= */
 /* XL/XXL Device :1200px. */
-@media (min-width: 1200px) and (max-width: 1500px) {
-}
+@media (min-width: 1200px) and (max-width: 1500px) {}
 
 /* LG Large Device :992px. */
-@media (min-width: 992px) and (max-width: 1200px) {
-}
+@media (min-width: 992px) and (max-width: 1200px) {}
 
 /* Tablet Medium Device :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -599,26 +616,29 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     width: 100%;
     margin-right: 0;
   }
+
   ul.navbar__nav {
     background: #010c3a;
     color: #fff;
     padding: 20px;
     margin-top: 15px;
   }
-  ul.navbar__nav > li {
+
+  ul.navbar__nav>li {
     position: static;
   }
-  ul.navbar__nav li:hover > ul.submenu {
+
+  ul.navbar__nav li:hover>ul.submenu {
     display: block;
     position: static;
   }
 
-  ul.navbar__nav > li {
+  ul.navbar__nav>li {
     padding: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
 
-  ul.navbar__nav > li:last-child {
+  ul.navbar__nav>li:last-child {
     border: 0;
   }
 }
@@ -631,19 +651,24 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     padding: 20px;
     margin-top: 15px;
   }
+
   /* Emi Calculator */
   .card-main {
     padding: 56px 30px !important;
   }
+
   .first-portion {
     display: block !important;
   }
+
   .second-portion {
     display: block !important;
   }
+
   .card-second {
     text-align: center;
   }
+
   .text {
     margin-top: 10px;
   }
@@ -680,21 +705,21 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     margin-top: 50px;
   }
 
-  ul.navbar__nav > li {
+  ul.navbar__nav>li {
     position: static;
   }
 
-  ul.navbar__nav li:hover > ul.submenu {
+  ul.navbar__nav li:hover>ul.submenu {
     display: block;
     position: static;
   }
 
-  ul.navbar__nav > li {
+  ul.navbar__nav>li {
     padding: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
 
-  ul.navbar__nav > li:last-child {
+  ul.navbar__nav>li:last-child {
     border: 0;
   }
 
@@ -723,12 +748,15 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     display: none;
     margin-left: 30px;
   }
+
   .banner-content h3.text-white {
     margin-left: 30px;
   }
+
   .banner-content p.text-white {
     margin-left: 30px;
   }
+
   .slider-content {
     background: #ffffff;
     height: auto;
@@ -746,15 +774,19 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   .card-main {
     padding: 56px 30px !important;
   }
+
   .first-portion {
     display: block !important;
   }
+
   .second-portion {
     display: block !important;
   }
+
   .card-second {
     text-align: center;
   }
+
   .text {
     margin-top: 10px;
   }
