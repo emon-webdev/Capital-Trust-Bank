@@ -1,5 +1,6 @@
 import {
   Modal,
+  ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalFooter,
@@ -7,6 +8,7 @@ import {
   ModalOverlay
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { BiLoaderAlt } from "react-icons/bi";
 const VideoModal = ({ onClose, isOpen }) => {
   const [modal, setModal] = useState(false);
   const [videoLoading, setVideoLoading] = useState(true);
@@ -26,14 +28,14 @@ const VideoModal = ({ onClose, isOpen }) => {
         <ModalContent>
           <ModalHeader>Video</ModalHeader>
           <ModalCloseButton />
-          <div>
+          <ModalBody>
             <div className="modal__video-align">
               {videoLoading ? (
                 <div className="modal__spinner">
-                  {/* <BiLoaderAlt
+                  <BiLoaderAlt
                         className="modal__spinner-style"
                         fadeIn="none"
-                      /> */}
+                      />
                   Loading
                 </div>
               ) : null}
@@ -50,7 +52,7 @@ const VideoModal = ({ onClose, isOpen }) => {
                 allowfullscreen
               ></iframe>
             </div>
-          </div>
+          </ModalBody>
           <ModalFooter>
           </ModalFooter>
         </ModalContent>
