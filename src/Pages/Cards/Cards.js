@@ -6,7 +6,7 @@ import CardsCategories from "./AllCards/CardsCategories";
 const Cards = () => {
   return (
     <div className="contact-area">
-      {/* banner area  */}
+      {/* banner areas  */}
       <div className="bg-cards px-12">
       <div className="mt-12">
         <h3 className="text-red-600">Corporate Credit Card
