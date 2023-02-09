@@ -26,6 +26,7 @@ import HealthInsurance from "../Pages/Insurance/HealthInsurance";
 import TravelInsurance from "../Pages/Insurance/TravelInsurance";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Login/Signup";
+import PaymentBills from "../Pages/PaymentBills/PaymentBills";
 import EducationLoan from "../Pages/Services/EducationLoan";
 import GoldLoan from "../Pages/Services/GoldLoan";
 import MarriageLoan from "../Pages/Services/MarriageLoan";
@@ -111,6 +112,10 @@ const router = createBrowserRouter([
       {
         path: "/AccountOpenFrom",
         element: <AccountOpenFrom />,
+      },
+      {
+        path: "/paymentbills",
+        element: <PaymentBills/>,
       },
       {
         path: "/login",
@@ -224,6 +229,36 @@ const router = createBrowserRouter([
       },
     ],
   },
+  // {
+  //   path: "/paymentbills",
+  //   element: <PaymentBills/>,
+  //   children: [
+  //     {
+  //       path: "/paymentbills/electricitybill",
+  //       element: <ElectricityBill/>,
+  //     },
+  //     {
+  //       path: "/electricitybill",
+  //       element: <Welcome />,
+  //     },
+  //     {
+  //       path: "/electricitybill",
+  //       element: <Welcome />,
+  //     },
+  //     {
+  //       path: "/electricitybill",
+  //       element: <Welcome />,
+  //     },
+  //     {
+  //       path: "/electricitybill",
+  //       element: <Welcome />,
+  //     },
+  //     {
+  //       path: "/electricitybill",
+  //       element: <Welcome />,
+  //     },
+  //   ]
+  // },
 ]);
 
 export default router;
