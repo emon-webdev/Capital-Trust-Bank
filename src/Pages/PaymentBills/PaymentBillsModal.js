@@ -9,10 +9,12 @@ import {
   ModalCloseButton,
   Button,
   Select,
+  FormControl,
 } from "@chakra-ui/react";
 import { AuthContext } from "../../context/AuthProvider";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { districts } from "../Services/districtData";
 
 const PaymentBillsModal = ({
   isOpen,
@@ -38,6 +40,10 @@ const PaymentBillsModal = ({
       //   backdropFilter="blur(10px) hue-rotate(90deg)"
     />
   );
+  const [district, setDistrict] = useState();
+  const handleChange = (event) => {
+    setDistrict(event.target.value);
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/users?email=${user?.email}`)
@@ -121,6 +127,7 @@ const PaymentBillsModal = ({
                     </p>
                   )}
                 </div>
+
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">
                     Phone Number
@@ -139,6 +146,7 @@ const PaymentBillsModal = ({
                     </p>
                   )}
                 </div>
+
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">Account Id</label>
                   <input
@@ -149,12 +157,46 @@ const PaymentBillsModal = ({
                       required: "Account Id is Required",
                     })}
                   ></input>
+                  {errors.accountId && (
+                    <p className="text-red-600 text-sm mb-0">
+                      {errors.accountId?.message}
+                    </p>
+                  )}
                 </div>
-                {errors.accountId && (
-                  <p className="text-red-600 text-sm mb-0">
-                    {errors.accountId?.message}
-                  </p>
-                )}
+
+                <FormControl>
+                  <label className="text-base text-[#57647E]">District</label>
+                  <select
+                    name="city"
+                    style={{ width: "100%" }}
+                    value={district}
+                    onChange={handleChange}
+                    label="city"
+                    className="border  px-3 rounded"
+                    placeholder="City"
+                  >
+                    {districts.map((dis) => (
+                      <option key={dis} value={dis}>
+                        {dis}
+                      </option>
+                    ))}
+                  </select>
+                </FormControl>
+
+                <FormControl>
+                  <label className="text-base text-[#57647E]">
+                    Last Date of Bill
+                  </label>
+                  <input
+                    name="date"
+                    type="date"
+                    style={{ width: "100%" }}
+                    className="border  px-3 rounded"
+                    placeholder="dd/mm/yy"
+                    required
+                  ></input>
+                </FormControl>
+
                 <div className="form-control  w-full  md:mr-4">
                   <label className="text-base text-[#57647E]">Bill Type</label>
                   <Select
@@ -187,6 +229,7 @@ const PaymentBillsModal = ({
                       Account Id did't match
                     </p>
                   )} */}
+
                 <div className="my-4">
                   <button
                     onClick={onClose}
@@ -216,9 +259,9 @@ const PaymentBillsModal = ({
               </form>
             </div>
           </ModalBody>
-          <ModalFooter>
+          {/* <ModalFooter>
             <Button onClick={onClose}>Close</Button>
-          </ModalFooter>
+          </ModalFooter> */}
         </ModalContent>
       </Modal>
     </div>
