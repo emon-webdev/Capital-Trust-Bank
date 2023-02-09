@@ -29,15 +29,9 @@ const PaymentBillsModal = ({
     handleSubmit,
     reset,
   } = useForm();
-  //   const [idError, setIdError] = useState([]);
   const [applierEmail, setApplierEmail] = useState([]);
   const [disable, setDisable] = useState(false);
-  const OverlayOne = () => (
-    <ModalOverlay
-      bg="blackAlpha.700"
-      //   backdropFilter="blur(10px) hue-rotate(90deg)"
-    />
-  );
+  const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
   const [district, setDistrict] = useState();
   const handleChange = (event) => {
     setDistrict(event.target.value);
@@ -50,38 +44,41 @@ const PaymentBillsModal = ({
         setApplierEmail(data[0]);
       });
   }, []);
-  // if (loading) {
-  //   return <Spinner />;
-  // }
 
-  // apply for credit card
   const handleApply = (data) => {
-    // event.preventDefault();
     setIdError("");
-    const applierName = user?.displayName;
-    const applierPhnNumber = data.applierPhnNumber;
-    const accountId = data.accountId;
-    const cardType = data.cardType;
-    if (applierEmail?._id === accountId) {
-      const applierInfo = {
-        applierName,
-        applierPhnNumber,
-        accountId,
-        cardType,
+    const name = user?.displayName;
+    const phnNumber = data.phnNumber;
+    const bankAccNumber = data.bankAccNumber;
+    const billSNumber = data.billSNumber;
+    const district = data.district;
+    const lastDBill = data.lastDBill;
+    const billType = data.billType;
+    const amount = data.amount;
+    if (applierEmail?._id === bankAccNumber) {
+      const paymentInfo = {
+        name,
+        phnNumber,
+        bankAccNumber,
+        billSNumber,
+        district,
+        lastDBill,
+        billType,
+        amount,
       };
-      console.log(applierInfo, applierEmail?._id);
-      fetch(`http://localhost:5000/cardAppliers`, {
+      console.log(paymentInfo, applierEmail?._id);
+      fetch(`http://localhost:5000/`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(applierInfo),
+        body: JSON.stringify(paymentInfo),
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {
             console.log(data);
-            toast.success("Apply Success for card");
+            toast.success("Your Payment is Successfully Done!");
             reset();
             setIdError("");
           }
@@ -132,15 +129,15 @@ const PaymentBillsModal = ({
                   </label>
                   <input
                     type="number"
-                    {...register("applierPhnNumber", {
+                    {...register("phnNumber", {
                       required: "Phone Number is required",
                     })}
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
                     placeholder="Phone Number"
                   ></input>
-                  {errors.applierPhnNumber && (
+                  {errors.phnNumber && (
                     <p className="text-red-600 text-sm mb-0">
-                      {errors.applierPhnNumber?.message}
+                      {errors.phnNumber?.message}
                     </p>
                   )}
                 </div>
@@ -153,13 +150,13 @@ const PaymentBillsModal = ({
                     type="text"
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
                     placeholder="Bank Account Number"
-                    {...register("accountId", {
+                    {...register("bankAccNumber", {
                       required: "Bank Account Number is Required",
                     })}
                   ></input>
-                  {errors.accountId && (
+                  {errors.bankAccNumber && (
                     <p className="text-red-600 text-sm mb-0">
-                      {errors.accountId?.message}
+                      {errors.bankAccNumber?.message}
                     </p>
                   )}
                 </div>
@@ -172,13 +169,13 @@ const PaymentBillsModal = ({
                     type="text"
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
                     placeholder="Bill Serial Number"
-                    {...register("accountId", {
+                    {...register("billSNumber", {
                       required: "Bill Serial Number is Required",
                     })}
                   ></input>
-                  {errors.accountId && (
+                  {errors.billSNumber && (
                     <p className="text-red-600 text-sm mb-0">
-                      {errors.accountId?.message}
+                      {errors.billSNumber?.message}
                     </p>
                   )}
                 </div>
@@ -191,8 +188,11 @@ const PaymentBillsModal = ({
                     value={district}
                     onChange={handleChange}
                     label="city"
-                    className="border  px-3 rounded"
-                    placeholder="City"
+                    placeholder="District"
+                    className="from-select border  px-[10px] rounded "
+                    {...register("district", {
+                      required: "District is required",
+                    })}
                   >
                     {districts.map((dis) => (
                       <option key={dis} value={dis}>
@@ -200,6 +200,11 @@ const PaymentBillsModal = ({
                       </option>
                     ))}
                   </select>
+                  {errors.district && (
+                    <p className="text-red-600 text-sm mb-0">
+                      {errors.district?.message}
+                    </p>
+                  )}
                 </FormControl>
 
                 <FormControl>
@@ -210,10 +215,17 @@ const PaymentBillsModal = ({
                     name="date"
                     type="date"
                     style={{ width: "100%" }}
-                    className="border  px-3 rounded"
                     placeholder="dd/mm/yy"
-                    required
+                    className="from-select border  px-[10px] rounded "
+                    {...register("lastDBill", {
+                      required: "date is required",
+                    })}
                   ></input>
+                  {errors.lastDBill && (
+                    <p className="text-red-600 text-sm mb-0">
+                      {errors.lastDBill?.message}
+                    </p>
+                  )}
                 </FormControl>
 
                 <div className="form-control  w-full  md:mr-4">
@@ -237,9 +249,9 @@ const PaymentBillsModal = ({
                     <option value="TeleVision">TeleVision</option>
                     <option value="Credit Card">Credit Card</option>
                   </Select>
-                  {errors.cardType && (
+                  {errors.billType && (
                     <p className="text-red-600 text-sm mb-0">
-                      {errors.cardType?.message}
+                      {errors.billType?.message}
                     </p>
                   )}
                 </div>
@@ -255,13 +267,13 @@ const PaymentBillsModal = ({
                     type="text"
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
                     placeholder="Amount"
-                    {...register("accountId", {
+                    {...register("amount", {
                       required: "Amount is required",
                     })}
                   ></input>
-                  {errors.accountId && (
+                  {errors.amount && (
                     <p className="text-red-600 text-sm mb-0">
-                      {errors.accountId?.message}
+                      {errors.amount?.message}
                     </p>
                   )}
                 </div>
