@@ -29,7 +29,6 @@ const PaymentBillsModal = ({
     handleSubmit,
     reset,
   } = useForm();
-  const [applierEmail, setApplierEmail] = useState([]);
   const [disable, setDisable] = useState(false);
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
   const [district, setDistrict] = useState();
@@ -37,16 +36,7 @@ const PaymentBillsModal = ({
     setDistrict(event.target.value);
   };
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/users?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setApplierEmail(data[0]);
-      });
-  }, []);
-
   const handleApply = (data) => {
-    setIdError("");
     const name = user?.displayName;
     const phnNumber = data.phnNumber;
     const bankAccNumber = data.bankAccNumber;
@@ -55,38 +45,36 @@ const PaymentBillsModal = ({
     const lastDBill = data.lastDBill;
     const billType = data.billType;
     const amount = data.amount;
-    if (applierEmail?._id === bankAccNumber) {
-      const paymentInfo = {
-        name,
-        phnNumber,
-        bankAccNumber,
-        billSNumber,
-        district,
-        lastDBill,
-        billType,
-        amount,
-      };
-      console.log(paymentInfo, applierEmail?._id);
-      fetch(`http://localhost:5000/`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(paymentInfo),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            console.log(data);
-            toast.success("Your Payment is Successfully Done!");
-            reset();
-            setIdError("");
-          }
-        })
-        .then((error) => console.error(error));
-    } else {
-      toast.error("Account Id did't match");
-    }
+
+    const paymentInfo = {
+      name,
+      phnNumber,
+      bankAccNumber,
+      billSNumber,
+      district,
+      lastDBill,
+      billType,
+      amount,
+    };
+    console.log(paymentInfo);
+    toast.success("Your Payment is Successfully Done!");
+
+    // fetch(`http://localhost:5000/`, {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(paymentInfo),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.acknowledged) {
+    //       console.log(data);
+
+    //       reset();
+    //     }
+    //   })
+    //   .then((error) => console.error(error));
   };
   const [size, setSize] = React.useState("xl");
   return (
@@ -255,11 +243,6 @@ const PaymentBillsModal = ({
                     </p>
                   )}
                 </div>
-                {/* {idError && (
-                    <p className="text-red-600 text-sm mb-0">
-                      Account Id did't match
-                    </p>
-                  )} */}
 
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">Amount</label>

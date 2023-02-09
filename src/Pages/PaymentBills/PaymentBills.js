@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import logo from "../.././assets/PaymentBills/logo.png";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
-import starfour from "../.././assets/PaymentBills/StarFour.png";
 import icon1 from "../.././assets/PaymentBills/icon-1.png";
 import icon2 from "../.././assets/PaymentBills/icon-2.png";
 import icon3 from "../.././assets/PaymentBills/icon-3.png";
@@ -12,9 +11,6 @@ import PaymentBillsModal from "./PaymentBillsModal";
 const PaymentBills = () => {
   const [name, setName] = useState("Payment Bills");
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
-  //   const [idError, setIdError] = useState([]);
-  //   const { isOpen, onOpen, onClose } = useDisclosure();
-  //   const [overlay, setOverlay] = React.useState(<OverlayOne />);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [overlay, setOverlay] = React.useState(<OverlayOne />);
   return (
@@ -28,7 +24,7 @@ const PaymentBills = () => {
             </div>
             <div className="mt-9">
               <div>
-                <h2 className="text-[#DF0303] text-md mb-4">-- Pay Bill --</h2>
+                <h2 className="text-[#DF0303] text-md mb-4">-- Pay Bills --</h2>
               </div>
               <h1 className="text-[#010C3A] text-4xl font-bold mb-6">
                 Payment Bills
@@ -85,10 +81,8 @@ const PaymentBills = () => {
         </div>
         <PaymentBillsModal
           onClose={onClose}
-          // setOverlay={setOverlay}
           isOpen={isOpen}
           overlay={overlay}
-          // onOpen={onOpen}
           OverlayOne={OverlayOne}
         />
       </div>
