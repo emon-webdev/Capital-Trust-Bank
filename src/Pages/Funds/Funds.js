@@ -1,11 +1,13 @@
 import { ModalOverlay, useDisclosure } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import fundImg from "../../assets/fundsImg/fundMainImg.png";
 import videoBg from "../../assets/fundsImg/videoBg.png";
 import videoBtn from "../../assets/fundsImg/videoBtn.png";
 import VideoModal from "../../component/Modal/VideoModal";
 const Funds = ({}) => {
+  const { t } = useTranslation();
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [overlay, setOverlay] = useState(<OverlayOne />);
@@ -26,48 +28,36 @@ const Funds = ({}) => {
           </div>
           <div className="fund-content basis-3/6 mt-10">
             <h3 className="text-[#DF0303] text-md mb-4">
-              -- Need Funds & Donate --
+              {t("Funds_Donate_title")}
             </h3>
             <h2 className="text-[#010C3A] text-4xl font-bold mb-6">
-              Start Monthly Donation to Save Lives
+              {t("Funds_Donate_SubTitle")}
             </h2>
-            <p className="">
-              With your support, countless children will receive health care and
-              a happy life. Start your monthly donation today.
-            </p>
+            <p className="">{t("Funds_Donate_describe")}</p>
             <div className="donate-talk pt-4">
               <p className="flex font-semibold text-[#010C3A] mb-2 ">
                 <span className="">
                   <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
                 </span>
-                <span>The sole meaning of life is to serve humanity.</span>
+                <span>{t("Funds_Donate_first_li")}</span>
               </p>
               <p className="flex font-semibold text-[#010C3A] mb-2 ">
                 <span className="">
                   <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
                 </span>
-                <span>
-                  We cannot despair of humanity, since we ourselves are human
-                  beings.
-                </span>
+                <span>{t("Funds_Donate_first_2ndli")}</span>
               </p>
               <p className="flex font-semibold text-[#010C3A] mb-2 ">
                 <span className="">
                   <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
                 </span>
-                <span>
-                  If we have no peace, it is because we have forgotten that we
-                  belong to each other.
-                </span>
+                <span>{t("Funds_Donate_first_3rd_Li")}</span>
               </p>
               <p className="flex font-semibold text-[#010C3A] mb-2 ">
                 <span className="">
                   <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
                 </span>
-                <span>
-                  To deny people their human rights is to challenge their very
-                  humanity.
-                </span>
+                <span>{t("Funds_Donate_first_4th_Li")}</span>
               </p>
             </div>
             <VideoModal
@@ -75,9 +65,10 @@ const Funds = ({}) => {
               isOpen={isOpen}
               overlay={overlay}
               OverlayOne={OverlayOne}
+              onOpen={onOpen}
             />
             <button class="primary-btn mt-5" fdprocessedid="9ncuxb">
-              Donate Now
+              {t("Donate_btn")}
             </button>
           </div>
         </div>
