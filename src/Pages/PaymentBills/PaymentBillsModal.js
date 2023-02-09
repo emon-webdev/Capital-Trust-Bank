@@ -4,10 +4,8 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Button,
   Select,
   FormControl,
 } from "@chakra-ui/react";
@@ -93,10 +91,10 @@ const PaymentBillsModal = ({
       toast.error("Account Id did't match");
     }
   };
-
+  const [size, setSize] = React.useState("xl");
   return (
     <div className="py-3">
-      <Modal isCentered isOpen={isOpen} onClose={onClose}>
+      <Modal isCentered isOpen={isOpen} onClose={onClose} size={size}>
         {overlay}
         <ModalContent>
           <ModalHeader>
@@ -148,13 +146,34 @@ const PaymentBillsModal = ({
                 </div>
 
                 <div className="form-control  w-full">
-                  <label className="text-base text-[#57647E]">Account Id</label>
+                  <label className="text-base text-[#57647E]">
+                    Bank Account Number
+                  </label>
                   <input
                     type="text"
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
-                    placeholder="Id Number"
+                    placeholder="Bank Account Number"
                     {...register("accountId", {
-                      required: "Account Id is Required",
+                      required: "Bank Account Number is Required",
+                    })}
+                  ></input>
+                  {errors.accountId && (
+                    <p className="text-red-600 text-sm mb-0">
+                      {errors.accountId?.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="form-control  w-full">
+                  <label className="text-base text-[#57647E]">
+                    Bill Serial Number
+                  </label>
+                  <input
+                    type="text"
+                    className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
+                    placeholder="Bill Serial Number"
+                    {...register("accountId", {
+                      required: "Bill Serial Number is Required",
                     })}
                   ></input>
                   {errors.accountId && (
@@ -230,6 +249,23 @@ const PaymentBillsModal = ({
                     </p>
                   )} */}
 
+                <div className="form-control  w-full">
+                  <label className="text-base text-[#57647E]">Amount</label>
+                  <input
+                    type="text"
+                    className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
+                    placeholder="Amount"
+                    {...register("accountId", {
+                      required: "Amount is required",
+                    })}
+                  ></input>
+                  {errors.accountId && (
+                    <p className="text-red-600 text-sm mb-0">
+                      {errors.accountId?.message}
+                    </p>
+                  )}
+                </div>
+
                 <div className="my-4">
                   <button
                     onClick={onClose}
@@ -259,9 +295,6 @@ const PaymentBillsModal = ({
               </form>
             </div>
           </ModalBody>
-          {/* <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
-          </ModalFooter> */}
         </ModalContent>
       </Modal>
     </div>
