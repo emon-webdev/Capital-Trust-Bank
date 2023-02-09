@@ -99,6 +99,7 @@ const Navbar = () => {
 
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
+                to="/services"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -106,6 +107,11 @@ const Navbar = () => {
               </NavLink>
               {/* Submenu */}
               <ul className="submenu">
+                <li>
+                  <NavLink to="/paymentbills" className="">
+                    Pay Bil
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink to="/educationloan" className="">
                     {t("Education_Loan")}
@@ -136,6 +142,7 @@ const Navbar = () => {
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
+                to="/insurance"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -162,7 +169,7 @@ const Navbar = () => {
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-                // to="/insurance"
+                to="/pages"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
