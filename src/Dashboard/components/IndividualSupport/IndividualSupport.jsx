@@ -26,11 +26,21 @@ const IndividualSupport = () => {
     const handleSubmit = (event) => {
       event.preventDefault();
       const message = event.target.message.value;
+     
+      const chatInfo = {
+        senderEmail: user.email,
+        senderImg: user.photoURL,
+        senderName: user.displayName,
+        receiverEmail: '',
+        receiverImg: '',
+        receiverName: '',
+        message: message
+      }
       if(role==='admin'){
         socket.emit("send message", { sender: user.email, to: 'akashchakrabortty2000@gmail.com', message });
       }
       else{
-        socket.emit("send message", { sender: user.email, to: '', message });
+        socket.emit("send message", chatInfo);
       }
      
   
