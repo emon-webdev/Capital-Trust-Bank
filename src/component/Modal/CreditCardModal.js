@@ -12,12 +12,8 @@ import { toast } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
 const CreditCardModal = ({
   onClose,
-  onOpen,
   isOpen,
   overlay,
-  setOverlay,
-  setIdError,
-  idError,
 }) => {
   const { user, loading } = useContext(AuthContext);
   const {
@@ -40,7 +36,6 @@ const CreditCardModal = ({
   // apply for credit card
   const handleApply = (data) => {
     // event.preventDefault();
-    setIdError("");
     const applierName = user?.displayName;
     const applierPhnNumber = data.applierPhnNumber;
     const accountId = data.accountId;
@@ -66,7 +61,6 @@ const CreditCardModal = ({
             console.log(data);
             toast.success("Apply Success for card");
             reset();
-            setIdError("");
           }
         })
         .then((error) => console.error(error));

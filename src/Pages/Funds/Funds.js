@@ -1,10 +1,14 @@
-import React from "react";
+import { ModalOverlay, useDisclosure } from "@chakra-ui/react";
+import React, { useState } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import fundImg from "../../assets/fundsImg/fundMainImg.png";
 import videoBg from "../../assets/fundsImg/videoBg.png";
 import videoBtn from "../../assets/fundsImg/videoBtn.png";
-import DonateVIdeo from "./DonateVIdeo";
-const Funds = () => {
+import VideoModal from "../../component/Modal/VideoModal";
+const Funds = ({}) => {
+  const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [overlay, setOverlay] = useState(<OverlayOne />);
   return (
     <div className="funds-area pt-[60px] md:pt-[120px] pb-[60px]">
       <div className="container">
@@ -14,9 +18,9 @@ const Funds = () => {
             <div className="video-content absolute bottom-0 right-0">
               <div className="video-img relative">
                 <img className="" src={videoBg} alt="" />
-                <a href="">
+                <p onClick={onOpen}>
                   <img src={videoBtn} alt="" srcset="" />
-                </a>
+                </p>
               </div>
             </div>
           </div>
@@ -66,10 +70,15 @@ const Funds = () => {
                 </span>
               </p>
             </div>
+            <VideoModal
+              onClose={onClose}
+              isOpen={isOpen}
+              overlay={overlay}
+              OverlayOne={OverlayOne}
+            />
             <button class="primary-btn mt-5" fdprocessedid="9ncuxb">
               Donate Now
             </button>
-            <DonateVIdeo />
           </div>
         </div>
       </div>

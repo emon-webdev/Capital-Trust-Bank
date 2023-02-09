@@ -76,13 +76,9 @@ const ApplyCreditCard = () => {
       {/* Modal */}
       <CreditCardModal
         onClose={onClose}
-        // setOverlay={setOverlay}
         isOpen={isOpen}
         overlay={overlay}
-        // onOpen={onOpen}
         OverlayOne={OverlayOne}
-        setIdError={setIdError}
-        idError={idError}
       />
     </div>
   );

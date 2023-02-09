@@ -223,15 +223,16 @@ ul.submenu li:hover a {
   animation-fill-mode: both;
   animation-duration: 2s;
 }
-.video-img a {
+.video-img p {
   position: absolute;
+  cursor: pointer;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 6px solid #fff;
 }
-.video-img a::after {
+.video-img p::after {
   content: "";
   display: inline-block;
   position: absolute;
