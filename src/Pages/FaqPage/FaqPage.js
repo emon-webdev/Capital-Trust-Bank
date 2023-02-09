@@ -2,16 +2,19 @@ import { Accordion, AccordionButton, AccordionItem,AccordionIcon,AccordionPanel,
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/faq/faqImage.png"
+import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import "./FaqPage.css"
 
 const FaqPage = () => {
   return (
-  <div className="container my-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 bg-faq p-5">
+ <div>
+  <DynamicBanner name={"FAQ"}></DynamicBanner>
+   <div className="container my-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 bg-faq p-5">
     {/* faq image  */}
     <div>
         <img src={logo} alt=""/>
     </div>
-    {/* fag details  */}
+    {/* fag detail  */}
     <div>
         <h1 className="text-4xl font-semibold mb-3">Frequently Asked Questions
 what you need</h1>
@@ -147,6 +150,7 @@ Encounter who loves or pursues desire
 </div>
     </div>
   </div>
+ </div>
   );
 };
 
