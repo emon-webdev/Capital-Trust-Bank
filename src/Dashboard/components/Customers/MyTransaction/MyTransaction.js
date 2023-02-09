@@ -25,20 +25,18 @@ export default function MyTransaction() {
   }, []);
 
   return (
-    <div className="container flex gap-10">
+    <div className=" container flex gap-5 flex-col md:flex-row lg:flex-row align-items-center justify-content-center">
       <div className="">
         <TableContainer
           borderRadius={10}
           backgroundColor="white"
-          marginX={10}
+          marginX={2}
           marginY={10}
+          marginLeft={20}
         >
           <Table variant="simple">
             <Thead>
               <Tr>
-                <Th color="#041C51" fontSize={24} paddingY={6}>
-                  Category
-                </Th>
                 <Th color="#041C51" fontSize={24} paddingY={6}>
                   Date
                 </Th>
@@ -56,7 +54,6 @@ export default function MyTransaction() {
             <Tbody>
               {transacData?.map((data) => (
                 <Tr key={data._id}>
-                  <Td></Td>
                   <Td>{data.date}</Td>
                   <Td>{data.time}</Td>
                   <Td
@@ -84,7 +81,7 @@ export default function MyTransaction() {
           </Table>
         </TableContainer>
       </div>
-      <div className="mt-2">
+      <div className="mt-10">
         <VisaTransaction></VisaTransaction>
       </div>
     </div>
