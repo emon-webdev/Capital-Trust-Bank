@@ -103,7 +103,7 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
-        action: "createAction"
+        action: "createAction",
       },
       {
         path: "/about",
@@ -115,7 +115,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/paymentbills",
-        element: <PaymentBills/>,
+        element: <PaymentBills />,
       },
       {
         path: "/login",
@@ -132,8 +132,8 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/team-details/${params.id}`),
       },
       {
-        path: '/exchange',
-        element: <ExchangeDetails />
+        path: "/exchange",
+        element: <ExchangeDetails />,
       },
     ],
   },
@@ -214,6 +214,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myAccount",
         element: <MyAccount />,
+        loader: () => fetch("http://localhost:5000/depositWithdraw"),
       },
       {
         path: "/dashboard/deviceActivity",
