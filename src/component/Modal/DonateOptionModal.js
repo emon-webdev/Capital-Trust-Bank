@@ -1,9 +1,9 @@
 import {
-    Modal,
-    ModalBody,
-    ModalContent,
-    ModalHeader,
-    Select
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+  Select
 } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -44,9 +44,7 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
       >
         <ModalContent>
           <ModalHeader>
-            <h2 className="py-2 text-lg md:text-4xl font-semibold">
-              Apply for Credit Card
-            </h2>
+            <h2 className="py-2 text-lg md:text-4xl font-semibold">Donate </h2>
           </ModalHeader>
           <ModalBody>
             <div className="mb-5">

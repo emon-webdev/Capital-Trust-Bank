@@ -5,17 +5,17 @@ const ServiceRequest = () => {
   return (
     <div className="service-req-area my-12">
       <div className="container">
-        <div className="text-center">
+        <div className="text-center mb-4">
           <h2
             marginBottom={2}
             textAlign="center"
-            sx={{ fontWeight: "bold" }}
+            className="text-xl"
             color="#fff"
           >
             -- Emergency Service Requests --
           </h2>
           <h3
-            variant="h4"
+            className="text-5xl mb-5 font-bold mt-3"
             marginBottom={5}
             fontWeight="700"
             textAlign="center"
