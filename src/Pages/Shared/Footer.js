@@ -1,3 +1,4 @@
+import { ChatIcon, EmailIcon, PhoneIcon } from "@chakra-ui/icons";
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo/mainlogo.png";
@@ -17,14 +18,14 @@ const Footer = () => {
               <span className=" text-3xl font-bold">CTB</span>
             </div>
             <div className="flex gap-2 ml-4 mt-4">
-              <Link className="social-link-border">
-                {/* <LinkedInIcon id="social-link"></LinkedInIcon> */}
+              <Link className="">
+                <ChatIcon></ChatIcon>
               </Link>
-              <Link className="social-link-facebook-border">
-                {/* <FacebookIcon id="social-link-facebook"></FacebookIcon> */}
+              <Link className="">
+                <EmailIcon></EmailIcon>
               </Link>
-              <Link className="social-link-border">
-                {/* <TwitterIcon id="social-link"></TwitterIcon> */}
+              <Link className="">
+                <PhoneIcon></PhoneIcon>
               </Link>
             </div>
           </div>

@@ -1,4 +1,6 @@
+import { t } from "i18next";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const slideStyles = {
@@ -65,6 +67,7 @@ const ImageSlider = ({ slides }) => {
     ...slideStyles,
     backgroundImage: `url(${slides[currentIndex].url})`,
   };
+  const {t} = useTranslation()
   return (
     <div style={sliderStyles}>
       <div>
@@ -78,13 +81,12 @@ const ImageSlider = ({ slides }) => {
       <div style={slideStylesWidthBackground}>
         <div className="container">
           <div className="banner-content">
-            <h3 className="text-white text-2xl">Business Consultancy</h3>
+            <h3 className="text-white text-2xl">{t("home_banner_title")}</h3>
             <h2 className="text-white  text-6xl">
-              Capital Trust Bank <br /> For Better Future.
+              {t('home_banner_sub_title_01')} <br /> {t("home_banner_sub_title_02")}
             </h2>
             <p className="text-white  text-xl">
-              We consider all the drivers of change from the <br /> ground up
-              and we’ll motivate and support you to <br /> make the change.
+              {t('home_banner_description_01')} <br /> {t('home_banner_description_02')} <br /> {t('home_banner_description_03')}
             </p>
             <div>
               <Link to="/apply-loan" className="secondary-btn">
