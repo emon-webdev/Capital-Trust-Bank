@@ -40,7 +40,9 @@ const PaymentBillsModal = ({
   );
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users?email=${user?.email}`)
+    fetch(
+      `https://capital-trust-bank-server.vercel.app/users?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data[0]);
@@ -66,7 +68,7 @@ const PaymentBillsModal = ({
         cardType,
       };
       console.log(applierInfo, applierEmail?._id);
-      fetch(`http://localhost:5000/cardAppliers`, {
+      fetch(`https://capital-trust-bank-server.vercel.app/cardAppliers`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -27,12 +27,15 @@ const DashboardNavbar = () => {
   const navigate = useNavigate();
   const handleSignOut = () => {
     //delete customer device info
-    fetch(`http://localhost:5000/deleteDeviceInfo/${user.email}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://capital-trust-bank-server.vercel.app/deleteDeviceInfo/${user.email}`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         logOut()
