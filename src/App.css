@@ -673,6 +673,9 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   .text {
     margin-top: 10px;
   }
+  .card-body {
+    width: 87%;
+  }
 }
 
 /* SM Small Device :320px. */
@@ -790,5 +793,8 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
 
   .text {
     margin-top: 10px;
+  }
+  .card-body {
+    width: 97%;
   }
 }

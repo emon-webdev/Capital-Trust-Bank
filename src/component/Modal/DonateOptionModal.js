@@ -1,36 +1,60 @@
 import {
-    Modal,
-    ModalBody,
-    ModalContent,
-    ModalHeader,
-    Select
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Select
 } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
+  const [size, setSize] = React.useState("lg");
   const {
     register,
-    formState: { errors },
-    handleSubmit,
     reset,
+    handleSubmit,
+    formState: { errors },
   } = useForm();
-  const [size, setSize] = React.useState("xl");
-
+  const date = new Date();
   // apply for credit card
-  const handleApply = (data) => {
+  const handleDonate = (data) => {
     // event.preventDefault();
-    const applierName = data.name;
-    const applierPhnNumber = data.applierPhnNumber;
-    const accountId = data.accountId;
-    const cardType = data.cardType;
-    const applierInfo = {
-      applierName,
-      applierPhnNumber,
-      accountId,
-      cardType,
-    };
+    const donateDate = date;
+    const donarName = data.donarName;
+    const donarPhnNumber = data.donarPhnNumber;
+    const donarEmail = data.email;
+    const currency = data.currency;
+    const amount = parseInt(data.amount);
 
-    console.log(applierInfo);
+    const donate = {
+      donateDate,
+      donarName,
+      donarPhnNumber,
+      donarEmail,
+      currency,
+      amount,
+    };
+    console.log(donate);
+    fetch("http://localhost:5000", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(donate),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        toast.success(`Donate Success`);
+        // reset();
+      });
   };
 
   return (
@@ -42,22 +66,18 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
         isOpen={isOpen}
         motionPreset="slideInBottom"
       >
+        <ModalOverlay />
         <ModalContent>
-          <ModalHeader>
-            <h2 className="py-2 text-lg md:text-4xl font-semibold">
-              Apply for Credit Card
-            </h2>
-          </ModalHeader>
+          <ModalHeader>Video</ModalHeader>
+          <ModalCloseButton />
           <ModalBody>
-            <div className="mb-5">
-              <div onSubmit={handleSubmit(handleApply)}>
+            <div>
+              <form onSubmit={handleSubmit(handleDonate)}>
                 <div className="form-control ">
-                  <label className="text-base text-[#57647E]">
-                    Account Name
-                  </label>
+                  <label className="text-base text-[#57647E]">Your Name</label>
                   <input
                     type="text"
-                    {...register("accountName", {
+                    {...register("donarName", {
                       required: "Account Name is required",
                     })}
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
@@ -69,42 +89,42 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
                     </p>
                   )}
                 </div>
+                <div className="form-control ">
+                  <label className="text-base text-[#57647E]">Your Email</label>
+                  <input
+                    type="text"
+                    {...register("email", {
+                      required: "Email is required",
+                    })}
+                    className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
+                    placeholder="Email"
+                  ></input>
+                  {errors.email && (
+                    <p className="text-red-600 text-sm mb-0">
+                      {errors.email?.message}
+                    </p>
+                  )}
+                </div>
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">
                     Phone Number
                   </label>
                   <input
                     type="number"
-                    {...register("applierPhnNumber", {
+                    {...register("donarPhnNumber", {
                       required: "Phone Number is required",
                     })}
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
                     placeholder="Phone Number"
                   ></input>
-                  {errors.applierPhnNumber && (
+                  {errors.donarPhnNumber && (
                     <p className="text-red-600 text-sm mb-0">
-                      {errors.applierPhnNumber?.message}
+                      {errors.donarPhnNumber?.message}
                     </p>
                   )}
                 </div>
-                <div className="form-control  w-full">
-                  <label className="text-base text-[#57647E]">Account Id</label>
-                  <input
-                    type="text"
-                    className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
-                    placeholder="Id Number"
-                    {...register("accountId", {
-                      required: "Account Id is Required",
-                    })}
-                  ></input>
-                </div>
-                {errors.accountId && (
-                  <p className="text-red-600 text-sm mb-0">
-                    {errors.accountId?.message}
-                  </p>
-                )}
                 <div className="form-control  w-full  md:mr-4">
-                  <label className="text-base text-[#57647E]">Card Type</label>
+                  <label className="text-base text-[#57647E]">Currency</label>
                   <Select
                     style={{
                       margin: "5px 0 10px",
@@ -113,14 +133,12 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
                     }}
                     placeholder="Card Type"
                     className="from-select border  px-[10px] rounded "
-                    {...register("cardType", {
-                      required: "Card Type is required",
+                    {...register("currency", {
+                      required: "Currency is required",
                     })}
                   >
-                    <option value="CreditCard">Credit Card</option>
-                    <option value="DebitCard">Debit Card</option>
-                    <option value="MasterCard">Master Card</option>
-                    <option value="VISACard">VISA Card</option>
+                    <option value="BDT">BDT</option>
+                    <option value="USD">USD</option>
                   </Select>
                   {errors.cardType && (
                     <p className="text-red-600 text-sm mb-0">
@@ -128,24 +146,44 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
                     </p>
                   )}
                 </div>
+                <div className="form-control ">
+                  <label className="text-base text-[#57647E]">Amount</label>
+
+                  <InputGroup className="mb-2 mt-1">
+                    <InputLeftElement
+                      className="h-[50px]"
+                      pointerEvents="none"
+                      color="gray.300"
+                      fontSize="1.2em"
+                      children="$"
+                    />
+                    <Input
+                      type="number"
+                      {...register("amount", {
+                        required: "Amount is required",
+                      })}
+                      placeholder="Donate Amount"
+                    />
+                  </InputGroup>
+                  {errors.monthlySalary && (
+                    <p className="text-red-600">
+                      {errors.monthlySalary?.message}
+                    </p>
+                  )}
+                </div>
                 <div className="my-4">
                   <button
-                    onClick={onClose}
-                    className="accent-btn sm-btn mt-5 mr-3"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    className={`disable sm-btn mt-5 cursor-pointer`}
+                    className={`sm-btn mt-5 cursor-pointer`}
                     type="submit"
-                    onClick={onClose}
+                    // onClick={onClose}
                   >
-                    Apply Now
+                    Pay
                   </button>
                 </div>
-              </div>
+              </form>
             </div>
           </ModalBody>
+          <ModalFooter></ModalFooter>
         </ModalContent>
       </Modal>
     </div>

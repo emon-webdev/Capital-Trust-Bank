@@ -4,15 +4,15 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Button,
   Select,
+  FormControl,
 } from "@chakra-ui/react";
 import { AuthContext } from "../../context/AuthProvider";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { districts } from "../Services/districtData";
 
 const PaymentBillsModal = ({
   isOpen,
@@ -29,68 +29,57 @@ const PaymentBillsModal = ({
     handleSubmit,
     reset,
   } = useForm();
-  //   const [idError, setIdError] = useState([]);
-  const [applierEmail, setApplierEmail] = useState([]);
   const [disable, setDisable] = useState(false);
-  const OverlayOne = () => (
-    <ModalOverlay
-      bg="blackAlpha.700"
-      //   backdropFilter="blur(10px) hue-rotate(90deg)"
-    />
-  );
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/users?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setApplierEmail(data[0]);
-      });
-  }, []);
-  // if (loading) {
-  //   return <Spinner />;
-  // }
-
-  // apply for credit card
-  const handleApply = (data) => {
-    // event.preventDefault();
-    setIdError("");
-    const applierName = user?.displayName;
-    const applierPhnNumber = data.applierPhnNumber;
-    const accountId = data.accountId;
-    const cardType = data.cardType;
-    if (applierEmail?._id === accountId) {
-      const applierInfo = {
-        applierName,
-        applierPhnNumber,
-        accountId,
-        cardType,
-      };
-      console.log(applierInfo, applierEmail?._id);
-      fetch(`http://localhost:5000/cardAppliers`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(applierInfo),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            console.log(data);
-            toast.success("Apply Success for card");
-            reset();
-            setIdError("");
-          }
-        })
-        .then((error) => console.error(error));
-    } else {
-      toast.error("Account Id did't match");
-    }
+  const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
+  const [district, setDistrict] = useState();
+  const handleChange = (event) => {
+    setDistrict(event.target.value);
   };
 
+  const handleApply = (data) => {
+    const name = user?.displayName;
+    const phnNumber = data.phnNumber;
+    const bankAccNumber = data.bankAccNumber;
+    const billSNumber = data.billSNumber;
+    const district = data.district;
+    const lastDBill = data.lastDBill;
+    const billType = data.billType;
+    const amount = data.amount;
+
+    const paymentInfo = {
+      name,
+      phnNumber,
+      bankAccNumber,
+      billSNumber,
+      district,
+      lastDBill,
+      billType,
+      amount,
+    };
+    console.log(paymentInfo);
+    toast.success("Your Payment is Successfully Done!");
+
+    // fetch(`http://localhost:5000/`, {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(paymentInfo),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.acknowledged) {
+    //       console.log(data);
+
+    //       reset();
+    //     }
+    //   })
+    //   .then((error) => console.error(error));
+  };
+  const [size, setSize] = React.useState("xl");
   return (
     <div className="py-3">
-      <Modal isCentered isOpen={isOpen} onClose={onClose}>
+      <Modal isCentered isOpen={isOpen} onClose={onClose} size={size}>
         {overlay}
         <ModalContent>
           <ModalHeader>
@@ -121,40 +110,112 @@ const PaymentBillsModal = ({
                     </p>
                   )}
                 </div>
+
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">
                     Phone Number
                   </label>
                   <input
                     type="number"
-                    {...register("applierPhnNumber", {
+                    {...register("phnNumber", {
                       required: "Phone Number is required",
                     })}
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
                     placeholder="Phone Number"
                   ></input>
-                  {errors.applierPhnNumber && (
+                  {errors.phnNumber && (
                     <p className="text-red-600 text-sm mb-0">
-                      {errors.applierPhnNumber?.message}
+                      {errors.phnNumber?.message}
                     </p>
                   )}
                 </div>
+
                 <div className="form-control  w-full">
-                  <label className="text-base text-[#57647E]">Account Id</label>
+                  <label className="text-base text-[#57647E]">
+                    Bank Account Number
+                  </label>
                   <input
                     type="text"
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
-                    placeholder="Id Number"
-                    {...register("accountId", {
-                      required: "Account Id is Required",
+                    placeholder="Bank Account Number"
+                    {...register("bankAccNumber", {
+                      required: "Bank Account Number is Required",
                     })}
                   ></input>
+                  {errors.bankAccNumber && (
+                    <p className="text-red-600 text-sm mb-0">
+                      {errors.bankAccNumber?.message}
+                    </p>
+                  )}
                 </div>
-                {errors.accountId && (
-                  <p className="text-red-600 text-sm mb-0">
-                    {errors.accountId?.message}
-                  </p>
-                )}
+
+                <div className="form-control  w-full">
+                  <label className="text-base text-[#57647E]">
+                    Bill Serial Number
+                  </label>
+                  <input
+                    type="text"
+                    className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
+                    placeholder="Bill Serial Number"
+                    {...register("billSNumber", {
+                      required: "Bill Serial Number is Required",
+                    })}
+                  ></input>
+                  {errors.billSNumber && (
+                    <p className="text-red-600 text-sm mb-0">
+                      {errors.billSNumber?.message}
+                    </p>
+                  )}
+                </div>
+
+                <FormControl>
+                  <label className="text-base text-[#57647E]">District</label>
+                  <select
+                    name="city"
+                    style={{ width: "100%" }}
+                    value={district}
+                    onChange={handleChange}
+                    label="city"
+                    placeholder="District"
+                    className="from-select border  px-[10px] rounded "
+                    {...register("district", {
+                      required: "District is required",
+                    })}
+                  >
+                    {districts.map((dis) => (
+                      <option key={dis} value={dis}>
+                        {dis}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.district && (
+                    <p className="text-red-600 text-sm mb-0">
+                      {errors.district?.message}
+                    </p>
+                  )}
+                </FormControl>
+
+                <FormControl>
+                  <label className="text-base text-[#57647E]">
+                    Last Date of Bill
+                  </label>
+                  <input
+                    name="date"
+                    type="date"
+                    style={{ width: "100%" }}
+                    placeholder="dd/mm/yy"
+                    className="from-select border  px-[10px] rounded "
+                    {...register("lastDBill", {
+                      required: "date is required",
+                    })}
+                  ></input>
+                  {errors.lastDBill && (
+                    <p className="text-red-600 text-sm mb-0">
+                      {errors.lastDBill?.message}
+                    </p>
+                  )}
+                </FormControl>
+
                 <div className="form-control  w-full  md:mr-4">
                   <label className="text-base text-[#57647E]">Bill Type</label>
                   <Select
@@ -176,17 +237,30 @@ const PaymentBillsModal = ({
                     <option value="TeleVision">TeleVision</option>
                     <option value="Credit Card">Credit Card</option>
                   </Select>
-                  {errors.cardType && (
+                  {errors.billType && (
                     <p className="text-red-600 text-sm mb-0">
-                      {errors.cardType?.message}
+                      {errors.billType?.message}
                     </p>
                   )}
                 </div>
-                {/* {idError && (
+
+                <div className="form-control  w-full">
+                  <label className="text-base text-[#57647E]">Amount</label>
+                  <input
+                    type="text"
+                    className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
+                    placeholder="Amount"
+                    {...register("amount", {
+                      required: "Amount is required",
+                    })}
+                  ></input>
+                  {errors.amount && (
                     <p className="text-red-600 text-sm mb-0">
-                      Account Id did't match
+                      {errors.amount?.message}
                     </p>
-                  )} */}
+                  )}
+                </div>
+
                 <div className="my-4">
                   <button
                     onClick={onClose}
@@ -216,9 +290,6 @@ const PaymentBillsModal = ({
               </form>
             </div>
           </ModalBody>
-          <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </div>
