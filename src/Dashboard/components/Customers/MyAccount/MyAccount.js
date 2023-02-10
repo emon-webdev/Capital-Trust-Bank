@@ -6,18 +6,22 @@ import { useLoaderData } from "react-router";
 
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 import { AuthContext } from "../../../../context/AuthProvider";
+import { DashboardContext } from "../../../../context/UserDashboardProvider";
 
 export default function MyAccount() {
   const { user } = useContext(AuthContext);
+  // const { deposit, withdraw } = useContext(DashboardContext);
+  // console.log(deposit);
   const [transacData, setTransacData] = useState([]);
+
   useEffect(() => {
-    fetch(`http://localhost:5000/depositWithdraw/${user.email}`)
+    fetch(`http://localhost:5000/depositWithdraw/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setTransacData(data));
   }, []);
-  // console.log(transacData);
 
   const withdrawData = transacData.filter((data) => data.type === "withdraw");
+  console.log(withdrawData);
   const totalWithdraw = withdrawData.reduce((total, withdr) => {
     return total + parseInt(withdr.withdraw);
   }, 0);

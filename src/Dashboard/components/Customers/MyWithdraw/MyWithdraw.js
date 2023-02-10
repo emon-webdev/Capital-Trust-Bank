@@ -11,10 +11,14 @@ import React, { useContext, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../../context/AuthProvider";
+import { DashboardContext } from "../../../../context/UserDashboardProvider";
 
 const MyWithdraw = () => {
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
+  const { withdraw, setWithdarw, setDeposit, deposit } =
+    useContext(DashboardContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -55,6 +59,8 @@ const MyWithdraw = () => {
           toast.error(data.message);
         }
       });
+    setWithdarw(withdraw + parseInt(amount));
+    setDeposit(deposit - parseInt(amount));
   };
 
   return (

@@ -19,13 +19,16 @@ export default function MyTransaction() {
   const { user } = useContext(AuthContext);
   const [transacData, setTransacData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/depositWithdraw/${user.email}`)
+    fetch(`http://localhost:5000/depositWithdraw/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setTransacData(data));
   }, []);
 
   return (
-    <div className=" container flex gap-5 flex-col md:flex-row lg:flex-row align-items-center justify-content-center">
+    <div className=" container  gap-5 flex-col md:flex-row lg:flex-row align-items-center justify-content-center">
+      <div className="mt-10">
+        <VisaTransaction></VisaTransaction>
+      </div>
       <div className="">
         <TableContainer
           borderRadius={10}
@@ -33,6 +36,9 @@ export default function MyTransaction() {
           marginX={2}
           marginY={10}
           marginLeft={20}
+          height={500}
+          overflowY="scroll"
+          overflowX="scroll"
         >
           <Table variant="simple">
             <Thead>
@@ -80,9 +86,6 @@ export default function MyTransaction() {
             </Tbody>
           </Table>
         </TableContainer>
-      </div>
-      <div className="mt-10">
-        <VisaTransaction></VisaTransaction>
       </div>
     </div>
   );
