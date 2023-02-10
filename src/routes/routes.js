@@ -108,7 +108,7 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
-        action: "createAction"
+        action: "createAction",
       },
       {
         path: "/about",
@@ -120,7 +120,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/paymentbills",
-        element: <PaymentBills/>,
+        element: <PaymentBills />,
       },
       {
         path: "/login",
@@ -134,11 +134,13 @@ const router = createBrowserRouter([
         path: "/team-details/:id",
         element: <TeamDetails />,
         loader: async ({ params }) =>
-          fetch(`http://localhost:5000/team-details/${params.id}`),
+          fetch(
+            `https://capital-trust-bank-server.vercel.app/team-details/${params.id}`
+          ),
       },
       {
-        path: '/exchange',
-        element: <ExchangeDetails />
+        path: "/exchange",
+        element: <ExchangeDetails />,
       },
     ],
   },
@@ -190,7 +192,7 @@ const router = createBrowserRouter([
         path: "/dashboard/myTransaction",
         element: <MyTransaction />,
         // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/depositWithdraw/${params.email}`),
+        //   fetch(`https://capital-trust-bank-server.vercel.app/depositWithdraw/${params.email}`),
       },
       // {
       //   path: "/dashboard/my-balance",
@@ -219,6 +221,8 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myAccount",
         element: <MyAccount />,
+        loader: () =>
+          fetch("https://capital-trust-bank-server.vercel.app/depositWithdraw"),
       },
       {
         path: "/dashboard/deviceActivity",

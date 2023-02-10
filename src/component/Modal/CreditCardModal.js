@@ -3,18 +3,14 @@ import {
   ModalBody,
   ModalContent,
   ModalHeader,
-  ModalOverlay
+  ModalOverlay,
 } from "@chakra-ui/modal";
 import { Select } from "@chakra-ui/select";
 import { default as React, useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
-const CreditCardModal = ({
-  onClose,
-  isOpen,
-  overlay,
-}) => {
+const CreditCardModal = ({ onClose, isOpen, overlay }) => {
   const { user, loading } = useContext(AuthContext);
   const {
     register,
@@ -27,7 +23,9 @@ const CreditCardModal = ({
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users?email=${user?.email}`)
+    fetch(
+      `https://capital-trust-bank-server.vercel.app/users?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data[0]);
@@ -48,7 +46,7 @@ const CreditCardModal = ({
         cardType,
       };
       console.log(applierInfo, applierEmail?._id);
-      fetch(`http://localhost:5000/cardAppliers`, {
+      fetch(`https://capital-trust-bank-server.vercel.app/cardAppliers`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

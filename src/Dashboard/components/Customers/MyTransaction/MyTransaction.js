@@ -19,26 +19,32 @@ export default function MyTransaction() {
   const { user } = useContext(AuthContext);
   const [transacData, setTransacData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/depositWithdraw/${user.email}`)
+    fetch(
+      `https://capital-trust-bank-server.vercel.app/depositWithdraw/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setTransacData(data));
   }, []);
 
   return (
-    <div className="container flex gap-10">
+    <div className=" container  gap-5 flex-col md:flex-row lg:flex-row align-items-center justify-content-center">
+      <div className="mt-10">
+        <VisaTransaction></VisaTransaction>
+      </div>
       <div className="">
         <TableContainer
           borderRadius={10}
           backgroundColor="white"
-          marginX={10}
+          marginX={2}
           marginY={10}
+          marginLeft={20}
+          height={500}
+          overflowY="scroll"
+          overflowX="scroll"
         >
           <Table variant="simple">
             <Thead>
               <Tr>
-                <Th color="#041C51" fontSize={24} paddingY={6}>
-                  Category
-                </Th>
                 <Th color="#041C51" fontSize={24} paddingY={6}>
                   Date
                 </Th>
@@ -56,7 +62,6 @@ export default function MyTransaction() {
             <Tbody>
               {transacData?.map((data) => (
                 <Tr key={data._id}>
-                  <Td></Td>
                   <Td>{data.date}</Td>
                   <Td>{data.time}</Td>
                   <Td
@@ -83,9 +88,6 @@ export default function MyTransaction() {
             </Tbody>
           </Table>
         </TableContainer>
-      </div>
-      <div className="mt-2">
-        <VisaTransaction></VisaTransaction>
       </div>
     </div>
   );

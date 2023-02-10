@@ -1,4 +1,10 @@
-import { Button, Input, InputGroup, InputRightElement, Stack } from "@chakra-ui/react";
+import {
+  Button,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Stack,
+} from "@chakra-ui/react";
 import { GoogleAuthProvider } from "@firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -11,7 +17,7 @@ import setLoginToken from "../../hooks/UseToken/LoginToken";
 import setAuthToken from "../../hooks/UseToken/UseToken";
 
 const Login = () => {
-  const { signInWithEmail, forgetPassword, signInWithGoogle , logOut} =
+  const { signInWithEmail, forgetPassword, signInWithGoogle, logOut } =
     useContext(AuthContext);
   const {
     register,
@@ -34,38 +40,38 @@ const Login = () => {
     const email = data.email;
     const password = data.password;
 
-    
     //store customer device info
-    fetch(`http://localhost:5000/storeDeviceInfo/${email}`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${email}`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data) {
           signInWithEmail(email, password)
-          .then((result) => {
-            const user = result.user;
-            console.log(user);
-            setLoginToken(user);
-            toast.success("Login Success");
-            setLoading(false);
-            navigate(from, { replace: true });
-          })
-          .catch((error) => {
-            console.log(error);
-            setSignInError(error.message);
-            setLoading(false);
-          });
+            .then((result) => {
+              const user = result.user;
+              console.log(user);
+              setLoginToken(user);
+              toast.success("Login Success");
+              setLoading(false);
+              navigate(from, { replace: true });
+            })
+            .catch((error) => {
+              console.log(error);
+              setSignInError(error.message);
+              setLoading(false);
+            });
         } else {
-         
           toast.success("Device limit over.");
         }
       });
-
   };
   const handleForgetPassword = () => {
     if (!userEmail) {
@@ -86,33 +92,37 @@ const Login = () => {
       const user = result.user;
       const email = user.email;
 
-       //store customer device info
-    fetch(`http://localhost:5000/storeDeviceInfo/${email}`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data) {
-          console.log(user);
-          const name = user?.displayName;
-          const image = user?.photoURL;
-          const verify = false;
-          setAuthToken(user, name, image, verify);
-          navigate(from, { replace: true });
-        } else {
-          toast.success("Device limit over.");
-          logOut()
-          .then(() => {
-            navigate('/') })
-          .catch((error) => {
-              console.log(error.message);
-          });
+      //store customer device info
+      fetch(
+        `https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${email}`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
         }
-      });
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data) {
+            console.log(user);
+            const name = user?.displayName;
+            const image = user?.photoURL;
+            const verify = false;
+            setAuthToken(user, name, image, verify);
+            navigate(from, { replace: true });
+          } else {
+            toast.success("Device limit over.");
+            logOut()
+              .then(() => {
+                navigate("/");
+              })
+              .catch((error) => {
+                console.log(error.message);
+              });
+          }
+        });
     });
   };
   return (
@@ -143,8 +153,8 @@ const Login = () => {
 
           <Stack spacing={6}>
             <Input
-              placeholder='Your Email'
-              size='lg'
+              placeholder="Your Email"
+              size="lg"
               {...register("email", { required: "Please Inter Valid Email" })}
               onBlur={(e) => setUserEmail(e.target.value)}
             />
@@ -152,21 +162,23 @@ const Login = () => {
               <p className="text-red-500">{errors.email?.message}</p>
             )}
 
-
             {/* password */}
 
-            <InputGroup size='md'>
+            <InputGroup size="md">
               <Input
-                size='lg'
-                pr='4.5rem'
+                size="lg"
+                pr="4.5rem"
                 type={showPassword ? "text" : "password"}
-                placeholder='Enter password'
+                placeholder="Enter password"
                 {...register("password", { required: true })}
               />
-              <InputRightElement width='4.5rem'>
+              <InputRightElement width="4.5rem">
                 <Button
-                  className='chakra-icon-sign'
-                  h='1.75rem' size='sm' onClick={handleClickShowPassword}>
+                  className="chakra-icon-sign"
+                  h="1.75rem"
+                  size="sm"
+                  onClick={handleClickShowPassword}
+                >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </Button>
               </InputRightElement>
@@ -177,14 +189,10 @@ const Login = () => {
               </p>
             )}
             <label className="label mt-2">
-              <Link
-                onClick={handleForgetPassword}
-                className="label-text-alt"
-              >
+              <Link onClick={handleForgetPassword} className="label-text-alt">
                 Forgot password?
               </Link>
             </label>
-
           </Stack>
 
           {/* end password */}
