@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BsChatDots } from "react-icons/bs";
 import { Link, NavLink } from "react-router-dom";
 
 // import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -71,6 +72,17 @@ const AdminLeft = () => {
           >
             {/* <span> <CloudCircleOutlinedIcon /></span> */}
             <span className="text-white ml-[10px]">Loan Request</span>
+          </NavLink>
+
+          <NavLink
+            to="/dashboard/CustomerSupport"            
+            className={({ isActive }) =>
+              isActive
+                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
+                : "flex px-[20px] link py-[15px]"
+            }
+          >
+            <span className="text-white ml-[10px]">Customer Support</span>            
           </NavLink>
         </div>
       </div>
