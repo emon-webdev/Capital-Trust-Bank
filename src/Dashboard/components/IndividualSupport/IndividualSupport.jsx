@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../../context/AuthProvider";
-import io from "socket.io-client";
-import { useLocation } from "react-router-dom";
 import { Avatar } from "@chakra-ui/react";
-const socket = io("http://localhost:5000");
+import React, { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import io from "socket.io-client";
+import { AuthContext } from "../../../context/AuthProvider";
+const socket = io("https://capital-trust-bank-server.vercel.app");
 const IndividualSupport = () => {
   const { user, role } = useContext(AuthContext);
   const [messages, setMessages] = useState([]);
   const [allMessages, setAllMessages] = useState([]);
-  const [allLoad,setAllLoad] = useState(false)
+  const [allLoad, setAllLoad] = useState(false)
   const { state } = useLocation();
   useEffect(() => {
     socket.on("messageTransfer", (message) => {
@@ -21,13 +21,14 @@ const IndividualSupport = () => {
     });
   }, [messages, user]);
   useEffect(() => {
-    fetch(`http://localhost:5000/getChatInfo/${user.email+" "+state.senderEmail}`)
+    fetch(`https://capital-trust-bank-server.vercel.app/getChatInfo/${user.email + " " + state.senderEmail}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
         setAllLoad(true)
-        setAllMessages(data)});
-  }, [user,messages]);
+        setAllMessages(data)
+      });
+  }, [user, messages]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -56,8 +57,8 @@ const IndividualSupport = () => {
   return (
     <div className="flex h-screen items-center">
       <div className=" w-full lg:w-1/2 mx-auto border-2 h-full default-bg p-3 overflow-auto">
-        
-          {allMessages.map((singleInfo) => {
+
+        {allMessages.map((singleInfo) => {
           return (
             <div className=" border-2 my-2 p-2 default-bg">
               <div className="photo flex items-center p-2">
@@ -65,14 +66,14 @@ const IndividualSupport = () => {
                 <p className="text-white">{singleInfo.senderName}</p>
               </div>
               <div className="text">
-                <p className="text-white">{singleInfo.message }</p>
+                <p className="text-white">{singleInfo.message}</p>
               </div>
             </div>
           );
         })}
-        
-       
-         <hr />
+
+
+        <hr />
         <div className="sent text-right">
           <div className="btn my-2 flex justify-end gap-2">
             <form className="" onSubmit={handleSubmit}>
