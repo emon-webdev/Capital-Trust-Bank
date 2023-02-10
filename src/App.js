@@ -3,7 +3,6 @@ import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import Loader from "./component/Loader/Loader";
 import router from "./routes/routes";
-
 function App() {
   const [loader, setLoader] = useState(true);
   useEffect(() => {

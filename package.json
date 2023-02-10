@@ -25,10 +25,11 @@
     "react-countup": "^6.4.0",
     "react-datepicker": "^4.10.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.42.1",
+    "react-hook-form": "^7.43.0",
     "react-hot-toast": "^2.4.0",
     "react-i18next": "^12.1.5",
     "react-icons": "^4.7.1",
+    "react-modal-video": "^2.0.0",
     "react-phone-input-2": "^2.15.1",
     "react-query": "^3.39.3",
     "react-redux": "^8.0.5",
@@ -38,6 +39,8 @@
     "recharts": "^2.3.2",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.6.0",
+    "victory": "^36.6.8",
+    "victory-chart": "^36.6.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

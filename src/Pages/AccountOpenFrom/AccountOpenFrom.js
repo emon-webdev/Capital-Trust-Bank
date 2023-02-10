@@ -5,7 +5,7 @@ import {
   Radio,
   RadioGroup,
   Select,
-  Stack
+  Stack,
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -132,7 +132,7 @@ const AccountOpenFrom = () => {
                     Date of Birth
                   </label>
                   <input
-                    type="text"
+                    type="date"
                     {...register("birth", {
                       required: "Birth is required",
                     })}
@@ -145,9 +145,6 @@ const AccountOpenFrom = () => {
                   <RadioGroup onChange={setGender} value={gender}>
                     <Stack
                       direction="row"
-                      // {...register("gender", {
-                      //   required: "gender is required",
-                      // })}
                       className="h-[50px] mb-2 mt-1 w-full"
                     >
                       <Radio value="Male">Male</Radio>
@@ -155,51 +152,6 @@ const AccountOpenFrom = () => {
                       <Radio value="Others">Others</Radio>
                     </Stack>
                   </RadioGroup>
-                  {/* <RadioGroup
-                    aria-labelledby="demo-radio-buttons-group-label"
-                    // defaultValue="female"
-                    sx={{ margin: "5px 0 10px", width: "100%" }}
-                    {...register("gender", {
-                      required: "gender is required",
-                    })}
-                  >
-                    <Box sx={{ display: "flex" }}>
-                    <FormControlLabel
-                      value="male"
-                      control={<Radio />}
-                      label="Male"
-                    />
-                    <FormControlLabel
-                      value="female"
-                      control={<Radio />}
-                      label="Female"
-                    />
-
-                    <FormControlLabel
-                      value="other"
-                      control={<Radio />}
-                      label="Other"
-                    />
-                    </Box> 
-                  </RadioGroup> */}
-                  {/* <Select
-                    style={{ width: "100%", background: "#fff" }}
-                    id="demo-simple-select"
-                    fullWidth
-                    defaultValue="Male"
-                    className="from-select border  px-[10px] rounded "
-                    sx={{ margin: "5px 0 10px", width: "100%" }}
-                    {...register("gender", {
-                      required: "Gender is required",
-                    })}
-                  >
-                    <MenuItem value="Male">Male</MenuItem>
-                    <MenuItem value="Female">Female</MenuItem>
-                    <MenuItem value="Other">Other</MenuItem>
-                  </Select> */}
-                  {/* {errors.gender && (
-                    <p className="text-red-600">{errors.gender?.message}</p>
-                  )} */}
                 </div>
               </div>
 
@@ -319,20 +271,6 @@ const AccountOpenFrom = () => {
                     <option value="StudentID">Student ID</option>
                     <option value="NationalID">National ID</option>
                   </Select>
-                  {/* <Select
-                    style={{ width: "100%", background: "#fff" }}
-                    id="demo-simple-select"
-                    fullWidth
-                    defaultValue="Student ID"
-                    className="from-select border  px-[10px] rounded "
-                    sx={{ margin: "5px 0 10px", width: "100%" }}
-                    {...register("identification", {
-                      required: "identification is required",
-                    })}
-                  >
-                    <MenuItem value="Student ID">Student ID</MenuItem>
-                    <MenuItem value="National ID">National ID</MenuItem>
-                  </Select> */}
                 </div>
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">ID Number</label>
@@ -388,21 +326,6 @@ const AccountOpenFrom = () => {
                     <option value="Savings">Savings</option>
                     <option value="Others">Others</option>
                   </Select>
-                  {/* <Select
-                    style={{ width: "100%", background: "#fff" }}
-                    id="demo-simple-select"
-                    defaultValue="Current"
-                    fullWidth
-                    className="from-select border  px-[10px] rounded "
-                    sx={{ margin: "5px 0 10px", width: "100%" }}
-                    {...register("accountType", {
-                      required: "accountType is required",
-                    })}
-                  >
-                    <MenuItem value="Current">Current</MenuItem>
-                    <MenuItem value="Savings">Savings</MenuItem>
-                    <MenuItem value="Others">Others</MenuItem>
-                  </Select> */}
                 </div>
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">
@@ -424,22 +347,6 @@ const AccountOpenFrom = () => {
                     <option value="Jointly">Jointly</option>
                     <option value="Others">Others</option>
                   </Select>
-                  {/* <Select
-                    style={{ width: "100%", background: "#fff" }}
-                    id="demo-simple-select"
-                    name="accountCategory"
-                    defaultValue="Singly"
-                    fullWidth
-                    className="from-select border text-[#57647E]  px-[10px] rounded "
-                    sx={{ margin: "5px 0 10px", width: "100%" }}
-                    {...register("accountCategory", {
-                      required: "account Category is required",
-                    })}
-                  >
-                    <MenuItem value="Singly">Singly</MenuItem>
-                    <MenuItem value="Jointly">Jointly</MenuItem>
-                    <MenuItem value="Others">Others</MenuItem>
-                  </Select> */}
                 </div>
               </div>
               <div className="from-group md:flex justify-between items-center ">
@@ -463,14 +370,6 @@ const AccountOpenFrom = () => {
                       placeholder="Initial Deposit"
                     />
                   </InputGroup>
-                  {/* <input
-                    type="number"
-                    {...register("monthlySalary", {
-                      required: "Monthly Salary",
-                    })}
-                    className="border mb-2 mt-1 rounded w-full px-[10px]"
-                    placeholder="Monthly Salary"
-                  ></input> */}
                   {errors.monthlySalary && (
                     <p className="text-red-600">
                       {errors.monthlySalary?.message}
@@ -497,14 +396,6 @@ const AccountOpenFrom = () => {
                       placeholder="Initial Deposit"
                     />
                   </InputGroup>
-                  {/* <input
-                    type="number"
-                    {...register("initialDeposit", {
-                      required: "Initial Deposit is required",
-                    })}
-                    className="border mb-2 mt-1 rounded w-full px-[10px]"
-                    placeholder="Initial Deposit"
-                  ></input> */}
                   {errors.initialDeposit && (
                     <p className="text-red-600">
                       {errors.initialDeposit?.message}
@@ -520,7 +411,6 @@ const AccountOpenFrom = () => {
                     name="term"
                     id="terms"
                     required
-                    // onClick={(e) => setTerms(e.target.value)}
                     {...register("term", {
                       required: "Term and every field are required",
                     })}

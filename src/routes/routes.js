@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import { default as AllCustomers } from "../Dashboard/components/AllCustomers/AllCustomers";
 import CardReq from "../Dashboard/components/CardReq/CardReq";
+import MyAccount from "../Dashboard/components/Customers/MyAccount/MyAccount";
 import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
-
 import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
 import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
 import CustomerSupport from "../Dashboard/components/CustomerSupport/CustomerSupport";
@@ -10,7 +10,7 @@ import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLa
 import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
 import IndividualSupport from "../Dashboard/components/IndividualSupport/IndividualSupport";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
-import MyAccount from "../Dashboard/components/MyAccount/MyAccount";
+
 import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
 import Welcome from "../Dashboard/components/Welcome/Welcome";
 import Main from "../Layout/Main";
@@ -19,13 +19,17 @@ import AccountOpenFrom from "../Pages/AccountOpenFrom/AccountOpenFrom";
 import Apply from "../Pages/Apply/Apply";
 import Cards from "../Pages/Cards/Cards";
 import Contact from "../Pages/Contact/Contact";
+import FaqPage from "../Pages/FaqPage/FaqPage";
 import ApplyForm from "../Pages/Home/ApplyForm";
+import ExchangeDetails from "../Pages/Home/ExchangeDetails";
 import Home from "../Pages/Home/Home";
+import TeamDetails from "../Pages/Home/TeamDetails";
 import BusinessInsurance from "../Pages/Insurance/BusinessInsurance";
 import HealthInsurance from "../Pages/Insurance/HealthInsurance";
 import TravelInsurance from "../Pages/Insurance/TravelInsurance";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Login/Signup";
+import PaymentBills from "../Pages/PaymentBills/PaymentBills";
 import EducationLoan from "../Pages/Services/EducationLoan";
 import GoldLoan from "../Pages/Services/GoldLoan";
 import MarriageLoan from "../Pages/Services/MarriageLoan";
@@ -50,7 +54,7 @@ const router = createBrowserRouter([
         path: "/apply",
         element: <Apply />,
       },
-     
+
       {
         path: "/healthinsurance",
         element: <HealthInsurance />,
@@ -89,7 +93,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/marriageloan",
-        element: <MarriageLoan/>,
+        element: <MarriageLoan />,
       },
       {
         path: "/vehicleloan",
@@ -100,8 +104,13 @@ const router = createBrowserRouter([
         element: <Cards />,
       },
       {
+        path: "/faq",
+        element: <FaqPage></FaqPage>,
+      },
+      {
         path: "/contact",
         element: <Contact />,
+        action: "createAction"
       },
       {
         path: "/about",
@@ -112,12 +121,26 @@ const router = createBrowserRouter([
         element: <AccountOpenFrom />,
       },
       {
+        path: "/paymentbills",
+        element: <PaymentBills/>,
+      },
+      {
         path: "/login",
         element: <Login />,
       },
       {
         path: "/signup",
         element: <Signup />,
+      },
+      {
+        path: "/team-details/:id",
+        element: <TeamDetails />,
+        loader: async ({ params }) =>
+          fetch(`http://localhost:5000/team-details/${params.id}`),
+      },
+      {
+        path: '/exchange',
+        element: <ExchangeDetails />
       },
     ],
   },
@@ -168,6 +191,8 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myTransaction",
         element: <MyTransaction />,
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5000/depositWithdraw/${params.email}`),
       },
       {
         path: "/dashboard/CustomerSupport",
@@ -192,8 +217,8 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/CustomerSupport/admin",
-        element: <IndividualSupport />,
+        path: "/dashboard/myAccount",
+        element: <MyAccount />,
       },
       {
         path: "/dashboard/deviceActivity",
@@ -209,6 +234,36 @@ const router = createBrowserRouter([
       },
     ],
   },
+  // {
+  //   path: "/paymentbills",
+  //   element: <PaymentBills/>,
+  //   children: [
+  //     {
+  //       path: "/paymentbills/electricitybill",
+  //       element: <ElectricityBill/>,
+  //     },
+  //     {
+  //       path: "/electricitybill",
+  //       element: <Welcome />,
+  //     },
+  //     {
+  //       path: "/electricitybill",
+  //       element: <Welcome />,
+  //     },
+  //     {
+  //       path: "/electricitybill",
+  //       element: <Welcome />,
+  //     },
+  //     {
+  //       path: "/electricitybill",
+  //       element: <Welcome />,
+  //     },
+  //     {
+  //       path: "/electricitybill",
+  //       element: <Welcome />,
+  //     },
+  //   ]
+  // },
 ]);
 
 export default router;

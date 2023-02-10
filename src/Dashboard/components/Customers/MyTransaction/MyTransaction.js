@@ -1,196 +1,91 @@
-
-// import { makeStyles } from "@mui/styles";
-// import { Box } from '@mui/system';
-import React, { useState } from "react";
-
-// const style = {
-//   position: 'absolute',
-//   top: '50%',
-//   left: '50%',
-//   transform: 'translate(-50%, -50%)',
-//   width: 400,
-//   bgcolor: 'white',
-//   border: '0px solid #000',
-//   borderRadius:'10px',
-//   boxShadow: 24,
-//   p: 4,
-// };
-
-// const useStyles = makeStyles({
-//   table: {
-//     fontSize: "20px",
-//     minWidth: 650,
-//     borderRadius: "15px",
-//     background:
-//       "linear-gradient(90deg, rgba(2,2,31,1) 0%, rgba(2,24,55,1) 5%, rgba(2,55,89,1) 12%, rgba(6,129,185,1) 61%, rgba(15,14,89,1) 98%, rgba(1,192,238,1) 100%, rgba(0,212,255,1) 100%);",
-//     color: "white",
-//   },
-// });
-
-const rows = [
-  {
-    id: 0,
-    name: "Frozen yoghurt",
-    date: "02/02/23",
-    time: "09:15",
-    amount: 24,
-  },
-  {
-    id: 1,
-    name: "Ice cream sandwich",
-    date: "02/02/23",
-    time: "09:15",
-    amount: 24,
-  },
-  {
-    id: 2,
-    name: "Eclair",
-    date: "02/02/23",
-    time: "09:15",
-    amount: 24,
-  },
-  {
-    id: 3,
-    name: "Cupcake",
-    date: "02/02/23",
-    time: "09:15",
-    amount: 24,
-  },
-  {
-    id: 4,
-    name: "Gingerbread",
-    date: "02/02/23",
-    time: "09:15",
-    amount: 24,
-  },
-  {
-    id: 5,
-    name: "Cupcake",
-    date: "02/02/23",
-    time: "09:15",
-    amount: 24,
-  },
-  {
-    id: 6,
-    name: "Gingerbread",
-    date: "02/02/23",
-    time: "09:15",
-    amount: 24,
-  },
-  {
-    id: 7,
-    name: "Gingerbread",
-    date: "02/02/23",
-    time: "09:15",
-    amount: 24,
-  },
-];
+import {
+  Button,
+  Table,
+  TableCaption,
+  TableContainer,
+  Tbody,
+  Td,
+  Tfoot,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
+import React, { useContext, useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../../../context/AuthProvider";
+import VisaTransaction from "./VisaTransaction";
 
 export default function MyTransaction() {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const { user } = useContext(AuthContext);
+  const [transacData, setTransacData] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/depositWithdraw/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setTransacData(data));
+  }, []);
 
-  // const classes = useStyles();
   return (
-    <div className="container mt-10 flex gap-5">
+    <div className="container flex gap-10">
       <div className="">
-        {/* <TableContainer sx={{ width: "900px" }} component={Paper}>
-          <Table className="class table" aria-label="simple table">
-            <TableRow>
-              <TableCell align="center">
-                <Typography fontSize={20} fontWeight="bold" color="white">
-                  Categ
-                </Typography>
-              </TableCell>
-              <TableCell color="white" align="center">
-                <Typography fontSize={20} fontWeight="bold" color="white">
+        <TableContainer
+          borderRadius={10}
+          backgroundColor="white"
+          marginX={10}
+          marginY={10}
+        >
+          <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Th color="#041C51" fontSize={24} paddingY={6}>
+                  Category
+                </Th>
+                <Th color="#041C51" fontSize={24} paddingY={6}>
                   Date
-                </Typography>{" "}
-              </TableCell>
-              <TableCell align="center">
-                <Typography fontSize={20} fontWeight="bold" color="white">
+                </Th>
+                <Th color="#041C51" fontSize={24} paddingY={6}>
                   Time
-                </Typography>
-              </TableCell>
-              <TableCell align="center">
-                <Typography fontSize={20} fontWeight="bold" color="white">
+                </Th>
+                <Th color="#041C51" fontSize={24} paddingY={6}>
                   Amount
-                </Typography>
-              </TableCell>
-              <TableCell align="center">
-                {" "}
-                <Typography fontSize={20} fontWeight="bold" color="white">
+                </Th>
+                <Th color="#041C51" fontSize={24} paddingY={6}>
                   Details
-                </Typography>
-              </TableCell>
-            </TableRow>
-
-            <TableBody>
-              {rows.map((row) => (
-                <>
-                  <TableRow key={row.id}>
-                    <TableCell align="center" component="th" scope="row">
-                      <Typography
-                        fontSize={17}
-                        fontWeight="semibold"
-                        color="white"
-                      >
-                        {" "}
-                        {row.name}
-                      </Typography>
-                    </TableCell>
-                    <TableCell align="center">
-                      <Typography
-                        fontSize={17}
-                        fontWeight="semibold"
-                        color="white"
-                      >
-                        {row.date}
-                      </Typography>
-                    </TableCell>
-                    <TableCell align="center">
-                      <Typography
-                        fontSize={17}
-                        fontWeight="semibold"
-                        color="white"
-                      >
-                        {row.time}
-                      </Typography>{" "}
-                    </TableCell>
-                    <TableCell align="center">
-                      <Typography
-                        fontSize={17}
-                        fontWeight="semibold"
-                        color="white"
-                      >
-                        ${row.amount}
-                      </Typography>
-                    </TableCell>
-                    <TableCell align="center">
-                      <button
-                        onClick={() => handleOpen(row)}
-                        className="btn text-white text-bold p-3 rounded bg-[#da6666] hover:bg-[#3085d2] hover:fw-bold"
-                      >
-                        Details
-                      </button>
-                    </TableCell>
-                  </TableRow>
-
-                  <DetailsModal
-                    row={row}
-                    open={open}
-                    handleOpen={handleOpen}
-                    handleClose={handleClose}
-                  />
-                </>
+                </Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {transacData?.map((data) => (
+                <Tr key={data._id}>
+                  <Td></Td>
+                  <Td>{data.date}</Td>
+                  <Td>{data.time}</Td>
+                  <Td
+                    style={
+                      data.withdraw ? { color: "red" } : { color: "#041C51" }
+                    }
+                  >
+                    ${data.withdraw ? data.withdraw : data.deposit}
+                  </Td>
+                  <Td>
+                    <Button>Details</Button>
+                  </Td>
+                </Tr>
               ))}
-            </TableBody>
+              {/* <Tr>
+                <Td>inches</Td>
+                <Td>millimetres (mm)</Td>
+                <Td>25.4</Td>
+                <Td>25.4</Td>
+                <Td>
+                  <Button>Details</Button>
+                </Td>
+              </Tr> */}
+            </Tbody>
           </Table>
-        </TableContainer> */}
+        </TableContainer>
       </div>
-      <div className="">
-        {/* <VisaTransaction /> */}
+      <div className="mt-2">
+        <VisaTransaction></VisaTransaction>
       </div>
     </div>
   );

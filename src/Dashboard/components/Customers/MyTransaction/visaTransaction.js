@@ -1,5 +1,5 @@
-import { Button, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+
+import { Box, Button, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { FiSend } from "react-icons/fi";
 import { AuthContext } from "../../../../context/AuthProvider";
@@ -9,7 +9,7 @@ export default function VisaTransaction() {
   return (
     <div
       style={{ height: "700px", width: "400px" }}
-      className="container bg-red-300 rounded-lg p-10"
+      className="container bg-white rounded-lg p-10"
     >
       <div className="">
         <Box
@@ -25,43 +25,45 @@ export default function VisaTransaction() {
             display="flex"
             justifyContent="space-between"
             paddingX={2}
-            className=""
+         
           >
-            <h1 className="text-white text-xl italic tracking-widest">
+            <Text color={'white'} fontWeight={'bold'}  letterSpacing={3} fontSize={20} fontStyle='italic'>
               VI<span className="text-red-800">S</span>A
-            </h1>
+            </Text>
             <img
               style={{ height: "30px", weight: "35px" }}
               src="https://i.ibb.co/GTP7p1V/png-transparent-integrated-circuit-smart-card-card-chip-electronics-text-rectangle-thumbnail-1-1.png"
               alt=""
             />
           </Box>
-          <Typography
-            letterSpacing={1}
+          <Text
+            letterSpacing={2}
             fontWeight="semibold"
             fontSize={18}
             paddingX={2}
+            marginTop={2}
             color="whitesmoke"
           >
             Active Balance
-          </Typography>
-          <Typography
+          </Text>
+          <Text
             fontSize={20}
             letterSpacing={2}
             fontWeight="bold"
             paddingX={2}
+           
             color="whitesmoke"
-            marginTop={1}
+            marginTop={3}
           >
-            <span>$</span> 45000
-          </Typography>
+            <span className="text-red-800">$</span> 45000
+          </Text>
           <div className="flex mt-3 justify-between px-4">
-            <Typography fontStyle="italic" letterSpacing={3} color="whitesmoke">
+            <Text fontSize={18} fontStyle="italic" letterSpacing={4} color="whitesmoke" marginTop={2}>
               {user?.displayName}
-            </Typography>
-            <Typography letterSpacing={2} color="whitesmoke">
+            </Text>
+            <Text fontSize={18} marginTop={2} letterSpacing={2} color="whitesmoke">
               05/24
-            </Typography>
+            </Text>
           </div>
         </Box>
         <div className="mt-8">
@@ -69,10 +71,11 @@ export default function VisaTransaction() {
           <Box display="flex" justifyContent="space-between">
             <input
               style={{
-                height: "30px",
+                height: "35px",
                 width: "250px",
                 borderRadius: "10px",
                 paddingLeft: "10px",
+                backgroundColor:'grey'
               }}
               type="number"
               placeholder="Account Number"

@@ -34,7 +34,7 @@ const Header = () => {
                   <FaFacebookF />
                 </a>
                 <a
-                  href="https://twitter.com/"
+                  href="https://twitter.com/emon_webdev"
                   className="text-[18px] pr-[10px] ml-[10px] text-white border-r border-white"
                 >
                   <FiTwitter />

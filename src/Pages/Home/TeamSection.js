@@ -4,10 +4,11 @@ import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs'
 import "../../App.css";
 
 const TeamSection = ({ team }) => {
-  const { image, name, designation, social } = team;
+
+  const { image, name, designation, social, _id } = team;
 
   return (
-    <div className="flex flex-col items-center team p-8 transition-colors duration-300 transform rounded-xl bg-[#fdf3f3] group hover:bg-[#df0303]">
+    <Link to={`/team-details/${_id}`} className="flex flex-col items-center team p-8 transition-colors duration-300 transform rounded-xl bg-[#fdf3f3] group hover:bg-[#df0303]">
       <div className="image-wrapper">
         <img
           className="object-cover w-32  h-32 rounded-full ring-4 ring-gray-300"
@@ -29,28 +30,31 @@ const TeamSection = ({ team }) => {
       <div className="flex">
         {social.map((icon) => (
           <>
-            <Link
-              to={icon.facebook}
-              className="mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center"
+            <a
+              href={icon.facebook}
+              target="_blank"
+              className="mr-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded flex items-center justify-center"
             >
               <BsFacebook />
-            </Link>
-            <Link
-              to={icon.linkedin}
-              className="w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center"
+            </a>
+            <a
+              href={icon.linkedin}
+              className="w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded flex items-center justify-center"
+              target="_blank"
             >
               <BsLinkedin />
-            </Link>
-            <Link
-              to={icon.github}
-              className="ml-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded-full flex items-center justify-center"
+            </a>
+            <a
+              href={icon.github}
+              target="_blank"
+              className="ml-3 w-[28px] h-[28px] bg-[#df0303] hover:bg-[#010c3a] duration-500 text-white rounded flex items-center justify-center"
             >
               <BsGithub />
-            </Link>
+            </a>
           </>
         ))}
       </div>
-    </div>
+    </Link>
   );
 };
 
