@@ -69,8 +69,18 @@ ul.navbar__nav > li:last-child {
   margin-right: 0;
 }
 
-.customer-info p {
+/* .customer-info p {
   color: #fff !important;
+} */
+.accept {
+  background: #010c3a !important;
+}
+.accept:hover {
+  background: #df0303 !important;
+}
+
+.heading {
+  font-size: 22px !important;
 }
 
 ul.submenu {
