@@ -37,6 +37,7 @@ import VehicleLoan from "../Pages/Services/VehicleLoan";
 import Error from "../Pages/Shared/Error";
 import AdminRoute from "../routes/AdminRoute";
 import CustomerRoute from "../routes/CustomerRoute";
+import PrivetRoute from "./PrivetRoute/PrivetRout";
 
 const router = createBrowserRouter([
   {
@@ -116,11 +117,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/AccountOpenFrom",
-        element: <AccountOpenFrom />,
+        element: <PrivetRoute><AccountOpenFrom /></PrivetRoute>
       },
       {
         path: "/paymentbills",
-        element: <PaymentBills/>,
+        element: <PaymentBills />,
       },
       {
         path: "/login",

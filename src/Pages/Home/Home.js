@@ -1,7 +1,8 @@
 import React from "react";
 import Funds from "../Funds/Funds";
 import ApplyCreditCard from "./ApplyCreditCard";
-import Banner from "./Banner";
+// import Banner from "./Banner";
+import Banner2 from "./Banner2";
 import Branding from "./Branding";
 import ContactUs from "./ContactUs";
 import Exchange from "./Exchange";
@@ -15,7 +16,8 @@ import Team from "./Team";
 const Home = () => {
   return (
     <div>
-      <Banner />
+      {/* <Banner /> */}
+      <Banner2 />
       <Funds />
       <Services />
       {/* <ApplyForm/> */}
