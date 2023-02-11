@@ -130,7 +130,10 @@ ul.submenu li:hover a {
   color: #fff;
   background: #cf173c;
 }
-
+.disable-btn {
+  background-color: #f3f3fe !important;
+  color: #666666 !important;
+}
 .accent-btn {
   display: inline-block;
   padding: 0 12px;
@@ -486,9 +489,9 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 .banner2 {
   color: white !important;
 }
-.slick-slide > div {
+/* .slick-slide > div {
   margin: 0 !important;
-}
+} */
 
 .link:hover {
   background: #cf173c;

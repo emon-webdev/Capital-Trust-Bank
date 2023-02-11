@@ -5,12 +5,13 @@ import {
   Radio,
   RadioGroup,
   Select,
-  Stack,
+  Stack
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import "react-phone-input-2/lib/style.css";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 const AccountOpenFrom = () => {
@@ -273,7 +274,9 @@ const AccountOpenFrom = () => {
                   </Select>
                 </div>
                 <div className="form-control  w-full">
-                  <label className="text-base text-[#57647E]">ID Number</label>
+                  <label className="text-base text-[#57647E]">
+                    Student/National id Number
+                  </label>
                   <input
                     type="number"
                     {...register("idNumber", {
@@ -424,11 +427,24 @@ const AccountOpenFrom = () => {
                 )}
               </div>
               <div className="w-[49%] my-4">
-                <input
-                  className="btn border-none primary-btn text-black w-full"
-                  value="Submit Form"
-                  type="submit"
-                />
+                {user?.email ? (
+                  <>
+                    <input
+                      className="btn border-none primary-btn text-black w-full"
+                      value="Submit Form"
+                      type="submit"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <p className="text-red-600 text-sm mb-1">
+                      If you want to create account Please Sign In
+                    </p>
+                    <NavLink to="/login" className="primary-btn disable-btn">
+                      Sign In
+                    </NavLink>
+                  </>
+                )}
               </div>
             </form>
           </div>

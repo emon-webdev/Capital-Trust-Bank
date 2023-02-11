@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { default as AllCustomers } from "../Dashboard/components/AllCustomers/AllCustomers";
-import CardReq from "../Dashboard/components/CardReq/CardReq";
+import CreditCardReq from "../Dashboard/components/CreditCardReq/CreditCardReq";
 import MyAccount from "../Dashboard/components/Customers/MyAccount/MyAccount";
 import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
 import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
@@ -175,7 +175,7 @@ const router = createBrowserRouter([
         path: "/dashboard/cardRequest",
         element: (
           <AdminRoute>
-            <CardReq></CardReq>
+            <CreditCardReq></CreditCardReq>
           </AdminRoute>
         ),
       },

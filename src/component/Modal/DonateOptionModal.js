@@ -68,7 +68,7 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Payment</ModalHeader>
+          <ModalHeader>Donate</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <div>
