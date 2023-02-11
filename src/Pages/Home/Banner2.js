@@ -38,12 +38,12 @@ const Banner2 = () => {
         slidesToScroll: 1,
         arrows: false,
         autoplay: true,
-        // draggable: false,
+        draggable: false,
         fade: true,        
     };
     return (
         < >
-            <Slider  {...settings}>
+            <Slider className='slide-wrapper' {...settings}>
                 {
                     sliderData.map(data => <Banner2Slide data={data} />)
                 }

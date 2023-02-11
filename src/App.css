@@ -492,6 +492,9 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 /* .slick-slide > div {
   margin: 0 !important;
 } */
+.slide-wrapper .slick-slide > div {
+  margin: 0px !important;
+}
 
 .link:hover {
   background: #cf173c;

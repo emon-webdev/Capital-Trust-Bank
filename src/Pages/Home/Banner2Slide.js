@@ -5,7 +5,7 @@ import '../../App.css';
 const Banner2Slide = ({ data }) => {
     const { title, img, content, btn, link } = data;
     return (
-        <div
+        <div className='slide-wrapper'
             style={{
                 backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${img})`,
                 fontSize: '50px',
