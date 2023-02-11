@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import sideimg from "../../assets/loanCalculator/emi-calculator.jpg";
 import "./LoanCalculator.css";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 AOS.init();
 
 class LoanCalculator extends React.Component {
@@ -26,12 +26,6 @@ class LoanCalculator extends React.Component {
 
   Eligbilitysumbit = (e) => {
     e.preventDefault();
-    //-------EMI coding formula------
-    // r = r / (12 * 100); // one month interest
-    // t = t * 12; // one month period
-    // emi = (p * r * pow(1 + r, t)) / (pow(1 + r, t) - 1);
-
-    // return (emi);
 
     const { value1, value2, value3 } = this.state;
     let r = value2 / (12 * 100);
@@ -58,10 +52,11 @@ class LoanCalculator extends React.Component {
             </div>
             <div className="card-main">
               <div>
-
                 <div className="flex justify-center">
                   <div>
-                    <h1 className="text-lg mb-0 mt-3">Loan Amount</h1>
+                    <h1 className="mb-0 mt-3 text-[#010C3A] text-xl font-semibold">
+                      Loan Amount
+                    </h1>
                     <input
                       type="range"
                       min="10000"
@@ -75,9 +70,12 @@ class LoanCalculator extends React.Component {
                   </div>
                   <h1 className="border">${value3}</h1>
                 </div>
+
                 <div className="flex justify-center">
                   <div>
-                    <h1 className="text-lg mb-0">Loan Term</h1>
+                    <h1 className="mb-0 text-[#010C3A] text-xl font-semibold">
+                      Loan Term
+                    </h1>
                     <input
                       type="range"
                       min="0"
@@ -90,9 +88,12 @@ class LoanCalculator extends React.Component {
                   </div>
                   <h1 className="border">{value1}Months</h1>
                 </div>
+
                 <div className="flex justify-center">
                   <div>
-                    <h1 className="text-lg mb-0">Interest Rate</h1>
+                    <h1 className="mb-0 text-[#010C3A] text-xl font-semibold">
+                      Interest Rate
+                    </h1>
                     <input
                       type="range"
                       min="0"
@@ -107,26 +108,35 @@ class LoanCalculator extends React.Component {
                   <h1 className="border">{value2}%</h1>
                 </div>
               </div>
+
               <div className="card-second">
                 <div className="first-portion">
                   <button
-                    className="secondary-btn sm-btn"
+                    className="secondary-btn"
                     onClick={this.Eligbilitysumbit}
                   >
                     Calculate
                   </button>
                   <div className="text">
-                    <h1>Total Loan Amount=${value3}</h1>
-                    <h1>Total Months={value1}</h1>
-                    <h1>Total Interest={value2}%</h1>
+                    <h1 className="text-[#010C3A] text-xl font-medium">
+                      Total Loan Amount=${value3}
+                    </h1>
+                    <h1 className="text-[#010C3A] text-xl font-medium">
+                      Total Months={value1}
+                    </h1>
+                    <h1 className="text-[#010C3A] text-xl font-medium">
+                      Total Interest={value2}%
+                    </h1>
                   </div>
                 </div>
                 <div className="second-portion">
                   <div>
-                    <h1 className="text-2xl">Total Amount={output}</h1>
+                    <h1 className="text-2xl font-medium">
+                      Total Amount={output}
+                    </h1>
                   </div>
-                  <div>
-                    <Link to="/accountOpenFrom" className="secondary-btn sm-btn">
+                  <div className="mt-2">
+                    <Link to="/accountOpenFrom" className="secondary-btn">
                       Apply
                     </Link>
                   </div>

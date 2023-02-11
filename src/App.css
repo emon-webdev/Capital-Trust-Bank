@@ -60,12 +60,12 @@
   @apply lg:inline-flex items-center lg:pl-3 block pl-0 text-center;
 }
 
-ul.navbar__nav>li {
+ul.navbar__nav > li {
   position: relative;
   padding: 22px 0;
 }
 
-ul.navbar__nav>li:last-child {
+ul.navbar__nav > li:last-child {
   margin-right: 0;
 }
 
@@ -92,7 +92,7 @@ ul.submenu {
   transition-property: all;
 }
 
-ul.navbar__nav li:hover>ul.submenu {
+ul.navbar__nav li:hover > ul.submenu {
   padding: 10px 0;
   opacity: 1;
   visibility: visible;
@@ -251,7 +251,7 @@ ul.submenu li:hover a {
   bottom: -3px;
   right: -3px;
   border-radius: inherit;
-  border: 4px solid #df0303;
+  background: #df0303;
   animation: btnIconRipple 2s cubic-bezier(0.23, 1, 0.32, 1) both infinite;
 }
 /*Account Opening Form  */
@@ -366,7 +366,7 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 
 /* team ares css */
 
-.slick-slide>div {
+.slick-slide > div {
   margin: 0 10px;
 }
 
@@ -441,7 +441,6 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   }
 }
 /* .css-hip9hq-MuiPaper-root-MuiAppBar-root */
-
 
 /* .css-hip9hq-MuiPaper-root-MuiAppBar-root {
   box-shadow: none !important;
@@ -601,10 +600,12 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
 ===Responsive CSS starts here===
 ============================= */
 /* XL/XXL Device :1200px. */
-@media (min-width: 1200px) and (max-width: 1500px) {}
+@media (min-width: 1200px) and (max-width: 1500px) {
+}
 
 /* LG Large Device :992px. */
-@media (min-width: 992px) and (max-width: 1200px) {}
+@media (min-width: 992px) and (max-width: 1200px) {
+}
 
 /* Tablet Medium Device :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -624,21 +625,21 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     margin-top: 15px;
   }
 
-  ul.navbar__nav>li {
+  ul.navbar__nav > li {
     position: static;
   }
 
-  ul.navbar__nav li:hover>ul.submenu {
+  ul.navbar__nav li:hover > ul.submenu {
     display: block;
     position: static;
   }
 
-  ul.navbar__nav>li {
+  ul.navbar__nav > li {
     padding: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
 
-  ul.navbar__nav>li:last-child {
+  ul.navbar__nav > li:last-child {
     border: 0;
   }
 }
@@ -671,6 +672,9 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
 
   .text {
     margin-top: 10px;
+  }
+  .card-body {
+    width: 87%;
   }
 }
 
@@ -705,21 +709,21 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
     margin-top: 50px;
   }
 
-  ul.navbar__nav>li {
+  ul.navbar__nav > li {
     position: static;
   }
 
-  ul.navbar__nav li:hover>ul.submenu {
+  ul.navbar__nav li:hover > ul.submenu {
     display: block;
     position: static;
   }
 
-  ul.navbar__nav>li {
+  ul.navbar__nav > li {
     padding: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
 
-  ul.navbar__nav>li:last-child {
+  ul.navbar__nav > li:last-child {
     border: 0;
   }
 
@@ -789,5 +793,8 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
 
   .text {
     margin-top: 10px;
+  }
+  .card-body {
+    width: 97%;
   }
 }

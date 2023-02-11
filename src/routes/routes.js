@@ -17,6 +17,7 @@ import AccountOpenFrom from "../Pages/AccountOpenFrom/AccountOpenFrom";
 import Apply from "../Pages/Apply/Apply";
 import Cards from "../Pages/Cards/Cards";
 import Contact from "../Pages/Contact/Contact";
+import FaqPage from "../Pages/FaqPage/FaqPage";
 import ApplyForm from "../Pages/Home/ApplyForm";
 import ExchangeDetails from "../Pages/Home/ExchangeDetails";
 import Home from "../Pages/Home/Home";
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
       {
         path: "/cards",
         element: <Cards />,
+      },
+      {
+        path: "/faq",
+        element: <FaqPage></FaqPage>,
       },
       {
         path: "/contact",
