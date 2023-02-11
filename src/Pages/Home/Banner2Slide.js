@@ -12,7 +12,8 @@ const Banner2Slide = ({ data }) => {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 // height: '100vh',
-                margin: '0px'
+                margin: '0px',
+                width: '100%',
             }}
         >
             <div className='container flex items-center h-[80vh]'>

@@ -486,6 +486,9 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 .banner2 {
   color: white !important;
 }
+.slick-slide > div {
+  margin: 0 !important;
+}
 
 .link:hover {
   background: #cf173c;

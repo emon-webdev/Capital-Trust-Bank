@@ -21,6 +21,7 @@ const Team = () => {
     dots: true,
     initialSlide: 0,
     speed: 1000,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
