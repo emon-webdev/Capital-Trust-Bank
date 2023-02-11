@@ -9,8 +9,9 @@ import DonateOptionModal from "../../component/Modal/DonateOptionModal";
 import VideoModal from "../../component/Modal/VideoModal";
 const Funds = ({}) => {
   const { t } = useTranslation();
-  const OverlayVideoOne = () => <ModalOverlay bg="blackAlpha.400" />;
-  const OverlayPayOne = () => <ModalOverlay bg="blackAlpha.400" />;
+  // const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
+  // const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
+  const OverlayOne = () => <ModalOverlay bg="blackAlpha.300" />;
   const {
     isOpen: isVideoOpen,
     onOpen: onVideoOpen,
@@ -21,7 +22,7 @@ const Funds = ({}) => {
     onOpen: onPayOpen,
     onClose: onPayClose,
   } = useDisclosure();
-  const [overlay, setOverlay] = useState(<OverlayVideoOne />);
+  const [overlay, setOverlay] = useState(<OverlayOne />);
   return (
     <div className="funds-area pt-[60px] md:pt-[120px] pb-[60px]">
       <div className="container">
@@ -41,7 +42,7 @@ const Funds = ({}) => {
               onClose={onVideoClose}
               isOpen={isVideoOpen}
               overlay={overlay}
-              OverlayOne={OverlayVideoOne}
+              OverlayOne={OverlayOne}
             />
           </div>
           <div className="fund-content basis-3/6 mt-10">
@@ -87,7 +88,7 @@ const Funds = ({}) => {
               onClose={onPayClose}
               isOpen={isPayOpen}
               overlay={overlay}
-              OverlayOne={OverlayPayOne}
+              OverlayOne={OverlayOne}
             />
           </div>
         </div>
