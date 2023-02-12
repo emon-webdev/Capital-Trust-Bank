@@ -10,11 +10,7 @@ import { default as React, useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
-const CreditCardModal = ({
-  onClose,
-  isOpen,
-  overlay,
-}) => {
+const CreditCardModal = ({ onClose, isOpen, overlay }) => {
   const { user, loading } = useContext(AuthContext);
   const {
     register,
@@ -27,12 +23,13 @@ const CreditCardModal = ({
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users?email=${user?.email}`)
+    fetch(`http://localhost:5000/bankAccounts?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data[0]);
       });
   }, []);
+  console.log(applierEmail?.accountId);
   // apply for credit card
   const handleApply = (data) => {
     // event.preventDefault();
@@ -40,14 +37,14 @@ const CreditCardModal = ({
     const applierPhnNumber = data.applierPhnNumber;
     const accountId = data.accountId;
     const cardType = data.cardType;
-    if (applierEmail?._id === accountId) {
+    if (applierEmail?.accountId === accountId) {
       const applierInfo = {
         applierName,
         applierPhnNumber,
         accountId,
         cardType,
       };
-      console.log(applierInfo, applierEmail?._id);
+      console.log(applierInfo, applierEmail?.accountId);
       fetch(`http://localhost:5000/cardAppliers`, {
         method: "POST",
         headers: {

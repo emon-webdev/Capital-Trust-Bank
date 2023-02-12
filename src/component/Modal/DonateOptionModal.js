@@ -68,7 +68,7 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Video</ModalHeader>
+          <ModalHeader>Donate</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <div>
@@ -175,7 +175,7 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
                   <button
                     className={`sm-btn mt-5 cursor-pointer`}
                     type="submit"
-                    // onClick={onClose}
+                    onClick={onClose}
                   >
                     Pay
                   </button>

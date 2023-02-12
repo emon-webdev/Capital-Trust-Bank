@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const CardReq = () => {
+const CreditCardReq = () => {
       const [customers, setCustomers] = useState([]);
       useEffect(() => {
         fetch(`https://capital-trust-bank-server.vercel.app/cardReq`)
@@ -41,4 +41,4 @@ const CardReq = () => {
     );
 };
 
-export default CardReq;
+export default CreditCardReq;

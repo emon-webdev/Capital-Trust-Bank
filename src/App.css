@@ -130,7 +130,10 @@ ul.submenu li:hover a {
   color: #fff;
   background: #cf173c;
 }
-
+.disable-btn {
+  background-color: #f3f3fe !important;
+  color: #666666 !important;
+}
 .accent-btn {
   display: inline-block;
   padding: 0 12px;
