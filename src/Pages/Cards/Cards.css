@@ -1,33 +1,35 @@
-/* .bg-cards {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgb(234, 150, 150)),
-    url("../../Assets/card-banner-area-bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-} */
-@media screen and (max-width: 680px) {
-  .bg-cards {
-    background-color: lightgreen;
+.bg-cards{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgb(234, 150, 150)),url('../../assets/cards/card_3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
-    flex-direction: column;
-    gap: 35px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 680px) {
+    .bg-cards {
+      background-color: lightgreen;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+    .custom-color{
+        color: white;
+    }
   }
-  .custom-color {
+
+.card-btn{
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.card-btn:hover{
+    background-color: #e22245;
     color: white;
-  }
-}
-.card-btn {
-  padding: 5px 10px;
-  margin-top: 10px;
-  border-radius: 5px;
-  border: 1px solid black;
-}
-.card-btn:hover {
-  background-color: #e22245;
-  color: white;
-  border: 1px solid #e22245;
-  transition: 650ms;
+    border: 1px solid #e22245;
+   transition: 650ms;
 }

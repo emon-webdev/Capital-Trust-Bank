@@ -17,6 +17,7 @@ import AccountOpenFrom from "../Pages/AccountOpenFrom/AccountOpenFrom";
 import Apply from "../Pages/Apply/Apply";
 import Cards from "../Pages/Cards/Cards";
 import Contact from "../Pages/Contact/Contact";
+import FaqPage from "../Pages/FaqPage/FaqPage";
 import ApplyForm from "../Pages/Home/ApplyForm";
 import ExchangeDetails from "../Pages/Home/ExchangeDetails";
 import Home from "../Pages/Home/Home";
@@ -101,9 +102,13 @@ const router = createBrowserRouter([
         element: <Cards />,
       },
       {
+        path: "/faq",
+        element: <FaqPage></FaqPage>,
+      },
+      {
         path: "/contact",
         element: <Contact />,
-        action: "createAction"
+        action: "createAction",
       },
       {
         path: "/about",
@@ -115,7 +120,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/paymentbills",
-        element: <PaymentBills/>,
+        element: <PaymentBills />,
       },
       {
         path: "/login",
@@ -132,8 +137,8 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/team-details/${params.id}`),
       },
       {
-        path: '/exchange',
-        element: <ExchangeDetails />
+        path: "/exchange",
+        element: <ExchangeDetails />,
       },
     ],
   },
@@ -229,36 +234,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: "/paymentbills",
-  //   element: <PaymentBills/>,
-  //   children: [
-  //     {
-  //       path: "/paymentbills/electricitybill",
-  //       element: <ElectricityBill/>,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //   ]
-  // },
 ]);
 
 export default router;

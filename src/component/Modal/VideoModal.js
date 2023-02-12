@@ -10,7 +10,6 @@ import {
 import React, { useState } from "react";
 import { BiLoaderAlt } from "react-icons/bi";
 const VideoModal = ({ onClose, isOpen, onOpen }) => {
-  const [modal, setModal] = useState(false);
   const [videoLoading, setVideoLoading] = useState(true);
   const spinner = () => {
     setVideoLoading(!videoLoading);
