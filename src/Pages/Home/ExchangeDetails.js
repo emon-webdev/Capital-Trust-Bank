@@ -1,12 +1,42 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import banner from '../../assets/exchange.jpg';
-import { Input, List, ListIcon, ListItem, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Stack } from '@chakra-ui/react';
+import { Input, List, ListIcon, ListItem, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Stack, useConst } from '@chakra-ui/react';
 import { MdCheckCircle } from 'react-icons/md';
 import '../../App.css'
-
+import { useLocation } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
+import { toast } from "react-hot-toast";
 const ExchangeDetails = () => {
     const [name, setName] = useState("Exchange Rate");
+    const {state} = useLocation();
+    const [usd,setUsd] = useState(0);
+    const {user} = useContext(AuthContext)
+    let sellingPrice = (usd*state.BDT)+ parseInt(usd);
+    let buyingPrice = (usd*state.BDT)-usd;
+    const handleExchange = (event)=> {
+     event.preventDefault();
+     const usd = event.target.usd.value;
+     const info = {
+        usd,
+        sellingPrice,
+        buyingPrice,
+        email: user.email
+     }
+     //store info into the database
+     fetch(`http://localhost:5000/storeExchangeInfo`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(info)
+      })
+      .then(res=> res.json())
+      .then(data =>  {toast.success("Request Success")
+      event.target.reset();
+       setUsd(0); 
+    })
+    }
     return (
         <div>
             <DynamicBanner name={name} />
@@ -51,41 +81,27 @@ const ExchangeDetails = () => {
                     <div className='w-[40%] right-side'>
                         <section className="p-6 mx-auto bg-white rounded-md shadow-md">
                             <div className=''>
-                                <h2 className="text-lg font-semibold capitalize text-[#010c3a] py-4 text-center">1 USA = 106.50-BDT</h2>
+                                <h2 className="text-lg font-semibold capitalize text-[#010c3a] py-4 text-center">1 USA = {state.BDT}-BDT</h2>
                             </div>
 
-                            <form>
+                            <form onSubmit={handleExchange}>
                                 <div className="">
                                     <Stack spacing={6}>
 
                                         <NumberInput defaultValue={0} min={0} className='text-black'>
-                                            <NumberInputField />
-                                            <NumberInputStepper>
-                                                <NumberIncrementStepper />
-                                                <NumberDecrementStepper />
-                                            </NumberInputStepper>
+                                            <input name='usd' type='number' onChange={(e)=>setUsd(e.target.value)} className="border-2 w-full"/>
                                         </NumberInput>
 
-                                        <NumberInput defaultValue={0} min={0} className='text-black'>
-                                            <NumberInputField />
-                                            <NumberInputStepper>
-                                                <NumberIncrementStepper />
-                                                <NumberDecrementStepper />
-                                            </NumberInputStepper>
-                                        </NumberInput>
+                                        <p>Total buying price(BDT): {buyingPrice}</p>
+                                        <p>Total selling price(BDT): {sellingPrice}</p>
 
-                                        <NumberInput defaultValue={0} min={0} className='text-black'>
-                                            <NumberInputField />
-                                            <NumberInputStepper>
-                                                <NumberIncrementStepper />
-                                                <NumberDecrementStepper />
-                                            </NumberInputStepper>
-                                        </NumberInput>                                        
+
+                                                                            
                                     </Stack>
                                 </div>
 
                                 <div className="">
-                                    <button className='sm-btn send-btn primary-btn exchange-btn bg-[#df0303]'>Send Now</button>
+                                    <button type='submit' className='sm-btn send-btn primary-btn exchange-btn bg-[#df0303]'>Send Now</button>
                                 </div>
                             </form>
                         </section>

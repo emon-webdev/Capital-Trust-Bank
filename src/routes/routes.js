@@ -5,8 +5,10 @@ import MyAccount from "../Dashboard/components/Customers/MyAccount/MyAccount";
 import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
 import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
 import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
+import CustomerSupport from "../Dashboard/components/CustomerSupport/CustomerSupport";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
+import IndividualSupport from "../Dashboard/components/IndividualSupport/IndividualSupport";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
 
 import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
@@ -194,14 +196,12 @@ const router = createBrowserRouter([
         // loader: ({ params }) =>
         //   fetch(`https://capital-trust-bank-server.vercel.app/depositWithdraw/${params.email}`),
       },
-      // {
-      //   path: "/dashboard/my-balance",
-      //   element: (
-      //     <CustomerRoute>
-      //       <MyBalance />
-      //     </CustomerRoute>
-      //   ),
-      // },
+      {
+        path: "/dashboard/CustomerSupport",
+        element: (
+            <CustomerSupport />
+        ),
+      },
       {
         path: "/dashboard/my-withdraw",
         element: (
