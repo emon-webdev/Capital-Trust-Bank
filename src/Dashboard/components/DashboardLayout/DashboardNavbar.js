@@ -72,8 +72,7 @@ const DashboardNavbar = () => {
                         </MenuButton>
 
                         <MenuList>
-                            <MenuGroup title='Profile'>
-                                <MenuItem>My Profile</MenuItem>
+                            <MenuGroup title=''>                                
                                 <Link onClick={handleSignOut}><MenuItem>Log Out </MenuItem></Link>
                             </MenuGroup>
                         </MenuList>

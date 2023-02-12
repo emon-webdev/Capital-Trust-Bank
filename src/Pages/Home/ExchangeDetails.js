@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import banner from '../../assets/exchange.jpg';
-import { Input, List, ListIcon, ListItem, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Stack } from '@chakra-ui/react';
+import { List, ListIcon, ListItem, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Stack } from '@chakra-ui/react';
 import { MdCheckCircle } from 'react-icons/md';
 import '../../App.css'
 
 const ExchangeDetails = () => {
     const [name, setName] = useState("Exchange Rate");
+    const [buyAmount, setBuyAmount] = useState(0);
+    const [sellAmount, setSellAmount] = useState(0);
+
+    let totalBuyAmount = buyAmount / 100 * 2 + 106.50;
+
     return (
         <div>
             <DynamicBanner name={name} />
@@ -57,30 +62,38 @@ const ExchangeDetails = () => {
                             <form>
                                 <div className="">
                                     <Stack spacing={6}>
+                                    <h1 className='text-[18px]'>Buy</h1>
+                                        <NumberInput
+                                            min={0}
+                                            className='text-black'
 
-                                        <NumberInput defaultValue={0} min={0} className='text-black'>
-                                            <NumberInputField />
+                                        >
+                                            
+                                            <NumberInputField
+                                                placeholder='input your amount'
+                                                onChange={(e) => setBuyAmount(e.target.value)} />
                                             <NumberInputStepper>
                                                 <NumberIncrementStepper />
                                                 <NumberDecrementStepper />
                                             </NumberInputStepper>
                                         </NumberInput>
 
-                                        <NumberInput defaultValue={0} min={0} className='text-black'>
-                                            <NumberInputField />
+                                        <h1 className='text-[18px]'>Sell</h1>
+                                        <NumberInput min={0} className='text-black'>
+                                            
+                                            <NumberInputField
+                                                placeholder='input your amount'
+                                                onChange={(e) => setSellAmount(e.target.value)}
+                                            />
                                             <NumberInputStepper>
                                                 <NumberIncrementStepper />
                                                 <NumberDecrementStepper />
                                             </NumberInputStepper>
                                         </NumberInput>
-
-                                        <NumberInput defaultValue={0} min={0} className='text-black'>
-                                            <NumberInputField />
-                                            <NumberInputStepper>
-                                                <NumberIncrementStepper />
-                                                <NumberDecrementStepper />
-                                            </NumberInputStepper>
-                                        </NumberInput>                                        
+                                        
+                                       <div>
+                                        <h1>Total Coast = {totalBuyAmount}-BDT</h1>
+                                       </div>
                                     </Stack>
                                 </div>
 

@@ -28,7 +28,7 @@ const DashboardLayout = () => {
         >
           <LeftContainer></LeftContainer>
         </div>
-        <div className="lg:ml-[230px] w-full h-[1400px] md:ml-0 z-0 bg-[#F3F3FE]">
+        <div className="lg:ml-[230px] w-full h-[1400px] md:ml-0 z-0 p-3 bg-[#F3F3FE]">
           <Outlet></Outlet>
         </div>
       </div>
