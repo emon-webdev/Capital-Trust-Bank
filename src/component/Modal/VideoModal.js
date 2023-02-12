@@ -10,7 +10,6 @@ import {
 import React, { useState } from "react";
 import { BiLoaderAlt } from "react-icons/bi";
 const VideoModal = ({ onClose, isOpen, onOpen }) => {
-  const [modal, setModal] = useState(false);
   const [videoLoading, setVideoLoading] = useState(true);
   const spinner = () => {
     setVideoLoading(!videoLoading);
@@ -50,15 +49,6 @@ const VideoModal = ({ onClose, isOpen, onOpen }) => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               ></iframe>
-              {/* <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/D2mLhKuWQT4"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe> */}
             </div>
           </ModalBody>
           <ModalFooter></ModalFooter>

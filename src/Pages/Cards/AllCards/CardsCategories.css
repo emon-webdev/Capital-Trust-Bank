@@ -1,0 +1,23 @@
+.main-part{
+    display: grid;
+    grid-template-columns:1fr 4fr;
+    gap: 10px;
+}
+
+@media screen and (max-width: 680px) {
+    .main-part {
+        display: flex;
+       flex-direction: column;
+        gap: 10px;
+    }
+  }
+
+
+  .card-hover{
+    padding: 10px 15px;
+    border-radius: 4px;
+  }
+.card-hover:hover{
+ background-color: rgb(60, 60, 89);
+ transition: 500ms;
+}
