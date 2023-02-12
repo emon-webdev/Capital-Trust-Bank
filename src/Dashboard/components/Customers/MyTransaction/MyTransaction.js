@@ -13,7 +13,7 @@ import {
 import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../../context/AuthProvider";
-import VisaTransaction from "../MyTransaction/visaTransaction";
+import VisaTransaction from "../MyTransaction/VisaTransaction";
 
 export default function MyTransaction() {
   const { user } = useContext(AuthContext);
