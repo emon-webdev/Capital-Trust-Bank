@@ -18,6 +18,8 @@ import Apply from "../Pages/Apply/Apply";
 import Cards from "../Pages/Cards/Cards";
 import Contact from "../Pages/Contact/Contact";
 import FaqPage from "../Pages/FaqPage/FaqPage";
+import DonateFail from "../Pages/Funds/DonateFail";
+import DonateSuccess from "../Pages/Funds/DonateSuccess";
 import ApplyForm from "../Pages/Home/ApplyForm";
 import ExchangeDetails from "../Pages/Home/ExchangeDetails";
 import Home from "../Pages/Home/Home";
@@ -117,6 +119,14 @@ const router = createBrowserRouter([
       {
         path: "/AccountOpenFrom",
         element: <AccountOpenFrom />,
+      },
+      {
+        path: "/donate/success",
+        element: <DonateSuccess />,
+      },
+      {
+        path: "/donate/fail",
+        element: <DonateFail />,
       },
       {
         path: "/paymentbills",

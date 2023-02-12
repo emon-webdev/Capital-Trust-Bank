@@ -5,7 +5,7 @@ import "./Footer.css";
 // import TwitterIcon from "@mui/icons-material/Twitter";
 const Footer = () => {
   return (
-    <div className="bgi-footer">
+    <div className="bgi-footer print:hidden">
       <div className="container pt-20">
         <div
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4
