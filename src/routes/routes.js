@@ -39,7 +39,8 @@ import VehicleLoan from "../Pages/Services/VehicleLoan";
 import Error from "../Pages/Shared/Error";
 import AdminRoute from "../routes/AdminRoute";
 import CustomerRoute from "../routes/CustomerRoute";
-import PrivetRoute from "./PrivetRoute/PrivetRout";
+import PrivetRoute from "./PrivateRoute/PrivateRoute";
+// import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -111,7 +112,7 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
-        action: "createAction"
+        action: "createAction",
       },
       {
         path: "/about",
@@ -119,7 +120,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/AccountOpenFrom",
-        element: <PrivetRoute><AccountOpenFrom /></PrivetRoute>
+        element: (
+          <PrivetRoute>
+            <AccountOpenFrom />
+          </PrivetRoute>
+        ),
       },
       {
         path: "/donate/success",
@@ -148,8 +153,8 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/team-details/${params.id}`),
       },
       {
-        path: '/exchange',
-        element: <ExchangeDetails />
+        path: "/exchange",
+        element: <ExchangeDetails />,
       },
     ],
   },
