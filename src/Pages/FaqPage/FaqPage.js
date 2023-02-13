@@ -1,6 +1,9 @@
 import {
   Accordion,
-  AccordionButton, AccordionIcon, AccordionItem, AccordionPanel,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
   Box
 } from "@chakra-ui/react";
 import React from "react";
@@ -11,10 +14,7 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import "./FaqPage.css";
 
 const FaqPage = () => {
-
   const { t } = useTranslation();
-
-
   return (
     <div>
       <DynamicBanner name={"FAQ"}></DynamicBanner>
@@ -26,6 +26,7 @@ const FaqPage = () => {
         {/* fag detail  */}
         <div>
           <h1 className="text-4xl font-semibold mb-3">
+            {" "}
             {t("Frequently_title")}
           </h1>
           <p>{t("freq_subtitle")}</p>
@@ -41,15 +42,12 @@ const FaqPage = () => {
                       textAlign="left"
                       className="font-bold"
                     >
-                      What is the minimum balance?
+                      {t("faq_1q")}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
-                  Rationally encounter consequences that are extremely painful
-                  again there anyone who loves or pursues desire.
-                </AccordionPanel>
+                <AccordionPanel pb={4}>{t("faq_1q_ans")}</AccordionPanel>
               </AccordionItem>
 
               <AccordionItem>
@@ -61,15 +59,12 @@ const FaqPage = () => {
                       textAlign="left"
                       className="font-bold"
                     >
-                      What is the rate of interest?
+                      {t("faq_2q")}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
-                  There anyone who loves or pursues desire rationally encounter
-                  consequences that are extremely painful again .
-                </AccordionPanel>
+                <AccordionPanel pb={4}>{t("faq_2q_ans")}</AccordionPanel>
               </AccordionItem>
 
               <AccordionItem>
@@ -81,15 +76,12 @@ const FaqPage = () => {
                       textAlign="left"
                       className="font-bold"
                     >
-                      When will I receive my account statement?
+                      {t("faq_3q")}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
-                  Consequences that are extremely painful again there anyone
-                  rationally encounter who loves or pursues desire.
-                </AccordionPanel>
+                <AccordionPanel pb={4}>{t("faq_3q_ans")}</AccordionPanel>
               </AccordionItem>
 
               <AccordionItem>
@@ -101,15 +93,12 @@ const FaqPage = () => {
                       textAlign="left"
                       className="font-bold"
                     >
-                      Can I use any branch across India?
+                      {t("faq_4q")}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
-                  Extremely painful again there anyone who rationally encounter
-                  consequences that are loves or pursues desire.
-                </AccordionPanel>
+                <AccordionPanel pb={4}>{t("faq_4q_ans")}</AccordionPanel>
               </AccordionItem>
 
               <AccordionItem>
@@ -121,15 +110,12 @@ const FaqPage = () => {
                       textAlign="left"
                       className="font-bold"
                     >
-                      How safe/secure is our net banking a/c?
+                      {t("faq_5q")}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
-                  Anyone who loves or pursues desire rationally encounter
-                  consequences that are extremely painful again there .
-                </AccordionPanel>
+                <AccordionPanel pb={4}>{t("faq_5q_ans")}</AccordionPanel>
               </AccordionItem>
 
               <AccordionItem>
@@ -141,15 +127,12 @@ const FaqPage = () => {
                       textAlign="left"
                       className="font-bold"
                     >
-                      How you safe/secure is our net banking a/c?
+                      {t("faq_6q")}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
-                  Pursues desire rationally encounter consequences that are
-                  anyone who loves or extremely painful again there .
-                </AccordionPanel>
+                <AccordionPanel pb={4}>{t("faq_6q_ans")}</AccordionPanel>
               </AccordionItem>
 
               <AccordionItem>
@@ -161,15 +144,12 @@ const FaqPage = () => {
                       textAlign="left"
                       className="font-bold"
                     >
-                      who loves or extremely painful again there?
+                      {t("faq_7q")}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
-                  Anyone who loves or extremely painful again there pursues
-                  desire rationally encounter consequences that are.
-                </AccordionPanel>
+                <AccordionPanel pb={4}>{t("faq_7q_ans")}</AccordionPanel>
               </AccordionItem>
 
               <AccordionItem>
@@ -181,23 +161,20 @@ const FaqPage = () => {
                       textAlign="left"
                       className="font-bold"
                     >
-                      Encounter who loves or pursues desire
+                      {t("faq_8q")}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
-                  That are extremely painful again there anyone rationally
-                  encounter who loves or pursues desire consequences .
-                </AccordionPanel>
+                <AccordionPanel pb={4}>{t("faq_8q_ans")}</AccordionPanel>
               </AccordionItem>
             </Accordion>
           </div>
           {/* footer  */}
           <div>
             <span>
-              ✌️ By using question you to get{" "}
-              <Link className="text-blue-600">Any Information</Link>
+              ✌️ {t("faq_footer_txt_01")}{" "}
+              <Link className="text-blue-600">{t("faq_footer_txt_02")}</Link>
             </span>
           </div>
         </div>
