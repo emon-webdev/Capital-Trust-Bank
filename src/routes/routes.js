@@ -198,9 +198,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/CustomerSupport",
-        element: (
-            <CustomerSupport />
-        ),
+        element: <CustomerSupport />,
       },
       {
         path: "/dashboard/my-withdraw",
@@ -236,36 +234,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: "/paymentbills",
-  //   element: <PaymentBills/>,
-  //   children: [
-  //     {
-  //       path: "/paymentbills/electricitybill",
-  //       element: <ElectricityBill/>,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //   ]
-  // },
 ]);
 
 export default router;
