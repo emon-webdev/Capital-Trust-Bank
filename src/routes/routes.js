@@ -9,6 +9,7 @@ import CustomerSupport from "../Dashboard/components/CustomerSupport/CustomerSup
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
 import AllDonate from "../Dashboard/components/Donate/AllDonate";
+import IndividualSupport from "../Dashboard/components/IndividualSupport/IndividualSupport";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
 
 import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
@@ -245,6 +246,8 @@ const router = createBrowserRouter([
         element: <MyAccount />,
         loader: () =>
           fetch("https://capital-trust-bank-server.vercel.app/depositWithdraw"),
+        path: "/dashboard/CustomerSupport/admin",
+        element: <IndividualSupport />,
       },
       {
         path: "/dashboard/deviceActivity",

@@ -40,8 +40,6 @@
     "recharts": "^2.3.2",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.6.0",
-    "victory": "^36.6.8",
-    "victory-chart": "^36.6.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

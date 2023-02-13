@@ -4,7 +4,6 @@ import {
   InputLeftElement,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
   ModalFooter,
   ModalHeader,
@@ -52,7 +51,7 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
       .then((data) => {
         console.log(data);
         window.location.replace(data.url);
-        console.log(window.location.replace(data.url))
+        console.log(window.location.replace(data.url));
         // toast.success(`Donate Success`);
         // reset();
       });
@@ -69,8 +68,9 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Donate Form</ModalHeader>
-          <ModalCloseButton />
+          <ModalHeader>
+            <h2 className="py-2 text-lg md:text-4xl font-semibold">Donate </h2>
+          </ModalHeader>
           <ModalBody>
             <div>
               <form onSubmit={handleSubmit(handleDonate)}>

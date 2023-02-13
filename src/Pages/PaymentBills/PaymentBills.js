@@ -1,11 +1,11 @@
+import { useDisclosure } from "@chakra-ui/hooks";
+import { ModalOverlay } from "@chakra-ui/modal";
 import React, { useState } from "react";
-import logo from "../.././assets/PaymentBills/logo.png";
-import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import icon1 from "../.././assets/PaymentBills/icon-1.png";
 import icon2 from "../.././assets/PaymentBills/icon-2.png";
 import icon3 from "../.././assets/PaymentBills/icon-3.png";
-import { ModalOverlay } from "@chakra-ui/modal";
-import { useDisclosure } from "@chakra-ui/hooks";
+import logo from "../.././assets/PaymentBills/logo.png";
+import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import PaymentBillsModal from "./PaymentBillsModal";
 
 const PaymentBills = () => {

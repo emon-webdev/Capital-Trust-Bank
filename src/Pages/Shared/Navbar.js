@@ -112,7 +112,7 @@ const Navbar = () => {
               <ul className="submenu">
                 <li>
                   <NavLink to="/paymentbills" className="">
-                    Pay Bils
+                    {t("Pay_bills")}
                   </NavLink>
                 </li>
                 <li>

@@ -1,8 +1,8 @@
 // import { useState } from "react";
-import { MdAttachMoney, MdOutlineImportantDevices } from 'react-icons/md';
 import { BsChatDots } from 'react-icons/bs';
 import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
-import {RiAccountCircleLine } from 'react-icons/ri';
+import { MdAttachMoney, MdOutlineImportantDevices } from 'react-icons/md';
+import { RiAccountCircleLine } from 'react-icons/ri';
 import { Link, NavLink } from 'react-router-dom';
 import '../../../App.css';
 import logo from '../../../assets/logo/mainlogo.png';
