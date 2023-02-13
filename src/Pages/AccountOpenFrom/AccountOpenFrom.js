@@ -5,11 +5,13 @@ import {
   Radio,
   RadioGroup,
   Select,
-  Stack
+  Stack,
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { CgSpinner } from "react-icons/cg";
+import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
@@ -68,7 +70,7 @@ const AccountOpenFrom = () => {
           };
           console.log(account);
           // save information to the database
-          fetch("http://localhost:5000/bankAccounts", {
+          fetch("https://capital-trust-bank-server.vercel.app/bankAccounts", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -161,14 +163,24 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">
                     Phone Number
                   </label>
-                  <input
+                  <PhoneInput
+                    children="$"
+                    type="number"
+                    {...register("phone", {
+                      required: "Phone Number is required",
+                    })}
+                    // className="border mb-2 mt-1 rounded w-full px-[10px]"
+                    placeholder="Phone Number"
+                    country={"bd"}
+                  ></PhoneInput>
+                  {/* <input
                     type="number"
                     {...register("phone", {
                       required: "Phone Number is required",
                     })}
                     className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Phone Number"
-                  ></input>
+                  ></input> */}
                 </div>
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">
