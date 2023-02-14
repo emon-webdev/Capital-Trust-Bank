@@ -94,9 +94,9 @@ const Loans = (props) => {
                 {loan.title}
               </Text>
               <div className="text-lg text-center my-5">
-                {loan.details}
+                {loan.details.slice(0, 300)}...
                 <VStack marginY={4}>
-                  <Link to="/">
+                  <Link to={`/loanDetails/${loan._id}`}>
                     <button className="font-bold hover:bg-[#151423] rounded px-4 py-3 bg-[#DF0303] text-[#fff]">
                       Details
                     </button>

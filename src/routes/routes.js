@@ -85,7 +85,7 @@ const router = createBrowserRouter([
         path: "/loanDetails/:id",
         element: <LoanDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/loanService/${params.id}`),
+          fetch(`http://localhost:5000/loanSec/${params.id}`),
       },
 
       {
