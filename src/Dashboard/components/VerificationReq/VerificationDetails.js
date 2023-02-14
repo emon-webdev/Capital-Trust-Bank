@@ -11,11 +11,49 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const VerificationDetails = () => {
   const { state: customer } = useLocation();
-  console.log(customer);
+  const navigate = useNavigate();
+  const handleAccept = (data) => {
+    const info = {
+        email: data.email
+    }
+    fetch(`http://localhost:5000/verifyCustomer`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(info),
+      })
+        .then((res) => res.json())
+        .then(data => {
+            toast.success("Customer Verification Successful");
+            navigate('/dashboard/verificationRequest');
+        })
+  }
+
+  const handleDelete = (data) => {
+    const info = {
+        email: data.email
+    }
+    console.log(data)
+    fetch(`http://localhost:5000/verifyCancel`, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(info),
+      })
+        .then((res) => res.json())
+        .then(data => {
+            console.log(data)
+            toast.success("Customer Verification request deleted");
+            navigate('/dashboard/verificationRequest');
+        })
+  }
   return (
     <div>
       <Card className="w-3/4 lg:w-1/2 mx-auto">
@@ -48,10 +86,10 @@ const VerificationDetails = () => {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing="2">
-          <button className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]">
+          <button className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]" onClick={()=>handleAccept(customer)}>
                 Accept
               </button>
-              <button className="text-md sm-btn primary-btn exchange-btn bg-[#df0303]">
+              <button className="text-md sm-btn primary-btn exchange-btn bg-[#df0303]" onClick={()=>handleDelete(customer)}>
                 Cancel
               </button>
           </ButtonGroup>
