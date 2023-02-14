@@ -2,9 +2,11 @@
   background: #ffffff;
   height: 255px;
   padding: 12px 14px;
+  padding-left: 18px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-left: 5px solid #041c51;
 }
 .slider-content button.primary-btn {
   height: 40px;
@@ -56,6 +58,11 @@
 .slider-main-content .slick-slider.slick-initialized button.slick-arrow {
   display: none !important;
 }
+.slider-wrap .slick-prev:before,
+.slider-wrap .slick-next:before {
+  font-size: 25px;
+  color: #df0303 !important;
+}
 /* active nav item */
 
 .slick-slide.slick-active.slick-current .single-slider-nav {
@@ -66,7 +73,7 @@
   border: #041c51;
   color: #fff;
 }
-.slick-slide.slick-active.slick-current h3 {
+.slick-slide.slick-active.slick-current .single-slider-nav h3 {
   color: #fff;
 }
 /* hover nav item */
