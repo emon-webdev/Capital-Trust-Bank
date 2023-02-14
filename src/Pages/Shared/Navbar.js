@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AiOutlineClose, AiOutlineMenuFold } from "react-icons/ai";
 import { BiGroup } from "react-icons/bi";
-import { FiSearch } from "react-icons/fi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../context/AuthProvider";
@@ -11,10 +10,23 @@ const Navbar = () => {
   const { t } = useTranslation();
   const { logOut, user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [isApply, setIsApply] = useState(false);
+  useEffect(() => {
+    fetch(
+      `https://capital-trust-bank-server.vercel.app/customer/${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.isApply) {
+          setIsApply(true);
+        }
+        setIsApply(false);
+      });
+  }, [user]);
   const handleSignOut = () => {
     //delete customer device info
     fetch(
-      `https://capital-trust-bank-server.vercel.app/deleteDeviceInfo/${user.email}`,
+      `https://capital-trust-bank-server.vercel.app/deleteDeviceInfo/${user?.email}`,
       {
         method: "DELETE",
         headers: {
@@ -239,7 +251,7 @@ const Navbar = () => {
                 {t("contact")}
               </NavLink>
             </li>
-            {user?.email && (
+            {user?.email && isApply && (
               <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
                 <NavLink
                   to="/dashboard"

@@ -5,12 +5,11 @@ import {
   Radio,
   RadioGroup,
   Select,
-  Stack,
+  Stack
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { CgSpinner } from "react-icons/cg";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { NavLink } from "react-router-dom";
@@ -25,6 +24,7 @@ const AccountOpenFrom = () => {
   } = useForm();
   const date = new Date();
   const { user } = useContext(AuthContext);
+  console.log(user);
   const imgHostKey = process.env.REACT_APP_IMAGE_SECRET_KEY;
   // console.log(imgHostKey);
   const [name, setName] = useState("Account Open In Bank");
@@ -191,6 +191,8 @@ const AccountOpenFrom = () => {
                     {...register("email", {
                       required: "email is required",
                     })}
+                    // defaultValue={user?.email}
+                    readOnly
                     className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Email Address"
                   ></input>
