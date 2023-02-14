@@ -63,6 +63,12 @@
   font-size: 25px;
   color: #df0303 !important;
 }
+/* .slider-wrap .slick-next {
+  left: -20px;
+}
+.slider-wrap .slick-prev {
+  right: -20px;
+} */
 /* active nav item */
 
 .slick-slide.slick-active.slick-current .single-slider-nav {
