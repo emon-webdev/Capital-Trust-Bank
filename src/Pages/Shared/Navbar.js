@@ -18,6 +18,9 @@ const Navbar = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
+        if(data.role==='admin'){
+          return setIsApply(true)
+        }
         if (data.isApply) {
          return setIsApply(true);
         }

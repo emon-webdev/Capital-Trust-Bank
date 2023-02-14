@@ -11,6 +11,7 @@ import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivit
 import AllDonate from "../Dashboard/components/Donate/AllDonate";
 import IndividualSupport from "../Dashboard/components/IndividualSupport/IndividualSupport";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
+import VerificationDetails from "../Dashboard/components/VerificationReq/VerificationDetails";
 
 import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
 import Welcome from "../Dashboard/components/Welcome/Welcome";
@@ -187,6 +188,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <VerificationReq></VerificationReq>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/verificationRequest/details",
+        element: (
+          <AdminRoute>
+            <VerificationDetails></VerificationDetails>
           </AdminRoute>
         ),
       },
