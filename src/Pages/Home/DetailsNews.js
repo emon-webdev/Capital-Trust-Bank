@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const DetailsNews = (props) => {
+  const [showAll, setShowAll] = useState(false);
   const blog = useLoaderData();
   console.log(blog);
   //   const [blogs, setBlogs] = useState();
@@ -20,9 +21,9 @@ const DetailsNews = (props) => {
   //       .then((data) => setBlogs(data));
   //   }, []);
   return (
-    <div className="container">
-      <div className="">
-        <Card key={blog.id}>
+    <div className="container my-10 ">
+      <div className="mx-auto lg:w-[70%] md:w-[100%] sm: w-[100%]">
+        <Card key={blog.id} boxShadow="xl">
           <CardBody>
             <VStack>
               <Image
@@ -36,8 +37,15 @@ const DetailsNews = (props) => {
               <Heading marginY={5} fontSize={30} size="md">
                 {blog.title}
               </Heading>
-              <Text lineHeight={10} fontSize={24}>
-                {blog.details}
+              <Text lineHeight={10} paddingX={5} fontSize={26}>
+                {showAll ? blog.details : blog.details.slice(0, 600)}
+                <Text
+                  as={"span"}
+                  onClick={() => setShowAll(!showAll)}
+                  className="text-lg text-red-600 text-bold cursor-pointer"
+                >
+                  {showAll ? "" : "read more"}
+                </Text>
               </Text>
             </VStack>
           </CardBody>

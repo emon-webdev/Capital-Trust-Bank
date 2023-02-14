@@ -163,7 +163,7 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">
                     Phone Number
                   </label>
-                  <PhoneInput
+                  {/* <PhoneInput
                     children="$"
                     type="number"
                     {...register("phone", {
@@ -172,15 +172,15 @@ const AccountOpenFrom = () => {
                     // className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Phone Number"
                     country={"bd"}
-                  ></PhoneInput>
-                  {/* <input
+                  ></PhoneInput> */}
+                  <input
                     type="number"
                     {...register("phone", {
                       required: "Phone Number is required",
                     })}
                     className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Phone Number"
-                  ></input> */}
+                  ></input>
                 </div>
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">
