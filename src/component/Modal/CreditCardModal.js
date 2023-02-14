@@ -24,7 +24,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
 
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server.vercel.app/bankAccounts?email=${user?.email}`
+      `http://localhost:5000/bankAccounts?email=${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -47,7 +47,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
         cardType,
       };
       console.log(applierInfo, applierEmail?._id);
-      fetch(`https://capital-trust-bank-server.vercel.app/cardAppliers`, {
+      fetch(`http://localhost:5000/cardAppliers`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

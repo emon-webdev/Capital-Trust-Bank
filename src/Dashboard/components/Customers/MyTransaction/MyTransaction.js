@@ -10,14 +10,14 @@ import {
 } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../context/AuthProvider";
-import VisaTransaction from "./VisaTransaction";
+import VisaTransaction from "./visaTransaction";
 
 export default function MyTransaction() {
   const { user } = useContext(AuthContext);
   const [transacData, setTransacData] = useState([]);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server.vercel.app/depositWithdraw/${user?.email}`
+      `http://localhost:5000/depositWithdraw/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setTransacData(data));

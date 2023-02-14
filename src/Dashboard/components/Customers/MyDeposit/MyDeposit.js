@@ -62,7 +62,7 @@ const MyDeposit = () => {
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server.vercel.app/depositWithdraw", {
+    fetch("http://localhost:5000/depositWithdraw", {
       method: "POST",
       headers: {
         "content-type": "application/json",

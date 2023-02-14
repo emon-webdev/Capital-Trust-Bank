@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const VerificationReq = () => {
      const [customers, setCustomers] = useState([]);
      useEffect(() => {
-       fetch(`https://capital-trust-bank-server.vercel.app/verificationReq`)
+       fetch(`http://localhost:5000/verificationReq`)
          .then((res) => res.json())
          .then((data) => {
            setCustomers(data);
