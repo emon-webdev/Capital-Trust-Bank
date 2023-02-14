@@ -3,21 +3,15 @@ import ServiceReqSlider from "../../component/Slider/ServiceReqSlider";
 
 const ServiceRequest = () => {
   return (
-    <div className="service-req-area my-12">
+    <div className="service-req-area my-12 bg-[#fdf3f3]">
       <div className="container">
-        <div className="text-center mb-4">
-          <h2 className="text-center text-xl text-white">
+        <div className="section-title py-12 w-full md:w-[650px] mx-auto text-center">
+          <h5 className="text-[#DF0303] text-xl text-md mb-3">
             -- Emergency Service Requests --
-          </h2>
-          <h3
-            className="text-4xl mb-5 font-bold mt-3"
-            marginBottom={5}
-            fontWeight="700"
-            textAlign="center"
-            color="#fff"
-          >
+          </h5>
+          <h1 className="text-[#010C3A] md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">
             List of banking service requests all in one place.
-          </h3>
+          </h1>
         </div>
         <ServiceReqSlider />
       </div>
