@@ -443,6 +443,10 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 @media screen and (max-width: 768px) {
   .right-side {
     width: 100% !important;
+    margin-top: 75px !important;
+  }
+  .left-side .font-semibold {
+    font-size: 50px !important;
   }
   .exchange-wrapper {
     flex-direction: column;
