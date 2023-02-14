@@ -6,6 +6,7 @@ import { FiSearch } from "react-icons/fi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../context/AuthProvider";
+import SearchBar from "./SearchBar";
 const Navbar = () => {
   const { t } = useTranslation();
   const { logOut, user } = useContext(AuthContext);
@@ -58,8 +59,8 @@ const Navbar = () => {
         <div className="lg:hidden flex items-center">
           <div className="lg:hidden btn-group flex items-center">
             <div className="btn-group flex items-center">
-              <button className="accent-btn search-btn" type="button">
-                <FiSearch />
+              <button>
+                <SearchBar></SearchBar>
               </button>
               <NavLink
                 to="/accountOpenFrom"
@@ -289,8 +290,8 @@ const Navbar = () => {
         ) : (
           <div className="hidden lg:block">
             <div className="btn-group flex items-center">
-              <button className="accent-btn search-btn" type="button">
-                <FiSearch />
+              <button>
+                <SearchBar></SearchBar>
               </button>
               <NavLink
                 to="/accountOpenFrom"
