@@ -15,7 +15,6 @@ const Navbar = () => {
     fetch(`https://capital-trust-bank-server.vercel.app/customer/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.isApply)
        if(data.isApply){
         setIsApply(true)
        }
