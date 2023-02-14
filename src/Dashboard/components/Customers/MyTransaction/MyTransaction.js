@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../context/AuthProvider";
-import VisaTransaction from "./VisaTransaction";
+import VisaTransaction from "./visaTransaction";
 
 export default function MyTransaction() {
   const { user } = useContext(AuthContext);

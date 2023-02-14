@@ -157,10 +157,10 @@ const router = createBrowserRouter([
             `https://capital-trust-bank-server.vercel.app/team-details/${params.id}`
           ),
       },
-      {
-        path: "/exchange",
-        element: <ExchangeDetails />,
-      },
+      // {
+      //   path: "/exchange",
+      //   element: <ExchangeDetails />,
+      // },
     ],
   },
   {
