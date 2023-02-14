@@ -640,7 +640,10 @@ ul.slick-dots.bannner {
   border-radius: 4px;
 } */
 /* ---------- banner -------------- */
-
+/* --------- chat --------  */
+.chat-avatar {
+  align-items: center !important;
+}
 .link:hover {
   background: #cf173c;
   transition: 0.4s;
