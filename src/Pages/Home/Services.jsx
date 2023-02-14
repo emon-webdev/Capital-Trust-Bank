@@ -18,7 +18,7 @@ const Services = () => {
 
     <div className="services-area py-12">
       <div className="container">
-        <div className="section-title text-center">
+        <div className="section-title w-full md:w-[650px] mx-auto text-center">
           <h5 className="text-[#DF0303] text-xl text-md mb-4">-- Best Services --</h5>
           <h1 className="text-[#010C3A] md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">
             We provide best services <br className='none md:block' /> for your loans
