@@ -10,6 +10,7 @@ const TeamDetails = () => {
   const { name: name2, email, social, image, designation } = teamDetails;
   console.log(teamDetails)
   const [name, setName] = useState("Team Details");
+  
   return (
     <div>
       <DynamicBanner name={name} />
