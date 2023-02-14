@@ -32,13 +32,6 @@
 .slider-img-content.flex-1.text-center.px-3 p svg {
   margin: 0 auto;
 }
-/* .slider-img-content p {
-  font-size: 32px;
-  margin-bottom: 10px;
-} */
-/* .slider-content li a {
-  font-size: 18px;
-} */
 .single-slider-nav {
   text-align: center;
   padding: 16px 0px;
@@ -60,18 +53,6 @@
   transition: 0.3s;
 }
 
-.slider-nav-icon svg {
-  /* font-size: 35px;
-  color: #041c51 !important; */
-}
-
-.single-slider-nav h3 {
-  /* margin: 15px 0;
-  color: #041c51;
-  font-weight: 500;
-  padding: 0 35px;
-  transition: 0.3s; */
-}
 .slider-main-content .slick-slider.slick-initialized button.slick-arrow {
   display: none !important;
 }
