@@ -53,7 +53,7 @@ const DashboardNavbar = () => {
       <div className="flex items-center justify-between h-[50px]">
         <div className="text-white">
           <div className="text-white w-[70%] flex items-center justify-center py-[10px]">
-            <Link
+            {/* <Link
               className="navbar-brand font-bold text-2xl flex items-center"
               to="/"
             >
@@ -61,7 +61,7 @@ const DashboardNavbar = () => {
               <span className="font-bold text-[32px] ml-1 text-[#fff]">
                 C<span className=" text-[#DF0303]">T</span>B
               </span>
-            </Link>
+            </Link> */}
           </div>
         </div>
 

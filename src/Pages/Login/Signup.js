@@ -258,7 +258,7 @@ const Signup = () => {
                 variant="outlined"
                 // required
                 className="w-full"
-                country={"us"}
+                country={"bd"}
                 // value={phone}
                 {...register("phone")}
                 onChange={(phone) => setPhone(phone)}
