@@ -15,13 +15,16 @@ const SearchBar = () => {
     <div className="container">
       <div className="searchbar">
         <Menu>
-          <MenuButton className="input">
+          <MenuButton className="btnClass">
             <BsSearch></BsSearch>
           </MenuButton>
           <MenuList>
             <MenuGroup>
-              <MenuItem className="input">
+              <MenuItem className="btnClass">
                 <Input type="text" placeholder="Search" />
+                <div className="btnClass">
+                  <BsSearch></BsSearch>
+                </div>
               </MenuItem>
             </MenuGroup>
           </MenuList>
