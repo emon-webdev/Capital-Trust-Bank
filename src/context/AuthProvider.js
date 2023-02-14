@@ -65,44 +65,48 @@ const AuthProvider = ({ children }) => {
   };
 
   // user observation
-  // useEffect(() => {
-  //     const unsubscribe = onAuthStateChanged(auth, currentUser => {
-  //         setUser(currentUser);
-  //         setLoading(false)
-  //          fetch(`https://capital-trust-bank-server.vercel.app/customer/${currentUser.email}`)
-  //            .then((res) => res.json())
-  //            .then((data) => {
-  //              setRole(data.role);
-  //            });
-  //     })
-  //     return () => unsubscribe()
-  // }, [])
-
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        fetch(
-          `https://capital-trust-bank-server.vercel.app/customer/${user.email}`
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            setRole(data.role);
-          });
-      } else {
-        // console.log("else onAuthStateChanged");
-        setUser();
-      }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+      fetch(
+        `https://capital-trust-bank-server.vercel.app/customer/${currentUser.email}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setRole(data.role);
+        });
     });
+    return () => unsubscribe();
   }, []);
+
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       setUser(user);
+  //       fetch(
+  //         `https://capital-trust-bank-server.vercel.app/customer/${user?.email}`
+  //       )
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           setRole(data.role);
+  //         });
+  //     } else {
+  //       // console.log("else onAuthStateChanged");
+  //       setUser();
+  //     }
+  //   });
+  // }, []);
 
   const authInfo = {
     createUser,
     updateUser,
+
     signInWithGoogle,
     signInWithEmail,
     logOut,
     user,
+    setUser,
     loading,
     setLoading,
     forgetPassword,

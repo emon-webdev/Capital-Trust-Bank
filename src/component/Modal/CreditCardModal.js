@@ -31,6 +31,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
         setApplierEmail(data[0]);
       });
   }, []);
+  console.log(applierEmail?.accountId);
   // apply for credit card
   const handleApply = (data) => {
     // event.preventDefault();
@@ -38,7 +39,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
     const applierPhnNumber = data.applierPhnNumber;
     const accountId = data.accountId;
     const cardType = data.cardType;
-    if (applierEmail?._id === accountId) {
+    if (applierEmail?.accountId === accountId) {
       const applierInfo = {
         applierName,
         applierPhnNumber,

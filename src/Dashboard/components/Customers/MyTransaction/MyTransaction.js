@@ -1,17 +1,12 @@
 import {
   Button,
-  Table,
-  TableCaption,
-  TableContainer,
+  Table, TableContainer,
   Tbody,
-  Td,
-  Tfoot,
-  Th,
+  Td, Th,
   Thead,
-  Tr,
+  Tr
 } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../../context/AuthProvider";
 import VisaTransaction from "./VisaTransaction";
 

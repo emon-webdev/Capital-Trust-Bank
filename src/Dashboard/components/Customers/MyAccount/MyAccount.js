@@ -2,11 +2,9 @@ import { Flex, Text } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineMinusSquare } from "react-icons/ai";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
-import { useLoaderData } from "react-router";
 
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 import { AuthContext } from "../../../../context/AuthProvider";
-import { DashboardContext } from "../../../../context/UserDashboardProvider";
 
 export default function MyAccount() {
   const { user } = useContext(AuthContext);
@@ -24,6 +22,8 @@ export default function MyAccount() {
 
   const withdrawData = transacData.filter((data) => data.type === "withdraw");
   console.log(withdrawData);
+
+  
   const totalWithdraw = withdrawData.reduce((total, withdr) => {
     return total + parseInt(withdr.withdraw);
   }, 0);

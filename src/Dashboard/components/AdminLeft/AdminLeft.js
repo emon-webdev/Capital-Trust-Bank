@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { BsChatDots } from "react-icons/bs";
+import { BsFillCreditCardFill } from "react-icons/bs";
+import { FaCommentDollar, FaDonate } from "react-icons/fa";
+import { MdSupervisorAccount } from "react-icons/md";
+import { VscRequestChanges } from "react-icons/vsc";
 import { Link, NavLink } from "react-router-dom";
-
-// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import logo from "../../../assets/logo/mainlogo.png";
-
 const AdminLeft = () => {
   const [subMenu, setSubMenu] = useState(false);
   return (
@@ -29,11 +29,14 @@ const AdminLeft = () => {
             to="/dashboard/allCustomers"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex px-[20px] py-[15px]"
-                : "flex px-[20px] link py-[15px]"
+                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
+                : "flex px-[20px] link items-center py-[15px]"
             }
           >
-            {/* <span> <CloudCircleOutlinedIcon /></span> */}
+            <span className="text-white">
+              {" "}
+              <MdSupervisorAccount />
+            </span>
             <span className="text-white ml-[10px]">All Customers</span>
             {/* <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span> */}
           </NavLink>
@@ -42,11 +45,14 @@ const AdminLeft = () => {
             to="/dashboard/verificationRequest"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex px-[20px] py-[15px]"
-                : "flex px-[20px] link py-[15px]"
+                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
+                : "flex px-[20px] link items-center py-[15px]"
             }
           >
-            {/* <span> <CloudCircleOutlinedIcon /></span> */}
+            <span className="text-white">
+              {" "}
+              <VscRequestChanges />
+            </span>
             <span className="text-white ml-[10px]">Verification Request</span>
           </NavLink>
 
@@ -54,11 +60,14 @@ const AdminLeft = () => {
             to="/dashboard/cardRequest"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex px-[20px] py-[15px]"
-                : "flex px-[20px] link py-[15px]"
+                ? "border-l-2 link items-center flex px-[20px] py-[15px]"
+                : "flex px-[20px] link items-center py-[15px]"
             }
           >
-            {/* <span> <CloudCircleOutlinedIcon /></span> */}
+            <span className="text-white">
+              {" "}
+              <BsFillCreditCardFill />
+            </span>
             <span className="text-white ml-[10px]">Card Request</span>
           </NavLink>
 
@@ -66,23 +75,40 @@ const AdminLeft = () => {
             to="/dashboard/loanRequest"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex px-[20px] py-[15px]"
-                : "flex px-[20px] link py-[15px]"
+                ? "border-l-2 link items-center flex px-[20px] py-[15px]"
+                : "flex px-[20px] items-center link py-[15px]"
             }
           >
-            {/* <span> <CloudCircleOutlinedIcon /></span> */}
+            <span className="text-white">
+              {" "}
+              <FaCommentDollar />
+            </span>
             <span className="text-white ml-[10px]">Loan Request</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/all-donate"
+            className={({ isActive }) =>
+              isActive
+                ? "border-l-2 link items-center flex px-[20px] py-[15px]"
+                : "flex px-[20px] items-center link py-[15px]"
+            }
+          >
+            <span className="text-white">
+              {" "}
+              <FaDonate />
+            </span>
+            <span className="text-white ml-[10px]">All Donate</span>
           </NavLink>
 
           <NavLink
-            to="/dashboard/CustomerSupport"            
+            to="/dashboard/CustomerSupport"
             className={({ isActive }) =>
               isActive
                 ? "border-l-2 link flex items-center px-[20px] py-[15px]"
                 : "flex px-[20px] link py-[15px]"
             }
           >
-            <span className="text-white ml-[10px]">Customer Support</span>            
+            <span className="text-white ml-[10px]">Customer Support</span>
           </NavLink>
         </div>
       </div>

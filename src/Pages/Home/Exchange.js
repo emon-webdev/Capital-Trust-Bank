@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import dubai from '../../assets/dubai.jpg';
 import uk from '../../assets/uk.png';
@@ -9,46 +9,25 @@ import india from '../../assets/india.jpg';
 import ExchangeSlide from './ExchangeSlide';
 
 
-const data = [
-    {
-        'img': dubai,
-        'rate': '1 UAE = 29-BDT',
-        'buying': 'Buying 28.5-BDT',
-        'selling': 'Selling 30-BDT',
-    },
-    {
-        'img': uk,
-        'rate': '1 UK = 128.28-BDT',
-        'buying': 'Buying 128-BDT',
-        'selling': 'Selling 128.75-BDT',
-    },
+const Exchange = () => {
+ const [BDT,setBDT] = useState(0);
+  useEffect(()=> {
+    fetch('https://openexchangerates.org/api/latest.json?app_id=919d30d6d8364f23a10f5ba7e0a6894d')
+    .then(res => res.json())
+    .then(data => {
+      setBDT(data.rates.BDT);
+      console.log(data.rates.BDT)
+    })
+  },[])
+  const data = [
     {
         'img': usa,
-        'rate': '1 USA = 106.50-BDT',
-        'buying': 'Buying 106-BDT',
-        'selling': 'Selling 107-BDT',
+        'rate': `1 USA = ${BDT}-BDT`,
+        'buying': `Buying ${BDT-1}-BDT`,
+        'selling': `Selling ${BDT+1}-BDT`,
+        BDT,
     },
-    {
-        'img': canada,
-        'rate': '1 CAD = 79.54-BDT',
-        'buying': 'Buying 79-BDT',
-        'selling': 'Selling 80-BDT',
-    },
-    {
-        'img': aus,
-        'rate': '1 AUD = 74.22-BDT',
-        'buying': 'Buying 74-BDT',
-        'selling': 'Selling 74.80-BDT',
-    },
-    {
-        'img': india,
-        'rate': '1 INR = 1.29-BDT',
-        'buying': 'Buying 1-BDT',
-        'selling': 'Selling 1.50-BDT',
-    },
-];
-
-const Exchange = () => {
+  ];
     const sliderSettings = {
         slidesToShow: 3,
         slidesToScroll: 3,
@@ -92,7 +71,7 @@ const Exchange = () => {
                 <div>
                     <Slider {...sliderSettings}>
                         {
-                            data.map(item => <ExchangeSlide item={item} />)
+                            data.map(item => <ExchangeSlide item={item}/>)
                         }
                     </Slider>
                 </div>

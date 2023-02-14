@@ -69,8 +69,18 @@ ul.navbar__nav > li:last-child {
   margin-right: 0;
 }
 
-.customer-info p {
+/* .customer-info p {
   color: #fff !important;
+} */
+.accept {
+  background: #010c3a !important;
+}
+.accept:hover {
+  background: #df0303 !important;
+}
+
+.heading {
+  font-size: 22px !important;
 }
 
 ul.submenu {
@@ -130,7 +140,10 @@ ul.submenu li:hover a {
   color: #fff;
   background: #cf173c;
 }
-
+.disable-btn {
+  background-color: #f3f3fe !important;
+  color: #666666 !important;
+}
 .accent-btn {
   display: inline-block;
   padding: 0 12px;
@@ -482,6 +495,17 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   }
 }
 
+/* ----------banner -------------- */
+.banner2 {
+  color: white !important;
+}
+/* .slick-slide > div {
+  margin: 0 !important;
+} */
+.slide-wrapper .slick-slide > div {
+  margin: 0px !important;
+}
+
 .link:hover {
   background: #cf173c;
   transition: 0.4s;
@@ -673,7 +697,7 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   .text {
     margin-top: 10px;
   }
-  .card-body{
+  .card-body {
     width: 87%;
   }
 }
@@ -794,7 +818,7 @@ p.MuiTypography-root.MuiTypography-body1.title.css-vroal6-MuiTypography-root {
   .text {
     margin-top: 10px;
   }
-  .card-body{
+  .card-body {
     width: 97%;
   }
 }

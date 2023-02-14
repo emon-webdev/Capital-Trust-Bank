@@ -1,15 +1,4 @@
 import {
-  MdClear,
-  MdMailOutline,
-  MdNotificationsNone,
-  MdOutlineFilterCenterFocus,
-} from "react-icons/md";
-import { FaBars } from "react-icons/fa";
-import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import logo from "../../../assets/logo/mainlogo.png";
-import { AuthContext } from "../../../context/AuthProvider";
-import {
   Avatar,
   Badge,
   Button,
@@ -19,8 +8,19 @@ import {
   MenuButton,
   MenuGroup,
   MenuItem,
-  MenuList,
+  MenuList
 } from "@chakra-ui/react";
+import React, { useContext } from "react";
+import { FaBars } from "react-icons/fa";
+import {
+  MdClear,
+  MdMailOutline,
+  MdNotificationsNone,
+  MdOutlineFilterCenterFocus
+} from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../../../assets/logo/mainlogo.png";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const DashboardNavbar = () => {
   const { user, logOut, openSideNav, handleSideNave } = useContext(AuthContext);

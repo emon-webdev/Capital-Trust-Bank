@@ -12,7 +12,7 @@ import Navbar from "./Navbar";
 const Header = () => {
   const {t} = useTranslation()
   return (
-    <div className="header-area">
+    <div className="header-area print:hidden">
       <div className="header-top py-2 lg:py-4 bg-[#041C51]">
         <div className="container">
           <div className="header-top-info flex items-center justify-between">
