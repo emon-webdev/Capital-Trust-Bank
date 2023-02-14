@@ -36,10 +36,10 @@ const DonateSuccess = () => {
           <div className="flex justify-between border-b-2 mb-2">
             <Box className="mb-2 basis-2/4">
               <Text pt="2" fontSize="sm">
-                Currency
+                Name
               </Text>
               <Heading size="xs" textTransform="uppercase">
-                {donate?.currency}
+                {donate?.donarName}
               </Heading>
             </Box>
             <Box className="basis-2/4">
@@ -54,10 +54,10 @@ const DonateSuccess = () => {
           <div className="flex justify-between border-b-2">
             <Box className="mb-2 basis-2/4">
               <Text pt="2" fontSize="sm">
-                Name
+                Currency
               </Text>
               <Heading size="xs" textTransform="uppercase">
-                {donate?.donarName}
+                {donate?.currency}
               </Heading>
             </Box>
             <Box className="basis-2/4">

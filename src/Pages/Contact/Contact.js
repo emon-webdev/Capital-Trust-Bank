@@ -38,8 +38,9 @@ const Contact = () => {
                 <CardBody className="CardContent">
                   <Text className="text-white">+00(123)345 543 23</Text> <br />
                   <Text className="text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipisc elit.
-                    Phasellus aliquet urna libero ut.
+                    This is our contact number, if you are interested in any
+                    loan, service, insurance, then feel free to call us. 24/7 we
+                    serve you.
                   </Text>
                 </CardBody>
               </Card>
@@ -50,8 +51,9 @@ const Contact = () => {
                 <CardBody className="CardContent">
                   <Text className="text-white">Ixora@gmail.com</Text> <br />
                   <Text className="text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipisc elit.
-                    Phasellus aliquet urna libero ut.
+                    This is our email address, feel free to email us if you have
+                    any queries regarding any of our services. 24/7 we serve
+                    you.
                   </Text>
                 </CardBody>
               </Card>
@@ -60,11 +62,12 @@ const Contact = () => {
                   <img src={address} alt="" />
                 </CardHeader>
                 <CardBody className="CardContent">
-                  <Text className="text-white">12 Poving st..Rnu 3542</Text>{" "}
+                  <Text className="text-white">2880 Broadway, New York</Text>{" "}
                   <br />
                   <Text className="text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipisc elit.
-                    Phasellus aliquet urna libero ut.
+                    This is our bank address, if you are interested in any
+                    services or have any questions about any of our services
+                    then come our bank.
                   </Text>
                 </CardBody>
               </Card>

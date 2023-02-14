@@ -1,5 +1,6 @@
+import { Button, Input, Textarea, WrapItem } from "@chakra-ui/react";
 import React from "react";
-
+import './ContactUs.css'
 const ContactUs = () => {
   return (
     <div className="contact-area">
@@ -19,68 +20,17 @@ const ContactUs = () => {
             method="POST"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-5">
-              {/* <TextField
-                hintText="Enter username"
-                placeholder="Your Name"
-                name="name"
-              >
-                <input
-                  className="form-control"
-                  ref="username"
-                  type="text"
-                  name="name"
-                />
-              </TextField>
-              <TextField
-                hintText="Enter Email"
-                placeholder="Your Email"
-                name="email"
-              >
-                <input
-                  className="form-control"
-                  ref="useremail"
-                  type="email"
-                  name="email"
-                />
-              </TextField>
-              <TextField
-                hintText="Enter Phone"
-                placeholder="Your Phone"
-                name="number"
-              >
-                <input
-                  className="form-control"
-                  ref="usernumber"
-                  type="number"
-                  name="number"
-                />
-              </TextField>
-              <TextField
-                hintText="Enter Website"
-                placeholder="Your Website"
-                name="website"
-              >
-                <input
-                  className="form-control"
-                  ref="useremail"
-                  type="text"
-                  name="website"
-                />
-              </TextField> */}
+            <Input placeholder='Your Name' name="name" type="text" size='lg'/>
+            <Input placeholder='Your Email' name="email" type="email" size='lg'/>
+            <Input placeholder='Your Phone' name="number" type="number" size='lg'/>
+            <Input placeholder='Your Website' name="email" type="url" size='lg'/>
             </div>
             <div className="mt-5">
-              {/* <TextField
-                className="bd_textarea w-full"
-                name="Message"
-                label="Message..."
-                multiline
-                rows={5}
-              /> */}
+            <Textarea placeholder='Here is a sample placeholder'/>
             </div>
             <div className="mt-5 text-center">
-              {/* <Button variant="contained" color="error" type="submit">
-                Send Message
-              </Button> */}
+            
+      <button className="custom-btn">Send Message</button>
             </div>
           </form>
         </div>

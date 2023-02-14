@@ -43,7 +43,12 @@ class LoanCalculator extends React.Component {
     return (
       <div className="online-calculator-area">
         <div className="container">
-          <h1 className="text-4xl font-bold text-center mt-7">
+          <div>
+            <h2 className="text-[#DF0303] text-center text-md mb-4">
+              -- EMI Calculator --
+            </h2>
+          </div>
+          <h1 className="text-[#010C3A] text-4xl text-center font-bold mb-6">
             EMI Online Calculator
           </h1>
           <div className="md:flex justify-center">
