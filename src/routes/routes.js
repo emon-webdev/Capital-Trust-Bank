@@ -31,6 +31,7 @@ import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
 
 import Error from "../Pages/Shared/Error";
+import FactToKnow from "../Pages/Shared/FactToKnow/FactToKnow";
 import AdminRoute from "../routes/AdminRoute";
 import CustomerRoute from "../routes/CustomerRoute";
 
@@ -108,6 +109,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/factToKnow",
+        element: <FactToKnow></FactToKnow>
       },
       {
         path: "/AccountOpenFrom",

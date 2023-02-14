@@ -1,0 +1,53 @@
+.main-factToKnow{
+    background: #010C3A; 
+}
+.small-title{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: #DF0303;
+}
+.custom-hypen{
+color: #DF0303;
+}
+
+.big-title{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 48px;
+line-height: 56px;
+text-transform: capitalize;
+color: #FFFFFF;
+}
+
+.fact-paragraph{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: #FFFFFF;
+}
+
+.fact-btn{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 18px 33px;
+gap: 10px;
+width: 231px;
+height: 60px;
+background: #DF0303;
+border-radius: 4px;
+
+font-family: 'Red Hat Display';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+text-transform: capitalize;
+color: #FFFFFF;
+}
