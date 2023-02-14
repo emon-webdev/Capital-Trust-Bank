@@ -102,7 +102,6 @@ const Navbar = () => {
 
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-                to="/services"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -113,6 +112,11 @@ const Navbar = () => {
                 <li>
                   <NavLink to="/paymentbills" className="">
                     Pay Bils
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/loansServices" className="">
+                    Loans
                   </NavLink>
                 </li>
                 <li>

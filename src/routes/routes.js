@@ -33,6 +33,8 @@ import Signup from "../Pages/Login/Signup";
 import PaymentBills from "../Pages/PaymentBills/PaymentBills";
 import EducationLoan from "../Pages/Services/EducationLoan";
 import GoldLoan from "../Pages/Services/GoldLoan";
+import LoanDetails from "../Pages/Services/Loans/LoanDetails";
+import Loans from "../Pages/Services/Loans/Loans";
 import MarriageLoan from "../Pages/Services/MarriageLoan";
 import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
@@ -72,13 +74,23 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
-        loader: fetch(
-          "https://capital-trust-bank-server.vercel.app/loanService"
-        ),
+      },
+
+      {
+        path: "/loansServices",
+        element: <Loans />,
+        loader: () => fetch("http://localhost:5000/loanService"),
       },
       {
+        path: "/loanDetails/:id",
+        element: <LoanDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/loanService/${params.id}`),
+      },
+
+      {
         path: "/loans/:title",
-        element: <ApplyForm></ApplyForm>,
+        element: <ApplyForm />,
         loader: ({ params }) =>
           fetch(
             `https://capital-trust-bank-server.vercel.app/loans/${params.title}`
