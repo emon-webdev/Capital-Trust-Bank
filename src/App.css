@@ -69,8 +69,18 @@ ul.navbar__nav > li:last-child {
   margin-right: 0;
 }
 
-.customer-info p {
+/* .customer-info p {
   color: #fff !important;
+} */
+.accept {
+  background: #010c3a !important;
+}
+.accept:hover {
+  background: #df0303 !important;
+}
+
+.heading {
+  font-size: 22px !important;
 }
 
 ul.submenu {
@@ -483,6 +493,17 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   .side-nave {
     display: none;
   }
+}
+
+/* ----------banner -------------- */
+.banner2 {
+  color: white !important;
+}
+/* .slick-slide > div {
+  margin: 0 !important;
+} */
+.slide-wrapper .slick-slide > div {
+  margin: 0px !important;
 }
 
 .link:hover {

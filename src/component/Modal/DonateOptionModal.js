@@ -4,7 +4,6 @@ import {
   InputLeftElement,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
   ModalFooter,
   ModalHeader,
@@ -13,7 +12,6 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
   const [size, setSize] = React.useState("lg");
   const {
@@ -42,7 +40,7 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
       amount,
     };
     console.log(donate);
-    fetch("http://localhost:5000", {
+    fetch("http://localhost:5000/donate", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -50,9 +48,11 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
       body: JSON.stringify(donate),
     })
       .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        toast.success(`Donate Success`);
+      .then((data) => {
+        console.log(data);
+        window.location.replace(data.url);
+        console.log(window.location.replace(data.url));
+        // toast.success(`Donate Success`);
         // reset();
       });
   };
@@ -68,8 +68,9 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Donate</ModalHeader>
-          <ModalCloseButton />
+          <ModalHeader>
+            <h2 className="py-2 text-lg md:text-4xl font-semibold">Donate </h2>
+          </ModalHeader>
           <ModalBody>
             <div>
               <form onSubmit={handleSubmit(handleDonate)}>
@@ -177,7 +178,7 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
                     type="submit"
                     onClick={onClose}
                   >
-                    Pay
+                    Donate
                   </button>
                 </div>
               </form>

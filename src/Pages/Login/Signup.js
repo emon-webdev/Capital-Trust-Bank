@@ -133,7 +133,7 @@ const Signup = () => {
                     .then((data) => {
                       setLoading(false);
                       toast.success("SignUp Success");
-                      navigate("/login");
+                      navigate(from, { replace: true });
                       verifyEmail();
                     });
                 })

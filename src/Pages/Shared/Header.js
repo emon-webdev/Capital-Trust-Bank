@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { BsInstagram } from "react-icons/bs";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FiTwitter } from "react-icons/fi";
@@ -9,8 +10,9 @@ import { MdLocationOn } from "react-icons/md";
 import LangChange from "./LangChange";
 import Navbar from "./Navbar";
 const Header = () => {
+  const {t} = useTranslation()
   return (
-    <div className="header-area">
+    <div className="header-area print:hidden">
       <div className="header-top py-2 lg:py-4 bg-[#041C51]">
         <div className="container">
           <div className="header-top-info flex items-center justify-between">
@@ -22,7 +24,7 @@ const Header = () => {
               </p>
               <p className="hidden text-white md:flex items-center ">
                 <MdLocationOn className="mr-2 text-white" />
-                Malborn, Australia,U.K
+                {t('top_title')}
               </p>
             </div>
             <div className="header-right flex-wrap flex items-center ">

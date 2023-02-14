@@ -1,17 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
-  Select,
-  FormControl,
+  FormControl, Modal, ModalBody,
+  ModalCloseButton, ModalContent,
+  ModalHeader, ModalOverlay, Select
 } from "@chakra-ui/react";
-import { AuthContext } from "../../context/AuthProvider";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { AuthContext } from "../../context/AuthProvider";
 import { districts } from "../Services/districtData";
 
 const PaymentBillsModal = ({

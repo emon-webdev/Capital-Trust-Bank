@@ -1,11 +1,43 @@
 import { Flex, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineMinusSquare } from "react-icons/ai";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
+import { AuthContext } from "../../../../context/AuthProvider";
 
 export default function MyAccount() {
+  const { user } = useContext(AuthContext);
+  // const { deposit, withdraw } = useContext(DashboardContext);
+  // console.log(deposit);
+  const [transacData, setTransacData] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      `https://capital-trust-bank-server.vercel.app/depositWithdraw/${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => setTransacData(data));
+  }, []);
+
+  const withdrawData = transacData.filter((data) => data.type === "withdraw");
+  console.log(withdrawData);
+
+  
+  const totalWithdraw = withdrawData.reduce((total, withdr) => {
+    return total + parseInt(withdr.withdraw);
+  }, 0);
+
+  // arr.reduce((a, b) => ({x: a.x + b.x}));
+  console.log("totalWithdraw", totalWithdraw);
+  const depositData = transacData.filter((data) => data.type === "deposit");
+  const totalDeposit = depositData.reduce((total, depo) => {
+    return total + parseInt(depo.deposit);
+  }, 0);
+
+  // arr.reduce((a, b) => ({x: a.x + b.x}));
+  console.log("totalDeposit", totalDeposit);
+
   return (
     <div className="container ">
       <div className="flex flex-col md:flex-row lg:flex-row">
@@ -35,7 +67,8 @@ export default function MyAccount() {
 
           <div className="mt-5">
             <Text fontSize={50}>
-              <span>$</span>5000
+              <span>$</span>
+              {totalDeposit}
             </Text>
             <Text color={"grey"} fontSize={28} marginTop={10}>
               Available Balance
@@ -69,7 +102,8 @@ export default function MyAccount() {
 
           <div className="mt-5">
             <Text fontSize={50}>
-              <span>$</span>5000
+              <span>$</span>
+              {totalWithdraw}
             </Text>
             <Text color={"grey"} fontSize={28} marginTop={10}>
               Withdraw Balance

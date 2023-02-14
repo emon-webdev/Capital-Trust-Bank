@@ -5,8 +5,11 @@ import MyAccount from "../Dashboard/components/Customers/MyAccount/MyAccount";
 import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
 import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
 import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
+import CustomerSupport from "../Dashboard/components/CustomerSupport/CustomerSupport";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
+import AllDonate from "../Dashboard/components/Donate/AllDonate";
+import IndividualSupport from "../Dashboard/components/IndividualSupport/IndividualSupport";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
 
 import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
@@ -18,6 +21,8 @@ import Apply from "../Pages/Apply/Apply";
 import Cards from "../Pages/Cards/Cards";
 import Contact from "../Pages/Contact/Contact";
 import FaqPage from "../Pages/FaqPage/FaqPage";
+import DonateFail from "../Pages/Funds/DonateFail";
+import DonateSuccess from "../Pages/Funds/DonateSuccess";
 import ApplyForm from "../Pages/Home/ApplyForm";
 import ExchangeDetails from "../Pages/Home/ExchangeDetails";
 import Home from "../Pages/Home/Home";
@@ -37,6 +42,8 @@ import VehicleLoan from "../Pages/Services/VehicleLoan";
 import Error from "../Pages/Shared/Error";
 import AdminRoute from "../routes/AdminRoute";
 import CustomerRoute from "../routes/CustomerRoute";
+import PrivetRoute from "./PrivateRoute/PrivateRoute";
+// import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -116,7 +123,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/AccountOpenFrom",
-        element: <AccountOpenFrom />,
+        element: (
+          <PrivetRoute>
+            <AccountOpenFrom />
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/donate/success",
+        element: <DonateSuccess />,
+      },
+      {
+        path: "/donate/fail",
+        element: <DonateFail />,
       },
       {
         path: "/paymentbills",
@@ -134,7 +153,9 @@ const router = createBrowserRouter([
         path: "/team-details/:id",
         element: <TeamDetails />,
         loader: async ({ params }) =>
-          fetch(`http://localhost:5000/team-details/${params.id}`),
+          fetch(
+            `https://capital-trust-bank-server.vercel.app/team-details/${params.id}`
+          ),
       },
       {
         path: "/exchange",
@@ -187,19 +208,23 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/dashboard/all-donate",
+        element: (
+          <AdminRoute>
+            <AllDonate />
+          </AdminRoute>
+        ),
+      },
+      {
         path: "/dashboard/myTransaction",
         element: <MyTransaction />,
         // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/depositWithdraw/${params.email}`),
+        //   fetch(`https://capital-trust-bank-server.vercel.app/depositWithdraw/${params.email}`),
       },
-      // {
-      //   path: "/dashboard/my-balance",
-      //   element: (
-      //     <CustomerRoute>
-      //       <MyBalance />
-      //     </CustomerRoute>
-      //   ),
-      // },
+      {
+        path: "/dashboard/CustomerSupport",
+        element: <CustomerSupport />,
+      },
       {
         path: "/dashboard/my-withdraw",
         element: (
@@ -219,6 +244,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myAccount",
         element: <MyAccount />,
+        loader: () =>
+          fetch("https://capital-trust-bank-server.vercel.app/depositWithdraw"),
+        path: "/dashboard/CustomerSupport/admin",
+        element: <IndividualSupport />,
       },
       {
         path: "/dashboard/deviceActivity",
