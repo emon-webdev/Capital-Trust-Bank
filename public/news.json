@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "category": "Business",
+        "title": "Stock Exchange Market Foreca 2021-2022",
+        "img": "https://i.ibb.co/mXp2yM4/features-1.png",
+        "details": "The 2022 stock market forecast looks considerably different than 2021. To achieve another big year, the market will need to tame new risks, some that investors aren't accustomed to. Key among these is inflation — a sore that had not flared up on the market's skin since the 1980s.The 2021 market rose on low interest rates, government stimulus and a huge rebound in earnings. The new year starts with the Federal Reserve moving toward the first rate hike since 2018 to tamp down inflation. In Congress, there's no clear path for another massive spending bill. Earnings are expected to grow, but more moderately.Lacking the same drivers of 2021, the stock market will need different protagonists."
+    },
+    {
+        "id": 2,
+        "category": "Business",
+        "title": "How companies are re-configuring supply",
+        "img": "https://i.ibb.co/XLFRdmC/features-2.png",
+        "details": "A large number of firms have reconfigured their supply chains. The general trends entail, among others, the reduction, centralization and re-location of plants and distribution centers, the design of new distribution systems, and the reduction of the supplier base. The analysis of the implications of such reconfiguration for freight transport has received comparatively little attention, and most of the analysis has focused on the development of different theoretical models showing how changes in logistic structures and decisions could affect the transport demand. Using empirical data from Denmark, this paper sheds some light on the implications of reconfiguration supply chains on transport. Industry mail surveys among Danish firms as well as an in-depth case study were performed. The consequences of the reconfiguration process on the present and future demand for transport are measured and analyzed in terms of the quantity of transport units used (trucks/containers), and the transport-work (ton/km)."
+    },
+    {
+        "id": 3,
+        "category": "Business",
+        "title": "Bankers propose corporate tax cut to 30% for listed banks",
+        "img": "https://i.ibb.co/HXJ23SJ/features-3.png",
+        "details": "Bankers propose corporate tax cut to 30% for listed banksThe bank’s association also proposed to slash corporate tax for merchant banks from 37.5% to 20%.The Bangladesh Association of Banks (BAB) has urged the National Board of Revenue (NBR) to reduce the corporate tax rate by 7.5% from the existing 37.5%, especially for the banks that are listed in the stock market.The bankers' association put forward the proposal in a pre-budget discussion, organised by the NBR in the capital's Agargaon on Sunday. The written proposal, signed by BAB Chairman Md Nazrul Islam Mazumder, reads,"
+    }
+]

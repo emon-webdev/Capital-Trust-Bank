@@ -21,6 +21,7 @@ import Cards from "../Pages/Cards/Cards";
 import Contact from "../Pages/Contact/Contact";
 import FaqPage from "../Pages/FaqPage/FaqPage";
 import ApplyForm from "../Pages/Home/ApplyForm";
+import DetailsNews from "../Pages/Home/DetailsNews";
 import ExchangeDetails from "../Pages/Home/ExchangeDetails";
 import Home from "../Pages/Home/Home";
 import TeamDetails from "../Pages/Home/TeamDetails";
@@ -82,6 +83,12 @@ const router = createBrowserRouter([
           fetch(
             `https://capital-trust-bank-server.vercel.app/loans/${params.title}`
           ),
+      },
+      {
+        path: "/blogsNews/:id",
+        element: <DetailsNews></DetailsNews>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/blogsNews/${params.id}`),
       },
       {
         path: "/goldloan",
@@ -198,9 +205,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/CustomerSupport",
-        element: (
-            <CustomerSupport />
-        ),
+        element: <CustomerSupport />,
       },
       {
         path: "/dashboard/my-withdraw",
