@@ -5,7 +5,7 @@ const ServiceRequest = () => {
   return (
     <div className="service-req-area my-12 bg-[#fdf3f3]">
       <div className="container">
-        <div className="section-title py-12 w-full md:w-[650px] mx-auto text-center">
+        <div className="section-title py-16 w-full md:w-[650px] mx-auto text-center">
           <h5 className="text-[#DF0303] text-xl text-md mb-3">
             -- Emergency Service Requests --
           </h5>

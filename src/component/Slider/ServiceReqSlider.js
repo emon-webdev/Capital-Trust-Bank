@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 import { BsCreditCard2Back } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 import Slider from "react-slick";
@@ -79,7 +80,7 @@ const ServiceReqSlider = () => {
   return (
     <div>
       {/* Section title here */}
-      <div>
+      <div className="pb-16">
         <div>
           <Slider
             asNavFor={nav1}
@@ -93,9 +94,11 @@ const ServiceReqSlider = () => {
               <div key={sliderNav?._id}>
                 <div className="single-slider-nav">
                   <div className="slider-nav-icon">
-                    <BsCreditCard2Back />
+                    <BsCreditCard2Back className="text-3xl text-[#041c51 ]" />
                   </div>
-                  <h3>{sliderNav?.title}</h3>
+                  <h3 className="mb-0 mt-2 px-8 text-md transition-[0.3s]">
+                    {sliderNav?.title}
+                  </h3>
                 </div>
               </div>
             ))}
@@ -109,37 +112,30 @@ const ServiceReqSlider = () => {
                   <div className="md:flex items-center justify-between">
                     <div className="flex-1 md:mr-[30px] mb-[30px] md:mb-0">
                       <div className="slider-content">
-                        <h2 className=" font-semibold text-xl text-[#010C3A]">
+                        <h2 className=" font-semibold text-xl mb-2 text-[#010C3A]">
                           {slidersContent?.name}
                         </h2>
                         {slidersContent?.services.map((service, index) => (
                           <p
                             key={index}
-                            className="font-medium text-[16px] mb-2 text-[#010C3A]"
+                            className="flex items-center font-medium text-[16px] mb-2 text-[#010C3A]"
                           >
                             <span className="">
-                              <BsCreditCard2Back className="text-[#DF0303] text-[22px] p-[2px] rounded-md mr-1" />
+                              <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
                             </span>
-                            {service?.name}
+                            <span>{service?.name}</span>
                           </p>
                         ))}
-                        <button
-                          onClick={handleOpen}
-                          className="primary-btn"
-                          type="submit"
-                        >
-                          Apply Now
-                        </button>
                       </div>
                     </div>
                     <div className="flex-1">
                       <div className="slider-img  flex items-center justify-between">
                         <div className="slider-img-content flex-1 text-center px-3">
-                          <p className="">
+                          <p className="text-2xl mb-[10px]">
                             <FiPhoneCall />
                           </p>
                           <h4 className="text-md font-medium mb-2">Call for</h4>
-                          <h3 className="text-lg font-medium mb-3">
+                          <h3 className="text-lg font-medium mb-3 text-[#010C3A]">
                             {slidersContent?.name}
                           </h3>
                           <h2>
@@ -156,88 +152,6 @@ const ServiceReqSlider = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  {/* Show Modal */}
-                  <div className="service-req-from">
-                    {/* <modal
-                      aria-labelledby="transition-modal-title"
-                      aria-describedby="transition-modal-description"
-                      open={open}
-                      onClose={handleClose}
-                      closeaftertransition="true"
-                      // BackdropComponent={Backdrop}
-                      backdropprops={{
-                        timeout: 500,
-                      }}
-                    >
-                      <fade in={open}>
-                        <div sx={style}>
-                          <h2 className="font-semibold ">
-                            {slidersContent?.name}
-                          </h2>
-
-                          <div className="service-main-from">
-                            <form
-                              onSubmit={handleServiceSubmit}
-                              className="text-center"
-                            >
-                              <input
-                                name="name"
-                                className="border px-3 rounded "
-                                style={{ width: "100%" }}
-                                readOnly
-                                placeholder={user?.displayName}
-                                defaultValue={user?.displayName}
-                              ></input>
-                              <input
-                                name="email"
-                                readOnly
-                                style={{ width: "100%" }}
-                                className="border email-filed px-3 rounded"
-                                placeholder={user?.email}
-                                defaultValue={user?.email}
-                              ></input>
-
-                              <select
-                                name="city"
-                                style={{ width: "100%" }}
-                                label="city"
-                                className="border  px-3 rounded"
-                                placeholder="City"
-                              >
-                                {slidersContent?.services.map(
-                                  (service, index) => (
-                                    <option key={index} value={service?.name}>
-                                      {service?.name}
-                                    </option>
-                                  )
-                                )}
-                              </select>
-                              <input
-                                name="phone"
-                                style={{ width: "100%" }}
-                                className="border  px-3  rounded"
-                                placeholder="Phone"
-                              ></input>
-                              <div className="flex items-center">
-                                <span
-                                  onClick={() => setOpen(false)}
-                                  className="sm-btn mr-4"
-                                >
-                                  Cancel
-                                </span>
-                                <input
-                                  onClick={() => setOpen(false)}
-                                  type="submit"
-                                  value="SUBMIT"
-                                  className="sm-btn"
-                                />
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </fade>
-                    </modal> */}
                   </div>
                 </div>
               </div>
