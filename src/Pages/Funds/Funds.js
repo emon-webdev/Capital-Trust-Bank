@@ -27,7 +27,10 @@ const Funds = ({}) => {
     <div className="funds-area pt-[60px] md:pt-[120px] pb-[60px]">
       <div className="container">
         <div className="fund-wrap md:flex items-center justify-between ">
-          <div className="fund-video-content  relative  md:mr-7">
+          <div
+            data-aos="fade-right"
+            className="fund-video-content  relative  md:mr-7"
+          >
             <img src={fundImg} alt="" />
             <div className="video-content absolute bottom-0 right-0">
               <div className="video-img relative">
@@ -45,8 +48,8 @@ const Funds = ({}) => {
               OverlayOne={OverlayOne}
             />
           </div>
-          <div className="fund-content basis-3/6 mt-10">
-            <h3 className="text-[#DF0303] text-md mb-4">
+          <div className="fund-content basis-3/6 mt-10 animate__animated animate__backInRight">
+            <h3 className="text-[#DF0303] text-xl text-md mb-4">
               {t("Funds_Donate_title")}
             </h3>
             <h2 className="text-[#010C3A] text-4xl font-bold mb-6">
