@@ -10,7 +10,6 @@ import {
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
@@ -163,7 +162,7 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">
                     Phone Number
                   </label>
-                  <PhoneInput
+                  {/* <PhoneInput
                     children="$"
                     type="number"
                     {...register("phone", {
@@ -172,15 +171,15 @@ const AccountOpenFrom = () => {
                     // className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Phone Number"
                     country={"bd"}
-                  ></PhoneInput>
-                  {/* <input
+                  ></PhoneInput> */}
+                  <input
                     type="number"
                     {...register("phone", {
                       required: "Phone Number is required",
                     })}
                     className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Phone Number"
-                  ></input> */}
+                  ></input>
                 </div>
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">
@@ -192,7 +191,7 @@ const AccountOpenFrom = () => {
                       required: "email is required",
                     })}
                     // defaultValue={user?.email}
-                    readOnly
+                    // readOnly
                     className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Email Address"
                   ></input>
