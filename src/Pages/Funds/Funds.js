@@ -48,8 +48,8 @@ const Funds = ({}) => {
               OverlayOne={OverlayOne}
             />
           </div>
-          <div className="fund-content basis-3/6 mt-10 animate__animated animate__backInRight">
-            <h3 className="text-[#DF0303] text-xl text-md mb-4">
+          <div className="fund-content basis-3/6 mt-10 " data-aos="fade-left">
+            <h3 className="text-[#DF0303] text-xl text-md mb-3">
               {t("Funds_Donate_title")}
             </h3>
             <h2 className="text-[#010C3A] text-4xl font-bold mb-6">

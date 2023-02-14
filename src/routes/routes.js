@@ -24,7 +24,6 @@ import FaqPage from "../Pages/FaqPage/FaqPage";
 import DonateFail from "../Pages/Funds/DonateFail";
 import DonateSuccess from "../Pages/Funds/DonateSuccess";
 import ApplyForm from "../Pages/Home/ApplyForm";
-import ExchangeDetails from "../Pages/Home/ExchangeDetails";
 import Home from "../Pages/Home/Home";
 import TeamDetails from "../Pages/Home/TeamDetails";
 import BusinessInsurance from "../Pages/Insurance/BusinessInsurance";
@@ -157,10 +156,10 @@ const router = createBrowserRouter([
             `https://capital-trust-bank-server.vercel.app/team-details/${params.id}`
           ),
       },
-      {
-        path: "/exchange",
-        element: <ExchangeDetails />,
-      },
+      // {
+      //   path: "/exchange",
+      //   element: <ExchangeDetails />,
+      // },
     ],
   },
   {

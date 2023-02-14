@@ -6,6 +6,7 @@ import Banner2 from "./Banner2";
 import Branding from "./Branding";
 import ContactUs from "./ContactUs";
 import Exchange from "./Exchange";
+import ExchangeDetails from "./ExchangeDetails";
 // import Counter from "./Counter";
 import FeaturedNews from "./FeaturedNews";
 import LoanCalculator from "./LoanCalculator";
@@ -27,7 +28,7 @@ const Home = () => {
       <Branding />
       <FeaturedNews />
       <LoanCalculator />
-      <Exchange />
+      <ExchangeDetails />
       <ContactUs />
     </div>
   );

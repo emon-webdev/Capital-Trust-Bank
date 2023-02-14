@@ -1,6 +1,5 @@
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
-import { FiSend } from "react-icons/fi";
 import { AuthContext } from "../../../../context/AuthProvider";
 
 export default function VisaTransaction() {
