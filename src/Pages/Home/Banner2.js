@@ -41,21 +41,21 @@ const Banner2 = () => {
         draggable: false,
         fade: true,
         adaptiveHeight: true,
-        appendDots: dots => <ul>{dots}</ul>,
+        appendDots: dots => <ul className='slider-dots'>{dots}</ul>,
         customPaging: i => (
-            <div className="ft-slick__dots--custom ">
+            <div className="ft-slick__dots--custom">
                 <div className="loading" />
             </div>
         )
     };
     return (
-        <>
+        <div className='slider-parent'>
             <Slider className='slide-wrapper' {...settings}>
                 {
                     sliderData.map(data => <Banner2Slide data={data} />)
                 }
             </Slider>
-        </>
+        </div>
     );
 };
 

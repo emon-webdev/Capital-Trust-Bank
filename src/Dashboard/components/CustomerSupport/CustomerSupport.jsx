@@ -64,9 +64,9 @@ const CustomerSupport = () => {
         <div className="flex flex-col space-y-4 p-3 overflow-y-auto scroll-w-2 scroll-touch h-[74vh]">
           <div className="chat-message">
             <div className="flex items-end py-3">
-              <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
+              <div className="flex flex-col space-y-2 max-w-xs mx-2 order-2 items-start">
                 <div>
-                  <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-[#010c3a] text-white">hello akash vai. whats up?</span>
+                  <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none  text-[#010c3a]">hello akash vai. whats up?</span>
                 </div>
               </div>
               <img
