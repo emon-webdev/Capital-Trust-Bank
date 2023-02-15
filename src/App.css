@@ -172,7 +172,12 @@ ul.submenu li:hover a {
   font-weight: 500;
   margin-left: 16px;
 }
-
+.loan-card .sm-btn {
+  background: #010c3a !important;
+}
+.loan-card .sm-btn:hover{
+  background: #df0303 !important;
+}
 .accent-btn.account-btn svg {
   font-size: 22px;
   margin-right: 4px;

@@ -25,7 +25,7 @@ const LoanDetails = (props) => {
             <CardBody>
               <VStack>
                 <Image
-                  style={{ width: "800px", height: "100%" }}
+                  style={{ width: "600px", height: "60%" }}
                   src={data.img}
                   alt="Green double couch with wooden legs"
                   borderRadius="lg"

@@ -48,6 +48,7 @@ import AdminRoute from "../routes/AdminRoute";
 import CustomerRoute from "../routes/CustomerRoute";
 import PrivetRoute from "./PrivateRoute/PrivateRoute";
 import Insurance from "../Pages/Services/Insurance";
+import InsuranceDetails from "../Pages/Services/InsuranceDetails";
 // import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
@@ -78,8 +79,15 @@ const router = createBrowserRouter([
         element: <BusinessInsurance />,
       },
       {
-        path: "/insurance",
+        path: "/insurances",
         element: <Insurance />,
+        loader: () => fetch("http://localhost:5000/insuranceData"),
+      },
+      {
+        path: "/insuranceDetails/:id",
+        element: <InsuranceDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/insur/${params.id}`),
       },
 
       {

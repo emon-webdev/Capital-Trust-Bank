@@ -42,13 +42,13 @@ export default function FeaturedNews() {
           <Card
             marginX={2}
             key={news.id}
-            sx={{ height: "450px", width: "100%" }}
+            sx={{ height: "100%", width: "100%" }}
             className="drop-shadow-2xl"
           >
             <CardBody>
               <Image
                 component="img"
-                height="270px"
+                height="300px"
                 width="100%"
                 src={news.img}
                 alt="green iguana"

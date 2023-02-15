@@ -15,7 +15,6 @@ import application from "../../../assets/Services(Home)/E-Wallet-amico.png";
 import { AuthContext } from "../../../context/AuthProvider";
 import DynamicBanner from "../../Shared/DynamicBanner/DynamicBanner";
 import { districts } from "../districtData";
-// import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 const Loans = (props) => {
   const [name, setName] = useState("Loans");
@@ -73,19 +72,19 @@ const Loans = (props) => {
       <div className="mb-5">
         <DynamicBanner name={name}></DynamicBanner>
       </div>
-      <div className="container  align-center justify-center gap-10 my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container loan-card  align-center justify-center gap-10 my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {loansData.map((loan) => (
           <Card
             shadow="2xl"
             key={loan.id}
             style={{ width: "100%", height: "auto" }}
-            className="hover:bg-gradient-to-r from-blue-500 to-blue-900  hover:text-[#fff] hover:translate-y-4"
+            className="hover:bg-gradient-to-r from-blue-500 to-blue-900  hover:text-[#fff] "
           >
             <CardBody className="flex flex-col align-center justify-center hover:text-white">
               <div className="w-100  text-4xl flex align-center justify-center my-3"></div>
               <Text
                 fontWeight={700}
-                color="#DF0303"
+                color="#010c3a"
                 fontSize={24}
                 textAlign="center"
               >
@@ -95,9 +94,9 @@ const Loans = (props) => {
                 {loan.details.slice(0, 300)}...
                 <VStack marginY={4}>
                   <Link to={`/loanDetails/${loan._id}`}>
-                    <button className="font-bold hover:bg-[#151423] rounded px-4 py-3 bg-[#DF0303] text-[#fff]">
+                    <text className="font-bold sm-btn secondary-btn bg-[#151423] rounded px-4 py-3  text-[#fff]">
                       Details
-                    </button>
+                    </text>
                   </Link>
                 </VStack>
               </div>
@@ -124,7 +123,7 @@ const Loans = (props) => {
               borderRadius: "10px",
               marginX: "auto",
             }}
-            className="py-10 px-7 sm:align-content-center sm:justify-items-center"
+            className="py-10 px-7 sm:align-content-center sm:justify-items-center animate__animated animate__slideInRight"
           >
             <Grid
               container

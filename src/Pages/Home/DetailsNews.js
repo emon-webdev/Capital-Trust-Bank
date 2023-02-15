@@ -44,7 +44,7 @@ const DetailsNews = (props) => {
                   onClick={() => setShowAll(!showAll)}
                   className="text-lg text-red-600 text-bold cursor-pointer"
                 >
-                  {showAll ? "" : "read more"}
+                  {showAll ? "" : "...read more"}
                 </Text>
               </Text>
             </VStack>
