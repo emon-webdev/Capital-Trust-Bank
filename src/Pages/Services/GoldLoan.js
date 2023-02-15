@@ -4,7 +4,6 @@ import { Image } from "@chakra-ui/image";
 import { Grid, Stack, Text } from "@chakra-ui/layout";
 import React from "react";
 
-
 import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -73,107 +72,118 @@ export default function GoldLoan() {
       <div className="mb-5">
         <DynamicBanner name={name}></DynamicBanner>
       </div>
-    <div className="loan-area my-10 ">
-      <div className="container  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
-        <div className="">
-          <Card sx={{ maxWidth: 700, height: "auto" }}>
-            <CardBody>
-              <Image
-                component="img"
-                height="100%"
-                width='100%'
-                marginY={2}
-                src={loan.img}
-                alt="green iguana"
-              />
-              <Stack>
-                <Text
-                  fontSize={26}
-                  fontWeight={800}
-                  marginY={1}
-                  gutterBottom
-                  component="div"
-                >
-                  {loan.title}
-                </Text>
-                <Text fontSize={20} color="text.primary">{loan.details}</Text>
-              </Stack>
-            </CardBody>
-          </Card>
-        </div>
-        <div className="">
-          <form
-            onSubmit={handleSubmit}
-            style={{ 
-              backgroundColor: "#041C51",
-              height: "auto",
-              width: "500px",
-              borderRadius: "10px",
-              marginX:'auto'
-            }}
-            className="py-10 px-7 sm:align-content-center sm:justify-items-center"
-          >
-            <Grid container className=" align-content-center justify-items-center">
-              <FormControl>
-                <input
-                  name="name"
-                  className="border px-3 rounded "
-                  style={{ width: "100%" }}
-                  placeholder="Your Name"
-                  defaultValue={user?.displayName} required
-                ></input>
-              </FormControl>
-              <FormControl>
-                <input
-                  name="email"
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  placeholder="Email"
-                  defaultValue={user?.email}  required
-                ></input>
-              </FormControl>
-              <FormControl>
-                <input
-                  name="phone"
-                  style={{ width: "100%" }}
-                  className="border  px-3  rounded"
-                  placeholder="Phone" required 
-                ></input>
-              </FormControl>
-              <FormControl>
-                <input
-                  name="loan"
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  placeholder="Loan"
-                  defaultValue={loan.title}
-                ></input>
-              </FormControl>
-              <FormControl>
-                <select
-                  name="city"
-                  style={{ width: "100%" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border  px-3 rounded"
-                  placeholder="City"  required
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </FormControl>
-              <FormControl>
-                <input
-                  name="date" type='date'
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"  required
-                ></input>
-              </FormControl>
+      <div className="loan-area my-10 ">
+        <div className="container  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+          <div className="">
+            <Card sx={{ maxWidth: 700, height: "auto" }}>
+              <CardBody>
+                <Image
+                  component="img"
+                  height="100%"
+                  width="100%"
+                  marginY={2}
+                  src={loan.img}
+                  alt="green iguana"
+                />
+                <Stack>
+                  <Text
+                    fontSize={26}
+                    fontWeight={800}
+                    marginY={1}
+                    gutterBottom
+                    component="div"
+                  >
+                    {loan.title}
+                  </Text>
+                  <Text fontSize={20} color="text.primary">
+                    {loan.details}
+                  </Text>
+                </Stack>
+              </CardBody>
+            </Card>
+          </div>
+          <div className="">
+            <form
+              onSubmit={handleSubmit}
+              style={{
+                backgroundColor: "#041C51",
+                height: "auto",
+                width: "500px",
+                borderRadius: "10px",
+                marginX: "auto",
+              }}
+              className="py-10 px-7 sm:align-content-center sm:justify-items-center"
+            >
+              <Grid
+                container
+                className=" align-content-center justify-items-center"
+              >
+                <FormControl>
+                  <input
+                    name="name"
+                    className="border px-3 rounded "
+                    style={{ width: "100%" }}
+                    placeholder="Your Name"
+                    defaultValue={user?.displayName}
+                    required
+                  ></input>
+                </FormControl>
+                <FormControl>
+                  <input
+                    name="email"
+                    style={{ width: "100%" }}
+                    className="border  px-3 rounded"
+                    placeholder="Email"
+                    defaultValue={user?.email}
+                    required
+                  ></input>
+                </FormControl>
+                <FormControl>
+                  <input
+                    name="phone"
+                    style={{ width: "100%" }}
+                    className="border  px-3  rounded"
+                    placeholder="Phone"
+                    required
+                  ></input>
+                </FormControl>
+                <FormControl>
+                  <input
+                    name="loan"
+                    style={{ width: "100%" }}
+                    className="border  px-3 rounded"
+                    placeholder="Loan"
+                    defaultValue={loan.title}
+                  ></input>
+                </FormControl>
+                <FormControl>
+                  <select
+                    name="city"
+                    style={{ width: "100%" }}
+                    value={district}
+                    onChange={handleChange}
+                    label="city"
+                    className="border  px-3 rounded"
+                    placeholder="City"
+                    required
+                  >
+                    {districts.map((dis) => (
+                      <option key={dis} value={dis}>
+                        {dis}
+                      </option>
+                    ))}
+                  </select>
+                </FormControl>
+                <FormControl>
+                  <input
+                    name="date"
+                    type="date"
+                    style={{ width: "100%" }}
+                    className="border  px-3 rounded"
+                    placeholder="dd/mm/yy"
+                    required
+                  ></input>
+                </FormControl>
 
                 <FormControl>
                   <button

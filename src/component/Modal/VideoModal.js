@@ -5,7 +5,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
-  ModalOverlay
+  ModalOverlay,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { BiLoaderAlt } from "react-icons/bi";
@@ -17,7 +17,7 @@ const VideoModal = ({ onClose, isOpen, onOpen }) => {
   const [size, setSize] = React.useState("xl");
 
   return (
-    <div>
+    <div data-testid="videomodal">
       <Modal
         size={size}
         isCentered

@@ -8,7 +8,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  Select
+  Select,
 } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -58,7 +58,7 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
   };
 
   return (
-    <div>
+    <div data-testid="modal">
       <Modal
         size={size}
         isCentered
