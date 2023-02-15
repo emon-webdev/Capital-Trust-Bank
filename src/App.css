@@ -619,12 +619,12 @@ ul.slick-dots.bannner {
 }
 
 .slick-dots .slick-active {
-  width: 56px;
+  width: 25px;
   transition: width 0.3s ease-in-out;
 }
 
 .slick-dots .slick-active .ft-slick__dots--custom {
-  width: 56px;
+  width: 25px;
   top: 0px;
   overflow: hidden;
 }
@@ -639,10 +639,25 @@ ul.slick-dots.bannner {
   border-radius: 4px;
 } */
 
-.slider-dots {
+.slide-wrapper .slick-slide .slider-dots {
   bottom: 25px !important;
 }
 /* ---------- banner -------------- */
+
+/* ------------ service -------------- */
+
+.service-image {  
+  overflow: hidden;
+	width: 100%;
+  transform: scale(1);
+	transition: 0.3s ease-in-out;
+}
+
+.service-container:hover .service-image  {
+	transform: scale(1.1);
+}
+/* ------------ service -------------- */
+
 /* --------- chat --------  */
 .chat-avatar {
   align-items: center !important;

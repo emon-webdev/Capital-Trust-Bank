@@ -131,7 +131,7 @@ const Login = () => {
         <div className="hidden relative bg-cover lg:block lg:w-1/2">
           <img
             src="https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600"
-            className="rounded opacity-[.6]"
+            className="rounded opacity-[.6] w-full"
             alt=""
           />
           <div className="absolute top-[30%] left-[16%]">
@@ -147,7 +147,7 @@ const Login = () => {
           onSubmit={handleSubmit(handleLogIn)}
           className="w-full px-6 py-8 md:px-8 lg:w-1/2 h-full"
         >
-          <h2 className="text-2xl font-semibold text-center text-gray-700 dark:text-white">
+          <h2 className="text-2xl mb-5 font-semibold text-center text-gray-700 dark:text-white">
             Login
           </h2>
 

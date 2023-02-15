@@ -58,7 +58,7 @@ const TeamDetails = () => {
             <hr />
 
             <div className="py-[35px]">
-              <h4>Biography</h4>
+              <h4><strong>Biography</strong></h4>
               <p>
                 Mauris turpis nunc, blandit et volutpat molestie porta ut,
                 ligula. Fusce pharetra convallis urna. Quisque ut nisi. Donec mi

@@ -119,8 +119,9 @@ const ExchangeDetails = () => {
                       <input
                         name="usd"
                         type="number"
+                        placeholder="Input Your Amount"
                         onChange={(e) => setUsd(e.target.value)}
-                        className="border-2 w-full"
+                        className="border w-full p-3 rounded focus-visible:outline-none"
                       />
                     </NumberInput>
 
