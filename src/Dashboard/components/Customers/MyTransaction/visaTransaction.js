@@ -3,14 +3,13 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../../../context/AuthProvider";
 
 export default function VisaTransaction({info}) {
-  console.log(info)
   const { user } = useContext(AuthContext);
   return (
     <div
       style={{ height: "250px", width: "400px" }}
       className="container bg-white rounded-lg p-8"
     >
-      <div className="">
+      <div className=""  id="credit-card">
         <Box
           style={{
             height: "190px",
