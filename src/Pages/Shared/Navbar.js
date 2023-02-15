@@ -13,7 +13,7 @@ const Navbar = () => {
   const [isApply, setIsApply] = useState(false);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server.vercel.app/customer/${user?.email}`
+      `http://localhost:5000/customer/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -26,7 +26,7 @@ const Navbar = () => {
   const handleSignOut = () => {
     //delete customer device info
     fetch(
-      `https://capital-trust-bank-server.vercel.app/deleteDeviceInfo/${user?.email}`,
+      `http://localhost:5000/deleteDeviceInfo/${user?.email}`,
       {
         method: "DELETE",
         headers: {

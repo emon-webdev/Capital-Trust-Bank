@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import io from "socket.io-client";
 import { AuthContext } from "../../../context/AuthProvider";
-const socket = io("https://capital-trust-bank-server.vercel.app");
+const socket = io("http://localhost:5000");
 const IndividualSupport = () => {
   const { user, role } = useContext(AuthContext);
   const [messages, setMessages] = useState([]);
@@ -21,7 +21,7 @@ const IndividualSupport = () => {
     });
   }, [messages, user]);
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/getChatInfo/${user.email + " " + state.senderEmail}`)
+    fetch(`http://localhost:5000/getChatInfo/${user.email + " " + state.senderEmail}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)

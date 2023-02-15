@@ -69,7 +69,7 @@ const AccountOpenFrom = () => {
           };
           console.log(account);
           // save information to the database
-          fetch("https://capital-trust-bank-server.vercel.app/bankAccounts", {
+          fetch("http://localhost:5000/bankAccounts", {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -6,7 +6,7 @@ const LeftContainer = () => {
   const { user, role, setRole } = useContext(AuthContext);
   // const email = user?.email;
   // useEffect(() => {
-  //   fetch(`https://capital-trust-bank-server.vercel.app/customer/${email}`)
+  //   fetch(`http://localhost:5000/customer/${email}`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setRole(data.role);

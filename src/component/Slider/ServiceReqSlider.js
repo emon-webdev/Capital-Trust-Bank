@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { BsCreditCard2Back } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 import Slider from "react-slick";
 // import sliderImg1 from "../../assets/serviceReqImg/features-style2-banner-1.jpg";
-import AuthProvider, { AuthContext } from "../../context/AuthProvider";
+import { AuthContext } from "../../context/AuthProvider";
 import "./ServiceReqSlider.css";
 const ServiceReqSlider = () => {
-  const { user } = AuthProvider(AuthContext);
+  const { user } = useContext(AuthContext);
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
   const [slidersNav, setSlidersNav] = useState([]);

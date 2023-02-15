@@ -49,7 +49,7 @@ const Funds = ({}) => {
             />
           </div>
           <div className="fund-content basis-3/6 mt-10 " data-aos="fade-left">
-            <h3 className="text-[#DF0303] text-xl text-md mb-3">
+            <h3 className="text-[#DF0303] md:text-xl text-md mb-3">
               {t("Funds_Donate_title")}
             </h3>
             <h2 className="text-[#010C3A] text-4xl font-bold mb-6">

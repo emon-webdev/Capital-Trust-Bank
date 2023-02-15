@@ -4,7 +4,7 @@ import '../../../App.css';
 const AllCustomers = () => {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
-    fetch('https://capital-trust-bank-server.vercel.app/allCustomers')
+    fetch('http://localhost:5000/allCustomers')
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);

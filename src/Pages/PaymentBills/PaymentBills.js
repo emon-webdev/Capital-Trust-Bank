@@ -1,14 +1,16 @@
 import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalOverlay } from "@chakra-ui/modal";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import icon1 from "../.././assets/PaymentBills/icon-1.png";
 import icon2 from "../.././assets/PaymentBills/icon-2.png";
 import icon3 from "../.././assets/PaymentBills/icon-3.png";
 import logo from "../.././assets/PaymentBills/logo.png";
+import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import PaymentBillsModal from "./PaymentBillsModal";
 
 const PaymentBills = () => {
+  const { user } = useContext(AuthContext);
   const [name, setName] = useState("Payment Bills");
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -16,52 +18,54 @@ const PaymentBills = () => {
   return (
     <div>
       <DynamicBanner name={name}></DynamicBanner>
-      <div className="paymentbills-area">
+      <div className="pay-bills-area py-24">
         <div className="container">
-          <div className="md:flex justify-around">
-            <div className="mt-5">
+          <div className="pay-wrap md:flex items-center justify-between">
+            <div className="md:mr-7">
               <img src={logo} alt="" />
             </div>
-            <div className="mt-9">
-              <div>
-                <h2 className="text-[#DF0303] text-md mb-4">-- Pay Bills --</h2>
-              </div>
-              <h1 className="text-[#010C3A] text-4xl font-bold mb-6">
+            <div className="pay-content basis-3/6 mt-10 md:mt-0">
+              <h3 className="text-[#DF0303] md:text-xl text-md mb-2">
+                -- Pay Bills --
+              </h3>
+              <h2 className="text-[#010C3A] text-4xl font-bold mb-4">
                 Payment Bills
-              </h1>
-              <p className="">
+              </h2>
+              <p className="mb-4">
                 Pay your electricity, water, gas, internet, TV, credit card bill
                 and get a digital receipt instantly!
               </p>
-              <div className="flex gap-2 mt-5">
-                <img src={icon1} alt="" />
+              <div className="flex mb-3  items-center">
+                <img className="mr-3" src={icon1} alt="" />
                 <div>
-                  <h1 className="font-bold text-2xl">No Extra Charge</h1>
+                  <h1 className="font-semibold text-lg mb-1">
+                    No Extra Charge
+                  </h1>
                   <p>
                     No matter where you are in the country, you can safely
                     calculate your any bill at home.
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 mt-5">
-                <img src={icon2} alt="" />
+              <div className="flex mb-3 items-center">
+                <img className="mr-4" src={icon2} alt="" />
                 <div>
-                  <h1 className="font-bold text-2xl">Safe & Secure</h1>
+                  <h1 className="font-semibold text-lg mb-1">Safe & Secure</h1>
                   <p>
                     There is no hassle of standing in line and you will get the
-                    receipt of the bill directly on <br /> your mobile if you
-                    pay the any bill from Our Bank.
+                    receipt of the bill directly on your mobile if you pay the
+                    any bill from Our Bank.
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 mt-5">
-                <img src={icon3} alt="" />
+              <div className="flex mb-3 items-center">
+                <img className="mr-4" src={icon3} alt="" />
                 <div>
-                  <h1 className="font-bold text-2xl">Live Support</h1>
+                  <h1 className="font-semibold text-lg mb-1">Live Support</h1>
                   <p>
                     Pay your electricity, water, gas, internet, telephone, TV,
-                    credit card bill or any government
-                    <br /> fee and get a digital receipt instantly!
+                    credit card bill or any government fee and get a digital
+                    receipt instantly!
                   </p>
                 </div>
               </div>
@@ -73,7 +77,7 @@ const PaymentBills = () => {
                     onOpen();
                   }}
                 >
-                  Payment Bills Now
+                  Pay Bills
                 </button>
               </div>
             </div>

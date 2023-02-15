@@ -335,10 +335,11 @@ input::-webkit-inner-spin-button {
   background-image: url(./cardBg.png);
   width: 100%;
   cursor: pointer;
+  z-index: 0;
 }
 
 .cardImg-field::before {
-  content: "Browser File";
+  /* content: "Browser File";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -347,7 +348,7 @@ input::-webkit-inner-spin-button {
   background-color: #f6f6fc;
   color: "#333";
   z-index: 999;
-  opacity: 999;
+  opacity: 999; */
   /* border-radius: 10px; */
 }
 
@@ -358,12 +359,6 @@ input::-webkit-inner-spin-button {
 
 input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   height: 100px;
-}
-
-.from-area input[type="file"] {
-  color: transparent;
-  background-color: #fff;
-  border: 1px solid #e3ddd7;
 }
 
 .from-group .chakra-select__icon-wrapper.css-iohxn1 {
@@ -505,8 +500,6 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 .slide-wrapper .slick-slide > div {
   margin: 0px !important;
 }
-
-
 
 .slick-dots .slick-active .ft-slick__dots--custom {
   top: -11px !important;

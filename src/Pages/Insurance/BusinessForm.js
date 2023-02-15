@@ -4,7 +4,7 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/tabs";
 import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router";
-import business from '../../assets/insurance/Business solution-pana.png'
+import business from '../../assets/insurance/Business solution-pana.png';
 import { AuthContext } from "../../context/AuthProvider";
 import { districts } from "../Services/districtData";
 
@@ -33,7 +33,7 @@ export default function BusinessForm() {
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server.vercel.app/insuranceApplicants", {
+    fetch("http://localhost:5000/insuranceApplicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",

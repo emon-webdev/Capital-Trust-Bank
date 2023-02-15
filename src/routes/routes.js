@@ -76,7 +76,7 @@ const router = createBrowserRouter([
         path: "/services",
         element: <Services />,
         loader: fetch(
-          "https://capital-trust-bank-server.vercel.app/loanService"
+          "http://localhost:5000/loanService"
         ),
       },
       {
@@ -84,7 +84,7 @@ const router = createBrowserRouter([
         element: <ApplyForm></ApplyForm>,
         loader: ({ params }) =>
           fetch(
-            `https://capital-trust-bank-server.vercel.app/loans/${params.title}`
+            `http://localhost:5000/loans/${params.title}`
           ),
       },
       {
@@ -153,7 +153,7 @@ const router = createBrowserRouter([
         element: <TeamDetails />,
         loader: async ({ params }) =>
           fetch(
-            `https://capital-trust-bank-server.vercel.app/team-details/${params.id}`
+            `http://localhost:5000/team-details/${params.id}`
           ),
       },
       // {
@@ -218,7 +218,7 @@ const router = createBrowserRouter([
         path: "/dashboard/myTransaction",
         element: <MyTransaction />,
         // loader: ({ params }) =>
-        //   fetch(`https://capital-trust-bank-server.vercel.app/depositWithdraw/${params.email}`),
+        //   fetch(`http://localhost:5000/depositWithdraw/${params.email}`),
       },
       {
         path: "/dashboard/CustomerSupport",
@@ -244,7 +244,7 @@ const router = createBrowserRouter([
         path: "/dashboard/myAccount",
         element: <MyAccount />,
         loader: () =>
-          fetch("https://capital-trust-bank-server.vercel.app/depositWithdraw"),
+          fetch("http://localhost:5000/depositWithdraw"),
         path: "/dashboard/CustomerSupport/admin",
         element: <IndividualSupport />,
       },

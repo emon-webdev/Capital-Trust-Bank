@@ -3,10 +3,10 @@ import { FormControl } from "@chakra-ui/form-control";
 import { Box } from "@chakra-ui/layout";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import {  useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import apply from '../../assets/Services(Home)/apply-form-box-bg.jpg';
 import { AuthContext } from "../../context/AuthProvider";
 import { districts } from "../Services/districtData";
-import apply from '../../assets/Services(Home)/apply-form-box-bg.jpg';
 
 
 export default function ApplyForm() {
@@ -20,7 +20,7 @@ export default function ApplyForm() {
   
   const [loans, setLoans] = useState([]);
   useEffect(() => {
-    fetch("https://capital-trust-bank-server.vercel.app/loanService")
+    fetch("http://localhost:5000/loanService")
       .then((res) => res.json())
       .then((data) => setLoans(data));
   }, []);
@@ -50,7 +50,7 @@ const ser = useLoaderData();
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server.vercel.app/applicants", {
+    fetch("http://localhost:5000/applicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",

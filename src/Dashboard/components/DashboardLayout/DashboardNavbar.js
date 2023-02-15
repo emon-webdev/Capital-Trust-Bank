@@ -1,25 +1,24 @@
 import {
-  Avatar,
-  Badge,
-  Button,
-  Hide,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuGroup,
-  MenuItem,
-  MenuList
+    Avatar,
+    Badge,
+    Button,
+    Hide,
+    IconButton,
+    Menu,
+    MenuButton,
+    MenuGroup,
+    MenuItem,
+    MenuList
 } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { FaBars } from "react-icons/fa";
 import {
-  MdClear,
-  MdMailOutline,
-  MdNotificationsNone,
-  MdOutlineFilterCenterFocus
+    MdClear,
+    MdMailOutline,
+    MdNotificationsNone,
+    MdOutlineFilterCenterFocus
 } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../../context/AuthProvider";
 
 const DashboardNavbar = () => {
@@ -28,7 +27,7 @@ const DashboardNavbar = () => {
   const handleSignOut = () => {
     //delete customer device info
     fetch(
-      `https://capital-trust-bank-server.vercel.app/deleteDeviceInfo/${user.email}`,
+      `http://localhost:5000/deleteDeviceInfo/${user.email}`,
       {
         method: "DELETE",
         headers: {

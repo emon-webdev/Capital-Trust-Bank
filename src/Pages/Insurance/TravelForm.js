@@ -2,12 +2,10 @@
 
 
 import { FormControl } from '@chakra-ui/form-control';
-import { Input } from '@chakra-ui/input';
-import { Box, Grid, Text } from '@chakra-ui/layout';
+import { Box, Grid } from '@chakra-ui/layout';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/tabs';
 
-import  React, { useState } from 'react';
-import { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 
 
@@ -46,7 +44,7 @@ export default function TravelForm() {
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server.vercel.app/insuranceApplicants", {
+    fetch("http://localhost:5000/insuranceApplicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",

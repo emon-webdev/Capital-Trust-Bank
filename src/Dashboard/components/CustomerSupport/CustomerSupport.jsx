@@ -1,9 +1,8 @@
 import { Avatar, WrapItem } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../../context/AuthProvider";
 import { FaLocationArrow } from 'react-icons/fa';
-import '../../../App.css'
+import '../../../App.css';
+import { AuthContext } from "../../../context/AuthProvider";
 
 const CustomerSupport = () => {
   const { user, role } = useContext(AuthContext);
@@ -12,7 +11,7 @@ const CustomerSupport = () => {
   let url;
   role === "customer" ? (url = "getAdminInfo") : (url = "getAllCustomersChat");
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/${url}`)
+    fetch(`http://localhost:5000/${url}`)
       .then((res) => res.json())
       .then((data) => {
         role === "admin" ? setChatsInfo(data) : setAdminInfo(data);
