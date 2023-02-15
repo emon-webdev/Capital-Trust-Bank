@@ -57,7 +57,7 @@ const DonateOptionModal = ({ onClose, isOpen }) => {
   };
 
   return (
-    <div>
+    <div data-testid="modal">
       <Modal
         size={size}
         isCentered

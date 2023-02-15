@@ -61,7 +61,7 @@ const PaymentBillsModal = ({
         window.location.replace(data.url);
         console.log(window.location.replace(data.url));
         // toast.success(`Donate Success`);
-        // reset();
+        reset();
       });
   };
   const [size, setSize] = React.useState("lg");

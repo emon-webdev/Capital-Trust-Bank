@@ -52,10 +52,10 @@ class LoanCalculator extends React.Component {
             EMI Online Calculator
           </h1>
           <div className="md:flex justify-center">
-            <div>
+            <div className="basis-full md:basis-[30%]">
               <img className="img" src={sideimg} alt="" />
             </div>
-            <div className="card-main">
+            <div className="card-main basis-full md:basis-[70%]">
               <div>
                 <div className="flex justify-center">
                   <div>
@@ -116,12 +116,15 @@ class LoanCalculator extends React.Component {
 
               <div className="card-second">
                 <div className="first-portion">
-                  <button
-                    className="secondary-btn"
+                  {/* <button
+                    className="sm-btn secondary-btn"
                     onClick={this.Eligbilitysumbit}
                   >
                     Calculate
-                  </button>
+                  </button> */}
+                  <h1 className="text-2xl font-medium">
+                    Total Amount={output}
+                  </h1>
                   <div className="text">
                     <h1 className="text-[#010C3A] text-xl font-medium">
                       Total Loan Amount=${value3}
@@ -136,12 +139,21 @@ class LoanCalculator extends React.Component {
                 </div>
                 <div className="second-portion">
                   <div>
-                    <h1 className="text-2xl font-medium">
+                    {/* <h1 className="text-2xl font-medium">
                       Total Amount={output}
-                    </h1>
+                    </h1> */}
+                    <button
+                      className="sm-btn secondary-btn"
+                      onClick={this.Eligbilitysumbit}
+                    >
+                      Calculate
+                    </button>
                   </div>
                   <div className="mt-2">
-                    <Link to="/accountOpenFrom" className="secondary-btn">
+                    <Link
+                      to="/accountOpenFrom"
+                      className="sm-btn secondary-btn"
+                    >
                       Apply
                     </Link>
                   </div>

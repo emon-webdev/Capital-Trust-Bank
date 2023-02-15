@@ -8,6 +8,7 @@ import logo from "../.././assets/PaymentBills/logo.png";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import PaymentBillsModal from "./PaymentBillsModal";
+import PaymentBillsSlider from "./PaymentBillsSlider";
 
 const PaymentBills = () => {
   const { user } = useContext(AuthContext);
@@ -18,6 +19,7 @@ const PaymentBills = () => {
   return (
     <div>
       <DynamicBanner name={name}></DynamicBanner>
+      <PaymentBillsSlider></PaymentBillsSlider>
       <div className="pay-bills-area py-24">
         <div className="container">
           <div className="pay-wrap md:flex items-center justify-between">
