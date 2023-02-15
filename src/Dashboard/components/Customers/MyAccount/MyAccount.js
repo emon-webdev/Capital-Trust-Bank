@@ -2,6 +2,7 @@ import { Flex, Text } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineMinusSquare } from "react-icons/ai";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 import { AuthContext } from "../../../../context/AuthProvider";
 
@@ -13,7 +14,7 @@ export default function MyAccount() {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/depositWithdraw/${user?.email}`
+      `https://capital-trust-bank-server.vercel.app/depositWithdraw/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setTransacData(data));

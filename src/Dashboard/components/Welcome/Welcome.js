@@ -1,9 +1,25 @@
 import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const Welcome = () => {
-    const { user } = useContext(AuthContext);
+    const [approve, setApprove] = useState(false);
+  const {user,role} = useContext(AuthContext)
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/bankAccounts/${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.approve) {
+         return setApprove(true);
+        }
+        setApprove(false);
+      });
+  }, [user]);
+
     return (
         <div>           
             <div className='flex items-center flex-col justify-center h-screen'>
@@ -12,9 +28,10 @@ const Welcome = () => {
                     <div className="w-[30px] h-[30px] border-2 border-dashed rounded-full animate-spin border-[#cf173c] mt-[25px]"></div>
                     <h1 className='text-[50px]'>me to </h1>
                 </div>
-                
-                
             <h1 className=''>{user?.displayName} Dashboard</h1>
+            {
+                !approve && role==='customer' && <h2 className='text-2xl font-semibold my-2'>Wait for Admin Approval</h2>
+            }
             </div>
         </div>
     );

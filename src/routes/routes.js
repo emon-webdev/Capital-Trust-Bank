@@ -11,6 +11,7 @@ import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivit
 import AllDonate from "../Dashboard/components/Donate/AllDonate";
 import IndividualSupport from "../Dashboard/components/IndividualSupport/IndividualSupport";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
+import VerificationDetails from "../Dashboard/components/VerificationReq/VerificationDetails";
 
 import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
 import Welcome from "../Dashboard/components/Welcome/Welcome";
@@ -23,8 +24,6 @@ import Contact from "../Pages/Contact/Contact";
 import FaqPage from "../Pages/FaqPage/FaqPage";
 import DonateFail from "../Pages/Funds/DonateFail";
 import DonateSuccess from "../Pages/Funds/DonateSuccess";
-import ApplyForm from "../Pages/Home/ApplyForm";
-import DetailsNews from "../Pages/Home/DetailsNews";
 import Home from "../Pages/Home/Home";
 import TeamDetails from "../Pages/Home/TeamDetails";
 import BusinessInsurance from "../Pages/Insurance/BusinessInsurance";
@@ -36,7 +35,6 @@ import PaymentBills from "../Pages/PaymentBills/PaymentBills";
 import EducationLoan from "../Pages/Services/EducationLoan";
 import GoldLoan from "../Pages/Services/GoldLoan";
 import LoanDetails from "../Pages/Services/Loans/LoanDetails";
-import Loans from "../Pages/Services/Loans/Loans";
 import MarriageLoan from "../Pages/Services/MarriageLoan";
 import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
@@ -79,31 +77,17 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
-      },
-
-      {
-        path: "/loansServices",
-        element: <Loans />,
-        loader: () => fetch("http://localhost:5000/loanService"),
+        loader: fetch(
+          "http://localhost:5000/loanService"
+        ),
       },
       {
         path: "/loanDetails/:id",
         element: <LoanDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/loanSec/${params.id}`),
-      },
-
-      {
-        path: "/loans/:title",
-        element: <ApplyForm />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/loans/${params.title}`),
-      },
-      {
-        path: "/blogsNews/:id",
-        element: <DetailsNews></DetailsNews>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/blogsNews/${params.id}`),
+          fetch(
+            `http://localhost:5000/loans/${params.title}`
+          ),
       },
       {
         path: "/goldloan",
@@ -174,7 +158,9 @@ const router = createBrowserRouter([
         path: "/team-details/:id",
         element: <TeamDetails />,
         loader: async ({ params }) =>
-          fetch(`http://localhost:5000/team-details/${params.id}`),
+          fetch(
+            `http://localhost:5000/team-details/${params.id}`
+          ),
       },
       // {
       //   path: "/exchange",
@@ -207,6 +193,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <VerificationReq></VerificationReq>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/verificationRequest/details",
+        element: (
+          <AdminRoute>
+            <VerificationDetails></VerificationDetails>
           </AdminRoute>
         ),
       },
@@ -261,9 +255,6 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/myAccount",
-        element: <MyAccount />,
-        loader: () => fetch("http://localhost:5000/depositWithdraw"),
         path: "/dashboard/CustomerSupport/admin",
         element: <IndividualSupport />,
       },
