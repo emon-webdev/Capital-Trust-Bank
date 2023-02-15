@@ -41,7 +41,7 @@ const Services = () => {
                 <Stack>
                   <Text fontSize={'16px'} fontWeight="bold">{loan.title}</Text>
                   <Text marginTop={2} gutterBottom fontSize={"16px"} component="div">
-                    {loan.details}
+                    {loan.details.slice(0,200)}
                   </Text>
                   <Link to={`/loans/${loan.title}`}>
                     <button className='my-2 mx-auto flex items-center justify-center primary-btn' >Apply  </button></Link>
