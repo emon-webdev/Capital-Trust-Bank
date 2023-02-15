@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { BsCreditCard2Back } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 import Slider from "react-slick";
-import sliderImg1 from "../../assets/serviceReqImg/features-style2-banner-1.jpg";
-import AuthProvider, { AuthContext } from "../../context/AuthProvider";
+// import sliderImg1 from "../../assets/serviceReqImg/features-style2-banner-1.jpg";
+import { AuthContext } from "../../context/AuthProvider";
 import "./ServiceReqSlider.css";
 const ServiceReqSlider = () => {
-  const { user } = AuthProvider(AuthContext);
+  const { user } = useContext(AuthContext);
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
   const [slidersNav, setSlidersNav] = useState([]);
@@ -81,7 +81,7 @@ const ServiceReqSlider = () => {
     <div>
       {/* Section title here */}
       <div className="pb-16">
-        <div>
+        <div className="slider-wrap">
           <Slider
             asNavFor={nav1}
             ref={(slider2) => setNav2(slider2)}
@@ -111,8 +111,8 @@ const ServiceReqSlider = () => {
                 <div className="single-slider-content">
                   <div className="md:flex items-center justify-between">
                     <div className="flex-1 md:mr-[30px] mb-[30px] md:mb-0">
-                      <div className="slider-content">
-                        <h2 className=" font-semibold text-xl mb-2 text-[#010C3A]">
+                      <div className="slider-content ">
+                        <h2 className=" py-3 font-semibold text-xl mb-2 text-[#010C3A]">
                           {slidersContent?.name}
                         </h2>
                         {slidersContent?.services.map((service, index) => (
@@ -148,7 +148,7 @@ const ServiceReqSlider = () => {
                           </h2>
                         </div>
                         <div className="img-box flex-1">
-                          <img src={sliderImg1} alt="" srcSet="" />
+                          <img src={slidersContent?.picture} alt="" srcSet="" />
                         </div>
                       </div>
                     </div>

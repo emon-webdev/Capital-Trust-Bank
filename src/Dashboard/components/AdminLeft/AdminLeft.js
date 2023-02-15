@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BsFillCreditCardFill } from "react-icons/bs";
 import { FaCommentDollar, FaDonate } from "react-icons/fa";
 import { MdSupervisorAccount } from "react-icons/md";
+import { RiMessage2Fill } from "react-icons/ri";
 import { VscRequestChanges } from "react-icons/vsc";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo/mainlogo.png";
@@ -105,10 +106,15 @@ const AdminLeft = () => {
             className={({ isActive }) =>
               isActive
                 ? "border-l-2 link flex items-center px-[20px] py-[15px]"
-                : "flex px-[20px] link py-[15px]"
+                : "flex px-[20px] items-center link py-[15px]"
             }
           >
+            <span className="text-white">
+              {" "}
+              <RiMessage2Fill />
+            </span>
             <span className="text-white ml-[10px]">Customer Support</span>
+
           </NavLink>
         </div>
       </div>

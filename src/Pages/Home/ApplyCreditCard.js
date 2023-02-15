@@ -1,15 +1,19 @@
 import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalOverlay } from "@chakra-ui/modal";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import creditCardImg from "../../assets/apply-loan/credit-card-img.png";
 import CreditCardModal from "../../component/Modal/CreditCardModal";
+import { AuthContext } from "../../context/AuthProvider";
 
 const ApplyCreditCard = () => {
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
+  const { user } = useContext(AuthContext);
   const [idError, setIdError] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [overlay, setOverlay] = React.useState(<OverlayOne />);
+
   return (
     <div className="credit-card-area py-16">
       <div className="container">
@@ -18,8 +22,11 @@ const ApplyCreditCard = () => {
             <img src={creditCardImg} className="w-full" alt="" srcSet="" />
           </div>
           <div className="credit-card-content dot-shape basis-3/6">
-            <h2 className=" text-3xl md:text-4xl font-semibold">
-              Apply for Credit Card
+            <h3 className="text-[#DF0303] text-xl text-md mb-3">
+              -- Apply for Credit Card --
+            </h3>
+            <h2 className="text-[#010C3A] text-3xl md:text-4xl font-bold mb-3">
+              We provide Credit card for user experience.
             </h2>
             <p className="py-3">
               While you’ll always need some cash, using a credit card for your
@@ -60,15 +67,23 @@ const ApplyCreditCard = () => {
               ""
             )} */}
             <div>
-              <button
-                className="primary-btn mt-5"
-                onClick={() => {
-                  setOverlay(<OverlayOne />);
-                  onOpen();
-                }}
-              >
-                Apply Now
-              </button>
+              {user?.email ? (
+                <button
+                  className="primary-btn mt-5"
+                  onClick={() => {
+                    setOverlay(<OverlayOne />);
+                    onOpen();
+                  }}
+                >
+                  Apply Now
+                </button>
+              ) : (
+                <>
+                  <Link to="/login" className="primary-btn mt-5">
+                    Please Sign In
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

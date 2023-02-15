@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .btnSearch{
     padding: 10px;
     border-radius: 5px;
@@ -6,3 +7,12 @@
     color: white;
     height: 50px;
 }
+=======
+.btnClass {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #010c3a;
+  width: 40px;
+  color: white;
+}
+>>>>>>> d4ae7a63b3dec95cd0106a3785cfb37c740fcc24

@@ -1,18 +1,18 @@
 import {
-  Button,
-  Input,
-  InputGroup,
-  InputRightElement,
-  Stack,
+    Button,
+    Input,
+    InputGroup,
+    InputRightElement,
+    Stack
 } from "@chakra-ui/react";
 import { GoogleAuthProvider } from "@firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaEyeSlash, FaEye } from "react-icons/fa";
 import "../../App.css";
 // import image from "../../assests/SignUp/signup1.jpg";
 import Spinner from "../../component/Spinner/Spinner";
@@ -121,7 +121,7 @@ const Signup = () => {
                   console.log(user);
                   //store customer device info
                   fetch(
-                    `https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`,
+                    `http://localhost:5000/storeDeviceInfo/${user.email}`,
                     {
                       method: "POST",
                       headers: {
@@ -160,7 +160,7 @@ const Signup = () => {
 
       //store customer device info
       fetch(
-        `https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${user.email}`,
+        `http://localhost:5000/storeDeviceInfo/${user.email}`,
         {
           method: "POST",
           headers: {
@@ -258,7 +258,7 @@ const Signup = () => {
                 variant="outlined"
                 // required
                 className="w-full"
-                country={"us"}
+                country={"bd"}
                 // value={phone}
                 {...register("phone")}
                 onChange={(phone) => setPhone(phone)}
