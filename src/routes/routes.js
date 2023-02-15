@@ -265,26 +265,6 @@ const router = createBrowserRouter([
   //     },
   //     {
   //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "/electricitybill",
-  //       element: <Welcome />,
-  //     },
-  //   ]
-  // },
 ]);
 
 export default router;
