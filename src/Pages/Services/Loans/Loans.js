@@ -13,6 +13,7 @@ import { toast } from "react-hot-toast";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import application from "../../../assets/Services(Home)/E-Wallet-amico.png";
 import { AuthContext } from "../../../context/AuthProvider";
+import DynamicBanner from "../../Shared/DynamicBanner/DynamicBanner";
 import { districts } from "../districtData";
 // import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
@@ -69,9 +70,9 @@ const Loans = (props) => {
 
   return (
     <div className="loan-area ">
-      {/* <div className="mb-5">
+      <div className="mb-5">
         <DynamicBanner name={name}></DynamicBanner>
-      </div> */}
+      </div>
       <div className="container  align-center justify-center gap-10 my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {loansData.map((loan) => (
           <Card

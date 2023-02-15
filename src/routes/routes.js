@@ -47,6 +47,7 @@ import FactToKnow from "../Pages/Shared/FactToKnow/FactToKnow";
 import AdminRoute from "../routes/AdminRoute";
 import CustomerRoute from "../routes/CustomerRoute";
 import PrivetRoute from "./PrivateRoute/PrivateRoute";
+import Insurance from "../Pages/Services/Insurance";
 // import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
       {
         path: "/businessinsurance",
         element: <BusinessInsurance />,
+      },
+      {
+        path: "/insurance",
+        element: <Insurance />,
       },
 
       {
@@ -107,22 +112,7 @@ const router = createBrowserRouter([
             `https://capital-trust-bank-server.vercel.app/loans/${params.title}`
           ),
       },
-      {
-        path: "/goldloan",
-        element: <GoldLoan />,
-      },
-      {
-        path: "/educationloan",
-        element: <EducationLoan />,
-      },
-      {
-        path: "/marriageloan",
-        element: <MarriageLoan />,
-      },
-      {
-        path: "/vehicleloan",
-        element: <VehicleLoan />,
-      },
+
       {
         path: "/cards",
         element: <Cards />,
