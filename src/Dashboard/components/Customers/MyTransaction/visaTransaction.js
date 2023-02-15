@@ -28,7 +28,7 @@ export default function VisaTransaction({ info }) {
               fontStyle="italic"
             >
               {/* VI<span className="text-red-800">S</span>A */}
-              <span className="text-red-800">{info.cardType}</span>
+              <span className="text-red-800">{info?.cardType}</span>
             </Text>
             <img
               style={{ height: "30px", weight: "35px" }}
@@ -45,7 +45,7 @@ export default function VisaTransaction({ info }) {
             color="whitesmoke"
           >
             {/* Active Balance */}
-            {info.applierName}
+            {info?.applierName}
           </Text>
           {/* <Text
             fontSize={20}
@@ -66,7 +66,7 @@ export default function VisaTransaction({ info }) {
               marginTop={2}
             >
               {/* {user?.displayName} */}
-              {info.accountId}
+              {info?.accountId}
             </Text>
             {/* <Text
               fontSize={18}

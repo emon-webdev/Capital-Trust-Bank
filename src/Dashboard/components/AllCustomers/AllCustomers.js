@@ -7,6 +7,7 @@ const AllCustomers = () => {
     fetch('http://localhost:5000/allCustomers')
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         setCustomers(data);
       });
   }, []);
@@ -18,9 +19,9 @@ const AllCustomers = () => {
           return (
             <>
               <div className="flex flex-col items-center p-8 transition-colors duration-300 transform bg-white rounded-xl group ">
-                <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={customer.image} alt={customer.name} />
+                <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={customer.img} alt={customer.firstName + " " + customer.lastName} />
 
-                  <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize">{customer.name}</h1>
+                  <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize">{customer.firstName} {customer.lastName}</h1>
 
                   <p className="mt-2 text-gray-500 capitalize">{customer.email}</p>                  
                   <p className="mt-2 text-gray-500 capitalize">{customer.phone}</p>                  
