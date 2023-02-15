@@ -24,6 +24,8 @@ import Contact from "../Pages/Contact/Contact";
 import FaqPage from "../Pages/FaqPage/FaqPage";
 import DonateFail from "../Pages/Funds/DonateFail";
 import DonateSuccess from "../Pages/Funds/DonateSuccess";
+import ApplyForm from "../Pages/Home/ApplyForm";
+import DetailsNews from "../Pages/Home/DetailsNews";
 import Home from "../Pages/Home/Home";
 import TeamDetails from "../Pages/Home/TeamDetails";
 import BusinessInsurance from "../Pages/Insurance/BusinessInsurance";
@@ -35,6 +37,7 @@ import PaymentBills from "../Pages/PaymentBills/PaymentBills";
 import EducationLoan from "../Pages/Services/EducationLoan";
 import GoldLoan from "../Pages/Services/GoldLoan";
 import LoanDetails from "../Pages/Services/Loans/LoanDetails";
+import Loans from "../Pages/Services/Loans/Loans";
 import MarriageLoan from "../Pages/Services/MarriageLoan";
 import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
@@ -77,13 +80,32 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
-        loader: fetch("http://localhost:5000/loanService"),
+      },
+      {
+        path: "/loansServices",
+        element: <Loans />,
+        loader: () => fetch("http://localhost:5000/loanService"),
       },
       {
         path: "/loanDetails/:id",
         element: <LoanDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/loans/${params.title}`),
+          fetch(`http://localhost:5000/loanSec/${params.id}`),
+      },
+      {
+        path: "/blogsNews/:id",
+        element: <DetailsNews></DetailsNews>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/blogsNews/${params.id}`),
+      },
+
+      {
+        path: "/loans/:title",
+        element: <ApplyForm />,
+        loader: ({ params }) =>
+          fetch(
+            `https://capital-trust-bank-server.vercel.app/loans/${params.title}`
+          ),
       },
       {
         path: "/goldloan",
