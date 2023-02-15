@@ -21,6 +21,13 @@ const Team = () => {
     dots: true,
     initialSlide: 0,
     speed: 1000,
+    arrows: false,
+    appendDots: dots => <ul>{dots}</ul>,
+    customPaging: i => (
+      <div className="ft-slick__dots--custom">
+        <div className="loading" />
+      </div>
+    ),
     responsive: [
       {
         breakpoint: 1024,
@@ -63,7 +70,7 @@ const Team = () => {
         <div className="text-center">
           <h5 className="text-center text-red-500">-- Our Team --</h5>
           <h1 className="text-[36px] font-semibold">Team Of Expert Consulted</h1>
-        </div>       
+        </div>
         <Slider {...sliderSettings} className="mt-[60px]">
           {teams.map((team) => (
             <TeamSection key={team._id} team={team} />

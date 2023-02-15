@@ -1,10 +1,12 @@
 import React from "react";
 import Funds from "../Funds/Funds";
 import ApplyCreditCard from "./ApplyCreditCard";
-import Banner from "./Banner";
+// import Banner from "./Banner";
+import Banner2 from "./Banner2";
 import Branding from "./Branding";
 import ContactUs from "./ContactUs";
 import Exchange from "./Exchange";
+import ExchangeDetails from "./ExchangeDetails";
 // import Counter from "./Counter";
 import FeaturedNews from "./FeaturedNews";
 import LoanCalculator from "./LoanCalculator";
@@ -15,7 +17,8 @@ import Team from "./Team";
 const Home = () => {
   return (
     <div>
-      <Banner />
+      {/* <Banner /> */}
+      <Banner2 />
       <Funds />
       <Services />
       {/* <ApplyForm/> */}
@@ -25,7 +28,7 @@ const Home = () => {
       <Branding />
       <FeaturedNews />
       <LoanCalculator />
-      <Exchange />
+      <ExchangeDetails />
       <ContactUs />
     </div>
   );

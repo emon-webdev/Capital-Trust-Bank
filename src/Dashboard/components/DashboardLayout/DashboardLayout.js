@@ -8,7 +8,7 @@ import DashboardNavbar from "./DashboardNavbar.js";
 const DashboardLayout = () => {
   const { openSideNav } = useContext(AuthContext);
   console.log(openSideNav);
-  return (   
+  return (
     <div>
       <div className="bg-[#041C51] py-2">
         <DashboardNavbar />
@@ -23,12 +23,10 @@ const DashboardLayout = () => {
           <LeftContainer></LeftContainer>
         </div>
 
-        <div
-          className='w-[230px] fixed z-10 top-0 side-nave md:hidden lg:block sm:hidden duration-500 overflow-y-auto  bg-[#041C51] shadow h-screen bottom-0'
-        >
+        <div className="w-[230px] fixed z-10 top-0 side-nave md:hidden lg:block sm:hidden duration-500 overflow-y-auto  bg-[#041C51] shadow h-screen bottom-0">
           <LeftContainer></LeftContainer>
         </div>
-        <div className="lg:ml-[230px] w-full h-[1400px] md:ml-0 z-0 bg-[#F3F3FE]">
+        <div className="lg:ml-[230px]  w-full md:ml-0 z-0 pl-10 pt-10 bg-[#F3F3FE]">
           <Outlet></Outlet>
         </div>
       </div>

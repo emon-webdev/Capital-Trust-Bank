@@ -1,19 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AiOutlineClose, AiOutlineMenuFold } from "react-icons/ai";
 import { BiGroup } from "react-icons/bi";
-import { FiSearch } from "react-icons/fi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../context/AuthProvider";
+import SearchBar from "./SearchBar";
 const Navbar = () => {
   const { t } = useTranslation();
   const { logOut, user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [isApply, setIsApply] = useState(false);
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/customer/${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        if(data.role==='admin'){
+          return setIsApply(true)
+        }
+        if (data.isApply) {
+         return setIsApply(true);
+        }
+        setIsApply(false);
+      });
+  }, [user]);
+  
   const handleSignOut = () => {
     //delete customer device info
     fetch(
-      `https://capital-trust-bank-server.vercel.app/deleteDeviceInfo/${user.email}`,
+      `http://localhost:5000/deleteDeviceInfo/${user?.email}`,
       {
         method: "DELETE",
         headers: {
@@ -58,8 +76,8 @@ const Navbar = () => {
         <div className="lg:hidden flex items-center">
           <div className="lg:hidden btn-group flex items-center">
             <div className="btn-group flex items-center">
-              <button className="accent-btn search-btn" type="button">
-                <FiSearch />
+              <button>
+                <SearchBar></SearchBar>
               </button>
               <NavLink
                 to="/accountOpenFrom"
@@ -111,7 +129,7 @@ const Navbar = () => {
               <ul className="submenu">
                 <li>
                   <NavLink to="/paymentbills" className="">
-                    Pay Bils
+                    {t("Pay_bills")}
                   </NavLink>
                 </li>
                 <li>
@@ -242,7 +260,7 @@ const Navbar = () => {
                 {t("contact")}
               </NavLink>
             </li>
-            {user?.email && (
+            {isApply && (
               <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
                 <NavLink
                   to="/dashboard"
@@ -293,8 +311,8 @@ const Navbar = () => {
         ) : (
           <div className="hidden lg:block">
             <div className="btn-group flex items-center">
-              <button className="accent-btn search-btn" type="button">
-                <FiSearch />
+              <button>
+                <SearchBar></SearchBar>
               </button>
               <NavLink
                 to="/accountOpenFrom"

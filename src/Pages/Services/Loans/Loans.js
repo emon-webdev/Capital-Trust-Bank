@@ -1,19 +1,15 @@
 import {
-  Box,
-  Button,
-  Card,
+  Box, Card,
   CardBody,
   FormControl,
   Grid,
   Select,
   Text,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
-import PhoneInput from "react-phone-input-2";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import Slider from "react-slick";
 import application from "../../../assets/Services(Home)/E-Wallet-amico.png";
 import { AuthContext } from "../../../context/AuthProvider";
 import { districts } from "../districtData";

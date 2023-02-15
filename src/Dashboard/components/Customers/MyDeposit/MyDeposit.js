@@ -1,27 +1,27 @@
 import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  FormControl,
-  FormLabel,
-  Input,
-  Text,
-  VStack,
+    Box,
+    Button,
+    Center,
+    Flex,
+    FormControl,
+    FormLabel,
+    Input,
+    Text,
+    VStack
 } from "@chakra-ui/react";
+import {
+    getAuth,
+    RecaptchaVerifier,
+    signInWithPhoneNumber
+} from "firebase/auth";
 import React, { useContext, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import { toast } from "react-hot-toast";
+import { CgSpinner } from "react-icons/cg";
+import OtpInput from "react-otp-input";
+import PhoneInput from "react-phone-input-2";
 import { AuthContext } from "../../../../context/AuthProvider";
 import { DashboardContext } from "../../../../context/UserDashboardProvider";
-import PhoneInput from "react-phone-input-2";
-import { CgSpinner } from "react-icons/cg";
-import {
-  getAuth,
-  RecaptchaVerifier,
-  signInWithPhoneNumber,
-} from "firebase/auth";
-import OtpInput from "react-otp-input";
 
 const auth = getAuth();
 
@@ -62,7 +62,7 @@ const MyDeposit = () => {
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server.vercel.app/depositWithdraw", {
+    fetch("http://localhost:5000/depositWithdraw", {
       method: "POST",
       headers: {
         "content-type": "application/json",

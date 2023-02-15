@@ -11,10 +11,11 @@ import {
   ModalOverlay,
   Select
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
+import { AuthContext } from "../../context/AuthProvider";
 const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
+  const { user } = useContext(AuthContext);
   const [size, setSize] = React.useState("lg");
   const {
     register,
@@ -42,7 +43,7 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
       amount,
     };
     console.log(donate);
-    fetch("http://localhost:5000", {
+    fetch("http://localhost:5000/donate", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -50,9 +51,11 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
       body: JSON.stringify(donate),
     })
       .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        toast.success(`Donate Success`);
+      .then((data) => {
+        console.log(data);
+        window.location.replace(data.url);
+        console.log(window.location.replace(data.url));
+        // toast.success(`Donate Success`);
         // reset();
       });
   };
@@ -68,7 +71,9 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Donate</ModalHeader>
+          <ModalHeader>
+            <h2 className="py-2 text-lg md:text-4xl font-semibold">Donate </h2>
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <div>
@@ -173,11 +178,17 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
                 </div>
                 <div className="my-4">
                   <button
+                    onClick={onClose}
+                    className="accent-btn sm-btn mt-5 mr-3"
+                  >
+                    Cancel
+                  </button>
+                  <button
                     className={`sm-btn mt-5 cursor-pointer`}
                     type="submit"
                     onClick={onClose}
                   >
-                    Pay
+                    Donate
                   </button>
                 </div>
               </form>

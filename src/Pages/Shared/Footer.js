@@ -1,3 +1,5 @@
+import { ChatIcon, EmailIcon, PhoneIcon } from "@chakra-ui/icons";
+import { Input } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo/mainlogo.png";
@@ -5,7 +7,7 @@ import "./Footer.css";
 // import TwitterIcon from "@mui/icons-material/Twitter";
 const Footer = () => {
   return (
-    <div className="bgi-footer">
+    <div className="bgi-footer print:hidden">
       <div className="container pt-20">
         <div
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4
@@ -17,18 +19,18 @@ const Footer = () => {
               <span className=" text-3xl font-bold">CTB</span>
             </div>
             <div className="flex gap-2 ml-4 mt-4">
-              <Link className="social-link-border">
-                {/* <LinkedInIcon id="social-link"></LinkedInIcon> */}
+              <Link className="">
+                <ChatIcon></ChatIcon>
               </Link>
-              <Link className="social-link-facebook-border">
-                {/* <FacebookIcon id="social-link-facebook"></FacebookIcon> */}
+              <Link className="">
+                <EmailIcon></EmailIcon>
               </Link>
-              <Link className="social-link-border">
-                {/* <TwitterIcon id="social-link"></TwitterIcon> */}
+              <Link className="">
+                <PhoneIcon></PhoneIcon>
               </Link>
             </div>
           </div>
-          <div className="flex flex-col gap-3 my-3">
+          <div className="flex flex-col gap-3">
             <h2 className="text-lg my-5 text-white">Company</h2>
             <Link id="footer-link">About</Link>
             <Link id="footer-link">Careers</Link>
@@ -56,12 +58,7 @@ const Footer = () => {
             <div>
               <h2 className="mb-5 text-lg text-white">News Letter</h2>
               <div>
-                <input
-                  type="email"
-                  name="email"
-                  className="custom-input"
-                  placeholder="Enter Your Email address"
-                />
+              <Input variant='flushed' placeholder='Enter your email address' />
               </div>
             </div>
           </div>

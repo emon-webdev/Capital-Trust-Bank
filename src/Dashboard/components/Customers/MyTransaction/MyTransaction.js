@@ -1,27 +1,22 @@
 import {
   Button,
   Table,
-  TableCaption,
   TableContainer,
   Tbody,
   Td,
-  Tfoot,
   Th,
   Thead,
-  Tr,
+  Tr
 } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../../context/AuthProvider";
-import VisaTransaction from "../MyTransaction/VisaTransaction";
+import VisaTransaction from "./VisaTransaction";
 
 export default function MyTransaction() {
   const { user } = useContext(AuthContext);
   const [transacData, setTransacData] = useState([]);
   useEffect(() => {
-    fetch(
-      `https://capital-trust-bank-server.vercel.app/depositWithdraw/${user?.email}`
-    )
+    fetch(`http://localhost:5000/depositWithdraw/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setTransacData(data));
   }, []);

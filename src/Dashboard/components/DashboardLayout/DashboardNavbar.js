@@ -1,26 +1,25 @@
 import {
-  MdClear,
-  MdMailOutline,
-  MdNotificationsNone,
-  MdOutlineFilterCenterFocus,
-} from "react-icons/md";
-import { FaBars } from "react-icons/fa";
-import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import logo from "../../../assets/logo/mainlogo.png";
-import { AuthContext } from "../../../context/AuthProvider";
-import {
-  Avatar,
-  Badge,
-  Button,
-  Hide,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuGroup,
-  MenuItem,
-  MenuList,
+    Avatar,
+    Badge,
+    Button,
+    Hide,
+    IconButton,
+    Menu,
+    MenuButton,
+    MenuGroup,
+    MenuItem,
+    MenuList
 } from "@chakra-ui/react";
+import React, { useContext } from "react";
+import { FaBars } from "react-icons/fa";
+import {
+    MdClear,
+    MdMailOutline,
+    MdNotificationsNone,
+    MdOutlineFilterCenterFocus
+} from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const DashboardNavbar = () => {
   const { user, logOut, openSideNav, handleSideNave } = useContext(AuthContext);
@@ -28,7 +27,7 @@ const DashboardNavbar = () => {
   const handleSignOut = () => {
     //delete customer device info
     fetch(
-      `https://capital-trust-bank-server.vercel.app/deleteDeviceInfo/${user.email}`,
+      `http://localhost:5000/deleteDeviceInfo/${user.email}`,
       {
         method: "DELETE",
         headers: {
@@ -53,7 +52,7 @@ const DashboardNavbar = () => {
       <div className="flex items-center justify-between h-[50px]">
         <div className="text-white">
           <div className="text-white w-[70%] flex items-center justify-center py-[10px]">
-            <Link
+            {/* <Link
               className="navbar-brand font-bold text-2xl flex items-center"
               to="/"
             >
@@ -61,7 +60,7 @@ const DashboardNavbar = () => {
               <span className="font-bold text-[32px] ml-1 text-[#fff]">
                 C<span className=" text-[#DF0303]">T</span>B
               </span>
-            </Link>
+            </Link> */}
           </div>
         </div>
 

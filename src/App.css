@@ -69,8 +69,18 @@ ul.navbar__nav > li:last-child {
   margin-right: 0;
 }
 
-.customer-info p {
+/* .customer-info p {
   color: #fff !important;
+} */
+.accept {
+  background: #010c3a !important;
+}
+.accept:hover {
+  background: #df0303 !important;
+}
+
+.heading {
+  font-size: 22px !important;
 }
 
 ul.submenu {
@@ -325,10 +335,11 @@ input::-webkit-inner-spin-button {
   background-image: url(./cardBg.png);
   width: 100%;
   cursor: pointer;
+  z-index: 0;
 }
 
 .cardImg-field::before {
-  content: "Browser File";
+  /* content: "Browser File";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -337,7 +348,7 @@ input::-webkit-inner-spin-button {
   background-color: #f6f6fc;
   color: "#333";
   z-index: 999;
-  opacity: 999;
+  opacity: 999; */
   /* border-radius: 10px; */
 }
 
@@ -348,12 +359,6 @@ input::-webkit-inner-spin-button {
 
 input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   height: 100px;
-}
-
-.from-area input[type="file"] {
-  color: transparent;
-  background-color: #fff;
-  border: 1px solid #e3ddd7;
 }
 
 .from-group .chakra-select__icon-wrapper.css-iohxn1 {
@@ -485,6 +490,153 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   }
 }
 
+/* ----------banner -------------- */
+.banner2 {
+  color: white !important;
+}
+/* .slick-slide > div {
+  margin: 0 !important;
+} */
+.slide-wrapper .slick-slide > div {
+  margin: 0px !important;
+}
+
+.slick-dots .slick-active .ft-slick__dots--custom {
+  top: -11px !important;
+}
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: -10px;
+
+  display: block;
+
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+
+  text-align: center;
+}
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+  transition: width 0.3s ease-in-out;
+}
+.slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+
+  display: block;
+
+  width: 10px;
+  height: 10px;
+  padding: 5px;
+
+  cursor: pointer;
+
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+  outline: none;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+  opacity: 1;
+}
+.slick-dots li button:before {
+  font-family: "slick";
+  font-size: 6px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  content: "•";
+  text-align: center;
+  opacity: 0.25;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li.slick-active button:before {
+  opacity: 0.75;
+  color: black;
+}
+
+/* Custom Slick Dots */
+
+@keyframes loading {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.ft-slick__dots--custom {
+  height: 8px;
+  width: 14px;
+  background-color: #e5e7e9;
+  border-radius: 4px;
+  position: relative;
+}
+.slick-dots .slick-active .ft-slick__dots--custom {
+  background: #cf173c;
+}
+ul.slick-dots.bannner {
+  bottom: 0 !important;
+}
+.slick-dots {
+  bottom: -50px !important;
+}
+.slick-dots li {
+  width: 14px;
+  margin: 0 2px;
+  transition: width 0.3s ease-in-out;
+}
+
+.slick-dots .slick-active {
+  width: 56px;
+  transition: width 0.3s ease-in-out;
+}
+
+.slick-dots .slick-active .ft-slick__dots--custom {
+  width: 56px;
+  top: 0px;
+  overflow: hidden;
+}
+/* .loading {
+  height: 8px;
+  animation: loading 5s ease-in;
+  background-image: linear-gradient(270deg, #4fd15a, #03ac0e);
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+} */
+/* ---------- banner -------------- */
+/* --------- chat --------  */
+.chat-avatar {
+  align-items: center !important;
+}
 .link:hover {
   background: #cf173c;
   transition: 0.4s;

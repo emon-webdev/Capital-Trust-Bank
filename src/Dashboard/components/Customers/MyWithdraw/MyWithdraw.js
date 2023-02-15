@@ -1,11 +1,11 @@
 import {
-  Button,
-  Flex,
-  FormControl,
-  FormLabel,
-  Input,
-  Text,
-  VStack,
+    Button,
+    Flex,
+    FormControl,
+    FormLabel,
+    Input,
+    Text,
+    VStack
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import ReactDatePicker from "react-datepicker";
@@ -42,7 +42,7 @@ const MyWithdraw = () => {
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server.vercel.app/depositWithdraw", {
+    fetch("http://localhost:5000/depositWithdraw", {
       method: "POST",
       headers: {
         "content-type": "application/json",
