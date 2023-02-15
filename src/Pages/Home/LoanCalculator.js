@@ -116,12 +116,6 @@ class LoanCalculator extends React.Component {
 
               <div className="card-second">
                 <div className="first-portion">
-                  {/* <button
-                    className="sm-btn secondary-btn"
-                    onClick={this.Eligbilitysumbit}
-                  >
-                    Calculate
-                  </button> */}
                   <h1 className="text-2xl font-medium">
                     Total Amount={output}
                   </h1>
@@ -139,21 +133,12 @@ class LoanCalculator extends React.Component {
                 </div>
                 <div className="second-portion">
                   <div>
-                    {/* <h1 className="text-2xl font-medium">
-                      Total Amount={output}
-                    </h1> */}
-                    <button
-                      className="sm-btn secondary-btn"
-                      onClick={this.Eligbilitysumbit}
-                    >
+                    <button className="sm-btn" onClick={this.Eligbilitysumbit}>
                       Calculate
                     </button>
                   </div>
                   <div className="mt-2">
-                    <Link
-                      to="/accountOpenFrom"
-                      className="sm-btn secondary-btn"
-                    >
+                    <Link to="/accountOpenFrom" className="sm-btn">
                       Apply
                     </Link>
                   </div>
