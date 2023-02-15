@@ -117,7 +117,7 @@ class LoanCalculator extends React.Component {
               <div className="card-second">
                 <div className="first-portion">
                   <button
-                    className="secondary-btn"
+                    className="sm-btn secondary-btn"
                     onClick={this.Eligbilitysumbit}
                   >
                     Calculate
@@ -141,7 +141,10 @@ class LoanCalculator extends React.Component {
                     </h1>
                   </div>
                   <div className="mt-2">
-                    <Link to="/accountOpenFrom" className="secondary-btn">
+                    <Link
+                      to="/accountOpenFrom"
+                      className="sm-btn secondary-btn"
+                    >
                       Apply
                     </Link>
                   </div>

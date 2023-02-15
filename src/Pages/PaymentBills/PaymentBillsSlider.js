@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import "../../App.css";
-import { Card, CardBody, Text } from "@chakra-ui/react";
+import { Card, CardBody } from "@chakra-ui/react";
 import {
   FaGasPump,
   FaHandHoldingWater,
@@ -106,21 +106,15 @@ const PaymentBillsSlider = () => {
             <Card
               key={bill.id}
               style={{ width: "100%", height: "auto" }}
-              className="hover:bg-[#041C51]  hover:text-[#fff] hover:animate-animated hover:animate-pulse"
+              className="hover:bg-[#010C3A]  hover:text-[#fff] hover:animate-animated hover:animate-pulse"
             >
               <CardBody className="flex flex-col align-center justify-center hover:text-white">
                 <div className="w-100  text-4xl flex align-center justify-center my-3">
                   <bill.icon />
                 </div>
-                <Text
-                  fontWeight={700}
-                  color="#DF0303"
-                  marginY={2}
-                  fontSize={24}
-                  textAlign="center"
-                >
+                <div className="text-md text-center text-2xl font-bold my-2">
                   {bill.title}
-                </Text>
+                </div>
                 <div className="text-md text-center">{bill.details}</div>
               </CardBody>
             </Card>
