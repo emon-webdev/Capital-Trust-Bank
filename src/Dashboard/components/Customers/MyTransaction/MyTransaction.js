@@ -25,9 +25,9 @@ export default function MyTransaction() {
 
   return (
     <div className=" container  gap-5 flex-col md:flex-row lg:flex-row align-items-center justify-content-center">
-      <div className="mt-10">
+      {/* <div className="mt-10">
         <VisaTransaction></VisaTransaction>
-      </div>
+      </div> */}
       <div className="">
         <TableContainer
           borderRadius={10}
