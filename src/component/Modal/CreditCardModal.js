@@ -18,35 +18,35 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
     handleSubmit,
     reset,
   } = useForm();
-  const [applierEmail, setApplierEmail] = useState([]);
+  const [applierEmail, setApplierEmail] = useState({});
   const [disable, setDisable] = useState(false);
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/bankAccounts?email=${user?.email}`
+      `http://localhost:5000/bankAccounts/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
-        setApplierEmail(data[0]);
+        setApplierEmail(data);
       });
   }, []);
-  console.log(applierEmail);
+  
   // apply for credit card
   const handleApply = (data) => {
     // event.preventDefault();
+    console.log(data)
     const applierName = user?.displayName;
     const applierPhnNumber = data.applierPhnNumber;
     const accountId = data.accountId;
     const cardType = data.cardType;
-    if (applierEmail?.accountId === accountId) {
+    if (applierEmail.accountId === accountId) {
       const applierInfo = {
         applierName,
         applierPhnNumber,
         accountId,
         cardType,
       };
-      console.log(applierInfo, applierEmail?._id);
       fetch(`http://localhost:5000/cardAppliers`, {
         method: "POST",
         headers: {

@@ -5,6 +5,7 @@ import MyAccount from "../Dashboard/components/Customers/MyAccount/MyAccount";
 import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
 import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
 import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
+import TakeCard from "../Dashboard/components/Customers/TakeCard/TakeCard";
 import CustomerSupport from "../Dashboard/components/CustomerSupport/CustomerSupport";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
@@ -264,6 +265,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myAccount",
         element: <MyAccount />,
+      },
+      {
+        path: "/dashboard/takeCard",
+        element: <TakeCard />,
       },
     ],
   },

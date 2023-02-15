@@ -5,6 +5,7 @@ import { BsChatDots } from 'react-icons/bs';
 import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
 import { MdAttachMoney, MdOutlineImportantDevices } from 'react-icons/md';
 import { RiAccountCircleLine } from 'react-icons/ri';
+import { AiOutlineIdcard } from 'react-icons/ai';
 import { Link, NavLink } from 'react-router-dom';
 import '../../../App.css';
 import logo from '../../../assets/logo/mainlogo.png';
@@ -137,6 +138,21 @@ const CustomerLeft = () => {
             <BsChatDots />
           </span>
           <span className="text-white ml-[10px]">Customer Support</span>            
+        </NavLink>
+
+        <NavLink
+          to="/dashboard/takeCard"            
+          className={({ isActive }) =>
+            isActive
+              ? "border-l-2 link flex items-center px-[20px] py-[15px]"
+              : "flex px-[20px] link py-[15px]"
+          }
+        >
+          <span>
+            {/* {" "} */}
+            <AiOutlineIdcard />
+          </span>
+          <span className="text-white ml-[10px]">Take Card</span>            
         </NavLink>
 
         {/* -------Sub Menu ----------- */}

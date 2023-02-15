@@ -1,18 +1,54 @@
 import { Table, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import '../../../App.css';
 
 const CreditCardReq = () => {
       const [customers, setCustomers] = useState([]);
+      const [reFetch, setReFetch] = useState(false);
       useEffect(() => {
         fetch(`http://localhost:5000/cardReq`)
           .then((res) => res.json())
           .then((data) => {
             setCustomers(data);
           });
-      }, []);
-      console.log('card req ', customers)
+      }, [reFetch]);
+      const handleAccept = (data) => {
+       
+        fetch(`http://localhost:5000/acceptCardReq`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then(data => {
+                toast.success("Card request accept");
+                setReFetch(!reFetch);
+            })
+      }
+
+      const handleDelete = (data) => {
+        const info = {
+            id: data.accountId
+        }
+        console.log(data)
+        fetch(`http://localhost:5000/deleteCardReq`, {
+            method: "DELETE",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(info),
+          })
+            .then((res) => res.json())
+            .then(data => {
+                console.log(data)
+                toast.success("Card Request cancel");
+                setReFetch(!reFetch)
+            })
+      }
     return (
       <div className='my-2'>
         <h2 className="text-center heading">
@@ -61,8 +97,8 @@ const CreditCardReq = () => {
                     <Td>{customer?.accountId}</Td>
                     <Td>{customer?.cardType}</Td>
                     <Td>
-                    <button class="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a] m-1">Accept</button>
-                    <button class="text-md sm-btn primary-btn exchange-btn bg-[#df0303]">Cancel</button>
+                    <button class="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a] m-1" onClick={()=> handleAccept(customer)}>Accept</button>
+                    <button class="text-md sm-btn primary-btn exchange-btn bg-[#df0303]" onClick={()=>handleDelete(customer)}>Cancel</button>
                     </Td>
                   </Tr>
                 ))}
