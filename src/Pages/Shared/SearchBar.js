@@ -1,24 +1,34 @@
-import React, { useState } from "react";
+import {
+  Input,
+  Menu,
+  MenuButton,
+  MenuGroup,
+  MenuItem,
+  MenuList,
+} from "@chakra-ui/react";
+import React from "react";
 import { BsSearch } from "react-icons/bs";
 import "./SearchBar.css";
 
 const SearchBar = () => {
-  const [active, setActive] = useState(false);
   return (
     <div className="container">
       <div className="searchbar">
-        <input
-          type="text"
-          className={active ? "input active" : "input"}
-          placeholder="Search"
-        />
-        <button
-          className="btn"
-          onClick={() => setActive(!active)}
-          type="submit"
-        >
-          <BsSearch></BsSearch>
-        </button>
+        <Menu>
+          <MenuButton className="btnClass">
+            <BsSearch></BsSearch>
+          </MenuButton>
+          <MenuList>
+            <MenuGroup>
+              <MenuItem className="btnClass">
+                <Input type="text" placeholder="Search" />
+                <div className="btnClass">
+                  <BsSearch></BsSearch>
+                </div>
+              </MenuItem>
+            </MenuGroup>
+          </MenuList>
+        </Menu>
       </div>
     </div>
   );
