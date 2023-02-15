@@ -1,34 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
-import { toast } from "react-hot-toast";
+import React, { useEffect, useState } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { BsCreditCard2Back } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 import Slider from "react-slick";
-// import sliderImg1 from "../../assets/serviceReqImg/features-style2-banner-1.jpg";
-import { AuthContext } from "../../context/AuthProvider";
 import "./ServiceReqSlider.css";
 const ServiceReqSlider = () => {
-  const { user } = useContext(AuthContext);
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
   const [slidersNav, setSlidersNav] = useState([]);
   const [slidersContents, setSlidersContents] = useState([]);
-  /* Modal action */
-  const [show, setShow] = useState(true);
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-  };
+
   /* slider data fetch */
   useEffect(() => {
     fetch("sliders.json")
@@ -38,12 +19,6 @@ const ServiceReqSlider = () => {
         setSlidersContents(data[0].sliderContent);
       });
   }, []);
-
-  const handleServiceSubmit = (event) => {
-    event.preventDefault();
-    console.log("hello from");
-    toast.success("Emergency Service Requests  Done");
-  };
 
   let settings = {
     infinite: true,
@@ -72,10 +47,6 @@ const ServiceReqSlider = () => {
         },
       },
     ],
-  };
-  /* submit from for service req */
-  const handleSubmit = (event) => {
-    event.preventDefault();
   };
   return (
     <div>

@@ -49,22 +49,20 @@ const PaymentBillsModal = ({
     };
     console.log(paymentInfo);
 
-    // fetch(`http://localhost:5000/pay-bills`, {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(paymentInfo),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.acknowledged) {
-    //       console.log(data);
-    //       toast.success("Your Payment is Successfully Done!");
-    //       // reset();
-    //     }
-    //   })
-    //   .then((error) => console.error(error));
+    fetch("http://localhost:5000/pay-bills", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(paymentInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        window.location.replace(data.url);
+        console.log(window.location.replace(data.url));
+        // toast.success(`Donate Success`);
+        // reset();
+      });
   };
   const [size, setSize] = React.useState("lg");
   return (

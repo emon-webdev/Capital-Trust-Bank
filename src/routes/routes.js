@@ -33,7 +33,9 @@ import HealthInsurance from "../Pages/Insurance/HealthInsurance";
 import TravelInsurance from "../Pages/Insurance/TravelInsurance";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Login/Signup";
+import PayFail from "../Pages/PaymentBills/PayFail";
 import PaymentBills from "../Pages/PaymentBills/PaymentBills";
+import PaySuccess from "../Pages/PaymentBills/PaySuccess";
 import EducationLoan from "../Pages/Services/EducationLoan";
 import GoldLoan from "../Pages/Services/GoldLoan";
 import LoanDetails from "../Pages/Services/Loans/LoanDetails";
@@ -160,9 +162,18 @@ const router = createBrowserRouter([
         path: "/donate/fail",
         element: <DonateFail />,
       },
+
       {
         path: "/paymentbills",
         element: <PaymentBills />,
+      },
+      {
+        path: "/pay-bills/success",
+        element: <PaySuccess />,
+      },
+      {
+        path: "/pay-bills/fail",
+        element: <PayFail />,
       },
       {
         path: "/login",

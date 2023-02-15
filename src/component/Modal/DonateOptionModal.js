@@ -9,13 +9,12 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  Select
+  Select,
 } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../context/AuthProvider";
-const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
-  const { user } = useContext(AuthContext);
+const DonateOptionModal = ({ onClose, isOpen }) => {
   const [size, setSize] = React.useState("lg");
   const {
     register,
@@ -52,7 +51,6 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         window.location.replace(data.url);
         console.log(window.location.replace(data.url));
         // toast.success(`Donate Success`);
