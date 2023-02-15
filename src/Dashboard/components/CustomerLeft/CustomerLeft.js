@@ -10,7 +10,7 @@ import { Link, NavLink } from 'react-router-dom';
 import '../../../App.css';
 import logo from '../../../assets/logo/mainlogo.png';
 import { AuthContext } from '../../../context/AuthProvider';
-
+import { RiMessage2Fill } from "react-icons/ri";
 
 const CustomerLeft = () => {
   const [approve, setApprove] = useState(false);
@@ -133,10 +133,10 @@ const CustomerLeft = () => {
               : "flex px-[20px] link py-[15px]"
           }
         >
-          <span>
-            {/* {" "} */}
-            <BsChatDots />
-          </span>
+          <span className="text-white">
+              {" "}
+              <RiMessage2Fill />
+            </span>
           <span className="text-white ml-[10px]">Customer Support</span>            
         </NavLink>
 

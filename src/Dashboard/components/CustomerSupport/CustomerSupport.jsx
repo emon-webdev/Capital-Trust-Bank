@@ -18,7 +18,6 @@ const CustomerSupport = () => {
         role === "admin" ? setChatsInfo(data) : setAdminInfo(data);
       });
   }, []);
-  console.log(chatsInfo)
   return (
     <>
     <div>

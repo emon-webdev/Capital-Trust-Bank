@@ -5,6 +5,8 @@ import { MdSupervisorAccount } from "react-icons/md";
 import { VscRequestChanges } from "react-icons/vsc";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo/mainlogo.png";
+import { RiMessage2Fill } from "react-icons/ri";
+
 const AdminLeft = () => {
   const [subMenu, setSubMenu] = useState(false);
   return (
@@ -108,6 +110,10 @@ const AdminLeft = () => {
                 : "flex px-[20px] link py-[15px]"
             }
           >
+            <span className="text-white">
+              {" "}
+              <RiMessage2Fill />
+            </span>
             <span className="text-white ml-[10px]">Customer Support</span>
           </NavLink>
         </div>
