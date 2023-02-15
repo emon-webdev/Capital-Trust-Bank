@@ -3,6 +3,7 @@ import { Image } from '@chakra-ui/image';
 import { Stack, Text } from '@chakra-ui/layout';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../../App.css'
 
 
 const Services = () => {
@@ -24,10 +25,13 @@ const Services = () => {
             We provide best services for your loans
           </h1>
         </div>
-        <div className="pt-7 align-content-center justify-items-center mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          className="pt-7 align-content-center overflow-hidden justify-items-center mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {
             loans.map(loan => (
-              <Card sx={{ maxWidth: 724, maxHeight: 536, marginBottom: "30px", borderRadius: "6px" }}>
+              <Card
+                className='service-container overflow-hidden'
+                sx={{ maxWidth: 724, maxHeight: 536, marginBottom: "30px", borderRadius: "6px" }}>
                 <Image
                   component="img"
                   borderTopRightRadius="6px"
@@ -37,6 +41,7 @@ const Services = () => {
                   src={loan?.img}
                   alt="green iguana"
                   position="relative"
+                  className='service-image'
                 />
                 <CardBody>
                   <Stack className='flex flex-col justify-between'>
