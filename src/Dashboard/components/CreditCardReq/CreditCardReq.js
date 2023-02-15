@@ -1,43 +1,111 @@
+import { Table, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import '../../../App.css';
 
 const CreditCardReq = () => {
       const [customers, setCustomers] = useState([]);
+      const [reFetch, setReFetch] = useState(false);
       useEffect(() => {
         fetch(`http://localhost:5000/cardReq`)
           .then((res) => res.json())
           .then((data) => {
             setCustomers(data);
           });
-      }, []);
-      console.log('card req ', customers)
+      }, [reFetch]);
+      const handleAccept = (data) => {
+       
+        fetch(`http://localhost:5000/acceptCardReq`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then(data => {
+                toast.success("Card request accept");
+                setReFetch(!reFetch);
+            })
+      }
+
+      const handleDelete = (data) => {
+        const info = {
+            id: data.accountId
+        }
+        console.log(data)
+        fetch(`http://localhost:5000/deleteCardReq`, {
+            method: "DELETE",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(info),
+          })
+            .then((res) => res.json())
+            .then(data => {
+                console.log(data)
+                toast.success("Card Request cancel");
+                setReFetch(!reFetch)
+            })
+      }
     return (
       <div className='my-2'>
         <h2 className="text-center heading">
           Total Card Request:{customers.length}
         </h2>
-      <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1'>
-      {customers.map((customer) => {
-          return (
-            <div key={customer._id}>
-              <div className=" mx-auto my-2 gap-4 py-5 px-5 rounded-xl h-fit bg-white">
-                <div className="info flex flex-col overflow-auto">
-                  <span className='py-2 text-xl'>Name: {customer.applierName}</span>
-                  <span className='text-lg'>id:  {customer.accountId}</span>
-                  <div className="flex gap-3 mt-3 p-3">
-                    <button className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]">
-                      Accept
-                    </button>
-                    <button className="text-md sm-btn primary-btn exchange-btn bg-[#df0303]">
-                      Cancel
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+        <div className="w-full">
+          <TableContainer
+            borderRadius={6}
+            style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+            backgroundColor="white"
+            marginY={10}
+            // marginLeft={20}
+            height={500}
+            overflowY="scroll"
+            overflowX="scroll"
+          >
+            <Table variant="simple">
+              <Thead>
+                <Tr>
+                <Th color="#041C51" fontSize={16}>
+                    List
+                  </Th>
+                  <Th color="#041C51" fontSize={16}>
+                    Name
+                  </Th>
+                  <Th color="#041C51" fontSize={16}>
+                    Phone
+                  </Th>
+                  <Th color="#041C51" fontSize={16}>
+                  Id
+                  </Th>
+                  <Th color="#041C51" fontSize={16}>
+                  Card Type
+                  </Th>
+                  <Th color="#041C51" fontSize={16}>
+                  Action
+                  </Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {customers?.map((customer, index) => (
+                  <Tr key={customer?._id}>
+                    <Td>{index + 1}</Td>
+                    <Td>{customer.applierName}</Td>
+                    <Td>{customer.applierPhnNumber}</Td>
+                    <Td>{customer?.accountId}</Td>
+                    <Td>{customer?.cardType}</Td>
+                    <Td>
+                    <button class="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a] m-1" onClick={()=> handleAccept(customer)}>Accept</button>
+                    <button class="text-md sm-btn primary-btn exchange-btn bg-[#df0303]" onClick={()=>handleDelete(customer)}>Cancel</button>
+                    </Td>
+                  </Tr>
+                ))}
+              </Tbody>
+            </Table>
+          </TableContainer>
+        </div>
       </div>
     );
 };
