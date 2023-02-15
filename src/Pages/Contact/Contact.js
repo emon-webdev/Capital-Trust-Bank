@@ -6,8 +6,6 @@ import {
   CardBody,
   SimpleGrid,
   Text,
-  FormControl,
-  FormLabel,
   Input,
   Textarea,
 } from "@chakra-ui/react";
@@ -16,7 +14,6 @@ import phone from "../.././assets/contact/Phone.png";
 import mail from "../.././assets/contact/Mail.png";
 import address from "../.././assets/contact/Address.png";
 import arrow from "../.././assets/contact/ArrowUpRight.png";
-import { redirect, Form, Link } from "react-router-dom";
 
 const Contact = () => {
   const [name, setName] = useState("Contact");
@@ -80,39 +77,48 @@ const Contact = () => {
             Send Us A Message
           </h1>
           <div className="my-16">
-            <Form method="post" action="/">
+            <form
+              className="w-9/12 mx-auto p-5 rounded"
+              action="https://formspree.io/f/xrgvbwoq"
+              method="POST"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-5">
-                <FormControl isRequired>
-                  <FormLabel>First name</FormLabel>
-                  <Input placeholder="First name" name="firstName" />
-                </FormControl>
-
-                <FormControl isRequired>
-                  <FormLabel>Last name</FormLabel>
-                  <Input placeholder="Last name" name="lastName" />
-                </FormControl>
-
-                <FormControl isRequired>
-                  <FormLabel>Email</FormLabel>
-                  <Input type="email" placeholder="Email" name="email" />
-                </FormControl>
-
-                <FormControl isRequired>
-                  <FormLabel>Address</FormLabel>
-                  <Input placeholder="Address" name="address" />
-                </FormControl>
+                <Input
+                  placeholder="First Name"
+                  name="name"
+                  type="text"
+                  size="lg"
+                />
+                <Input
+                  placeholder="Last Name"
+                  name="name"
+                  type="text"
+                  size="lg"
+                />
+                <Input
+                  placeholder="Your Email"
+                  name="email"
+                  type="email"
+                  size="lg"
+                />
+                <Input
+                  placeholder="Address"
+                  name="name"
+                  type="text"
+                  size="lg"
+                />
               </div>
-              <FormControl isRequired>
-                <FormLabel>Message</FormLabel>
-                <Textarea placeholder="Write Your Message" name="message" />
-              </FormControl>
-
+              <div className="mt-5">
+                <Textarea placeholder="Write Your Message" />
+              </div>
               <div className="mt-5 text-center">
-                <Link type="submit" to="/" className="secondary-btn ml-10 mt-5">
-                  Send A Message <img src={arrow} alt="" />
-                </Link>
+                <button className="custom-btn">
+                  <div className="flex">
+                    Send Message <img src={arrow} alt="" />
+                  </div>
+                </button>
               </div>
-            </Form>
+            </form>
           </div>
           {/* Send Us A Message End */}
         </div>
@@ -135,19 +141,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-export const createAction = async ({ request }) => {
-  const data = await request.formdata();
-
-  const task = {
-    firstName: data.get("firstName"),
-    lastName: data.get("lastName"),
-    email: data.get("email"),
-    address: data.get("address"),
-    message: data.get("message"),
-  };
-
-  console.log(task);
-
-  return redirect("/");
-};

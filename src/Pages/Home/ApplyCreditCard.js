@@ -19,13 +19,13 @@ const ApplyCreditCard = () => {
       <div className="container">
         <div className="credit-card-wrap flex column-reverse md:flex-row justify-between items-center">
           <div
-            data-aos="fade-right"
+            // data-aos="fade-right"
             className="credit-card-img mb-[32px] md:mb-0 md:mr-12"
           >
             <img src={creditCardImg} className="w-full" alt="" srcSet="" />
           </div>
           <div
-            data-aos="fade-left"
+            // data-aos="fade-left"
             className="credit-card-content dot-shape basis-3/6"
           >
             <h3 className="text-[#DF0303] text-xl text-md mb-3">

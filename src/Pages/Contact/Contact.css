@@ -5,3 +5,12 @@
 .CardContent {
   background-color: #0061fe;
 }
+.custom-btn{
+  padding: 16px 24px;
+  gap: 10px;
+  width: 197px;
+  height: 56px;
+  background: #DF0303;
+  border-radius: 4px;
+  color: white;
+  }
