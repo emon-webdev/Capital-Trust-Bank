@@ -31,7 +31,7 @@ const PaymentBillsSlider = () => {
       id: 2,
       title: "Gas",
       details:
-        "You will not have to deal with any more hassle to pay utility, internet and other type of bills.",
+        "You will not have to deal with any more hassle to pay utility, internet and other type of bills.You can easily pay any bills on time without any stress.",
       icon: FaGasPump,
     },
     {
@@ -52,7 +52,7 @@ const PaymentBillsSlider = () => {
       id: 5,
       title: "Credit Card",
       details:
-        "You will not have to deal with any more hassle to pay utility, internet and other type of bills.",
+        "You will not have to deal with any more hassle to pay utility, internet and other type of bills.You can easily pay any bills on time without any stress.",
       icon: FaRegCreditCard,
     },
   ];
