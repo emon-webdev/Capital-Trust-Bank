@@ -17,42 +17,42 @@ const PaymentBillsSlider = () => {
       id: 0,
       title: "Electricity",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+        "PayBills caters to simplifying all aspects of life in a smooth transition.PayBills facilitiates paying bills of all kinds.",
       icon: FcElectricity,
     },
     {
       id: 1,
       title: "Water",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+        "Paying bills can be quite a hassle when life gets busy, especially when we have more than one kind of bill to pay.",
       icon: FaHandHoldingWater,
     },
     {
       id: 2,
       title: "Gas",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+        "You will not have to deal with any more hassle to pay utility, internet and other type of bills.",
       icon: FaGasPump,
     },
     {
-      id: 4,
+      id: 3,
       title: "Internet",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+        "PayBills caters to simplifying all aspects of life in a smooth transition.PayBills facilitiates paying bills of all kinds.",
       icon: FaInternetExplorer,
     },
     {
-      id: 5,
+      id: 4,
       title: "Television",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+        "Paying bills can be quite a hassle when life gets busy, especially when we have more than one kind of bill to pay.",
       icon: FiMonitor,
     },
     {
-      id: 6,
+      id: 5,
       title: "Credit Card",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+        "You will not have to deal with any more hassle to pay utility, internet and other type of bills.",
       icon: FaRegCreditCard,
     },
   ];
