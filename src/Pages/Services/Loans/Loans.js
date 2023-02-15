@@ -1,11 +1,12 @@
 import {
-  Box, Card,
+  Box,
+  Card,
   CardBody,
   FormControl,
   Grid,
   Select,
   Text,
-  VStack
+  VStack,
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -71,13 +72,13 @@ const Loans = (props) => {
       {/* <div className="mb-5">
         <DynamicBanner name={name}></DynamicBanner>
       </div> */}
-      <div className="container  align-center justify-center gap-10 my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+      <div className="container  align-center justify-center gap-10 my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {loansData.map((loan) => (
           <Card
-            shadow="lg"
+            shadow="2xl"
             key={loan.id}
             style={{ width: "100%", height: "auto" }}
-            className="hover:bg-[#041C51]  hover:text-[#fff] "
+            className="hover:bg-gradient-to-r from-blue-500 to-blue-900  hover:text-[#fff] hover:translate-y-4"
           >
             <CardBody className="flex flex-col align-center justify-center hover:text-white">
               <div className="w-100  text-4xl flex align-center justify-center my-3"></div>
