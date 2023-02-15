@@ -16,7 +16,7 @@ const Banner2Slide = ({ data }) => {
                 width: '100%',
             }}
         >
-            <div className='container flex items-center h-[80vh]'>
+            <div className='container flex items-center h-[683px]'>
                 <div className='max-w-[500px] py-7'>
                     <div>
                         <h1 className='banner2 font-semibold'>{title}</h1>

@@ -78,7 +78,7 @@ h6 {
   line-height: 40px;
   padding: 0 14px;
   font-size: 14px;
-  width: 106px;
+  min-width: 106px;
   margin-top: 7px;
   justify-content: center;
 }

@@ -160,7 +160,9 @@ ul.submenu li:hover a {
 .accent-btn:hover {
   background: #df0303;
 }
-
+.services-area a.sm-btn {
+  width: 106px;
+}
 .accent-btn.search-btn {
   font-size: 20px;
   padding: 0 15px;
@@ -285,7 +287,7 @@ ul.submenu li:hover a {
   right: -54%;
   top: 0;
   height: 100%;
-  background: red;
+  background: #df0303;
   z-index: -1;
   position: absolute;
   clip-path: polygon(50px 0, 100% 0%, 100% 100%, 0% 100%);
@@ -438,6 +440,10 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 @media screen and (max-width: 768px) {
   .right-side {
     width: 100% !important;
+    margin-top: 75px !important;
+  }
+  .left-side .font-semibold {
+    font-size: 50px !important;
   }
   .exchange-wrapper {
     flex-direction: column;
@@ -502,7 +508,7 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 }
 
 .slick-dots .slick-active .ft-slick__dots--custom {
-  top: -11px !important;
+  top: -17px !important;
 }
 .slick-dotted.slick-slider {
   margin-bottom: 30px;
@@ -591,7 +597,7 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 }
 
 .ft-slick__dots--custom {
-  height: 8px;
+  height: 3px;
   width: 14px;
   background-color: #e5e7e9;
   border-radius: 4px;
@@ -632,6 +638,10 @@ ul.slick-dots.bannner {
   left: 0;
   border-radius: 4px;
 } */
+
+.slider-dots {
+  bottom: 25px !important;
+}
 /* ---------- banner -------------- */
 /* --------- chat --------  */
 .chat-avatar {

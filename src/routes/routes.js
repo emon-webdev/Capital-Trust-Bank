@@ -11,6 +11,7 @@ import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivit
 import AllDonate from "../Dashboard/components/Donate/AllDonate";
 import IndividualSupport from "../Dashboard/components/IndividualSupport/IndividualSupport";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
+import VerificationDetails from "../Dashboard/components/VerificationReq/VerificationDetails";
 
 import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
 import Welcome from "../Dashboard/components/Welcome/Welcome";
@@ -24,6 +25,7 @@ import FaqPage from "../Pages/FaqPage/FaqPage";
 import DonateFail from "../Pages/Funds/DonateFail";
 import DonateSuccess from "../Pages/Funds/DonateSuccess";
 import ApplyForm from "../Pages/Home/ApplyForm";
+import DetailsNews from "../Pages/Home/DetailsNews";
 import Home from "../Pages/Home/Home";
 import TeamDetails from "../Pages/Home/TeamDetails";
 import BusinessInsurance from "../Pages/Insurance/BusinessInsurance";
@@ -31,14 +33,19 @@ import HealthInsurance from "../Pages/Insurance/HealthInsurance";
 import TravelInsurance from "../Pages/Insurance/TravelInsurance";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Login/Signup";
+import PayFail from "../Pages/PaymentBills/PayFail";
 import PaymentBills from "../Pages/PaymentBills/PaymentBills";
+import PaySuccess from "../Pages/PaymentBills/PaySuccess";
 import EducationLoan from "../Pages/Services/EducationLoan";
 import GoldLoan from "../Pages/Services/GoldLoan";
+import LoanDetails from "../Pages/Services/Loans/LoanDetails";
+import Loans from "../Pages/Services/Loans/Loans";
 import MarriageLoan from "../Pages/Services/MarriageLoan";
 import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
 
 import Error from "../Pages/Shared/Error";
+import FactToKnow from "../Pages/Shared/FactToKnow/FactToKnow";
 import AdminRoute from "../routes/AdminRoute";
 import CustomerRoute from "../routes/CustomerRoute";
 import PrivetRoute from "./PrivateRoute/PrivateRoute";
@@ -75,16 +82,31 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
-        loader: fetch(
-          "http://localhost:5000/loanService"
-        ),
       },
       {
+        path: "/loansServices",
+        element: <Loans />,
+        loader: () => fetch("http://localhost:5000/loanService"),
+      },
+      {
+        path: "/loanDetails/:id",
+        element: <LoanDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/loanSec/${params.id}`),
+      },
+      {
+        path: "/blogsNews/:id",
+        element: <DetailsNews></DetailsNews>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/blogsNews/${params.id}`),
+      },
+
+      {
         path: "/loans/:title",
-        element: <ApplyForm></ApplyForm>,
+        element: <ApplyForm />,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/loans/${params.title}`
+            `https://capital-trust-bank-server.vercel.app/loans/${params.title}`
           ),
       },
       {
@@ -121,6 +143,10 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
+        path: "/factToKnow",
+        element: <FactToKnow></FactToKnow>,
+      },
+      {
         path: "/AccountOpenFrom",
         element: (
           <PrivetRoute>
@@ -136,9 +162,18 @@ const router = createBrowserRouter([
         path: "/donate/fail",
         element: <DonateFail />,
       },
+
       {
         path: "/paymentbills",
         element: <PaymentBills />,
+      },
+      {
+        path: "/pay-bills/success",
+        element: <PaySuccess />,
+      },
+      {
+        path: "/pay-bills/fail",
+        element: <PayFail />,
       },
       {
         path: "/login",
@@ -152,9 +187,7 @@ const router = createBrowserRouter([
         path: "/team-details/:id",
         element: <TeamDetails />,
         loader: async ({ params }) =>
-          fetch(
-            `http://localhost:5000/team-details/${params.id}`
-          ),
+          fetch(`http://localhost:5000/team-details/${params.id}`),
       },
       // {
       //   path: "/exchange",
@@ -187,6 +220,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <VerificationReq></VerificationReq>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/verificationRequest/details",
+        element: (
+          <AdminRoute>
+            <VerificationDetails></VerificationDetails>
           </AdminRoute>
         ),
       },
@@ -241,10 +282,6 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/myAccount",
-        element: <MyAccount />,
-        loader: () =>
-          fetch("http://localhost:5000/depositWithdraw"),
         path: "/dashboard/CustomerSupport/admin",
         element: <IndividualSupport />,
       },
