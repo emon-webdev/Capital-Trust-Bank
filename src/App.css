@@ -438,6 +438,10 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 @media screen and (max-width: 768px) {
   .right-side {
     width: 100% !important;
+    margin-top: 75px !important;
+  }
+  .left-side .font-semibold {
+    font-size: 50px !important;
   }
   .exchange-wrapper {
     flex-direction: column;
@@ -502,7 +506,7 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 }
 
 .slick-dots .slick-active .ft-slick__dots--custom {
-  top: -11px !important;
+  top: -17px !important;
 }
 .slick-dotted.slick-slider {
   margin-bottom: 30px;
@@ -591,7 +595,7 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 }
 
 .ft-slick__dots--custom {
-  height: 8px;
+  height: 3px;
   width: 14px;
   background-color: #e5e7e9;
   border-radius: 4px;
@@ -632,6 +636,10 @@ ul.slick-dots.bannner {
   left: 0;
   border-radius: 4px;
 } */
+
+.slider-dots {
+  bottom: 25px !important;
+}
 /* ---------- banner -------------- */
 /* --------- chat --------  */
 .chat-avatar {

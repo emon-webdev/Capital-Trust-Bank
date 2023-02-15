@@ -77,17 +77,13 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
-        loader: fetch(
-          "http://localhost:5000/loanService"
-        ),
+        loader: fetch("http://localhost:5000/loanService"),
       },
       {
         path: "/loanDetails/:id",
         element: <LoanDetails />,
         loader: ({ params }) =>
-          fetch(
-            `http://localhost:5000/loans/${params.title}`
-          ),
+          fetch(`http://localhost:5000/loans/${params.title}`),
       },
       {
         path: "/goldloan",
@@ -124,7 +120,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/factToKnow",
-        element: <FactToKnow></FactToKnow>
+        element: <FactToKnow></FactToKnow>,
       },
       {
         path: "/AccountOpenFrom",
@@ -158,9 +154,7 @@ const router = createBrowserRouter([
         path: "/team-details/:id",
         element: <TeamDetails />,
         loader: async ({ params }) =>
-          fetch(
-            `http://localhost:5000/team-details/${params.id}`
-          ),
+          fetch(`http://localhost:5000/team-details/${params.id}`),
       },
       // {
       //   path: "/exchange",
