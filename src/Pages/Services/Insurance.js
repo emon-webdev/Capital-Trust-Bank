@@ -10,18 +10,18 @@ import {
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
+import appli from "../../assets/Services(Home)/E-Wallet-amico.png";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import application from "../../../assets/Services(Home)/E-Wallet-amico.png";
-import { AuthContext } from "../../../context/AuthProvider";
-import DynamicBanner from "../../Shared/DynamicBanner/DynamicBanner";
-import { districts } from "../districtData";
+import { AuthContext } from "../../context/AuthProvider";
+import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
+import { districts } from "./districtData";
 
-const Loans = (props) => {
-  const [name, setName] = useState("Loans");
-  const loansData = useLoaderData();
+const Insurance = () => {
+  const [name, setName] = useState("Insurance");
+  const insuranceData = useLoaderData();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [showImg, setShowImg] = useState(false);
+
   const [district, setDistrict] = useState("");
   const handleChange = (event) => {
     setDistrict(event.target.value);
@@ -33,21 +33,19 @@ const Loans = (props) => {
     const name = form.name.value;
     const email = form.email.value;
     const phone = form.phone.value;
-    const city = form.city.value;
     const date = form.date.value;
-    const loan = form.loan.value;
-    console.log(name, email, phone, city, date, loan);
+    const insurance = form.insurance.value;
+    console.log(name, email, phone, date, insurance);
 
     const applicant = {
       name: name,
       email: email,
       phone: phone,
-      city: city,
-      loan: loan,
+      insurance: insurance,
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server.vercel.app/applicants", {
+    fetch("http://localhost:5000/insuranceApplicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -72,11 +70,11 @@ const Loans = (props) => {
       <div className="mb-5">
         <DynamicBanner name={name}></DynamicBanner>
       </div>
-      <div className="container loan-card  align-center justify-center gap-10 my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        {loansData.map((loan) => (
+      <div className="container loan-card  align-center justify-center gap-10 my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {insuranceData.map((insu) => (
           <Card
             shadow="2xl"
-            key={loan.id}
+            key={insu.id}
             style={{ width: "100%", height: "auto" }}
             className="hover:bg-gradient-to-r from-blue-500 to-blue-900  hover:text-[#fff] "
           >
@@ -88,12 +86,12 @@ const Loans = (props) => {
                 fontSize={24}
                 textAlign="center"
               >
-                {loan.title}
+                {insu.title}
               </Text>
               <div className="text-lg text-center my-5">
-                {loan.details.slice(0, 300)}...
+                {insu.details.slice(0, 200)}...
                 <VStack marginY={4}>
-                  <Link to={`/loanDetails/${loan._id}`}>
+                  <Link to={`/insuranceDetails/${insu._id}`}>
                     <text className="font-bold sm-btn secondary-btn bg-[#151423] rounded px-4 py-3  text-[#fff]">
                       Details
                     </text>
@@ -109,7 +107,7 @@ const Loans = (props) => {
           <img
             style={{ width: "600px", height: "600px" }}
             className="animate__animated animate__slideInLeft mx-5"
-            src={application}
+            src={appli}
             alt=""
           />
         </Box>
@@ -160,22 +158,21 @@ const Loans = (props) => {
               </FormControl>
               <FormControl>
                 <Select
-                  name="loan"
+                  name="insurance"
                   marginY={1}
                   backgroundColor={"white"}
-                  placeholder="Select Loan"
+                  placeholder="Select Insurance"
                 >
-                  <option value="Education">Education Loan</option>
-                  <option value="Gold">Gold Loan</option>
-                  <option value="Marriage">Marriage Loan</option>
-                  <option value="Vehicle">Vehicle Loan</option>
+                  <option value="Education">Health Insurance</option>
+                  <option value="Gold">Business Insurance</option>
+                  <option value="Marriage">Travel Insurance</option>
                 </Select>
                 {/* <se
-                name="loan"
-                style={{ width: "100%" }}
-                className="border  px-3 rounded"
-                placeholder="Loan"
-              ></se> */}
+            name="loan"
+            style={{ width: "100%" }}
+            className="border  px-3 rounded"
+            placeholder="Loan"
+          ></se> */}
               </FormControl>
               <FormControl>
                 <select
@@ -223,4 +220,4 @@ const Loans = (props) => {
   );
 };
 
-export default Loans;
+export default Insurance;

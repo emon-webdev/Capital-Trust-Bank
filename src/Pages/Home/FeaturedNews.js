@@ -37,17 +37,18 @@ export default function FeaturedNews() {
       >
         Featured news & Insights
       </Text>
-      <div className="container align-content-center justify-items-center grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+      <div className="container align-content-center justify-items-center grid gap-3  grid-cols-1 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-4 ">
         {newsData?.map((news) => (
           <Card
+            marginX={2}
             key={news.id}
-            sx={{ height: "430px", width: "350px" }}
-            className="drop-shadow-xl"
+            sx={{ height: "100%", width: "100%" }}
+            className="drop-shadow-2xl"
           >
             <CardBody>
               <Image
                 component="img"
-                height="250px"
+                height="300px"
                 width="100%"
                 src={news.img}
                 alt="green iguana"
@@ -72,7 +73,7 @@ export default function FeaturedNews() {
                30 March
              </Box> */}
               <Stack>
-                <Text fontSize={18} marginY="8px">
+                <Text fontSize={18} marginY={4}>
                   {news.category}
                 </Text>
                 <Text fontSize={20} fontWeight={900}>

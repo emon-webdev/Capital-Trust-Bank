@@ -9,11 +9,12 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import DynamicBanner from "../../Shared/DynamicBanner/DynamicBanner";
+import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
-const LoanDetails = (props) => {
-  const data = useLoaderData();
-  const [name, setName] = useState("Loans");
+const InsuranceDetails = (props) => {
+  const insu = useLoaderData();
+  console.log(insu);
+  const [name, setName] = useState("Insurance");
   return (
     <div className="">
       <div className="mb-5">
@@ -21,19 +22,19 @@ const LoanDetails = (props) => {
       </div>
       <div className="container my-10 ">
         <div className="mx-auto lg:w-[70%] md:w-[100%] sm: w-[100%]">
-          <Card key={data.id} boxShadow="2xl">
+          <Card key={insu.id} boxShadow="2xl">
             <CardBody>
               <VStack>
                 <Image
-                  style={{ width: "600px", height: "60%" }}
-                  src={data.img}
+                  style={{ width: "500px", height: "500px" }}
+                  src={insu.img}
                   alt="Green double couch with wooden legs"
                   borderRadius="lg"
                 />
               </VStack>
               <VStack mt="6" spacing="3">
                 <Heading marginY={5} fontSize={30} size="md">
-                  {data.title}
+                  {insu.title}
                 </Heading>
                 <Box>
                   <Text
@@ -43,7 +44,7 @@ const LoanDetails = (props) => {
                     lineHeight={10}
                     fontSize={24}
                   >
-                    {data.details}
+                    {insu.details}
                   </Text>
                 </Box>
               </VStack>
@@ -55,4 +56,4 @@ const LoanDetails = (props) => {
   );
 };
 
-export default LoanDetails;
+export default InsuranceDetails;
