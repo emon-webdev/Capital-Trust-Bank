@@ -123,5 +123,5 @@ const AllBills = () => {
     </div>
   );
 };
-
+  
 export default AllBills;
