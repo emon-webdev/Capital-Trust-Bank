@@ -1,13 +1,9 @@
-import { Button } from "@chakra-ui/button";
 import { Card, CardBody } from "@chakra-ui/card";
 import { Image } from "@chakra-ui/image";
 import { Box, Stack, Text } from "@chakra-ui/layout";
 import { RxArrowTopRight } from "react-icons/rx";
 
 import React, { useEffect, useState } from "react";
-import img1 from "../../assets/features/features-1.png";
-import img2 from "../../assets/features/features-2.png";
-import img3 from "../../assets/features/features-3.png";
 import { Link } from "react-router-dom";
 
 export default function FeaturedNews() {
