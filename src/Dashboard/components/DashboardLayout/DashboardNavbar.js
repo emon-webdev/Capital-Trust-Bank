@@ -152,7 +152,9 @@ const DashboardNavbar = () => {
               <Link to={`/dashboard/CustomerSupport/admin`} state={chatInfo} onClick={()=>handleNotification(chatInfo)}>
                 <MenuItem>
                 <Avatar name={chatInfo?.senderName} src={chatInfo?.senderImg} />
-                <span className="m-1">{chatInfo?.message}</span>
+                <span className="m-1">
+                  {chatInfo?.message.length > 10 ? chatInfo?.message.slice(0,11)+"..." : chatInfo?.message}
+                  </span>
                 </MenuItem>
               </Link>
                   </>

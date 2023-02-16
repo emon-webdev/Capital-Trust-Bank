@@ -1,10 +1,12 @@
 import { Avatar, WrapItem } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import { FaLocationArrow } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import io from "socket.io-client";
 import { AuthContext } from "../../../context/AuthProvider";
 const socket = io("http://localhost:5000/");
+
 const IndividualSupport = () => {
   const { user, role } = useContext(AuthContext);
   const [messages, setMessages] = useState([]);
@@ -35,7 +37,10 @@ const IndividualSupport = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const message = event.target.message.value;
-
+    if(message.trim().length === 0) {
+      toast.error("You can't send empty message!");
+    }
+    else {
     const chatInfo = {
       senderEmail: user.email,
       senderImg: user.photoURL,
@@ -54,6 +59,7 @@ const IndividualSupport = () => {
       socket.emit("send message", chatInfo);
     }
     event.target.reset();
+  }
   };
 
   return (
