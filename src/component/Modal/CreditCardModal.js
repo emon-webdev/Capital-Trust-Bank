@@ -18,36 +18,34 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
     handleSubmit,
     reset,
   } = useForm();
-  const [applierEmail, setApplierEmail] = useState([]);
+  const [applierEmail, setApplierEmail] = useState({});
   const [disable, setDisable] = useState(false);
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
 
   useEffect(() => {
-    fetch(
-      `https://capital-trust-bank-server.vercel.app/bankAccounts?email=${user?.email}`
-    )
+    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setApplierEmail(data[0]);
+        setApplierEmail(data);
       });
   }, []);
-  console.log(applierEmail);
+
   // apply for credit card
   const handleApply = (data) => {
     // event.preventDefault();
+    console.log(data);
     const applierName = user?.displayName;
     const applierPhnNumber = data.applierPhnNumber;
     const accountId = data.accountId;
     const cardType = data.cardType;
-    if (applierEmail?.accountId === accountId) {
+    if (applierEmail.accountId === accountId) {
       const applierInfo = {
         applierName,
         applierPhnNumber,
         accountId,
         cardType,
       };
-      console.log(applierInfo, applierEmail?._id);
-      fetch(`https://capital-trust-bank-server.vercel.app/cardAppliers`, {
+      fetch(`http://localhost:5000/cardAppliers`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -93,6 +91,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
                     placeholder={user?.displayName || "Please Sign In"}
                     defaultValue={user?.displayName}
+                    readOnly
                   ></input>
                   {errors.accountName && (
                     <p className="text-red-600 text-sm mb-0">

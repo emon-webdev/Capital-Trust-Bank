@@ -10,32 +10,70 @@ import {
   MenuItem,
   MenuList
 } from "@chakra-ui/react";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import {
   MdClear,
   MdMailOutline,
-  MdNotificationsNone,
-  MdOutlineFilterCenterFocus
+  MdNotificationsNone
 } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../../assets/logo/mainlogo.png";
+import io from "socket.io-client";
 import { AuthContext } from "../../../context/AuthProvider";
-
+const socket = io("http://localhost:5000/");
 const DashboardNavbar = () => {
-  const { user, logOut, openSideNav, handleSideNave } = useContext(AuthContext);
+  const { user, logOut, openSideNav, handleSideNave ,role } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [chatNotifications,setChatNotification] = useState([])
+  const [totalChat,setTotalChat] = useState(0);
+  const [reFetch,setRefetch] = useState(false);
+  const [notifications,setNotification] = useState([])
+  const [totalNotification,setTotalNotification] = useState(0);
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/getChatNotificationInfo/${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setChatNotification(data)
+        setTotalChat(data.length)
+      });
+  }, [reFetch]);
+
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/getVerifyNotificationInfo`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setNotification(data)
+        console.log( data.length )
+        setTotalNotification( data.length )
+      });
+  }, [reFetch]);
+   
+    socket.on("messageNotificationTransfer", (message) => {
+      console.log(message)
+      if (message.receiverEmail === user.email) {
+        setRefetch(!reFetch)
+      } 
+    });
+ 
+     socket.on("verificationNotificationTransfer", (message) => {
+      if ( role === 'admin') {
+        setRefetch(!reFetch)
+      } 
+    });
+ 
   const handleSignOut = () => {
     //delete customer device info
-    fetch(
-      `https://capital-trust-bank-server.vercel.app/deleteDeviceInfo/${user.email}`,
-      {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    )
+    fetch(`http://localhost:5000/deleteDeviceInfo/${user.email}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         logOut()
@@ -47,52 +85,128 @@ const DashboardNavbar = () => {
           });
       });
   };
+  
+  const handleNotification = (data)=> {
+    const info = {
+      senderEmail: data.senderEmail,
+      receiverEmail: data.receiverEmail
+    }
+  fetch(`http://localhost:5000/notificationDelete`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(info),
+    })
+      .then((res) => res.json())
+      .then(data => {
+        setRefetch(!reFetch)
+      })
+  }
 
+  const handleAllNotification = (data)=> {
+    const info = {
+      email: data.email
+    }
+  fetch(`http://localhost:5000/verificationNotificationDelete`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(info),
+    })
+      .then((res) => res.json())
+      .then(data => {
+        setRefetch(!reFetch)
+      })
+  }
   return (
     <div className="container">
       <div className="flex items-center justify-between h-[50px]">
         <div className="text-white">
           <div className="text-white w-[70%] flex items-center justify-center py-[10px]">
-            {/* <Link
-              className="navbar-brand font-bold text-2xl flex items-center"
-              to="/"
-            >
-              <img src={logo} alt="" srcSet="" />
-              <span className="font-bold text-[32px] ml-1 text-[#fff]">
-                C<span className=" text-[#DF0303]">T</span>B
-              </span>
-            </Link> */}
           </div>
         </div>
 
         {/* -----right---- */}
         <div className="flex">
-          <IconButton className="bg-transparent-nav mr-1 text-white">
-            <Badge colorScheme="error" size="lg" badgecontent={4}>
-              <MdMailOutline />
+          {/* chat notification */}
+          <Menu>
+            <MenuButton className="bg-transparent-nav" as={Button}>
+            <IconButton className="bg-transparent-nav text-white -m-4">
+            <Badge colorScheme="error" className="" badgecontent={4}>
+              <MdMailOutline className="" />{
+                totalChat > 0 ? <span className="absolute top-0 right-0 bg-red-500 text-white text-[13px] rounded-full w-5 h-5 flex items-center justify-center">{totalChat}</span> : undefined
+              }
             </Badge>
             {/*  */}
           </IconButton>
+            </MenuButton>
 
-          <IconButton className=" text-white mr-1 bg-transparent-nav">
-            <Badge colorScheme="error" size="lg" badgecontent={4}>
-              <MdNotificationsNone />
-            </Badge>
-          </IconButton>
+           {
+            totalChat > 0 ?  <MenuList className="h-80 overflow-auto p-2">
+            <MenuGroup title="Messages Notification">
+              {
+                chatNotifications?.map(chatInfo => {
+                  return <>
+              <Link to={`/dashboard/CustomerSupport/admin`} state={chatInfo} onClick={()=>handleNotification(chatInfo)}>
+                <MenuItem>
+                <Avatar name={chatInfo?.senderName} src={chatInfo?.senderImg} />
+                <span className="m-1">{chatInfo?.message}</span>
+                </MenuItem>
+              </Link>
+                  </>
+                })
+              }
+              
+            </MenuGroup>
+          </MenuList> : undefined
+           }
+          </Menu>
 
-          <IconButton className=" text-white mr-1 bg-transparent-nav">
-            <Badge colorScheme="error" size="lg" badgecontent={4}>
-              <MdOutlineFilterCenterFocus />
+           {/* others notification */}
+          <Menu>
+            <MenuButton className="bg-transparent-nav" as={Button}>
+            <IconButton className="bg-transparent-nav text-white -m-4">
+            <Badge colorScheme="error" badgecontent={4}>
+            <MdNotificationsNone />{
+                totalNotification > 0 ? <span className="text-[13px] absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">{totalNotification}</span> : undefined
+              }
             </Badge>
+            {/*  */}
           </IconButton>
+            </MenuButton>
+
+           {
+            totalNotification > 0 ?  <MenuList className="h-80 overflow-auto p-2">
+            <MenuGroup title="Notifications">
+              {
+                notifications?.map(notification => {
+                  return <>
+              <Link to='verificationRequest/details/' state={notification} onClick={()=>handleAllNotification(notification)}>
+                <MenuItem>
+                {
+                  notification.accountCategory ? <span className="">{notification?.firstName} apply for verification</span> : undefined
+                }
+                </MenuItem>
+              </Link>
+                  </>
+                })
+              }
+              
+            </MenuGroup>
+          </MenuList> : undefined
+           }
+          </Menu>
+
           <Menu>
             <MenuButton className="bg-transparent-nav" as={Button}>
               <Avatar name="Dan Abrahmov" src={user?.photoURL} />
             </MenuButton>
 
             <MenuList>
-              <MenuGroup title="Profile">
-                <MenuItem>My Profile</MenuItem>
+              <MenuGroup>
+                {/* <MenuItem>My Profile</MenuItem> */}
                 <Link onClick={handleSignOut}>
                   <MenuItem>Log Out </MenuItem>
                 </Link>

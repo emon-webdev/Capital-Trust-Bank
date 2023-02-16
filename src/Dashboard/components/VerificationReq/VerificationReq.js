@@ -1,43 +1,85 @@
-import React, { useEffect, useState } from 'react';
+import {
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr
+} from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const VerificationReq = () => {
-     const [customers, setCustomers] = useState([]);
-     useEffect(() => {
-       fetch(`https://capital-trust-bank-server.vercel.app/verificationReq`)
-         .then((res) => res.json())
-         .then((data) => {
-           setCustomers(data);
-         });
-     }, []);
-    return (
-      <div>
-        {customers.map((customer) => {
-          return (
-            <div key={customer._id}>
-              <div className="w-1/2 mx-auto flex my-2 gap-2 p-2 border rounded">
-                <div className="flex items-center">
-                  <img
-                    className="h-16 w-16 rounded"
-                    src={customer.image}
-                    alt={customer.name}
-                  />
-                </div>
-                <div className="info flex flex-col overflow-auto">
-                  <span>Name: {customer.name}</span>
-                  <span>Email:{customer.email}</span>
-                  <span>Phone:{customer.phone}</span>
-                  <span>Nid:{customer.nid}</span>
-                  <div className="flex gap-2 p-2">
-                    <button className="ring rounded p-1">Verify</button>
-                    <button className="ring rounded p-1">Cancel</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+  const [customers, setCustomers] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/bankAccounts`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCustomers(data);
+      });
+  }, []);
+  return (
+    <div className="my-2">
+      <h2 className="text-center heading">
+        Total Verification Request:{customers.length}
+      </h2>
+      <div className="w-full">
+        <TableContainer
+          borderRadius={6}
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          backgroundColor="white"
+          marginY={10}
+          // marginLeft={20}
+          height={500}
+          overflowY="scroll"
+          overflowX="scroll"
+        >
+          <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Th color="#041C51" fontSize={16}>
+                  List
+                </Th>
+                <Th color="#041C51" fontSize={16}>
+                  Name
+                </Th>
+                <Th color="#041C51" fontSize={16}>
+                  Account Id
+                </Th>
+                <Th color="#041C51" fontSize={16}>
+                  Category
+                </Th>
+                <Th color="#041C51" fontSize={16}>
+                  Details
+                </Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {customers?.map((customer, index) => (
+                <Tr key={customer?._id}>
+                  <Td>{index + 1}</Td>
+                  <Td>
+                    {customer.firstName} {customer.lastName}
+                  </Td>
+                  <Td>{customer.accountId}</Td>
+                  <Td>{customer?.accountCategory}</Td>
+                  <Td>
+                    <Link to="details/" state={customer}>
+                      <button className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]">
+                        Details
+                      </button>
+                    </Link>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
       </div>
-    );
+    </div>
+  );
 };
 
 export default VerificationReq;

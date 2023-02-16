@@ -12,8 +12,10 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import "react-phone-input-2/lib/style.css";
 import { NavLink } from "react-router-dom";
+import io from "socket.io-client";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
+const socket = io("http://localhost:5000/");
 const AccountOpenFrom = () => {
   const {
     register,
@@ -51,7 +53,7 @@ const AccountOpenFrom = () => {
             birth: data.birth,
             gender: gender,
             phone: data.phone,
-            email: data.email,
+            email: user?.email,
             streetAddress: data.streetAddress,
             city: data.city,
             region: data.region,
@@ -69,7 +71,7 @@ const AccountOpenFrom = () => {
           };
           console.log(account);
           // save information to the database
-          fetch("https://capital-trust-bank-server.vercel.app/bankAccounts", {
+          fetch("http://localhost:5000/bankAccounts", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -83,6 +85,7 @@ const AccountOpenFrom = () => {
                 `Your form has been submitted please wait for approval.`
               );
               reset();
+              socket.emit("send verification", account);
             });
         }
       });
@@ -190,10 +193,10 @@ const AccountOpenFrom = () => {
                     {...register("email", {
                       required: "email is required",
                     })}
-                    // defaultValue={user?.email}
-                    // readOnly
+                    readOnly
                     className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Email Address"
+                    defaultValue={user?.email}
                   ></input>
                 </div>
               </div>

@@ -5,12 +5,15 @@ import MyAccount from "../Dashboard/components/Customers/MyAccount/MyAccount";
 import MyDeposit from "../Dashboard/components/Customers/MyDeposit/MyDeposit";
 import MyTransaction from "../Dashboard/components/Customers/MyTransaction/MyTransaction";
 import MyWithdraw from "../Dashboard/components/Customers/MyWithdraw/MyWithdraw";
+import TakeCard from "../Dashboard/components/Customers/TakeCard/TakeCard";
 import CustomerSupport from "../Dashboard/components/CustomerSupport/CustomerSupport";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
+import AllBills from "../Dashboard/components/Donate/AllBills";
 import AllDonate from "../Dashboard/components/Donate/AllDonate";
 import IndividualSupport from "../Dashboard/components/IndividualSupport/IndividualSupport";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
+import VerificationDetails from "../Dashboard/components/VerificationReq/VerificationDetails";
 
 import VerificationReq from "../Dashboard/components/VerificationReq/VerificationReq";
 import Welcome from "../Dashboard/components/Welcome/Welcome";
@@ -24,6 +27,7 @@ import FaqPage from "../Pages/FaqPage/FaqPage";
 import DonateFail from "../Pages/Funds/DonateFail";
 import DonateSuccess from "../Pages/Funds/DonateSuccess";
 import ApplyForm from "../Pages/Home/ApplyForm";
+import DetailsNews from "../Pages/Home/DetailsNews";
 import Home from "../Pages/Home/Home";
 import TeamDetails from "../Pages/Home/TeamDetails";
 import BusinessInsurance from "../Pages/Insurance/BusinessInsurance";
@@ -31,17 +35,25 @@ import HealthInsurance from "../Pages/Insurance/HealthInsurance";
 import TravelInsurance from "../Pages/Insurance/TravelInsurance";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Login/Signup";
+import PayFail from "../Pages/PaymentBills/PayFail";
 import PaymentBills from "../Pages/PaymentBills/PaymentBills";
+import PaySuccess from "../Pages/PaymentBills/PaySuccess";
 import EducationLoan from "../Pages/Services/EducationLoan";
 import GoldLoan from "../Pages/Services/GoldLoan";
+import LoanDetails from "../Pages/Services/Loans/LoanDetails";
+import Loans from "../Pages/Services/Loans/Loans";
 import MarriageLoan from "../Pages/Services/MarriageLoan";
 import Services from "../Pages/Services/Services";
 import VehicleLoan from "../Pages/Services/VehicleLoan";
 
 import Error from "../Pages/Shared/Error";
+import FactToKnow from "../Pages/Shared/FactToKnow/FactToKnow";
 import AdminRoute from "../routes/AdminRoute";
 import CustomerRoute from "../routes/CustomerRoute";
 import PrivetRoute from "./PrivateRoute/PrivateRoute";
+import Insurance from "../Pages/Services/Insurance";
+import InsuranceDetails from "../Pages/Services/InsuranceDetails";
+import InsuranceRequest from "../Dashboard/components/InsuranceRequest/InsuranceRequest";
 // import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
@@ -71,38 +83,49 @@ const router = createBrowserRouter([
         path: "/businessinsurance",
         element: <BusinessInsurance />,
       },
+      {
+        path: "/insurances",
+        element: <Insurance />,
+        loader: () => fetch("http://localhost:5000/insuranceData"),
+      },
+      {
+        path: "/insuranceDetails/:id",
+        element: <InsuranceDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/insur/${params.id}`),
+      },
 
       {
         path: "/services",
         element: <Services />,
-        loader: fetch(
-          "https://capital-trust-bank-server.vercel.app/loanService"
-        ),
       },
       {
+        path: "/loansServices",
+        element: <Loans />,
+        loader: () => fetch("http://localhost:5000/loanService"),
+      },
+      {
+        path: "/loanDetails/:id",
+        element: <LoanDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/loanSec/${params.id}`),
+      },
+      {
+        path: "/blogsNews/:id",
+        element: <DetailsNews></DetailsNews>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/blogsNews/${params.id}`),
+      },
+
+      {
         path: "/loans/:title",
-        element: <ApplyForm></ApplyForm>,
+        element: <ApplyForm />,
         loader: ({ params }) =>
           fetch(
             `https://capital-trust-bank-server.vercel.app/loans/${params.title}`
           ),
       },
-      {
-        path: "/goldloan",
-        element: <GoldLoan />,
-      },
-      {
-        path: "/educationloan",
-        element: <EducationLoan />,
-      },
-      {
-        path: "/marriageloan",
-        element: <MarriageLoan />,
-      },
-      {
-        path: "/vehicleloan",
-        element: <VehicleLoan />,
-      },
+
       {
         path: "/cards",
         element: <Cards />,
@@ -121,6 +144,10 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
+        path: "/factToKnow",
+        element: <FactToKnow></FactToKnow>,
+      },
+      {
         path: "/AccountOpenFrom",
         element: (
           <PrivetRoute>
@@ -136,9 +163,18 @@ const router = createBrowserRouter([
         path: "/donate/fail",
         element: <DonateFail />,
       },
+
       {
         path: "/paymentbills",
         element: <PaymentBills />,
+      },
+      {
+        path: "/pay-bills/success",
+        element: <PaySuccess />,
+      },
+      {
+        path: "/pay-bills/fail",
+        element: <PayFail />,
       },
       {
         path: "/login",
@@ -152,9 +188,7 @@ const router = createBrowserRouter([
         path: "/team-details/:id",
         element: <TeamDetails />,
         loader: async ({ params }) =>
-          fetch(
-            `https://capital-trust-bank-server.vercel.app/team-details/${params.id}`
-          ),
+          fetch(`http://localhost:5000/team-details/${params.id}`),
       },
       // {
       //   path: "/exchange",
@@ -191,6 +225,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/dashboard/verificationRequest/details",
+        element: (
+          <AdminRoute>
+            <VerificationDetails></VerificationDetails>
+          </AdminRoute>
+        ),
+      },
+      {
         path: "/dashboard/cardRequest",
         element: (
           <AdminRoute>
@@ -215,10 +257,18 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/dashboard/all-bills",
+        element: (
+          <AdminRoute>
+            <AllBills />
+          </AdminRoute>
+        ),
+      },
+      {
         path: "/dashboard/myTransaction",
         element: <MyTransaction />,
         // loader: ({ params }) =>
-        //   fetch(`https://capital-trust-bank-server.vercel.app/depositWithdraw/${params.email}`),
+        //   fetch(`http://localhost:5000/depositWithdraw/${params.email}`),
       },
       {
         path: "/dashboard/CustomerSupport",
@@ -241,10 +291,6 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/myAccount",
-        element: <MyAccount />,
-        loader: () =>
-          fetch("https://capital-trust-bank-server.vercel.app/depositWithdraw"),
         path: "/dashboard/CustomerSupport/admin",
         element: <IndividualSupport />,
       },
@@ -260,6 +306,14 @@ const router = createBrowserRouter([
         path: "/dashboard/myAccount",
         element: <MyAccount />,
       },
+      {
+        path: "/dashboard/takeCard",
+        element: <TakeCard />,
+      },
+      {
+        path: '/dashboard/insuranceRequest',
+        element: <InsuranceRequest />
+      }
     ],
   },
 ]);

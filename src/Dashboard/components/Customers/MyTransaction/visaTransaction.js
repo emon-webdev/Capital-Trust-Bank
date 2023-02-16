@@ -2,14 +2,14 @@ import { Box, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { AuthContext } from "../../../../context/AuthProvider";
 
-export default function VisaTransaction() {
+export default function VisaTransaction({ info }) {
   const { user } = useContext(AuthContext);
   return (
     <div
       style={{ height: "250px", width: "400px" }}
       className="container bg-white rounded-lg p-8"
     >
-      <div className="">
+      <div className="" id="credit-card">
         <Box
           style={{
             height: "190px",
@@ -27,7 +27,8 @@ export default function VisaTransaction() {
               fontSize={20}
               fontStyle="italic"
             >
-              VI<span className="text-red-800">S</span>A
+              {/* VI<span className="text-red-800">S</span>A */}
+              <span className="text-red-800">{info?.cardType}</span>
             </Text>
             <img
               style={{ height: "30px", weight: "35px" }}
@@ -43,7 +44,8 @@ export default function VisaTransaction() {
             marginTop={2}
             color="whitesmoke"
           >
-            Active Balance
+            {/* Active Balance */}
+            {info?.applierName}
           </Text>
           {/* <Text
             fontSize={20}
@@ -63,16 +65,17 @@ export default function VisaTransaction() {
               color="whitesmoke"
               marginTop={2}
             >
-              {user?.displayName}
+              {/* {user?.displayName} */}
+              {info?.accountId}
             </Text>
-            <Text
+            {/* <Text
               fontSize={18}
               marginTop={2}
               letterSpacing={2}
               color="whitesmoke"
             >
               05/24
-            </Text>
+            </Text> */}
           </div>
         </Box>
         {/* <div className="mt-8">

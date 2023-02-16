@@ -1,0 +1,20 @@
+[
+    {
+        "id": 0,
+        "title": "Health Insurance",
+        "details": "Health insurance or medical insurance (also known as medical aid in South Africa) is a type of insurance that covers the whole or a part of the risk of a person incurring medical expenses. As with other types of insurance, risk is shared among many individuals. By estimating the overall risk of health risk and health system expenses over the risk pool, an insurer can develop a routine finance structure, such as a monthly premium or payroll tax, to provide the money to pay for the health care benefits specified in the insurance agreement.[1] The benefit is administered by a central organization, such as a government agency, private business, or not-for-profit entity. According to the Health Insurance Association of America, health insurance is defined as coverage that provides for the payments of benefits as a result of sickness or injury. It includes insurance for losses from accident, medical expense, disability, or accidental death and dismemberment.",
+        "img": "https://i.ibb.co/7Stgpm5/Hospital-bed-pana-1.png"
+    },
+    {
+        "id": 1,
+        "title": "Business Insurance",
+        "details": "Business insurance coverage protects businesses from losses due to events that may occur during the normal course of business. There are many types of insurance for businesses including coverage for property damage, legal liability and employee-related risks.It is especially important for small business owners to carefully consider and evaluate their business insurance needs because they may have more personal financial exposure in the event of a loss. If a business owner does not feel he or she has the ability to effectively assess business risk and the need for coverage, they should work with a reputable, experienced and licensed insurance broker.",
+        "img": "https://i.ibb.co/dpf6tSg/Business-solution-pana-1.png"
+    },
+    {
+        "id": 2,
+        "title": "Travel Insurance",
+        "details": "Our holiday insurance can be used to cover medical expenses, trip cancellation, delays, lost or stolen baggage and personal liability. When you choose Allianz travel insurance, there’s no more wondering ‘what if?’ There’s a policy for most types of travel so whether you’re heading on a family holiday, a last-minute business trip or jetting off on a few city breaks, we’ve got cover for you.You spend months planning and looking forward to your holidays, and Allianz travel insurance helps you to protect your investment. There’s no need to worry about whether medical emergencies or delayed flights will affect your trip, because we help to provide the support you need to handle the unexpected. Plus, with three different levels of cover to choose from, you’re sure to find the right policy for you.",
+        "img": "https://i.ibb.co/7x3R5mX/Trip-pana-1.png"
+    }
+]
