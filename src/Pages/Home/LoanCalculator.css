@@ -1,10 +1,8 @@
 .card-main {
-    display: block;
-    max-width: 770px;
-    width: 100%;
-    min-height: 610px;
-    padding: 56px 100px 0;
-    padding-right: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 70px;
     background-image: -webkit-linear-gradient(-90deg, rgb(247, 241, 235) 0%, rgb(255, 255, 255) 100%);
 }
 

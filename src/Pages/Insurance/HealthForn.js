@@ -3,8 +3,7 @@
 import { FormControl } from "@chakra-ui/form-control";
 import { Box, Grid } from "@chakra-ui/layout";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/tabs";
-import React, { useState } from "react";
-import { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import health from "../../assets/insurance/Hospital bed-pana.png";

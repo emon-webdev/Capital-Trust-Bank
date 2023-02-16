@@ -23,19 +23,17 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
 
   useEffect(() => {
-    fetch(
-      `http://localhost:5000/bankAccounts/${user?.email}`
-    )
+    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data);
       });
   }, []);
-  
+
   // apply for credit card
   const handleApply = (data) => {
     // event.preventDefault();
-    console.log(data)
+    console.log(data);
     const applierName = user?.displayName;
     const applierPhnNumber = data.applierPhnNumber;
     const accountId = data.accountId;
@@ -93,6 +91,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
                     placeholder={user?.displayName || "Please Sign In"}
                     defaultValue={user?.displayName}
+                    readOnly
                   ></input>
                   {errors.accountName && (
                     <p className="text-red-600 text-sm mb-0">

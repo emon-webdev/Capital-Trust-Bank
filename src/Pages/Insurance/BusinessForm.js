@@ -4,7 +4,7 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/tabs";
 import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router";
-import business from '../../assets/insurance/Business solution-pana.png'
+import business from "../../assets/insurance/Business solution-pana.png";
 import { AuthContext } from "../../context/AuthProvider";
 import { districts } from "../Services/districtData";
 
@@ -13,7 +13,7 @@ export default function BusinessForm() {
   const handleChange = (event) => {
     setDistrict(event.target.value);
   };
-  const {user} =useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -55,11 +55,16 @@ export default function BusinessForm() {
 
   return (
     <div className="container flex md:flex-row flex-col w-100  align-center justify-center">
-       <Box>
-        <img style={{width:'600px',height:'600px'}} className='animate__animated animate__slideInLeft mx-5' src={business} alt="" />
+      <Box>
+        <img
+          style={{ width: "600px", height: "600px" }}
+          className="animate__animated animate__slideInLeft mx-5"
+          src={business}
+          alt=""
+        />
       </Box>
-    
-        <Box>
+
+      <Box>
         <Tabs>
           <TabList>
             <Tab>Health</Tab>
@@ -84,79 +89,80 @@ export default function BusinessForm() {
                   container
                   className=" align-content-center justify-items-center"
                 > */}
-                  <FormControl>
-                    <input
-                      name="name"
-                      className="border px-3 rounded "
-                      style={{ width: "100%" }}
-                      placeholder="Your Name"
-                      required
-                      defaultValue={user?.displayName}
-                    ></input>
-                  </FormControl>
-                  <FormControl>
-                    <input
-                      name="email"
-                      style={{ width: "100%" }}
-                      className="border  px-3 rounded"
-                      placeholder="Email"
-                      required
-                      defaultValue={user?.email}
-                    ></input>
-                  </FormControl>
-                  <FormControl>
-                    <input
-                      name="phone"
-                      style={{ width: "100%" }}
-                      className="border  px-3  rounded"
-                      placeholder="Phone"
-                      required
-                    ></input>
-                  </FormControl>
-                  <FormControl>
-                    <input
-                      name="insurance"
-                      style={{ width: "100%" }}
-                      className="border  px-3 rounded"
-                      defaultValue="Health Insurance"
-                    ></input>
-                  </FormControl>
-                  <FormControl>
-                <select
-                  name="city"
-                  style={{ width: "100%" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border  px-3 rounded"
-                  placeholder="City"
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </FormControl>
-                  <FormControl>
-                    <input
-                      name="date" type='date'
-                      style={{ width: "100%" }}
-                      className="border  px-3 rounded"
-                      placeholder="dd/mm/yy"
-                      required
-                    ></input>
-                  </FormControl>
+                <FormControl>
+                  <input
+                    name="name"
+                    className="border px-3 rounded "
+                    style={{ width: "100%" }}
+                    placeholder="Your Name"
+                    required
+                    defaultValue={user?.displayName}
+                  ></input>
+                </FormControl>
+                <FormControl>
+                  <input
+                    name="email"
+                    style={{ width: "100%" }}
+                    className="border  px-3 rounded"
+                    placeholder="Email"
+                    required
+                    defaultValue={user?.email}
+                  ></input>
+                </FormControl>
+                <FormControl>
+                  <input
+                    name="phone"
+                    style={{ width: "100%" }}
+                    className="border  px-3  rounded"
+                    placeholder="Phone"
+                    required
+                  ></input>
+                </FormControl>
+                <FormControl>
+                  <input
+                    name="insurance"
+                    style={{ width: "100%" }}
+                    className="border  px-3 rounded"
+                    defaultValue="Health Insurance"
+                  ></input>
+                </FormControl>
+                <FormControl>
+                  <select
+                    name="city"
+                    style={{ width: "100%" }}
+                    value={district}
+                    onChange={handleChange}
+                    label="city"
+                    className="border  px-3 rounded"
+                    placeholder="City"
+                  >
+                    {districts.map((dis) => (
+                      <option key={dis} value={dis}>
+                        {dis}
+                      </option>
+                    ))}
+                  </select>
+                </FormControl>
+                <FormControl>
+                  <input
+                    name="date"
+                    type="date"
+                    style={{ width: "100%" }}
+                    className="border  px-3 rounded"
+                    placeholder="dd/mm/yy"
+                    required
+                  ></input>
+                </FormControl>
 
-                  <FormControl>
-                    <button
-                      style={{ width: "100%" }}
-                      className="primary-btn mt-2 "
-                      type="submit"
-                    >
-                      Apply
-                    </button>
-                  </FormControl>
+                <FormControl>
+                  <button
+                    style={{ width: "100%" }}
+                    className="primary-btn mt-2 "
+                    type="submit"
+                  >
+                    Apply
+                  </button>
+                </FormControl>
                 {/* </Grid> */}
               </form>
             </TabPanel>
@@ -214,25 +220,26 @@ export default function BusinessForm() {
                     ></input>
                   </FormControl>
                   <FormControl>
-                <select
-                  name="city"
-                  style={{ width: "100%" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border  px-3 rounded"
-                  placeholder="City"
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </FormControl>
+                    <select
+                      name="city"
+                      style={{ width: "100%" }}
+                      value={district}
+                      onChange={handleChange}
+                      label="city"
+                      className="border  px-3 rounded"
+                      placeholder="City"
+                    >
+                      {districts.map((dis) => (
+                        <option key={dis} value={dis}>
+                          {dis}
+                        </option>
+                      ))}
+                    </select>
+                  </FormControl>
                   <FormControl>
                     <input
-                      name="date" type='date'
+                      name="date"
+                      type="date"
                       style={{ width: "100%" }}
                       className="border  px-3 rounded"
                       placeholder="dd/mm/yy"
@@ -306,25 +313,26 @@ export default function BusinessForm() {
                     ></input>
                   </FormControl>
                   <FormControl>
-                <select
-                  name="city"
-                  style={{ width: "100%" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border  px-3 rounded"
-                  placeholder="City"
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </FormControl>
+                    <select
+                      name="city"
+                      style={{ width: "100%" }}
+                      value={district}
+                      onChange={handleChange}
+                      label="city"
+                      className="border  px-3 rounded"
+                      placeholder="City"
+                    >
+                      {districts.map((dis) => (
+                        <option key={dis} value={dis}>
+                          {dis}
+                        </option>
+                      ))}
+                    </select>
+                  </FormControl>
                   <FormControl>
                     <input
-                      name="date" type='date'
+                      name="date"
+                      type="date"
                       style={{ width: "100%" }}
                       className="border  px-3 rounded"
                       placeholder="dd/mm/yy"
@@ -346,8 +354,7 @@ export default function BusinessForm() {
             </TabPanel>
           </TabPanels>
         </Tabs>
-        </Box>
-      
+      </Box>
     </div>
   );
 }

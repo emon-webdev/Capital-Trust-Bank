@@ -8,7 +8,9 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 const TeamDetails = () => {
   const teamDetails = useLoaderData();
   const { name: name2, email, social, image, designation } = teamDetails;
+  console.log(teamDetails)
   const [name, setName] = useState("Team Details");
+  
   return (
     <div>
       <DynamicBanner name={name} />
@@ -56,7 +58,7 @@ const TeamDetails = () => {
             <hr />
 
             <div className="py-[35px]">
-              <h4>Biography</h4>
+              <h4><strong>Biography</strong></h4>
               <p>
                 Mauris turpis nunc, blandit et volutpat molestie porta ut,
                 ligula. Fusce pharetra convallis urna. Quisque ut nisi. Donec mi
@@ -88,7 +90,7 @@ const TeamDetails = () => {
 
               <div>
                 <h4>Email Address:</h4>
-                <span>email@gmail.com</span>
+                <span>{email}</span>
               </div>
 
               <div>

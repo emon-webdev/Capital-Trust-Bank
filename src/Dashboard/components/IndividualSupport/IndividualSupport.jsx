@@ -22,8 +22,7 @@ const IndividualSupport = () => {
   }, [messages, user]);
   useEffect(() => {
     fetch(
-      `http://localhost:5000/getChatInfo/${
-        user.email + " " + state.senderEmail
+      `http://localhost:5000/getChatInfo/${user.email + " " + state.senderEmail
       }`
     )
       .then((res) => res.json())
@@ -69,42 +68,44 @@ const IndividualSupport = () => {
       <div className="flex flex-col space-y-4 p-3 overflow-y-auto scroll-w-2 scroll-touch h-[74vh]">
         <div className="chat-message">
           {
-            allMessages.map(message=>{ return <>
-           {
-            message.senderEmail === user?.email ?  <div className="flex flex-col space-y-4 p-3 overflow-y-auto scroll-w-2 scroll-touch">
-            <div className="chat-message">
-              <div className="flex items-end justify-end">
-                <div>
-      
-                  <img
-                    className="w-6 h-6 rounded-full order-1"
-                    src={message.senderImg}
-                    alt={message.senderName}/>
-                </div>
-      
-                <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                  <div>
-                    <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-200">  {message.message}</span>
+            allMessages.map(message => {
+              return <>
+                {
+                  message.senderEmail === user?.email ? <div className="flex flex-col space-y-4 p-3 overflow-y-auto scroll-w-2 scroll-touch">
+                    <div className="chat-message">
+                      <div className="flex items-end justify-end">
+                        <div>
+
+                          <img
+                            className="w-6 h-6 rounded-full order-1"
+                            src={message.senderImg}
+                            alt={message.senderName} />
+                        </div>
+
+                        <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
+                          <div>
+                            <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-200">  {message.message}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> : <div className="flex items-end py-3">
+                    <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
+                      <div>
+                        <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-[#010c3a] text-white">
+                          {message.message}
+                        </span>
+                      </div>
+                    </div>
+                    <img
+                      className="w-9 h-9 rounded-full order-1"
+                      src={message.senderImg}
+                      alt={message.senderName}
+                    />
                   </div>
-                </div>
-              </div>
-            </div>
-          </div> :  <div className="flex items-end py-3">
-            <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-              <div>
-                <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-[#010c3a] text-white">
-                 {message.message}
-                </span>
-              </div>
-            </div>
-            <img
-              className="w-9 h-9 rounded-full order-1"
-              src={message.senderImg}
-              alt={message.senderName}
-            />
-            </div>
-           }
-            </>})
+                }
+              </>
+            })
           }
         </div>
       </div>
@@ -113,14 +114,14 @@ const IndividualSupport = () => {
         <hr />
         <div className="relative">
           <form onSubmit={handleSubmit}>
-          <input
-            placeholder="Write Something...."
-            name="message"
-            className=" w-full mt-3 active:outline-none focus:outline-none focus:placeholder-gray-400 placeholder-gray-300  bg-gray-100 px-4 rounded-full py-3 border-gray-200"
-          />
-         <button type='submit'>
-         <FaLocationArrow className="dd absolute right-[3%] top-[43%] text-[#010c3a] text-[22px] cursor-pointer" />
-         </button>
+            <input
+              placeholder="Write Something...."
+              name="message"
+              className=" w-full mt-3 active:outline-none focus:outline-none focus:placeholder-gray-400 placeholder-gray-300  bg-gray-100 px-4 rounded-full py-3 border-gray-200"
+            />
+            <button type='submit'>
+              <FaLocationArrow className="dd absolute right-[3%] top-[43%] text-[#010c3a] text-[22px] cursor-pointer" />
+            </button>
           </form>
         </div>
       </div>

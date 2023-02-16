@@ -160,7 +160,9 @@ ul.submenu li:hover a {
 .accent-btn:hover {
   background: #df0303;
 }
-
+.services-area a.sm-btn {
+  width: 106px;
+}
 .accent-btn.search-btn {
   font-size: 20px;
   padding: 0 15px;
@@ -172,7 +174,12 @@ ul.submenu li:hover a {
   font-weight: 500;
   margin-left: 16px;
 }
-
+.loan-card .sm-btn {
+  background: #010c3a !important;
+}
+.loan-card .sm-btn:hover{
+  background: #df0303 !important;
+}
 .accent-btn.account-btn svg {
   font-size: 22px;
   margin-right: 4px;
@@ -285,7 +292,7 @@ ul.submenu li:hover a {
   right: -54%;
   top: 0;
   height: 100%;
-  background: red;
+  background: #df0303;
   z-index: -1;
   position: absolute;
   clip-path: polygon(50px 0, 100% 0%, 100% 100%, 0% 100%);
@@ -335,10 +342,11 @@ input::-webkit-inner-spin-button {
   background-image: url(./cardBg.png);
   width: 100%;
   cursor: pointer;
+  z-index: 0;
 }
 
 .cardImg-field::before {
-  content: "Browser File";
+  /* content: "Browser File";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -347,7 +355,7 @@ input::-webkit-inner-spin-button {
   background-color: #f6f6fc;
   color: "#333";
   z-index: 999;
-  opacity: 999;
+  opacity: 999; */
   /* border-radius: 10px; */
 }
 
@@ -358,12 +366,6 @@ input::-webkit-inner-spin-button {
 
 input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   height: 100px;
-}
-
-.from-area input[type="file"] {
-  color: transparent;
-  background-color: #fff;
-  border: 1px solid #e3ddd7;
 }
 
 .from-group .chakra-select__icon-wrapper.css-iohxn1 {
@@ -443,6 +445,10 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 @media screen and (max-width: 768px) {
   .right-side {
     width: 100% !important;
+    margin-top: 75px !important;
+  }
+  .left-side .font-semibold {
+    font-size: 50px !important;
   }
   .exchange-wrapper {
     flex-direction: column;
@@ -506,10 +512,8 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
   margin: 0px !important;
 }
 
-
-
 .slick-dots .slick-active .ft-slick__dots--custom {
-  top: -11px !important;
+  top: -17px !important;
 }
 .slick-dotted.slick-slider {
   margin-bottom: 30px;
@@ -598,7 +602,7 @@ input.border.none.cardImg-field.mb-2.mt-1.rounded.w-full.px-\[10px\] {
 }
 
 .ft-slick__dots--custom {
-  height: 8px;
+  height: 3px;
   width: 14px;
   background-color: #e5e7e9;
   border-radius: 4px;
@@ -620,12 +624,12 @@ ul.slick-dots.bannner {
 }
 
 .slick-dots .slick-active {
-  width: 56px;
+  width: 25px;
   transition: width 0.3s ease-in-out;
 }
 
 .slick-dots .slick-active .ft-slick__dots--custom {
-  width: 56px;
+  width: 25px;
   top: 0px;
   overflow: hidden;
 }
@@ -639,7 +643,26 @@ ul.slick-dots.bannner {
   left: 0;
   border-radius: 4px;
 } */
+
+.slide-wrapper .slick-slide .slider-dots {
+  bottom: 25px !important;
+}
 /* ---------- banner -------------- */
+
+/* ------------ service -------------- */
+
+.service-image {  
+  overflow: hidden;
+	width: 100%;
+  transform: scale(1);
+	transition: 0.3s ease-in-out;
+}
+
+.service-container:hover .service-image  {
+	transform: scale(1.1);
+}
+/* ------------ service -------------- */
+
 /* --------- chat --------  */
 .chat-avatar {
   align-items: center !important;

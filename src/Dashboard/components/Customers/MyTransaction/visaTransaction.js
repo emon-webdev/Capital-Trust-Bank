@@ -2,14 +2,14 @@ import { Box, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { AuthContext } from "../../../../context/AuthProvider";
 
-export default function VisaTransaction({info}) {
+export default function VisaTransaction({ info }) {
   const { user } = useContext(AuthContext);
   return (
     <div
       style={{ height: "250px", width: "400px" }}
       className="container bg-white rounded-lg p-8"
     >
-      <div className=""  id="credit-card">
+      <div className="" id="credit-card">
         <Box
           style={{
             height: "190px",

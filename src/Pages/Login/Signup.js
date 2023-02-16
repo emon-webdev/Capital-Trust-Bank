@@ -1,18 +1,18 @@
 import {
-  Button,
-  Input,
-  InputGroup,
-  InputRightElement,
-  Stack,
+    Button,
+    Input,
+    InputGroup,
+    InputRightElement,
+    Stack
 } from "@chakra-ui/react";
 import { GoogleAuthProvider } from "@firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaEyeSlash, FaEye } from "react-icons/fa";
 import "../../App.css";
 // import image from "../../assests/SignUp/signup1.jpg";
 import Spinner from "../../component/Spinner/Spinner";
@@ -204,8 +204,8 @@ const Signup = () => {
       <div className="container flex w-full mx-auto flex-row-reverse overflow-hidden bg-white rounded-lg shadow-lg  my-3 p-3">
         <div className="hidden relative bg-cover bg-img lg:block lg:w-1/2 h-full">
           <img
-            src="https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600"
-            className="rounded opacity-[.6]"
+            src="https://images.pexels.com/photos/7443994/pexels-photo-7443994.jpeg?auto=compress&cs=tinysrgb&w=600"            
+            className="rounded opacity-[.6] w-full"
             alt=""
           />
           <div className="absolute top-[23%] left-[16%]">
@@ -213,7 +213,7 @@ const Signup = () => {
               Welcome to <br /> Capital Trust Bank
             </h1>
             <p className="text-[17px] -ml-[35px] font-semibold text-center text-[#cf173c]">
-              Deposit dollars in our bank and To Feel like million dollars
+              Deposit Dollars in Our Bank and To Feel Like Million Dollars
             </p>
           </div>
         </div>

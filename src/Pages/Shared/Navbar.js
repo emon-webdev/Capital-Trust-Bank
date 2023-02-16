@@ -12,33 +12,28 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isApply, setIsApply] = useState(false);
   useEffect(() => {
-    fetch(
-      `http://localhost:5000/customer/${user?.email}`
-    )
+    fetch(`http://localhost:5000/customer/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        if(data.role==='admin'){
-          return setIsApply(true)
+        console.log(data);
+        if (data.role === "admin") {
+          return setIsApply(true);
         }
         if (data.isApply) {
-         return setIsApply(true);
+          return setIsApply(true);
         }
         setIsApply(false);
       });
   }, [user]);
-  
+
   const handleSignOut = () => {
     //delete customer device info
-    fetch(
-      `http://localhost:5000/deleteDeviceInfo/${user?.email}`,
-      {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    )
+    fetch(`http://localhost:5000/deleteDeviceInfo/${user?.email}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         logOut()
@@ -120,7 +115,7 @@ const Navbar = () => {
 
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-                to="/services"
+                to="/loansServices"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >
@@ -131,6 +126,11 @@ const Navbar = () => {
                 <li>
                   <NavLink to="/paymentbills" className="">
                     {t("Pay_bills")}
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/loansServices" className="">
+                    Loans
                   </NavLink>
                 </li>
                 <li>
@@ -163,7 +163,7 @@ const Navbar = () => {
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-                to="/insurance"
+                to="/insurances"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >

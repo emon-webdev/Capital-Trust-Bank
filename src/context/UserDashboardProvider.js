@@ -9,12 +9,10 @@ const UserDashboardProvider = ({ children }) => {
   const [withdraw, setWithdarw] = useState(0);
   const [bankInfo, setBankInfo] = useState([]);
   useEffect(() => {
-    fetch(
-      `http://localhost:5000/bankAccounts/${user?.email}`
-    )
+    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => console.log(data));
-  }, []);
+  }, [user?.email]);
   console.log(bankInfo);
   const info = {
     deposit,

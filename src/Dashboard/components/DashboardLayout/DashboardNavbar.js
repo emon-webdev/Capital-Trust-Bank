@@ -1,11 +1,4 @@
 import {
-  AddIcon,
-  EditIcon,
-  ExternalLinkIcon,
-  HamburgerIcon,
-  RepeatIcon,
-} from "@chakra-ui/icons";
-import {
   Avatar,
   Badge,
   Button,
@@ -15,20 +8,18 @@ import {
   MenuButton,
   MenuGroup,
   MenuItem,
-  MenuList,
+  MenuList
 } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import {
   MdClear,
   MdMailOutline,
-  MdNotificationsNone,
-  MdOutlineFilterCenterFocus,
+  MdNotificationsNone
 } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../../assets/logo/mainlogo.png";
-import { AuthContext } from "../../../context/AuthProvider";
 import io from "socket.io-client";
+import { AuthContext } from "../../../context/AuthProvider";
 const socket = io("http://localhost:5000/");
 const DashboardNavbar = () => {
   const { user, logOut, openSideNav, handleSideNave ,role } = useContext(AuthContext);

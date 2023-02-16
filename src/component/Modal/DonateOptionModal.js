@@ -4,6 +4,7 @@ import {
   InputLeftElement,
   Modal,
   ModalBody,
+  ModalCloseButton,
   ModalContent,
   ModalFooter,
   ModalHeader,
@@ -12,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
-const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
+const DonateOptionModal = ({ onClose, isOpen }) => {
   const [size, setSize] = React.useState("lg");
   const {
     register,
@@ -49,16 +50,14 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         window.location.replace(data.url);
         console.log(window.location.replace(data.url));
-        // toast.success(`Donate Success`);
-        // reset();
+        reset();
       });
   };
 
   return (
-    <div>
+    <div data-testid="modal">
       <Modal
         size={size}
         isCentered
@@ -71,6 +70,7 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
           <ModalHeader>
             <h2 className="py-2 text-lg md:text-4xl font-semibold">Donate </h2>
           </ModalHeader>
+          <ModalCloseButton />
           <ModalBody>
             <div>
               <form onSubmit={handleSubmit(handleDonate)}>
@@ -173,6 +173,12 @@ const DonateOptionModal = ({ onClose, isOpen, onOpen }) => {
                   )}
                 </div>
                 <div className="my-4">
+                  <button
+                    onClick={onClose}
+                    className="accent-btn sm-btn mt-5 mr-3"
+                  >
+                    Cancel
+                  </button>
                   <button
                     className={`sm-btn mt-5 cursor-pointer`}
                     type="submit"

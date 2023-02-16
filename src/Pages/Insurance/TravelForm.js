@@ -2,12 +2,10 @@
 
 
 import { FormControl } from '@chakra-ui/form-control';
-import { Input } from '@chakra-ui/input';
-import { Box, Grid, Text } from '@chakra-ui/layout';
+import { Box, Grid } from '@chakra-ui/layout';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/tabs';
 
-import  React, { useState } from 'react';
-import { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 
 

@@ -1,10 +1,7 @@
-import React from 'react';
-import { useContext } from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { AuthContext } from '../../../../context/AuthProvider';
-import VisaTransaction from '../MyTransaction/visaTransaction';
 import html2canvas from 'html2canvas';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../../context/AuthProvider';
+import VisaTransaction from '../MyTransaction/VisaTransaction';
 
 const TakeCard = () => {
     const {user} = useContext(AuthContext);

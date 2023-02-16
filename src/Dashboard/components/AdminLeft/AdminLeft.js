@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { BsFillCreditCardFill } from "react-icons/bs";
 import { FaCommentDollar, FaDonate } from "react-icons/fa";
 import { MdSupervisorAccount } from "react-icons/md";
+import { RiMessage2Fill } from "react-icons/ri";
 import { VscRequestChanges } from "react-icons/vsc";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo/mainlogo.png";
-import { RiMessage2Fill } from "react-icons/ri";
 
 const AdminLeft = () => {
   const [subMenu, setSubMenu] = useState(false);
@@ -101,13 +101,27 @@ const AdminLeft = () => {
             </span>
             <span className="text-white ml-[10px]">All Donate</span>
           </NavLink>
+          <NavLink
+            to="/dashboard/all-bills"
+            className={({ isActive }) =>
+              isActive
+                ? "border-l-2 link items-center flex px-[20px] py-[15px]"
+                : "flex px-[20px] items-center link py-[15px]"
+            }
+          >
+            <span className="text-white">
+              {" "}
+              <FaDonate />
+            </span>
+            <span className="text-white ml-[10px]">All Bills</span>
+          </NavLink>
 
           <NavLink
             to="/dashboard/CustomerSupport"
             className={({ isActive }) =>
               isActive
                 ? "border-l-2 link flex items-center px-[20px] py-[15px]"
-                : "flex px-[20px] link py-[15px]"
+                : "flex px-[20px] items-center link py-[15px]"
             }
           >
             <span className="text-white">

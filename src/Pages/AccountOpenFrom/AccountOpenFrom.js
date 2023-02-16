@@ -12,9 +12,9 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import "react-phone-input-2/lib/style.css";
 import { NavLink } from "react-router-dom";
+import io from "socket.io-client";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
-import io from "socket.io-client";
 const socket = io("http://localhost:5000/");
 const AccountOpenFrom = () => {
   const {
@@ -53,7 +53,7 @@ const AccountOpenFrom = () => {
             birth: data.birth,
             gender: gender,
             phone: data.phone,
-            email: data.email,
+            email: user?.email,
             streetAddress: data.streetAddress,
             city: data.city,
             region: data.region,
@@ -193,10 +193,10 @@ const AccountOpenFrom = () => {
                     {...register("email", {
                       required: "email is required",
                     })}
-                    // defaultValue={user?.email}
-                    // readOnly
+                    readOnly
                     className="border mb-2 mt-1 rounded w-full px-[10px]"
                     placeholder="Email Address"
+                    defaultValue={user?.email}
                   ></input>
                 </div>
               </div>
