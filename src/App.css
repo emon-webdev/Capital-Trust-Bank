@@ -647,6 +647,15 @@ ul.slick-dots.bannner {
 .slide-wrapper .slick-slide .slider-dots {
   bottom: 25px !important;
 }
+@media screen and (max-width: 768px) {
+  .banner-title {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .banner-slide-height {
+    height: 500px !important;
+  }
+}
 /* ---------- banner -------------- */
 
 /* ------------ service -------------- */

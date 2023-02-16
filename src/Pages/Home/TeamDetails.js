@@ -7,7 +7,7 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 const TeamDetails = () => {
   const teamDetails = useLoaderData();
-  const { name: name2, email, social, image, designation } = teamDetails;
+  const { name: name2, email, social, image, designation, details } = teamDetails;
   const [name, setName] = useState("Team Details");
 
   return (
@@ -61,11 +61,7 @@ const TeamDetails = () => {
                 <strong>Biography</strong>
               </h4>
               <p>
-                Mauris turpis nunc, blandit et volutpat molestie porta ut,
-                ligula. Fusce pharetra convallis urna. Quisque ut nisi. Donec mi
-                odio fauciberisque quis, convallis in nisi. Suspendisse non nisl
-                sit amet velit hendrerit tm. Ut leo. a nisl id ante tempus
-                hendrerit.
+               {details}
               </p>
             </div>
             <hr />

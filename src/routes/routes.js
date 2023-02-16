@@ -53,6 +53,7 @@ import CustomerRoute from "../routes/CustomerRoute";
 import PrivetRoute from "./PrivateRoute/PrivateRoute";
 import Insurance from "../Pages/Services/Insurance";
 import InsuranceDetails from "../Pages/Services/InsuranceDetails";
+import InsuranceRequest from "../Dashboard/components/InsuranceRequest/InsuranceRequest";
 // import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
@@ -309,6 +310,10 @@ const router = createBrowserRouter([
         path: "/dashboard/takeCard",
         element: <TakeCard />,
       },
+      {
+        path: '/dashboard/insuranceRequest',
+        element: <InsuranceRequest />
+      }
     ],
   },
 ]);

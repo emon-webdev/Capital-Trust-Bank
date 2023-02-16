@@ -11,20 +11,20 @@ const sliderData = [
         'title': 'Capital Trust Bank For Better Feature',
         'img': apply,
         'content': 'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
-        'btn': 'Apply Loan',
-        'link': '/apply'
+        'btn': 'Open an Account',
+        'link': '/accountOpenFrom'
     },
     {
-        'title': 'Capital Trust Bank For Better Feature',
+        'title': 'We Provide Best Loan Services',
         'img': slider2,
-        'content': 'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
-        'btn': 'Get Services',
-        'link': '/services'
+        'content': 'We provide you with many kinds of loans which you need. You can pay through monthly, quarterly, or annual installments.',
+        'btn': 'Loans Services',
+        'link': '/loansServices'
     },
     {
-        'title': 'Capital Trust Bank For Better Feature',
+        'title': 'Let him who would enjoy a good future waste none of his presents',
         'img': insurance,
-        'content': 'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
+        'content': 'Breaking even is nothing to be ashamed of – especially if your needs are met, and you’re not in debt or making a loss. Profits and savings can come with time.',
         'btn': 'Pay Bill',
         'link': '/paymentbills'
     },
