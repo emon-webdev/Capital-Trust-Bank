@@ -16,7 +16,6 @@ const VerificationReq = () => {
     fetch(`http://localhost:5000/bankAccounts`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCustomers(data);
       });
   }, []);
@@ -31,7 +30,6 @@ const VerificationReq = () => {
           style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
           backgroundColor="white"
           marginY={10}
-          // marginLeft={20}
           height={500}
           overflowY="scroll"
           overflowX="scroll"

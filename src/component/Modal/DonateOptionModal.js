@@ -11,9 +11,11 @@ import {
   ModalOverlay,
   Select
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../context/AuthProvider";
 const DonateOptionModal = ({ onClose, isOpen }) => {
+  const { user } = useContext(AuthContext);
   const [size, setSize] = React.useState("lg");
   const {
     register,
@@ -26,9 +28,9 @@ const DonateOptionModal = ({ onClose, isOpen }) => {
   const handleDonate = (data) => {
     // event.preventDefault();
     const donateDate = date;
-    const donarName = data.donarName;
+    const donarName = user?.displayName;
     const donarPhnNumber = data.donarPhnNumber;
-    const donarEmail = data.email;
+    const donarEmail = user?.email;
     const currency = data.currency;
     const amount = parseInt(data.amount);
 
@@ -40,7 +42,6 @@ const DonateOptionModal = ({ onClose, isOpen }) => {
       currency,
       amount,
     };
-    console.log(donate);
     fetch("http://localhost:5000/donate", {
       method: "POST",
       headers: {
@@ -51,7 +52,6 @@ const DonateOptionModal = ({ onClose, isOpen }) => {
       .then((res) => res.json())
       .then((data) => {
         window.location.replace(data.url);
-        console.log(window.location.replace(data.url));
         reset();
       });
   };
@@ -83,6 +83,7 @@ const DonateOptionModal = ({ onClose, isOpen }) => {
                     })}
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
                     placeholder="Name"
+                    defaultValue={user?.displayName}
                   ></input>
                   {errors.accountName && (
                     <p className="text-red-600 text-sm mb-0">
@@ -99,6 +100,8 @@ const DonateOptionModal = ({ onClose, isOpen }) => {
                     })}
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
                     placeholder="Email"
+                    defaultValue={user?.email}
+                    readOnly
                   ></input>
                   {errors.email && (
                     <p className="text-red-600 text-sm mb-0">

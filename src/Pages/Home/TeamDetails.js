@@ -7,29 +7,28 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 const TeamDetails = () => {
   const teamDetails = useLoaderData();
-  const { name: name2, email, social, image, designation } = teamDetails;
-  console.log(teamDetails)
+  const { name: name2, email, social, image, designation, details } = teamDetails;
   const [name, setName] = useState("Team Details");
-  
+
   return (
     <div>
       <DynamicBanner name={name} />
       <div className="container">
-        <div className="flex items-center details py-10">
-          <div className="w-[30] image-box">
+        <div className="flex items-center details py-16">
+          <div className="md:basis-2/5 w-full image-box">
             <img src={image} alt={name2} className="rounded-md" />
           </div>
 
-          <div className="w-[50%] ml-[60px] content-box">
+          <div className="md:basis-3/5 w-full ml-[60px] content-box">
             <div className="flex title-icon-box justify-between">
               <div>
                 <h1 className="text-[40px] leading-[48px]">{name2}</h1>
                 <p className="text-[#010c3a]">{designation}</p>
               </div>
-              <div className="">
+              <div className="my-4">
                 {social.map((icon) => (
                   <div className="flex items-center">
-                    <h3 className="mr-3 mt-3">Follow: </h3>
+                    <h3 className="mr-3">Follow: </h3>
                     <a
                       href={icon.facebook}
                       target="_blank"
@@ -58,13 +57,11 @@ const TeamDetails = () => {
             <hr />
 
             <div className="py-[35px]">
-              <h4><strong>Biography</strong></h4>
+              <h4>
+                <strong>Biography</strong>
+              </h4>
               <p>
-                Mauris turpis nunc, blandit et volutpat molestie porta ut,
-                ligula. Fusce pharetra convallis urna. Quisque ut nisi. Donec mi
-                odio fauciberisque quis, convallis in nisi. Suspendisse non nisl
-                sit amet velit hendrerit tm. Ut leo. a nisl id ante tempus
-                hendrerit.
+               {details}
               </p>
             </div>
             <hr />

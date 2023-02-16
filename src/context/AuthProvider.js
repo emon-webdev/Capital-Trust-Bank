@@ -80,24 +80,6 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       setUser(user);
-  //       fetch(
-  //         `http://localhost:5000/customer/${user?.email}`
-  //       )
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           setRole(data.role);
-  //         });
-  //     } else {
-  //       // console.log("else onAuthStateChanged");
-  //       setUser();
-  //     }
-  //   });
-  // }, []);
-
   const authInfo = {
     createUser,
     updateUser,

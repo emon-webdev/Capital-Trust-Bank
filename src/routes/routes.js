@@ -38,21 +38,18 @@ import Signup from "../Pages/Login/Signup";
 import PayFail from "../Pages/PaymentBills/PayFail";
 import PaymentBills from "../Pages/PaymentBills/PaymentBills";
 import PaySuccess from "../Pages/PaymentBills/PaySuccess";
-import EducationLoan from "../Pages/Services/EducationLoan";
-import GoldLoan from "../Pages/Services/GoldLoan";
 import LoanDetails from "../Pages/Services/Loans/LoanDetails";
 import Loans from "../Pages/Services/Loans/Loans";
-import MarriageLoan from "../Pages/Services/MarriageLoan";
 import Services from "../Pages/Services/Services";
-import VehicleLoan from "../Pages/Services/VehicleLoan";
 
+import InsuranceRequest from "../Dashboard/components/InsuranceRequest/InsuranceRequest";
+import Insurance from "../Pages/Services/Insurance";
+import InsuranceDetails from "../Pages/Services/InsuranceDetails";
 import Error from "../Pages/Shared/Error";
 import FactToKnow from "../Pages/Shared/FactToKnow/FactToKnow";
 import AdminRoute from "../routes/AdminRoute";
 import CustomerRoute from "../routes/CustomerRoute";
 import PrivetRoute from "./PrivateRoute/PrivateRoute";
-import Insurance from "../Pages/Services/Insurance";
-import InsuranceDetails from "../Pages/Services/InsuranceDetails";
 // import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
@@ -304,12 +301,14 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myAccount",
         element: <MyAccount />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/approved/${params.email}`),
       },
       {
         path: "/dashboard/takeCard",
         element: <TakeCard />,
+      },
+      {
+        path: "/dashboard/insuranceRequest",
+        element: <InsuranceRequest />,
       },
     ],
   },

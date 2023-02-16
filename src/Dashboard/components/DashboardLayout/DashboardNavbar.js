@@ -35,7 +35,6 @@ const DashboardNavbar = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setChatNotification(data)
         setTotalChat(data.length)
       });
@@ -48,13 +47,11 @@ const DashboardNavbar = () => {
       .then((res) => res.json())
       .then((data) => {
         setNotification(data)
-        console.log( data.length )
         setTotalNotification( data.length )
       });
   }, [reFetch]);
    
     socket.on("messageNotificationTransfer", (message) => {
-      console.log(message)
       if (message.receiverEmail === user.email) {
         setRefetch(!reFetch)
       } 
@@ -81,7 +78,7 @@ const DashboardNavbar = () => {
             navigate("/");
           })
           .catch((error) => {
-            console.log(error.message);
+          
           });
       });
   };
@@ -134,12 +131,11 @@ const DashboardNavbar = () => {
           <Menu>
             <MenuButton className="bg-transparent-nav" as={Button}>
             <IconButton className="bg-transparent-nav text-white -m-4">
-            <Badge colorScheme="error" badgecontent={4}>
-              <MdMailOutline  />{
-                totalChat > 0 ? <span className="text-red-400">{totalChat}</span> : undefined
+            <Badge colorScheme="error" className="" badgecontent={4}>
+              <MdMailOutline className="" />{
+                totalChat > 0 ? <span className="absolute top-0 right-0 bg-red-500 text-white text-[13px] rounded-full w-5 h-5 flex items-center justify-center">{totalChat}</span> : undefined
               }
             </Badge>
-            {/*  */}
           </IconButton>
             </MenuButton>
 
@@ -152,7 +148,9 @@ const DashboardNavbar = () => {
               <Link to={`/dashboard/CustomerSupport/admin`} state={chatInfo} onClick={()=>handleNotification(chatInfo)}>
                 <MenuItem>
                 <Avatar name={chatInfo?.senderName} src={chatInfo?.senderImg} />
-                <span className="m-1">{chatInfo?.message}</span>
+                <span className="m-1">
+                  {chatInfo?.message.length > 10 ? chatInfo?.message.slice(0,11)+"..." : chatInfo?.message}
+                  </span>
                 </MenuItem>
               </Link>
                   </>
@@ -170,10 +168,9 @@ const DashboardNavbar = () => {
             <IconButton className="bg-transparent-nav text-white -m-4">
             <Badge colorScheme="error" badgecontent={4}>
             <MdNotificationsNone />{
-                totalNotification > 0 ? <span className="text-red-400">{totalNotification}</span> : undefined
+                totalNotification > 0 ? <span className="text-[13px] absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">{totalNotification}</span> : undefined
               }
             </Badge>
-            {/*  */}
           </IconButton>
             </MenuButton>
 
@@ -205,8 +202,8 @@ const DashboardNavbar = () => {
             </MenuButton>
 
             <MenuList>
-              <MenuGroup title="Profile">
-                <MenuItem>My Profile</MenuItem>
+              <MenuGroup>
+                {/* <MenuItem>My Profile</MenuItem> */}
                 <Link onClick={handleSignOut}>
                   <MenuItem>Log Out </MenuItem>
                 </Link>

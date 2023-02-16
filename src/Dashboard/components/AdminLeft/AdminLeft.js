@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { BsFillCreditCardFill } from "react-icons/bs";
+import { BsChatSquareQuote, BsFillCreditCardFill } from "react-icons/bs";
 import { FaCommentDollar, FaDonate } from "react-icons/fa";
 import { MdSupervisorAccount } from "react-icons/md";
 import { RiMessage2Fill } from "react-icons/ri";
 import { VscRequestChanges } from "react-icons/vsc";
+import { CiBadgeDollar } from "react-icons/ci";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo/mainlogo.png";
 
@@ -87,6 +88,23 @@ const AdminLeft = () => {
             </span>
             <span className="text-white ml-[10px]">Loan Request</span>
           </NavLink>
+
+          <NavLink
+            to="/dashboard/insuranceRequest"
+            className={({ isActive }) =>
+              isActive
+                ? "border-l-2 link items-center flex px-[20px] py-[15px]"
+                : "flex px-[20px] items-center link py-[15px]"
+            }
+          >
+            <span className="text-white">
+              {" "}
+              <BsChatSquareQuote />
+            </span>
+            <span className="text-white ml-[10px]">Insurance Request</span>
+          </NavLink>
+
+
           <NavLink
             to="/dashboard/all-donate"
             className={({ isActive }) =>
@@ -111,7 +129,7 @@ const AdminLeft = () => {
           >
             <span className="text-white">
               {" "}
-              <FaDonate />
+              <CiBadgeDollar />
             </span>
             <span className="text-white ml-[10px]">All Bills</span>
           </NavLink>

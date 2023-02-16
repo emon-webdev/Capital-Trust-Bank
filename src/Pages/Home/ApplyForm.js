@@ -28,8 +28,6 @@ export default function ApplyForm() {
   
 const ser = useLoaderData();
 
- 
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -39,8 +37,7 @@ const ser = useLoaderData();
     const city = form.city.value;
     const date = form.date.value;
     const loan = form.loan.value;
-    console.log(name, email, phone, city, date, loan);
-
+   
     const applicant = {
       name: name,
       email: email,
@@ -59,7 +56,6 @@ const ser = useLoaderData();
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
@@ -100,7 +96,6 @@ const ser = useLoaderData();
             }}
             className="py-10 mb-10 px-7 sm:align-content-center sm:justify-items-center"
           >
-            {/* <Grid container className=" align-content-center justify-items-center"> */}
               <FormControl>
                 <input
                   name="name"
@@ -177,7 +172,6 @@ const ser = useLoaderData();
                     Apply
                   </button>
                 </FormControl>
-              {/* </FormControl> */}
             </form>
         </Box>
       </div>

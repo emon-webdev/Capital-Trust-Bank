@@ -23,8 +23,7 @@ export default function BusinessForm() {
     const phone = form.phone.value;
     const date = form.date.value;
     const insurance = form.insurance.value;
-    console.log(name, email, phone, date, insurance);
-
+   
     const applicant = {
       name: name,
       email: email,
@@ -42,7 +41,6 @@ export default function BusinessForm() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
@@ -85,10 +83,6 @@ export default function BusinessForm() {
                 }}
                 className="py-10 px-7 sm:align-content-center sm:justify-items-center"
               >
-                {/* <Grid
-                  container
-                  className=" align-content-center justify-items-center"
-                > */}
                 <FormControl>
                   <input
                     name="name"
@@ -163,7 +157,6 @@ export default function BusinessForm() {
                     Apply
                   </button>
                 </FormControl>
-                {/* </Grid> */}
               </form>
             </TabPanel>
             <TabPanel className="animate__animated animate__slideInUp">

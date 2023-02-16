@@ -52,19 +52,16 @@ const Login = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data) {
           signInWithEmail(email, password)
             .then((result) => {
               const user = result.user;
-              console.log(user);
               setLoginToken(user);
               toast.success("Login Success");
               setLoading(false);
               navigate(from, { replace: true });
             })
             .catch((error) => {
-              console.log(error);
               setSignInError(error.message);
               setLoading(false);
             });
@@ -82,7 +79,7 @@ const Login = () => {
         toast.success("please check your email and reset your password");
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error);
       });
   };
 
@@ -104,9 +101,7 @@ const Login = () => {
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data) {
-            console.log(user);
             const name = user?.displayName;
             const image = user?.photoURL;
             const verify = false;
@@ -119,7 +114,7 @@ const Login = () => {
                 navigate("/");
               })
               .catch((error) => {
-                console.log(error.message);
+                toast.error(error.message);
               });
           }
         });
@@ -162,8 +157,6 @@ const Login = () => {
               <p className="text-red-500">{errors.email?.message}</p>
             )}
 
-            {/* password */}
-
             <InputGroup size="md">
               <Input
                 size="lg"
@@ -195,7 +188,6 @@ const Login = () => {
             </label>
           </Stack>
 
-          {/* end password */}
           {signInError && <span className="text-red-500">{signInError}</span>}
           <div className="mt-6">
             <button className="w-full secondary-btn px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">

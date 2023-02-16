@@ -86,23 +86,19 @@ const Signup = () => {
     } else {
       setLengthValidated(false);
     }
-    // setIsShowPassword('')
   };
 
   const handleSignUp = (data) => {
-    console.log(data);
+   
     setSignUpError("");
     setLoading(true);
     const email = data.email;
     const password = data.password;
     const name = data.name;
     const image = data.image[0];
-    console.log("picture", image);
     const formData = new FormData();
-    console.log(formData);
     formData.append("image", image);
     const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGE_SECRET_KEY}`;
-    console.log(url);
     fetch(url, {
       method: "POST",
       body: formData,
@@ -110,7 +106,6 @@ const Signup = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          console.log(data);
           createUser(email, password)
             .then((result) => {
               const user = result.user;
@@ -118,7 +113,6 @@ const Signup = () => {
               setAuthToken(user, name, image, number);
               updateUser(name, data.data.url)
                 .then(() => {
-                  console.log(user);
                   //store customer device info
                   fetch(
                     `http://localhost:5000/storeDeviceInfo/${user.email}`,
@@ -138,13 +132,11 @@ const Signup = () => {
                     });
                 })
                 .catch((error) => {
-                  console.log(error);
                   setSignUpError(error.message);
                   setLoading(false);
                 });
             })
             .catch((error) => {
-              console.log(error);
               setSignUpError(error.message);
               setLoading(false);
             });
@@ -174,7 +166,6 @@ const Signup = () => {
             setLoading(false);
             toast.success("SignUp Success");
             navigate(from, { replace: true });
-            console.log(user);
             const name = user?.displayName;
             const image = user?.photoURL;
             const verify = false;
@@ -186,7 +177,7 @@ const Signup = () => {
             .then(() => {
               navigate('/') })
             .catch((error) => {
-                console.log(error.message);
+              toast.error(error.message);
             });
           }
          
@@ -256,10 +247,8 @@ const Signup = () => {
                 id="outlined-basic"
                 label="Number"
                 variant="outlined"
-                // required
                 className="w-full"
                 country={"bd"}
-                // value={phone}
                 {...register("phone")}
                 onChange={(phone) => setPhone(phone)}
               />
@@ -267,8 +256,6 @@ const Signup = () => {
                 <p className="text-red-500">{errors.phone?.message}</p>
               )}
             </div>
-
-            {/* password input  */}
             <div className="relative mt-4">
               <InputGroup size="md">
                 <Input
@@ -350,8 +337,6 @@ const Signup = () => {
                 <p className="text-red-500">{errors.password?.message}</p>
               )}
             </div>
-
-            {/* confirm_password input */}
             <div className="relative mt-4">
               <InputGroup size="md">
                 <Input

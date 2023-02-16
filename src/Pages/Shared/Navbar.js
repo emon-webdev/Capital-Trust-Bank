@@ -8,6 +8,7 @@ import { AuthContext } from "../../context/AuthProvider";
 const Navbar = () => {
   const { t } = useTranslation();
   const { logOut, user } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const [isApply, setIsApply] = useState(false);
   useEffect(() => {
@@ -237,11 +238,6 @@ const Navbar = () => {
                 <li>
                   <NavLink to="/signup" className="">
                     {t("Sign_Up")}
-                  </NavLink>
-                </li>
-                <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
-                  <NavLink className="">
-                    <button onClick={handleSignOut}>{t("Sign_Out")}</button>
                   </NavLink>
                 </li>
               </ul>

@@ -22,8 +22,8 @@ const Team = () => {
     initialSlide: 0,
     speed: 1000,
     arrows: false,
-    appendDots: dots => <ul>{dots}</ul>,
-    customPaging: i => (
+    appendDots: (dots) => <ul>{dots}</ul>,
+    customPaging: (i) => (
       <div className="ft-slick__dots--custom">
         <div className="loading" />
       </div>
@@ -67,9 +67,13 @@ const Team = () => {
   return (
     <div className="team-area py-12">
       <div className="container mx-auto">
-        <div className="text-center">
-          <h5 className="text-center text-red-500">-- Our Team --</h5>
-          <h1 className="text-[36px] font-semibold">Team Of Expert Consulted</h1>
+        <div className="section-title w-full md:w-[650px] mx-auto text-center">
+          <h5 className="text-[#DF0303] text-xl text-md mb-3">
+            -- Our Team --
+          </h5>
+          <h1 className="text-[#010C3A] md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">
+            Team Of Expert Consulted
+          </h1>
         </div>
         <Slider {...sliderSettings} className="mt-[60px]">
           {teams.map((team) => (

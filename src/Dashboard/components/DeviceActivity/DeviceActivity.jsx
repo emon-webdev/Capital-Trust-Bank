@@ -9,13 +9,13 @@ const DeviceActivity = () => {
     fetch(`http://localhost:5000/getDeviceInfo/${email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setDevicesInfo(data);
       });
   }, [user]);
 
   return (
       <div className="mt-3">
+        <h1 className="text-2xl font-semibold text-center my-2">Device Remaining: {2- devicesInfo.length}</h1>
         <table class="table-auto w-full text-center border-2 p-3">
           <thead className="border-2">
             <tr>

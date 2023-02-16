@@ -9,33 +9,26 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import {
-  getAuth,
-  RecaptchaVerifier,
-  signInWithPhoneNumber,
-} from "firebase/auth";
-import React, { useContext, useState } from "react";
+
+import React, { useContext, useEffect, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import { toast } from "react-hot-toast";
-import { CgSpinner } from "react-icons/cg";
-import OtpInput from "react-otp-input";
-import PhoneInput from "react-phone-input-2";
+
 import { AuthContext } from "../../../../context/AuthProvider";
 import { DashboardContext } from "../../../../context/UserDashboardProvider";
-
-const auth = getAuth();
 
 const MyDeposit = () => {
   const [startDate, setStartDate] = useState(new Date());
   const { user, setUser } = useContext(AuthContext);
   const { deposit, setDeposit, setBalance, balance } =
     useContext(DashboardContext);
+  const [approve, setApprove] = useState([]);
 
-  // const [otp, setOtp] = useState("");
-  // const [loading, setLoading] = useState(false);
-  // const [showOtp, setShowOtp] = useState(false);
-  // const [ph, setPh] = useState("");
-  // const [user, setUser] = useState(null);
+  useEffect(() => {
+    fetch(`http://localhost:5000/approved/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setApprove(data));
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -71,7 +64,6 @@ const MyDeposit = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("Deposit Successlly Done");
           form.reset();
@@ -107,7 +99,6 @@ const MyDeposit = () => {
               selected={startDate}
               onChange={(date) => setStartDate(date)}
             />
-            {/* <Input type="date" name="date" /> */}
           </FormControl>
           <FormControl display={"flex"}>
             <FormLabel fontSize={18}>Time:</FormLabel>
@@ -125,36 +116,13 @@ const MyDeposit = () => {
         </Flex>
         <FormControl marginY={2}>
           <FormLabel fontSize={18}>Name</FormLabel>
-          <Input name="name" />
+          <Input name="name" defaultValue={user.displayName} />
         </FormControl>
 
         <FormControl marginY={2}>
           <FormLabel fontSize={18}>Account Number</FormLabel>
-          <Input type="text" name="account" />
+          <Input type="text" name="account" defaultValue={approve.accountId} />
         </FormControl>
-
-        {/* <FormControl marginY={2}>
-          <FormLabel fontSize={18}>Phone Number</FormLabel>
-          <PhoneInput country="bd" />
-        </FormControl> */}
-        {/* <VStack>
-                <Button
-                  onClick={onSignPhone}
-                  fontSize={20}
-                  marginY={5}
-                  paddingY={5}
-                  paddingX={6}
-                  type="submit"
-                  color="white"
-                  backgroundColor="#041C51"
-                  _hover={{ opacity: ".8" }}
-                >
-                  <span>
-                    {loading && <CgSpinner className="animate-spin mx-2" />}
-                  </span>
-                  Send Code
-                </Button>
-              </VStack> */}
 
         <FormControl marginY={2}>
           <FormLabel fontSize={18}>Amount</FormLabel>

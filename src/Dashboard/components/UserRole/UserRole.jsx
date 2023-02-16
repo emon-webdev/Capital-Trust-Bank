@@ -5,7 +5,6 @@ import MyTransaction from "../Customers/MyTransaction/MyTransaction";
 
 const UserRole = () => {
   const { role } = useContext(AuthContext);
-  console.log(role)
   return (
     <div>
       {role === "customer" ? <MyTransaction></MyTransaction> : undefined}

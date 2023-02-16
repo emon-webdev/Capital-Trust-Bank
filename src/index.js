@@ -15,6 +15,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-phone-input-2/lib/style.css";
 import reportWebVitals from "./reportWebVitals";
+import UserDashboardProvider from "./context/UserDashboardProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const queryClient = new QueryClient();
@@ -24,7 +25,9 @@ root.render(
       <QueryClientProvider client={queryClient}>
         <Suspense fallback="Loading...">
           <ChakraProvider>
-            <App />
+            <UserDashboardProvider>
+              <App />
+            </UserDashboardProvider>
           </ChakraProvider>
         </Suspense>
       </QueryClientProvider>
