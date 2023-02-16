@@ -16,22 +16,19 @@ import "react-datepicker/dist/react-datepicker.css";
 import "react-phone-input-2/lib/style.css";
 import reportWebVitals from "./reportWebVitals";
 
-import UserDashboardProvider from "./context/UserDashboardProvider";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <UserDashboardProvider>
-        <QueryClientProvider client={queryClient}>
-          <Suspense fallback="Loading...">
-            <ChakraProvider>
-              <App />
-            </ChakraProvider>
-          </Suspense>
-        </QueryClientProvider>
-        <Toaster />
-      </UserDashboardProvider>
+      <QueryClientProvider client={queryClient}>
+        <Suspense fallback="Loading...">
+          <ChakraProvider>
+            <App />
+          </ChakraProvider>
+        </Suspense>
+      </QueryClientProvider>
+      <Toaster />
     </AuthProvider>
   </React.StrictMode>
 );

@@ -1,18 +1,18 @@
 import {
-    Box,
-    Button,
-    Center,
-    Flex,
-    FormControl,
-    FormLabel,
-    Input,
-    Text,
-    VStack
+  Box,
+  Button,
+  Center,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
 import {
-    getAuth,
-    RecaptchaVerifier,
-    signInWithPhoneNumber
+  getAuth,
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
 } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import ReactDatePicker from "react-datepicker";
@@ -44,18 +44,18 @@ const MyDeposit = () => {
     const time = form.time.value;
     const account = form.account.value;
     const amount = form.deposit.value;
-    const phone = form.phone.value;
+
     const email = user?.email;
 
     const date = form.date.value;
 
-    console.log(name, email, amount, date, phone, time, account);
+    console.log(name, email, amount, date, time, account);
 
     const appellant = {
       name: name,
       email: email,
       account: account,
-      phone: phone,
+
       deposit: amount,
       type: "deposit",
       time: time,
@@ -82,58 +82,6 @@ const MyDeposit = () => {
     setDeposit(deposit + parseInt(amount));
   };
 
-  // function onCaptchVerify() {
-  //   if (!window.recaptchaVerifier) {
-  //     window.recaptchaVerifier = new RecaptchaVerifier(
-  //       "recaptcha-container",
-  //       {
-  //         size: "invisible",
-  //         callback: (response) => {
-  //           onSignPhone();
-  //         },
-  //         "expired-callback": () => {},
-  //       },
-  //       auth
-  //     );
-  //   }
-  // }
-
-  // function onSignPhone() {
-  //   setLoading(true);
-  //   onCaptchVerify();
-  //   const appVerifier = window.recaptchaVerifier;
-  //   const formatPh = "+" + ph;
-  //   signInWithPhoneNumber(auth, formatPh, appVerifier)
-  //     .then((confirmationResult) => {
-  //       // SMS sent. Prompt user to type the code from the message, then sign the
-  //       // user in with confirmationResult.confirm(code).
-  //       window.confirmationResult = confirmationResult;
-  //       setLoading(false);
-  //       setShowOtp(true);
-  //       toast.success("OTP sended successfully");
-  //       // ...
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       setLoading(false);
-  //       // Error; SMS not sent
-  //       // ...
-  //     });
-  // }
-  // function onOTPVerify() {
-  //   setLoading(true);
-  //   window.confirmationResult
-  //     .confirm(otp)
-  //     .then(async (res) => {
-  //       console.log(res);
-  //       setUser(res.user);
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       setLoading(false);
-  //     });
-  // }
   return (
     <div
       style={{ width: "600px", height: "500px" }}
@@ -148,7 +96,7 @@ const MyDeposit = () => {
       >
         Deposit
       </Text>
-      <div id="recaptcha-container" className=""></div>
+
       <form onSubmit={handleSubmit} className="my-5 mx-2">
         <Flex gap={5} marginBottom={3}>
           <FormControl display={"flex"}>

@@ -2,38 +2,41 @@ import { Flex, Text } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineMinusSquare } from "react-icons/ai";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+import { useLoaderData } from "react-router";
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 import { AuthContext } from "../../../../context/AuthProvider";
 
 export default function MyAccount() {
   const { user } = useContext(AuthContext);
+  const approvedData = useLoaderData();
+  console.log("data", approvedData);
   // const { deposit, withdraw } = useContext(DashboardContext);
   // console.log(deposit);
-  const [transacData, setTransacData] = useState([]);
+  // const [transacData, setTransacData] = useState([]);
 
-  useEffect(() => {
-    fetch(
-      `https://capital-trust-bank-server.vercel.app/depositWithdraw/${user?.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => setTransacData(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch(
+  //     `https://capital-trust-bank-server.vercel.app/depositWithdraw/${user?.email}`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setTransacData(data));
+  // }, []);
 
-  const withdrawData = transacData.filter((data) => data.type === "withdraw");
-  console.log(withdrawData);
-  const totalWithdraw = withdrawData.reduce((total, withdr) => {
-    return total + parseInt(withdr.withdraw);
-  }, 0);
+  // const withdrawData = transacData.filter((data) => data.type === "withdraw");
+  // console.log(withdrawData);
+  // const totalWithdraw = withdrawData.reduce((total, withdr) => {
+  //   return total + parseInt(withdr.withdraw);
+  // }, 0);
 
-  // arr.reduce((a, b) => ({x: a.x + b.x}));
-  console.log("totalWithdraw", totalWithdraw);
-  const depositData = transacData.filter((data) => data.type === "deposit");
-  const totalDeposit = depositData.reduce((total, depo) => {
-    return total + parseInt(depo.deposit);
-  }, 0);
+  // // arr.reduce((a, b) => ({x: a.x + b.x}));
+  // console.log("totalWithdraw", totalWithdraw);
+  // const depositData = transacData.filter((data) => data.type === "deposit");
+  // const totalDeposit = depositData.reduce((total, depo) => {
+  //   return total + parseInt(depo.deposit);
+  // }, 0);
 
-  // arr.reduce((a, b) => ({x: a.x + b.x}));
-  console.log("totalDeposit", totalDeposit);
+  // // arr.reduce((a, b) => ({x: a.x + b.x}));
+  // console.log("totalDeposit", totalDeposit);
 
   return (
     <div className="container ">
@@ -65,7 +68,7 @@ export default function MyAccount() {
           <div className="mt-5">
             <Text fontSize={50}>
               <span>$</span>
-              {totalDeposit}
+              {approvedData.initialDeposit}
             </Text>
             <Text color={"grey"} fontSize={28} marginTop={10}>
               Available Balance
@@ -100,7 +103,7 @@ export default function MyAccount() {
           <div className="mt-5">
             <Text fontSize={50}>
               <span>$</span>
-              {totalWithdraw}
+              {/* {totalWithdraw} */}
             </Text>
             <Text color={"grey"} fontSize={28} marginTop={10}>
               Withdraw Balance

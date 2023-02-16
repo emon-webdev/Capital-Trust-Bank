@@ -304,6 +304,8 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myAccount",
         element: <MyAccount />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/approved/${params.email}`),
       },
       {
         path: "/dashboard/takeCard",
