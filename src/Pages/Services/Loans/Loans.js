@@ -78,7 +78,7 @@ const Loans = (props) => {
             shadow="2xl"
             key={loan.id}
             style={{ width: "100%", height: "auto" }}
-            className="hover:bg-gradient-to-r from-blue-500 to-blue-900  hover:text-[#fff] "
+            className="hover:bg-gradient-to-r from-blue-300 to-blue-700  hover:text-[#fff] "
           >
             <CardBody className="flex flex-col align-center justify-center hover:text-white">
               <div className="w-100  text-4xl flex align-center justify-center my-3"></div>
@@ -91,7 +91,7 @@ const Loans = (props) => {
                 {loan.title}
               </Text>
               <div className="text-lg text-center my-5">
-                {loan.details.slice(0, 300)}...
+                {loan.details.slice(0, 200)}...
                 <VStack marginY={4}>
                   <Link to={`/loanDetails/${loan._id}`}>
                     <text className="font-bold sm-btn secondary-btn bg-[#151423] rounded px-4 py-3  text-[#fff]">
