@@ -6,7 +6,6 @@ import "./About.css";
 
 const About = () => {
   const [name, setName] = useState("About Us");
-  // console.log(name);
   return (
     <div>
       {/* <div className="about-parent h-60">

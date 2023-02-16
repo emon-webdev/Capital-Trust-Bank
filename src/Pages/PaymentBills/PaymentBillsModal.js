@@ -47,7 +47,6 @@ const PaymentBillsModal = ({
       billType,
       amount,
     };
-    console.log(paymentInfo);
 
     fetch("http://localhost:5000/pay-bills", {
       method: "POST",

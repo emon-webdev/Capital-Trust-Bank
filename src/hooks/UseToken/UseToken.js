@@ -7,7 +7,6 @@ const setAuthToken = (user, name, image, number) => {
       phone: number,
       role: "customer",
     };
-    // console.log(currentUser)
     fetch(`${process.env.REACT_APP_API_KEY}/user/${user?.email}`, {
         method: 'PUT',
         headers: {

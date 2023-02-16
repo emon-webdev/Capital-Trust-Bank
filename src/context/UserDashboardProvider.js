@@ -13,7 +13,6 @@ const UserDashboardProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => console.log(data));
   }, [user?.email]);
-  console.log(bankInfo);
   const info = {
     deposit,
     setDeposit,
