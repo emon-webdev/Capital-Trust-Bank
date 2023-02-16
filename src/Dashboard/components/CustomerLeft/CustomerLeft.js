@@ -21,7 +21,6 @@ const CustomerLeft = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         if (data.approve) {
          return setApprove(true);
         }
