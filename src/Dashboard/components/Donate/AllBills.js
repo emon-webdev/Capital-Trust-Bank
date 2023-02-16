@@ -56,16 +56,14 @@ const AllBills = () => {
         </div>
         <div
           style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
-          className="donate-card flex items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
+          className="donate-card flex items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-[450px] bg-white"
         >
-          <div className="mr-5">
-            <FaDonate className="text-6xl text-[#9c0f55]" />
-          </div>
+          {/* <div className="mr-5">
+            <FaDonate className="text-2xl text-[#9c0f55]" />
+          </div> */}
           <div className="">
-            <div className="text-[#808080] text-2xl mb-3">
-              Total Water Bills
-            </div>
-            <h2 className="text-3xl font-bold ">$ {totalWaterBill}</h2>
+            <div className="text-[#808080] text-md mb-2">Total Water Bills</div>
+            <h2 className="text-xl font-bold ">$ {totalWaterBill}</h2>
           </div>
         </div>
       </div>
@@ -123,5 +121,5 @@ const AllBills = () => {
     </div>
   );
 };
-  
+
 export default AllBills;
