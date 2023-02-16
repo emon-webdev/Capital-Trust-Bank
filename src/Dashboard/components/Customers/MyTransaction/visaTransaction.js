@@ -14,7 +14,7 @@ export default function VisaTransaction({ info }) {
           style={{
             height: "190px",
             width: "350px",
-            background:
+            background: 
               "linear-gradient(90deg, rgba(2,2,31,1) 0%, rgba(2,24,55,1) 5%, rgba(2,55,89,1) 12%, rgba(6,129,185,1) 61%, rgba(15,14,89,1) 98%, rgba(1,192,238,1) 100%, rgba(0,212,255,1) 100%)",
           }}
           className="visa-card container p-5 rounded-xl"
