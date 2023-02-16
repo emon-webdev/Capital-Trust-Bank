@@ -1,20 +1,12 @@
-
-
-
 import { FormControl } from '@chakra-ui/form-control';
 import { Box, Grid } from '@chakra-ui/layout';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/tabs';
-
 import React, { useContext, useState } from 'react';
-
-
-
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import travel from '../../assets/insurance/Trip-pana.png';
 import { AuthContext } from '../../context/AuthProvider';
 import { districts } from '../Services/districtData';
-
 
 export default function TravelForm() {
   const [startDate, setStartDate] = useState(new Date());
@@ -34,7 +26,6 @@ export default function TravelForm() {
     const phone = form.phone.value;
     const date = form.date.value;
     const insurance = form.insurance.value;
-    console.log(name, email, phone,  date, insurance);
 
     const applicant = {
       name: name,
@@ -53,7 +44,6 @@ export default function TravelForm() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
@@ -91,10 +81,6 @@ export default function TravelForm() {
                 }}
                 className="py-10 px-7 sm:align-content-center sm:justify-items-center"
               >
-                {/* <Grid
-                  container
-                  className=" align-content-center justify-items-center"
-                > */}
                   <FormControl>
                     <input
                       name="name"
@@ -153,20 +139,12 @@ export default function TravelForm() {
                     <input
                       name="date"
                       type='date'
-                      
                       style={{ width: "100%" }}
                       className="border  px-3 rounded"
                       placeholder="dd/mm/yy"
                       required
-                   />
-                   
-                      
-                    
-                    
-                      
+                   />           
                   </FormControl>
-                  
-
                   <FormControl>
                     <button
                       style={{ width: "100%" }}
@@ -176,7 +154,6 @@ export default function TravelForm() {
                       Apply
                     </button>
                   </FormControl>
-                {/* </Grid> */}
               </form>
             </TabPanel>
             <TabPanel className="animate__animated animate__slideInUp">

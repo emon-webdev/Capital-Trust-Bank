@@ -7,8 +7,6 @@ import { AuthContext } from "../../../../context/AuthProvider";
 
 export default function MyAccount() {
   const { user } = useContext(AuthContext);
-  // const { deposit, withdraw } = useContext(DashboardContext);
-  // console.log(deposit);
   const [transacData, setTransacData] = useState([]);
 
   useEffect(() => {
@@ -20,20 +18,14 @@ export default function MyAccount() {
   }, []);
 
   const withdrawData = transacData.filter((data) => data.type === "withdraw");
-  console.log(withdrawData);
   const totalWithdraw = withdrawData.reduce((total, withdr) => {
     return total + parseInt(withdr.withdraw);
   }, 0);
 
-  // arr.reduce((a, b) => ({x: a.x + b.x}));
-  console.log("totalWithdraw", totalWithdraw);
   const depositData = transacData.filter((data) => data.type === "deposit");
   const totalDeposit = depositData.reduce((total, depo) => {
     return total + parseInt(depo.deposit);
   }, 0);
-
-  // arr.reduce((a, b) => ({x: a.x + b.x}));
-  console.log("totalDeposit", totalDeposit);
 
   return (
     <div className="container ">

@@ -9,7 +9,6 @@ const DeviceActivity = () => {
     fetch(`http://localhost:5000/getDeviceInfo/${email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setDevicesInfo(data);
       });
   }, [user]);

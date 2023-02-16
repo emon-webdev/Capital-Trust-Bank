@@ -9,7 +9,6 @@ import {
 } from "@chakra-ui/table";
 import React, { useEffect, useState } from "react";
 import { FaDonate } from "react-icons/fa";
-// import "./Table.css";
 const AllBills = () => {
   const [bills, setBills] = useState([]);
 
@@ -29,12 +28,10 @@ const AllBills = () => {
 
   //total Water Bill
   const waterBills = bills.filter((data) => data.billType === "Water");
-  console.log(waterBills);
-
+ 
   const totalWaterBill = waterBills.reduce((amount, currentWaterBill) => {
     return parseInt(amount) + parseInt(currentWaterBill.amount);
   }, 0);
-  console.log(totalWaterBill);
 
   return (
     <div className="donate-content">

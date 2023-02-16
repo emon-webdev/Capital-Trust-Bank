@@ -1,12 +1,14 @@
+import { Table, TableCaption, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr } from "@chakra-ui/react";
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const DonateList = () => {
   const location = useLocation();
-  console.log(location.search);
-
+ 
   const query = new URLSearchParams(location.search);
   const transactionID = query.get("transactionId");
-  console.log(transactionID);
   const [donate, setDonate] = useState({});
 
   useEffect(() => {
@@ -14,8 +16,7 @@ const DonateList = () => {
       .then((res) => res.json())
       .then((data) => setDonate(data));
   }, [transactionID]);
-  console.log(donate);
-
+ 
   return (
     <div>
       <TableContainer>

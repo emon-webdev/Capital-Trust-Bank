@@ -21,7 +21,6 @@ const ExchangeDetails = () => {
     fetch('https://openexchangerates.org/api/latest.json?app_id=919d30d6d8364f23a10f5ba7e0a6894d')
     .then(res => res.json())
     .then(data => {
-    console.log(data.rates.BDT)
       setState({ BDT: data.rates.BDT});
     })
   },[])
@@ -53,9 +52,7 @@ const ExchangeDetails = () => {
   };
   return (
     <div>
-      {/* <DynamicBanner name={name} /> */}
       <h1 className="text-2xl text-center font-semibold -mb-3">Exchange Details</h1>
-
       <div
         className="exchange-bg py-10 my-[50px]"
         style={{
@@ -87,7 +84,6 @@ const ExchangeDetails = () => {
                   <ListIcon as={MdCheckCircle} color="green.500" />
                   24/7 Transfers
                 </ListItem>
-                {/* You can also use custom icons from react-icons */}
                 <ListItem>
                   <ListIcon as={MdCheckCircle} color="green.500" />
                   5-star customer rating
