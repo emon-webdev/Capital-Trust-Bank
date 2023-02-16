@@ -13,7 +13,6 @@ const IndividualSupport = () => {
   const { state } = useLocation();
   useEffect(() => {
     socket.on("messageTransfer", (message) => {
-      console.log(message);
       if (message.to === user.email) {
         setMessages([...messages, message]);
       } else {
@@ -28,7 +27,6 @@ const IndividualSupport = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setAllLoad(true);
         setAllMessages(data);
       });
