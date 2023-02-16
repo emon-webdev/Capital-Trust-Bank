@@ -35,7 +35,6 @@ const DashboardNavbar = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setChatNotification(data)
         setTotalChat(data.length)
       });
@@ -48,13 +47,11 @@ const DashboardNavbar = () => {
       .then((res) => res.json())
       .then((data) => {
         setNotification(data)
-        console.log( data.length )
         setTotalNotification( data.length )
       });
   }, [reFetch]);
    
     socket.on("messageNotificationTransfer", (message) => {
-      console.log(message)
       if (message.receiverEmail === user.email) {
         setRefetch(!reFetch)
       } 
@@ -81,7 +78,7 @@ const DashboardNavbar = () => {
             navigate("/");
           })
           .catch((error) => {
-            console.log(error.message);
+          
           });
       });
   };
@@ -139,7 +136,6 @@ const DashboardNavbar = () => {
                 totalChat > 0 ? <span className="text-red-400">{totalChat}</span> : undefined
               }
             </Badge>
-            {/*  */}
           </IconButton>
             </MenuButton>
 
@@ -152,7 +148,9 @@ const DashboardNavbar = () => {
               <Link to={`/dashboard/CustomerSupport/admin`} state={chatInfo} onClick={()=>handleNotification(chatInfo)}>
                 <MenuItem>
                 <Avatar name={chatInfo?.senderName} src={chatInfo?.senderImg} />
-                <span className="m-1">{chatInfo?.message}</span>
+                <span className="m-1">
+                  {chatInfo?.message.length > 10 ? chatInfo?.message.slice(0,11)+"..." : chatInfo?.message}
+                  </span>
                 </MenuItem>
               </Link>
                   </>
@@ -173,7 +171,6 @@ const DashboardNavbar = () => {
                 totalNotification > 0 ? <span className="text-red-400">{totalNotification}</span> : undefined
               }
             </Badge>
-            {/*  */}
           </IconButton>
             </MenuButton>
 

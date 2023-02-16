@@ -5,11 +5,9 @@ import { Link, useLocation } from "react-router-dom";
 const DonateSuccess = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const location = useLocation();
-  console.log(location.search);
-
+ 
   const query = new URLSearchParams(location.search);
   const transactionID = query.get("transactionId");
-  console.log(transactionID);
   const [donate, setDonate] = useState({});
 
   useEffect(() => {
@@ -17,7 +15,6 @@ const DonateSuccess = () => {
       .then((res) => res.json())
       .then((data) => setDonate(data));
   }, [transactionID]);
-  console.log(donate);
 
   return (
     <div className=" bg-[#F3F3FE]">

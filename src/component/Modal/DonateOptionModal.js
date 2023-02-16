@@ -42,7 +42,6 @@ const DonateOptionModal = ({ onClose, isOpen }) => {
       currency,
       amount,
     };
-    console.log(donate);
     fetch("http://localhost:5000/donate", {
       method: "POST",
       headers: {
@@ -53,7 +52,6 @@ const DonateOptionModal = ({ onClose, isOpen }) => {
       .then((res) => res.json())
       .then((data) => {
         window.location.replace(data.url);
-        console.log(window.location.replace(data.url));
         reset();
       });
   };

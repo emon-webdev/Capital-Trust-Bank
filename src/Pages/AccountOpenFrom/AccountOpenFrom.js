@@ -25,15 +25,11 @@ const AccountOpenFrom = () => {
   } = useForm();
   const date = new Date();
   const { user } = useContext(AuthContext);
-  console.log(user);
   const imgHostKey = process.env.REACT_APP_IMAGE_SECRET_KEY;
-  // console.log(imgHostKey);
   const [name, setName] = useState("Account Open In Bank");
   const [gender, setGender] = useState("male");
   const accountFromSubmit = (data) => {
-    console.log(data);
     const cardImg = data.cardImg[0];
-    console.log(cardImg);
     const formData = new FormData();
     formData.append("image", cardImg);
     const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`;
@@ -44,8 +40,6 @@ const AccountOpenFrom = () => {
       .then((res) => res.json())
       .then((imgData) => {
         if (imgData.success) {
-          const image = imgData.data.url;
-          console.log(image);
           const account = {
             accountOpenDate: date,
             firstName: data.firstName,
@@ -69,7 +63,6 @@ const AccountOpenFrom = () => {
             term: true,
             approve: false,
           };
-          console.log(account);
           // save information to the database
           fetch("http://localhost:5000/bankAccounts", {
             method: "POST",
@@ -80,7 +73,6 @@ const AccountOpenFrom = () => {
           })
             .then((res) => res.json())
             .then((result) => {
-              console.log(result);
               toast.success(
                 `Your form has been submitted please wait for approval.`
               );
@@ -165,16 +157,6 @@ const AccountOpenFrom = () => {
                   <label className="text-base text-[#57647E]">
                     Phone Number
                   </label>
-                  {/* <PhoneInput
-                    children="$"
-                    type="number"
-                    {...register("phone", {
-                      required: "Phone Number is required",
-                    })}
-                    // className="border mb-2 mt-1 rounded w-full px-[10px]"
-                    placeholder="Phone Number"
-                    country={"bd"}
-                  ></PhoneInput> */}
                   <input
                     type="number"
                     {...register("phone", {

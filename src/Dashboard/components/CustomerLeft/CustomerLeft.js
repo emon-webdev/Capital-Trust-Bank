@@ -16,15 +16,12 @@ const CustomerLeft = () => {
     fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.approve) {
           return setApprove(true);
         }
         setApprove(false);
       });
   }, [user]);
-
-  console.log(approve);
   return (
     <>
       <div className="text-white">

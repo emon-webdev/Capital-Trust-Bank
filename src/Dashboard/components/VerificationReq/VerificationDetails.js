@@ -39,7 +39,6 @@ const VerificationDetails = () => {
     const info = {
         email: data.email
     }
-    console.log(data)
     fetch(`http://localhost:5000/verifyCancel`, {
         method: "DELETE",
         headers: {
@@ -49,7 +48,6 @@ const VerificationDetails = () => {
       })
         .then((res) => res.json())
         .then(data => {
-            console.log(data)
             toast.success("Customer Verification request deleted");
             navigate('/dashboard/verificationRequest');
         })

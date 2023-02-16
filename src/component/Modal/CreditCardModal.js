@@ -32,8 +32,6 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
 
   // apply for credit card
   const handleApply = (data) => {
-    // event.preventDefault();
-    console.log(data);
     const applierName = user?.displayName;
     const applierPhnNumber = data.applierPhnNumber;
     const accountId = data.accountId;
@@ -55,12 +53,11 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {
-            console.log(data);
             toast.success("Apply Success for card");
             reset();
           }
         })
-        .then((error) => console.error(error));
+        .then((error) => toast.error(error));
     } else {
       toast.error("Account Id did't match");
     }

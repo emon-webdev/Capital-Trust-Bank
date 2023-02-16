@@ -7,7 +7,6 @@ const AllCustomers = () => {
     fetch('http://localhost:5000/allCustomers')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setCustomers(data);
       });
   }, []);

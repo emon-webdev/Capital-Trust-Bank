@@ -8,7 +8,6 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 const TeamDetails = () => {
   const teamDetails = useLoaderData();
   const { name: name2, email, social, image, designation } = teamDetails;
-  console.log(teamDetails);
   const [name, setName] = useState("Team Details");
 
   return (

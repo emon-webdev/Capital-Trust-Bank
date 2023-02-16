@@ -13,13 +13,6 @@ import { useLoaderData } from "react-router-dom";
 const DetailsNews = (props) => {
   const [showAll, setShowAll] = useState(false);
   const blog = useLoaderData();
-  console.log(blog);
-  //   const [blogs, setBlogs] = useState();
-  //   useEffect(() => {
-  //     fetch("http://localhost:5000/blogsNews")
-  //       .then((res) => res.json())
-  //       .then((data) => setBlogs(data));
-  //   }, []);
   return (
     <div className="container my-10 ">
       <div className="mx-auto lg:w-[70%] md:w-[100%] sm: w-[100%]">
