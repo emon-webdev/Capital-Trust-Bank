@@ -20,27 +20,53 @@ const AllBills = () => {
         setBills(data);
       });
   }, []);
-  const totalAmount = bills.filter((data) => data.amount);
 
-  const totalDonate = totalAmount.reduce((total, preBills) => {
-    return total + parseInt(preBills.amount);
+  //total Bills
+  const totalAmount = bills.filter((data) => data.amount);
+  const totalBills = totalAmount.reduce((total, preBills) => {
+    return parseInt(total) + parseInt(preBills.amount);
   }, 0);
+
+  //total Water Bill
+  const waterBills = bills.filter((data) => data.billType === "Water");
+  console.log(waterBills);
+
+  const totalWaterBill = waterBills.reduce((amount, currentWaterBill) => {
+    return parseInt(amount) + parseInt(currentWaterBill.amount);
+  }, 0);
+  console.log(totalWaterBill);
 
   return (
     <div className="donate-content">
       <h2 className="text-[#010C3A] text-3xl md:text-4xl font-bold mb-6">
         Total Bills Summary
       </h2>
-      <div
-        style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
-        className="donate-card flex items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
-      >
-        <div className="mr-5">
-          <FaDonate className="text-6xl text-[#9c0f55]" />
+      <div className="card-group flex items-center">
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="donate-card flex items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
+        >
+          <div className="mr-5">
+            <FaDonate className="text-6xl text-[#9c0f55]" />
+          </div>
+          <div className="">
+            <div className="text-[#808080] text-2xl mb-3">Total Bills</div>
+            <h2 className="text-3xl font-bold ">$ {totalBills}</h2>
+          </div>
         </div>
-        <div className="">
-          <div className="text-[#808080] text-2xl mb-3">Total Bills</div>
-          <h2 className="text-3xl font-bold ">$ {totalDonate}</h2>
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="donate-card flex items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
+        >
+          <div className="mr-5">
+            <FaDonate className="text-6xl text-[#9c0f55]" />
+          </div>
+          <div className="">
+            <div className="text-[#808080] text-2xl mb-3">
+              Total Water Bills
+            </div>
+            <h2 className="text-3xl font-bold ">$ {totalWaterBill}</h2>
+          </div>
         </div>
       </div>
       <div className="donate-list">
