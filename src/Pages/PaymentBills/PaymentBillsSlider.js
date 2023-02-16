@@ -1,15 +1,15 @@
-import React from "react";
-import Slider from "react-slick";
-import "../../App.css";
 import { Card, CardBody } from "@chakra-ui/react";
+import React from "react";
 import {
   FaGasPump,
   FaHandHoldingWater,
   FaInternetExplorer,
-  FaRegCreditCard,
+  FaRegCreditCard
 } from "react-icons/fa";
 import { FcElectricity } from "react-icons/fc";
 import { FiMonitor } from "react-icons/fi";
+import Slider from "react-slick";
+import "../../App.css";
 
 const PaymentBillsSlider = () => {
   const billsData = [
@@ -115,7 +115,9 @@ const PaymentBillsSlider = () => {
                 <div className="text-md text-center text-2xl font-bold my-2">
                   {bill.title}
                 </div>
-                <div className="text-md text-center">{bill.details}</div>
+                <div className="text-md text-center">
+                  {bill.details.slice(0, 120)}
+                </div>
               </CardBody>
             </Card>
           ))}

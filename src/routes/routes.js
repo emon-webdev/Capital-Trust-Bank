@@ -9,6 +9,7 @@ import TakeCard from "../Dashboard/components/Customers/TakeCard/TakeCard";
 import CustomerSupport from "../Dashboard/components/CustomerSupport/CustomerSupport";
 import DashboardLayout from "../Dashboard/components/DashboardLayout/DashboardLayout";
 import DeviceActivity from "../Dashboard/components/DeviceActivity/DeviceActivity";
+import AllBills from "../Dashboard/components/Donate/AllBills";
 import AllDonate from "../Dashboard/components/Donate/AllDonate";
 import IndividualSupport from "../Dashboard/components/IndividualSupport/IndividualSupport";
 import LoanReq from "../Dashboard/components/LoanReq/LoanReq.jsx";
@@ -253,6 +254,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AllDonate />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/all-bills",
+        element: (
+          <AdminRoute>
+            <AllBills />
           </AdminRoute>
         ),
       },

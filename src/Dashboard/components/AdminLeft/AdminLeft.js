@@ -100,6 +100,20 @@ const AdminLeft = () => {
             </span>
             <span className="text-white ml-[10px]">All Donate</span>
           </NavLink>
+          <NavLink
+            to="/dashboard/all-bills"
+            className={({ isActive }) =>
+              isActive
+                ? "border-l-2 link items-center flex px-[20px] py-[15px]"
+                : "flex px-[20px] items-center link py-[15px]"
+            }
+          >
+            <span className="text-white">
+              {" "}
+              <FaDonate />
+            </span>
+            <span className="text-white ml-[10px]">All Bills</span>
+          </NavLink>
 
           <NavLink
             to="/dashboard/CustomerSupport"
@@ -114,7 +128,6 @@ const AdminLeft = () => {
               <RiMessage2Fill />
             </span>
             <span className="text-white ml-[10px]">Customer Support</span>
-
           </NavLink>
         </div>
       </div>

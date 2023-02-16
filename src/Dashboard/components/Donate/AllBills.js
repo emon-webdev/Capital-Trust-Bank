@@ -10,26 +10,26 @@ import {
 import React, { useEffect, useState } from "react";
 import { FaDonate } from "react-icons/fa";
 // import "./Table.css";
-const AllDonate = () => {
-  const [donates, setDonates] = useState([]);
+const AllBills = () => {
+  const [bills, setBills] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/donate")
+    fetch("http://localhost:5000/pay-bills")
       .then((res) => res.json())
       .then((data) => {
-        setDonates(data);
+        setBills(data);
       });
   }, []);
-  const totalAmount = donates.filter((data) => data.amount);
+  const totalAmount = bills.filter((data) => data.amount);
 
-  const totalDonate = totalAmount.reduce((total, preDonate) => {
-    return total + preDonate.amount;
+  const totalDonate = totalAmount.reduce((total, preBills) => {
+    return total + parseInt(preBills.amount);
   }, 0);
 
   return (
     <div className="donate-content">
       <h2 className="text-[#010C3A] text-3xl md:text-4xl font-bold mb-6">
-        Total Donate Summary
+        Total Bills Summary
       </h2>
       <div
         style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
@@ -39,7 +39,7 @@ const AllDonate = () => {
           <FaDonate className="text-6xl text-[#9c0f55]" />
         </div>
         <div className="">
-          <div className="text-[#808080] text-2xl mb-3">Total Donets</div>
+          <div className="text-[#808080] text-2xl mb-3">Total Bills</div>
           <h2 className="text-3xl font-bold ">$ {totalDonate}</h2>
         </div>
       </div>
@@ -68,7 +68,7 @@ const AllDonate = () => {
                     Number
                   </Th>
                   <Th color="#fff" fontSize={14}>
-                    Currency
+                    Bill Type
                   </Th>
                   <Th color="#fff" fontSize={14}>
                     Id
@@ -79,12 +79,12 @@ const AllDonate = () => {
                 </Tr>
               </Thead>
               <Tbody>
-                {donates?.map((donar, index) => (
+                {bills?.map((donar, index) => (
                   <Tr key={donar?._id}>
                     <Td>{index + 1}</Td>
-                    <Td>{donar?.donarName}</Td>
-                    <Td>{donar?.donarPhnNumber}</Td>
-                    <Td>{donar?.currency}</Td>
+                    <Td>{donar?.name}</Td>
+                    <Td>{donar?.phnNumber}</Td>
+                    <Td>{donar?.billType}</Td>
                     <Td>{donar?.transactionId}</Td>
                     <Td>$ {donar?.amount}</Td>
                   </Tr>
@@ -98,4 +98,4 @@ const AllDonate = () => {
   );
 };
 
-export default AllDonate;
+export default AllBills;
