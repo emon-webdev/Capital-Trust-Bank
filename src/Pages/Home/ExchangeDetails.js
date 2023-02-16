@@ -1,29 +1,24 @@
-import {
-    List,
-    ListIcon,
-    ListItem, NumberInput, Stack
-} from "@chakra-ui/react";
-import React, { useContext, useState } from "react";
-import { useEffect } from "react";
+import { List, ListIcon, ListItem, NumberInput, Stack } from "@chakra-ui/react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { MdCheckCircle } from "react-icons/md";
-import { useLocation } from "react-router-dom";
 import "../../App.css";
 import banner from "../../assets/exchange.jpg";
 import { AuthContext } from "../../context/AuthProvider";
-import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 const ExchangeDetails = () => {
   const [name, setName] = useState("Exchange Rate");
   const [usd, setUsd] = useState(0);
   const { user } = useContext(AuthContext);
-  const[state,setState] = useState({})
-    useEffect(()=> {
-    fetch('https://openexchangerates.org/api/latest.json?app_id=919d30d6d8364f23a10f5ba7e0a6894d')
-    .then(res => res.json())
-    .then(data => {
-      setState({ BDT: data.rates.BDT});
-    })
-  },[])
+  const [state, setState] = useState({});
+  useEffect(() => {
+    fetch(
+      "https://openexchangerates.org/api/latest.json?app_id=919d30d6d8364f23a10f5ba7e0a6894d"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setState({ BDT: data.rates.BDT });
+      });
+  }, []);
   let sellingPrice = usd * state.BDT + parseInt(usd);
   let buyingPrice = usd * state.BDT - usd;
   const handleExchange = (event) => {
@@ -33,7 +28,7 @@ const ExchangeDetails = () => {
       usd,
       sellingPrice,
       buyingPrice,
-      email: user.email, 
+      email: user.email,
     };
     //store info into the database
     fetch(`http://localhost:5000/storeExchangeInfo`, {
@@ -52,13 +47,13 @@ const ExchangeDetails = () => {
   };
   return (
     <div>
-      <h1 className="text-2xl text-center font-semibold -mb-3">Exchange Details</h1>
       <div
         className="exchange-bg py-10 my-[50px]"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
+          // backgroundPosition: "center",
         }}
       >
         <div className="container text-white w-full exchange-wrapper flex items-center justify-between">

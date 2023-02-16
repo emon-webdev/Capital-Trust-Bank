@@ -1,9 +1,9 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import sideimg from "../../assets/loanCalculator/emi-calculator.jpg";
 import "./LoanCalculator.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
 AOS.init();
 
 class LoanCalculator extends React.Component {
@@ -41,25 +41,25 @@ class LoanCalculator extends React.Component {
   render() {
     const { value1, value2, value3, output } = this.state;
     return (
-      <div className="online-calculator-area">
+      <div className="online-calculator-area py-12">
         <div className="container">
-          <div>
-            <h2 className="text-[#DF0303] text-center text-md mb-4">
+          <div className="section-title w-full mb-4 md:w-[650px] mx-auto text-center">
+            <h2 className="text-[#DF0303] text-xl text-md mb-3">
               -- EMI Calculator --
             </h2>
+            <h1 className="text-[#010C3A] md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">
+              EMI Online Calculator
+            </h1>
           </div>
-          <h1 className="text-[#010C3A] text-4xl text-center font-bold mb-6">
-            EMI Online Calculator
-          </h1>
           <div className="md:flex justify-center">
-            <div className="basis-full md:basis-[30%]">
+            <div className="basis-full emi-img md:basis-[30%]">
               <img className="img" src={sideimg} alt="" />
             </div>
             <div className="card-main basis-full md:basis-[70%]">
               <div>
-                <div className="flex justify-center">
+                <div className="flex items-center justify-between">
                   <div>
-                    <h1 className="mb-0 mt-3 text-[#010C3A] text-xl font-semibold">
+                    <h1 className="mb-0 text-[#010C3A] text-xl font-semibold">
                       Loan Amount
                     </h1>
                     <input
@@ -76,7 +76,7 @@ class LoanCalculator extends React.Component {
                   <h1 className="border">${value3}</h1>
                 </div>
 
-                <div className="flex justify-center">
+                <div className="flex items-center justify-between">
                   <div>
                     <h1 className="mb-0 text-[#010C3A] text-xl font-semibold">
                       Loan Term
@@ -94,7 +94,7 @@ class LoanCalculator extends React.Component {
                   <h1 className="border">{value1}Months</h1>
                 </div>
 
-                <div className="flex justify-center">
+                <div className="flex items-center justify-between">
                   <div>
                     <h1 className="mb-0 text-[#010C3A] text-xl font-semibold">
                       Interest Rate
@@ -115,13 +115,10 @@ class LoanCalculator extends React.Component {
               </div>
 
               <div className="card-second">
-                <div className="first-portion">
-                  <h1 className="text-2xl font-medium">
-                    Total Amount={output}
-                  </h1>
-                  <div className="text">
+                <div className="first-portion flex gap-3">
+                  <div className="text basis-2/4 ">
                     <h1 className="text-[#010C3A] text-xl font-medium">
-                      Total Loan Amount=${value3}
+                      Total Loan =${value3}
                     </h1>
                     <h1 className="text-[#010C3A] text-xl font-medium">
                       Total Months={value1}
@@ -129,18 +126,19 @@ class LoanCalculator extends React.Component {
                     <h1 className="text-[#010C3A] text-xl font-medium">
                       Total Interest={value2}%
                     </h1>
+                    <div className="mt-2">
+                      <Link to="/accountOpenFrom" className="sm-btn">
+                        Apply
+                      </Link>
+                    </div>
                   </div>
-                </div>
-                <div className="second-portion">
-                  <div>
+                  <div className="basis-2/4 mt-4 md:mt-0">
+                    <h1 className="text-2xl font-medium">
+                      Total <br /> Amount=${output}
+                    </h1>
                     <button className="sm-btn" onClick={this.Eligbilitysumbit}>
                       Calculate
                     </button>
-                  </div>
-                  <div className="mt-2">
-                    <Link to="/accountOpenFrom" className="sm-btn">
-                      Apply
-                    </Link>
                   </div>
                 </div>
               </div>

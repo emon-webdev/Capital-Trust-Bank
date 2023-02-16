@@ -67,7 +67,7 @@ const Team = () => {
   return (
     <div className="team-area py-12">
       <div className="container mx-auto">
-        <div className="text-center">
+        <div className="section-title w-full md:w-[650px] mx-auto text-center">
           <h5 className="text-[#DF0303] text-xl text-md mb-3">
             -- Our Team --
           </h5>
