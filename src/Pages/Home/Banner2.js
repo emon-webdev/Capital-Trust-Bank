@@ -22,7 +22,7 @@ const sliderData = [
         'link': '/loansServices'
     },
     {
-        'title': 'Let him who would enjoy a good future waste none of his presents',
+        'title': 'Let Him Who Would Enjoy a Good Future Waste None Of His Presents',
         'img': insurance,
         'content': 'Breaking even is nothing to be ashamed of – especially if your needs are met, and you’re not in debt or making a loss. Profits and savings can come with time.',
         'btn': 'Pay Bill',
@@ -37,9 +37,9 @@ const Banner2 = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
-        // autoplay: true,
-        // draggable: false,
-        // fade: true,
+        autoplay: true,
+        draggable: false,
+        fade: true,
         adaptiveHeight: true,
         appendDots: dots => <ul className='slider-dots'>{dots}</ul>,
         customPaging: i => (
