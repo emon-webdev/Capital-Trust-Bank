@@ -44,7 +44,7 @@ const AllBills = () => {
       <div className="card-group flex items-center">
         <div
           style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
-          className="donate-card flex items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
+          className="donate-card md:mr-4 flex items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
         >
           <div className="mr-5">
             <FaDonate className="text-6xl text-[#9c0f55]" />

@@ -5,7 +5,6 @@ import { BiGroup } from "react-icons/bi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import mailLogo from "../../assets/logo/mainlogo.png";
 import { AuthContext } from "../../context/AuthProvider";
-import SearchBar from "./SearchBar";
 const Navbar = () => {
   const { t } = useTranslation();
   const { logOut, user } = useContext(AuthContext);
@@ -71,9 +70,9 @@ const Navbar = () => {
         <div className="lg:hidden flex items-center">
           <div className="lg:hidden btn-group flex items-center">
             <div className="btn-group flex items-center">
-              <button>
+              {/* <button>
                 <SearchBar></SearchBar>
-              </button>
+              </button> */}
               <NavLink
                 to="/accountOpenFrom"
                 className="accent-btn hidden  account-btn md:flex items-center"
@@ -307,9 +306,9 @@ const Navbar = () => {
         ) : (
           <div className="hidden lg:block">
             <div className="btn-group flex items-center">
-              <button>
+              {/* <button>
                 <SearchBar></SearchBar>
-              </button>
+              </button> */}
               <NavLink
                 to="/accountOpenFrom"
                 className="accent-btn account-btn flex items-center"

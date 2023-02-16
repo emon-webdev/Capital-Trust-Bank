@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import aboutGroupImg from "../../assets/aboutUs/aboutGroupImg.png";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
+import FactToKnow from "../Shared/FactToKnow/FactToKnow";
 import "./About.css";
 
 const About = () => {
@@ -106,6 +107,7 @@ const About = () => {
           <button className="custom-btn-for-about-us">Get In Touch</button>
         </div>
       </div>
+      <FactToKnow />
     </div>
   );
 };
