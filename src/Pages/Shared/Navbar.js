@@ -8,6 +8,7 @@ import { AuthContext } from "../../context/AuthProvider";
 const Navbar = () => {
   const { t } = useTranslation();
   const { logOut, user } = useContext(AuthContext);
+  
   const navigate = useNavigate();
   const [isApply, setIsApply] = useState(false);
   useEffect(() => {

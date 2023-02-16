@@ -28,10 +28,52 @@ const AllBills = () => {
 
   //total Water Bill
   const waterBills = bills.filter((data) => data.billType === "Water");
- 
   const totalWaterBill = waterBills.reduce((amount, currentWaterBill) => {
     return parseInt(amount) + parseInt(currentWaterBill.amount);
   }, 0);
+  //total Electricity  Bill
+  const electricityBills = bills.filter(
+    (data) => data.billType === "Electricity"
+  );
+  const totalElectricityBill = electricityBills.reduce(
+    (amount, currentElectricityBill) => {
+      return parseInt(amount) + parseInt(currentElectricityBill.amount);
+    },
+    0
+  );
+  //total Internet  Bill
+  const internetBills = bills.filter((data) => data.billType === "Internet");
+  const totalInternetBill = internetBills.reduce(
+    (amount, currentInternetBill) => {
+      return parseInt(amount) + parseInt(currentInternetBill.amount);
+    },
+    0
+  );
+  //total TeleVision Bill
+  const teleVisionBills = bills.filter(
+    (data) => data.billType === "TeleVision"
+  );
+  const totalTeleVisionBill = teleVisionBills.reduce(
+    (amount, currentTeleVisionBill) => {
+      return parseInt(amount) + parseInt(currentTeleVisionBill.amount);
+    },
+    0
+  );
+  //total gas Bill
+  const gasBills = bills.filter((data) => data.billType === "Gas");
+  const totalGasBill = gasBills.reduce((amount, currentGasBill) => {
+    return parseInt(amount) + parseInt(currentGasBill.amount);
+  }, 0);
+  //total credit Card  Bill
+  const creditCardBills = bills.filter(
+    (data) => data.billType === "Credit Card"
+  );
+  const totalCreditCardBill = creditCardBills.reduce(
+    (amount, currentWaterBill) => {
+      return parseInt(amount) + parseInt(currentWaterBill.amount);
+    },
+    0
+  );
 
   return (
     <div className="donate-content">
@@ -41,7 +83,7 @@ const AllBills = () => {
       <div className="card-group flex items-center">
         <div
           style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
-          className="donate-card md:mr-4 flex items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
+          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
         >
           <div className="mr-5">
             <FaDonate className="text-6xl text-[#9c0f55]" />
@@ -51,20 +93,70 @@ const AllBills = () => {
             <h2 className="text-3xl font-bold ">$ {totalBills}</h2>
           </div>
         </div>
+      </div>
+      <div className="category-bill flex gap-4 flex-wrap items-center md:mr-3 mt-5">
         <div
           style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
-          className="donate-card flex items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-[450px] bg-white"
+          className="donate-card flex items-center justify-center gap-2 py-5 rounded-md px-5 w-full h-[80px] md:w-[200px] bg-white"
         >
-          {/* <div className="mr-5">
-            <FaDonate className="text-2xl text-[#9c0f55]" />
-          </div> */}
-          <div className="">
+          <div className="text-center">
             <div className="text-[#808080] text-md mb-2">Total Water Bills</div>
             <h2 className="text-xl font-bold ">$ {totalWaterBill}</h2>
           </div>
         </div>
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="donate-card flex items-center justify-center gap-2 py-5 rounded-md px-5 w-full h-[80px] md:w-[200px] bg-white"
+        >
+          <div className="text-center">
+            <div className="text-[#808080] text-md mb-2">
+              Total Electricity Bills
+            </div>
+            <h2 className="text-xl font-bold ">$ {totalElectricityBill}</h2>
+          </div>
+        </div>
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="donate-card flex items-center justify-center gap-2 py-5 rounded-md px-5 w-full h-[80px] md:w-[200px] bg-white"
+        >
+          <div className="text-center">
+            <div className="text-[#808080] text-md mb-2">
+              Total Internet Bills
+            </div>
+            <h2 className="text-xl font-bold ">$ {totalInternetBill}</h2>
+          </div>
+        </div>
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="donate-card flex items-center justify-center gap-2 py-5 rounded-md px-5 w-full h-[80px] md:w-[200px] bg-white"
+        >
+          <div className="text-center">
+            <div className="text-[#808080] text-md mb-2">
+              Total TeleVision Bills
+            </div>
+            <h2 className="text-xl font-bold ">$ {totalTeleVisionBill}</h2>
+          </div>
+        </div>
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="donate-card flex items-center justify-center gap-2 py-5 rounded-md px-5 w-full h-[80px] md:w-[200px] bg-white"
+        >
+          <div className="text-center">
+            <div className="text-[#808080] text-md mb-2">Total Gas Bills</div>
+            <h2 className="text-xl font-bold ">$ {totalGasBill}</h2>
+          </div>
+        </div>
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="donate-card flex items-center justify-center gap-2 py-5 rounded-md px-5 w-full h-[80px] md:w-[200px] bg-white"
+        >
+          <div className="text-center">
+            <div className="text-[#808080] text-md mb-2">Credit Card Bills</div>
+            <h2 className="text-xl font-bold ">$ {totalCreditCardBill}</h2>
+          </div>
+        </div>
       </div>
-      <div className="donate-list">
+      <div className="bills-list">
         <div className="">
           <TableContainer
             borderRadius={6}
