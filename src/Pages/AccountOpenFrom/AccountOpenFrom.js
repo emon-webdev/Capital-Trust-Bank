@@ -14,6 +14,8 @@ import "react-phone-input-2/lib/style.css";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
+import io from "socket.io-client";
+const socket = io("http://localhost:5000/");
 const AccountOpenFrom = () => {
   const {
     register,
@@ -83,6 +85,7 @@ const AccountOpenFrom = () => {
                 `Your form has been submitted please wait for approval.`
               );
               reset();
+              socket.emit("send verification", account);
             });
         }
       });

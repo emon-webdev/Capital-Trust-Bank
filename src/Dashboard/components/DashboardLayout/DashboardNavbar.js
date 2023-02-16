@@ -31,11 +31,13 @@ import { AuthContext } from "../../../context/AuthProvider";
 import io from "socket.io-client";
 const socket = io("http://localhost:5000/");
 const DashboardNavbar = () => {
-  const { user, logOut, openSideNav, handleSideNave } = useContext(AuthContext);
+  const { user, logOut, openSideNav, handleSideNave ,role } = useContext(AuthContext);
   const navigate = useNavigate();
   const [chatNotifications,setChatNotification] = useState([])
   const [totalChat,setTotalChat] = useState(0);
   const [reFetch,setRefetch] = useState(false);
+  const [notifications,setNotification] = useState([])
+  const [totalNotification,setTotalNotification] = useState(0);
   useEffect(() => {
     fetch(
       `http://localhost:5000/getChatNotificationInfo/${user?.email}`
@@ -47,9 +49,28 @@ const DashboardNavbar = () => {
         setTotalChat(data.length)
       });
   }, [reFetch]);
+
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/getVerifyNotificationInfo`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setNotification(data)
+        console.log( data.length )
+        setTotalNotification( data.length )
+      });
+  }, [reFetch]);
+   
     socket.on("messageNotificationTransfer", (message) => {
       console.log(message)
       if (message.receiverEmail === user.email) {
+        setRefetch(!reFetch)
+      } 
+    });
+ 
+     socket.on("verificationNotificationTransfer", (message) => {
+      if ( role === 'admin') {
         setRefetch(!reFetch)
       } 
     });
@@ -91,6 +112,23 @@ const DashboardNavbar = () => {
         setRefetch(!reFetch)
       })
   }
+
+  const handleAllNotification = (data)=> {
+    const info = {
+      email: data.email
+    }
+  fetch(`http://localhost:5000/verificationNotificationDelete`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(info),
+    })
+      .then((res) => res.json())
+      .then(data => {
+        setRefetch(!reFetch)
+      })
+  }
   return (
     <div className="container">
       <div className="flex items-center justify-between h-[50px]">
@@ -101,7 +139,8 @@ const DashboardNavbar = () => {
 
         {/* -----right---- */}
         <div className="flex">
-        <Menu>
+          {/* chat notification */}
+          <Menu>
             <MenuButton className="bg-transparent-nav" as={Button}>
             <IconButton className="bg-transparent-nav text-white -m-4">
             <Badge colorScheme="error" badgecontent={4}>
@@ -134,25 +173,41 @@ const DashboardNavbar = () => {
            }
           </Menu>
 
+           {/* others notification */}
           <Menu>
             <MenuButton className="bg-transparent-nav" as={Button}>
-            <IconButton className=" text-white bg-transparent-nav -m-4">
-            <Badge colorScheme="error" size="lg" badgecontent={4}>
-              <MdNotificationsNone />
+            <IconButton className="bg-transparent-nav text-white -m-4">
+            <Badge colorScheme="error" badgecontent={4}>
+            <MdNotificationsNone />{
+                totalNotification > 0 ? <span className="text-red-400">{totalNotification}</span> : undefined
+              }
             </Badge>
+            {/*  */}
           </IconButton>
             </MenuButton>
 
-            <MenuList>
-              <MenuGroup title="Profile">
-                <MenuItem>My Profile</MenuItem>
-                <Link onClick={handleSignOut}>
-                  <MenuItem>Log Out </MenuItem>
-                </Link>
-              </MenuGroup>
-            </MenuList>
+           {
+            totalNotification > 0 ?  <MenuList className="h-80 overflow-auto p-2">
+            <MenuGroup title="Notifications">
+              {
+                notifications?.map(notification => {
+                  return <>
+              <Link to='verificationRequest/details/' state={notification} onClick={()=>handleAllNotification(notification)}>
+                <MenuItem>
+                {
+                  notification.accountCategory ? <span className="">{notification?.firstName} apply for verification</span> : undefined
+                }
+                </MenuItem>
+              </Link>
+                  </>
+                })
+              }
+              
+            </MenuGroup>
+          </MenuList> : undefined
+           }
           </Menu>
-          
+
           <Menu>
             <MenuButton className="bg-transparent-nav" as={Button}>
               <Avatar name="Dan Abrahmov" src={user?.photoURL} />
