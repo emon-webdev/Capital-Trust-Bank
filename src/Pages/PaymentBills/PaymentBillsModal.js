@@ -1,11 +1,11 @@
 import {
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay,
-  Select
+    Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContent,
+    ModalHeader,
+    ModalOverlay,
+    Select
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -48,7 +48,7 @@ const PaymentBillsModal = ({
       amount,
     };
 
-    fetch("https://capital-trust-bank-server.vercel.app/pay-bills", {
+    fetch("http://localhost:5000/pay-bills", {
       method: "POST",
       headers: {
         "content-type": "application/json",

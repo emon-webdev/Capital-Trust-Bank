@@ -1,11 +1,11 @@
 import {
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr
+    Table,
+    TableContainer,
+    Tbody,
+    Td,
+    Th,
+    Thead,
+    Tr
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -15,14 +15,14 @@ const CreditCardReq = () => {
   const [customers, setCustomers] = useState([]);
   const [reFetch, setReFetch] = useState(false);
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/cardReq`)
+    fetch(`http://localhost:5000/cardReq`)
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);
       });
   }, [reFetch]);
   const handleAccept = (data) => {
-    fetch(`https://capital-trust-bank-server.vercel.app/acceptCardReq`, {
+    fetch(`http://localhost:5000/acceptCardReq`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -40,7 +40,7 @@ const CreditCardReq = () => {
     const info = {
       id: data.accountId,
     };
-    fetch(`https://capital-trust-bank-server.vercel.app/deleteCardReq`, {
+    fetch(`http://localhost:5000/deleteCardReq`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

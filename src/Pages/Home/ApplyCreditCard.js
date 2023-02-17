@@ -21,14 +21,14 @@ const ApplyCreditCard = () => {
           <div className="credit-card-img animate__animated animate__backInLeft basis-2/5 mb-[32px] md:mb-0 md:mr-12">
             <img src={creditCardImg} className="w-full" alt="" srcSet="" />
           </div>
-          <div className="credit-card-content animate__animated animate__backInRight basis-3/5 dot-shape">
-            <h3 className="text-[#DF0303] text-xl text-md mb-3">
+          <div className="credit-card-content animate__animated animate__backInRight basis-3/5 bg-white dot-shape">
+            <h3 className="text-[#DF0303] bg-white text-xl text-md mb-3">
               -- Apply for Credit Card --
             </h3>
-            <h2 className="text-[#010C3A] text-3xl md:text-4xl font-bold mb-3">
+            <h2 className="text-[#010C3A] bg-white text-3xl md:text-4xl font-bold mb-3">
               We provide Credit card for user experience.
             </h2>
-            <p className="py-3">
+            <p className="py-3 bg-white">
               While you’ll always need some cash, using a credit card for your
               spending needs can significantly simplify overseas travel.
             </p>

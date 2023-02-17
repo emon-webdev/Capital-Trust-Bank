@@ -1,11 +1,11 @@
 import {
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr
+    Table,
+    TableContainer,
+    Tbody,
+    Td,
+    Th,
+    Thead,
+    Tr
 } from "@chakra-ui/table";
 import React, { useEffect, useState } from "react";
 import { FaDonate } from "react-icons/fa";
@@ -14,7 +14,7 @@ const AllDonate = () => {
   const [donates, setDonates] = useState([]);
 
   useEffect(() => {
-    fetch("https://capital-trust-bank-server.vercel.app/donate")
+    fetch("http://localhost:5000/donate")
       .then((res) => res.json())
       .then((data) => {
         setDonates(data);

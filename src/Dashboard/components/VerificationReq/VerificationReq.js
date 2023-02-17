@@ -1,11 +1,11 @@
 import {
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr
+    Table,
+    TableContainer,
+    Tbody,
+    Td,
+    Th,
+    Thead,
+    Tr
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 const VerificationReq = () => {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/bankAccounts`)
+    fetch(`http://localhost:5000/bankAccounts`)
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);

@@ -5,7 +5,8 @@ import { FaLocationArrow } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import io from "socket.io-client";
 import { AuthContext } from "../../../context/AuthProvider";
-const socket = io("https://capital-trust-bank-server.vercel.app/");
+// const socket = io("*");
+const socket = io("http://localhost:5000/");
 
 const IndividualSupport = () => {
   const { user, role } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const IndividualSupport = () => {
   }, [messages, user]);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server.vercel.app/getChatInfo/${user.email + " " + state.senderEmail
+      `http://localhost:5000/getChatInfo/${user.email + " " + state.senderEmail
       }`
     )
       .then((res) => res.json())

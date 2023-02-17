@@ -6,7 +6,7 @@ const Welcome = () => {
   const {user,role} = useContext(AuthContext)
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server.vercel.app/bankAccounts/${user?.email}`
+      `http://localhost:5000/bankAccounts/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
