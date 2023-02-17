@@ -1,7 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const Welcome = () => {
@@ -9,7 +6,7 @@ const Welcome = () => {
   const {user,role} = useContext(AuthContext)
   useEffect(() => {
     fetch(
-      `http://localhost:5000/bankAccounts/${user?.email}`
+      `https://capital-trust-bank-server.vercel.app/bankAccounts/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {

@@ -81,13 +81,13 @@ const router = createBrowserRouter([
       {
         path: "/insurances",
         element: <Insurance />,
-        loader: () => fetch("http://localhost:5000/insuranceData"),
+        loader: () => fetch("https://capital-trust-bank-server.vercel.app/insuranceData"),
       },
       {
         path: "/insuranceDetails/:id",
         element: <InsuranceDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/insur/${params.id}`),
+          fetch(`https://capital-trust-bank-server.vercel.app/insur/${params.id}`),
       },
 
       // {
@@ -97,19 +97,19 @@ const router = createBrowserRouter([
       {
         path: "/loansServices",
         element: <Loans />,
-        loader: () => fetch("http://localhost:5000/loanService"),
+        loader: () => fetch("https://capital-trust-bank-server.vercel.app/loanService"),
       },
       {
         path: "/loanDetails/:id",
         element: <LoanDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/loanSec/${params.id}`),
+          fetch(`https://capital-trust-bank-server.vercel.app/loanSec/${params.id}`),
       },
       {
         path: "/blogsNews/:id",
         element: <DetailsNews></DetailsNews>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/blogsNews/${params.id}`),
+          fetch(`https://capital-trust-bank-server.vercel.app/blogsNews/${params.id}`),
       },
 
       {
@@ -183,7 +183,7 @@ const router = createBrowserRouter([
         path: "/team-details/:id",
         element: <TeamDetails />,
         loader: async ({ params }) =>
-          fetch(`http://localhost:5000/team-details/${params.id}`),
+          fetch(`https://capital-trust-bank-server.vercel.app/team-details/${params.id}`),
       },
       // {
       //   path: "/exchange",
@@ -263,7 +263,7 @@ const router = createBrowserRouter([
         path: "/dashboard/myTransaction",
         element: <MyTransaction />,
         // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/depositWithdraw/${params.email}`),
+        //   fetch(`https://capital-trust-bank-server.vercel.app/depositWithdraw/${params.email}`),
       },
       {
         path: "/dashboard/CustomerSupport",

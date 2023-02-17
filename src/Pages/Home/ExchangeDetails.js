@@ -31,7 +31,7 @@ const ExchangeDetails = () => {
       email: user.email,
     };
     //store info into the database
-    fetch(`http://localhost:5000/storeExchangeInfo`, {
+    fetch(`https://capital-trust-bank-server.vercel.app/storeExchangeInfo`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -58,10 +58,15 @@ const ExchangeDetails = () => {
       >
         <div className="container text-white w-full exchange-wrapper flex items-center justify-between">
           <div className="w-[60%] left-side">
-            <h1 className="text-[75px] text-white leading-[90px] font-semibold">
-              International Currency Transfer Provider
-            </h1>
-            <div className="mt-4">
+            <div className="section-title md:mr-5">
+              <h5 className="text-[#DF0303] text-xl text-md mb-3">
+                -- Exchange --
+              </h5>
+              <h1 className="text-white md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">
+                International Currency Transfer Provider
+              </h1>
+            </div>
+            <div className="mt-4 md:mr-5">
               <List spacing={6} className="text-white">
                 <ListItem>
                   <ListIcon

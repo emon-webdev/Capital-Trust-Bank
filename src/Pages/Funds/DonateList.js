@@ -1,7 +1,5 @@
 import { Table, TableCaption, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr } from "@chakra-ui/react";
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const DonateList = () => {
@@ -12,7 +10,7 @@ const DonateList = () => {
   const [donate, setDonate] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/donate/by-transaction-id/${transactionID}`)
+    fetch(`https://capital-trust-bank-server.vercel.app/donate/by-transaction-id/${transactionID}`)
       .then((res) => res.json())
       .then((data) => setDonate(data));
   }, [transactionID]);

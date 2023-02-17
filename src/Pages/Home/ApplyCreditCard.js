@@ -18,10 +18,10 @@ const ApplyCreditCard = () => {
     <div className="credit-card-area py-16">
       <div className="container">
         <div className="credit-card-wrap flex column-reverse md:flex-row justify-between items-center">
-          <div className="credit-card-img basis-2/5 mb-[32px] md:mb-0 md:mr-12">
+          <div className="credit-card-img animate__animated animate__backInLeft basis-2/5 mb-[32px] md:mb-0 md:mr-12">
             <img src={creditCardImg} className="w-full" alt="" srcSet="" />
           </div>
-          <div className="credit-card-content basis-3/5 dot-shape">
+          <div className="credit-card-content animate__animated animate__backInRight basis-3/5 dot-shape">
             <h3 className="text-[#DF0303] text-xl text-md mb-3">
               -- Apply for Credit Card --
             </h3>

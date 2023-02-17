@@ -31,7 +31,7 @@ const sliderData = [
     img: insurance,
     content:
       "Breaking even is nothing to be ashamed of – especially if your needs are met, and you’re not in debt or making a loss. Profits and savings can come with time.",
-    btn: "Pay Bill",
+    btn: "Pay Bills",
     link: "/paymentbills",
   },
 ];
@@ -43,9 +43,9 @@ const Banner2 = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: true,
-    draggable: false,
-    fade: true,
+    // autoplay: true,
+    // draggable: false,
+    // fade: true,
     adaptiveHeight: true,
     appendDots: (dots) => <ul className="slider-dots">{dots}</ul>,
     customPaging: (i) => (
