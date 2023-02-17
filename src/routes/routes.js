@@ -307,9 +307,9 @@ const router = createBrowserRouter([
         element: <TakeCard />,
       },
       {
-        path: '/dashboard/insuranceRequest',
-        element: <InsuranceRequest />
-      }
+        path: "/dashboard/insuranceRequest",
+        element: <InsuranceRequest />,
+      },
     ],
   },
 ]);

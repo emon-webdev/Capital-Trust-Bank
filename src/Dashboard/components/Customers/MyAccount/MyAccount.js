@@ -1,12 +1,22 @@
 import { Flex, Text } from "@chakra-ui/react";
+import { parseInt } from "lodash";
 import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineMinusSquare } from "react-icons/ai";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+import { useLoaderData } from "react-router";
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 import { AuthContext } from "../../../../context/AuthProvider";
 
 export default function MyAccount() {
   const { user } = useContext(AuthContext);
+  const [approve, setApprove] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/approved/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setApprove(data));
+  }, []);
+
   const [transacData, setTransacData] = useState([]);
 
   useEffect(() => {
@@ -18,26 +28,34 @@ export default function MyAccount() {
   }, []);
 
   const withdrawData = transacData.filter((data) => data.type === "withdraw");
+
   const totalWithdraw = withdrawData.reduce((total, withdr) => {
     return total + parseInt(withdr.withdraw);
   }, 0);
+
+  // arr.reduce((a, b) => ({x: a.x + b.x}));
 
   const depositData = transacData.filter((data) => data.type === "deposit");
   const totalDeposit = depositData.reduce((total, depo) => {
     return total + parseInt(depo.deposit);
   }, 0);
 
+  // arr.reduce((a, b) => ({x: a.x + b.x}));
+  console.log("totalDeposit", totalDeposit);
+  const initialDeposit =
+    parseInt(approve.initialDeposit) + totalDeposit - totalWithdraw;
+
   return (
     <div className="container ">
-      <div className="flex flex-col md:flex-row lg:flex-row">
+      <div className="flex flex-col md:flex-col md:align-items-center md:justify-content-center md:w-[100%] lg:flex-row">
         <Flex
           align={"center"}
           justify="center"
-          marginX="10"
-          gap={10}
+          marginX="5"
+          gap={5}
           marginY={10}
           borderRadius="10"
-          width="500px"
+          width="400px"
           height={"200px"}
           backgroundColor="white"
           boxShadow={"xl"}
@@ -57,7 +75,7 @@ export default function MyAccount() {
           <div className="mt-5">
             <Text fontSize={50}>
               <span>$</span>
-              {totalDeposit}
+              {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0}
             </Text>
             <Text color={"grey"} fontSize={28} marginTop={10}>
               Available Balance
@@ -69,10 +87,10 @@ export default function MyAccount() {
           align={"center"}
           justify="center"
           marginX="10"
-          gap={10}
+          gap={5}
           marginY={10}
           borderRadius="10"
-          width="500px"
+          width="400px"
           height={"200px"}
           backgroundColor="white"
           boxShadow={"xl"}
@@ -92,7 +110,7 @@ export default function MyAccount() {
           <div className="mt-5">
             <Text fontSize={50}>
               <span>$</span>
-              {totalWithdraw}
+              {totalWithdraw < 0 ? 0 : totalWithdraw}
             </Text>
             <Text color={"grey"} fontSize={28} marginTop={10}>
               Withdraw Balance

@@ -1,35 +1,35 @@
 import {
-    Box,
-    Button,
-    Center,
-    Flex,
-    FormControl,
-    FormLabel,
-    Input,
-    Text,
-    VStack
+  Box,
+  Button,
+  Center,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
-import {
-    getAuth,
-    RecaptchaVerifier,
-    signInWithPhoneNumber
-} from "firebase/auth";
-import React, { useContext, useState } from "react";
+
+import React, { useContext, useEffect, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import { toast } from "react-hot-toast";
-import { CgSpinner } from "react-icons/cg";
-import OtpInput from "react-otp-input";
-import PhoneInput from "react-phone-input-2";
+
 import { AuthContext } from "../../../../context/AuthProvider";
 import { DashboardContext } from "../../../../context/UserDashboardProvider";
-
-const auth = getAuth();
 
 const MyDeposit = () => {
   const [startDate, setStartDate] = useState(new Date());
   const { user, setUser } = useContext(AuthContext);
   const { deposit, setDeposit, setBalance, balance } =
     useContext(DashboardContext);
+  const [approve, setApprove] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/approved/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setApprove(data));
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -37,16 +37,18 @@ const MyDeposit = () => {
     const time = form.time.value;
     const account = form.account.value;
     const amount = form.deposit.value;
-    const phone = form.phone.value;
+
     const email = user?.email;
 
     const date = form.date.value;
+
+    console.log(name, email, amount, date, time, account);
 
     const appellant = {
       name: name,
       email: email,
       account: account,
-      phone: phone,
+
       deposit: amount,
       type: "deposit",
       time: time,
@@ -86,7 +88,7 @@ const MyDeposit = () => {
       >
         Deposit
       </Text>
-      <div id="recaptcha-container" className=""></div>
+
       <form onSubmit={handleSubmit} className="my-5 mx-2">
         <Flex gap={5} marginBottom={3}>
           <FormControl display={"flex"}>
@@ -114,13 +116,13 @@ const MyDeposit = () => {
         </Flex>
         <FormControl marginY={2}>
           <FormLabel fontSize={18}>Name</FormLabel>
-          <Input name="name" />
+          <Input name="name" defaultValue={user.displayName} />
         </FormControl>
 
         <FormControl marginY={2}>
           <FormLabel fontSize={18}>Account Number</FormLabel>
-          <Input type="text" name="account" />
-        </FormControl>        
+          <Input type="text" name="account" defaultValue={approve.accountId} />
+        </FormControl>
 
         <FormControl marginY={2}>
           <FormLabel fontSize={18}>Amount</FormLabel>

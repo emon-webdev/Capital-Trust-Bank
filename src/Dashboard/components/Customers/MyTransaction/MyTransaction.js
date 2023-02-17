@@ -6,13 +6,18 @@ import {
   Td,
   Th,
   Thead,
-  Tr
+  Tr,
+  useDisclosure,
 } from "@chakra-ui/react";
+
 import React, { useContext, useEffect, useState } from "react";
+
 import { AuthContext } from "../../../../context/AuthProvider";
-import VisaTransaction from "./VisaTransaction";
+import DetailsModal from "./DetailsModal";
 
 export default function MyTransaction() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const { user } = useContext(AuthContext);
   const [transacData, setTransacData] = useState([]);
   useEffect(() => {
@@ -66,20 +71,8 @@ export default function MyTransaction() {
                   >
                     ${data.withdraw ? data.withdraw : data.deposit}
                   </Td>
-                  <Td>
-                    <Button>Details</Button>
-                  </Td>
                 </Tr>
               ))}
-              {/* <Tr>
-                <Td>inches</Td>
-                <Td>millimetres (mm)</Td>
-                <Td>25.4</Td>
-                <Td>25.4</Td>
-                <Td>
-                  <Button>Details</Button>
-                </Td>
-              </Tr> */}
             </Tbody>
           </Table>
         </TableContainer>

@@ -5,7 +5,7 @@ import {
   ModalContent,
   ModalHeader,
   ModalOverlay,
-  Select
+  Select,
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";

@@ -1,13 +1,13 @@
 import {
-    Button,
-    Flex,
-    FormControl,
-    FormLabel,
-    Input,
-    Text,
-    VStack
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../../context/AuthProvider";
@@ -18,6 +18,13 @@ const MyWithdraw = () => {
   const { user } = useContext(AuthContext);
   const { withdraw, setWithdarw, setDeposit, deposit } =
     useContext(DashboardContext);
+  const [approve, setApprove] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/approved/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setApprove(data));
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -105,11 +112,11 @@ const MyWithdraw = () => {
         </Flex>
         <FormControl marginY={2}>
           <FormLabel fontSize={18}>Name</FormLabel>
-          <Input name="name" />
+          <Input name="name" defaultValue={user.displayName} />
         </FormControl>
         <FormControl marginY={2}>
           <FormLabel fontSize={18}>Account Number</FormLabel>
-          <Input type="text" name="account" />
+          <Input type="text" name="account" defaultValue={approve.accountId} />
         </FormControl>
         <FormControl marginY={2}>
           <FormLabel fontSize={18}>Amount</FormLabel>
