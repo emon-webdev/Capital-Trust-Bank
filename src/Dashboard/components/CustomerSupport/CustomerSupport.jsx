@@ -8,12 +8,14 @@ const CustomerSupport = () => {
   const { user, role } = useContext(AuthContext);
   const [chatsInfo, setChatsInfo] = useState([]);
   const [adminInfo, setAdminInfo] = useState([]);
+  console.log(role)
   let url;
   role === "customer" ? (url = "getAdminInfo") : (url = "getAllCustomersChat");
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/${url}`)
+    fetch(`http://localhost:5000/${url}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         role === "admin" ? setChatsInfo(data) : setAdminInfo(data);
       });
   }, []);

@@ -6,7 +6,7 @@ const DeviceActivity = () => {
   const email = user?.email;
   const [devicesInfo, setDevicesInfo] = useState([]);
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/getDeviceInfo/${email}`)
+    fetch(`http://localhost:5000/getDeviceInfo/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setDevicesInfo(data);

@@ -81,13 +81,13 @@ const router = createBrowserRouter([
       {
         path: "/insurances",
         element: <Insurance />,
-        loader: () => fetch("https://capital-trust-bank-server.vercel.app/insuranceData"),
+        loader: () => fetch("http://localhost:5000/insuranceData"),
       },
       {
         path: "/insuranceDetails/:id",
         element: <InsuranceDetails />,
         loader: ({ params }) =>
-          fetch(`https://capital-trust-bank-server.vercel.app/insur/${params.id}`),
+          fetch(`http://localhost:5000/insur/${params.id}`),
       },
 
       // {
@@ -97,19 +97,19 @@ const router = createBrowserRouter([
       {
         path: "/loansServices",
         element: <Loans />,
-        loader: () => fetch("https://capital-trust-bank-server.vercel.app/loanService"),
+        loader: () => fetch("http://localhost:5000/loanService"),
       },
       {
         path: "/loanDetails/:id",
         element: <LoanDetails />,
         loader: ({ params }) =>
-          fetch(`https://capital-trust-bank-server.vercel.app/loanSec/${params.id}`),
+          fetch(`http://localhost:5000/loanSec/${params.id}`),
       },
       {
         path: "/blogsNews/:id",
         element: <DetailsNews></DetailsNews>,
         loader: ({ params }) =>
-          fetch(`https://capital-trust-bank-server.vercel.app/blogsNews/${params.id}`),
+          fetch(`http://localhost:5000/blogsNews/${params.id}`),
       },
 
       {
@@ -117,7 +117,7 @@ const router = createBrowserRouter([
         element: <ApplyForm />,
         loader: ({ params }) =>
           fetch(
-            `https://capital-trust-bank-server.vercel.app/loans/${params.title}`
+            `http://localhost:5000/loans/${params.title}`
           ),
       },
 
@@ -183,7 +183,7 @@ const router = createBrowserRouter([
         path: "/team-details/:id",
         element: <TeamDetails />,
         loader: async ({ params }) =>
-          fetch(`https://capital-trust-bank-server.vercel.app/team-details/${params.id}`),
+          fetch(`http://localhost:5000/team-details/${params.id}`),
       },
       // {
       //   path: "/exchange",

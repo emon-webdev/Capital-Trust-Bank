@@ -45,7 +45,7 @@ const Insurance = () => {
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server.vercel.app/insuranceApplicants", {
+    fetch("http://localhost:5000/insuranceApplicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",

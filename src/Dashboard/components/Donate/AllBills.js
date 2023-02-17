@@ -13,7 +13,7 @@ const AllBills = () => {
   const [bills, setBills] = useState([]);
 
   useEffect(() => {
-    fetch("https://capital-trust-bank-server.vercel.app/pay-bills")
+    fetch("http://localhost:5000/pay-bills")
       .then((res) => res.json())
       .then((data) => {
         setBills(data);

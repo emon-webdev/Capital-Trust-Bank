@@ -13,7 +13,7 @@ const CustomerLeft = () => {
   const [approve, setApprove] = useState(false);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/bankAccounts/${user?.email}`)
+    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.approve) {

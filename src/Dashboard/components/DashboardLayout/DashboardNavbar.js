@@ -17,7 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 import { AuthContext } from "../../../context/AuthProvider";
 // const socket = io("*");
-const socket = io("https://capital-trust-bank-server.vercel.app/");
+const socket = io("http://localhost:5000/");
 
 const DashboardNavbar = () => {
   const { user, logOut, openSideNav, handleSideNave, role } =
@@ -30,7 +30,7 @@ const DashboardNavbar = () => {
   const [totalNotification, setTotalNotification] = useState(0);
   const [bankInfo, setBankInfo] = useState([]);
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/bankAccounts/${user?.email}`)
+    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setBankInfo(data);
@@ -39,7 +39,7 @@ const DashboardNavbar = () => {
 
   
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/getChatNotificationInfo/${user?.email}`)
+    fetch(`http://localhost:5000/getChatNotificationInfo/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setChatNotification(data);
@@ -48,7 +48,7 @@ const DashboardNavbar = () => {
   }, [reFetch]);
 
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/getVerifyNotificationInfo`)
+    fetch(`http://localhost:5000/getVerifyNotificationInfo`)
       .then((res) => res.json())
       .then((data) => {
         setNotification(data);
@@ -70,7 +70,7 @@ const DashboardNavbar = () => {
 
   const handleSignOut = () => {
     //delete customer device info
-    fetch(`https://capital-trust-bank-server.vercel.app/deleteDeviceInfo/${user.email}`, {
+    fetch(`http://localhost:5000/deleteDeviceInfo/${user.email}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -91,7 +91,7 @@ const DashboardNavbar = () => {
       senderEmail: data.senderEmail,
       receiverEmail: data.receiverEmail,
     };
-    fetch(`https://capital-trust-bank-server.vercel.app/notificationDelete`, {
+    fetch(`http://localhost:5000/notificationDelete`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -108,7 +108,7 @@ const DashboardNavbar = () => {
     const info = {
       email: data.email,
     };
-    fetch(`https://capital-trust-bank-server.vercel.app/verificationNotificationDelete`, {
+    fetch(`http://localhost:5000/verificationNotificationDelete`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -176,7 +176,8 @@ const DashboardNavbar = () => {
           </Menu>
 
           {/* others notification */}
-          <Menu>
+          {
+            role === 'admin' ?   <Menu>
             <MenuButton className="bg-transparent-nav" as={Button}>
               <IconButton className="bg-transparent-nav text-white -m-4">
                 <Badge colorScheme="error" badgecontent={4}>
@@ -215,7 +216,9 @@ const DashboardNavbar = () => {
                 </MenuGroup>
               </MenuList>
             ) : undefined}
-          </Menu>
+          </Menu> : undefined
+          }
+        
 
           <Menu>
             <MenuButton className="bg-transparent-nav" as={Button}>
@@ -225,7 +228,9 @@ const DashboardNavbar = () => {
             <MenuList>
               <MenuGroup>
               <MenuItem> {user?.displayName} </MenuItem>
-              <MenuItem> Id: {bankInfo?.accountId} </MenuItem>
+             {
+              role === 'customer' ?  <MenuItem> Id: {bankInfo?.accountId} </MenuItem> : undefined
+             }
                 <Link onClick={handleSignOut}>
                   <MenuItem>Log Out </MenuItem>
                 </Link>
