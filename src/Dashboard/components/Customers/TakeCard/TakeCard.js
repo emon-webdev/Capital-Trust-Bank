@@ -7,7 +7,7 @@ const TakeCard = () => {
     const {user} = useContext(AuthContext);
     const [info,setInfo] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/takeCard/${user?.email}`)
+        fetch(`https://capital-trust-bank-server.vercel.app/takeCard/${user?.email}`)
           .then((res) => res.json())
           .then((data) => {
             setInfo(data)

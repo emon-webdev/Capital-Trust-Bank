@@ -10,7 +10,7 @@ const Services = () => {
 
   const [loans, setLoans] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/loans')
+    fetch('https://capital-trust-bank-server.vercel.app/loans')
       .then(res => res.json())
       .then(data => setLoans(data))
   }, [])

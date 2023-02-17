@@ -31,7 +31,7 @@ const ExchangeDetails = () => {
       email: user.email,
     };
     //store info into the database
-    fetch(`http://localhost:5000/storeExchangeInfo`, {
+    fetch(`https://capital-trust-bank-server.vercel.app/storeExchangeInfo`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -15,7 +15,8 @@ import { NavLink } from "react-router-dom";
 import io from "socket.io-client";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
-const socket = io("http://localhost:5000/");
+// const socket = io("*");
+const socket = io("https://capital-trust-bank-server.vercel.app/");
 const AccountOpenFrom = () => {
   const {
     register,
@@ -64,7 +65,7 @@ const AccountOpenFrom = () => {
             approve: false,
           };
           // save information to the database
-          fetch("http://localhost:5000/bankAccounts", {
+          fetch("https://capital-trust-bank-server.vercel.app/bankAccounts", {
             method: "POST",
             headers: {
               "content-type": "application/json",

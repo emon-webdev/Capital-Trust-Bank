@@ -13,7 +13,7 @@ const CustomerLeft = () => {
   const [approve, setApprove] = useState(false);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
+    fetch(`https://capital-trust-bank-server.vercel.app/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.approve) {
@@ -69,7 +69,6 @@ const CustomerLeft = () => {
                 <MdAttachMoney />
               </span>
               <span className="text-white ml-[10px]">Transaction</span>
-              {/* <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span> */}
             </NavLink>
 
             <NavLink

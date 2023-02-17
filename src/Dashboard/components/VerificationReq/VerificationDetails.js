@@ -21,7 +21,7 @@ const VerificationDetails = () => {
     const info = {
         email: data.email
     }
-    fetch(`http://localhost:5000/verifyCustomer`, {
+    fetch(`https://capital-trust-bank-server.vercel.app/verifyCustomer`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -39,7 +39,7 @@ const VerificationDetails = () => {
     const info = {
         email: data.email
     }
-    fetch(`http://localhost:5000/verifyCancel`, {
+    fetch(`https://capital-trust-bank-server.vercel.app/verifyCancel`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

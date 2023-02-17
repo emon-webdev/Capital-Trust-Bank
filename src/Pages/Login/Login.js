@@ -42,7 +42,7 @@ const Login = () => {
 
     //store customer device info
     fetch(
-      `http://localhost:5000/storeDeviceInfo/${email}`,
+      `https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${email}`,
       {
         method: "POST",
         headers: {
@@ -91,7 +91,7 @@ const Login = () => {
 
       //store customer device info
       fetch(
-        `http://localhost:5000/storeDeviceInfo/${email}`,
+        `https://capital-trust-bank-server.vercel.app/storeDeviceInfo/${email}`,
         {
           method: "POST",
           headers: {
