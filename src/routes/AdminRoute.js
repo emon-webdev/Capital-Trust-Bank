@@ -3,7 +3,6 @@ import { Navigate } from "react-router-dom";
 import { AuthContext } from '../context/AuthProvider';
 const AdminRoute = ({ children }) => {
   const { role } = useContext(AuthContext);
-   console.log(role)
   if (role === "admin") {
     return children;
   } else {
