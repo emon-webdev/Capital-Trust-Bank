@@ -7,7 +7,6 @@ import DashboardNavbar from "./DashboardNavbar.js";
 
 const DashboardLayout = () => {
   const { openSideNav } = useContext(AuthContext);
-  console.log(openSideNav);
   return (
     <div>
       <div className="bg-[#041C51] py-2">

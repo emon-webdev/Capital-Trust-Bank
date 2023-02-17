@@ -8,12 +8,11 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
-  ModalOverlay,
+  ModalOverlay
 } from "@chakra-ui/modal";
 import React from "react";
 
 const DetailsModal = ({ isOpen, onClose, id }) => {
-  console.log(id);
   return (
     <div>
       <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>

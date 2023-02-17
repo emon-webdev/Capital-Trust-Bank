@@ -5,7 +5,6 @@ import ApplyCreditCard from "./ApplyCreditCard";
 import Banner2 from "./Banner2";
 import Branding from "./Branding";
 import ContactUs from "./ContactUs";
-import Exchange from "./Exchange";
 import ExchangeDetails from "./ExchangeDetails";
 // import Counter from "./Counter";
 import FeaturedNews from "./FeaturedNews";
@@ -17,7 +16,6 @@ import Team from "./Team";
 const Home = () => {
   return (
     <div>
-      {/* <Banner /> */}
       <Banner2 />
       <Funds />
       <Services />

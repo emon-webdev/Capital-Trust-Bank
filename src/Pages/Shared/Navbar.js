@@ -40,7 +40,6 @@ const Navbar = () => {
             navigate("/");
           })
           .catch((error) => {
-            console.log(error.message);
           });
       });
   };
@@ -130,27 +129,6 @@ const Navbar = () => {
                 <li>
                   <NavLink to="/loansServices" className="">
                     Loans
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/educationloan" className="">
-                    {t("Education_Loan")}
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/marriageloan" className="">
-                    {t("Marriage_Loan")}
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/goldloan" className="">
-                    {t("Gold_Loan")}
-                  </NavLink>
-                </li>
-
-                <li>
-                  <NavLink to="/vehicleloan" className="">
-                    {t("Vehicle_Loan")}
                   </NavLink>
                 </li>
                 <li>

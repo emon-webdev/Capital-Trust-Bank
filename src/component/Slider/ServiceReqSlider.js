@@ -61,8 +61,8 @@ const ServiceReqSlider = () => {
             // focusOnSelect={true}
             {...settings}
           >
-            {slidersNav.map((sliderNav) => (
-              <div key={sliderNav?._id}>
+            {slidersNav.map((sliderNav, index) => (
+              <div key={index}>
                 <div className="single-slider-nav">
                   <div className="slider-nav-icon">
                     <BsCreditCard2Back className="text-3xl text-[#041c51 ]" />
@@ -77,8 +77,8 @@ const ServiceReqSlider = () => {
         </div>
         <div className="mt-8 slider-main-content">
           <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
-            {slidersContents.map((slidersContent) => (
-              <div>
+            {slidersContents.map((slidersContent, index) => (
+              <div key={index}>
                 <div className="single-slider-content">
                   <div className="md:flex items-center justify-between">
                     <div className="flex-1 md:mr-[30px] mb-[30px] md:mb-0">

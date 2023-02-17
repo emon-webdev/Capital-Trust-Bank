@@ -40,7 +40,6 @@ import PaymentBills from "../Pages/PaymentBills/PaymentBills";
 import PaySuccess from "../Pages/PaymentBills/PaySuccess";
 import LoanDetails from "../Pages/Services/Loans/LoanDetails";
 import Loans from "../Pages/Services/Loans/Loans";
-import Services from "../Pages/Services/Services";
 
 import InsuranceRequest from "../Dashboard/components/InsuranceRequest/InsuranceRequest";
 import Insurance from "../Pages/Services/Insurance";
@@ -91,10 +90,10 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/insur/${params.id}`),
       },
 
-      {
-        path: "/services",
-        element: <Services />,
-      },
+      // {
+      //   path: "/services",
+      //   element: <Services />,
+      // },
       {
         path: "/loansServices",
         element: <Loans />,

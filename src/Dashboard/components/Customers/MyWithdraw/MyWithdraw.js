@@ -5,7 +5,7 @@ import {
   FormLabel,
   Input,
   Text,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import ReactDatePicker from "react-datepicker";
@@ -37,8 +37,6 @@ const MyWithdraw = () => {
 
     const date = form.date.value;
 
-    console.log(name, email, amount, date, time, account);
-
     const appellant = {
       name: name,
       email: email,
@@ -58,7 +56,6 @@ const MyWithdraw = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("withdraw Successlly Done");
           form.reset();

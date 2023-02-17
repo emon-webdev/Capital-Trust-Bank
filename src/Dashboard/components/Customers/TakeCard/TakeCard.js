@@ -6,12 +6,10 @@ import VisaTransaction from '../MyTransaction/VisaTransaction';
 const TakeCard = () => {
     const {user} = useContext(AuthContext);
     const [info,setInfo] = useState({})
-    console.log(user.email)
     useEffect(() => {
         fetch(`http://localhost:5000/takeCard/${user?.email}`)
           .then((res) => res.json())
           .then((data) => {
-            console.log(data)
             setInfo(data)
           });
       }, []);

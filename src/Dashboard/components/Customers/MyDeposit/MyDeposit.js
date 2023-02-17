@@ -1,13 +1,10 @@
 import {
-  Box,
-  Button,
-  Center,
-  Flex,
+  Button, Flex,
   FormControl,
   FormLabel,
   Input,
   Text,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
 
 import React, { useContext, useEffect, useState } from "react";
@@ -41,9 +38,6 @@ const MyDeposit = () => {
     const email = user?.email;
 
     const date = form.date.value;
-
-    console.log(name, email, amount, date, time, account);
-
     const appellant = {
       name: name,
       email: email,

@@ -5,7 +5,7 @@ import {
   ModalContent,
   ModalHeader,
   ModalOverlay,
-  Select,
+  Select
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -47,7 +47,6 @@ const PaymentBillsModal = ({
       billType,
       amount,
     };
-    console.log(paymentInfo);
 
     fetch("http://localhost:5000/pay-bills", {
       method: "POST",
@@ -59,8 +58,6 @@ const PaymentBillsModal = ({
       .then((res) => res.json())
       .then((data) => {
         window.location.replace(data.url);
-        console.log(window.location.replace(data.url));
-        // toast.success(`Donate Success`);
         reset();
       });
   };

@@ -33,7 +33,7 @@ const Funds = ({}) => {
               <div className="video-img relative">
                 <img className="" src={videoBg} alt="" />
                 <p onClick={onVideoOpen}>
-                  <img src={videoBtn} alt="" srcset="" />
+                  <img src={videoBtn} alt="" srcSet="" />
                 </p>
               </div>
             </div>
