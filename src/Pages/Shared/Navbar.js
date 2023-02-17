@@ -69,9 +69,6 @@ const Navbar = () => {
         <div className="lg:hidden flex items-center">
           <div className="lg:hidden btn-group flex items-center">
             <div className="btn-group flex items-center">
-              {/* <button>
-                <SearchBar></SearchBar>
-              </button> */}
               <NavLink
                 to="/accountOpenFrom"
                 className="accent-btn hidden  account-btn md:flex items-center"

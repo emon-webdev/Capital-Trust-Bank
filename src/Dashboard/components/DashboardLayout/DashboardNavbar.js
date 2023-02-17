@@ -28,7 +28,7 @@ const DashboardNavbar = () => {
   const [totalNotification, setTotalNotification] = useState(0);
   const [bankInfo, setBankInfo] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/bankAccounts?email=${user?.email}`)
+    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setBankInfo(data);
@@ -222,7 +222,8 @@ const DashboardNavbar = () => {
 
             <MenuList>
               <MenuGroup>
-                {/* <MenuItem>My Profile</MenuItem> */}
+              <MenuItem> {user?.displayName} </MenuItem>
+              <MenuItem> Id: {bankInfo?.accountId} </MenuItem>
                 <Link onClick={handleSignOut}>
                   <MenuItem>Log Out </MenuItem>
                 </Link>
