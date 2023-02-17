@@ -15,14 +15,14 @@ const CreditCardReq = () => {
   const [customers, setCustomers] = useState([]);
   const [reFetch, setReFetch] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/cardReq`)
+    fetch(`https://capital-trust-bank-server.vercel.app/cardReq`)
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);
       });
   }, [reFetch]);
   const handleAccept = (data) => {
-    fetch(`http://localhost:5000/acceptCardReq`, {
+    fetch(`https://capital-trust-bank-server.vercel.app/acceptCardReq`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -40,7 +40,7 @@ const CreditCardReq = () => {
     const info = {
       id: data.accountId,
     };
-    fetch(`http://localhost:5000/deleteCardReq`, {
+    fetch(`https://capital-trust-bank-server.vercel.app/deleteCardReq`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

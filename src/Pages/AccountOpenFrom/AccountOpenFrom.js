@@ -1,11 +1,11 @@
 import {
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Radio,
-  RadioGroup,
-  Select,
-  Stack
+    Input,
+    InputGroup,
+    InputLeftElement,
+    Radio,
+    RadioGroup,
+    Select,
+    Stack
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -16,7 +16,7 @@ import io from "socket.io-client";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
-const socket = io("http://localhost:5000/");
+const socket = io("https://capital-trust-bank-server.vercel.app/");
 const AccountOpenFrom = () => {
   const {
     register,
@@ -66,7 +66,7 @@ const AccountOpenFrom = () => {
             approve: false,
           };
           // save information to the database
-          fetch("http://localhost:5000/bankAccounts", {
+          fetch("https://capital-trust-bank-server.vercel.app/bankAccounts", {
             method: "POST",
             headers: {
               "content-type": "application/json",

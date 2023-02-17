@@ -42,7 +42,7 @@ const DonateOptionModal = ({ onClose, isOpen }) => {
       currency,
       amount,
     };
-    fetch("http://localhost:5000/donate", {
+    fetch("https://capital-trust-bank-server.vercel.app/donate", {
       method: "POST",
       headers: {
         "content-type": "application/json",

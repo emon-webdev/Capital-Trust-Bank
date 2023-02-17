@@ -12,7 +12,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isApply, setIsApply] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/customer/${user?.email}`)
+    fetch(`https://capital-trust-bank-server.vercel.app/customer/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.role === "admin") {
@@ -27,7 +27,7 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     //delete customer device info
-    fetch(`http://localhost:5000/deleteDeviceInfo/${user?.email}`, {
+    fetch(`https://capital-trust-bank-server.vercel.app/deleteDeviceInfo/${user?.email}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

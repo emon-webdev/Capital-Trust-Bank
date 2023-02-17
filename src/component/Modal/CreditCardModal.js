@@ -1,9 +1,9 @@
 import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay
+    Modal,
+    ModalBody,
+    ModalContent,
+    ModalHeader,
+    ModalOverlay
 } from "@chakra-ui/modal";
 import { Select } from "@chakra-ui/select";
 import { default as React, useContext, useEffect, useState } from "react";
@@ -23,7 +23,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
+    fetch(`https://capital-trust-bank-server.vercel.app/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data);
@@ -43,7 +43,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
         accountId,
         cardType,
       };
-      fetch(`http://localhost:5000/cardAppliers`, {
+      fetch(`https://capital-trust-bank-server.vercel.app/cardAppliers`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

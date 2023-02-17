@@ -82,14 +82,14 @@ const router = createBrowserRouter([
         path: "/insurances",
         element: <Insurance />,
         loader: () =>
-          fetch("http://localhost:5000/insuranceData"),
+          fetch("https://capital-trust-bank-server.vercel.app/insuranceData"),
       },
       {
         path: "/insuranceDetails/:id",
         element: <InsuranceDetails />,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/insur/${params.id}`
+            `https://capital-trust-bank-server.vercel.app/insur/${params.id}`
           ),
       },
 
@@ -101,14 +101,14 @@ const router = createBrowserRouter([
         path: "/loansServices",
         element: <Loans />,
         loader: () =>
-          fetch("http://localhost:5000/loanService"),
+          fetch("https://capital-trust-bank-server.vercel.app/loanService"),
       },
       {
         path: "/loanDetails/:id",
         element: <LoanDetails />,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/loanSec/${params.id}`
+            `https://capital-trust-bank-server.vercel.app/loanSec/${params.id}`
           ),
       },
       {
@@ -116,7 +116,7 @@ const router = createBrowserRouter([
         element: <DetailsNews></DetailsNews>,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/blogsNews/${params.id}`
+            `https://capital-trust-bank-server.vercel.app/blogsNews/${params.id}`
           ),
       },
 
@@ -125,7 +125,7 @@ const router = createBrowserRouter([
         element: <ApplyForm />,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/loans/${params.title}`
+            `https://capital-trust-bank-server.vercel.app/loans/${params.title}`
           ),
       },
 
@@ -192,7 +192,7 @@ const router = createBrowserRouter([
         element: <TeamDetails />,
         loader: async ({ params }) =>
           fetch(
-            `http://localhost:5000/team-details/${params.id}`
+            `https://capital-trust-bank-server.vercel.app/team-details/${params.id}`
           ),
       },
       // {
