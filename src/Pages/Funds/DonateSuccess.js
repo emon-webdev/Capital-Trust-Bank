@@ -11,7 +11,7 @@ const DonateSuccess = () => {
   const [donate, setDonate] = useState({});
 
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/donate/by-transaction-id/${transactionID}`)
+    fetch(`http://localhost:5000/donate/by-transaction-id/${transactionID}`)
       .then((res) => res.json())
       .then((data) => setDonate(data));
   }, [transactionID]);

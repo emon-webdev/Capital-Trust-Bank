@@ -4,7 +4,6 @@ import shape3 from "../../../assets/aboutUs/bg-shape3.png";
 import shape1 from "../../../assets/aboutUs/Vector.png";
 import shape2 from "../../../assets/aboutUs/Vector2.png";
 const DynamicBanner = ({ name }) => {
-  
   return (
     <div>
       <div className="about-parent h-60">

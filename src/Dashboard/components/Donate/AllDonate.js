@@ -14,7 +14,7 @@ const AllDonate = () => {
   const [donates, setDonates] = useState([]);
 
   useEffect(() => {
-    fetch("https://capital-trust-bank-server.vercel.app/donate")
+    fetch("http://localhost:5000/donate")
       .then((res) => res.json())
       .then((data) => {
         setDonates(data);

@@ -1,16 +1,16 @@
 import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay
+    Modal,
+    ModalBody,
+    ModalContent,
+    ModalHeader,
+    ModalOverlay
 } from "@chakra-ui/modal";
 import { Select } from "@chakra-ui/select";
 import { default as React, useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
-const CreditCardModal = ({ onClose, isOpen, overlay }) => {
+const ServiceReqModal = ({ slidersContents, onClose, isOpen, overlay }) => {
   const { user, loading } = useContext(AuthContext);
   const {
     register,
@@ -23,15 +23,19 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
+    fetch(
+      `http://localhost:5000/bankAccounts/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data);
       });
   }, []);
 
+  console.log(slidersContents);
+
   // apply for credit card
-  const handleApply = (data) => {
+  const handleServiceReq = (data) => {
     const applierName = user?.displayName;
     const applierPhnNumber = data.applierPhnNumber;
     const accountId = data.accountId;
@@ -75,7 +79,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
           </ModalHeader>
           <ModalBody>
             <div className="mb-5">
-              <form onSubmit={handleSubmit(handleApply)}>
+              <form onSubmit={handleSubmit(handleServiceReq)}>
                 <div className="form-control ">
                   <label className="text-base text-[#57647E]">
                     Account Name
@@ -190,4 +194,4 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
   );
 };
 
-export default CreditCardModal;
+export default ServiceReqModal;

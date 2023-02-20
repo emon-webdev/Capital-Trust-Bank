@@ -1,6 +1,6 @@
 import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalOverlay } from "@chakra-ui/modal";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import creditCardImg from "../../assets/apply-loan/credit-card-img.png";
@@ -10,7 +10,6 @@ import { AuthContext } from "../../context/AuthProvider";
 const ApplyCreditCard = () => {
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
   const { user } = useContext(AuthContext);
-  const [idError, setIdError] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [overlay, setOverlay] = React.useState(<OverlayOne />);
 

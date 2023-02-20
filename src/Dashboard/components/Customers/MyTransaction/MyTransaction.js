@@ -19,7 +19,7 @@ export default function MyTransaction() {
   const { user } = useContext(AuthContext);
   const [transacData, setTransacData] = useState([]);
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server.vercel.app/depositWithdraw/${user?.email}`)
+    fetch(`http://localhost:5000/depositWithdraw/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setTransacData(data));
   }, []);

@@ -85,6 +85,8 @@
 /* hover nav item */
 .single-slider-nav {
   transition: 0.3s;
+  height: 170px;
+  width: 100%;
 }
 .single-slider-nav:hover {
   background: #df0303;
