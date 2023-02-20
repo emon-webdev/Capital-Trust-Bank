@@ -8,7 +8,7 @@ const UserDashboardProvider = ({ children }) => {
   const [withdraw, setWithdarw] = useState(0);
   const [bankInfo, setBankInfo] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => (data));
   }, [user?.email]);

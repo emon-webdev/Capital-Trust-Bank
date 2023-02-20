@@ -31,7 +31,7 @@ const ExchangeDetails = () => {
   //     email: user.email,
   //   };
   //   //store info into the database
-  //   fetch(`http://localhost:5000/storeExchangeInfo`, {
+  //   fetch(`https://capital-trust-bank-server-ten.vercel.app/storeExchangeInfo`, {
   //     method: "POST",
   //     headers: {
   //       "content-type": "application/json",
@@ -68,7 +68,7 @@ const ExchangeDetails = () => {
   const handleExchangeSubmit = (event) => {
     event.preventDefault()
     const exchangeInfo = { amount, totalBuying, fromCurrency }
-    fetch('http://localhost:5000/exchange', {
+    fetch('https://capital-trust-bank-server-ten.vercel.app/exchange', {
       method: 'POST',
       headers: {
         "content-type": "application/json",

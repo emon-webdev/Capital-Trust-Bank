@@ -48,7 +48,7 @@ const PaymentBillsModal = ({
       amount,
     };
 
-    fetch("http://localhost:5000/pay-bills", {
+    fetch("https://capital-trust-bank-server-ten.vercel.app/pay-bills", {
       method: "POST",
       headers: {
         "content-type": "application/json",

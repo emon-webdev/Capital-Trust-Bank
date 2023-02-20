@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 const VerificationReq = () => {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/bankAccounts`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/bankAccounts`)
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);
