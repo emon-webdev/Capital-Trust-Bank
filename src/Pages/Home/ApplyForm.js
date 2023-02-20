@@ -17,7 +17,7 @@ export default function ApplyForm() {
 
   const [loans, setLoans] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/loanService")
+    fetch("https://capital-trust-bank-server-ten.vercel.app/loanService")
       .then((res) => res.json())
       .then((data) => setLoans(data));
   }, []);
@@ -43,7 +43,7 @@ export default function ApplyForm() {
       date: date,
     };
 
-    fetch("http://localhost:5000/applicants", {
+    fetch("https://capital-trust-bank-server-ten.vercel.app/applicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",

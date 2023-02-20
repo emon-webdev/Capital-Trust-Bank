@@ -22,7 +22,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
   const [disable, setDisable] = useState(false);
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
   useEffect(() => {
-    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data);
@@ -41,7 +41,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
       accountId,
       cardType,
     };
-    fetch(`http://localhost:5000/cardAppliers`, {
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/cardAppliers`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -118,8 +118,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
                     {...register("accountId", {
                       required: "Account Id is Required",
                     })}
-                    defaultValue={applierEmail?.accountId}
-                    readOnly
+                    defaultValue={applierEmail}
                   ></input>
                 </div>
                 {errors.accountId && (

@@ -12,11 +12,10 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import "react-phone-input-2/lib/style.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import io from "socket.io-client";
+// import io from "socket.io-client";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
-// const socket = io("*");
-const socket = io("http://localhost:5000/");
+// const socket = io("https://capital-trust-bank-server-ten.vercel.app/");
 const AccountOpenFrom = () => {
   const {
     register,
@@ -66,7 +65,7 @@ const AccountOpenFrom = () => {
             approve: false,
           };
           // save information to the database
-          fetch("http://localhost:5000/bankAccounts", {
+          fetch("https://capital-trust-bank-server-ten.vercel.app/bankAccounts", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -80,7 +79,7 @@ const AccountOpenFrom = () => {
                 `Your form has been submitted please wait for approval.`
               );
               reset();
-              socket.emit("send verification", account);
+              // socket.emit("send verification", account);
             });
         }
       });

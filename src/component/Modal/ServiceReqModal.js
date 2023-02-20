@@ -22,7 +22,7 @@ const ServiceReqModal = ({ slidersContents, onClose, isOpen }) => {
   const [applierEmail, setApplierEmail] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data);
@@ -50,7 +50,7 @@ const ServiceReqModal = ({ slidersContents, onClose, isOpen }) => {
         accountId,
       };
       console.log(ServiceReceiver);
-      fetch(`http://localhost:5000/emgyServiceReceiver`, {
+      fetch(`https://capital-trust-bank-server-ten.vercel.app/emgyServiceReceiver`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

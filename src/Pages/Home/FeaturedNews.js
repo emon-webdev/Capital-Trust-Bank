@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default function FeaturedNews() {
   const [newsData, setNewsData] = useState();
   useEffect(() => {
-    fetch("http://localhost:5000/blogsNews")
+    fetch("https://capital-trust-bank-server-ten.vercel.app/blogsNews")
       .then((res) => res.json())
       .then((data) => setNewsData(data));
   }, []);

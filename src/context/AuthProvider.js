@@ -70,7 +70,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       setLoading(false);
       fetch(
-        `http://localhost:5000/customer/${currentUser?.email}`
+        `https://capital-trust-bank-server-ten.vercel.app/customer/${currentUser?.email}`
       )
         .then((res) => res.json())
         .then((data) => {

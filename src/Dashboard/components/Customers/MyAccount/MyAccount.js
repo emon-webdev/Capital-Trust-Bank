@@ -11,7 +11,7 @@ export default function MyAccount() {
   const [approve, setApprove] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/approved/${user?.email}`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setApprove(data));
   }, []);
@@ -20,7 +20,7 @@ export default function MyAccount() {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/depositWithdraw/${user?.email}`
+      `https://capital-trust-bank-server-ten.vercel.app/depositWithdraw/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setTransacData(data));
