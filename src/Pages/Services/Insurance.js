@@ -35,7 +35,6 @@ const Insurance = () => {
     const phone = form.phone.value;
     const date = form.date.value;
     const insurance = form.insurance.value;
-    console.log(name, email, phone, date, insurance);
 
     const applicant = {
       name: name,

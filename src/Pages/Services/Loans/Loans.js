@@ -36,7 +36,6 @@ const Loans = (props) => {
     const city = form.city.value;
     const date = form.date.value;
     const loan = form.loan.value;
-    console.log(name, email, phone, city, date, loan);
 
     const applicant = {
       name: name,

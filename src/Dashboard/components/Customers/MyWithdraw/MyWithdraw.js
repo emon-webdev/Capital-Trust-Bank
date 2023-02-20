@@ -37,8 +37,6 @@ const MyWithdraw = () => {
 
     const date = form.date.value;
 
-    console.log(name, email, amount, date, time, account);
-
     const appellant = {
       name: name,
       email: email,

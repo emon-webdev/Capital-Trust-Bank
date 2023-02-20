@@ -41,7 +41,7 @@ export default function MyAccount() {
   }, 0);
 
   // arr.reduce((a, b) => ({x: a.x + b.x}));
-  console.log("totalDeposit", totalDeposit);
+
   const initialDeposit =
     parseInt(approve.initialDeposit) + totalDeposit - totalWithdraw;
 

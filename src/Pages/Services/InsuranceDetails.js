@@ -13,7 +13,7 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 const InsuranceDetails = (props) => {
   const insu = useLoaderData();
-  console.log(insu);
+
   const [name, setName] = useState("Insurance");
   return (
     <div className="">
