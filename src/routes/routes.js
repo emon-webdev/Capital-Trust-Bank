@@ -41,6 +41,7 @@ import PaySuccess from "../Pages/PaymentBills/PaySuccess";
 import LoanDetails from "../Pages/Services/Loans/LoanDetails";
 import Loans from "../Pages/Services/Loans/Loans";
 
+import EmgyServiceReq from "../Dashboard/components/Donate/EmgyServiceReq";
 import InsuranceRequest from "../Dashboard/components/InsuranceRequest/InsuranceRequest";
 import Insurance from "../Pages/Services/Insurance";
 import InsuranceDetails from "../Pages/Services/InsuranceDetails";
@@ -250,6 +251,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <LoanReq></LoanReq>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/emgy-service-req",
+        element: (
+          <AdminRoute>
+            <EmgyServiceReq />
           </AdminRoute>
         ),
       },

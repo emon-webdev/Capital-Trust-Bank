@@ -9,8 +9,6 @@ import DonateOptionModal from "../../component/Modal/DonateOptionModal";
 import VideoModal from "../../component/Modal/VideoModal";
 const Funds = ({}) => {
   const { t } = useTranslation();
-  // const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
-  // const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.300" />;
   const {
     isOpen: isVideoOpen,
