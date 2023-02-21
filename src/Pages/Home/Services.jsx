@@ -10,13 +10,13 @@ import {  useGetLoansQuery } from '../../features/loansSlice';
 const Services = () => {
 
   const [loans, setLoans] = useState([]);
-  // useEffect(() => {
-  //   fetch('http://localhost:5000/loans')
-  //     .then(res => res.json())
-  //     .then(data => setLoans(data))
-  // }, [])
+  useEffect(() => {
+    fetch('http://localhost:5000/loans')
+      .then(res => res.json())
+      .then(data => setLoans(data))
+  }, [])
 
-  const {isLoading}= useGetLoansQuery();
+ 
   
 
   return (
