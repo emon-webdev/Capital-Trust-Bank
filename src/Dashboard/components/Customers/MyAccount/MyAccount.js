@@ -9,7 +9,7 @@ import { AuthContext } from "../../../../context/AuthProvider";
 export default function MyAccount() {
   const { user } = useContext(AuthContext);
   const [approve, setApprove] = useState([]);
-
+console.log(user)
   useEffect(() => {
     fetch(`https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`)
       .then((res) => res.json())

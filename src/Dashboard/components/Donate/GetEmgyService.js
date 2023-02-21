@@ -6,7 +6,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { AuthContext } from "../../../context/AuthProvider";
 const GetEmgyService = () => {
   const { user } = useContext(AuthContext);
-
+  console.log(user);
 
   return (
     <div>
