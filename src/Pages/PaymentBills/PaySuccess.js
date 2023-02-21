@@ -5,11 +5,9 @@ import { Link, useLocation } from "react-router-dom";
 const PaySuccess = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const location = useLocation();
-  console.log(location.search);
 
   const query = new URLSearchParams(location.search);
   const transactionID = query.get("transactionId");
-  console.log(transactionID);
   const [payment, setPayment] = useState({});
 
   useEffect(() => {
@@ -19,7 +17,6 @@ const PaySuccess = () => {
       .then((res) => res.json())
       .then((data) => setPayment(data));
   }, [transactionID]);
-  console.log(payment);
 
   return (
     <div className=" bg-[#F3F3FE]">

@@ -1,19 +1,17 @@
 import {
-  Button,
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  useDisclosure,
+    Table,
+    TableContainer,
+    Tbody,
+    Td,
+    Th,
+    Thead,
+    Tr,
+    useDisclosure
 } from "@chakra-ui/react";
 
 import React, { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../../../../context/AuthProvider";
-import DetailsModal from "./DetailsModal";
 
 export default function MyTransaction() {
   const { isOpen, onOpen, onClose } = useDisclosure();

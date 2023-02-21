@@ -5,6 +5,7 @@ import { FaLocationArrow } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import io from "socket.io-client";
 import { AuthContext } from "../../../context/AuthProvider";
+// const socket = io("*");
 const socket = io("http://localhost:5000/");
 
 const IndividualSupport = () => {
@@ -15,7 +16,7 @@ const IndividualSupport = () => {
   const { state } = useLocation();
   useEffect(() => {
     socket.on("messageTransfer", (message) => {
-      if (message.to === user.email) {
+      if (message.to === user?.email) {
         setMessages([...messages, message]);
       } else {
         setMessages([...messages, ""]);

@@ -35,7 +35,6 @@ export default function MarriageLoan() {
     const city = form.city.value;
     const date = form.date.value;
     const loan = form.loan.value;
-    console.log(name, email, phone, city, date, loan);
 
     const applicant = {
       name: name,
@@ -55,7 +54,6 @@ export default function MarriageLoan() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
@@ -88,7 +86,6 @@ export default function MarriageLoan() {
                   fontSize={26}
                   fontWeight={800}
                   marginY={1}
-                  gutterBottom
                   component="div"
                 >
                   {loan.title}

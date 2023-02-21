@@ -40,7 +40,6 @@ import PaymentBills from "../Pages/PaymentBills/PaymentBills";
 import PaySuccess from "../Pages/PaymentBills/PaySuccess";
 import LoanDetails from "../Pages/Services/Loans/LoanDetails";
 import Loans from "../Pages/Services/Loans/Loans";
-import Services from "../Pages/Services/Services";
 
 import InsuranceRequest from "../Dashboard/components/InsuranceRequest/InsuranceRequest";
 import Insurance from "../Pages/Services/Insurance";
@@ -82,35 +81,43 @@ const router = createBrowserRouter([
       {
         path: "/insurances",
         element: <Insurance />,
-        loader: () => fetch("http://localhost:5000/insuranceData"),
+        loader: () =>
+          fetch("http://localhost:5000/insuranceData"),
       },
       {
         path: "/insuranceDetails/:id",
         element: <InsuranceDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/insur/${params.id}`),
+          fetch(
+            `http://localhost:5000/insur/${params.id}`
+          ),
       },
 
-      {
-        path: "/services",
-        element: <Services />,
-      },
+      // {
+      //   path: "/services",
+      //   element: <Services />,
+      // },
       {
         path: "/loansServices",
         element: <Loans />,
-        loader: () => fetch("http://localhost:5000/loanService"),
+        loader: () =>
+          fetch("http://localhost:5000/loanService"),
       },
       {
         path: "/loanDetails/:id",
         element: <LoanDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/loanSec/${params.id}`),
+          fetch(
+            `http://localhost:5000/loanSec/${params.id}`
+          ),
       },
       {
         path: "/blogsNews/:id",
         element: <DetailsNews></DetailsNews>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/blogsNews/${params.id}`),
+          fetch(
+            `http://localhost:5000/blogsNews/${params.id}`
+          ),
       },
 
       {
@@ -118,7 +125,7 @@ const router = createBrowserRouter([
         element: <ApplyForm />,
         loader: ({ params }) =>
           fetch(
-            `https://capital-trust-bank-server.vercel.app/loans/${params.title}`
+            `http://localhost:5000/loans/${params.title}`
           ),
       },
 
@@ -184,7 +191,9 @@ const router = createBrowserRouter([
         path: "/team-details/:id",
         element: <TeamDetails />,
         loader: async ({ params }) =>
-          fetch(`http://localhost:5000/team-details/${params.id}`),
+          fetch(
+            `http://localhost:5000/team-details/${params.id}`
+          ),
       },
       // {
       //   path: "/exchange",
@@ -263,8 +272,6 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myTransaction",
         element: <MyTransaction />,
-        // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/depositWithdraw/${params.email}`),
       },
       {
         path: "/dashboard/CustomerSupport",
@@ -292,11 +299,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/deviceActivity",
-        element: (
-          <CustomerRoute>
-            <DeviceActivity />
-          </CustomerRoute>
-        ),
+        element: <DeviceActivity />,
       },
       {
         path: "/dashboard/myAccount",

@@ -41,7 +41,6 @@ const MyDeposit = () => {
     const email = user?.email;
 
     const date = form.date.value;
-
     const appellant = {
       name: name,
       email: email,

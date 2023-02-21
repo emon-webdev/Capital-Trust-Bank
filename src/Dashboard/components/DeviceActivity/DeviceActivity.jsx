@@ -15,7 +15,7 @@ const DeviceActivity = () => {
 
   return (
       <div className="mt-3">
-        <h1 className="text-2xl font-semibold text-center my-2">Device Remaining: {2- devicesInfo.length}</h1>
+        <h1 className="text-2xl font-semibold text-center my-2">Device Remaining: {3- devicesInfo.length}</h1>
         <table class="table-auto w-full text-center border-2 p-3">
           <thead className="border-2">
             <tr>

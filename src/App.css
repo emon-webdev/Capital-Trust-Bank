@@ -72,6 +72,10 @@ ul.navbar__nav > li:last-child {
 /* .customer-info p {
   color: #fff !important;
 } */
+
+.email-field {
+  width: 100% !important;
+}
 .accept {
   background: #010c3a !important;
 }

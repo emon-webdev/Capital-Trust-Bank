@@ -25,10 +25,13 @@ const TakeCard = () => {
       }
     return (
         <div className='text-center'>
-            <VisaTransaction info={info}></VisaTransaction>
+          {
+            info.accountId ? <>  <VisaTransaction info={info}></VisaTransaction>
             <button className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]" type='submit' onClick={handleDownload}>
                 Download
-              </button>
+              </button> </> : <span>You did not apply for card or wait for approval</span>
+          }
+           
         </div>
     );
 };

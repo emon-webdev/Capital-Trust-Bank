@@ -3,7 +3,6 @@ import { parseInt } from "lodash";
 import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineMinusSquare } from "react-icons/ai";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
-import { useLoaderData } from "react-router";
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 import { AuthContext } from "../../../../context/AuthProvider";
 
@@ -33,14 +32,10 @@ export default function MyAccount() {
     return total + parseInt(withdr.withdraw);
   }, 0);
 
-  // arr.reduce((a, b) => ({x: a.x + b.x}));
-
   const depositData = transacData.filter((data) => data.type === "deposit");
   const totalDeposit = depositData.reduce((total, depo) => {
     return total + parseInt(depo.deposit);
   }, 0);
-
-  // arr.reduce((a, b) => ({x: a.x + b.x}));
 
   const initialDeposit =
     parseInt(approve.initialDeposit) + totalDeposit - totalWithdraw;

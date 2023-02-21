@@ -1,11 +1,11 @@
 import {
-  Button,
-  Flex,
-  FormControl,
-  FormLabel,
-  Input,
-  Text,
-  VStack,
+    Button,
+    Flex,
+    FormControl,
+    FormLabel,
+    Input,
+    Text,
+    VStack
 } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import ReactDatePicker from "react-datepicker";
@@ -56,7 +56,6 @@ const MyWithdraw = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("withdraw Successlly Done");
           form.reset();

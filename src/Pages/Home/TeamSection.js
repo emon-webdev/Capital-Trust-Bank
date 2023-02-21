@@ -29,9 +29,9 @@ const TeamSection = ({ team }) => {
         </p>
       </div>
 
-      <div className="flex">
-        {social.map((icon) => (
-          <>
+      <div className="">
+        {social.map((icon, index) => (
+          <div key={index} className="flex items-center">
             <a
               href={icon.facebook}
               target="_blank"
@@ -53,7 +53,7 @@ const TeamSection = ({ team }) => {
             >
               <BsGithub />
             </a>
-          </>
+          </div>
         ))}
       </div>
     </Link>

@@ -27,13 +27,13 @@ const Funds = ({}) => {
     <div className="funds-area pt-[60px] md:pt-[120px] pb-[60px]">
       <div className="container">
         <div className="fund-wrap md:flex items-center justify-between ">
-          <div className="fund-video-content basis-2/5 relative  md:mr-12">
+          <div className="fund-video-content animate__animated animate__backInLeft basis-2/5 relative  md:mr-12">
             <img src={fundImg} alt="" />
             <div className="video-content absolute bottom-0 right-0">
               <div className="video-img relative">
                 <img className="" src={videoBg} alt="" />
                 <p onClick={onVideoOpen}>
-                  <img src={videoBtn} alt="" srcset="" />
+                  <img src={videoBtn} alt="" srcSet="" />
                 </p>
               </div>
             </div>
@@ -45,7 +45,7 @@ const Funds = ({}) => {
               OverlayOne={OverlayOne}
             />
           </div>
-          <div className="fund-content basis-3/5 mt-10 ">
+          <div className="fund-content animate__animated animate__backInRight basis-3/5 mt-10 ">
             <h3 className="text-[#DF0303] md:text-xl text-md mb-3">
               {t("Funds_Donate_title")}
             </h3>

@@ -6,21 +6,22 @@ import {
   Grid,
   Select,
   Text,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
+import { Link, useLoaderData } from "react-router-dom";
 import appli from "../../assets/Services(Home)/E-Wallet-amico.png";
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
+import FactToKnow from "../Shared/FactToKnow/FactToKnow";
 import { districts } from "./districtData";
 
 const Insurance = () => {
   const [name, setName] = useState("Insurance");
   const insuranceData = useLoaderData();
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+
 
   const [district, setDistrict] = useState("");
   const handleChange = (event) => {
@@ -44,7 +45,7 @@ const Insurance = () => {
       date: date,
     };
 
-    fetch("http://localhost:5000/insuranceApplicants", {
+    fetch(`http://localhost:5000/insuranceApplicants`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -53,11 +54,9 @@ const Insurance = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
-          toast.success("Application Successlly Done");
+          toast.success("Application Successfull Done");
           form.reset();
-          navigate("/");
         } else {
           toast.error(data.message);
         }
@@ -101,7 +100,7 @@ const Insurance = () => {
           </Card>
         ))}
       </div>
-      <div className="flex md:flex-row flex-col w-100  align-center justify-center">
+      <div className="py-12 flex md:flex-row flex-col w-100  align-center justify-center">
         <Box>
           <img
             style={{ width: "600px", height: "600px" }}
@@ -215,6 +214,7 @@ const Insurance = () => {
           </form>
         </Box>
       </div>
+      <FactToKnow />
     </div>
   );
 };

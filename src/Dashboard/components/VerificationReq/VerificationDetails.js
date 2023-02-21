@@ -1,18 +1,15 @@
 import {
-  Button,
-  ButtonGroup,
-  Card,
-  CardBody,
-  CardFooter,
-  Divider,
-  Heading,
-  Image,
-  Stack,
-  Text,
+    ButtonGroup,
+    Card,
+    CardBody,
+    CardFooter,
+    Divider, Image,
+    Stack,
+    Text
 } from "@chakra-ui/react";
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const VerificationDetails = () => {
   const { state: customer } = useLocation();

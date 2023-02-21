@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { BsChatSquareQuote, BsFillCreditCardFill } from "react-icons/bs";
+import { CiBadgeDollar } from "react-icons/ci";
 import { FaCommentDollar, FaDonate } from "react-icons/fa";
-import { MdSupervisorAccount } from "react-icons/md";
+import { MdOutlineImportantDevices, MdSupervisorAccount } from "react-icons/md";
 import { RiMessage2Fill } from "react-icons/ri";
 import { VscRequestChanges } from "react-icons/vsc";
-import { CiBadgeDollar } from "react-icons/ci";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo/mainlogo.png";
 
@@ -32,7 +32,7 @@ const AdminLeft = () => {
             to="/dashboard/allCustomers"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
+                ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
                 : "flex px-[20px] link items-center py-[15px]"
             }
           >
@@ -40,7 +40,7 @@ const AdminLeft = () => {
               {" "}
               <MdSupervisorAccount />
             </span>
-            <span className="text-white ml-[10px]">All Customers</span>
+            <span className="text-white ml-[10px]">All Bank Users</span>
             {/* <span className={`${subMenu ? 'rotate-180' : 'rotate-0'}`}><ExpandMoreIcon /></span> */}
           </NavLink>
 
@@ -48,7 +48,7 @@ const AdminLeft = () => {
             to="/dashboard/verificationRequest"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
+                ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
                 : "flex px-[20px] link items-center py-[15px]"
             }
           >
@@ -63,7 +63,7 @@ const AdminLeft = () => {
             to="/dashboard/cardRequest"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link items-center flex px-[20px] py-[15px]"
+                ? "border-l-2 bg-[#DF0303] link items-center flex px-[20px] py-[15px]"
                 : "flex px-[20px] link items-center py-[15px]"
             }
           >
@@ -78,7 +78,7 @@ const AdminLeft = () => {
             to="/dashboard/loanRequest"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link items-center flex px-[20px] py-[15px]"
+                ? "border-l-2 bg-[#DF0303] link items-center flex px-[20px] py-[15px]"
                 : "flex px-[20px] items-center link py-[15px]"
             }
           >
@@ -93,7 +93,7 @@ const AdminLeft = () => {
             to="/dashboard/insuranceRequest"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link items-center flex px-[20px] py-[15px]"
+                ? "border-l-2 bg-[#DF0303] link items-center flex px-[20px] py-[15px]"
                 : "flex px-[20px] items-center link py-[15px]"
             }
           >
@@ -104,12 +104,11 @@ const AdminLeft = () => {
             <span className="text-white ml-[10px]">Insurance Request</span>
           </NavLink>
 
-
           <NavLink
             to="/dashboard/all-donate"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link items-center flex px-[20px] py-[15px]"
+                ? "border-l-2 bg-[#DF0303] link items-center flex px-[20px] py-[15px]"
                 : "flex px-[20px] items-center link py-[15px]"
             }
           >
@@ -123,7 +122,7 @@ const AdminLeft = () => {
             to="/dashboard/all-bills"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link items-center flex px-[20px] py-[15px]"
+                ? "border-l-2 bg-[#DF0303] link items-center flex px-[20px] py-[15px]"
                 : "flex px-[20px] items-center link py-[15px]"
             }
           >
@@ -135,10 +134,25 @@ const AdminLeft = () => {
           </NavLink>
 
           <NavLink
+              to="/dashboard/deviceActivity"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-l-2 bg-[#DF0303] link flex dath items-center px-[20px] py-[15px] text-white"
+                  : "flex px-[20px] dath link py-[15px] text-white"
+              }
+            >
+              <span>
+                {/* {" "} */}
+                <MdOutlineImportantDevices />
+              </span>
+              <span className="text-white ml-[10px]">Device Activity</span>
+            </NavLink>
+
+          <NavLink
             to="/dashboard/CustomerSupport"
             className={({ isActive }) =>
               isActive
-                ? "border-l-2 link flex items-center px-[20px] py-[15px]"
+                ? "border-l-2 link bg-[#DF0303] flex items-center px-[20px] py-[15px]"
                 : "flex px-[20px] items-center link py-[15px]"
             }
           >

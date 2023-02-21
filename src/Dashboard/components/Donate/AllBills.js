@@ -1,11 +1,11 @@
 import {
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr
+    Table,
+    TableContainer,
+    Tbody,
+    Td,
+    Th,
+    Thead,
+    Tr
 } from "@chakra-ui/table";
 import React, { useEffect, useState } from "react";
 import { FaDonate } from "react-icons/fa";

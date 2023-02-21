@@ -11,10 +11,11 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import "react-phone-input-2/lib/style.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
+// const socket = io("*");
 const socket = io("http://localhost:5000/");
 const AccountOpenFrom = () => {
   const {
@@ -28,6 +29,7 @@ const AccountOpenFrom = () => {
   const imgHostKey = process.env.REACT_APP_IMAGE_SECRET_KEY;
   const [name, setName] = useState("Account Open In Bank");
   const [gender, setGender] = useState("male");
+  const navigate = useNavigate();
   const accountFromSubmit = (data) => {
     const cardImg = data.cardImg[0];
     const formData = new FormData();
@@ -73,6 +75,7 @@ const AccountOpenFrom = () => {
           })
             .then((res) => res.json())
             .then((result) => {
+              navigate("/dashboard");
               toast.success(
                 `Your form has been submitted please wait for approval.`
               );

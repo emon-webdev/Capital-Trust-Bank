@@ -1,12 +1,12 @@
 import {
-  Box,
-  Card,
-  CardBody,
-  FormControl,
-  Grid,
-  Select,
-  Text,
-  VStack,
+    Box,
+    Card,
+    CardBody,
+    FormControl,
+    Grid,
+    Select,
+    Text,
+    VStack
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -14,6 +14,7 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import application from "../../../assets/Services(Home)/E-Wallet-amico.png";
 import { AuthContext } from "../../../context/AuthProvider";
 import DynamicBanner from "../../Shared/DynamicBanner/DynamicBanner";
+import FactToKnow from "../../Shared/FactToKnow/FactToKnow";
 import { districts } from "../districtData";
 
 const Loans = (props) => {
@@ -46,7 +47,7 @@ const Loans = (props) => {
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server.vercel.app/applicants", {
+    fetch("http://localhost:5000/applicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -55,7 +56,6 @@ const Loans = (props) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
@@ -71,7 +71,7 @@ const Loans = (props) => {
       <div className="mb-5">
         <DynamicBanner name={name}></DynamicBanner>
       </div>
-      <div className="container loan-card  align-center justify-center gap-10 my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container py-12 loan-card  align-center justify-center gap-10 my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {loansData.map((loan) => (
           <Card
             shadow="2xl"
@@ -103,7 +103,7 @@ const Loans = (props) => {
           </Card>
         ))}
       </div>
-      <div className="flex md:flex-row flex-col w-100  align-center justify-center">
+      <div className="flex py-12 md:flex-row flex-col w-100  align-center justify-center">
         <Box>
           <img
             style={{ width: "600px", height: "600px" }}
@@ -218,6 +218,7 @@ const Loans = (props) => {
           </form>
         </Box>
       </div>
+      <FactToKnow />
     </div>
   );
 };
