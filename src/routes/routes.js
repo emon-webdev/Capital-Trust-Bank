@@ -41,6 +41,8 @@ import PaySuccess from "../Pages/PaymentBills/PaySuccess";
 import LoanDetails from "../Pages/Services/Loans/LoanDetails";
 import Loans from "../Pages/Services/Loans/Loans";
 
+import EmgyServiceReq from "../Dashboard/components/Donate/EmgyServiceReq";
+import GetEmgyService from "../Dashboard/components/Donate/GetEmgyService";
 import InsuranceRequest from "../Dashboard/components/InsuranceRequest/InsuranceRequest";
 import Insurance from "../Pages/Services/Insurance";
 import InsuranceDetails from "../Pages/Services/InsuranceDetails";
@@ -82,14 +84,16 @@ const router = createBrowserRouter([
         path: "/insurances",
         element: <Insurance />,
         loader: () =>
-          fetch("http://localhost:5000/insuranceData"),
+          fetch(
+            "https://capital-trust-bank-server-ten.vercel.app/insuranceData"
+          ),
       },
       {
         path: "/insuranceDetails/:id",
         element: <InsuranceDetails />,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/insur/${params.id}`
+            `https://capital-trust-bank-server-ten.vercel.app/insur/${params.id}`
           ),
       },
 
@@ -101,14 +105,14 @@ const router = createBrowserRouter([
         path: "/loansServices",
         element: <Loans />,
         loader: () =>
-          fetch("http://localhost:5000/loanService"),
+          fetch("https://capital-trust-bank-server-ten.vercel.app/loanService"),
       },
       {
         path: "/loanDetails/:id",
         element: <LoanDetails />,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/loanSec/${params.id}`
+            `https://capital-trust-bank-server-ten.vercel.app/loanSec/${params.id}`
           ),
       },
       {
@@ -116,7 +120,7 @@ const router = createBrowserRouter([
         element: <DetailsNews></DetailsNews>,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/blogsNews/${params.id}`
+            `https://capital-trust-bank-server-ten.vercel.app/blogsNews/${params.id}`
           ),
       },
 
@@ -125,7 +129,7 @@ const router = createBrowserRouter([
         element: <ApplyForm />,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/loans/${params.title}`
+            `https://capital-trust-bank-server-ten.vercel.app/loans/${params.title}`
           ),
       },
 
@@ -192,7 +196,7 @@ const router = createBrowserRouter([
         element: <TeamDetails />,
         loader: async ({ params }) =>
           fetch(
-            `http://localhost:5000/team-details/${params.id}`
+            `https://capital-trust-bank-server-ten.vercel.app/team-details/${params.id}`
           ),
       },
       // {
@@ -254,6 +258,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/dashboard/emgy-service-req",
+        element: (
+          <AdminRoute>
+            <EmgyServiceReq />
+          </AdminRoute>
+        ),
+      },
+      {
         path: "/dashboard/all-donate",
         element: (
           <AdminRoute>
@@ -272,6 +284,8 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myTransaction",
         element: <MyTransaction />,
+        // loader: ({ params }) =>
+        //   fetch(`https://capital-trust-bank-server-ten.vercel.app/depositWithdraw/${params.email}`),
       },
       {
         path: "/dashboard/CustomerSupport",
@@ -312,6 +326,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/insuranceRequest",
         element: <InsuranceRequest />,
+      },
+      {
+        path: "/dashboard/getEmgyService",
+        element: <GetEmgyService />,
       },
     ],
   },

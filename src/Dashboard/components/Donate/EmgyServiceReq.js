@@ -1,17 +1,18 @@
 import {
-    Table,
-    TableContainer,
-    Tbody,
-    Td,
-    Th,
-    Thead,
-    Tr
+  Button,
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import "../../../App.css";
 
-const CreditCardReq = () => {
+const EmgyServiceReq = () => {
   const [customers, setCustomers] = useState([]);
   const [reFetch, setReFetch] = useState(false);
   useEffect(() => {
@@ -55,8 +56,9 @@ const CreditCardReq = () => {
   };
   return (
     <div className="my-2">
-      <h2 className="text-center heading">
-        Total Card Request:{customers.length}
+      <h2 className="text-[#010C3A] text-2xl md:text-3xl font-bold mb-6">
+        Emergency Service Request:{" "}
+        <span className="text-[#df0303]">{customers.length}</span>
       </h2>
       <div className="w-full">
         <TableContainer
@@ -69,24 +71,24 @@ const CreditCardReq = () => {
           overflowX="scroll"
         >
           <Table variant="simple">
-            <Thead>
+            <Thead className="py-2 rounded-t-md bg-[#041C51]">
               <Tr>
-                <Th color="#041C51" fontSize={16}>
+                <Th color="#fff" fontSize={16}>
                   List
                 </Th>
-                <Th color="#041C51" fontSize={16}>
+                <Th color="#fff" fontSize={16}>
                   Name
                 </Th>
-                <Th color="#041C51" fontSize={16}>
+                <Th color="#fff" fontSize={16}>
                   Phone
                 </Th>
-                <Th color="#041C51" fontSize={16}>
+                <Th color="#fff" fontSize={16}>
                   Id
                 </Th>
                 {/* <Th color="#041C51" fontSize={16}>
-                  Card Type
-                  </Th> */}
-                <Th color="#041C51" fontSize={16}>
+                Card Type
+                </Th> */}
+                <Th color="#fff" fontSize={16}>
                   Action
                 </Th>
               </Tr>
@@ -100,18 +102,28 @@ const CreditCardReq = () => {
                   <Td>{customer?.accountId}</Td>
                   {/* <Td>{customer?.cardType}</Td> */}
                   <Td>
-                    <button
-                      class="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a] m-1"
+                    <Button
+                      borderRadius="4px"
+                      color="#fff"
+                      background="#010c3a"
+                      _hover={{ bg: "#df0303" }}
+                      size="sm"
+                      marginRight="5px"
                       onClick={() => handleAccept(customer)}
                     >
                       Accept
-                    </button>
-                    <button
-                      class="text-md sm-btn primary-btn exchange-btn bg-[#df0303]"
+                    </Button>
+                    <Button
+                      borderRadius="4px"
+                      color="#fff"
+                      background="#df0303"
+                      _hover={{ bg: "#010c3a" }}
+                      size="sm"
+                      marginRight="5px"
                       onClick={() => handleDelete(customer)}
                     >
                       Cancel
-                    </button>
+                    </Button>
                   </Td>
                 </Tr>
               ))}
@@ -123,4 +135,4 @@ const CreditCardReq = () => {
   );
 };
 
-export default CreditCardReq;
+export default EmgyServiceReq;

@@ -78,8 +78,8 @@ const ApplyCreditCard = () => {
                 </button>
               ) : (
                 <>
-                  <Link to="/login" className="primary-btn mt-5">
-                    Please Sign In
+                  <Link to="/accountOpenFrom" className="primary-btn mt-5">
+                    Open An Account
                   </Link>
                 </>
               )}

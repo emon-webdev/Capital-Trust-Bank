@@ -14,11 +14,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { MdClear, MdMailOutline, MdNotificationsNone } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import io from "socket.io-client";
+// import io from "socket.io-client";
 import { AuthContext } from "../../../context/AuthProvider";
-// const socket = io("*");
-const socket = io("http://localhost:5000/");
-
+// const socket = io("https://capital-trust-bank-server-ten.vercel.app/");
 const DashboardNavbar = () => {
   const { user, logOut, openSideNav, handleSideNave, role } =
     useContext(AuthContext);
@@ -31,7 +29,7 @@ const DashboardNavbar = () => {
   const [bankInfo, setBankInfo] = useState([]);
   useEffect(() => {
     fetch(
-      `http://localhost:5000/bankAccounts/${user?.email}`
+      `https://capital-trust-bank-server-ten.vercel.app/bankAccounts?email=${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -41,7 +39,7 @@ const DashboardNavbar = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/getChatNotificationInfo/${user?.email}`
+      `https://capital-trust-bank-server-ten.vercel.app/getChatNotificationInfo/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -52,7 +50,7 @@ const DashboardNavbar = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/getVerifyNotificationInfo`
+      `https://capital-trust-bank-server-ten.vercel.app/getVerifyNotificationInfo`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -61,25 +59,22 @@ const DashboardNavbar = () => {
       });
   }, [reFetch]);
 
-  useEffect(() => {
-    socket.on("messageNotificationTransfer", (message) => {
-      if (message.receiverEmail === user?.email) {
-        setRefetch(!reFetch);
-      }
-    });
-  }, [user]);
-  useEffect(() => {
-    socket.on("verificationNotificationTransfer", (message) => {
-      if (role === "admin") {
-        setRefetch(!reFetch);
-      }
-    });
-  }, [role, user]);
+  // socket.on("messageNotificationTransfer", (message) => {
+  //   if (message.receiverEmail === user.email) {
+  //     setRefetch(!reFetch);
+  //   }
+  // });
+
+  // socket.on("verificationNotificationTransfer", (message) => {
+  //   if (role === "admin") {
+  //     setRefetch(!reFetch);
+  //   }
+  // });
 
   const handleSignOut = () => {
     //delete customer device info
     fetch(
-      `http://localhost:5000/deleteDeviceInfo/${user?.email}`,
+      `https://capital-trust-bank-server-ten.vercel.app/deleteDeviceInfo/${user.email}`,
       {
         method: "DELETE",
         headers: {
@@ -103,7 +98,7 @@ const DashboardNavbar = () => {
       receiverEmail: data.receiverEmail,
     };
     fetch(
-      `http://localhost:5000/notificationDelete`,
+      `https://capital-trust-bank-server-ten.vercel.app/notificationDelete`,
       {
         method: "DELETE",
         headers: {
@@ -123,7 +118,7 @@ const DashboardNavbar = () => {
       email: data.email,
     };
     fetch(
-      `http://localhost:5000/verificationNotificationDelete`,
+      `https://capital-trust-bank-server-ten.vercel.app/verificationNotificationDelete`,
       {
         method: "DELETE",
         headers: {

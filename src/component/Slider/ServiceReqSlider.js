@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { BsCreditCard2Back } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { AuthContext } from "../../context/AuthProvider";
 import ServiceReqModal from "../Modal/ServiceReqModal";
@@ -104,8 +105,7 @@ const ServiceReqSlider = () => {
                           </p>
                         ))}
                         <div>
-                          {/* <button className="sm-btn">Apply</button> */}
-                          <button
+                          {/* <button
                             className="primary-btn mt-5"
                             onClick={() => {
                               setOverlay(<OverlayOne />);
@@ -113,7 +113,30 @@ const ServiceReqSlider = () => {
                             }}
                           >
                             Apply Now
-                          </button>
+                          </button> */}
+
+                          <div>
+                            {user?.email ? (
+                              <button
+                                className="primary-btn sm-btn mt-5"
+                                onClick={() => {
+                                  setOverlay(<OverlayOne />);
+                                  onOpen();
+                                }}
+                              >
+                                Apply Now
+                              </button>
+                            ) : (
+                              <>
+                                <Link
+                                  to="/accountOpenFrom"
+                                  className="primary-btn sm-btn mt-5"
+                                >
+                                  Open An Account
+                                </Link>
+                              </>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -147,14 +170,14 @@ const ServiceReqSlider = () => {
             ))}
           </Slider>
         </div>
+        <ServiceReqModal
+          slidersContents={slidersContents}
+          onClose={onClose}
+          isOpen={isOpen}
+          overlay={overlay}
+          OverlayOne={OverlayOne}
+        />
       </div>
-      <ServiceReqModal
-        slidersContents={slidersContents}
-        onClose={onClose}
-        isOpen={isOpen}
-        overlay={overlay}
-        OverlayOne={OverlayOne}
-      />
     </div>
   );
 };

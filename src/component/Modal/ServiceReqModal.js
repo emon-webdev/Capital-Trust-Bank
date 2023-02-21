@@ -1,16 +1,17 @@
 import {
-    Modal,
-    ModalBody,
-    ModalContent,
-    ModalHeader,
-    ModalOverlay
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay
 } from "@chakra-ui/modal";
-import { Select } from "@chakra-ui/select";
+import { Select } from "@chakra-ui/react";
 import { default as React, useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
-const ServiceReqModal = ({ slidersContents, onClose, isOpen, overlay }) => {
+const ServiceReqModal = ({ slidersContents, onClose, isOpen }) => {
   const { user, loading } = useContext(AuthContext);
   const {
     register,
@@ -19,64 +20,65 @@ const ServiceReqModal = ({ slidersContents, onClose, isOpen, overlay }) => {
     reset,
   } = useForm();
   const [applierEmail, setApplierEmail] = useState({});
-  const [disable, setDisable] = useState(false);
-  const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
 
   useEffect(() => {
-    fetch(
-      `http://localhost:5000/bankAccounts/${user?.email}`
-    )
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data);
       });
   }, []);
 
-  console.log(slidersContents);
+  // console.log(slidersContents?.map((single) => console.log(single?.name)));
+
+  console.log(applierEmail?.accountId);
 
   // apply for credit card
   const handleServiceReq = (data) => {
-    const applierName = user?.displayName;
-    const applierPhnNumber = data.applierPhnNumber;
+    const name = user?.displayName;
+    const email = user?.email;
+    const serviceName = data.serviceReq;
     const accountId = data.accountId;
-    const cardType = data.cardType;
+
+    console.log(accountId, applierEmail?.accountId);
+
     if (applierEmail.accountId === accountId) {
-      const applierInfo = {
-        applierName,
-        applierPhnNumber,
+      const ServiceReceiver = {
+        name,
+        email,
+        serviceName,
         accountId,
-        cardType,
       };
-      fetch(`http://localhost:5000/cardAppliers`, {
+      console.log(ServiceReceiver);
+      fetch(`https://capital-trust-bank-server-ten.vercel.app/emgyServiceReceiver`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(applierInfo),
+        body: JSON.stringify(ServiceReceiver),
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {
-            toast.success("Apply Success for card");
+            toast.success("Apply Success for Emergency Service Request");
             reset();
           }
-        })
-        .then((error) => toast.error(error));
+        });
     } else {
-      toast.error("Account Id did't match");
     }
   };
 
   return (
     <div className="py-3">
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
-        {overlay}
+        <ModalOverlay />
         <ModalContent>
           <ModalHeader>
-            <h2 className="py-2 text-lg md:text-4xl font-semibold">
-              Apply for Credit Card
+            <h2 className="pt-2 text-lg md:text-2xl font-semibold">
+              Emergency Services
             </h2>
           </ModalHeader>
+          <ModalCloseButton />
           <ModalBody>
             <div className="mb-5">
               <form onSubmit={handleSubmit(handleServiceReq)}>
@@ -100,33 +102,36 @@ const ServiceReqModal = ({ slidersContents, onClose, isOpen, overlay }) => {
                     </p>
                   )}
                 </div>
-                <div className="form-control  w-full">
-                  <label className="text-base text-[#57647E]">
-                    Phone Number
-                  </label>
+                <div className="form-control ">
+                  <label className="text-base text-[#57647E]">Your Email</label>
                   <input
-                    type="number"
-                    {...register("applierPhnNumber", {
-                      required: "Phone Number is required",
+                    type="text"
+                    {...register("email", {
+                      required: "Email is required",
                     })}
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
-                    placeholder="Phone Number"
+                    placeholder={user?.email}
+                    defaultValue={user?.email}
+                    readOnly
                   ></input>
-                  {errors.applierPhnNumber && (
+                  {errors.email && (
                     <p className="text-red-600 text-sm mb-0">
-                      {errors.applierPhnNumber?.message}
+                      {errors.email?.message}
                     </p>
                   )}
                 </div>
+
                 <div className="form-control  w-full">
                   <label className="text-base text-[#57647E]">Account Id</label>
                   <input
                     type="text"
                     className="border mb-2 mt-1 rounded w-full h-11 px-[10px]"
-                    placeholder="Id Number"
+                    placeholder={applierEmail?.accountId}
                     {...register("accountId", {
                       required: "Account Id is Required",
                     })}
+                    readOnly
+                    defaultValue={applierEmail?.accountId}
                   ></input>
                 </div>
                 {errors.accountId && (
@@ -135,23 +140,45 @@ const ServiceReqModal = ({ slidersContents, onClose, isOpen, overlay }) => {
                   </p>
                 )}
                 <div className="form-control  w-full  md:mr-4">
-                  <label className="text-base text-[#57647E]">Card Type</label>
+                  <label className="text-base text-[#57647E]">
+                    Service Name
+                  </label>
                   <Select
                     style={{
                       margin: "5px 0 10px",
                       width: "100%",
                       height: "50px",
                     }}
-                    placeholder="Card Type"
+                    // placeholder="Select Service"
                     className="from-select border  px-[10px] rounded "
-                    {...register("cardType", {
-                      required: "Card Type is required",
+                    {...register("serviceReq", {
+                      required: "serviceReq is required",
                     })}
+                    defaultValue="Cheque Book / DD  Related"
                   >
-                    <option value="CreditCard">Credit Card</option>
-                    <option value="DebitCard">Debit Card</option>
-                    <option value="MasterCard">Master Card</option>
-                    <option value="VISACard">VISA Card</option>
+                    <option value="Cheque Book / DD  Related">
+                      Cheque Book / DD Related
+                    </option>
+                    <option value="Credit / Debit Card  Related">
+                      Credit / Debit Card Related
+                    </option>
+                    <option
+                      disabled
+                      className="text-[#f87171]"
+                      value="Account Details  Changing"
+                    >
+                      Mobile / Internet Banking
+                    </option>
+                    <option
+                      disabled
+                      className="text-[#f87171]"
+                      value="Apply for Credit Card"
+                    >
+                      Account Details Changing
+                    </option>
+                    <option value="Funds Remittance">
+                      Apply for Credit Card
+                    </option>
                   </Select>
                   {errors.cardType && (
                     <p className="text-red-600 text-sm mb-0">
@@ -159,31 +186,37 @@ const ServiceReqModal = ({ slidersContents, onClose, isOpen, overlay }) => {
                     </p>
                   )}
                 </div>
+                <div className="from-group my-4 ">
+                  <div className="form-control flex items-center w-full">
+                    <input
+                      className="mr-3"
+                      type="checkbox"
+                      name="term"
+                      id="terms"
+                      required
+                      {...register("term", {
+                        required: "Term and every field are required",
+                      })}
+                    />
+                    <label htmlFor="terms">
+                      I agree to terms and conditions
+                    </label>
+                  </div>
+                  {errors.term && (
+                    <p className="text-red-600 ml-[32px]">
+                      {errors.term?.message}
+                    </p>
+                  )}
+                </div>
                 <div className="my-4">
                   <button
+                    className="primary-btn sm-btn mt-5"
+                    value="Submit Form"
+                    type="submit"
                     onClick={onClose}
-                    className="accent-btn sm-btn mt-5 mr-3"
                   >
-                    Cancel
+                    Submit
                   </button>
-                  {disable ? (
-                    <button
-                      className={`disable sm-btn mt-5 cursor-pointer`}
-                      type="submit"
-                      onClick={onClose}
-                    >
-                      Apply Now
-                    </button>
-                  ) : (
-                    <button
-                      className="primary-btn sm-btn mt-5"
-                      value="Submit Form"
-                      type="submit"
-                      onClick={onClose}
-                    >
-                      Apply Now
-                    </button>
-                  )}
                 </div>
               </form>
             </div>

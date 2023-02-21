@@ -1,6 +1,7 @@
 // import { useState } from "react";
 import { useContext, useEffect, useState } from "react";
 import { AiOutlineIdcard } from "react-icons/ai";
+import { CiCreditCard1 } from "react-icons/ci";
 import { GiPayMoney, GiReceiveMoney } from "react-icons/gi";
 import { MdAttachMoney, MdOutlineImportantDevices } from "react-icons/md";
 import { RiAccountCircleLine, RiMessage2Fill } from "react-icons/ri";
@@ -13,7 +14,9 @@ const CustomerLeft = () => {
   const [approve, setApprove] = useState(false);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
+    fetch(
+      `https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.approve) {
@@ -117,21 +120,6 @@ const CustomerLeft = () => {
             </NavLink>
 
             <NavLink
-              to="/dashboard/CustomerSupport"
-              className={({ isActive }) =>
-                isActive
-                  ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
-                  : "flex px-[20px] link py-[15px]"
-              }
-            >
-              <span className="text-white">
-                {" "}
-                <RiMessage2Fill />
-              </span>
-              <span className="text-white ml-[10px]">Customer Support</span>
-            </NavLink>
-
-            <NavLink
               to="/dashboard/takeCard"
               className={({ isActive }) =>
                 isActive
@@ -145,7 +133,33 @@ const CustomerLeft = () => {
               </span>
               <span className="text-white ml-[10px]">Take Card</span>
             </NavLink>
-
+            <NavLink
+              to="/dashboard/getEmgyService"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
+                  : "flex px-[20px] link py-[15px]"
+              }
+            >
+              <span>
+                <CiCreditCard1 />
+              </span>
+              <span className="text-white ml-[10px]">Get Emgy Service</span>
+            </NavLink>
+            <NavLink
+              to="/dashboard/CustomerSupport"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
+                  : "flex px-[20px] link py-[15px]"
+              }
+            >
+              <span className="text-white">
+                {" "}
+                <RiMessage2Fill />
+              </span>
+              <span className="text-white ml-[10px]">Customer Support</span>
+            </NavLink>
             {/* -------Sub Menu ----------- */}
             {/* <div className={`${subMenu ? 'block' : 'hidden'} duration-500 transition-all flex flex-col px-[20px] py-[15px]`}>
                       <NavLink to='/dashboard/my-deposit'

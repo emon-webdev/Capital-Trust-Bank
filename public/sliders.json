@@ -3,7 +3,7 @@
     "sliderNav": [
       {
         "index": 0,
-        "title": "Credit / Debit Card  Related",
+        "title": "Cheque Book / DD  Related",
         "icon": "FaRegHandPeace"
       },
       {
@@ -18,7 +18,7 @@
       },
       {
         "index": 3,
-        "title": "Cheque Book / DD  Related",
+        "title": "Credit / Debit Card  Related",
         "icon": "CreditCardIcon"
       },
       {
@@ -35,7 +35,7 @@
     "sliderContent": [
       {
         "index": 0,
-        "name": "Credit / Debit Card  Related",
+        "name": "Cheque Book / DD  Related",
         "picture": "https://i.ibb.co/YbZR97x/slide-r1.png",
         "phone": "+8(222)123-456-78",
         "services": [
@@ -95,7 +95,7 @@
       },
       {
         "index": 3,
-        "name": "Cheque Book / DD  Related",
+        "name": "Credit / Debit Card  Related",
         "picture": "https://i.ibb.co/BPmn0Hg/slide-r4.png",
         "phone": "+8(222)123-456-78",
         "services": [

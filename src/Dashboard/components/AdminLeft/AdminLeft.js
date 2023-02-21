@@ -105,6 +105,20 @@ const AdminLeft = () => {
           </NavLink>
 
           <NavLink
+            to="/dashboard/emgy-service-req"
+            className={({ isActive }) =>
+              isActive
+                ? "border-l-2 bg-[#DF0303] link items-center flex px-[20px] py-[15px]"
+                : "flex px-[20px] items-center link py-[15px]"
+            }
+          >
+            <span className="text-white">
+              {" "}
+              <FaDonate />
+            </span>
+            <span className="text-white ml-[10px]">Emgy Service Req</span>
+          </NavLink>
+          <NavLink
             to="/dashboard/all-donate"
             className={({ isActive }) =>
               isActive
@@ -134,19 +148,19 @@ const AdminLeft = () => {
           </NavLink>
 
           <NavLink
-              to="/dashboard/deviceActivity"
-              className={({ isActive }) =>
-                isActive
-                  ? "border-l-2 bg-[#DF0303] link flex dath items-center px-[20px] py-[15px] text-white"
-                  : "flex px-[20px] dath link py-[15px] text-white"
-              }
-            >
-              <span>
-                {/* {" "} */}
-                <MdOutlineImportantDevices />
-              </span>
-              <span className="text-white ml-[10px]">Device Activity</span>
-            </NavLink>
+            to="/dashboard/deviceActivity"
+            className={({ isActive }) =>
+              isActive
+                ? "border-l-2 bg-[#DF0303] link flex dath items-center px-[20px] py-[15px] text-white"
+                : "flex px-[20px] dath link py-[15px] text-white"
+            }
+          >
+            <span>
+              {/* {" "} */}
+              <MdOutlineImportantDevices />
+            </span>
+            <span className="text-white ml-[10px]">Device Activity</span>
+          </NavLink>
 
           <NavLink
             to="/dashboard/CustomerSupport"

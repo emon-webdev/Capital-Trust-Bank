@@ -1,12 +1,12 @@
 import {
-    Box,
-    Card,
-    CardBody,
-    FormControl,
-    Grid,
-    Select,
-    Text,
-    VStack
+  Box,
+  Card,
+  CardBody,
+  FormControl,
+  Grid,
+  Select,
+  Text,
+  VStack
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -47,7 +47,7 @@ const Loans = (props) => {
       date: date,
     };
 
-    fetch("http://localhost:5000/applicants", {
+    fetch("https://capital-trust-bank-server-ten.vercel.app/applicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",
