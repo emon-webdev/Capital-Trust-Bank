@@ -42,6 +42,7 @@ import LoanDetails from "../Pages/Services/Loans/LoanDetails";
 import Loans from "../Pages/Services/Loans/Loans";
 
 import EmgyServiceReq from "../Dashboard/components/Donate/EmgyServiceReq";
+import GetEmgyService from "../Dashboard/components/Donate/GetEmgyService";
 import InsuranceRequest from "../Dashboard/components/InsuranceRequest/InsuranceRequest";
 import Insurance from "../Pages/Services/Insurance";
 import InsuranceDetails from "../Pages/Services/InsuranceDetails";
@@ -325,6 +326,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/insuranceRequest",
         element: <InsuranceRequest />,
+      },
+      {
+        path: "/dashboard/getEmgyService",
+        element: <GetEmgyService />,
       },
     ],
   },
