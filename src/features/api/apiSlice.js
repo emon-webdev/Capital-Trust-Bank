@@ -16,6 +16,9 @@ export const loanApi = createApi({
     getNews: builder.query({
       query: () => "/blogsNews",
     }),
+    getTeams: builder.query({
+      query: () => "/team",
+    }),
   }),
 });
 
@@ -23,4 +26,5 @@ export const {
   useGetLoansQuery,
   useGetNewsQuery,
   useGetInsuranceApplicantsQuery,
+  useGetTeamsQuery
 } = loanApi;

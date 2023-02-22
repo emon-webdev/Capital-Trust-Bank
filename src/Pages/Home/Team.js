@@ -8,12 +8,15 @@ import Slider from "react-slick";
 import "../../App.css";
 import { getTeams } from "../../hooks/API/API";
 import TeamSection from "./TeamSection";
+import { useGetTeamsQuery } from "../../features/api/apiSlice";
 
 const Team = () => {
-  const { data: teams = [] } = useQuery({
-    queryKey: ["teams"],
-    queryFn: async () => getTeams(),
-  });
+  // const { data: teams = [] } = useQuery({
+  //   queryKey: ["teams"],
+  //   queryFn: async () => getTeams(),
+  // });
+  const {data: teams } = useGetTeamsQuery() 
+
   const sliderSettings = {
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -76,7 +79,7 @@ const Team = () => {
           </h1>
         </div>
         <Slider {...sliderSettings} className="mt-[60px]">
-          {teams.map((team) => (
+          {teams?.map((team) => (
             <TeamSection key={team._id} team={team} />
           ))}
         </Slider>

@@ -19,7 +19,7 @@ const ServiceReqSlider = () => {
   const [slidersContents, setSlidersContents] = useState([]);
   /* slider data fetch */
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_KEY}/emergencyServices`)
+    fetch(`http://localhost:5000/emergencyServices`)
       .then((res) => res.json())
       .then((data) => {
         setSlidersNav(data[0].sliderNav);
