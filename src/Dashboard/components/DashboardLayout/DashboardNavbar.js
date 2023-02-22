@@ -12,117 +12,131 @@ import {
 } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import {
-  MdClear,
-  MdMailOutline,
-  MdNotificationsNone
-} from "react-icons/md";
+import { MdClear, MdMailOutline, MdNotificationsNone } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import io from "socket.io-client";
+// import io from "socket.io-client";
 import { AuthContext } from "../../../context/AuthProvider";
-const socket = io("http://localhost:5000/");
+// const socket = io("https://capital-trust-bank-server-ten.vercel.app/");
 const DashboardNavbar = () => {
-  const { user, logOut, openSideNav, handleSideNave ,role } = useContext(AuthContext);
+  const { user, logOut, openSideNav, handleSideNave, role } =
+    useContext(AuthContext);
   const navigate = useNavigate();
-  const [chatNotifications,setChatNotification] = useState([])
-  const [totalChat,setTotalChat] = useState(0);
-  const [reFetch,setRefetch] = useState(false);
-  const [notifications,setNotification] = useState([])
-  const [totalNotification,setTotalNotification] = useState(0);
+  const [chatNotifications, setChatNotification] = useState([]);
+  const [totalChat, setTotalChat] = useState(0);
+  const [reFetch, setRefetch] = useState(false);
+  const [notifications, setNotification] = useState([]);
+  const [totalNotification, setTotalNotification] = useState(0);
+  const [bankInfo, setBankInfo] = useState([]);
   useEffect(() => {
     fetch(
-      `http://localhost:5000/getChatNotificationInfo/${user?.email}`
+      `https://capital-trust-bank-server-ten.vercel.app/bankAccounts?email=${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
-        setChatNotification(data)
-        setTotalChat(data.length)
+        setBankInfo(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(
+      `https://capital-trust-bank-server-ten.vercel.app/getChatNotificationInfo/${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setChatNotification(data);
+        setTotalChat(data.length);
       });
   }, [reFetch]);
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/getVerifyNotificationInfo`
+      `https://capital-trust-bank-server-ten.vercel.app/getVerifyNotificationInfo`
     )
       .then((res) => res.json())
       .then((data) => {
-        setNotification(data)
-        setTotalNotification( data.length )
+        setNotification(data);
+        setTotalNotification(data.length);
       });
   }, [reFetch]);
-   
-    socket.on("messageNotificationTransfer", (message) => {
-      if (message.receiverEmail === user.email) {
-        setRefetch(!reFetch)
-      } 
-    });
- 
-     socket.on("verificationNotificationTransfer", (message) => {
-      if ( role === 'admin') {
-        setRefetch(!reFetch)
-      } 
-    });
- 
+
+  // socket.on("messageNotificationTransfer", (message) => {
+  //   if (message.receiverEmail === user.email) {
+  //     setRefetch(!reFetch);
+  //   }
+  // });
+
+  // socket.on("verificationNotificationTransfer", (message) => {
+  //   if (role === "admin") {
+  //     setRefetch(!reFetch);
+  //   }
+  // });
+
   const handleSignOut = () => {
     //delete customer device info
-    fetch(`http://localhost:5000/deleteDeviceInfo/${user.email}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://capital-trust-bank-server-ten.vercel.app/deleteDeviceInfo/${user.email}`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         logOut()
           .then(() => {
             navigate("/");
           })
-          .catch((error) => {
-          
-          });
+          .catch((error) => {});
       });
   };
-  
-  const handleNotification = (data)=> {
+
+  const handleNotification = (data) => {
     const info = {
       senderEmail: data.senderEmail,
-      receiverEmail: data.receiverEmail
-    }
-  fetch(`http://localhost:5000/notificationDelete`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(info),
-    })
+      receiverEmail: data.receiverEmail,
+    };
+    fetch(
+      `https://capital-trust-bank-server-ten.vercel.app/notificationDelete`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(info),
+      }
+    )
       .then((res) => res.json())
-      .then(data => {
-        setRefetch(!reFetch)
-      })
-  }
+      .then((data) => {
+        setRefetch(!reFetch);
+      });
+  };
 
-  const handleAllNotification = (data)=> {
+  const handleAllNotification = (data) => {
     const info = {
-      email: data.email
-    }
-  fetch(`http://localhost:5000/verificationNotificationDelete`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(info),
-    })
+      email: data.email,
+    };
+    fetch(
+      `https://capital-trust-bank-server-ten.vercel.app/verificationNotificationDelete`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(info),
+      }
+    )
       .then((res) => res.json())
-      .then(data => {
-        setRefetch(!reFetch)
-      })
-  }
+      .then((data) => {
+        setRefetch(!reFetch);
+      });
+  };
   return (
     <div className="container">
       <div className="flex items-center justify-between h-[50px]">
         <div className="text-white">
-          <div className="text-white w-[70%] flex items-center justify-center py-[10px]">
-          </div>
+          <div className="text-white w-[70%] flex items-center justify-center py-[10px]"></div>
         </div>
 
         {/* -----right---- */}
@@ -130,71 +144,93 @@ const DashboardNavbar = () => {
           {/* chat notification */}
           <Menu>
             <MenuButton className="bg-transparent-nav" as={Button}>
-            <IconButton className="bg-transparent-nav text-white -m-4">
-            <Badge colorScheme="error" className="" badgecontent={4}>
-              <MdMailOutline className="" />{
-                totalChat > 0 ? <span className="absolute top-0 right-0 bg-red-500 text-white text-[13px] rounded-full w-5 h-5 flex items-center justify-center">{totalChat}</span> : undefined
-              }
-            </Badge>
-          </IconButton>
+              <IconButton className="bg-transparent-nav text-white -m-4">
+                <Badge colorScheme="error" className="" badgecontent={4}>
+                  <MdMailOutline className="" />
+                  {totalChat > 0 ? (
+                    <span className="absolute top-0 right-0 bg-red-500 text-white text-[13px] rounded-full w-5 h-5 flex items-center justify-center">
+                      {totalChat}
+                    </span>
+                  ) : undefined}
+                </Badge>
+              </IconButton>
             </MenuButton>
 
-           {
-            totalChat > 0 ?  <MenuList className="h-80 overflow-auto p-2">
-            <MenuGroup title="Messages Notification">
-              {
-                chatNotifications?.map(chatInfo => {
-                  return <>
-              <Link to={`/dashboard/CustomerSupport/admin`} state={chatInfo} onClick={()=>handleNotification(chatInfo)}>
-                <MenuItem>
-                <Avatar name={chatInfo?.senderName} src={chatInfo?.senderImg} />
-                <span className="m-1">
-                  {chatInfo?.message.length > 10 ? chatInfo?.message.slice(0,11)+"..." : chatInfo?.message}
-                  </span>
-                </MenuItem>
-              </Link>
-                  </>
-                })
-              }
-              
-            </MenuGroup>
-          </MenuList> : undefined
-           }
+            {totalChat > 0 ? (
+              <MenuList className="h-80 overflow-auto p-2">
+                <MenuGroup title="Messages Notification">
+                  {chatNotifications?.map((chatInfo) => {
+                    return (
+                      <>
+                        <Link
+                          to={`/dashboard/CustomerSupport/admin`}
+                          state={chatInfo}
+                          onClick={() => handleNotification(chatInfo)}
+                        >
+                          <MenuItem>
+                            <Avatar
+                              name={chatInfo?.senderName}
+                              src={chatInfo?.senderImg}
+                            />
+                            <span className="m-1">
+                              {chatInfo?.message.length > 10
+                                ? chatInfo?.message.slice(0, 11) + "..."
+                                : chatInfo?.message}
+                            </span>
+                          </MenuItem>
+                        </Link>
+                      </>
+                    );
+                  })}
+                </MenuGroup>
+              </MenuList>
+            ) : undefined}
           </Menu>
 
-           {/* others notification */}
-          <Menu>
-            <MenuButton className="bg-transparent-nav" as={Button}>
-            <IconButton className="bg-transparent-nav text-white -m-4">
-            <Badge colorScheme="error" badgecontent={4}>
-            <MdNotificationsNone />{
-                totalNotification > 0 ? <span className="text-[13px] absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">{totalNotification}</span> : undefined
-              }
-            </Badge>
-          </IconButton>
-            </MenuButton>
+          {/* others notification */}
+          {role === "admin" ? (
+            <Menu>
+              <MenuButton className="bg-transparent-nav" as={Button}>
+                <IconButton className="bg-transparent-nav text-white -m-4">
+                  <Badge colorScheme="error" badgecontent={4}>
+                    <MdNotificationsNone />
+                    {totalNotification > 0 ? (
+                      <span className="text-[13px] absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">
+                        {totalNotification}
+                      </span>
+                    ) : undefined}
+                  </Badge>
+                </IconButton>
+              </MenuButton>
 
-           {
-            totalNotification > 0 ?  <MenuList className="h-80 overflow-auto p-2">
-            <MenuGroup title="Notifications">
-              {
-                notifications?.map(notification => {
-                  return <>
-              <Link to='verificationRequest/details/' state={notification} onClick={()=>handleAllNotification(notification)}>
-                <MenuItem>
-                {
-                  notification.accountCategory ? <span className="">{notification?.firstName} apply for verification</span> : undefined
-                }
-                </MenuItem>
-              </Link>
-                  </>
-                })
-              }
-              
-            </MenuGroup>
-          </MenuList> : undefined
-           }
-          </Menu>
+              {totalNotification > 0 ? (
+                <MenuList className="h-80 overflow-auto p-2">
+                  <MenuGroup title="Notifications">
+                    {notifications?.map((notification) => {
+                      return (
+                        <>
+                          <Link
+                            to="verificationRequest/details/"
+                            state={notification}
+                            onClick={() => handleAllNotification(notification)}
+                          >
+                            <MenuItem>
+                              {notification.accountCategory ? (
+                                <span className="">
+                                  {notification?.firstName} apply for
+                                  verification
+                                </span>
+                              ) : undefined}
+                            </MenuItem>
+                          </Link>
+                        </>
+                      );
+                    })}
+                  </MenuGroup>
+                </MenuList>
+              ) : undefined}
+            </Menu>
+          ) : undefined}
 
           <Menu>
             <MenuButton className="bg-transparent-nav" as={Button}>
@@ -203,7 +239,10 @@ const DashboardNavbar = () => {
 
             <MenuList>
               <MenuGroup>
-                {/* <MenuItem>My Profile</MenuItem> */}
+                <MenuItem> {user?.displayName} </MenuItem>
+                {role === "customer" ? (
+                  <MenuItem> Id: {bankInfo?.accountId} </MenuItem>
+                ) : undefined}
                 <Link onClick={handleSignOut}>
                   <MenuItem>Log Out </MenuItem>
                 </Link>

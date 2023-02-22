@@ -12,7 +12,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isApply, setIsApply] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/customer/${user?.email}`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/customer/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.role === "admin") {
@@ -27,7 +27,7 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     //delete customer device info
-    fetch(`http://localhost:5000/deleteDeviceInfo/${user?.email}`, {
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/deleteDeviceInfo/${user?.email}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -39,8 +39,7 @@ const Navbar = () => {
           .then(() => {
             navigate("/");
           })
-          .catch((error) => {
-          });
+          .catch((error) => {});
       });
   };
 
@@ -69,9 +68,6 @@ const Navbar = () => {
         <div className="lg:hidden flex items-center">
           <div className="lg:hidden btn-group flex items-center">
             <div className="btn-group flex items-center">
-              {/* <button>
-                <SearchBar></SearchBar>
-              </button> */}
               <NavLink
                 to="/accountOpenFrom"
                 className="accent-btn hidden  account-btn md:flex items-center"
@@ -132,27 +128,6 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/educationloan" className="">
-                    {t("Education_Loan")}
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/marriageloan" className="">
-                    {t("Marriage_Loan")}
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/goldloan" className="">
-                    {t("Gold_Loan")}
-                  </NavLink>
-                </li>
-
-                <li>
-                  <NavLink to="/vehicleloan" className="">
-                    {t("Vehicle_Loan")}
-                  </NavLink>
-                </li>
-                <li>
                   <NavLink to="/cards" className="">
                     {t("Cards")}
                   </NavLink>
@@ -188,7 +163,7 @@ const Navbar = () => {
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink
-                to="/pages"
+                to="/paymentbills"
                 className="w-full block py-3"
                 style={({ isActive }) => (isActive ? activeClass : undefined)}
               >

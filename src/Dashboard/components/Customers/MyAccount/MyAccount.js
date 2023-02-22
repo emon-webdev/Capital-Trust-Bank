@@ -1,4 +1,5 @@
 import { Flex, Text } from "@chakra-ui/react";
+import { parseInt } from "lodash";
 import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineMinusSquare } from "react-icons/ai";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
@@ -7,17 +8,27 @@ import { AuthContext } from "../../../../context/AuthProvider";
 
 export default function MyAccount() {
   const { user } = useContext(AuthContext);
+  const [approve, setApprove] = useState([]);
+  useEffect(() => {
+    fetch(
+      `https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => setApprove(data));
+  }, []);
+
   const [transacData, setTransacData] = useState([]);
 
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server.vercel.app/depositWithdraw/${user?.email}`
+      `https://capital-trust-bank-server-ten.vercel.app/depositWithdraw/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setTransacData(data));
   }, []);
 
   const withdrawData = transacData.filter((data) => data.type === "withdraw");
+
   const totalWithdraw = withdrawData.reduce((total, withdr) => {
     return total + parseInt(withdr.withdraw);
   }, 0);
@@ -27,17 +38,38 @@ export default function MyAccount() {
     return total + parseInt(depo.deposit);
   }, 0);
 
+  const initialDeposit =
+    parseInt(approve.initialDeposit) + totalDeposit - totalWithdraw;
+
   return (
     <div className="container ">
-      <div className="flex flex-col md:flex-row lg:flex-row">
+      <div className="flex flex-col md:flex-col md:align-items-center md:justify-content-center md:w-[100%] lg:flex-row">
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
+        >
+          <div className="mr-5">
+            {/* <FaDonate className="text-6xl text-[#9c0f55]" /> */}
+            <MdOutlineAccountBalanceWallet className="text-4xl text-blue-800" />
+          </div>
+          <div className="">
+            <div className="text-[#808080] text-2xl mb-3">
+              {" "}
+              Available Balance
+            </div>
+            <h2 className="text-3xl font-bold ">
+              $ {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0}
+            </h2>
+          </div>
+        </div>
         <Flex
           align={"center"}
           justify="center"
-          marginX="10"
-          gap={10}
+          marginX="5"
+          gap={5}
           marginY={10}
           borderRadius="10"
-          width="500px"
+          width="400px"
           height={"200px"}
           backgroundColor="white"
           boxShadow={"xl"}
@@ -57,7 +89,7 @@ export default function MyAccount() {
           <div className="mt-5">
             <Text fontSize={50}>
               <span>$</span>
-              {totalDeposit}
+              {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0}
             </Text>
             <Text color={"grey"} fontSize={28} marginTop={10}>
               Available Balance
@@ -69,10 +101,10 @@ export default function MyAccount() {
           align={"center"}
           justify="center"
           marginX="10"
-          gap={10}
+          gap={5}
           marginY={10}
           borderRadius="10"
-          width="500px"
+          width="400px"
           height={"200px"}
           backgroundColor="white"
           boxShadow={"xl"}
@@ -92,7 +124,7 @@ export default function MyAccount() {
           <div className="mt-5">
             <Text fontSize={50}>
               <span>$</span>
-              {totalWithdraw}
+              {totalWithdraw < 0 ? 0 : totalWithdraw}
             </Text>
             <Text color={"grey"} fontSize={28} marginTop={10}>
               Withdraw Balance

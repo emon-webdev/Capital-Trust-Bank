@@ -35,7 +35,6 @@ export default function EducationLoan() {
     const city = form.city.value;
     const date = form.date.value;
     const loan = form.loan.value;
-    console.log(name, email, phone, city, date, loan);
 
     const applicant = {
       name: name,
@@ -46,7 +45,7 @@ export default function EducationLoan() {
       date: date,
     };
 
-    fetch("http://localhost:5000/applicants", {
+    fetch("https://capital-trust-bank-server-ten.vercel.app/applicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -87,7 +86,6 @@ export default function EducationLoan() {
                   fontSize={26}
                   fontWeight={800}
                   marginY={1}
-                  gutterBottom
                   component="div"
                 >
                   {loan.title}

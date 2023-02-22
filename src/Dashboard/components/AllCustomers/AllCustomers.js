@@ -1,29 +1,43 @@
-import React, { useEffect, useState } from 'react';
-import '../../../App.css';
+import React, { useEffect, useState } from "react";
+import "../../../App.css";
 
 const AllCustomers = () => {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/allCustomers')
+    fetch("https://capital-trust-bank-server-ten.vercel.app/allCustomers")
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);
       });
   }, []);
-  return <div className='my-2'>
-    <h2 className='text-center font-[22px] heading pb-3'>Total Customers:{customers.length}</h2>
-    <div className='grid gap-4 md:grid-cols-3'>
-      {
-        customers.map(customer => {
+
+  return (
+    <div className="my-2">
+      <h2 className="text-center font-[22px] heading pb-3">
+        Total Bank Users:{customers.length}
+      </h2>
+      <div className="grid gap-4 md:grid-cols-2 bg-[#F3F3FE]">
+        {customers.map((customer) => {
           return (
             <>
-              <div className="flex flex-col items-center p-8 transition-colors duration-300 transform bg-white rounded-xl group ">
-                <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={customer.img} alt={customer.firstName + " " + customer.lastName} />
+              <div className="flex flex-col p-8 transition-colors duration-300 transform bg-white rounded-xl group ">
+                <img
+                  className="object-cover w-24 h-24 rounded-md ring-4 ring-gray-300"
+                  src={customer.img}
+                  alt={customer.firstName + " " + customer.lastName}
+                />
 
-                  <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize">{customer.firstName} {customer.lastName}</h1>
+                <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize">
+                  {customer.firstName} {customer.lastName}
+                </h1>
+                <h1 className="mt-4 text-xl font-semibold text-gray-700 capitalize">
+                  Account Id:{customer?.accountId}
+                </h1>
 
-                  <p className="mt-2 text-gray-500 capitalize">{customer.email}</p>                  
-                  <p className="mt-2 text-gray-500 capitalize">{customer.phone}</p>                  
+                <p className="mt-2 text-gray-500 ">{customer?.email}</p>
+                <p className="mt-2 text-gray-500 capitalize">
+                  Phone: {customer?.phone}
+                </p>
               </div>
             </>
             // <div>
@@ -45,11 +59,10 @@ const AllCustomers = () => {
             //   </div>
             // </div>
           );
-        })
-      }
+        })}
+      </div>
     </div>
-
-  </div>;
+  );
 };
 
-export default AllCustomers; 
+export default AllCustomers;

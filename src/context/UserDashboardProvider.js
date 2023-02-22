@@ -4,14 +4,13 @@ export const DashboardContext = createContext();
 const UserDashboardProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
   const [deposit, setDeposit] = useState(0);
-  console.log(deposit);
   const [balance, setBalance] = useState(0);
   const [withdraw, setWithdarw] = useState(0);
   const [bankInfo, setBankInfo] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => (data));
   }, [user?.email]);
   const info = {
     deposit,

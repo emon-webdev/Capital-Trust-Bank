@@ -1,25 +1,32 @@
-import React, { useEffect, useState } from "react";
+import { ModalOverlay, useDisclosure } from "@chakra-ui/react";
+import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { BsCreditCard2Back } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import { AuthContext } from "../../context/AuthProvider";
+import ServiceReqModal from "../Modal/ServiceReqModal";
 import "./ServiceReqSlider.css";
 const ServiceReqSlider = () => {
+  const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
+  const { user } = useContext(AuthContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [overlay, setOverlay] = React.useState(<OverlayOne />);
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
   const [slidersNav, setSlidersNav] = useState([]);
   const [slidersContents, setSlidersContents] = useState([]);
-
   /* slider data fetch */
   useEffect(() => {
-    fetch("sliders.json")
+    fetch(`${process.env.REACT_APP_API_KEY}/emergencyServices`)
       .then((res) => res.json())
       .then((data) => {
         setSlidersNav(data[0].sliderNav);
         setSlidersContents(data[0].sliderContent);
       });
   }, []);
-
+console.log(`${process.env.REACT_APP_API_KEY}`)
   let settings = {
     infinite: true,
     speed: 500,
@@ -61,8 +68,8 @@ const ServiceReqSlider = () => {
             // focusOnSelect={true}
             {...settings}
           >
-            {slidersNav.map((sliderNav) => (
-              <div key={sliderNav?._id}>
+            {slidersNav.map((sliderNav, index) => (
+              <div key={index}>
                 <div className="single-slider-nav">
                   <div className="slider-nav-icon">
                     <BsCreditCard2Back className="text-3xl text-[#041c51 ]" />
@@ -77,13 +84,13 @@ const ServiceReqSlider = () => {
         </div>
         <div className="mt-8 slider-main-content">
           <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
-            {slidersContents.map((slidersContent) => (
-              <div>
+            {slidersContents.map((slidersContent, index) => (
+              <div key={index}>
                 <div className="single-slider-content">
                   <div className="md:flex items-center justify-between">
                     <div className="flex-1 md:mr-[30px] mb-[30px] md:mb-0">
                       <div className="slider-content ">
-                        <h2 className=" py-3 font-semibold text-xl mb-2 text-[#010C3A]">
+                        <h2 className=" pb-3 pt-1 font-semibold text-xl text-[#010C3A]">
                           {slidersContent?.name}
                         </h2>
                         {slidersContent?.services.map((service, index) => (
@@ -97,6 +104,40 @@ const ServiceReqSlider = () => {
                             <span>{service?.name}</span>
                           </p>
                         ))}
+                        <div>
+                          {/* <button
+                            className="primary-btn mt-5"
+                            onClick={() => {
+                              setOverlay(<OverlayOne />);
+                              onOpen();
+                            }}
+                          >
+                            Apply Now
+                          </button> */}
+
+                          <div>
+                            {user?.email ? (
+                              <button
+                                className="primary-btn sm-btn mt-5"
+                                onClick={() => {
+                                  setOverlay(<OverlayOne />);
+                                  onOpen();
+                                }}
+                              >
+                                Apply Now
+                              </button>
+                            ) : (
+                              <>
+                                <Link
+                                  to="/accountOpenFrom"
+                                  className="primary-btn sm-btn mt-5"
+                                >
+                                  Open An Account
+                                </Link>
+                              </>
+                            )}
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div className="flex-1">
@@ -129,6 +170,13 @@ const ServiceReqSlider = () => {
             ))}
           </Slider>
         </div>
+        <ServiceReqModal
+          slidersContents={slidersContents}
+          onClose={onClose}
+          isOpen={isOpen}
+          overlay={overlay}
+          OverlayOne={OverlayOne}
+        />
       </div>
     </div>
   );

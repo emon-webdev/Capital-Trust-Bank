@@ -5,7 +5,7 @@ import {
   Heading,
   Image,
   Text,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
@@ -13,7 +13,6 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 const InsuranceDetails = (props) => {
   const insu = useLoaderData();
-  console.log(insu);
   const [name, setName] = useState("Insurance");
   return (
     <div className="">

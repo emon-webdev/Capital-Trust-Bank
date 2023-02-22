@@ -1,22 +1,25 @@
 import {
-  Button,
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr
+    Table,
+    TableContainer,
+    Tbody,
+    Td,
+    Th,
+    Thead,
+    Tr,
+    useDisclosure
 } from "@chakra-ui/react";
+
 import React, { useContext, useEffect, useState } from "react";
+
 import { AuthContext } from "../../../../context/AuthProvider";
-import VisaTransaction from "./VisaTransaction";
 
 export default function MyTransaction() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const { user } = useContext(AuthContext);
   const [transacData, setTransacData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/depositWithdraw/${user?.email}`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/depositWithdraw/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setTransacData(data));
   }, []);
@@ -49,9 +52,9 @@ export default function MyTransaction() {
                 <Th color="#041C51" fontSize={24} paddingY={6}>
                   Amount
                 </Th>
-                <Th color="#041C51" fontSize={24} paddingY={6}>
+                {/* <Th color="#041C51" fontSize={24} paddingY={6}>
                   Details
-                </Th>
+                </Th> */}
               </Tr>
             </Thead>
             <Tbody>
@@ -66,20 +69,8 @@ export default function MyTransaction() {
                   >
                     ${data.withdraw ? data.withdraw : data.deposit}
                   </Td>
-                  <Td>
-                    <Button>Details</Button>
-                  </Td>
                 </Tr>
               ))}
-              {/* <Tr>
-                <Td>inches</Td>
-                <Td>millimetres (mm)</Td>
-                <Td>25.4</Td>
-                <Td>25.4</Td>
-                <Td>
-                  <Button>Details</Button>
-                </Td>
-              </Tr> */}
             </Tbody>
           </Table>
         </TableContainer>

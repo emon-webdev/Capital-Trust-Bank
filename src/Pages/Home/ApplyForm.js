@@ -1,14 +1,11 @@
-
 import { FormControl } from "@chakra-ui/form-control";
 import { Box } from "@chakra-ui/layout";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import apply from '../../assets/Services(Home)/apply-form-box-bg.jpg';
+import apply from "../../assets/Services(Home)/apply-form-box-bg.jpg";
 import { AuthContext } from "../../context/AuthProvider";
 import { districts } from "../Services/districtData";
-
-
 export default function ApplyForm() {
   const [district, setDistrict] = useState("");
   const { user } = useContext(AuthContext);
@@ -17,16 +14,15 @@ export default function ApplyForm() {
   const handleChange = (event) => {
     setDistrict(event.target.value);
   };
-  
+
   const [loans, setLoans] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/loanService")
+    fetch("https://capital-trust-bank-server-ten.vercel.app/loanService")
       .then((res) => res.json())
       .then((data) => setLoans(data));
   }, []);
 
-  
-const ser = useLoaderData();
+  const ser = useLoaderData();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -37,7 +33,7 @@ const ser = useLoaderData();
     const city = form.city.value;
     const date = form.date.value;
     const loan = form.loan.value;
-   
+
     const applicant = {
       name: name,
       email: email,
@@ -47,7 +43,7 @@ const ser = useLoaderData();
       date: date,
     };
 
-    fetch("http://localhost:5000/applicants", {
+    fetch("https://capital-trust-bank-server-ten.vercel.app/applicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -57,9 +53,8 @@ const ser = useLoaderData();
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          toast.success("Application Successlly Done");
+          toast.success("Application Successfully Done");
           form.reset();
-          navigate("/");
         } else {
           toast.error(data.message);
         }
@@ -72,7 +67,7 @@ const ser = useLoaderData();
         <Box
           className="container"
           display={"flex"}
-          borderRadius={'10px'}
+          borderRadius={"10px"}
           alignItems="center"
           justifyContent={"center"}
           width="100%"
@@ -85,94 +80,94 @@ const ser = useLoaderData();
           }}
           maxWidth="1000px"
         >
-         <form
+          <form
             onSubmit={handleSubmit}
             style={{
               backgroundColor: "#041C51",
               height: "auto",
               width: "500px",
               borderRadius: "10px",
-              marginX:'auto'
+              marginX: "auto",
             }}
             className="py-10 mb-10 px-7 sm:align-content-center sm:justify-items-center"
           >
-              <FormControl>
-                <input
-                  name="name"
-                  className="border px-3 rounded "
-                  style={{ width: "100%" }}
-                  placeholder="Your Name"
-                  defaultValue={user?.displayName}
-                ></input>
-              </FormControl>
-              <FormControl>
-                <input
-                  name="email"
-                  style={{ width: "100%" }}
-                  className="border  px-4 rounded"
-                  placeholder="Email"
-                  defaultValue={user?.email}
-                ></input>
-              </FormControl>
-              <FormControl>
-                <input
-                  name="phone"
-                  style={{ width: "100%" }}
-                  className="border  px-3  rounded"
-                  placeholder="Phone"
-                ></input>
-              </FormControl>
-              <FormControl>
-                <select
-                  name="loan"
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  placeholder="Loan"
-                  
-                >
-                  <option value="">Education Loan</option>
-                  <option value="">Gold Loan</option>
-                  <option value="">Marriage Loan</option>
-                  <option value="">Vehicle Loan</option>
-                </select>
-              </FormControl>
-              <FormControl>
-                <select
-                  name="city"
-                  style={{ width: "100%" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border  px-3 rounded"
-                  placeholder="City"
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </FormControl>
-              <FormControl>
-                <input
-                  name="date"
-                  type='date'
-                  style={{ width: "100%" }}
-                  className="border  px-3 rounded"
-                  placeholder="dd/mm/yy"
-                ></input>
-              </FormControl>
+            <FormControl>
+              <input
+                name="name"
+                className="border px-3 rounded "
+                style={{ width: "100%" }}
+                placeholder="Your Name"
+                defaultValue={user?.displayName}
+              ></input>
+            </FormControl>
+            <FormControl>
+              <input
+                name="email"
+                style={{ width: "100%" }}
+                className="border email-field px-4 rounded"
+                placeholder="Email"
+                defaultValue={user?.email}
+                readOnly
+              ></input>
+            </FormControl>
+            <FormControl>
+              <input
+                name="phone"
+                style={{ width: "100%" }}
+                className="border  px-3  rounded"
+                placeholder="Phone"
+              ></input>
+            </FormControl>
+            <FormControl>
+              <select
+                name="loan"
+                style={{ width: "100%" }}
+                className="border  px-3 rounded"
+                placeholder="Loan"
+              >
+                <option value="">Education Loan</option>
+                <option value="">Gold Loan</option>
+                <option value="">Marriage Loan</option>
+                <option value="">Vehicle Loan</option>
+              </select>
+            </FormControl>
+            <FormControl>
+              <select
+                name="city"
+                style={{ width: "100%" }}
+                value={district}
+                onChange={handleChange}
+                label="city"
+                className="border  px-3 rounded"
+                placeholder="City"
+              >
+                {districts.map((dis) => (
+                  <option key={dis} value={dis}>
+                    {dis}
+                  </option>
+                ))}
+              </select>
+            </FormControl>
+            <FormControl>
+              <input
+                name="date"
+                type="date"
+                style={{ width: "100%" }}
+                className="border  px-3 rounded"
+                placeholder="dd/mm/yy"
+              ></input>
+            </FormControl>
 
-                <FormControl>
-                  <button
-                    style={{ width: "100%" }}
-                    className="primary-btn mt-2 "
-                    type="submit"
-                  >
-                    Apply
-                  </button>
-                </FormControl>
-            </form>
+            <FormControl>
+              <button
+                style={{ width: "100%" }}
+                className="primary-btn mt-2 "
+                type="submit"
+              >
+                Apply
+              </button>
+            </FormControl>
+          </form>
         </Box>
       </div>
     </div>

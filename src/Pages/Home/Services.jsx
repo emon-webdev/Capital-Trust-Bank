@@ -3,14 +3,14 @@ import { Image } from '@chakra-ui/image';
 import { Stack, Text } from '@chakra-ui/layout';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../../App.css'
+import '../../App.css';
 
 
 const Services = () => {
 
   const [loans, setLoans] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/loans')
+    fetch('https://capital-trust-bank-server-ten.vercel.app/loans')
       .then(res => res.json())
       .then(data => setLoans(data))
   }, [])
@@ -29,7 +29,7 @@ const Services = () => {
           className="pt-7 align-content-center overflow-hidden justify-items-center mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {
             loans.map(loan => (
-              <Card
+              <Card key={loan?._id}
                 className='service-container overflow-hidden'
                 sx={{ maxWidth: 724, maxHeight: 536, marginBottom: "30px", borderRadius: "6px" }}>
                 <Image
@@ -46,7 +46,7 @@ const Services = () => {
                 <CardBody>
                   <Stack className='flex flex-col justify-between'>
                     <Text fontSize={'16px'} fontWeight="bold">{loan.title}</Text>
-                    <Text marginTop={2} gutterBottom fontSize={"16px"} component="div">
+                    <Text marginTop={2} gutterbottom fontSize={"16px"} component="div">
                       {loan?.details.slice(0, 100) + "..."}
                     </Text>
                     <Link to={`/loans/${loan?.title}`} className="sm-btn">

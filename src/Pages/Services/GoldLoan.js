@@ -37,7 +37,6 @@ export default function GoldLoan() {
     const city = form.city.value;
     const date = form.date.value;
     const loan = form.loan.value;
-    console.log(name, email, phone, city, date, loan);
 
     const applicant = {
       name: name,
@@ -48,7 +47,7 @@ export default function GoldLoan() {
       date: date,
     };
 
-    fetch("http://localhost:5000/applicants", {
+    fetch("https://capital-trust-bank-server-ten.vercel.app/applicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -57,7 +56,6 @@ export default function GoldLoan() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
@@ -90,7 +88,7 @@ export default function GoldLoan() {
                     fontSize={26}
                     fontWeight={800}
                     marginY={1}
-                    gutterBottom
+                    gutterbottom
                     component="div"
                   >
                     {loan.title}

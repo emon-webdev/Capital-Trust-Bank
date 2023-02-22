@@ -21,9 +21,8 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
   const [applierEmail, setApplierEmail] = useState({});
   const [disable, setDisable] = useState(false);
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
-
   useEffect(() => {
-    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data);
@@ -36,31 +35,27 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
     const applierPhnNumber = data.applierPhnNumber;
     const accountId = data.accountId;
     const cardType = data.cardType;
-    if (applierEmail.accountId === accountId) {
-      const applierInfo = {
-        applierName,
-        applierPhnNumber,
-        accountId,
-        cardType,
-      };
-      fetch(`http://localhost:5000/cardAppliers`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(applierInfo),
+    const applierInfo = {
+      applierName,
+      applierPhnNumber,
+      accountId,
+      cardType,
+    };
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/cardAppliers`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(applierInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Apply Success for card");
+          reset();
+        }
       })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            toast.success("Apply Success for card");
-            reset();
-          }
-        })
-        .then((error) => toast.error(error));
-    } else {
-      toast.error("Account Id did't match");
-    }
+      .then((error) => toast.error(error));
   };
 
   return (
@@ -123,6 +118,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
                     {...register("accountId", {
                       required: "Account Id is Required",
                     })}
+                    defaultValue={applierEmail}
                   ></input>
                 </div>
                 {errors.accountId && (

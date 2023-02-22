@@ -8,46 +8,8 @@ const About = () => {
   const [name, setName] = useState("About Us");
   return (
     <div>
-      {/* <div className="about-parent h-60">
-        <div className="container about-sub-parent  p-28">
-          <h2 className="text-white text-2xl">About Us</h2>
-          <div className="text-white flex gap-1 text-[12px]">
-            <span>Home</span>
-            <span>{">"}</span>
-            <span>About Us</span>
-          </div>
-          <img
-            className="about-sub-parent-img1 w-[700px]"
-            src={shape1}
-            alt=""
-          />
-          <img
-            className="about-sub-parent-img2 w-[550px]"
-            src={shape2}
-            alt=""
-          />
-          <img
-            className="about-sub-parent-img3 w-[130px]"
-            src={shape3}
-            alt=""
-          />
-          <img
-            className="about-sub-parent-img4 w-[100px]"
-            src={shape4}
-            alt=""
-          />
-        </div>
-      </div> */}
-
-      {/*  */}
-      {/*  */}
-      {/*  */}
 
       <DynamicBanner name={name}></DynamicBanner>
-
-      {/*  */}
-      {/*  */}
-      {/*  */}
       <div className="my-12 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
         <div>
           <img src={aboutGroupImg} alt="" srcSet="" />

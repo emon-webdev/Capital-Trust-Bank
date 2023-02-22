@@ -1,18 +1,15 @@
 import {
-  Button,
-  ButtonGroup,
-  Card,
-  CardBody,
-  CardFooter,
-  Divider,
-  Heading,
-  Image,
-  Stack,
-  Text,
+    ButtonGroup,
+    Card,
+    CardBody,
+    CardFooter,
+    Divider, Image,
+    Stack,
+    Text
 } from "@chakra-ui/react";
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const VerificationDetails = () => {
   const { state: customer } = useLocation();
@@ -21,7 +18,7 @@ const VerificationDetails = () => {
     const info = {
         email: data.email
     }
-    fetch(`http://localhost:5000/verifyCustomer`, {
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/verifyCustomer`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -39,7 +36,7 @@ const VerificationDetails = () => {
     const info = {
         email: data.email
     }
-    fetch(`http://localhost:5000/verifyCancel`, {
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/verifyCancel`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

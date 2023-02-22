@@ -14,29 +14,29 @@ import "./index.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-phone-input-2/lib/style.css";
+import UserDashboardProvider from "./context/UserDashboardProvider";
 import reportWebVitals from "./reportWebVitals";
 
-import UserDashboardProvider from "./context/UserDashboardProvider";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <UserDashboardProvider>
-        <QueryClientProvider client={queryClient}>
-          <Suspense fallback="Loading...">
-            <ChakraProvider>
+      <QueryClientProvider client={queryClient}>
+        <Suspense fallback="Loading...">
+          <ChakraProvider>
+            <UserDashboardProvider>
               <App />
-            </ChakraProvider>
-          </Suspense>
-        </QueryClientProvider>
-        <Toaster />
-      </UserDashboardProvider>
+            </UserDashboardProvider>
+          </ChakraProvider>
+        </Suspense>
+      </QueryClientProvider>
+      <Toaster />
     </AuthProvider>
   </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
+// to log results (for example: reportWebVitals())
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
