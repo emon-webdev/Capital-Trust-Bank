@@ -9,9 +9,10 @@ import { AuthContext } from "../../../../context/AuthProvider";
 export default function MyAccount() {
   const { user } = useContext(AuthContext);
   const [approve, setApprove] = useState([]);
-console.log(user)
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`)
+    fetch(
+      `https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setApprove(data));
   }, []);
@@ -32,7 +33,6 @@ console.log(user)
     return total + parseInt(withdr.withdraw);
   }, 0);
 
-
   const depositData = transacData.filter((data) => data.type === "deposit");
   const totalDeposit = depositData.reduce((total, depo) => {
     return total + parseInt(depo.deposit);
@@ -44,6 +44,24 @@ console.log(user)
   return (
     <div className="container ">
       <div className="flex flex-col md:flex-col md:align-items-center md:justify-content-center md:w-[100%] lg:flex-row">
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
+        >
+          <div className="mr-5">
+            {/* <FaDonate className="text-6xl text-[#9c0f55]" /> */}
+            <MdOutlineAccountBalanceWallet className="text-4xl text-blue-800" />
+          </div>
+          <div className="">
+            <div className="text-[#808080] text-2xl mb-3">
+              {" "}
+              Available Balance
+            </div>
+            <h2 className="text-3xl font-bold ">
+              $ {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0}
+            </h2>
+          </div>
+        </div>
         <Flex
           align={"center"}
           justify="center"

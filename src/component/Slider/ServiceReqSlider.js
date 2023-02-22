@@ -19,14 +19,14 @@ const ServiceReqSlider = () => {
   const [slidersContents, setSlidersContents] = useState([]);
   /* slider data fetch */
   useEffect(() => {
-    fetch("sliders.json")
+    fetch(`${process.env.REACT_APP_API_KEY}/emergencyServices`)
       .then((res) => res.json())
       .then((data) => {
         setSlidersNav(data[0].sliderNav);
         setSlidersContents(data[0].sliderContent);
       });
   }, []);
-
+console.log(`${process.env.REACT_APP_API_KEY}`)
   let settings = {
     infinite: true,
     speed: 500,
