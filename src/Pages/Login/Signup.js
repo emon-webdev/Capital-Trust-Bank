@@ -1,9 +1,9 @@
 import {
-    Button,
-    Input,
-    InputGroup,
-    InputRightElement,
-    Stack
+  Button,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Stack
 } from "@chakra-ui/react";
 import { GoogleAuthProvider } from "@firebase/auth";
 import React, { useContext, useState } from "react";
@@ -262,7 +262,7 @@ const Signup = () => {
                   size="lg"
                   pr="4.5rem"
                   type={show ? "text" : "password"}
-                  placeholder="Enter password"
+                  placeholder="New password"
                   {...register("password", {
                     minLength: {
                       value: 6,
@@ -343,7 +343,7 @@ const Signup = () => {
                   size="lg"
                   pr="4.5rem"
                   type={confirmShow ? "text" : "password"}
-                  placeholder="Enter password"
+                  placeholder="Confirm password"
                   {...register("confirm_password", {
                     required: true,
                     validate: (value) => {
