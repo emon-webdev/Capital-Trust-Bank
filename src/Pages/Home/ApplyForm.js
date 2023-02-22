@@ -130,10 +130,10 @@ export default function ApplyForm() {
                 placeholder="Loan"
                 required
               >
-                <option value="">Education Loan</option>
-                <option value="">Gold Loan</option>
-                <option value="">Marriage Loan</option>
-                <option value="">Vehicle Loan</option>
+                <option value="Education Loan">Education Loan</option>
+                <option value="Gold Loan">Gold Loan</option>
+                <option value="Marriage Loan">Marriage Loan</option>
+                <option value="Vehicle Loan">Vehicle Loan</option>
               </Select>
             </FormControl>
             <FormControl marginY={3}>
@@ -144,11 +144,11 @@ export default function ApplyForm() {
                 placeholder="Select Package"
                 required
               >
-                <option value="$10000-3months">$10000-3 months</option>
-                <option value="$30000-6months">$30000-6 months</option>
-                <option value="$50000-6months">$50000-6 months</option>
-                <option value="$100000-1Year">$100000-1 Year</option>
-                <option value="$500000-2Years">$500000-2 Years</option>
+                <option value="$10000-3months">$10000-3 months-10% per month</option>
+                <option value="$30000-6months">$30000-6 months-10% per month</option>
+                <option value="$50000-6months">$50000-6 months-10% per month</option>
+                <option value="$100000-1Year">$100000-1 Year-10% per month</option>
+                <option value="$500000-2Years">$500000-2 Years-10% per month</option>
               </Select>
             </FormControl>
             <FormControl>

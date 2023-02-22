@@ -1,14 +1,33 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../../context/AuthProvider';
 const LoanReq = () => {
+  const {user} = useContext(AuthContext)
   const [customers, setCustomers] = useState([]);
+  const [reFetch,setReFetch] = useState(false)
   useEffect(() => {
     fetch(`https://capital-trust-bank-server-ten.vercel.app/applicants`)
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);
       });
-  }, []);
+  }, [reFetch]);
+
+  const handleDelete = (data) => {
+    console.log(data)
+    fetch(`http://localhost:5000/deleteLoanReq/${data}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.error("Loan Request cancel");
+        setReFetch(!reFetch);
+      });
+  };
+
   return (
     <div className='my-2'>
       <h2 className="text-center heading">
@@ -30,7 +49,7 @@ const LoanReq = () => {
                 <button className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]">
                   Accept
                 </button>
-                <button className="text-md sm-btn primary-btn exchange-btn bg-[#df0303]">
+                <button className="text-md sm-btn primary-btn exchange-btn bg-[#df0303]" onClick={()=>handleDelete(customer.email)}>
                   Cancel
                 </button>
               </div>
