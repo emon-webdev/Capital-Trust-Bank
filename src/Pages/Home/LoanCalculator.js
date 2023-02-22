@@ -48,7 +48,7 @@ class LoanCalculator extends React.Component {
               EMI Online Calculator
             </h1>
           </div>
-          <div className="md:flex justify-center">
+          <div className="md:flex pt-6 justify-center">
             <div className="basis-full emi-img md:basis-[30%]">
               <img className="img" src={sideimg} alt="" />
             </div>
