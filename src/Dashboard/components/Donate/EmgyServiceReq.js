@@ -15,15 +15,18 @@ import "../../../App.css";
 const EmgyServiceReq = () => {
   const [customers, setCustomers] = useState([]);
   const [reFetch, setReFetch] = useState(false);
+
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/cardReq`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/emgyServiceReceiver`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setCustomers(data);
       });
   }, [reFetch]);
+
   const handleAccept = (data) => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/acceptCardReq`, {
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/acceptEmgyServiceReq`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -32,7 +35,8 @@ const EmgyServiceReq = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast.success("Card request accept");
+        console.log(data);
+        toast.success("Emergency  Service request accept");
         setReFetch(!reFetch);
       });
   };
@@ -41,7 +45,7 @@ const EmgyServiceReq = () => {
     const info = {
       id: data.accountId,
     };
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/deleteCardReq`, {
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/deleteEmgyServiceReq`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -50,15 +54,17 @@ const EmgyServiceReq = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast.success("Card Request cancel");
+        console.log(data)
+        toast.error("Emergency  Service Request cancel");
         setReFetch(!reFetch);
       });
   };
+
   return (
     <div className="my-2">
       <h2 className="text-[#010C3A] text-2xl md:text-3xl font-bold mb-6">
-        Emergency Service Request:{" "}
-        <span className="text-[#df0303]">{customers.length}</span>
+        Emergency Service Request:
+        <span className="text-[#df0303]"> {customers?.length}</span>
       </h2>
       <div className="w-full">
         <TableContainer
@@ -80,7 +86,7 @@ const EmgyServiceReq = () => {
                   Name
                 </Th>
                 <Th color="#fff" fontSize={16}>
-                  Phone
+                  Service
                 </Th>
                 <Th color="#fff" fontSize={16}>
                   Id
@@ -96,10 +102,10 @@ const EmgyServiceReq = () => {
             <Tbody>
               {customers?.map((customer, index) => (
                 <Tr key={customer?._id}>
-                  <Td>{index + 1}</Td>
-                  <Td>{customer.applierName}</Td>
-                  <Td>{customer.applierPhnNumber}</Td>
-                  <Td>{customer?.accountId}</Td>
+                  <Td className="px-1">{index + 1}</Td>
+                  <Td className="px-1">{customer?.name}</Td>
+                  <Td className="px-1">{customer?.serviceName}</Td>
+                  <Td className="px-1">{customer?.accountId}</Td>
                   {/* <Td>{customer?.cardType}</Td> */}
                   <Td>
                     <Button
