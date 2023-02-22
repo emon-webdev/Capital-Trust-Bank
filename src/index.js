@@ -18,6 +18,8 @@ import UserDashboardProvider from "./context/UserDashboardProvider";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
+import { loanApi } from "./features/api/apiSlice";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const queryClient = new QueryClient();
@@ -29,7 +31,9 @@ root.render(
           <ChakraProvider>
             <UserDashboardProvider>
               <Provider store={store}>
-                <App />
+                <ApiProvider api={loanApi}>
+                  <App />
+                </ApiProvider>
               </Provider>
             </UserDashboardProvider>
           </ChakraProvider>
