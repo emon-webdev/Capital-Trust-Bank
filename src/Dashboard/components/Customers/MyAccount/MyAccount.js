@@ -23,7 +23,10 @@ export default function MyAccount() {
       `http://localhost:5000/depositWithdraw/${user?.email}`
     )
       .then((res) => res.json())
-      .then((data) => setTransacData(data));
+      .then((data) => {
+        setTransacData(data) 
+        console.log(data)
+      });
   }, []);
 
   const withdrawData = transacData.filter((data) => data.type === "withdraw");
@@ -71,7 +74,7 @@ export default function MyAccount() {
           <div className="mt-5">
             <Text fontSize={50}>
               <span>$</span>
-              {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0}
+              {approve.availableAmount}
             </Text>
             <Text color={"grey"} fontSize={28} marginTop={10}>
               Available Balance

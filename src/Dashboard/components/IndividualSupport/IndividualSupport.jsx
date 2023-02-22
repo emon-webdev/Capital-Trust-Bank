@@ -3,10 +3,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { FaLocationArrow } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
-import io from "socket.io-client";
+// import io from "socket.io-client";
 import { AuthContext } from "../../../context/AuthProvider";
 // const socket = io("*");
-const socket = io("http://localhost:5000/");
+// const socket = io("http://localhost:5000/");
 
 const IndividualSupport = () => {
   const { user, role } = useContext(AuthContext);
@@ -14,15 +14,15 @@ const IndividualSupport = () => {
   const [allMessages, setAllMessages] = useState([]);
   const [allLoad, setAllLoad] = useState(false);
   const { state } = useLocation();
-  useEffect(() => {
-    socket.on("messageTransfer", (message) => {
-      if (message.to === user.email) {
-        setMessages([...messages, message]);
-      } else {
-        setMessages([...messages, ""]);
-      }
-    });
-  }, [messages, user]);
+  // useEffect(() => {
+  //   socket.on("messageTransfer", (message) => {
+  //     if (message.to === user.email) {
+  //       setMessages([...messages, message]);
+  //     } else {
+  //       setMessages([...messages, ""]);
+  //     }
+  //   });
+  // }, [messages, user]);
   useEffect(() => {
     fetch(
       `http://localhost:5000/getChatInfo/${user.email + " " + state.senderEmail
@@ -55,9 +55,9 @@ const IndividualSupport = () => {
       chatInfo.receiverEmail = state.senderEmail;
       chatInfo.receiverImg = state.senderImg;
       chatInfo.receiverName = state.senderName;
-      socket.emit("send message", chatInfo);
+      // socket.emit("send message", chatInfo);
     } else {
-      socket.emit("send message", chatInfo);
+      // socket.emit("send message", chatInfo);
     }
     event.target.reset();
   }

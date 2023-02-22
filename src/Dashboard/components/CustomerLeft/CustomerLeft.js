@@ -4,6 +4,7 @@ import { AiOutlineIdcard } from "react-icons/ai";
 import { GiPayMoney, GiReceiveMoney } from "react-icons/gi";
 import { MdAttachMoney, MdOutlineImportantDevices } from "react-icons/md";
 import { RiAccountCircleLine, RiMessage2Fill } from "react-icons/ri";
+import { SlPresent } from "react-icons/sl";
 import { Link, NavLink } from "react-router-dom";
 import "../../../App.css";
 import logo from "../../../assets/logo/mainlogo.png";
@@ -49,7 +50,6 @@ const CustomerLeft = () => {
               }
             >
               <span>
-                {" "}
                 <RiAccountCircleLine />
               </span>
               <span className="text-white ml-[10px]">My Account</span>
@@ -57,7 +57,6 @@ const CustomerLeft = () => {
 
             <NavLink
               to="/dashboard/myTransaction"
-              // onClick={() => setSubMenu(!subMenu)}
               className={({ isActive }) =>
                 isActive
                   ? "border-l-2 bg-[#DF0303] link flex dath items-center px-[20px] py-[15px]"
@@ -95,7 +94,6 @@ const CustomerLeft = () => {
               }
             >
               <span>
-                {" "}
                 <GiReceiveMoney />
               </span>
               <span className="text-white ml-[10px]">Withdraw</span>
@@ -110,7 +108,6 @@ const CustomerLeft = () => {
               }
             >
               <span>
-                {/* {" "} */}
                 <MdOutlineImportantDevices />
               </span>
               <span className="text-white ml-[10px]">Device Activity</span>
@@ -125,10 +122,23 @@ const CustomerLeft = () => {
               }
             >
               <span className="text-white">
-                {" "}
                 <RiMessage2Fill />
               </span>
               <span className="text-white ml-[10px]">Customer Support</span>
+            </NavLink>
+
+            <NavLink
+              to="/dashboard/sentMoney"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
+                  : "flex px-[20px] link py-[15px]"
+              }
+            >
+              <span className="text-white">
+                <SlPresent />
+              </span>
+              <span className="text-white ml-[10px]">Sent money</span>
             </NavLink>
 
             <NavLink
@@ -140,37 +150,10 @@ const CustomerLeft = () => {
               }
             >
               <span>
-                {/* {" "} */}
                 <AiOutlineIdcard />
               </span>
               <span className="text-white ml-[10px]">Take Card</span>
             </NavLink>
-
-            {/* -------Sub Menu ----------- */}
-            {/* <div className={`${subMenu ? 'block' : 'hidden'} duration-500 transition-all flex flex-col px-[20px] py-[15px]`}>
-                      <NavLink to='/dashboard/my-deposit'
-                          className='flex items-center link py-[10px] px-[5px] rounded-md'
-                      >
-                          <span> <CloudCircleOutlinedIcon /></span>
-                          <span className='text-white ml-[10px]'>My Deposit</span>
-                      </NavLink>
-
-                      <NavLink
-                          to='/dashboard/my-withdraw'
-                          className='flex items-center link py-[10px] px-[5px] rounded-md'
-                      >
-                          <span> <CloudCircleOutlinedIcon /></span>
-                          <span className='text-white ml-[10px]'>My Withdraw</span>
-                      </NavLink>
-
-                      <NavLink
-                          to='/dashboard/my-balance'
-                          className='flex items-center link py-[10px] px-[5px] rounded-md'
-                      >
-                          <span> <CloudCircleOutlinedIcon /></span>
-                          <span className='text-white ml-[10px]'>My Balance</span>
-                      </NavLink>
-                  </div> */}
           </div>
         )}
       </div>

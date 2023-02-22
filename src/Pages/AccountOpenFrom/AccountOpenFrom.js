@@ -12,11 +12,11 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import "react-phone-input-2/lib/style.css";
 import { NavLink } from "react-router-dom";
-import io from "socket.io-client";
+// import io from "socket.io-client";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 // const socket = io("*");
-const socket = io("http://localhost:5000/");
+// const socket = io("http://localhost:5000/");
 const AccountOpenFrom = () => {
   const {
     register,
@@ -63,6 +63,7 @@ const AccountOpenFrom = () => {
             initialDeposit: data.initialDeposit,
             term: true,
             approve: false,
+            availableAmount: data.initialDeposit
           };
           // save information to the database
           fetch("http://localhost:5000/bankAccounts", {
@@ -78,7 +79,7 @@ const AccountOpenFrom = () => {
                 `Your form has been submitted please wait for approval.`
               );
               reset();
-              socket.emit("send verification", account);
+              // socket.emit("send verification", account);
             });
         }
       });

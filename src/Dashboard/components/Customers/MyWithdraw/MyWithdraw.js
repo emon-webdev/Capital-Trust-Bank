@@ -46,8 +46,8 @@ const MyWithdraw = () => {
       time: time,
       date: date,
     };
-
-    fetch("http://localhost:5000/depositWithdraw", {
+    if(amount<=parseFloat(approve.availableAmount)){
+       fetch("http://localhost:5000/depositWithdraw", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -56,15 +56,16 @@ const MyWithdraw = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.acknowledged) {
           toast.success("withdraw Successlly Done");
           form.reset();
-        } else {
-          toast.error(data.message);
-        }
+          setWithdarw(withdraw + parseInt(amount));
+          setDeposit(deposit - parseInt(amount));
       });
-    setWithdarw(withdraw + parseInt(amount));
-    setDeposit(deposit - parseInt(amount));
+    }
+    else{
+      toast.error(`You don't have enough balance`)
+    }
+
   };
 
   return (

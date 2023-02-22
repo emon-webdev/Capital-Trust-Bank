@@ -23,14 +23,16 @@ export default function MyTransaction() {
   useEffect(() => {
     fetch(`http://localhost:5000/depositWithdraw/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setTransacData(data));
+    .then((data) => {
+      console.log(data)
+      setTransacData(data)});
   }, []);
 
+  const handleDownload = async(data)=> {
+    console.log(data)
+  }
   return (
     <div className=" container  gap-5 flex-col md:flex-row lg:flex-row align-items-center justify-content-center">
-      {/* <div className="mt-10">
-        <VisaTransaction></VisaTransaction>
-      </div> */}
       <div className="">
         <TableContainer
           borderRadius={10}
@@ -55,7 +57,10 @@ export default function MyTransaction() {
                   Amount
                 </Th>
                 <Th color="#041C51" fontSize={24} paddingY={6}>
-                  Details
+                 Type
+                </Th>
+                <Th color="#041C51" fontSize={24} paddingY={6}>
+                 Action
                 </Th>
               </Tr>
             </Thead>
@@ -71,6 +76,16 @@ export default function MyTransaction() {
                   >
                     ${data.withdraw ? data.withdraw : data.deposit}
                   </Td>
+                  <Td
+                    style={
+                      data.withdraw ? { color: "red" } : { color: "#041C51" }
+                    }
+                  >
+                    {data.withdraw ? 'Withdraw' : 'Deposit'}
+                  </Td>
+                  <Td><button className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]" onClick={()=>handleDownload(data)}>
+                  Download
+                </button></Td>
                 </Tr>
               ))}
             </Tbody>
