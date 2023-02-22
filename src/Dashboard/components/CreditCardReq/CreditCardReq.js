@@ -15,7 +15,7 @@ const CreditCardReq = () => {
   const [customers, setCustomers] = useState([]);
   const [reFetch, setReFetch] = useState(false);
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/cardReq`)
+    fetch(`http://localhost:5000/cardReq`)
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);
