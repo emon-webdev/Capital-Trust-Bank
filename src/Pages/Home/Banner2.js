@@ -11,7 +11,8 @@ const sliderData = [
     _id: 1,
     title: "Capital Trust Bank For Better Feature",
     img: apply,
-    content: "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+    content:
+      "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
     btn: "Open an Account",
     link: "/accountOpenFrom",
   },
@@ -19,7 +20,8 @@ const sliderData = [
     _id: 2,
     title: "We Provide Best Loan Services",
     img: slider2,
-    content: "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+    content:
+      "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
     btn: "Loans Services",
     link: "/loansServices",
   },
@@ -27,7 +29,8 @@ const sliderData = [
     _id: 3,
     title: "Enjoy a Good Future With Our Bank",
     img: insurance,
-    content: "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+    content:
+      "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
     btn: "Pay Bill",
     link: "/paymentbills",
   },
@@ -54,9 +57,9 @@ const Banner2 = () => {
   return (
     <div className="slider-parent">
       <Slider className="slide-wrapper" {...settings}>
-       {sliderData.map((data) => (
-          <Banner2Slide  data={data} />
-        ))}    
+        {sliderData.map((data, index) => (
+          <Banner2Slide key={index} data={data} />
+        ))}
       </Slider>
     </div>
   );

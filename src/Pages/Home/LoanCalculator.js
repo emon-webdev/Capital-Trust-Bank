@@ -1,10 +1,7 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import sideimg from "../../assets/loanCalculator/emi-calculator.jpg";
 import "./LoanCalculator.css";
-AOS.init();
 
 class LoanCalculator extends React.Component {
   constructor() {

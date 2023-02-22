@@ -26,7 +26,6 @@ const ServiceReqSlider = () => {
         setSlidersContents(data[0].sliderContent);
       });
   }, []);
-console.log(`${process.env.REACT_APP_API_KEY}`)
   let settings = {
     infinite: true,
     speed: 500,

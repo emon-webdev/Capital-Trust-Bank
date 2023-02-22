@@ -1,7 +1,7 @@
 import { Card, CardBody } from '@chakra-ui/card';
 import { Image } from '@chakra-ui/image';
 import { Stack, Text } from '@chakra-ui/layout';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css';
 import { useGetLoansQuery } from '../../features/api/apiSlice';
@@ -17,7 +17,6 @@ const Services = () => {
   //     .then(data => setLoans(data))
   // }, [])
 const {data:loans,isLoading}= useGetLoansQuery();
-console.log(loans)
 
 
   return (
