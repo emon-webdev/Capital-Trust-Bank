@@ -2,8 +2,10 @@ import React from "react";
 import "./Cards.css";
 import logo from "../../assets/cards/card_2.png"
 import CardsCategories from "./AllCards/CardsCategories";
+import useTitle from "../../hooks/useTitle/useTitle";
 
 const Cards = () => {
+  useTitle("Cards")
   return (
     <div className="contact-area">
       {/* banner areas  */}

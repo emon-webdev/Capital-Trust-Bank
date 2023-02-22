@@ -5,8 +5,10 @@ import { toast } from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import apply from "../../assets/Services(Home)/apply-form-box-bg.jpg";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle/useTitle";
 import { districts } from "../Services/districtData";
 export default function ApplyForm() {
+  useTitle("ApplyForm")
   const [district, setDistrict] = useState("");
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();

@@ -5,8 +5,10 @@ import { AiOutlineMinusSquare } from "react-icons/ai";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 import { AuthContext } from "../../../../context/AuthProvider";
+import useTitle from "../../../../hooks/useTitle/useTitle";
 
 export default function MyAccount() {
+  useTitle("MyAccount")
   const { user } = useContext(AuthContext);
   const [approve, setApprove] = useState([]);
 

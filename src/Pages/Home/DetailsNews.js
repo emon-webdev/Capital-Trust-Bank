@@ -9,8 +9,10 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle/useTitle";
 
 const DetailsNews = (props) => {
+  useTitle("DetailsNews")
   const [showAll, setShowAll] = useState(false);
   const blog = useLoaderData();
   return (

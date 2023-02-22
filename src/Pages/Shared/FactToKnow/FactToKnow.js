@@ -1,8 +1,10 @@
 import React from "react";
 import mainLogo from "../../../assets/factToKnow/main.png";
+import useTitle from "../../../hooks/useTitle/useTitle";
 import "./FactToKnow.css";
 
 function FactToKnow() {
+  useTitle("FactToKnow")
   return (
     <div className="main-factToKnow py-8">
       <div className="container md:flex items-center justify-evenly">

@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider.js";
+import useTitle from "../../../hooks/useTitle/useTitle.js";
 import LeftContainer from "../LeftContainer/LeftContainer.jsx";
 import DashboardNavbar from "./DashboardNavbar.js";
 // import  '../../../App.css';
 
 const DashboardLayout = () => {
+  useTitle("DashboardLayout")
   const { openSideNav } = useContext(AuthContext);
   return (
     <div>

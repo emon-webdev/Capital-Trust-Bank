@@ -14,8 +14,10 @@ import phone from "../.././assets/contact/Phone.png";
 import mail from "../.././assets/contact/Mail.png";
 import address from "../.././assets/contact/Address.png";
 import arrow from "../.././assets/contact/ArrowUpRight.png";
+import useTitle from "../../hooks/useTitle/useTitle";
 
 const Contact = () => {
+  useTitle("Contact")
   const [name, setName] = useState("Contact");
   return (
     <div>

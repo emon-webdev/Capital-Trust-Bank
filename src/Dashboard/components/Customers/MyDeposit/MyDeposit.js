@@ -13,8 +13,10 @@ import { toast } from "react-hot-toast";
 
 import { AuthContext } from "../../../../context/AuthProvider";
 import { DashboardContext } from "../../../../context/UserDashboardProvider";
+import useTitle from "../../../../hooks/useTitle/useTitle";
 
 const MyDeposit = () => {
+  useTitle("MyDeposit")
   const [startDate, setStartDate] = useState(new Date());
   const { user, setUser } = useContext(AuthContext);
   const { deposit, setDeposit, setBalance, balance } =

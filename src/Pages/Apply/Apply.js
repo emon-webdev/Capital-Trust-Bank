@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
+import useTitle from "../../hooks/useTitle/useTitle"
 
 const Apply = () => {
+  useTitle("Apply")
   const [name, setName] = useState("Apply");
   return (
     <div>

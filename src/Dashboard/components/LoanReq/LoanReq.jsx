@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import useTitle from '../../../hooks/useTitle/useTitle';
 
 const LoanReq = () => {
+  useTitle("LoanReq")
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
     fetch(`https://capital-trust-bank-server.vercel.app/applicants`)

@@ -14,10 +14,12 @@ import "react-phone-input-2/lib/style.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle/useTitle";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 const socket = io("https://capital-trust-bank-server.vercel.app/");
 const AccountOpenFrom = () => {
+  useTitle("AccountOpenFrom")
   const {
     register,
     reset,

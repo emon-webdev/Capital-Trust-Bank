@@ -1,9 +1,11 @@
 import html2canvas from 'html2canvas';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../../context/AuthProvider';
+import useTitle from '../../../../hooks/useTitle/useTitle';
 import VisaTransaction from '../MyTransaction/VisaTransaction';
 
 const TakeCard = () => {
+  useTitle("TakeCard")
     const {user} = useContext(AuthContext);
     const [info,setInfo] = useState({})
     useEffect(() => {

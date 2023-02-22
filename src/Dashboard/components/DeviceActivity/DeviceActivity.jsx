@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
+import useTitle from "../../../hooks/useTitle/useTitle";
 
 const DeviceActivity = () => {
+  useTitle("DeviceActivity")
   const { user } = useContext(AuthContext);
   const email = user?.email;
   const [devicesInfo, setDevicesInfo] = useState([]);

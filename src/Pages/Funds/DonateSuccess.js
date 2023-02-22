@@ -2,7 +2,9 @@ import { Box, Heading, Text, useDisclosure } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { Link, useLocation } from "react-router-dom";
+import useTitle from "../../hooks/useTitle/useTitle";
 const DonateSuccess = () => {
+  useTitle("DonateSuccess")
   const { isOpen, onOpen, onClose } = useDisclosure();
   const location = useLocation();
  

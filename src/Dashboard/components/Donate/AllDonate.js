@@ -9,8 +9,10 @@ import {
 } from "@chakra-ui/table";
 import React, { useEffect, useState } from "react";
 import { FaDonate } from "react-icons/fa";
+import useTitle from "../../../hooks/useTitle/useTitle";
 // import "./Table.css";
 const AllDonate = () => {
+  useTitle("AllDonate")
   const [donates, setDonates] = useState([]);
 
   useEffect(() => {

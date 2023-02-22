@@ -1,5 +1,7 @@
-import { ChatIcon, EmailIcon, PhoneIcon } from "@chakra-ui/icons";
 import { Input } from "@chakra-ui/react";
+import { FaLinkedinIn,FaFacebookF } from "react-icons/fa";
+import { AiOutlineTwitter } from "react-icons/ai";
+import { CiMail } from "react-icons/ci";
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo/mainlogo.png";
@@ -18,33 +20,34 @@ const Footer = () => {
               <img src={logo} alt="" />
               <span className=" text-3xl font-bold">CTB</span>
             </div>
-            <div className="flex gap-2 ml-4 mt-4">
-              <Link className="">
-                <ChatIcon></ChatIcon>
-              </Link>
-              <Link className="">
-                <EmailIcon></EmailIcon>
-              </Link>
-              <Link className="">
-                <PhoneIcon></PhoneIcon>
-              </Link>
+            <div className="flex gap-2 mt-4">
+              <a href="https://www.linkedin.com/" id="social-link" className="social-link-border">
+                <FaLinkedinIn/>
+              </a>
+              <a href="https://www.facebook.com/" id="social-link-facebook" className="social-link-facebook-border">
+                <FaFacebookF/>
+              </a>
+              <a href="https://twitter.com/" id="social-link" className="social-link-border">
+               <AiOutlineTwitter/>
+              </a>
             </div>
           </div>
           <div className="flex flex-col gap-3">
-            <h2 className="text-lg my-5 text-white">Company</h2>
-            <Link id="footer-link">About</Link>
-            <Link id="footer-link">Careers</Link>
-            <Link id="footer-link">Mobile</Link>
-            <Link id="footer-link">Blog</Link>
-            <Link id="footer-link">How we work?</Link>
+            <h2 className="text-lg my-5 text-white">Services</h2>
+            <Link to='/paymentbills' id="footer-link">Pay Bills</Link>
+            <Link to='/loansServices' id="footer-link">Loans</Link>
+            <Link to='/cards' id="footer-link">Cards</Link>
+            <Link to='/healthinsurance' id="footer-link">Health Insurance</Link>
+            <Link to='/businessinsurance' id="footer-link">Business Insurance</Link>
+            <Link to='/travelinsurance' id="footer-link">Travel Insurance</Link>
           </div>
           <div className="flex flex-col gap-3">
             <h2 className="text-lg my-5 text-white">Contact</h2>
-            <Link id="footer-link">Help/FAQ</Link>
-            <Link id="footer-link">Press</Link>
-            <Link id="footer-link">Affiliates</Link>
-            <Link id="footer-link">Propert oweners</Link>
-            <Link id="footer-link">Partners</Link>
+            <Link to='/faq' id="footer-link">Help/FAQ</Link>
+            <Link to='/login' id="footer-link">Open An Account</Link>
+            <Link to='/contact' id="footer-link">contact</Link>
+            <Link to='/login' id="footer-link">signin</Link>
+            <Link to='/signup' id="footer-link">signup</Link>
           </div>
 
           <div>
@@ -57,8 +60,9 @@ const Footer = () => {
             </div>
             <div>
               <h2 className="mb-5 text-lg text-white">News Letter</h2>
-              <div>
-              <Input variant='flushed' placeholder='Enter your email address' />
+              <div className="flex justify-center items-center">
+              <Input className="f-form-icon-parent" variant='flushed' placeholder='Enter your email address' />
+<span className="f-form-icon"><CiMail></CiMail></span>
               </div>
             </div>
           </div>

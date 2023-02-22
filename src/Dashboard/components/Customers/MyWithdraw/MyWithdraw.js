@@ -12,8 +12,10 @@ import ReactDatePicker from "react-datepicker";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../../context/AuthProvider";
 import { DashboardContext } from "../../../../context/UserDashboardProvider";
+import useTitle from "../../../../hooks/useTitle/useTitle";
 
 const MyWithdraw = () => {
+  useTitle("MyWithdraw")
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
   const { withdraw, setWithdarw, setDeposit, deposit } =

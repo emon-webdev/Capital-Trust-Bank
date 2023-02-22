@@ -5,10 +5,12 @@ import { FaLocationArrow } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import io from "socket.io-client";
 import { AuthContext } from "../../../context/AuthProvider";
+import useTitle from "../../../hooks/useTitle/useTitle";
 // const socket = io("*");
 const socket = io("https://capital-trust-bank-server.vercel.app/");
 
 const IndividualSupport = () => {
+  useTitle("IndividualSupport")
   const { user, role } = useContext(AuthContext);
   const [messages, setMessages] = useState([]);
   const [allMessages, setAllMessages] = useState([]);

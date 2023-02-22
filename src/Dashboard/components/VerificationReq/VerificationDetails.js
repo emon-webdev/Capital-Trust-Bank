@@ -10,8 +10,10 @@ import {
 import React from "react";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle/useTitle";
 
 const VerificationDetails = () => {
+  useTitle("VerificationDetails")
   const { state: customer } = useLocation();
   const navigate = useNavigate();
   const handleAccept = (data) => {

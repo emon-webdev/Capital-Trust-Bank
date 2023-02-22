@@ -17,9 +17,11 @@ import "../../App.css";
 // import image from "../../assests/SignUp/signup1.jpg";
 import Spinner from "../../component/Spinner/Spinner";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle/useTitle";
 import setAuthToken from "../../hooks/UseToken/UseToken";
 
 const Signup = () => {
+  useTitle("Signup")
   const {
     register,
     watch,
