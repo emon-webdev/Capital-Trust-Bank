@@ -5,15 +5,16 @@ import { RxArrowTopRight } from "react-icons/rx";
 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useGetNewsQuery } from "../../features/api/apiSlice";
 
 export default function FeaturedNews() {
-  const [newsData, setNewsData] = useState();
-  useEffect(() => {
-    fetch("https://capital-trust-bank-server-ten.vercel.app/blogsNews")
-      .then((res) => res.json())
-      .then((data) => setNewsData(data));
-  }, []);
-
+  // const [newsData, setNewsData] = useState();
+  // useEffect(() => {
+  //   fetch("https://capital-trust-bank-server-ten.vercel.app/blogsNews")
+  //     .then((res) => res.json())
+  //     .then((data) => setNewsData(data));
+  // }, []);
+  const { data: newsData } = useGetNewsQuery();
   return (
     <div className="features-area py-20">
       <div className="container">

@@ -1,5 +1,6 @@
 import { FormControl } from "@chakra-ui/form-control";
 import { Box } from "@chakra-ui/layout";
+import { Select } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
@@ -33,6 +34,7 @@ export default function ApplyForm() {
     const city = form.city.value;
     const date = form.date.value;
     const loan = form.loan.value;
+    const pack = form.pack.value;
 
     const applicant = {
       name: name,
@@ -40,6 +42,7 @@ export default function ApplyForm() {
       phone: phone,
       city: city,
       loan: loan,
+      package: pack,
       date: date,
     };
 
@@ -119,17 +122,34 @@ export default function ApplyForm() {
               ></input>
             </FormControl>
             <FormControl>
-              <select
+              <Select
                 name="loan"
+                backgroundColor={"white"}
                 style={{ width: "100%" }}
                 className="border  px-3 rounded"
                 placeholder="Loan"
+                required
               >
                 <option value="">Education Loan</option>
                 <option value="">Gold Loan</option>
                 <option value="">Marriage Loan</option>
                 <option value="">Vehicle Loan</option>
-              </select>
+              </Select>
+            </FormControl>
+            <FormControl marginY={3}>
+              <Select
+                name="pack"
+                marginY={2}
+                backgroundColor={"white"}
+                placeholder="Select Package"
+                required
+              >
+                <option value="$10000-3months">$10000-3 months</option>
+                <option value="$30000-6months">$30000-6 months</option>
+                <option value="$50000-6months">$50000-6 months</option>
+                <option value="$100000-1Year">$100000-1 Year</option>
+                <option value="$500000-2Years">$500000-2 Years</option>
+              </Select>
             </FormControl>
             <FormControl>
               <select

@@ -41,15 +41,15 @@ export default function MyTransaction() {
           overflowX="scroll"
         >
           <Table variant="simple">
-            <Thead>
+            <Thead className="py-2 rounded-t-md bg-[#041C51]">
               <Tr>
-                <Th color="#041C51" fontSize={24} paddingY={6}>
+                <Th color="white" fontSize={24} paddingY={6}>
                   Date
                 </Th>
-                <Th color="#041C51" fontSize={24} paddingY={6}>
+                <Th color="white" fontSize={24} paddingY={6}>
                   Time
                 </Th>
-                <Th color="#041C51" fontSize={24} paddingY={6}>
+                <Th color="white" fontSize={24} paddingY={6}>
                   Amount
                 </Th>
                 {/* <Th color="#041C51" fontSize={24} paddingY={6}>
@@ -60,9 +60,10 @@ export default function MyTransaction() {
             <Tbody>
               {transacData?.map((data) => (
                 <Tr key={data._id}>
-                  <Td>{data.date}</Td>
-                  <Td>{data.time}</Td>
+                  <Td fontSize={24}>{data.date}</Td>
+                  <Td fontSize={24}>{data.time}</Td>
                   <Td
+                    fontSize={24}
                     style={
                       data.withdraw ? { color: "red" } : { color: "#041C51" }
                     }

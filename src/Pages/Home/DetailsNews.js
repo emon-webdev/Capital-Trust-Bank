@@ -9,29 +9,32 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+// import {useGetBlogQuery } from "../../features/api/apiSlice";
 
 const DetailsNews = (props) => {
   const [showAll, setShowAll] = useState(false);
   const blog = useLoaderData();
+  // const { data: blog } = useGetBlogQuery();
+  console.log(blog);
   return (
     <div className="container my-10 ">
       <div className="mx-auto lg:w-[70%] md:w-[100%] sm: w-[100%]">
-        <Card key={blog.id} boxShadow="xl">
+        <Card key={blog?.id} boxShadow="xl">
           <CardBody>
             <VStack>
               <Image
                 style={{ width: "800px", height: "100%" }}
-                src={blog.img}
+                src={blog?.img}
                 alt="Green double couch with wooden legs"
                 borderRadius="lg"
               />
             </VStack>
             <VStack mt="6" spacing="3">
               <Heading marginY={5} fontSize={30} size="md">
-                {blog.title}
+                {blog?.title}
               </Heading>
               <Text lineHeight={10} paddingX={5} fontSize={26}>
-                {showAll ? blog.details : blog.details.slice(0, 600)}
+                {showAll ? blog?.details : blog?.details.slice(0, 600)}
                 <Text
                   as={"span"}
                   onClick={() => setShowAll(!showAll)}

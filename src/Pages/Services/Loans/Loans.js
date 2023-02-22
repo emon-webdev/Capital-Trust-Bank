@@ -6,7 +6,7 @@ import {
   Grid,
   Select,
   Text,
-  VStack
+  VStack,
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -22,7 +22,7 @@ const Loans = (props) => {
   const loansData = useLoaderData();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [showImg, setShowImg] = useState(false);
+
   const [district, setDistrict] = useState("");
   const handleChange = (event) => {
     setDistrict(event.target.value);
@@ -37,6 +37,8 @@ const Loans = (props) => {
     const city = form.city.value;
     const date = form.date.value;
     const loan = form.loan.value;
+    const pack = form.pack.value;
+    console.log(email, pack, date);
 
     const applicant = {
       name: name,
@@ -44,8 +46,10 @@ const Loans = (props) => {
       phone: phone,
       city: city,
       loan: loan,
+      package: pack,
       date: date,
     };
+    console.log(applicant);
 
     fetch("https://capital-trust-bank-server-ten.vercel.app/applicants", {
       method: "POST",
@@ -157,24 +161,34 @@ const Loans = (props) => {
                   required
                 ></input>
               </FormControl>
-              <FormControl>
+              <FormControl marginY={1}>
                 <Select
                   name="loan"
                   marginY={1}
                   backgroundColor={"white"}
                   placeholder="Select Loan"
+                  required
                 >
                   <option value="Education">Education Loan</option>
                   <option value="Gold">Gold Loan</option>
                   <option value="Marriage">Marriage Loan</option>
                   <option value="Vehicle">Vehicle Loan</option>
                 </Select>
-                {/* <se
-                name="loan"
-                style={{ width: "100%" }}
-                className="border  px-3 rounded"
-                placeholder="Loan"
-              ></se> */}
+              </FormControl>
+              <FormControl marginY={2}>
+                <Select
+                  name="pack"
+                  marginY={1}
+                  backgroundColor={"white"}
+                  placeholder="Select Package"
+                  required
+                >
+                  <option value="$10000-3months">$10000-3 months</option>
+                  <option value="$30000-6months">$30000-6 months</option>
+                  <option value="$50000-6months">$50000-6 months</option>
+                  <option value="$100000-1Year">$100000-1 Year</option>
+                  <option value="$500000-2Years">$500000-2 Years</option>
+                </Select>
               </FormControl>
               <FormControl>
                 <select

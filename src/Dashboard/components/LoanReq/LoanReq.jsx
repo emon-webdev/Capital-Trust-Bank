@@ -25,6 +25,7 @@ const LoanReq = () => {
                 <p className="mt-2 text-gray-500 capitalize"><strong>City:</strong> {customer.city}</p>
                 <p className="mt-2 text-gray-500 capitalize"><strong>Date:</strong> {customer.date}</p>
                 <p className="mt-2 text-gray-500 capitalize"><strong>Loan Type:</strong> {customer.loan}</p>
+                <p className="mt-2 text-gray-500 capitalize"><strong>Package:</strong> {customer.package}</p>
                 <div className="flex gap-3 mt-3 p-3">
                 <button className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]">
                   Accept
