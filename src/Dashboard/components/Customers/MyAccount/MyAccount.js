@@ -23,7 +23,10 @@ export default function MyAccount() {
       `https://capital-trust-bank-server-ten.vercel.app/depositWithdraw/${user?.email}`
     )
       .then((res) => res.json())
-      .then((data) => setTransacData(data));
+      .then((data) => {
+        setTransacData(data);
+        console.log(data);
+      });
   }, []);
 
   const withdrawData = transacData.filter((data) => data.type === "withdraw");
@@ -45,7 +48,7 @@ export default function MyAccount() {
       <div className="md:ml-4 flex flex-col md:flex-col md:align-items-center  md:w-[100%] lg:flex-row">
         <div
           style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
-          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white mb-5 md:mb-0"
+          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white mb-5 lg:mb-0"
         >
           <div className="mr-5">
             <MdOutlineAccountBalanceWallet className="text-4xl text-blue-800" />
@@ -56,13 +59,14 @@ export default function MyAccount() {
               Available Balance
             </div>
             <h2 className="text-3xl font-bold ">
-              $ {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0}
+              $ {approve.availableAmount}
+              {/* $ {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0} */}
             </h2>
           </div>
         </div>
         <div
           style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
-          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-[400px] bg-white"
+          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
         >
           <div className="mr-5">
             {/* <FaDonate className="text-6xl text-[#9c0f55]" /> */}
@@ -106,7 +110,7 @@ export default function MyAccount() {
           <div className="mt-5">
             <Text fontSize={50}>
               <span>$</span>
-              {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0}
+              {approve.availableAmount}
             </Text>
             <Text color={"grey"} fontSize={28} marginTop={10}>
               Available Balance

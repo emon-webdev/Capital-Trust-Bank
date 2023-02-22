@@ -3,7 +3,7 @@ import { Image } from "@chakra-ui/image";
 import { Box, Stack, Text } from "@chakra-ui/layout";
 import { RxArrowTopRight } from "react-icons/rx";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useGetNewsQuery } from "../../features/api/apiSlice";
 
@@ -26,7 +26,7 @@ export default function FeaturedNews() {
             Featured news & Insights
           </Text>
         </div>
-        <div className="blog-card align-content-center justify-items-center grid gap-3  grid-cols-1 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-4 ">
+        <div className="blog-card pt-6 align-content-center justify-items-center grid gap-3  grid-cols-1 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-4 ">
           {newsData?.map((news) => (
             <Card
               marginX={2}

@@ -51,6 +51,7 @@ import FactToKnow from "../Pages/Shared/FactToKnow/FactToKnow";
 import AdminRoute from "../routes/AdminRoute";
 import CustomerRoute from "../routes/CustomerRoute";
 import PrivetRoute from "./PrivateRoute/PrivateRoute";
+import SentMoney from "../Dashboard/components/Customers/SentMoney/SentMoney";
 // import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
@@ -286,6 +287,10 @@ const router = createBrowserRouter([
         element: <MyTransaction />,
         // loader: ({ params }) =>
         //   fetch(`https://capital-trust-bank-server-ten.vercel.app/depositWithdraw/${params.email}`),
+      },
+      {
+        path: "/dashboard/sentMoney",
+        element: <SentMoney />,
       },
       {
         path: "/dashboard/CustomerSupport",
