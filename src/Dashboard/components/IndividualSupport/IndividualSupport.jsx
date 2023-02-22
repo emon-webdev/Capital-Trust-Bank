@@ -5,14 +5,14 @@ import { FaLocationArrow } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 // import io from "socket.io-client";
 import { AuthContext } from "../../../context/AuthProvider";
-// const socket = io("https://capital-trust-bank-server-ten.vercel.app/");
+// const socket = io("*");
+// const socket = io("http://localhost:5000/");
 
 const IndividualSupport = () => {
   const { user, role } = useContext(AuthContext);
   const [messages, setMessages] = useState([]);
   const [allMessages, setAllMessages] = useState([]);
   const [allLoad, setAllLoad] = useState(false);
-  const [refech, setRefech] = useState(false)
   const { state } = useLocation();
   // useEffect(() => {
   //   socket.on("messageTransfer", (message) => {
@@ -25,7 +25,7 @@ const IndividualSupport = () => {
   // }, [messages, user]);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/getChatInfo/${user.email + " " + state.senderEmail
+      `http://localhost:5000/getChatInfo/${user?.email + " " + state.senderEmail
       }`
     )
       .then((res) => res.json())
@@ -33,8 +33,7 @@ const IndividualSupport = () => {
         setAllLoad(true);
         setAllMessages(data);
       });
-  }, [user, refech]);
-
+  }, [user, messages]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -44,9 +43,9 @@ const IndividualSupport = () => {
     }
     else {
       const chatInfo = {
-        senderEmail: user.email,
-        senderImg: user.photoURL,
-        senderName: user.displayName,
+        senderEmail: user?.email,
+        senderImg: user?.photoURL,
+        senderName: user?.displayName,
         receiverEmail: "",
         receiverImg: "",
         receiverName: "",
@@ -57,33 +56,8 @@ const IndividualSupport = () => {
         chatInfo.receiverImg = state.senderImg;
         chatInfo.receiverName = state.senderName;
         // socket.emit("send message", chatInfo);
-        fetch('https://capital-trust-bank-server-ten.vercel.app/post-message', {
-          method: "POST",
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify(chatInfo)
-        })
-          .then(res => res.json())
-          .then(data => { 
-
-            console.log(data) 
-            setRefech(!refech)
-          })
       } else {
         // socket.emit("send message", chatInfo);
-        fetch('https://capital-trust-bank-server-ten.vercel.app/post-message', {
-          method: "POST",
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify(chatInfo)
-        })
-          .then(res => res.json())
-          .then(data => { 
-            console.log(data) 
-            setRefech(!refech)
-          })
       }
       event.target.reset();
     }

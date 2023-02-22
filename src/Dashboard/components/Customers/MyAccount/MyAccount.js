@@ -23,7 +23,10 @@ export default function MyAccount() {
       `https://capital-trust-bank-server-ten.vercel.app/depositWithdraw/${user?.email}`
     )
       .then((res) => res.json())
-      .then((data) => setTransacData(data));
+      .then((data) => {
+        setTransacData(data);
+        console.log(data);
+      });
   }, []);
 
   const withdrawData = transacData.filter((data) => data.type === "withdraw");
@@ -56,7 +59,8 @@ export default function MyAccount() {
               Available Balance
             </div>
             <h2 className="text-3xl font-bold ">
-              $ {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0}
+              $ {approve.availableAmount}
+              {/* $ {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0} */}
             </h2>
           </div>
         </div>
@@ -106,7 +110,7 @@ export default function MyAccount() {
           <div className="mt-5">
             <Text fontSize={50}>
               <span>$</span>
-              {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0}
+              {approve.availableAmount}
             </Text>
             <Text color={"grey"} fontSize={28} marginTop={10}>
               Available Balance
