@@ -14,7 +14,7 @@ const AllDonate = () => {
   const [donates, setDonates] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/donate")
+    fetch(`${process.env.REACT_APP_API_KEY}/donate`)
       .then((res) => res.json())
       .then((data) => {
         setDonates(data);

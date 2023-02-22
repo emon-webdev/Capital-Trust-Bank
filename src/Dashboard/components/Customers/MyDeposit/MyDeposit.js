@@ -1,10 +1,10 @@
 import {
-  Button, Flex,
-  FormControl,
-  FormLabel,
-  Input,
-  Text,
-  VStack
+    Button, Flex,
+    FormControl,
+    FormLabel,
+    Input,
+    Text,
+    VStack
 } from "@chakra-ui/react";
 
 import React, { useContext, useEffect, useState } from "react";
@@ -22,7 +22,7 @@ const MyDeposit = () => {
   const [approve, setApprove] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/approved/${user?.email}`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setApprove(data));
   }, []);
@@ -49,7 +49,7 @@ const MyDeposit = () => {
       date: date,
     };
 
-    fetch("http://localhost:5000/depositWithdraw", {
+    fetch("https://capital-trust-bank-server-ten.vercel.app/depositWithdraw", {
       method: "POST",
       headers: {
         "content-type": "application/json",

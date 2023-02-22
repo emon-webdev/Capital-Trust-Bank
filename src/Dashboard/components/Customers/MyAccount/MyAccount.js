@@ -9,9 +9,9 @@ import { AuthContext } from "../../../../context/AuthProvider";
 export default function MyAccount() {
   const { user } = useContext(AuthContext);
   const [approve, setApprove] = useState([]);
-
+console.log(user)
   useEffect(() => {
-    fetch(`http://localhost:5000/approved/${user?.email}`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setApprove(data));
   }, []);
@@ -20,7 +20,7 @@ export default function MyAccount() {
 
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server.vercel.app/depositWithdraw/${user?.email}`
+      `https://capital-trust-bank-server-ten.vercel.app/depositWithdraw/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setTransacData(data));

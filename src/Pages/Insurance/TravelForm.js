@@ -35,7 +35,7 @@ export default function TravelForm() {
       date: date,
     };
 
-    fetch("http://localhost:5000/insuranceApplicants", {
+    fetch("https://capital-trust-bank-server-ten.vercel.app/insuranceApplicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",

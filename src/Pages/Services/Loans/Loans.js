@@ -47,7 +47,7 @@ const Loans = (props) => {
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server.vercel.app/applicants", {
+    fetch("https://capital-trust-bank-server-ten.vercel.app/applicants", {
       method: "POST",
       headers: {
         "content-type": "application/json",

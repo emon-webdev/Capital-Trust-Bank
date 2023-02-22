@@ -4,6 +4,7 @@ import "../../App.css";
 
 const Banner2Slide = ({ data }) => {
   const { title, img, content, btn, link } = data;
+  console.log(btn, link)
   return (
     <div
       className="slide-wrapper"
