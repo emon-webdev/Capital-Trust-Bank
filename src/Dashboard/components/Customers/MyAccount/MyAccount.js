@@ -1,4 +1,3 @@
-import { Flex, Text } from "@chakra-ui/react";
 import { parseInt } from "lodash";
 import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineMinusSquare } from "react-icons/ai";
@@ -9,9 +8,10 @@ import { AuthContext } from "../../../../context/AuthProvider";
 export default function MyAccount() {
   const { user } = useContext(AuthContext);
   const [approve, setApprove] = useState([]);
-console.log(user)
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`)
+    fetch(
+      `https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setApprove(data));
   }, []);
@@ -23,7 +23,10 @@ console.log(user)
       `https://capital-trust-bank-server-ten.vercel.app/depositWithdraw/${user?.email}`
     )
       .then((res) => res.json())
-      .then((data) => setTransacData(data));
+      .then((data) => {
+        setTransacData(data);
+        console.log(data);
+      });
   }, []);
 
   const withdrawData = transacData.filter((data) => data.type === "withdraw");
@@ -31,7 +34,6 @@ console.log(user)
   const totalWithdraw = withdrawData.reduce((total, withdr) => {
     return total + parseInt(withdr.withdraw);
   }, 0);
-
 
   const depositData = transacData.filter((data) => data.type === "deposit");
   const totalDeposit = depositData.reduce((total, depo) => {
@@ -42,9 +44,46 @@ console.log(user)
     parseInt(approve.initialDeposit) + totalDeposit - totalWithdraw;
 
   return (
-    <div className="container ">
-      <div className="flex flex-col md:flex-col md:align-items-center md:justify-content-center md:w-[100%] lg:flex-row">
-        <Flex
+    <div className="">
+      <div className="md:ml-4 flex flex-col md:flex-col md:align-items-center  md:w-[100%] lg:flex-row">
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white mb-5 lg:mb-0"
+        >
+          <div className="mr-5">
+            <MdOutlineAccountBalanceWallet className="text-4xl text-blue-800" />
+          </div>
+          <div className="">
+            <div className="text-[#808080] text-2xl mb-3">
+              {" "}
+              Available Balance
+            </div>
+            <h2 className="text-3xl font-bold ">
+              $ {approve.availableAmount}
+              {/* $ {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0} */}
+            </h2>
+          </div>
+        </div>
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
+        >
+          <div className="mr-5">
+            {/* <FaDonate className="text-6xl text-[#9c0f55]" /> */}
+            {/* <MdOutlineAccountBalanceWallet className="text-4xl text-blue-800" /> */}
+            <AiOutlineMinusSquare className="text-4xl text-[#9c0f55]" />
+          </div>
+          <div className="">
+            <div className="text-[#808080] text-2xl mb-3">
+              {" "}
+              Withdraw Balance
+            </div>
+            <h2 className="text-3xl font-bold ">
+              $ {totalWithdraw < 0 ? 0 : totalWithdraw}
+            </h2>
+          </div>
+        </div>
+        {/* <Flex
           align={"center"}
           justify="center"
           marginX="5"
@@ -71,15 +110,15 @@ console.log(user)
           <div className="mt-5">
             <Text fontSize={50}>
               <span>$</span>
-              {initialDeposit < 0 ? 0 : initialDeposit ? initialDeposit : 0}
+              {approve.availableAmount}
             </Text>
             <Text color={"grey"} fontSize={28} marginTop={10}>
               Available Balance
             </Text>
           </div>
-        </Flex>
+        </Flex> */}
 
-        <Flex
+        {/* <Flex
           align={"center"}
           justify="center"
           marginX="10"
@@ -112,9 +151,12 @@ console.log(user)
               Withdraw Balance
             </Text>
           </div>
-        </Flex>
+        </Flex> */}
       </div>
-      <div style={{ height: "600px", width: "600px" }} className="mx-10 ">
+      <div
+        //  style={{ height: "600px", width: "600px" }}
+        className="md:mx-8 h-[600px] w-full  md:w-[600px]"
+      >
         <VictoryChart
           animate={{
             duration: 2000,

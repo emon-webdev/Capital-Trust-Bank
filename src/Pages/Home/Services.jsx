@@ -1,19 +1,23 @@
 import { Card, CardBody } from '@chakra-ui/card';
 import { Image } from '@chakra-ui/image';
 import { Stack, Text } from '@chakra-ui/layout';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css';
+import { useGetLoansQuery } from '../../features/api/apiSlice';
+// import {  useGetLoansQuery } from '../../features/apiSlice';
 
 
 const Services = () => {
 
-  const [loans, setLoans] = useState([]);
-  useEffect(() => {
-    fetch('https://capital-trust-bank-server-ten.vercel.app/loans')
-      .then(res => res.json())
-      .then(data => setLoans(data))
-  }, [])
+  // const [loans, setLoans] = useState([]);
+  // useEffect(() => {
+  //   fetch('https://capital-trust-bank-server-ten.vercel.app/loans')
+  //     .then(res => res.json())
+  //     .then(data => setLoans(data))
+  // }, [])
+const {data:loans,isLoading}= useGetLoansQuery();
+
 
   return (
 
@@ -28,7 +32,7 @@ const Services = () => {
         <div
           className="pt-7 align-content-center overflow-hidden justify-items-center mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {
-            loans.map(loan => (
+          loans?.map(loan => (
               <Card key={loan?._id}
                 className='service-container overflow-hidden'
                 sx={{ maxWidth: 724, maxHeight: 536, marginBottom: "30px", borderRadius: "6px" }}>

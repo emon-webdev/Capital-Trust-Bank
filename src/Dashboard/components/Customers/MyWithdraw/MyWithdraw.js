@@ -1,11 +1,11 @@
 import {
-    Button,
-    Flex,
-    FormControl,
-    FormLabel,
-    Input,
-    Text,
-    VStack
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  Text,
+  VStack
 } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import ReactDatePicker from "react-datepicker";
@@ -21,7 +21,9 @@ const MyWithdraw = () => {
   const [approve, setApprove] = useState([]);
 
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`)
+    fetch(
+      `https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setApprove(data));
   }, []);
@@ -46,25 +48,24 @@ const MyWithdraw = () => {
       time: time,
       date: date,
     };
-
-    fetch("https://capital-trust-bank-server-ten.vercel.app/depositWithdraw", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(appellant),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
+    if (amount <= parseFloat(approve.availableAmount)) {
+      fetch("http://localhost:5000/depositWithdraw", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(appellant),
+      })
+        .then((res) => res.json())
+        .then((data) => {
           toast.success("withdraw Successlly Done");
           form.reset();
-        } else {
-          toast.error(data.message);
-        }
-      });
-    setWithdarw(withdraw + parseInt(amount));
-    setDeposit(deposit - parseInt(amount));
+          setWithdarw(withdraw + parseInt(amount));
+          setDeposit(deposit - parseInt(amount));
+        });
+    } else {
+      toast.error(`You don't have enough balance`);
+    }
   };
 
   return (

@@ -1,10 +1,7 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import sideimg from "../../assets/loanCalculator/emi-calculator.jpg";
 import "./LoanCalculator.css";
-AOS.init();
 
 class LoanCalculator extends React.Component {
   constructor() {
@@ -51,7 +48,7 @@ class LoanCalculator extends React.Component {
               EMI Online Calculator
             </h1>
           </div>
-          <div className="md:flex justify-center">
+          <div className="md:flex pt-6 justify-center">
             <div className="basis-full emi-img md:basis-[30%]">
               <img className="img" src={sideimg} alt="" />
             </div>
