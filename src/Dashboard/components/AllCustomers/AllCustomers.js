@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../../../App.css";
+import useTitle from "../../../hooks/useTitle/useTitle";
 
 const AllCustomers = () => {
+  useTitle("AllCustomers")
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/allCustomers")

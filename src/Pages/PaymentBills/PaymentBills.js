@@ -6,11 +6,13 @@ import icon2 from "../.././assets/PaymentBills/icon-2.png";
 import icon3 from "../.././assets/PaymentBills/icon-3.png";
 import logo from "../.././assets/PaymentBills/logo.png";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle/useTitle";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import PaymentBillsModal from "./PaymentBillsModal";
 import PaymentBillsSlider from "./PaymentBillsSlider";
 
 const PaymentBills = () => {
+  useTitle("PaymentBills")
   const { user } = useContext(AuthContext);
   const [name, setName] = useState("Payment Bills");
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;

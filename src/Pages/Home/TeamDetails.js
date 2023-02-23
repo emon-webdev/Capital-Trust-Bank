@@ -3,9 +3,11 @@ import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
 import { VscStarFull, VscStarHalf } from "react-icons/vsc";
 import { useLoaderData } from "react-router-dom";
 import "../../App.css";
+import useTitle from "../../hooks/useTitle/useTitle";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 const TeamDetails = () => {
+  useTitle("TeamDetails")
   const teamDetails = useLoaderData();
   const { name: name2, email, social, image, designation, details } = teamDetails;
   const [name, setName] = useState("Team Details");

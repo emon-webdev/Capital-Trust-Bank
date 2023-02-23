@@ -49,13 +49,16 @@ const MyWithdraw = () => {
       date: date,
     };
     if (amount <= parseFloat(approve.availableAmount)) {
-      fetch("https://capital-trust-bank-server-ten.vercel.appdepositWithdraw", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(appellant),
-      })
+      fetch(
+        "https://capital-trust-bank-server-ten.vercel.app/depositWithdraw",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(appellant),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           toast.success("withdraw Successlly Done");

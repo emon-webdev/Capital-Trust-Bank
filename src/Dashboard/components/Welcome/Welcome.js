@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../context/AuthProvider';
+import useTitle from '../../../hooks/useTitle/useTitle';
 
 const Welcome = () => {
+  useTitle("Welcome")
     const [approve, setApprove] = useState(false);
   const {user,role} = useContext(AuthContext)
   useEffect(() => {

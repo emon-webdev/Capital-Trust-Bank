@@ -1,7 +1,8 @@
 import { Card, CardBody } from '@chakra-ui/card';
 import { Image } from '@chakra-ui/image';
 import { Stack, Text } from '@chakra-ui/layout';
-import React from 'react';
+import { default as React } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import '../../App.css';
 import { useGetLoansQuery } from '../../features/api/apiSlice';
@@ -16,7 +17,9 @@ const Services = () => {
   //     .then(res => res.json())
   //     .then(data => setLoans(data))
   // }, [])
-const {data:loans,isLoading}= useGetLoansQuery();
+  const { data: loans, isLoading } = useGetLoansQuery();
+
+  const { t } = useTranslation()
 
 
   return (
@@ -24,15 +27,15 @@ const {data:loans,isLoading}= useGetLoansQuery();
     <div className="services-area py-12">
       <div className="container">
         <div className="section-title w-full md:w-[650px] mx-auto text-center">
-          <h5 className="text-[#DF0303] text-xl text-md mb-3">-- Best Services --</h5>
+          <h5 className="text-[#DF0303] text-xl text-md mb-3">-- {t("Best_Services_title")} --</h5>
           <h1 className="text-[#010C3A] md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">
-            We provide best services for your loans
+            {t("Best_Services_title_pg")}
           </h1>
         </div>
         <div
           className="pt-7 align-content-center overflow-hidden justify-items-center mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {
-          loans?.map(loan => (
+            loans?.map(loan => (
               <Card key={loan?._id}
                 className='service-container overflow-hidden'
                 sx={{ maxWidth: 724, maxHeight: 536, marginBottom: "30px", borderRadius: "6px" }}>

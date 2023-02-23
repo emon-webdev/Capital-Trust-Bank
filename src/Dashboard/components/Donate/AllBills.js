@@ -9,7 +9,9 @@ import {
 } from "@chakra-ui/table";
 import React, { useEffect, useState } from "react";
 import { FaDonate } from "react-icons/fa";
+import useTitle from "../../../hooks/useTitle/useTitle";
 const AllBills = () => {
+  useTitle("AllBills")
   const [bills, setBills] = useState([]);
   // const searchRef = useRef();
   // const [searchData, setSearchData] = useState("");

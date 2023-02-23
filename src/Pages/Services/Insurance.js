@@ -13,11 +13,13 @@ import { toast } from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import appli from "../../assets/Services(Home)/E-Wallet-amico.png";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle/useTitle";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import FactToKnow from "../Shared/FactToKnow/FactToKnow";
 import { districts } from "./districtData";
 
 const Insurance = () => {
+  useTitle("Insurance")
   const [name, setName] = useState("Insurance");
   const insuranceData = useLoaderData();
   const { user } = useContext(AuthContext);

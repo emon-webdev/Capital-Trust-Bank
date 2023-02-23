@@ -1,17 +1,11 @@
-import {
-  Card,
-  CardBody,
-  Heading,
-  Image,
-  Stack,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { Card, CardBody, Heading, Image, Text, VStack } from "@chakra-ui/react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle/useTitle";
 // import {useGetBlogQuery } from "../../features/api/apiSlice";
 
 const DetailsNews = (props) => {
+  useTitle("DetailsNews");
   const [showAll, setShowAll] = useState(false);
   const blog = useLoaderData();
   // const { data: blog } = useGetBlogQuery();

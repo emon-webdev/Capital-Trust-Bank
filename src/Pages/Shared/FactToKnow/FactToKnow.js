@@ -1,8 +1,10 @@
 import React from "react";
 import mainLogo from "../../../assets/factToKnow/main.png";
+import useTitle from "../../../hooks/useTitle/useTitle";
 import "./FactToKnow.css";
 
 function FactToKnow() {
+  useTitle("FactToKnow")
   return (
     <div className="main-factToKnow py-8">
       <div className="container md:flex items-center justify-evenly">
@@ -19,11 +21,11 @@ function FactToKnow() {
             Business is the activity of making one's living or making money by
             producing or buying and selling products
           </p>
-          <div className="mt-3">
-            <button className="primary-btn ">Open An Account</button>
+          <div className="my-3">
+            <button className="fact-btn">Open An Account</button>
           </div>
         </div>
-        <div>
+        <div className="fact-img">
           <img src={mainLogo} alt="" />
         </div>
       </div>

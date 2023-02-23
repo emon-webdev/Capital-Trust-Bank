@@ -13,10 +13,12 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Spinner from "../../component/Spinner/Spinner";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle/useTitle";
 import setLoginToken from "../../hooks/UseToken/LoginToken";
 import setAuthToken from "../../hooks/UseToken/UseToken";
 
 const Login = () => {
+  useTitle("Login")
   const { signInWithEmail, forgetPassword, signInWithGoogle, logOut } =
     useContext(AuthContext);
   const {

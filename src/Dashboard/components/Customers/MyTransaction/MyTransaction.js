@@ -12,8 +12,10 @@ import {
 import React, { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../../../../context/AuthProvider";
+import useTitle from "../../../../hooks/useTitle/useTitle";
 
 export default function MyTransaction() {
+  useTitle("MyTransaction")
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { user } = useContext(AuthContext);

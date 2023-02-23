@@ -10,8 +10,10 @@ import {
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import "../../../App.css";
+import useTitle from "../../../hooks/useTitle/useTitle";
 
 const CreditCardReq = () => {
+  useTitle("CreditCardReq")
   const [customers, setCustomers] = useState([]);
   const [reFetch, setReFetch] = useState(false);
   useEffect(() => {

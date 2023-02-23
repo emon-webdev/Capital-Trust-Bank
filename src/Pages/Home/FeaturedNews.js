@@ -3,27 +3,28 @@ import { Image } from "@chakra-ui/image";
 import { Box, Stack, Text } from "@chakra-ui/layout";
 import { RxArrowTopRight } from "react-icons/rx";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useGetNewsQuery } from "../../features/api/apiSlice";
 
 export default function FeaturedNews() {
-  // const [newsData, setNewsData] = useState();
-  // useEffect(() => {
-  //   fetch("https://capital-trust-bank-server-ten.vercel.app/blogsNews")
-  //     .then((res) => res.json())
-  //     .then((data) => setNewsData(data));
-  // }, []);
-  const { data: newsData } = useGetNewsQuery();
+  const { t } = useTranslation();
+  const [newsData, setNewsData] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/blogsNews")
+      .then((res) => res.json())
+      .then((data) => setNewsData(data));
+  }, []);
+
   return (
     <div className="features-area py-20">
       <div className="container">
         <div className="section-title w-full md:w-[650px] mx-auto text-center">
           <Text className="text-[#DF0303] text-xl text-md mb-3">
-            -- Blog & News --
+            -- {t("Blog_&_News")} --
           </Text>
           <Text className="text-[#010C3A] md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">
-            Featured news & Insights
+            {t("Blog_&_News_sb_tlt")}
           </Text>
         </div>
         <div className="blog-card pt-6 align-content-center justify-items-center grid gap-3  grid-cols-1 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-4 ">

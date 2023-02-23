@@ -9,9 +9,11 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle/useTitle";
 import DynamicBanner from "../../Shared/DynamicBanner/DynamicBanner";
 
 const LoanDetails = (props) => {
+  useTitle("LoanDetails")
   const data = useLoaderData();
   const [name, setName] = useState("Loans");
   return (

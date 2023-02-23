@@ -9,8 +9,10 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle/useTitle";
 
 const VerificationReq = () => {
+  useTitle("VerificationReq")
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
     fetch(`https://capital-trust-bank-server-ten.vercel.app/bankAccounts`)
