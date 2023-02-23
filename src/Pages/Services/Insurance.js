@@ -6,7 +6,7 @@ import {
   Grid,
   Select,
   Text,
-  VStack
+  VStack,
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -22,7 +22,6 @@ const Insurance = () => {
   const insuranceData = useLoaderData();
   const { user } = useContext(AuthContext);
 
-
   const [district, setDistrict] = useState("");
   const handleChange = (event) => {
     setDistrict(event.target.value);
@@ -33,6 +32,7 @@ const Insurance = () => {
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
+    const city = form.city.value;
     const phone = form.phone.value;
     const date = form.date.value;
     const insurance = form.insurance.value;
@@ -41,17 +41,21 @@ const Insurance = () => {
       name: name,
       email: email,
       phone: phone,
+      city: city,
       insurance: insurance,
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server-ten.vercel.app/insuranceApplicants", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(applicant),
-    })
+    fetch(
+      "https://capital-trust-bank-server-ten.vercel.app/insuranceApplicants",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(applicant),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
@@ -161,9 +165,9 @@ const Insurance = () => {
                   backgroundColor={"white"}
                   placeholder="Select Insurance"
                 >
-                  <option value="Education">Health Insurance</option>
-                  <option value="Gold">Business Insurance</option>
-                  <option value="Marriage">Travel Insurance</option>
+                  <option value="Health Insurance">Health Insurance</option>
+                  <option value="Business Insurance">Business Insurance</option>
+                  <option value="Travel Insurance">Travel Insurance</option>
                 </Select>
                 {/* <se
             name="loan"

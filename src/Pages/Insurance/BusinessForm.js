@@ -20,25 +20,30 @@ export default function BusinessForm() {
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
+    const city = form.city.value;
     const phone = form.phone.value;
     const date = form.date.value;
     const insurance = form.insurance.value;
-   
+
     const applicant = {
       name: name,
       email: email,
       phone: phone,
+      city: city,
       insurance: insurance,
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server-ten.vercel.app/insuranceApplicants", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(applicant),
-    })
+    fetch(
+      "https://capital-trust-bank-server-ten.vercel.app/insuranceApplicants",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(applicant),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {

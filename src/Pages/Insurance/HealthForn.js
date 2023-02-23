@@ -23,26 +23,30 @@ export default function HealthForm() {
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
+    const city = form.city.value;
     const phone = form.phone.value;
-
     const date = form.date.value;
     const insurance = form.insurance.value;
-  
+
     const applicant = {
       name: name,
       email: email,
       phone: phone,
+      city: city,
       insurance: insurance,
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server-ten.vercel.app/insuranceApplicants", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(applicant),
-    })
+    fetch(
+      "https://capital-trust-bank-server-ten.vercel.app/insuranceApplicants",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(applicant),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
@@ -86,79 +90,80 @@ export default function HealthForm() {
                 }}
                 className="py-10 px-7 sm:align-content-center sm:justify-items-center"
               >
-                  <FormControl>
-                    <input
-                      name="name"
-                      className="border px-3 rounded "
-                      style={{ width: "100%" }}
-                      placeholder="Your Name"
-                      required
-                      defaultValue={user?.displayName}
-                    ></input>
-                  </FormControl>
-                  <FormControl>
-                    <input
-                      name="email"
-                      style={{ width: "100%" }}
-                      className="border  px-3 rounded"
-                      placeholder="Email"
-                      required
-                      defaultValue={user?.email}
-                    ></input>
-                  </FormControl>
-                  <FormControl>
-                    <input
-                      name="phone"
-                      style={{ width: "100%" }}
-                      className="border  px-3  rounded"
-                      placeholder="Phone"
-                      required
-                    ></input>
-                  </FormControl>
-                  <FormControl>
-                    <input
-                      name="insurance"
-                      style={{ width: "100%" }}
-                      className="border  px-3 rounded"
-                      defaultValue="Health Insurance"
-                    ></input>
-                  </FormControl>
-                  <FormControl>
-                <select
-                  name="city"
-                  style={{ width: "100%" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border  px-3 rounded"
-                  placeholder="City"
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </FormControl>
-                  <FormControl>
-                    <input
-                       name="date" type='date'
-                      style={{ width: "100%" }}
-                      className="border  px-3 rounded"
-                      placeholder="dd/mm/yy"
-                      required
-                    ></input>
-                  </FormControl>
+                <FormControl>
+                  <input
+                    name="name"
+                    className="border px-3 rounded "
+                    style={{ width: "100%" }}
+                    placeholder="Your Name"
+                    required
+                    defaultValue={user?.displayName}
+                  ></input>
+                </FormControl>
+                <FormControl>
+                  <input
+                    name="email"
+                    style={{ width: "100%" }}
+                    className="border  px-3 rounded"
+                    placeholder="Email"
+                    required
+                    defaultValue={user?.email}
+                  ></input>
+                </FormControl>
+                <FormControl>
+                  <input
+                    name="phone"
+                    style={{ width: "100%" }}
+                    className="border  px-3  rounded"
+                    placeholder="Phone"
+                    required
+                  ></input>
+                </FormControl>
+                <FormControl>
+                  <input
+                    name="insurance"
+                    style={{ width: "100%" }}
+                    className="border  px-3 rounded"
+                    defaultValue="Health Insurance"
+                  ></input>
+                </FormControl>
+                <FormControl>
+                  <select
+                    name="city"
+                    style={{ width: "100%" }}
+                    value={district}
+                    onChange={handleChange}
+                    label="city"
+                    className="border  px-3 rounded"
+                    placeholder="City"
+                  >
+                    {districts.map((dis) => (
+                      <option key={dis} value={dis}>
+                        {dis}
+                      </option>
+                    ))}
+                  </select>
+                </FormControl>
+                <FormControl>
+                  <input
+                    name="date"
+                    type="date"
+                    style={{ width: "100%" }}
+                    className="border  px-3 rounded"
+                    placeholder="dd/mm/yy"
+                    required
+                  ></input>
+                </FormControl>
 
-                  <FormControl>
-                    <button
-                      style={{ width: "100%" }}
-                      className="primary-btn mt-2 "
-                      type="submit"
-                    >
-                      Apply
-                    </button>
-                  </FormControl>
+                <FormControl>
+                  <button
+                    style={{ width: "100%" }}
+                    className="primary-btn mt-2 "
+                    type="submit"
+                  >
+                    Apply
+                  </button>
+                </FormControl>
               </form>
             </TabPanel>
             <TabPanel className="animate__animated animate__slideInUp">
@@ -215,25 +220,26 @@ export default function HealthForm() {
                     ></input>
                   </FormControl>
                   <FormControl>
-                <select
-                  name="city"
-                  style={{ width: "100%" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border  px-3 rounded"
-                  placeholder="City"
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </FormControl>
+                    <select
+                      name="city"
+                      style={{ width: "100%" }}
+                      value={district}
+                      onChange={handleChange}
+                      label="city"
+                      className="border  px-3 rounded"
+                      placeholder="City"
+                    >
+                      {districts.map((dis) => (
+                        <option key={dis} value={dis}>
+                          {dis}
+                        </option>
+                      ))}
+                    </select>
+                  </FormControl>
                   <FormControl>
                     <input
-                       name="date" type='date'
+                      name="date"
+                      type="date"
                       style={{ width: "100%" }}
                       className="border  px-3 rounded"
                       placeholder="dd/mm/yy"
@@ -307,25 +313,26 @@ export default function HealthForm() {
                     ></input>
                   </FormControl>
                   <FormControl>
-                <select
-                  name="city"
-                  style={{ width: "100%" }}
-                  value={district}
-                  onChange={handleChange}
-                  label="city"
-                  className="border  px-3 rounded"
-                  placeholder="City"
-                >
-                  {districts.map((dis) => (
-                    <option key={dis} value={dis}>
-                      {dis}
-                    </option>
-                  ))}
-                </select>
-              </FormControl>
+                    <select
+                      name="city"
+                      style={{ width: "100%" }}
+                      value={district}
+                      onChange={handleChange}
+                      label="city"
+                      className="border  px-3 rounded"
+                      placeholder="City"
+                    >
+                      {districts.map((dis) => (
+                        <option key={dis} value={dis}>
+                          {dis}
+                        </option>
+                      ))}
+                    </select>
+                  </FormControl>
                   <FormControl>
                     <input
-                       name="date" type='date'
+                      name="date"
+                      type="date"
                       style={{ width: "100%" }}
                       className="border  px-3 rounded"
                       placeholder="dd/mm/yy"
@@ -347,7 +354,7 @@ export default function HealthForm() {
             </TabPanel>
           </TabPanels>
         </Tabs>
-        </Box>
+      </Box>
     </div>
   );
 }
