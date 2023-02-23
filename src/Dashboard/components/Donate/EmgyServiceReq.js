@@ -20,7 +20,6 @@ const EmgyServiceReq = () => {
     fetch(`https://capital-trust-bank-server-ten.vercel.app/emgyServiceReceiver`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCustomers(data);
       });
   }, [reFetch]);

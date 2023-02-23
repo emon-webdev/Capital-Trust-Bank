@@ -10,11 +10,13 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import logo from "../../assets/faq/faqImage.png";
+import useTitle from "../../hooks/useTitle/useTitle";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import FactToKnow from "../Shared/FactToKnow/FactToKnow";
 import "./FaqPage.css";
 
 const FaqPage = () => {
+  useTitle("FaqPage")
   const { t } = useTranslation();
   return (
     <div>

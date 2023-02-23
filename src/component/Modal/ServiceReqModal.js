@@ -22,16 +22,14 @@ const ServiceReqModal = ({ slidersContents, onClose, isOpen }) => {
   const [applierEmail, setApplierEmail] = useState({});
 
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`)
+    fetch(
+      `https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data);
       });
   }, []);
-
-  // console.log(slidersContents?.map((single) => console.log(single?.name)));
-
-  console.log(applierEmail?.accountId);
 
   // apply for credit card
   const handleServiceReq = (data) => {
@@ -40,7 +38,6 @@ const ServiceReqModal = ({ slidersContents, onClose, isOpen }) => {
     const serviceName = data.serviceReq;
     const accountId = data.accountId;
 
-    console.log(accountId, applierEmail?.accountId);
 
     if (applierEmail.accountId === accountId) {
       const ServiceReceiver = {
@@ -49,14 +46,16 @@ const ServiceReqModal = ({ slidersContents, onClose, isOpen }) => {
         serviceName,
         accountId,
       };
-      console.log(ServiceReceiver);
-      fetch(`https://capital-trust-bank-server-ten.vercel.app/emgyServiceReceiver`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(ServiceReceiver),
-      })
+      fetch(
+        `https://capital-trust-bank-server-ten.vercel.app/emgyServiceReceiver`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(ServiceReceiver),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {

@@ -79,3 +79,14 @@
     gap: 10px;
   }
 }
+
+.f-form-icon-parent{
+position: relative;
+}
+
+.f-form-icon{
+  position: absolute;
+  right: 112px;
+ font-size: 23px;
+  color: #df0303;
+}

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import aboutGroupImg from "../../assets/aboutUs/aboutGroupImg.png";
+import useTitle from "../../hooks/useTitle/useTitle";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import FactToKnow from "../Shared/FactToKnow/FactToKnow";
 import "./About.css";
 
 const About = () => {
+  useTitle("About")
   const [name, setName] = useState("About Us");
   return (
     <div>

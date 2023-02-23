@@ -4,8 +4,10 @@ import { AiOutlineMinusSquare } from "react-icons/ai";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 import { AuthContext } from "../../../../context/AuthProvider";
+import useTitle from "../../../../hooks/useTitle/useTitle";
 
 export default function MyAccount() {
+  useTitle("MyAccount");
   const { user } = useContext(AuthContext);
   const [approve, setApprove] = useState([]);
   useEffect(() => {
@@ -25,7 +27,6 @@ export default function MyAccount() {
       .then((res) => res.json())
       .then((data) => {
         setTransacData(data);
-        console.log(data);
       });
   }, []);
 
@@ -48,13 +49,17 @@ export default function MyAccount() {
       <div className="md:ml-4 flex flex-col md:flex-col md:align-items-center  md:w-[100%] lg:flex-row">
         <div
           style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
-          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white mb-5 lg:mb-0"
+          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[140px] md:w-96 bg-white mb-5 lg:mb-0"
         >
           <div className="mr-5">
             <MdOutlineAccountBalanceWallet className="text-4xl text-blue-800" />
           </div>
           <div className="">
-            <div className="text-[#808080] text-2xl mb-3">
+            <span className="text-[#808080] text-lg">
+              {" "}
+              Monthly Cost <span className="text-[#DF0303]"> 1 %</span>
+            </span>
+            <div className="text-[#808080] text-2xl mb-1">
               {" "}
               Available Balance
             </div>
@@ -66,7 +71,7 @@ export default function MyAccount() {
         </div>
         <div
           style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
-          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
+          className="donate-card md:mr-4 flex flex-wrap items-center gap-2 py-5 rounded-md px-5 w-full h-[140px] md:w-96 bg-white"
         >
           <div className="mr-5">
             {/* <FaDonate className="text-6xl text-[#9c0f55]" /> */}

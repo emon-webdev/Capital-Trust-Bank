@@ -41,6 +41,8 @@ import PaySuccess from "../Pages/PaymentBills/PaySuccess";
 import LoanDetails from "../Pages/Services/Loans/LoanDetails";
 import Loans from "../Pages/Services/Loans/Loans";
 
+import SentMoney from "../Dashboard/components/Customers/SentMoney/SentMoney";
+import TotalLoan from "../Dashboard/components/Customers/TotalLoan/TotalLoan";
 import EmgyServiceReq from "../Dashboard/components/Donate/EmgyServiceReq";
 import GetEmgyService from "../Dashboard/components/Donate/GetEmgyService";
 import InsuranceRequest from "../Dashboard/components/InsuranceRequest/InsuranceRequest";
@@ -51,7 +53,6 @@ import FactToKnow from "../Pages/Shared/FactToKnow/FactToKnow";
 import AdminRoute from "../routes/AdminRoute";
 import CustomerRoute from "../routes/CustomerRoute";
 import PrivetRoute from "./PrivateRoute/PrivateRoute";
-import SentMoney from "../Dashboard/components/Customers/SentMoney/SentMoney";
 // import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
@@ -295,6 +296,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/CustomerSupport",
         element: <CustomerSupport />,
+      },
+      {
+        path: "/dashboard/loanDetails",
+        element: <TotalLoan />,
       },
       {
         path: "/dashboard/my-withdraw",

@@ -72,7 +72,9 @@ ul.navbar__nav > li:last-child {
 /* .customer-info p {
   color: #fff !important;
 } */
-
+.dashboard-wrapper {
+  height: 100vh;
+}
 .email-field {
   width: 100% !important;
 }
@@ -123,7 +125,9 @@ ul.submenu li {
 ul.submenu li:last-child {
   border: 0;
 }
-
+.lg\:ml-\[230px\].h-\[100\%\].h-screen.w-full.md\:ml-0.z-0.px-5.pt-10.bg-\[\#F3F3FE\] {
+  height: 100vh;
+}
 ul.submenu li a {
   color: #fff;
   /* position: relative; */

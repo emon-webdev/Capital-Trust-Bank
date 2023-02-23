@@ -14,12 +14,14 @@ import "react-phone-input-2/lib/style.css";
 import { NavLink, useNavigate } from "react-router-dom";
 // import io from "socket.io-client";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle/useTitle";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 // const socket = io("https://capital-trust-bank-server-ten.vercel.app/");
 // import io from "socket.io-client";
 // const socket = io("*");
-// const socket = io("http://localhost:5000/");
+// const socket = io("https://capital-trust-bank-server-ten.vercel.app");
 const AccountOpenFrom = () => {
+  useTitle("AccountOpenFrom")
   const {
     register,
     reset,

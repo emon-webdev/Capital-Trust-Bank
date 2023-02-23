@@ -17,7 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
 // import io from "socket.io-client";
 import { AuthContext } from "../../../context/AuthProvider";
 // const socket = io("*");
-// const socket = io("http://localhost:5000/");
+// const socket = io("https://capital-trust-bank-server-ten.vercel.app");
 
 const DashboardNavbar = () => {
   const { user, logOut, openSideNav, handleSideNave, role } =

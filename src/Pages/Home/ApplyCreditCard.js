@@ -1,6 +1,7 @@
 import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalOverlay } from "@chakra-ui/modal";
-import React, { useContext } from "react";
+import { default as React, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import creditCardImg from "../../assets/apply-loan/credit-card-img.png";
@@ -8,6 +9,7 @@ import CreditCardModal from "../../component/Modal/CreditCardModal";
 import { AuthContext } from "../../context/AuthProvider";
 
 const ApplyCreditCard = () => {
+  const { t } = useTranslation();
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.400" />;
   const { user } = useContext(AuthContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -22,41 +24,35 @@ const ApplyCreditCard = () => {
           </div>
           <div className="credit-card-content animate__animated animate__backInRight basis-3/5 bg-white dot-shape">
             <h3 className="text-[#DF0303] bg-white text-xl text-md mb-3">
-              -- Apply for Credit Card --
+              -- {t("Apply_for_Credit_Card")} --
             </h3>
             <h2 className="text-[#010C3A] bg-white text-3xl md:text-4xl font-bold mb-3">
-              We provide Credit card for user experience.
+              {t("Apply_for_Credit_Card_sb_tlt")}
             </h2>
-            <p className="py-3 bg-white">
-              While you’ll always need some cash, using a credit card for your
-              spending needs can significantly simplify overseas travel.
+            <p className="py-3 bg-white">{t("Apply_for_Credit_Card_pg")}</p>
+            <p className="flex font-semibold text-[#010C3A] mb-2 ">
+              <span className="">
+                <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
+              </span>
+              <span>{t("Apply_for_Credit_Card_L1")}</span>
             </p>
             <p className="flex font-semibold text-[#010C3A] mb-2 ">
               <span className="">
                 <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
               </span>
-              <span>Avoid Dynamic Currency Conversion</span>
+              <span>{t("Apply_for_Credit_Card_L2")}</span>
             </p>
             <p className="flex font-semibold text-[#010C3A] mb-2 ">
               <span className="">
                 <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
               </span>
-              <span>Call Your Credit Card Issuer Before Leaving</span>
+              <span>{t("Apply_for_Credit_Card_L3")}</span>
             </p>
             <p className="flex font-semibold text-[#010C3A] mb-2 ">
               <span className="">
                 <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
               </span>
-              <span>Use a Credit Card with No Foreign Transaction Fee</span>
-            </p>
-            <p className="flex font-semibold text-[#010C3A] mb-2 ">
-              <span className="">
-                <AiOutlineCheckCircle className=" text-[#DF0303] font-bold text-[24px] p-[2px] rounded-md mr-1" />
-              </span>
-              <span>
-                If a credit card is stolen, it can be suspended and replaced in
-                short order.
-              </span>
+              <span>{t("Apply_for_Credit_Card_L4")}</span>
             </p>
             {/* {idError ? (
               <p className="text-red-600 text-sm mb-0">

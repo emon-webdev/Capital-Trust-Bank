@@ -6,18 +6,20 @@ import {
   Grid,
   Select,
   Text,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import application from "../../../assets/Services(Home)/E-Wallet-amico.png";
 import { AuthContext } from "../../../context/AuthProvider";
+import useTitle from "../../../hooks/useTitle/useTitle";
 import DynamicBanner from "../../Shared/DynamicBanner/DynamicBanner";
 import FactToKnow from "../../Shared/FactToKnow/FactToKnow";
 import { districts } from "../districtData";
 
 const Loans = (props) => {
+  useTitle("Loans")
   const [name, setName] = useState("Loans");
   const loansData = useLoaderData();
   const { user } = useContext(AuthContext);

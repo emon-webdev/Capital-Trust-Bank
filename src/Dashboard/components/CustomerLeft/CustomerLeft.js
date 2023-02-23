@@ -14,7 +14,9 @@ const CustomerLeft = () => {
   const [approve, setApprove] = useState(false);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/bankAccounts/${user?.email}`)
+    fetch(
+      `https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.approve) {
@@ -98,6 +100,19 @@ const CustomerLeft = () => {
               </span>
               <span className="text-white ml-[10px]">Withdraw</span>
             </NavLink>
+            <NavLink
+              to="/dashboard/getEmgyService"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-l-2 bg-[#DF0303] link flex dath items-center px-[20px] py-[15px]"
+                  : "flex px-[20px] dath link py-[15px]"
+              }
+            >
+              <span>
+                <GiReceiveMoney />
+              </span>
+              <span className="text-white ml-[10px]">Get Emgy Service</span>
+            </NavLink>
 
             <NavLink
               to="/dashboard/deviceActivity"
@@ -118,7 +133,7 @@ const CustomerLeft = () => {
               className={({ isActive }) =>
                 isActive
                   ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
-                  : "flex px-[20px] link py-[15px]"
+                  : "flex px-[20px] items-center link py-[15px]"
               }
             >
               <span className="text-white">
@@ -132,17 +147,31 @@ const CustomerLeft = () => {
               className={({ isActive }) =>
                 isActive
                   ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
-                  : "flex px-[20px] link py-[15px]"
+                  : "flex px-[20px] link items-center py-[15px]"
               }
             >
               <span className="text-white">
                 <SlPresent />
               </span>
-              <span className="text-white ml-[10px]">Sent money</span>
+              <span className="text-white ml-[10px]">Sent Money</span>
             </NavLink>
 
             <NavLink
               to="/dashboard/takeCard"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
+                  : "flex px-[20px] link items-center py-[15px]"
+              }
+            >
+              <span>
+                <AiOutlineIdcard />
+              </span>
+              <span className="text-white ml-[10px]">Take Card</span>
+            </NavLink>
+
+            <NavLink
+              to="/dashboard/loanDetails"
               className={({ isActive }) =>
                 isActive
                   ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
@@ -152,7 +181,7 @@ const CustomerLeft = () => {
               <span>
                 <AiOutlineIdcard />
               </span>
-              <span className="text-white ml-[10px]">Take Card</span>
+              <span className="text-white ml-[10px]">Loan Details</span>
             </NavLink>
           </div>
         )}

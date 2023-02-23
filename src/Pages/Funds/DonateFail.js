@@ -1,7 +1,9 @@
 import React from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
+import useTitle from "../../hooks/useTitle/useTitle";
 const DonateFail = () => {
+  useTitle("DonateFail")
   const navigate = useNavigate();
   return (
     <div className=" bg-[#F3F3FE]">

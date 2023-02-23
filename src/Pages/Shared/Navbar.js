@@ -124,7 +124,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <NavLink to="/loansServices" className="">
-                    Loans
+                    {t("Loans")}
                   </NavLink>
                 </li>
                 <li>
@@ -173,17 +173,17 @@ const Navbar = () => {
               <ul className="submenu">
                 <li>
                   <NavLink to="/accountOpenFrom" className="">
-                    Open an Account
+                    {t("Open_an_Account")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/faq" className="">
-                    Faq
+                    {t("Faq")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/404" className="">
-                    404
+                    {t("404")}
                   </NavLink>
                 </li>
               </ul>

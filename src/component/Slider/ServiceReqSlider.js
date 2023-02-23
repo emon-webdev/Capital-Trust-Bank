@@ -18,14 +18,17 @@ const ServiceReqSlider = () => {
   const [slidersNav, setSlidersNav] = useState([]);
   const [slidersContents, setSlidersContents] = useState([]);
   /* slider data fetch */
+
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_KEY}/emergencyServices`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/emergencyServices`)
       .then((res) => res.json())
       .then((data) => {
         setSlidersNav(data[0].sliderNav);
         setSlidersContents(data[0].sliderContent);
       });
   }, []);
+
+
   let settings = {
     infinite: true,
     speed: 500,
