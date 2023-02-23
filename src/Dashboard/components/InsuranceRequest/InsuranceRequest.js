@@ -2,14 +2,6 @@ import React from "react";
 import { useGetInsuranceApplicantsQuery } from "../../../features/api/apiSlice";
 
 const InsuranceRequest = () => {
-  //   const [customers, setCustomers] = useState([]);
-  //   useEffect(() => {
-  //     fetch(`https://capital-trust-bank-server-ten.vercel.app/insuranceApplicants`)
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setCustomers(data);
-  //       });
-  //   }, []);
   const { data: customers } = useGetInsuranceApplicantsQuery();
   return (
     <div className="my-2">
