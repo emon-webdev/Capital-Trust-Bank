@@ -1,4 +1,3 @@
-import { Button, Input } from "@chakra-ui/react";
 import {
   Table,
   TableContainer,
@@ -8,24 +7,24 @@ import {
   Thead,
   Tr
 } from "@chakra-ui/table";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaDonate } from "react-icons/fa";
 const AllBills = () => {
   const [bills, setBills] = useState([]);
-  const searchRef = useRef();
-  const [searchData, setSearchData] = useState("");
+  // const searchRef = useRef();
+  // const [searchData, setSearchData] = useState("");
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_KEY}/pay-bills?search=${searchData}`)
+    fetch(`${process.env.REACT_APP_API_KEY}/pay-bills`)
       .then((res) => res.json())
       .then((data) => {
         setBills(data);
       });
   }, []);
 
-  const handleSearch = () => {
-    console.log(searchRef.current.value);
-    setSearchData(searchRef.current.value);
-  };
+  // const handleSearch = () => {
+  //   console.log(searchRef.current.value);
+  //   setSearchData(searchRef.current.value);
+  // };
 
   //total Bills
   const totalAmount = bills.filter((data) => data.amount);
@@ -164,7 +163,7 @@ const AllBills = () => {
         </div>
       </div>
       <div className="bills-list">
-        <div
+        {/* <div
           style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
           className="search-box bg-white mt-4 w-full md:w-96  rounded-md flex items-center py-1 px-3"
         >
@@ -186,13 +185,13 @@ const AllBills = () => {
           >
             Search
           </Button>
-        </div>
+        </div> */}
         <div className="">
           <TableContainer
             borderRadius={6}
             style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
             backgroundColor="white"
-            marginY={5}
+            marginY={10}
             paddingBottom="20px"
             // marginLeft={20}
             height={500}
