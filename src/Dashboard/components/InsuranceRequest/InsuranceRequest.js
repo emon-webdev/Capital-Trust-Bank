@@ -13,7 +13,7 @@ const InsuranceRequest = () => {
   const { data: customers } = useGetInsuranceApplicantsQuery();
   return (
     <div className="my-2">
-      <h2 className="text-center heading">
+      <h2 className="text-[#010C3A] text-3xl md:text-4xl font-bold mb-6">
         Total Insurance Request:{customers?.length}
       </h2>
       <div className="insurance grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">

@@ -11,7 +11,7 @@ const LoanReq = () => {
   }, []);
   return (
     <div className='my-2'>
-      <h2 className="text-center heading">
+      <h2 className="text-[#010C3A] text-3xl md:text-4xl font-bold mb-6">
         Total Loan Request:{customers.length}
       </h2>
       <div className='loan grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1'>
