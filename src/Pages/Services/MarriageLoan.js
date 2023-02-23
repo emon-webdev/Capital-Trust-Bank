@@ -6,6 +6,7 @@ import { Grid, Stack, Text } from "@chakra-ui/layout";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../../component/Spinner/Spinner";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import { districts } from "./districtData";
@@ -28,6 +29,7 @@ export default function MarriageLoan() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -57,9 +59,11 @@ export default function MarriageLoan() {
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
+          
           navigate("/");
         } else {
           toast.error(data.message);
+         
         }
       });
   };

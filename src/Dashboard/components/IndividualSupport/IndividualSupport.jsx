@@ -27,7 +27,7 @@ const IndividualSupport = () => {
   // }, [messages, user]);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.appgetChatInfo/${user?.email + " " + state.senderEmail
+      `https://capital-trust-bank-server-ten.vercel.app/getChatInfo/${user?.email + " " + state.senderEmail
       }`
     )
       .then((res) => res.json())

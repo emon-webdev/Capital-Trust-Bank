@@ -133,7 +133,7 @@ const CustomerLeft = () => {
               className={({ isActive }) =>
                 isActive
                   ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
-                  : "flex px-[20px] link py-[15px]"
+                  : "flex px-[20px] items-center link py-[15px]"
               }
             >
               <span className="text-white">
@@ -147,13 +147,13 @@ const CustomerLeft = () => {
               className={({ isActive }) =>
                 isActive
                   ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
-                  : "flex px-[20px] link py-[15px]"
+                  : "flex px-[20px] link items-center py-[15px]"
               }
             >
               <span className="text-white">
                 <SlPresent />
               </span>
-              <span className="text-white ml-[10px]">Sent money</span>
+              <span className="text-white ml-[10px]">Sent Money</span>
             </NavLink>
 
             <NavLink
@@ -161,7 +161,7 @@ const CustomerLeft = () => {
               className={({ isActive }) =>
                 isActive
                   ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
-                  : "flex px-[20px] link py-[15px]"
+                  : "flex px-[20px] link items-center py-[15px]"
               }
             >
               <span>

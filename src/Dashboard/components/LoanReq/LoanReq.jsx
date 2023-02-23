@@ -6,7 +6,7 @@ const LoanReq = () => {
   const [customers, setCustomers] = useState([]);
   const [reFetch,setReFetch] = useState(false)
   useEffect(() => {
-    fetch(`http://localhost:5000/applicants`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/applicants`)
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);
@@ -14,7 +14,7 @@ const LoanReq = () => {
   }, [reFetch]);
 
   const handleAccept = (data) => {
-    fetch(`http://localhost:5000/acceptLoanReq`, {
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/acceptLoanReq`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -29,7 +29,7 @@ const LoanReq = () => {
   };
 
   const handleDelete = (data) => {
-    fetch(`http://localhost:5000/deleteLoanReq/${data}`, {
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/deleteLoanReq/${data}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

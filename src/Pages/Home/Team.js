@@ -4,14 +4,14 @@ import React from "react";
 // import image2 from "../../assests/Team/team-img2.png";
 // import image3 from "../../assests/Team/team-img3.png";
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 import "../../App.css";
 import { getTeams } from "../../hooks/API/API";
 import TeamSection from "./TeamSection";
-import { useTranslation } from "react-i18next";
 
 const Team = () => {
-  const {t}=useTranslation()
+  const { t } = useTranslation();
   const { data: teams = [] } = useQuery({
     queryKey: ["teams"],
     queryFn: async () => getTeams(),
@@ -78,7 +78,7 @@ const Team = () => {
           </h1>
         </div>
         <Slider {...sliderSettings} className="mt-[60px]">
-          {teams.map((team) => (
+          {teams?.map((team) => (
             <TeamSection key={team._id} team={team} />
           ))}
         </Slider>

@@ -20,7 +20,7 @@ const ServiceReqSlider = () => {
   /* slider data fetch */
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_KEY}/emergencyServices`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/emergencyServices`)
       .then((res) => res.json())
       .then((data) => {
         setSlidersNav(data[0].sliderNav);

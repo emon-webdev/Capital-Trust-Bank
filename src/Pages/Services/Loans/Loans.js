@@ -6,7 +6,7 @@ import {
   Grid,
   Select,
   Text,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
