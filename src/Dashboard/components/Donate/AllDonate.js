@@ -1,3 +1,5 @@
+import { Button } from "@chakra-ui/button";
+import { Input } from "@chakra-ui/input";
 import {
   Table,
   TableContainer,
@@ -7,30 +9,37 @@ import {
   Thead,
   Tr
 } from "@chakra-ui/table";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaDonate } from "react-icons/fa";
 // import "./Table.css";
 const AllDonate = () => {
   const [donates, setDonates] = useState([]);
-
+  const searchRef = useRef();
+  const [searchData, setSearchData] = useState("");
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_KEY}/donate`)
+    fetch(`${process.env.REACT_APP_API_KEY}/donate?search=${searchData}`)
       .then((res) => res.json())
       .then((data) => {
         setDonates(data);
       });
-  }, []);
+  }, [searchData]);
   const totalAmount = donates.filter((data) => data.amount);
 
   const totalDonate = totalAmount.reduce((total, preDonate) => {
     return total + preDonate.amount;
   }, 0);
 
+  const handleSearch = () => {
+    setSearchData(searchRef.current.value);
+  };
+
   return (
-    <div className="donate-content">
-      <h2 className="text-[#010C3A] text-3xl md:text-4xl font-bold mb-6">
-        Total Donate Summary
-      </h2>
+    <div className="donate-content md:ml-4">
+      <div className="dashboard-title mb-5 md:flex items-center">
+        <h2 className="text-[#010C3A] text-2xl md:mr-5 mb-4 md:mb-0 md:text-4xl font-bold ">
+          Total Donate Summary {donates?.length}
+        </h2>
+      </div>
       <div
         style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
         className="donate-card flex items-center gap-2 py-5 rounded-md px-5 w-full h-[120px] md:w-96 bg-white"
@@ -44,13 +53,37 @@ const AllDonate = () => {
         </div>
       </div>
       <div className="donate-list">
-        <div className="">
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="search-box bg-white mt-4 w-full md:w-96  rounded-md flex items-center py-1 px-3"
+        >
+          <Input
+            ref={searchRef}
+            className="border mr-2 border-black"
+            placeholder="Name"
+          />
+          <Button
+            className="sm-btn"
+            borderRadius="4px"
+            color="#fff"
+            background="#010c3a"
+            _hover={{ bg: "#df0303" }}
+            // size="sm"
+            // marginRight="5px"
+            marginTop="0px"
+            onClick={handleSearch}
+          >
+            Search
+          </Button>
+        </div>
+        <div className="mb-4">
           <TableContainer
             borderRadius={6}
             style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
             backgroundColor="white"
-            marginY={10}
+            marginY={5}
             // marginLeft={20}
+            paddingBottom="20px"
             height={500}
             overflowY="scroll"
             overflowX="scroll"

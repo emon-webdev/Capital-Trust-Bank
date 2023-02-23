@@ -1,24 +1,31 @@
+import { Button, Input } from "@chakra-ui/react";
 import {
-    Table,
-    TableContainer,
-    Tbody,
-    Td,
-    Th,
-    Thead,
-    Tr
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr
 } from "@chakra-ui/table";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaDonate } from "react-icons/fa";
 const AllBills = () => {
   const [bills, setBills] = useState([]);
-
+  const searchRef = useRef();
+  const [searchData, setSearchData] = useState("");
   useEffect(() => {
-    fetch("https://capital-trust-bank-server-ten.vercel.app/pay-bills")
+    fetch(`${process.env.REACT_APP_API_KEY}/pay-bills?search=${searchData}`)
       .then((res) => res.json())
       .then((data) => {
         setBills(data);
       });
   }, []);
+
+  const handleSearch = () => {
+    console.log(searchRef.current.value);
+    setSearchData(searchRef.current.value);
+  };
 
   //total Bills
   const totalAmount = bills.filter((data) => data.amount);
@@ -157,12 +164,36 @@ const AllBills = () => {
         </div>
       </div>
       <div className="bills-list">
+        <div
+          style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
+          className="search-box bg-white mt-4 w-full md:w-96  rounded-md flex items-center py-1 px-3"
+        >
+          <Input
+            ref={searchRef}
+            className="border mr-2 border-black"
+            placeholder="Name"
+          />
+          <Button
+            className="sm-btn"
+            borderRadius="4px"
+            color="#fff"
+            background="#010c3a"
+            _hover={{ bg: "#df0303" }}
+            // size="sm"
+            // marginRight="5px"
+            marginTop="0px"
+            onClick={handleSearch}
+          >
+            Search
+          </Button>
+        </div>
         <div className="">
           <TableContainer
             borderRadius={6}
             style={{ boxShadow: "0 4px 4px rgb(87 100 126 / 21%" }}
             backgroundColor="white"
-            marginY={10}
+            marginY={5}
+            paddingBottom="20px"
             // marginLeft={20}
             height={500}
             overflowY="scroll"

@@ -13,9 +13,15 @@ const AllCustomers = () => {
 
   return (
     <div className="my-2">
-      <h2 className="text-center font-[22px] heading pb-3">
-        Total Bank Users:{customers.length}
-      </h2>
+      <div className="dashboard-title">
+        <h2 className="text-[#010C3A] text-3xl md:text-4xl font-bold mb-6">
+          Total Bank Users:{customers.length}
+        </h2>
+        {/* <div className="">
+          <input type="text" />
+          <button>Search</button>
+        </div> */}
+      </div>
       <div className="grid gap-4 md:grid-cols-2 bg-[#F3F3FE]">
         {customers.map((customer) => {
           return (
