@@ -38,7 +38,6 @@ const ServiceReqModal = ({ slidersContents, onClose, isOpen }) => {
     const serviceName = data.serviceReq;
     const accountId = data.accountId;
 
-    console.log(accountId, applierEmail?.accountId);
 
     if (applierEmail.accountId === accountId) {
       const ServiceReceiver = {
@@ -47,7 +46,6 @@ const ServiceReqModal = ({ slidersContents, onClose, isOpen }) => {
         serviceName,
         accountId,
       };
-      console.log(ServiceReceiver);
       fetch(
         `https://capital-trust-bank-server-ten.vercel.app/emgyServiceReceiver`,
         {

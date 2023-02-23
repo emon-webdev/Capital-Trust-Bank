@@ -18,7 +18,7 @@ import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 // const socket = io("https://capital-trust-bank-server-ten.vercel.app/");
 // import io from "socket.io-client";
 // const socket = io("*");
-// const socket = io("http://localhost:5000/");
+// const socket = io("https://capital-trust-bank-server-ten.vercel.app");
 const AccountOpenFrom = () => {
   const {
     register,

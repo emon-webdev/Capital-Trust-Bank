@@ -24,7 +24,6 @@ export default function MyTransaction() {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setTransacData(data);
       });
   }, []);

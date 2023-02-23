@@ -54,7 +54,6 @@ const ExchangeDetails = () => {
     fetch(`https://v6.exchangerate-api.com/v6/0957ac42195a9ede56d0194a/pair/${fromCurrency}/${toCurrency}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data.conversion_rate)
         setExchangeRate(data)
       })
       .catch(error => {

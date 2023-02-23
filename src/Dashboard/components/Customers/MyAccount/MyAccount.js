@@ -25,7 +25,6 @@ export default function MyAccount() {
       .then((res) => res.json())
       .then((data) => {
         setTransacData(data);
-        console.log(data);
       });
   }, []);
 

@@ -29,8 +29,6 @@ const GetEmgyService = () => {
     });
   };
 
-  console.log(chequeBook?.accountId);
-
   return (
     <div>
       <h2 className="text-[#010C3A] text-3xl md:text-4xl font-bold mb-6">
