@@ -30,9 +30,9 @@ const InsuranceRequest = () => {
                 <p className="mt-2 text-gray-500 capitalize">
                   <strong>Phone:</strong> {customer?.phone}
                 </p>
-                <p className="mt-2 text-gray-500 capitalize">
+                {/* <p className="mt-2 text-gray-500 capitalize">
                   <strong>City:</strong> {customer?.city}
-                </p>
+                </p> */}
                 <p className="mt-2 text-gray-500 capitalize">
                   <strong>Date:</strong> {customer?.date}
                 </p>
