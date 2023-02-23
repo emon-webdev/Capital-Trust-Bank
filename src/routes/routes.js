@@ -52,6 +52,7 @@ import AdminRoute from "../routes/AdminRoute";
 import CustomerRoute from "../routes/CustomerRoute";
 import PrivetRoute from "./PrivateRoute/PrivateRoute";
 import SentMoney from "../Dashboard/components/Customers/SentMoney/SentMoney";
+import TotalLoan from "../Dashboard/components/Customers/TotalLoan/TotalLoan";
 // import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
@@ -295,6 +296,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/CustomerSupport",
         element: <CustomerSupport />,
+      },
+      {
+        path: "/dashboard/loanDetails",
+        element: <TotalLoan />,
       },
       {
         path: "/dashboard/my-withdraw",

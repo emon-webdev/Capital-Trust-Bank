@@ -144,11 +144,11 @@ export default function ApplyForm() {
                 placeholder="Select Package"
                 required
               >
-                <option value="$10000-3months">$10000-3 months-10% per month</option>
-                <option value="$30000-6months">$30000-6 months-10% per month</option>
-                <option value="$50000-6months">$50000-6 months-10% per month</option>
-                <option value="$100000-1Year">$100000-1 Year-10% per month</option>
-                <option value="$500000-2Years">$500000-2 Years-10% per month</option>
+                <option value="$50000-1 Year">$50,000-1 Year-10%</option>
+                <option value="$100000-2 Years">$1,00,000-2 Years-10%</option>
+                <option value="$200000-3 Years">$2,00,000-3 Years-10%</option>
+                <option value="$300000-4 Years">$3,00,000-4 Years-10%</option>
+                <option value="$500000-5 Years">$5,00,000-5 Years-10%</option>
               </Select>
             </FormControl>
             <FormControl>

@@ -13,8 +13,22 @@ const LoanReq = () => {
       });
   }, [reFetch]);
 
+  const handleAccept = (data) => {
+    fetch(`http://localhost:5000/acceptLoanReq`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Loan request accept");
+        setReFetch(!reFetch);
+      });
+  };
+
   const handleDelete = (data) => {
-    console.log(data)
     fetch(`http://localhost:5000/deleteLoanReq/${data}`, {
       method: "DELETE",
       headers: {
@@ -46,7 +60,7 @@ const LoanReq = () => {
                 <p className="mt-2 text-gray-500 capitalize"><strong>Loan Type:</strong> {customer.loan}</p>
                 <p className="mt-2 text-gray-500 capitalize"><strong>Package:</strong> {customer.package}</p>
                 <div className="flex gap-3 mt-3 p-3">
-                <button className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]">
+                <button className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]" onClick={()=>handleAccept(customer)}>
                   Accept
                 </button>
                 <button className="text-md sm-btn primary-btn exchange-btn bg-[#df0303]" onClick={()=>handleDelete(customer.email)}>

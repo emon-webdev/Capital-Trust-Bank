@@ -54,6 +54,7 @@ export default function MyAccount() {
             <MdOutlineAccountBalanceWallet className="text-4xl text-blue-800" />
           </div>
           <div className="">
+            <span>1%</span>
             <div className="text-[#808080] text-2xl mb-3">
               {" "}
               Available Balance
