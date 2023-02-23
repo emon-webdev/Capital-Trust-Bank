@@ -9,12 +9,12 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-// import {useGetBlogQuery } from "../../features/api/apiSlice";
+import { useGetBlogQuery } from "../../features/api/apiSlice";
 
 const DetailsNews = (props) => {
   const [showAll, setShowAll] = useState(false);
-  const blog = useLoaderData();
-  // const { data: blog } = useGetBlogQuery();
+  // const blog = useLoaderData();
+  const { data: blog } = useGetBlogQuery();
   console.log(blog);
   return (
     <div className="container my-10 ">

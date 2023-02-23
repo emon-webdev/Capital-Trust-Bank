@@ -16,11 +16,15 @@ export const loanApi = createApi({
     getNews: builder.query({
       query: () => "/blogsNews",
     }),
+    getBlog: builder.query({
+      query: (_id) => `/blogsNews/${id}`,
+    }),
   }),
 });
 
 export const {
   useGetLoansQuery,
   useGetNewsQuery,
+  useGetBlogQuery,
   useGetInsuranceApplicantsQuery,
 } = loanApi;
