@@ -169,6 +169,20 @@ const CustomerLeft = () => {
               </span>
               <span className="text-white ml-[10px]">Take Card</span>
             </NavLink>
+
+            <NavLink
+              to="/dashboard/loanDetails"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
+                  : "flex px-[20px] link py-[15px]"
+              }
+            >
+              <span>
+                <AiOutlineIdcard />
+              </span>
+              <span className="text-white ml-[10px]">Loan Details</span>
+            </NavLink>
           </div>
         )}
       </div>

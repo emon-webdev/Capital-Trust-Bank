@@ -20,7 +20,7 @@ const VerificationDetails = () => {
     const info = {
         email: data.email
     }
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/verifyCustomer`, {
+    fetch(`http://localhost:5000/verifyCustomer`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
