@@ -6,7 +6,7 @@ import { AuthContext } from "../../../context/AuthProvider";
 import useTitle from "../../../hooks/useTitle/useTitle";
 
 const CustomerSupport = () => {
-  useTitle("CustomerSupport")
+  useTitle("CustomerSupportute")
   const { user, role } = useContext(AuthContext);
   const [chatsInfo, setChatsInfo] = useState([]);
   const [adminInfo, setAdminInfo] = useState([]);

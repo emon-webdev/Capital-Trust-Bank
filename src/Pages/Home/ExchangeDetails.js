@@ -1,11 +1,13 @@
 import { List, ListIcon, ListItem, NumberInput, Stack } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 import { MdCheckCircle } from "react-icons/md";
 import "../../App.css";
 import banner from "../../assets/exchange.jpg";
 import { AuthContext } from "../../context/AuthProvider";
 const ExchangeDetails = () => {
+  const {t} = useTranslation()
   const [name, setName] = useState("Exchange Rate");
   const [usd, setUsd] = useState(0);
   const { user } = useContext(AuthContext);
@@ -60,10 +62,10 @@ const ExchangeDetails = () => {
           <div className="w-[60%] left-side">
             <div className="section-title md:mr-5">
               <h5 className="text-[#DF0303] text-xl text-md mb-3">
-                -- Exchange --
+                -- {t("Exchange")} --
               </h5>
               <h1 className="text-white md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">
-                International Currency Transfer Provider
+                {t("Exchange_sb_tlt")}
               </h1>
             </div>
             <div className="mt-4 md:mr-5">
@@ -74,23 +76,23 @@ const ExchangeDetails = () => {
                     color="green.500"
                     className="text-white"
                   />
-                  Great exchange rates
+                  {t("Exchange_L1")}
                 </ListItem>
                 <ListItem>
                   <ListIcon as={MdCheckCircle} color="green.500" />
-                  No hidden fees
+                  {t("Exchange_L2")}
                 </ListItem>
                 <ListItem>
                   <ListIcon as={MdCheckCircle} color="green.500" />
-                  24/7 Transfers
+                  {t("Exchange_L3")}
                 </ListItem>
                 <ListItem>
                   <ListIcon as={MdCheckCircle} color="green.500" />
-                  5-star customer rating
+                  {t("Exchange_L4")}
                 </ListItem>
                 <ListItem>
                   <ListIcon as={MdCheckCircle} color="green.500" />
-                  Award-winning service
+                  {t("Exchange_L5")}
                 </ListItem>
               </List>
             </div>

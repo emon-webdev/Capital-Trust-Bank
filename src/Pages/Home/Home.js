@@ -1,4 +1,5 @@
 import React from "react";
+import useTitle from "../../hooks/useTitle/useTitle";
 import Funds from "../Funds/Funds";
 import ApplyCreditCard from "./ApplyCreditCard";
 // import Banner from "./Banner";
@@ -14,6 +15,7 @@ import Services from "./Services.jsx";
 import Team from "./Team";
 
 const Home = () => {
+  useTitle("Home")
   return (
     <div>
       <Banner2 />

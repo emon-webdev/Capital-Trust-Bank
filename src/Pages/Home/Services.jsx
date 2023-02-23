@@ -2,12 +2,13 @@ import { Card, CardBody } from '@chakra-ui/card';
 import { Image } from '@chakra-ui/image';
 import { Stack, Text } from '@chakra-ui/layout';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import '../../App.css';
 
 
 const Services = () => {
-
+const {t} = useTranslation()
   const [loans, setLoans] = useState([]);
   useEffect(() => {
     fetch('https://capital-trust-bank-server.vercel.app/loans')
@@ -20,9 +21,9 @@ const Services = () => {
     <div className="services-area py-12">
       <div className="container">
         <div className="section-title w-full md:w-[650px] mx-auto text-center">
-          <h5 className="text-[#DF0303] text-xl text-md mb-3">-- Best Services --</h5>
+          <h5 className="text-[#DF0303] text-xl text-md mb-3">-- {t("Best_Services_title")} --</h5>
           <h1 className="text-[#010C3A] md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">
-            We provide best services for your loans
+            {t("Best_Services_title_pg")}
           </h1>
         </div>
         <div

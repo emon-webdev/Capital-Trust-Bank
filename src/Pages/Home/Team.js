@@ -8,8 +8,10 @@ import Slider from "react-slick";
 import "../../App.css";
 import { getTeams } from "../../hooks/API/API";
 import TeamSection from "./TeamSection";
+import { useTranslation } from "react-i18next";
 
 const Team = () => {
+  const {t}=useTranslation()
   const { data: teams = [] } = useQuery({
     queryKey: ["teams"],
     queryFn: async () => getTeams(),
@@ -69,10 +71,10 @@ const Team = () => {
       <div className="container mx-auto">
         <div className="section-title w-full md:w-[650px] mx-auto text-center">
           <h5 className="text-[#DF0303] text-xl text-md mb-3">
-            -- Our Team --
+            -- {t("Our_Team")} --
           </h5>
           <h1 className="text-[#010C3A] md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">
-            Team Of Expert Consulted
+            {t("Our_Team_sb_tlt")}
           </h1>
         </div>
         <Slider {...sliderSettings} className="mt-[60px]">

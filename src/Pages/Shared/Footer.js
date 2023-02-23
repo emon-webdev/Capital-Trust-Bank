@@ -6,8 +6,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo/mainlogo.png";
 import "./Footer.css";
+import { useTranslation } from "react-i18next";
 // import TwitterIcon from "@mui/icons-material/Twitter";
 const Footer = () => {
+  const {t} = useTranslation()
   return (
     <div className="bgi-footer print:hidden">
       <div className="container pt-20">
@@ -33,35 +35,34 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col gap-3">
-            <h2 className="text-lg my-5 text-white">Services</h2>
-            <Link to='/paymentbills' id="footer-link">Pay Bills</Link>
-            <Link to='/loansServices' id="footer-link">Loans</Link>
-            <Link to='/cards' id="footer-link">Cards</Link>
-            <Link to='/healthinsurance' id="footer-link">Health Insurance</Link>
-            <Link to='/businessinsurance' id="footer-link">Business Insurance</Link>
-            <Link to='/travelinsurance' id="footer-link">Travel Insurance</Link>
+            <h2 className="text-lg my-5 text-white">{t("Services")}</h2>
+            <Link to='/paymentbills' id="footer-link">{t("Pay_bills")}</Link>
+            <Link to='/loansServices' id="footer-link">{t("Loans")}</Link>
+            <Link to='/cards' id="footer-link">{t("Cards")}</Link>
+            <Link to='/healthinsurance' id="footer-link">{t("Health_Insurance")}</Link>
+            <Link to='/businessinsurance' id="footer-link">{t("Business_Insurance")}</Link>
+            <Link to='/travelinsurance' id="footer-link">{t("Travel_Insurance")}</Link>
           </div>
           <div className="flex flex-col gap-3">
-            <h2 className="text-lg my-5 text-white">Contact</h2>
-            <Link to='/faq' id="footer-link">Help/FAQ</Link>
-            <Link to='/login' id="footer-link">Open An Account</Link>
-            <Link to='/contact' id="footer-link">contact</Link>
-            <Link to='/login' id="footer-link">signin</Link>
-            <Link to='/signup' id="footer-link">signup</Link>
+            <h2 className="text-lg my-5 text-white">{t("contact")}</h2>
+            <Link to='/faq' id="footer-link">{t("Faq")}</Link>
+            <Link to='/login' id="footer-link">{t("Open_an_Account")}</Link>
+            <Link to='/contact' id="footer-link">{t("contact")}</Link>
+            <Link to='/login' id="footer-link">{t("Sign_In")}</Link>
+            <Link to='/signup' id="footer-link">{t("Sign_Up")}</Link>
           </div>
 
           <div>
             <div className="my-5">
-              <h2 className="text-lg text-white">Head Office</h2>
+              <h2 className="text-lg text-white">{t("Head_Office")}</h2>
               <p className="footer-text">
-                Xilliams Corner Wine © 2017. 1112 A Market St # Ste B22,
-                Charlottesville, CA 45565
+                {t("Head_Office_ph")}
               </p>
             </div>
             <div>
-              <h2 className="mb-5 text-lg text-white">News Letter</h2>
+              <h2 className="mb-5 text-lg text-white">{t("News_Letter")}</h2>
               <div className="flex justify-center items-center">
-              <Input className="f-form-icon-parent" variant='flushed' placeholder='Enter your email address' />
+              <Input className="f-form-icon-parent" variant='flushed' placeholder={t("enter_your_email")} />
 <span className="f-form-icon"><CiMail></CiMail></span>
               </div>
             </div>

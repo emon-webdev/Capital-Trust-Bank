@@ -5,8 +5,10 @@ import { RxArrowTopRight } from "react-icons/rx";
 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function FeaturedNews() {
+  const {t} = useTranslation()
   const [newsData, setNewsData] = useState();
   useEffect(() => {
     fetch("https://capital-trust-bank-server.vercel.app/blogsNews")
@@ -19,10 +21,10 @@ export default function FeaturedNews() {
       <div className="container">
         <div className="section-title w-full md:w-[650px] mx-auto text-center">
           <Text className="text-[#DF0303] text-xl text-md mb-3">
-            -- Blog & News --
+            -- {t("Blog_&_News")} --
           </Text>
           <Text className="text-[#010C3A] md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">
-            Featured news & Insights
+            {t("Blog_&_News_sb_tlt")}
           </Text>
         </div>
         <div className="blog-card align-content-center justify-items-center grid gap-3  grid-cols-1 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-4 ">
