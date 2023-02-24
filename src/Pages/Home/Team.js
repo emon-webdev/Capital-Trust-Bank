@@ -39,15 +39,6 @@ const Team = () => {
           dots: true,
         },
       },
-      // {
-      //   breakpoint: 768,
-      //   settings: {
-      //     slidesToShow: 3,
-      //     slidesToScroll: 3,
-      //     dots: true,
-      //     infinite: 3
-      //   }
-      // },
       {
         breakpoint: 600,
         settings: {
