@@ -3,10 +3,10 @@ import "../../../App.css";
 import useTitle from "../../../hooks/useTitle/useTitle";
 
 const AllCustomers = () => {
-  useTitle("AllCustomers")
+  useTitle("AllCustomers");
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
-    fetch("https://capital-trust-bank-server-ten.vercel.app/allCustomers")
+    fetch(`${process.env.REACT_APP_API_KEY}/allCustomers`)
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);

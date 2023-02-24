@@ -19,7 +19,7 @@ import FactToKnow from "../../Shared/FactToKnow/FactToKnow";
 import { districts } from "../districtData";
 
 const Loans = (props) => {
-  useTitle("Loans")
+  useTitle("Loans");
   const [name, setName] = useState("Loans");
   const loansData = useLoaderData();
   const { user } = useContext(AuthContext);
@@ -53,7 +53,7 @@ const Loans = (props) => {
     };
     console.log(applicant);
 
-    fetch("https://capital-trust-bank-server-ten.vercel.app/applicants", {
+    fetch(`${process.env.REACT_APP_API_KEY}/applicants`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -124,11 +124,11 @@ const Loans = (props) => {
             style={{
               backgroundColor: "#041C51",
               height: "auto",
-              width: "500px",
+              // width: "500px",
               borderRadius: "10px",
               marginX: "auto",
             }}
-            className="py-10 px-7 sm:align-content-center sm:justify-items-center animate__animated animate__slideInRight"
+            className="w-full md:w-[500px] py-10 px-7 sm:align-content-center sm:justify-items-center animate__animated animate__slideInRight"
           >
             <Grid
               container

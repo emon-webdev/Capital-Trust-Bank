@@ -23,13 +23,13 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`
+      `${process.env.REACT_APP_API_KEY}/bankAccounts/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data);
       });
-  }, []);
+  }, [user?.email]);
   // apply for credit card
   const handleApply = (data) => {
     const applierName = user?.displayName;
@@ -42,7 +42,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
       accountId,
       cardType,
     };
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/cardAppliers`, {
+    fetch(`${process.env.REACT_APP_API_KEY}/cardAppliers`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

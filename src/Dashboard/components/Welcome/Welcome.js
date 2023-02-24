@@ -8,7 +8,7 @@ const Welcome = () => {
   const { user, role } = useContext(AuthContext);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`
+      `${process.env.REACT_APP_API_KEY}/bankAccounts/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {

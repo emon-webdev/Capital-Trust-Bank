@@ -12,7 +12,7 @@ export default function MyAccount() {
   const [approve, setApprove] = useState([]);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`
+      `${process.env.REACT_APP_API_KEY}/approved/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setApprove(data));
@@ -22,7 +22,7 @@ export default function MyAccount() {
 
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/depositWithdraw/${user?.email}`
+      `${process.env.REACT_APP_API_KEY}/depositWithdraw/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {

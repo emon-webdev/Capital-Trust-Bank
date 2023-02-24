@@ -1,12 +1,12 @@
 import {
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  useDisclosure
+    Table,
+    TableContainer,
+    Tbody,
+    Td,
+    Th,
+    Thead,
+    Tr,
+    useDisclosure
 } from "@chakra-ui/react";
 
 import React, { useContext, useEffect, useState } from "react";
@@ -22,7 +22,7 @@ export default function MyTransaction() {
   const [transacData, setTransacData] = useState([]);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/depositWithdraw/${user?.email}`
+      `${process.env.REACT_APP_API_KEY}/depositWithdraw/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {

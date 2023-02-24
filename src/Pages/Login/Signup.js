@@ -1,9 +1,9 @@
 import {
-  Button,
-  Input,
-  InputGroup,
-  InputRightElement,
-  Stack
+    Button,
+    Input,
+    InputGroup,
+    InputRightElement,
+    Stack
 } from "@chakra-ui/react";
 import { GoogleAuthProvider } from "@firebase/auth";
 import React, { useContext, useState } from "react";
@@ -117,7 +117,7 @@ const Signup = () => {
                 .then(() => {
                   //store customer device info
                   fetch(
-                    `https://capital-trust-bank-server-ten.vercel.app/storeDeviceInfo/${user.email}`,
+                    `${process.env.REACT_APP_API_KEY}/storeDeviceInfo/${user.email}`,
                     {
                       method: "POST",
                       headers: {
@@ -154,7 +154,7 @@ const Signup = () => {
 
       //store customer device info
       fetch(
-        `https://capital-trust-bank-server-ten.vercel.app/storeDeviceInfo/${user.email}`,
+        `${process.env.REACT_APP_API_KEY}/storeDeviceInfo/${user.email}`,
         {
           method: "POST",
           headers: {

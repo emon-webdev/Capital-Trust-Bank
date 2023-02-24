@@ -11,7 +11,7 @@ export default function FeaturedNews() {
   const { t } = useTranslation();
   const [newsData, setNewsData] = useState([]);
   useEffect(() => {
-    fetch("https://capital-trust-bank-server-ten.vercel.app/blogsNews")
+    fetch(`${process.env.REACT_APP_API_KEY}/blogsNews`)
       .then((res) => res.json())
       .then((data) => setNewsData(data));
   }, []);

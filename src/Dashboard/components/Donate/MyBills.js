@@ -7,7 +7,7 @@ const MyBills = () => {
   const { user } = useContext(AuthContext);
   const [myBills, setMyBills] = useState([]);
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/my-bills/${user?.email}`)
+    fetch(`${process.env.REACT_APP_API_KEY}/my-bills/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

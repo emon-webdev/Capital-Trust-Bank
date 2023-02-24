@@ -1,13 +1,13 @@
 import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  onAuthStateChanged,
-  sendEmailVerification,
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-  updateProfile
+    createUserWithEmailAndPassword,
+    getAuth,
+    onAuthStateChanged,
+    sendEmailVerification,
+    sendPasswordResetEmail,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    updateProfile
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import app from "../Firebase/Firebase.config";
@@ -70,7 +70,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       setLoading(false);
       fetch(
-        `https://capital-trust-bank-server-ten.vercel.app/customer/${currentUser?.email}`
+        `${process.env.REACT_APP_API_KEY}/customer/${currentUser?.email}`
       )
         .then((res) => res.json())
         .then((data) => {

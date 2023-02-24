@@ -28,7 +28,7 @@ const IndividualSupport = () => {
   // }, [messages, user]);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/getChatInfo/${user?.email + " " + state.senderEmail
+      `${process.env.REACT_APP_API_KEY}/getChatInfo/${user?.email + " " + state.senderEmail
       }`
     )
       .then((res) => res.json())
@@ -68,7 +68,7 @@ const IndividualSupport = () => {
           body: JSON.stringify(chatInfo)
         })
           .then(res => res.json())
-          .then(data => { 
+          .then(data => {
             setReFetch(!reFetch)
           })
       } else {
@@ -81,7 +81,7 @@ const IndividualSupport = () => {
           body: JSON.stringify(chatInfo)
         })
           .then(res => res.json())
-          .then(data => { 
+          .then(data => {
             setReFetch(!reFetch)
           })
       }

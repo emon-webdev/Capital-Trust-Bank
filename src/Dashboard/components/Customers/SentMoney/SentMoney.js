@@ -6,7 +6,7 @@ const SentMoney = () => {
   const { user } = useContext(AuthContext);
   const [approve, setApprove] = useState([]);
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`)
+    fetch(`${process.env.REACT_APP_API_KEY}/approved/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setApprove(data);
@@ -23,7 +23,7 @@ const SentMoney = () => {
       amount: amount,
     };
     if (amount <= parseFloat(approve.availableAmount)) {
-      fetch(`https://capital-trust-bank-server-ten.vercel.app/sentMoney`, {
+      fetch(`${process.env.REACT_APP_API_KEY}/sentMoney`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -4,19 +4,15 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalOverlay,
   Text,
   useDisclosure,
   VStack
 } from "@chakra-ui/react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-} from '@chakra-ui/react'
 import React, { useContext, useEffect, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import { toast } from "react-hot-toast";
@@ -25,10 +21,10 @@ import { AuthContext } from "../../../../context/AuthProvider";
 import { DashboardContext } from "../../../../context/UserDashboardProvider";
 
 const MyWithdraw = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
-  const [delayStart,setDelayStart] = useState(false);
+  const [delayStart, setDelayStart] = useState(false);
   const [value, setValue] = useState(5);
   const [appellant, setAppellant] = useState({});
   const [isDelayFinished, setIsDelayFinished] = useState(false);
@@ -37,53 +33,51 @@ const MyWithdraw = () => {
   const [approve, setApprove] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-   if(delayStart){
-    const interval = setInterval(() => {
-      setValue(prevValue => prevValue - 1);
-    }, 1000);
+    if (delayStart) {
+      const interval = setInterval(() => {
+        setValue((prevValue) => prevValue - 1);
+      }, 1000);
 
-    if (value === 0) {
-      setIsDelayFinished(true);
-      onClose();
-      setValue(5);
-      clearInterval(interval);
-      setDelayStart(false)
-      fetch(
-        "https://capital-trust-bank-server-ten.vercel.app/depositWithdraw",
-        {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(appellant),
-        }
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          toast.success("withdraw Successlly Done");
-          navigate('/dashboard/myAccount')
-          // form.reset();
-          // setWithdarw(withdraw + parseInt(amount));
-          // setDeposit(deposit - parseInt(amount));
-        });
+      if (value === 0) {
+        setIsDelayFinished(true);
+        onClose();
+        setValue(5);
+        clearInterval(interval);
+        setDelayStart(false);
+        fetch(
+          `${process.env.REACT_APP_API_KEY}/depositWithdraw`,
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(appellant),
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            toast.success("withdraw Successlly Done");
+            navigate("/dashboard/myAccount");
+            // form.reset();
+            // setWithdarw(withdraw + parseInt(amount));
+            // setDeposit(deposit - parseInt(amount));
+          });
+      }
+
+      return () => {
+        clearInterval(interval);
+      };
     }
-
-    return () => {
-      clearInterval(interval);
-    };
-   }
-  }, [value,delayStart]);
+  }, [value, delayStart]);
   useEffect(() => {
-    fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`
-    )
+    fetch(`${process.env.REACT_APP_API_KEY}/approved/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setApprove(data));
   }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setDelayStart(true)
+    setDelayStart(true);
     const form = event.target;
     const name = form.name.value;
     const time = form.time.value;
@@ -102,12 +96,12 @@ const MyWithdraw = () => {
       time: time,
       date: date,
     };
-    setAppellant(appellant)
-      if (amount > parseFloat(approve.availableAmount)) {
+    setAppellant(appellant);
+    if (amount > parseFloat(approve.availableAmount)) {
       onClose();
       toast.error(`You don't have enough balance`);
       setValue(5);
-      setDelayStart(false)
+      setDelayStart(false);
     }
   };
 
@@ -180,20 +174,29 @@ const MyWithdraw = () => {
             Withdraw
           </Button>
 
-          <Modal isOpen={isOpen} onClose={onClose} closeOnOverlayClick={false} >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalBody  paddingY={8}
-            paddingX={8}>
-          Your withdraw will be done after <span className="text-red-500 text-xl">{value}</span>s.If you want, you can cancel this process by clicking cancel button
-          </ModalBody>
-          <ModalFooter>
-            <Button colorScheme='blue' mr={3}   onClick={()=>{ onClose(); setDelayStart(false); setValue(5) }} >
-              Cancel
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+          <Modal isOpen={isOpen} onClose={onClose} closeOnOverlayClick={false}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalBody paddingY={8} paddingX={8}>
+                Your withdraw will be done after{" "}
+                <span className="text-red-500 text-xl">{value}</span>s.If you
+                want, you can cancel this process by clicking cancel button
+              </ModalBody>
+              <ModalFooter>
+                <Button
+                  colorScheme="blue"
+                  mr={3}
+                  onClick={() => {
+                    onClose();
+                    setDelayStart(false);
+                    setValue(5);
+                  }}
+                >
+                  Cancel
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
         </VStack>
       </form>
     </div>

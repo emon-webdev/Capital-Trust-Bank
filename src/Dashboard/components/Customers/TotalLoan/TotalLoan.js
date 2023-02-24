@@ -1,21 +1,19 @@
-import React, { useContext, useEffect } from 'react';
-import { AuthContext } from '../../../../context/AuthProvider';
 import {
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr
+    Table,
+    TableContainer,
+    Tbody,
+    Td,
+    Th,
+    Thead,
+    Tr
 } from "@chakra-ui/react";
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../../context/AuthProvider';
 const TotalLoan = () => {
  const {user} = useContext(AuthContext)
  const [totalLoan,setTotalLoan] = useState([])
     useEffect(() => {
-        fetch(`https://capital-trust-bank-server-ten.vercel.app/totalLoan/${user?.email}`)
+        fetch(`${process.env.REACT_APP_API_KEY}/totalLoan/${user?.email}`)
           .then((res) => res.json())
           .then((data) => {
             console.log(data)

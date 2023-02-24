@@ -6,7 +6,6 @@ import { Grid, Stack, Text } from "@chakra-ui/layout";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import Spinner from "../../component/Spinner/Spinner";
 import { AuthContext } from "../../context/AuthProvider";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 import { districts } from "./districtData";
@@ -47,7 +46,7 @@ export default function MarriageLoan() {
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server-ten.vercel.app/applicants", {
+    fetch(`${process.env.REACT_APP_API_KEY}/applicants`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

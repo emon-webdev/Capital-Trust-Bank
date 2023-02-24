@@ -44,7 +44,7 @@ const Login = () => {
 
     //store customer device info
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/storeDeviceInfo/${email}`,
+      `${process.env.REACT_APP_API_KEY}/storeDeviceInfo/${email}`,
       {
         method: "POST",
         headers: {
@@ -93,7 +93,7 @@ const Login = () => {
 
       //store customer device info
       fetch(
-        `https://capital-trust-bank-server-ten.vercel.app/storeDeviceInfo/${email}`,
+        `${process.env.REACT_APP_API_KEY}/storeDeviceInfo/${email}`,
         {
           method: "POST",
           headers: {

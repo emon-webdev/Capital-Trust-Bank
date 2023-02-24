@@ -89,7 +89,7 @@ const router = createBrowserRouter([
         element: <Insurance />,
         loader: () =>
           fetch(
-            "https://capital-trust-bank-server-ten.vercel.app/insuranceData"
+            `${process.env.REACT_APP_API_KEY}/insuranceData`
           ),
       },
       {
@@ -97,7 +97,7 @@ const router = createBrowserRouter([
         element: <InsuranceDetails />,
         loader: ({ params }) =>
           fetch(
-            `https://capital-trust-bank-server-ten.vercel.app/insur/${params.id}`
+            `${process.env.REACT_APP_API_KEY}/insur/${params.id}`
           ),
       },
 
@@ -109,14 +109,14 @@ const router = createBrowserRouter([
         path: "/loansServices",
         element: <Loans />,
         loader: () =>
-          fetch("https://capital-trust-bank-server-ten.vercel.app/loanService"),
+          fetch(`${process.env.REACT_APP_API_KEY}/loanService`),
       },
       {
         path: "/loanDetails/:id",
         element: <LoanDetails />,
         loader: ({ params }) =>
           fetch(
-            `https://capital-trust-bank-server-ten.vercel.app/loanSec/${params.id}`
+            `${process.env.REACT_APP_API_KEY}/loanSec/${params.id}`
           ),
       },
       {
@@ -124,7 +124,7 @@ const router = createBrowserRouter([
         element: <DetailsNews></DetailsNews>,
         loader: ({ params }) =>
           fetch(
-            `https://capital-trust-bank-server-ten.vercel.app/blogsNews/${params.id}`
+            `${process.env.REACT_APP_API_KEY}/blogsNews/${params.id}`
           ),
       },
 
@@ -133,7 +133,7 @@ const router = createBrowserRouter([
         element: <ApplyForm />,
         loader: ({ params }) =>
           fetch(
-            `https://capital-trust-bank-server-ten.vercel.app/loans/${params.title}`
+            `${process.env.REACT_APP_API_KEY}/loans/${params.title}`
           ),
       },
 
@@ -200,7 +200,7 @@ const router = createBrowserRouter([
         element: <TeamDetails />,
         loader: async ({ params }) =>
           fetch(
-            `https://capital-trust-bank-server-ten.vercel.app/team-details/${params.id}`
+            `${process.env.REACT_APP_API_KEY}/team-details/${params.id}`
           ),
       },
       // {
@@ -289,7 +289,7 @@ const router = createBrowserRouter([
         path: "/dashboard/myTransaction",
         element: <MyTransaction />,
         // loader: ({ params }) =>
-        //   fetch(`https://capital-trust-bank-server-ten.vercel.app/depositWithdraw/${params.email}`),
+        //   fetch(`${process.env.REACT_APP_API_KEY}/depositWithdraw/${params.email}`),
       },
       {
         path: "/dashboard/sentMoney",

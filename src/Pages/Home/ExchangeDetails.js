@@ -33,7 +33,7 @@ const ExchangeDetails = () => {
   //     email: user.email,
   //   };
   //   //store info into the database
-  //   fetch(`https://capital-trust-bank-server-ten.vercel.app/storeExchangeInfo`, {
+  //   fetch(`${process.env.REACT_APP_API_KEY}/storeExchangeInfo`, {
   //     method: "POST",
   //     headers: {
   //       "content-type": "application/json",
@@ -76,7 +76,7 @@ const ExchangeDetails = () => {
   const handleExchangeSubmit = (event) => {
     event.preventDefault();
     const exchangeInfo = { amount, totalBuying, fromCurrency };
-    fetch("https://capital-trust-bank-server-ten.vercel.app/exchange", {
+    fetch(`${process.env.REACT_APP_API_KEY}/exchange`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

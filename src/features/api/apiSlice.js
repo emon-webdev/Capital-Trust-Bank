@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 export const loanApi = createApi({
   reducerPath: "loanApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `https://capital-trust-bank-server-ten.vercel.app`,
+    baseUrl: `${process.env.REACT_APP_API_KEY}`,
   }),
   endpoints: (builder) => ({
     getLoans: builder.query({

@@ -1,12 +1,12 @@
 import {
-  Button,
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr
+    Button,
+    Table,
+    TableContainer,
+    Tbody,
+    Td,
+    Th,
+    Thead,
+    Tr
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -17,7 +17,7 @@ const EmgyServiceReq = () => {
   const [reFetch, setReFetch] = useState(false);
 
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/emgyServiceReceiver`)
+    fetch(`${process.env.REACT_APP_API_KEY}/emgyServiceReceiver`)
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);
@@ -25,7 +25,7 @@ const EmgyServiceReq = () => {
   }, [reFetch]);
 
   const handleAccept = (data) => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/acceptEmgyServiceReq`, {
+    fetch(`${process.env.REACT_APP_API_KEY}/acceptEmgyServiceReq`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,7 +44,7 @@ const EmgyServiceReq = () => {
     const info = {
       id: data.accountId,
     };
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/deleteEmgyServiceReq`, {
+    fetch(`${process.env.REACT_APP_API_KEY}/deleteEmgyServiceReq`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

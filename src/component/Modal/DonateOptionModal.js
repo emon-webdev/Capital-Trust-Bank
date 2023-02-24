@@ -1,15 +1,15 @@
 import {
-    Input,
-    InputGroup,
-    InputLeftElement,
-    Modal,
-    ModalBody,
-    ModalCloseButton,
-    ModalContent,
-    ModalFooter,
-    ModalHeader,
-    ModalOverlay,
-    Select
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Select
 } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
@@ -42,7 +42,7 @@ const DonateOptionModal = ({ onClose, isOpen }) => {
       currency,
       amount,
     };
-    fetch("https://capital-trust-bank-server-ten.vercel.app/donate", {
+    fetch(`${process.env.REACT_APP_API_KEY}/donate`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

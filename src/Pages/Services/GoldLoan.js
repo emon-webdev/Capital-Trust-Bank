@@ -47,7 +47,7 @@ export default function GoldLoan() {
       date: date,
     };
 
-    fetch("https://capital-trust-bank-server-ten.vercel.app/applicants", {
+    fetch(`${process.env.REACT_APP_API_KEY}/applicants`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

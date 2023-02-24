@@ -50,7 +50,7 @@ const PaymentBillsModal = ({
       amount,
     };
     console.log(paymentInfo);
-    fetch("https://capital-trust-bank-server-ten.vercel.app/pay-bills", {
+    fetch(`${process.env.REACT_APP_API_KEY}/pay-bills`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

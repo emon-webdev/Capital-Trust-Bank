@@ -6,7 +6,7 @@ import {
   Grid,
   Select,
   Text,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -19,7 +19,7 @@ import FactToKnow from "../Shared/FactToKnow/FactToKnow";
 import { districts } from "./districtData";
 
 const Insurance = () => {
-  useTitle("Insurance")
+  useTitle("Insurance");
   const [name, setName] = useState("Insurance");
   const insuranceData = useLoaderData();
   const { user } = useContext(AuthContext);
@@ -49,7 +49,7 @@ const Insurance = () => {
     };
 
     fetch(
-      "https://capital-trust-bank-server-ten.vercel.app/insuranceApplicants",
+      `${process.env.REACT_APP_API_KEY}/insuranceApplicants`,
       {
         method: "POST",
         headers: {
@@ -109,8 +109,8 @@ const Insurance = () => {
       <div className="py-12 flex md:flex-row flex-col w-100  align-center justify-center">
         <Box>
           <img
-            style={{ width: "600px", height: "600px" }}
-            className="animate__animated animate__slideInLeft mx-5"
+            style={{ height: "600px" }}
+            className=" w-full md:w-[600px] animate__animated animate__slideInLeft mx-5"
             src={appli}
             alt=""
           />
@@ -121,11 +121,11 @@ const Insurance = () => {
             style={{
               backgroundColor: "#041C51",
               height: "auto",
-              width: "500px",
+              // width: "500px",
               borderRadius: "10px",
               marginX: "auto",
             }}
-            className="py-10 px-7 sm:align-content-center sm:justify-items-center animate__animated animate__slideInRight"
+            className=" w-full md:w-[500px] py-10 px-7 sm:align-content-center sm:justify-items-center animate__animated animate__slideInRight"
           >
             <Grid
               container

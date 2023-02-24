@@ -8,7 +8,7 @@ const TakeCard = () => {
   const [info, setInfo] = useState([]);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/takeCard/${user?.email}`
+      `${process.env.REACT_APP_API_KEY}/takeCard/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {

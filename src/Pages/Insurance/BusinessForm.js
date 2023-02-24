@@ -35,7 +35,7 @@ export default function BusinessForm() {
     };
 
     fetch(
-      "https://capital-trust-bank-server-ten.vercel.app/insuranceApplicants",
+      `${process.env.REACT_APP_API_KEY}/insuranceApplicants`,
       {
         method: "POST",
         headers: {

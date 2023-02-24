@@ -72,7 +72,7 @@ const AccountOpenFrom = () => {
           };
           // save information to the database
           fetch(
-            "https://capital-trust-bank-server-ten.vercel.app/bankAccounts",
+            `${process.env.REACT_APP_API_KEY}/bankAccounts`,
             {
               method: "POST",
               headers: {

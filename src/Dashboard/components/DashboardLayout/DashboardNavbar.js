@@ -1,14 +1,14 @@
 import {
-  Avatar,
-  Badge,
-  Button,
-  Hide,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuGroup,
-  MenuItem,
-  MenuList
+    Avatar,
+    Badge,
+    Button,
+    Hide,
+    IconButton,
+    Menu,
+    MenuButton,
+    MenuGroup,
+    MenuItem,
+    MenuList
 } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
@@ -31,7 +31,7 @@ const DashboardNavbar = () => {
   const [bankInfo, setBankInfo] = useState([]);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`
+      `${process.env.REACT_APP_API_KEY}/bankAccounts/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -41,7 +41,7 @@ const DashboardNavbar = () => {
 
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/getChatNotificationInfo/${user?.email}`
+      `${process.env.REACT_APP_API_KEY}/getChatNotificationInfo/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -52,7 +52,7 @@ const DashboardNavbar = () => {
 
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/getVerifyNotificationInfo`
+      `${process.env.REACT_APP_API_KEY}/getVerifyNotificationInfo`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -76,7 +76,7 @@ const DashboardNavbar = () => {
   const handleSignOut = () => {
     //delete customer device info
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/deleteDeviceInfo/${user.email}`,
+      `${process.env.REACT_APP_API_KEY}/deleteDeviceInfo/${user.email}`,
       {
         method: "DELETE",
         headers: {
@@ -100,7 +100,7 @@ const DashboardNavbar = () => {
       receiverEmail: data.receiverEmail,
     };
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/notificationDelete`,
+      `${process.env.REACT_APP_API_KEY}/notificationDelete`,
       {
         method: "DELETE",
         headers: {
@@ -120,7 +120,7 @@ const DashboardNavbar = () => {
       email: data.email,
     };
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/verificationNotificationDelete`,
+      `${process.env.REACT_APP_API_KEY}/verificationNotificationDelete`,
       {
         method: "DELETE",
         headers: {

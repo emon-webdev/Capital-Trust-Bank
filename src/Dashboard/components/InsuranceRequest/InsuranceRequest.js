@@ -6,7 +6,7 @@ const InsuranceRequest = () => {
   const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/insuranceApplicants`)
+    fetch(`${process.env.REACT_APP_API_KEY}/insuranceApplicants`)
       .then((res) => res.json())
       .then((data) => {
         setCustomers(data);
@@ -14,7 +14,7 @@ const InsuranceRequest = () => {
   }, [reFetch]);
 
   const handleAccept = (data) => {
-    fetch(`http://localhost:5000/acceptInsuranceReq`, {
+    fetch(`${process.env.REACT_APP_API_KEY}/acceptInsuranceReq`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -32,7 +32,7 @@ const InsuranceRequest = () => {
     const info = {
       id: data._id,
     };
-    fetch(`http://localhost:5000/deleteInsuranceReq`, {
+    fetch(`${process.env.REACT_APP_API_KEY}/deleteInsuranceReq`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

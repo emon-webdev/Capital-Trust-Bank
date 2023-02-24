@@ -7,7 +7,7 @@ const MyDonate = () => {
   const { user } = useContext(AuthContext);
   const [myDonate, setMyDonate] = useState([]);
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/my-donate/${user?.email}`)
+    fetch(`${process.env.REACT_APP_API_KEY}/my-donate/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -10,7 +10,7 @@ const GetEmgyService = () => {
   const [chequeBook, setChequeBook] = useState([]);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/getEmgyServiceReq/${user?.email}`
+      `${process.env.REACT_APP_API_KEY}/getEmgyServiceReq/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
