@@ -15,6 +15,7 @@ const IndividualSupport = () => {
   const [messages, setMessages] = useState([]);
   const [allMessages, setAllMessages] = useState([]);
   const [allLoad, setAllLoad] = useState(false);
+  const [reFetch, setReFetch] = useState(false)
   const { state } = useLocation();
   // useEffect(() => {
   //   socket.on("messageTransfer", (message) => {
@@ -35,7 +36,7 @@ const IndividualSupport = () => {
         setAllLoad(true);
         setAllMessages(data);
       });
-  }, [user, messages]);
+  }, [user, reFetch]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -58,8 +59,31 @@ const IndividualSupport = () => {
         chatInfo.receiverImg = state.senderImg;
         chatInfo.receiverName = state.senderName;
         // socket.emit("send message", chatInfo);
+
+        fetch('https://capital-trust-bank-server-ten.vercel.app/post-message', {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(chatInfo)
+        })
+          .then(res => res.json())
+          .then(data => { 
+            setReFetch(!reFetch)
+          })
       } else {
         // socket.emit("send message", chatInfo);
+        fetch('https://capital-trust-bank-server-ten.vercel.app/post-message', {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(chatInfo)
+        })
+          .then(res => res.json())
+          .then(data => { 
+            setReFetch(!reFetch)
+          })
       }
       event.target.reset();
     }
