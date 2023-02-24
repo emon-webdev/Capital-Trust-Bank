@@ -7,7 +7,7 @@ const MyDonate = () => {
   const { user } = useContext(AuthContext);
   const [myDonate, setMyDonate] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/my-donate/${user?.email}`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/my-donate/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -21,7 +21,6 @@ const MyDonate = () => {
   const totalBills = totalAmount.reduce((total, preDonate) => {
     return parseInt(total) + parseInt(preDonate.amount);
   }, 0);
-  console.log(totalBills);
 
   return (
     <div className="donate-content md:ml-4">
