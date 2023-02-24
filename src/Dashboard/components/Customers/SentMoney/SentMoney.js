@@ -9,7 +9,6 @@ const SentMoney = () => {
     fetch(`https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setApprove(data);
       });
   }, [user]);
@@ -33,9 +32,9 @@ const SentMoney = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.isSuccessful) {
             toast.success(`Money transition successful`);
+            event.target.reset();
           } else {
             toast.error(`Id not find`);
           }
@@ -46,12 +45,13 @@ const SentMoney = () => {
   };
 
   return (
-    <div>
-      <h1>Available Money:${approve.availableAmount}</h1>
+    <div  
+    className="container bg-white my-10 mx-auto shadow-lg rounded p-5 text-center w-10/12 lg:w-1/2">
+      <h1 className='text-[26px] p-2 font-semibold'>Available Money:${approve?.availableAmount}</h1>
 
       <form onSubmit={(event) => handleSent(event)}>
-        <input name="amount" placeholder="Amount"></input>
-        <input name="id" placeholder="id"></input>
+        <input  className="border w-full p-3 rounded focus-visible:outline-none text-black" name="amount" placeholder="Amount"></input>
+        <input  className="border w-full p-3 rounded focus-visible:outline-none text-black" name="id" placeholder="id"></input>
         <button
           type="submit"
           className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]"
