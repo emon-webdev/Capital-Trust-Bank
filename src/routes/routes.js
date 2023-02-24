@@ -45,6 +45,8 @@ import SentMoney from "../Dashboard/components/Customers/SentMoney/SentMoney";
 import TotalLoan from "../Dashboard/components/Customers/TotalLoan/TotalLoan";
 import EmgyServiceReq from "../Dashboard/components/Donate/EmgyServiceReq";
 import GetEmgyService from "../Dashboard/components/Donate/GetEmgyService";
+import MyBills from "../Dashboard/components/Donate/MyBills";
+import MyDonate from "../Dashboard/components/Donate/MyDonate";
 import InsuranceRequest from "../Dashboard/components/InsuranceRequest/InsuranceRequest";
 import Insurance from "../Pages/Services/Insurance";
 import InsuranceDetails from "../Pages/Services/InsuranceDetails";
@@ -340,6 +342,14 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/getEmgyService",
         element: <GetEmgyService />,
+      },
+      {
+        path: "/dashboard/my-Bills",
+        element: <MyBills />,
+      },
+      {
+        path: "/dashboard/my-donate",
+        element: <MyDonate />,
       },
     ],
   },

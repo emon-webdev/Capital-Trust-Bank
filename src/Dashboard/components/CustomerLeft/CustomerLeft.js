@@ -100,6 +100,33 @@ const CustomerLeft = () => {
               </span>
               <span className="text-white ml-[10px]">Withdraw</span>
             </NavLink>
+
+            <NavLink
+              to="/dashboard/my-bills"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-l-2 bg-[#DF0303] link flex dath items-center px-[20px] py-[15px]"
+                  : "flex px-[20px] dath link py-[15px]"
+              }
+            >
+              <span>
+                <GiReceiveMoney />
+              </span>
+              <span className="text-white ml-[10px]">My Bills</span>
+            </NavLink>
+            <NavLink
+              to="/dashboard/my-donate"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-l-2 bg-[#DF0303] link flex dath items-center px-[20px] py-[15px]"
+                  : "flex px-[20px] dath link py-[15px]"
+              }
+            >
+              <span>
+                <GiReceiveMoney />
+              </span>
+              <span className="text-white ml-[10px]">My Donate</span>
+            </NavLink>
             <NavLink
               to="/dashboard/getEmgyService"
               className={({ isActive }) =>
@@ -112,34 +139,6 @@ const CustomerLeft = () => {
                 <GiReceiveMoney />
               </span>
               <span className="text-white ml-[10px]">Get Emgy Service</span>
-            </NavLink>
-
-            <NavLink
-              to="/dashboard/deviceActivity"
-              className={({ isActive }) =>
-                isActive
-                  ? "border-l-2 bg-[#DF0303] link flex dath items-center px-[20px] py-[15px]"
-                  : "flex px-[20px] dath link py-[15px]"
-              }
-            >
-              <span>
-                <MdOutlineImportantDevices />
-              </span>
-              <span className="text-white ml-[10px]">Device Activity</span>
-            </NavLink>
-
-            <NavLink
-              to="/dashboard/CustomerSupport"
-              className={({ isActive }) =>
-                isActive
-                  ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
-                  : "flex px-[20px] items-center link py-[15px]"
-              }
-            >
-              <span className="text-white">
-                <RiMessage2Fill />
-              </span>
-              <span className="text-white ml-[10px]">Customer Support</span>
             </NavLink>
 
             <NavLink
@@ -182,6 +181,33 @@ const CustomerLeft = () => {
                 <AiOutlineIdcard />
               </span>
               <span className="text-white ml-[10px]">Loan Details</span>
+            </NavLink>
+            <NavLink
+              to="/dashboard/deviceActivity"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-l-2 bg-[#DF0303] link flex dath items-center px-[20px] py-[15px]"
+                  : "flex px-[20px] dath link py-[15px]"
+              }
+            >
+              <span>
+                <MdOutlineImportantDevices />
+              </span>
+              <span className="text-white ml-[10px]">Device Activity</span>
+            </NavLink>
+
+            <NavLink
+              to="/dashboard/CustomerSupport"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-l-2 bg-[#DF0303] link flex items-center px-[20px] py-[15px]"
+                  : "flex px-[20px] items-center link py-[15px]"
+              }
+            >
+              <span className="text-white">
+                <RiMessage2Fill />
+              </span>
+              <span className="text-white ml-[10px]">Customer Support</span>
             </NavLink>
           </div>
         )}
