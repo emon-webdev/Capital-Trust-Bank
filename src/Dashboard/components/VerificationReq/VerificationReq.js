@@ -9,22 +9,24 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useGetVerificationReqQuery } from "../../../features/api/apiSlice";
 import useTitle from "../../../hooks/useTitle/useTitle";
 
 const VerificationReq = () => {
   useTitle("VerificationReq")
-  const [customers, setCustomers] = useState([]);
-  useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/bankAccounts`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCustomers(data);
-      });
-  }, []);
+  // const [customers, setCustomers] = useState([]);
+  // useEffect(() => {
+  //   fetch(`https://capital-trust-bank-server-ten.vercel.app/bankAccounts`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setCustomers(data);
+  //     });
+  // }, []);
+  const {data: customers } = useGetVerificationReqQuery() 
   return (
     <div className="my-2">
       <h2 className="text-center heading">
-        Total Verification Request:{customers.length}
+        Total Verification Request:{customers?.length}
       </h2>
       <div className="w-full">
         <TableContainer

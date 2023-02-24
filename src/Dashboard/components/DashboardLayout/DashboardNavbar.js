@@ -31,7 +31,7 @@ const DashboardNavbar = () => {
   const [bankInfo, setBankInfo] = useState([]);
   useEffect(() => {
     fetch(
-      `https://capital-trust-bank-server-ten.vercel.app/bankAccounts?email=${user?.email}`
+      `https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {

@@ -19,6 +19,9 @@ export const loanApi = createApi({
     getTeams: builder.query({
       query: () => "/team",
     }),
+    getVerificationReq: builder.query({
+      query: () => "/bankAccounts",
+    }),
   }),
 });
 
@@ -26,5 +29,6 @@ export const {
   useGetLoansQuery,
   useGetNewsQuery,
   useGetInsuranceApplicantsQuery,
-  useGetTeamsQuery
+  useGetTeamsQuery,
+  useGetVerificationReqQuery,
 } = loanApi;
