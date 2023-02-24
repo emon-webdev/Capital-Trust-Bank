@@ -1,5 +1,5 @@
 import { Tbody } from "@chakra-ui/react";
-import { Table, TableContainer, Th, Thead, Tr } from "@chakra-ui/table";
+import { Table, TableContainer, Td, Th, Thead, Tr } from "@chakra-ui/table";
 import { default as React, useContext, useEffect, useState } from "react";
 import { FaDonate } from "react-icons/fa";
 import { AuthContext } from "../../../context/AuthProvider";
@@ -10,11 +10,18 @@ const MyBills = () => {
     fetch(`http://localhost:5000/my-bills/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setMyBills(data);
       });
   }, [user?.email]);
 
   console.log(myBills);
+  const totalAmount = myBills.filter((data) => data.amount);
+
+  const totalBills = totalAmount.reduce((total, preDonate) => {
+    return parseInt(total) + parseInt(preDonate.amount);
+  }, 0);
+  console.log(totalBills);
 
   return (
     <div className="donate-content md:ml-4">
@@ -31,8 +38,8 @@ const MyBills = () => {
           <FaDonate className="text-6xl text-[#9c0f55]" />
         </div>
         <div className="">
-          <div className="text-[#808080] text-2xl mb-3">Total Donets</div>
-          <h2 className="text-3xl font-bold ">$ totalDonate</h2>
+          <div className="text-[#808080] text-2xl mb-3">Total Bills</div>
+          <h2 className="text-3xl font-bold ">$ {totalBills}</h2>
         </div>
       </div>
       <div className="donate-list">
@@ -95,7 +102,7 @@ const MyBills = () => {
                 </Tr>
               </Thead>
               <Tbody>
-                {/* {myBills?.map((bill, index) => (
+                {myBills?.map((bill, index) => (
                   <Tr key={bill?._id}>
                     <Td>{index + 1}</Td>
                     <Td>{bill?.name}</Td>
@@ -104,7 +111,7 @@ const MyBills = () => {
                     <Td>{bill?.transactionId}</Td>
                     <Td>$ {bill?.amount}</Td>
                   </Tr>
-                ))} */}
+                ))}
               </Tbody>
             </Table>
           </TableContainer>
