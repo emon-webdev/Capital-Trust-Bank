@@ -9,10 +9,6 @@ import { useGetTeamsQuery } from "../../features/api/apiSlice";
 import TeamSection from "./TeamSection";
 
 const Team = () => {
-  // const { data: teams = [] } = useQuery({
-  //   queryKey: ["teams"],
-  //   queryFn: async () => getTeams(),
-  // });
   const {data: teams } = useGetTeamsQuery() 
     
   const sliderSettings = {

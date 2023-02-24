@@ -59,10 +59,10 @@ const ExchangeDetails = () => {
   const [state, setState] = useState({});
   useEffect(() => {
     fetch(
-      `https://v6.exchangerate-api.com/v6/0957ac42195a9ede56d0194a/pair/${fromCurrency}/${toCurrency}`
+      `https://v6.exchangerate-api.com/v6/d926f6050098d7419c0d1c6f/pair/${fromCurrency}/${toCurrency}`
     )
       .then((res) => res.json())
-      .then((data) => {
+      .then((data) => {        
         setExchangeRate(data);
       })
       .catch((error) => {
@@ -72,7 +72,6 @@ const ExchangeDetails = () => {
   let convert = exchangeRate.conversion_rate * amount;
   let totalBuying = convert.toFixed(2);
   // let totalSelling = convert.toFixed(2)
-
   const handleExchangeSubmit = (event) => {
     event.preventDefault();
     const exchangeInfo = { amount, totalBuying, fromCurrency };
@@ -103,8 +102,9 @@ const ExchangeDetails = () => {
 
   return (
     <div>
+      <div className="text-center"><h1 className="text-[#010C3A] md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">Exchange Rate</h1></div>
       <div
-        className="exchange-bg py-10 my-[50px]"
+        className="exchange-bg py-14 my-[50px]"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner})`,
           backgroundSize: "cover",
@@ -115,9 +115,9 @@ const ExchangeDetails = () => {
         <div className="container text-white w-full exchange-wrapper flex items-center justify-between">
           <div className="w-[60%] left-side">
             <div className="section-title md:mr-5">
-              <h5 className="text-[#DF0303] text-xl text-md mb-3">
+              {/* <h5 className="text-[#DF0303] text-xl text-md mb-3">
                 -- {t("Exchange")} --
-              </h5>
+              </h5> */}
               <h1 className="text-white md:leading-[48px] text-4xl md:text-[40px] font-bold mb-6">
                 {t("Exchange_sb_tlt")}
               </h1>
