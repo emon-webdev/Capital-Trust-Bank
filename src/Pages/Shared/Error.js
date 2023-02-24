@@ -18,7 +18,7 @@ const Error = () => {
             <Link
               rel="noopener noreferrer"
               to="/"
-              className="px-8 py-3 font-semibold rounded secondary-btn text-white"
+              className="px-8 py-3 mt-5 font-semibold rounded secondary-btn text-white"
             >
               Back to homepage
             </Link>

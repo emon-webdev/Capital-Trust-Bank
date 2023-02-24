@@ -6,14 +6,13 @@ import FactToKnow from "../Shared/FactToKnow/FactToKnow";
 import "./About.css";
 
 const About = () => {
-  useTitle("About")
+  useTitle("About");
   const [name, setName] = useState("About Us");
   return (
     <div>
-
       <DynamicBanner name={name}></DynamicBanner>
       <div className="my-12 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-        <div>
+        <div className="md:mr-5">
           <img src={aboutGroupImg} alt="" srcSet="" />
         </div>
         <div>
@@ -67,7 +66,9 @@ const About = () => {
             Porttitor ornare fermentum aliquam pharetra ut facilisis gravida
             risus suscipit. dui feugiat fusce conubia ridiculus
           </p>
-          <button className="custom-btn-for-about-us">Get In Touch</button>
+          <button className="custom-btn-for-about-us mt-4 text-white">
+            Get In Touch
+          </button>
         </div>
       </div>
       <FactToKnow />

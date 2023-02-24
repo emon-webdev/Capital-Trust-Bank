@@ -26,7 +26,7 @@ const MyDonate = () => {
     <div className="donate-content md:ml-4">
       <div className="dashboard-title mb-5 md:flex items-center">
         <h2 className="text-[#010C3A] text-2xl md:mr-5 mb-4 md:mb-0 md:text-4xl font-bold ">
-          My Bill History
+          My Donate History
         </h2>
       </div>
       <div

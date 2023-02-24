@@ -65,7 +65,7 @@ const Loans = (props) => {
         if (data.acknowledged) {
           toast.success("Application Successlly Done");
           form.reset();
-          navigate("/");
+          navigate("/dashboard/loanDetails");
         } else {
           toast.error(data.message);
         }

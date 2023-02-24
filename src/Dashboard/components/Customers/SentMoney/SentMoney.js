@@ -5,13 +5,14 @@ import { AuthContext } from "../../../../context/AuthProvider";
 const SentMoney = () => {
   const { user } = useContext(AuthContext);
   const [approve, setApprove] = useState([]);
+  const [refetch, setRefetch] = useState(false);
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_KEY}/approved/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setApprove(data);
       });
-  }, [user]);
+  }, [user, refetch]);
 
   const handleSent = (event) => {
     event.preventDefault();
@@ -35,6 +36,7 @@ const SentMoney = () => {
           if (data.isSuccessful) {
             toast.success(`Money transition successful`);
             event.target.reset();
+            setRefetch(!refetch);
           } else {
             toast.error(`Id not find`);
           }
@@ -45,13 +47,22 @@ const SentMoney = () => {
   };
 
   return (
-    <div  
-    className="container bg-white my-10 mx-auto shadow-lg rounded p-5 text-center w-10/12 lg:w-1/2">
-      <h1 className='text-[26px] p-2 font-semibold'>Available Money:${approve?.availableAmount}</h1>
+    <div className="container bg-white my-10 mx-auto shadow-lg rounded p-5 text-center w-10/12 lg:w-1/2">
+      <h1 className="text-[26px] p-2 font-semibold">
+        Available Money:${approve?.availableAmount}
+      </h1>
 
       <form onSubmit={(event) => handleSent(event)}>
-        <input  className="border w-full p-3 rounded focus-visible:outline-none text-black" name="amount" placeholder="Amount"></input>
-        <input  className="border w-full p-3 rounded focus-visible:outline-none text-black" name="id" placeholder="id"></input>
+        <input
+          className="border w-full p-3 rounded focus-visible:outline-none text-black"
+          name="amount"
+          placeholder="Amount"
+        ></input>
+        <input
+          className="border w-full p-3 rounded focus-visible:outline-none text-black"
+          name="id"
+          placeholder="id"
+        ></input>
         <button
           type="submit"
           className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]"
