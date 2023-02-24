@@ -6,7 +6,7 @@ const SentMoney = () => {
   const { user } = useContext(AuthContext);
   const [approve, setApprove] = useState([]);
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.appapproved/${user?.email}`)
+    fetch(`https://capital-trust-bank-server-ten.vercel.app/approved/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -24,7 +24,7 @@ const SentMoney = () => {
       amount: amount,
     };
     if (amount <= parseFloat(approve.availableAmount)) {
-      fetch(`https://capital-trust-bank-server-ten.vercel.appsentMoney`, {
+      fetch(`https://capital-trust-bank-server-ten.vercel.app/sentMoney`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -45,15 +45,13 @@ const SentMoney = () => {
     }
   };
 
-  console.log(approve);
   return (
-    <div  style={{ width: "600px" }}
-    className="container bg-white my-10 mx-auto shadow-lg rounded p-5 text-center">
-      <h1 className='text-[26px] p-2 font-semibold'>Available Money:${approve.availableAmount}</h1>
+    <div>
+      <h1>Available Money:${approve.availableAmount}</h1>
 
       <form onSubmit={(event) => handleSent(event)}>
-        <input  className="border w-full p-3 rounded focus-visible:outline-none text-black" name="amount" placeholder="Amount"></input>
-        <input  className="border w-full p-3 rounded focus-visible:outline-none text-black" name="id" placeholder="id"></input>
+        <input name="amount" placeholder="Amount"></input>
+        <input name="id" placeholder="id"></input>
         <button
           type="submit"
           className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]"

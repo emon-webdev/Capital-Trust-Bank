@@ -14,10 +14,10 @@ const GetEmgyService = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setChequeBook(data);
       });
   }, [user?.email]);
+  console.log(chequeBook)
   const handleDownload = (event) => {
     event.preventDefault();
     const card = document.getElementById("cheque-book");

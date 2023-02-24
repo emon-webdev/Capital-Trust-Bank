@@ -1,11 +1,11 @@
 import {
-    Modal,
-    ModalBody,
-    ModalCloseButton,
-    ModalContent,
-    ModalHeader,
-    ModalOverlay,
-    Select
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
+  Select
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -35,6 +35,7 @@ const PaymentBillsModal = ({
 
   const handleApply = (data) => {
     const name = user?.displayName;
+    const email = user?.email;
     const phnNumber = data.phnNumber;
     const billSNumber = data.billSNumber;
     const billType = data.billType;
@@ -42,12 +43,13 @@ const PaymentBillsModal = ({
 
     const paymentInfo = {
       name,
+      email,
       phnNumber,
       billSNumber,
       billType,
       amount,
     };
-
+    console.log(paymentInfo);
     fetch("https://capital-trust-bank-server-ten.vercel.app/pay-bills", {
       method: "POST",
       headers: {
@@ -193,7 +195,7 @@ const PaymentBillsModal = ({
                     type="submit"
                     onClick={onClose}
                   >
-                    Confirm
+                    Bill Pay
                   </button>
                 </div>
               </form>

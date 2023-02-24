@@ -22,13 +22,14 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
   const [disable, setDisable] = useState(false);
   const OverlayOne = () => <ModalOverlay bg="blackAlpha.700" />;
   useEffect(() => {
-    fetch(`https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`)
+    fetch(
+      `https://capital-trust-bank-server-ten.vercel.app/bankAccounts/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setApplierEmail(data);
       });
   }, []);
-
   // apply for credit card
   const handleApply = (data) => {
     const applierName = user?.displayName;
@@ -54,8 +55,8 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
           toast.success("Apply Success for card");
           reset();
         }
-      })
-      .then((error) => toast.error(error));
+      });
+    // .then((error) => toast.error(error));
   };
 
   return (
@@ -118,7 +119,7 @@ const CreditCardModal = ({ onClose, isOpen, overlay }) => {
                     {...register("accountId", {
                       required: "Account Id is Required",
                     })}
-                    defaultValue={applierEmail}
+                    defaultValue={applierEmail?.accountId}
                   ></input>
                 </div>
                 {errors.accountId && (
