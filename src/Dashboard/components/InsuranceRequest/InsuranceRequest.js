@@ -1,9 +1,51 @@
-import { Button } from "@chakra-ui/react";
-import React from "react";
-import { useGetInsuranceApplicantsQuery } from "../../../features/api/apiSlice";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 const InsuranceRequest = () => {
-  const { data: customers } = useGetInsuranceApplicantsQuery();
+  const [reFetch, setReFetch] = useState(false);
+  const [customers, setCustomers] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/insuranceApplicants`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCustomers(data);
+      });
+  }, [reFetch]);
+
+  const handleAccept = (data) => {
+    fetch(`http://localhost:5000/acceptInsuranceReq`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Insurance request accept");
+        setReFetch(!reFetch);
+      });
+  };
+
+  const handleDelete = (data) => {
+    const info = {
+      id: data._id,
+    };
+    fetch(`http://localhost:5000/deleteInsuranceReq`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(info),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.error("Insurance Request cancel");
+        setReFetch(!reFetch);
+      });
+  };
+
   return (
     <div className="my-2 mb-6">
       <h2 className="text-[#010C3A] text-3xl md:text-4xl font-bold mb-6">
@@ -33,31 +75,18 @@ const InsuranceRequest = () => {
                   <strong>insurance Type:</strong> {customer?.insurance}
                 </p>
                 <div className="flex mt-3 mb-2">
-                  <Button
-                    borderRadius="4px"
-                    color="#fff"
-                    background="#010c3a"
-                    _hover={{ bg: "#df0303" }}
-                    size="sm"
-                    marginRight="5px"
+                  <button
+                    className="text-lg fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a] m-1"
+                    onClick={() => handleAccept(customer)}
                   >
                     Accept
-                  </Button>
-                  <Button
-                    borderRadius="4px"
-                    color="#fff"
-                    background="#df0303"
-                    _hover={{ bg: "#010c3a" }}
-                    size="sm"
-                    marginRight="5px"
+                  </button>
+                  <button
+                    className="text-md sm-btn primary-btn exchange-btn bg-[#df0303]"
+                    onClick={() => handleDelete(customer)}
                   >
                     Cancel
-                  </Button>
-
-                  {/* <button className="text-lg mr-2 fw-bold rounded sm-btn primary-btn exchange-btn accept bg-[#010c3a]"></button>
-                  <button className="text-md sm-btn primary-btn exchange-btn bg-[#df0303]">
-                    Cancel
-                  </button> */}
+                  </button>
                 </div>
               </div>
             </>
