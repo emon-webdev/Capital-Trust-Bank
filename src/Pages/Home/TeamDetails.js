@@ -7,9 +7,17 @@ import useTitle from "../../hooks/useTitle/useTitle";
 import DynamicBanner from "../Shared/DynamicBanner/DynamicBanner";
 
 const TeamDetails = () => {
-  useTitle("TeamDetails")
+  useTitle("TeamDetails");
   const teamDetails = useLoaderData();
-  const { name: name2, email, social, image, designation, details } = teamDetails;
+  const {
+    name: name2,
+    email,
+    social,
+    image,
+    designation,
+    details,
+    contributions,
+  } = teamDetails;
   const [name, setName] = useState("Team Details");
 
   return (
@@ -58,13 +66,18 @@ const TeamDetails = () => {
             </div>
             <hr />
 
-            <div className="py-[35px]">
+            <div className="py-[15px]">
+              <h4>
+                <strong>Project Contributions</strong>
+              </h4>
+              <p>{contributions}</p>
+            </div>
+
+            <div className="pb-[35px] pt-3">
               <h4>
                 <strong>Biography</strong>
               </h4>
-              <p>
-               {details}
-              </p>
+              <p>{details}</p>
             </div>
             <hr />
 

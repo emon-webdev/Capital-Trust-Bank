@@ -8,8 +8,8 @@ const DynamicBanner = ({ name }) => {
     <div>
       <div className="about-parent h-60">
         <div className="container about-sub-parent  p-28">
-          <h2 className="text-white text-2xl">{name}</h2>
-          <div className="text-white flex gap-1 text-[12px]">
+          <h2 className="text-white text-3xl mb-1">{name}</h2>
+          <div className="text-white flex gap-1 text-[14px]">
             <span>Home</span>
             <span>{">"}</span>
             <span>{name}</span>

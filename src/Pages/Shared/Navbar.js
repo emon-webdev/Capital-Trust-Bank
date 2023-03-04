@@ -172,33 +172,6 @@ const Navbar = () => {
               {/* Submenu */}
               <ul className="submenu">
                 <li>
-                  <NavLink to="/accountOpenFrom" className="">
-                    {t("Open_an_Account")}
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/faq" className="">
-                    {t("Faq")}
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/404" className="">
-                    {t("404")}
-                  </NavLink>
-                </li>
-              </ul>
-            </li>
-            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
-              <NavLink
-                to="/about"
-                className="w-full block py-3"
-                style={({ isActive }) => (isActive ? activeClass : undefined)}
-              >
-                {t("about")}
-              </NavLink>
-              {/* dropdown menu */}
-              <ul className="submenu">
-                <li>
                   <NavLink to="/about" className="">
                     {t("about")}
                   </NavLink>
@@ -213,7 +186,32 @@ const Navbar = () => {
                     {t("Sign_Up")}
                   </NavLink>
                 </li>
+
+                <li>
+                  <NavLink to="/faq" className="">
+                    {t("Faq")}
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/404" className="">
+                    {t("404")}
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/accountOpenFrom" className="">
+                    {t("Open_an_Account")}
+                  </NavLink>
+                </li>
               </ul>
+            </li>
+            <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
+              <NavLink
+                to="/team"
+                className="w-full block py-3"
+                style={({ isActive }) => (isActive ? activeClass : undefined)}
+              >
+                Our Team
+              </NavLink>
             </li>
             <li className="text-[16px] w-full md:w-auto font-medium  md:mr-4 hover:text-[#DF0303] border-b border-[#DF0303] md:border-0">
               <NavLink

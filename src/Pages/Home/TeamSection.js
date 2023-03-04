@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 
 const TeamSection = ({ team }) => {
-  const { image, name, designation, social, _id } = team;
-
+  const { image, name, role, designation, social, _id } = team;
+  console.log(team);
   return (
     <Link
       to={`/team-details/${_id}`}
-      className="flex flex-col items-center team p-8 transition-colors duration-300 transform rounded-md bg-[#fdf3f3] group hover:bg-[#df0303]"
+      className="w-full flex flex-col items-center team p-8 transition-colors duration-300 transform rounded-md bg-[#fdf3f3] group hover:bg-[#df0303]"
     >
       <div className="image-wrapper">
         <img
@@ -24,8 +24,11 @@ const TeamSection = ({ team }) => {
           {name}
         </h1>
 
-        <p className=" mb-3 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+        <p className=" mb-1 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
           {designation}
+        </p>
+        <p className=" mb-3 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+          Role: {role}
         </p>
       </div>
 

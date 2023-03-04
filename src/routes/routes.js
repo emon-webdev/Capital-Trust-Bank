@@ -48,6 +48,7 @@ import GetEmgyService from "../Dashboard/components/Donate/GetEmgyService";
 import MyBills from "../Dashboard/components/Donate/MyBills";
 import MyDonate from "../Dashboard/components/Donate/MyDonate";
 import InsuranceRequest from "../Dashboard/components/InsuranceRequest/InsuranceRequest";
+import TeamMembers from "../Pages/Home/TeamMembers";
 import Insurance from "../Pages/Services/Insurance";
 import InsuranceDetails from "../Pages/Services/InsuranceDetails";
 import Error from "../Pages/Shared/Error";
@@ -87,18 +88,13 @@ const router = createBrowserRouter([
       {
         path: "/insurances",
         element: <Insurance />,
-        loader: () =>
-          fetch(
-            `${process.env.REACT_APP_API_KEY}/insuranceData`
-          ),
+        loader: () => fetch(`${process.env.REACT_APP_API_KEY}/insuranceData`),
       },
       {
         path: "/insuranceDetails/:id",
         element: <InsuranceDetails />,
         loader: ({ params }) =>
-          fetch(
-            `${process.env.REACT_APP_API_KEY}/insur/${params.id}`
-          ),
+          fetch(`${process.env.REACT_APP_API_KEY}/insur/${params.id}`),
       },
 
       // {
@@ -108,33 +104,26 @@ const router = createBrowserRouter([
       {
         path: "/loansServices",
         element: <Loans />,
-        loader: () =>
-          fetch(`${process.env.REACT_APP_API_KEY}/loanService`),
+        loader: () => fetch(`${process.env.REACT_APP_API_KEY}/loanService`),
       },
       {
         path: "/loanDetails/:id",
         element: <LoanDetails />,
         loader: ({ params }) =>
-          fetch(
-            `${process.env.REACT_APP_API_KEY}/loanSec/${params.id}`
-          ),
+          fetch(`${process.env.REACT_APP_API_KEY}/loanSec/${params.id}`),
       },
       {
         path: "/blogsNews/:id",
         element: <DetailsNews></DetailsNews>,
         loader: ({ params }) =>
-          fetch(
-            `${process.env.REACT_APP_API_KEY}/blogsNews/${params.id}`
-          ),
+          fetch(`${process.env.REACT_APP_API_KEY}/blogsNews/${params.id}`),
       },
 
       {
         path: "/loans/:title",
         element: <ApplyForm />,
         loader: ({ params }) =>
-          fetch(
-            `${process.env.REACT_APP_API_KEY}/loans/${params.title}`
-          ),
+          fetch(`${process.env.REACT_APP_API_KEY}/loans/${params.title}`),
       },
 
       {
@@ -196,12 +185,14 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
+        path: "/team",
+        element: <TeamMembers />,
+      },
+      {
         path: "/team-details/:id",
         element: <TeamDetails />,
         loader: async ({ params }) =>
-          fetch(
-            `${process.env.REACT_APP_API_KEY}/team-details/${params.id}`
-          ),
+          fetch(`${process.env.REACT_APP_API_KEY}/team-details/${params.id}`),
       },
       // {
       //   path: "/exchange",
