@@ -11,7 +11,9 @@
 .header-left p {
   margin-bottom: 0;
 }
-
+a.w-full.flex.flex-col.items-center.team.p-8.transition-colors.duration-300.transform.rounded-md.bg-\[\#fdf3f3\].group.hover\:bg-\[\#df0303\] {
+  box-shadow: 0 4px 4px rgb(87 100 126 / 21%);
+}
 /* Navbar css for responsive */
 .mobile-menu {
   z-index: 999;

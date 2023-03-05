@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
 import { VscStarFull, VscStarHalf } from "react-icons/vsc";
 import { useLoaderData } from "react-router-dom";
@@ -11,6 +11,8 @@ const TeamDetails = () => {
   const teamDetails = useLoaderData();
   const {
     name: name2,
+    role,
+    number,
     email,
     social,
     image,
@@ -18,11 +20,10 @@ const TeamDetails = () => {
     details,
     contributions,
   } = teamDetails;
-  const [name, setName] = useState("Team Details");
 
   return (
     <div>
-      <DynamicBanner name={name} />
+      <DynamicBanner name={name2} />
       <div className="container">
         <div className="flex items-center details py-16">
           <div className="md:basis-2/5 w-full image-box">
@@ -34,6 +35,7 @@ const TeamDetails = () => {
               <div>
                 <h1 className="text-[40px] leading-[48px]">{name2}</h1>
                 <p className="text-[#010c3a]">{designation}</p>
+                <p className="text-[#010c3a text-[14px] mb-1">Role: {role}</p>
               </div>
               <div className="my-4">
                 {social.map((icon) => (
@@ -68,7 +70,7 @@ const TeamDetails = () => {
 
             <div className="py-[15px]">
               <h4>
-                <strong>Project Contributions</strong>
+                <strong>Project Contributions </strong>
               </h4>
               <p>{contributions}</p>
             </div>
@@ -95,6 +97,9 @@ const TeamDetails = () => {
                     <VscStarFull />
                   </spn>
                   <spn>
+                    <VscStarFull />
+                  </spn>
+                  <spn>
                     <VscStarHalf />
                   </spn>
                 </div>
@@ -107,7 +112,7 @@ const TeamDetails = () => {
 
               <div>
                 <h4>Phone Number:</h4>
-                <span>123456789</span>
+                <span>{number}</span>
               </div>
             </div>
           </div>

@@ -1,8 +1,5 @@
 {
   "projects": {
-    "default": "capital-trust-bank-ee791",
-    "capital-trust-bank": "capital-trust-bank-ee791"
-  },
-  "targets": {},
-  "etags": {}
+    "default": "capital-trust-bank-ee791"
+  }
 }
