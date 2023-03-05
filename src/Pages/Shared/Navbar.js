@@ -172,6 +172,11 @@ const Navbar = () => {
               {/* Submenu */}
               <ul className="submenu">
                 <li>
+                  <NavLink to="/project-docs" className="">
+                    Project Docs
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink to="/about" className="">
                     {t("about")}
                   </NavLink>

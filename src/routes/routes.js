@@ -49,6 +49,7 @@ import MyBills from "../Dashboard/components/Donate/MyBills";
 import MyDonate from "../Dashboard/components/Donate/MyDonate";
 import InsuranceRequest from "../Dashboard/components/InsuranceRequest/InsuranceRequest";
 import TeamMembers from "../Pages/Home/TeamMembers";
+import ProjectDocs from "../Pages/ProjectDocs/ProjectDocs";
 import Insurance from "../Pages/Services/Insurance";
 import InsuranceDetails from "../Pages/Services/InsuranceDetails";
 import Error from "../Pages/Shared/Error";
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: "/apply",
         element: <Apply />,
+      },
+      {
+        path: "/project-docs",
+        element: <ProjectDocs />,
       },
 
       {
