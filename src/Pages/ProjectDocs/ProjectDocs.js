@@ -70,9 +70,9 @@ const ProjectDocs = () => {
                   </a>
                 </div>
                 <div>
-                  <h2 className="font-semibold my-3">
+                  <h2 className="font-semibold text-[24px] my-3">
                     Technology:{" "}
-                    <span className="font-medium ">
+                    <span className="font-medium text-[18px] ">
                       We used following technologies in our project-
                     </span>
                   </h2>
